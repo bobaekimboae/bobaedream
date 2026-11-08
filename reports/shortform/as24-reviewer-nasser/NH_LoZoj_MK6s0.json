@@ -1,0 +1,1084 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/LoZoj_MK6s0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7173,
+  "candidatesTokenCount": 9324,
+  "totalTokenCount": 16644,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6010
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 147,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 67.0,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz C-Class (W206)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "part": "계기판",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.4,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 14.1,
+    "part": "센터 화면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.7,
+    "part": "센터 화면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.8,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.2,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 30.1,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 33.7,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 39.1,
+    "part": "휠",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.1,
+    "end": 42.9,
+    "part": "외관 후면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.9,
+    "end": 44.5,
+    "part": "센터 화면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 50.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.4,
+    "end": 57.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 100.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.8,
+    "end": 107.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "ناصر",
+    "ko": "나세르",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D39B26",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -8.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ناصر",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "ممكن تطلبه",
+    "ko": "주문할 수 있는",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.6,
+    "text": "تتفق / تختلف",
+    "ko": "동의하든 / 다르든",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 8.0,
+    "color": "#4ADE80",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "دي انحج\nSEDAN LUXURY",
+    "ko": "가장 성공적인 럭셔리 세단",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "SEDAN LUXURY",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.4,
+    "text": "مرسيدس الجديد",
+    "ko": "신형 메르세데스",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "AMBIENT LIGHT",
+    "ko": "앰비언트 라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.8,
+    "text": "الفرش بقي\nDESIGNO",
+    "ko": "시트는 디지뇨",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#D39B26",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DESIGNO",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.5,
+    "text": "Burmester",
+    "ko": "부메스터",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.7,
+    "text": "MOOD فالصيف",
+    "ko": "여름 무드",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FACC15",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.0,
+    "text": "MULTI-SPOKE",
+    "ko": "멀티스포크",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.5,
+    "text": "CAMERA 360",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 101.5,
+    "end": 105.0,
+    "text": "محور يوسف السباعي\nكلوف مول",
+    "ko": "유세프 알세바이 축, 클로브 몰",
+    "kind": "키워드 스티커",
+    "y_pct": 16.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "톡",
+    "event": "이름 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "메르세데스 C클래스 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.5,
+    "type": "띵",
+    "event": "체크/엑스 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "쿵",
+    "event": "이집트 국기 및 세단 럭셔리 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "톡",
+    "event": "내비게이션 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "휙",
+    "event": "앰비언트 라이트 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "통풍/열선 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "띵",
+    "event": "부메스터 스피커 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "톡",
+    "event": "선루프 여름 무드 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.0,
+    "type": "휙",
+    "event": "멀티스포크 휠 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 버튼 클릭 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "톡",
+    "event": "카메라 360 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.0,
+    "type": "쿵",
+    "event": "에이전트 스펙 부재 안내 보드 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 51.0,
+    "type": "휙",
+    "event": "수입차 스펙 전환 화면",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 101.5,
+    "type": "띵",
+    "event": "위치 핀 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 빠른 템포",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.8,
+    "end": 3.0,
+    "what": "메르세데스 벤츠 로고 및 C-CLASS 3D 엠블럼",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "차종 안내",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "what": "이집트 국기 배지",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 30.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "국내 1위 강조",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "what": "애플 카플레이 및 안드로이드 오토 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 45.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스마트폰 미러링 지원 표시",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.7,
+    "what": "내비게이션 핀 지도 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "이집트 맵 내비게이션 활성화 안내",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "what": "앰비언트 라이트 색상 팔레트 슬라이더 바",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 55.0,
+    "y_pct": 78.0,
+    "entrance": "밀려옴",
+    "purpose": "송풍구 조명 시각화",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "what": "쿨링(눈송이) & 히팅(불꽃) 3D 이펙트 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍/열선 시트 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.2,
+    "what": "빨간색 스피커 사운드 웨이브 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 68.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "부메스터 프리미엄 오디오 강조",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.5,
+    "what": "360도 어라운드뷰 카메라 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 52.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "360 서라운드 뷰 기능 소개",
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 50.4,
+    "what": "빨간색 틴트 및 에이전트 미탑재 옵션 목록 간판",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "밀려옴",
+    "purpose": "정식 수입(에이전트) 빠진 옵션 비교",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 53.0,
+    "what": "초록색 틴트 및 병행 수입 풀옵션 안내",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "병행 수입 장점 비교",
+    "sure": true
+   },
+   {
+    "start": 101.0,
+    "end": 106.0,
+    "what": "매장 위치 안내 빨간색 3D 맵 핀 아이콘",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 48.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시장 위치 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "أنا ناصر وده كل أوبشن ممكن تطلبه في المرسيدس الـ C-Class",
+    "ko": "저는 나세르입니다. 메르세데스 C클래스에서 선택할 수 있는 모든 옵션을 보여드립니다."
+   },
+   {
+    "start": 3.0,
+    "end": 6.8,
+    "text": "مبدئياً تتفق تختلف دي أنجح luxury sedan في مصر وبفرق",
+    "ko": "동의하든 아니든, 이 차는 이집트에서 단연 가장 성공한 럭셔리 세단입니다."
+   },
+   {
+    "start": 6.8,
+    "end": 11.5,
+    "text": "وفي التك لازم تطلب هيد اب وديجيتال ديسبلاي دركسيون مرسيدس الجديد",
+    "ko": "기술 옵션으로는 헤드업 디스플레이, 디지털 계기판, 신형 스티어링 휠을 넣어야 합니다."
+   },
+   {
+    "start": 11.5,
+    "end": 16.8,
+    "text": "أتأكد من البادل شيفترز أبل كار بلاي وأندرويد أوتو وعشان دي الوكيل نافيجيشن مصر مفتوح",
+    "ko": "패들 시프트, 애플 카플레이, 안드로이드 오토와 정식 지원 이집트 내비게이션을 확인하세요."
+   },
+   {
+    "start": 16.8,
+    "end": 20.0,
+    "text": "وأتأكد من الأمبينت لايت بلس يعني حتى هوايات التكييف بتنور",
+    "ko": "앰비언트 라이트 플러스도 확인하세요, 송풍구까지 빛이 들어옵니다."
+   },
+   {
+    "start": 20.0,
+    "end": 24.8,
+    "text": "ولو عايز فخامة زيادة الفرش يبقى ديزاينو وتبريد وتسخين 90% من السوق تسخين بس",
+    "ko": "더 고급스러움을 원한다면 디지뇨 가죽과 통풍/열선 시트를 넣으세요. 시장 매물의 90%는 열선뿐입니다."
+   },
+   {
+    "start": 24.8,
+    "end": 30.0,
+    "text": "ولازم تطلب بورمستر ساوند سيستم وأكيد 3D وتكييف فور زون عشان يبقى فيها كل حاجة",
+    "ko": "부메스터 3D 사운드 시스템과 4존 에어컨도 필수입니다."
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "وسقف بانوراما وبيفتح كمان خد بالك ده مود في الصيف",
+    "ko": "열리는 파노라마 선루프도 꼭 챙기세요. 여름에 최고의 무드입니다."
+   },
+   {
+    "start": 34.0,
+    "end": 39.0,
+    "text": "ومتنساش الديجيتال لايتس والجنط المالتي سبوك والديسكات مخرمة عشان التهوية",
+    "ko": "디지털 라이트, 멀티스포크 휠, 방열 타공 디스크 브레이크도 잊지 마세요."
+   },
+   {
+    "start": 39.0,
+    "end": 44.5,
+    "text": "والطابع الرياضي مهم اطلب اللب سبويلر والشنطة لازم كهربا والكاميرات الـ 360",
+    "ko": "스포티한 느낌의 립 스포일러, 전동 트렁크, 360도 카메라도 필수입니다."
+   },
+   {
+    "start": 44.5,
+    "end": 50.5,
+    "text": "وهفهمك حاجة مهمة: الوكيل معندوش هيد اب ديسبلاي ولا مالتي سبوك ولا فور زون ولا كراسي تبريد بس ضمانه 5 سنين",
+    "ko": "중요한 차이점: 공식 정식 수입차는 HUD, 멀티스포크, 4존 에어컨, 통풍시트가 빠지지만 보증이 5년입니다."
+   },
+   {
+    "start": 50.5,
+    "end": 58.0,
+    "text": "الاستيراد فيه كل ده بس ضمانه سنتين مش خمسة دي استيراد بس مواصفات شرق أوسط",
+    "ko": "직수입차는 이 모든 풀옵션이 들어가지만 보증은 2년입니다. 중동 사양 직수입차입니다."
+   },
+   {
+    "start": 58.0,
+    "end": 60.5,
+    "text": "ولو عايز مواصفة أقل فسعر أحسن موجود برضه",
+    "ko": "옵션이 조금 덜 들어간 더 저렴한 사양도 있습니다."
+   },
+   {
+    "start": 60.5,
+    "end": 67.0,
+    "text": "وهتلاقيها في Euromove محور يوسف السباعي كلوف مول التجمع الأول ولو دي اتباعت يجيبولك واحدة تانية",
+    "ko": "유로무브 전시장(클로브 몰)에서 만나보실 수 있으며 판매 시 다른 차량 수배도 가능합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "벤츠 C클래스 풀옵션 안내 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "이집트 최고 인기 럭셔리 세단 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 6.8,
+    "end": 44.5,
+    "speed": "빠름",
+    "summary": "인테리어 디스플레이, 시트, 부메스터, 휠, 스포일러 등 핵심 필수 옵션 순차 점검"
+   },
+   {
+    "stage": "사양",
+    "start": 44.5,
+    "end": 58.0,
+    "speed": "보통",
+    "summary": "공식 정식 수입(보증 5년/옵션 부족) vs 병행 직수입(보증 2년/풀옵션) 심층 비교"
+   },
+   {
+    "stage": "가격",
+    "start": 58.0,
+    "end": 60.5,
+    "speed": "빠름",
+    "summary": "다양한 트림/가격대 매물 구비 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 60.5,
+    "end": 67.0,
+    "speed": "보통",
+    "summary": "Euromove 전시장 방문 유도 및 위치 안내 CTA"
+   }
+  ],
+  "rules": [
+   "진행자 이름과 핵심 키워드를 화면 상단에 굵은 박스 스티커로 즉각 팝업 노출",
+   "실내외 각 옵션을 언급할 때마다 고유한 3D 아이콘과 비주얼 효과(냉/온 이펙트, 사운드 파동, 송풍구 조명 바)를 동기화",
+   "화면 하단 센터 콘솔, 스티어링, 시트, 휠 등 설명 부위를 손가락으로 가리키거나 직접 만지는 현장감 있는 핸드헬드 앵글 유지",
+   "정식 출고와 병행 수입의 장단점을 빨간색/초록색 전광판 스타일 그래픽 보드로 명확하게 대조 요약",
+   "마지막에는 쇼룸 건물 전경과 3D 맵 핀을 활용해 방문 정보(매장명·주소)를 명확히 제시"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "feature": "헤드업 디스플레이 & 디지털 클러스터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.4,
+    "feature": "신형 AMG 스티어링 휠",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.0,
+    "feature": "애플 카플레이 & 안드로이드 오토",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "녹색 카플레이와 파란색 안드로이드오토 입체 앱 로고",
+    "x_pct": 45.0,
+    "y_pct": 28.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.7,
+    "feature": "이집트 순정 내비게이션 활성화",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "3D 내비게이션 지도와 경로 핀 아이콘",
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 19.8,
+    "feature": "송풍구 앰비언트 라이트 플러스",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "송풍구에 연기가 피어오르는 효과와 무지개색 조절 바",
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.8,
+    "feature": "디지뇨 가죽 통풍 및 열선 시트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "시트 표면에 오버레이된 불꽃(열선)과 눈송이(통풍) 그래픽",
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.2,
+    "feature": "부메스터 3D 사운드 시스템",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "부메스터 금속 도어 스피커 위 음파 확성기 아이콘",
+    "x_pct": 70.0,
+    "y_pct": 45.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 27.3,
+    "end": 30.0,
+    "feature": "4존 풀오토 에어컨",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "뒷좌석 송풍구 바람 이펙트",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 33.7,
+    "feature": "전동 개폐식 파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "태양 그래픽과 MOOD فالصيف 문구",
+    "x_pct": 75.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.0,
+    "feature": "디지털 라이트 (헤드램프)",
+    "shown_how": "확대",
+    "icon_desc": "DIGITAL LIGHT 헤드라이트 확대",
+    "x_pct": 60.0,
+    "y_pct": 70.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 39.0,
+    "feature": "멀티스포크 휠 & 타공 디스크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "MULTI-SPOKE 텍스트 및 손가락 가리킴",
+    "x_pct": 45.0,
+    "y_pct": 40.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.8,
+    "feature": "리어 립 스포일러 & 파워 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "스포일러 손으로 만지며 트렁크 오픈",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.5,
+    "feature": "360 서라운드 뷰 카메라",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "3D 카메라 장치 팝업",
+    "x_pct": 55.0,
+    "y_pct": 30.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "두 대의 C클래스(은색, 검은색) 앞에 서서 'C클래스에서 넣을 수 있는 모든 옵션'을 밝히며 시작",
+   "type": "행동",
+   "text": "أنا ناصر وده كل أوبشن ممكن تطلبه في المرسيدس الـ C-Class",
+   "ko": "저는 나세르입니다. 벤츠 C클래스에서 선택할 수 있는 모든 필수 옵션을 정리해 드립니다."
+  },
+  "narration_points": [
+   {
+    "t": 4.0,
+    "point": "이집트 수입 세단 시장에서 독보적인 판매 1위 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 8.5,
+    "point": "헤드업 디스플레이와 신형 디지털 스티어링 휠 필수 추천",
+    "category": "편의"
+   },
+   {
+    "t": 13.0,
+    "point": "카플레이/안드로이드오토와 이집트 순정 내비게이션 탑재 확인",
+    "category": "편의"
+   },
+   {
+    "t": 18.0,
+    "point": "송풍구까지 불이 들어오는 앰비언트 라이트 플러스 사양",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "시중 매물의 90%는 열선만 지원하나, 통풍까지 포함된 디지뇨 시트 추천",
+    "category": "편의"
+   },
+   {
+    "t": 26.5,
+    "point": "부메스터 3D 프리미엄 사운드 시스템 및 뒷좌석 4존 독립 에어컨",
+    "category": "편의"
+   },
+   {
+    "t": 32.0,
+    "point": "여름철 개방감을 극대화하는 파노라마 오픈 선루프",
+    "category": "편의"
+   },
+   {
+    "t": 36.5,
+    "point": "AMG 멀티스포크 휠과 통풍 타공 디스크 브레이크",
+    "category": "성능"
+   },
+   {
+    "t": 41.0,
+    "point": "스포티한 리어 립 스포일러와 전동 트렁크 리드",
+    "category": "디자인"
+   },
+   {
+    "t": 47.0,
+    "point": "정식 수입(에이전트)은 HUD/통풍시트/4존에어컨이 빠지나 5년 무상 보증 제공",
+    "category": "가격·조건"
+   },
+   {
+    "t": 53.0,
+    "point": "병행 수입 사양은 중동 스펙 풀옵션 탑재 대신 보증 2년 제공",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 61.5,
+   "text": "وهتلاقيها في Euromove محور يوسف السباعي كلوف مول التجمع الأول",
+   "ko": "뉴카이로 제1정착지 클로브 몰 내 Euromove 전시장으로 방문하세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 전면",
+    "휠",
+    "외관 후면",
+    "센터 화면",
+    "외관 전면"
+   ]
+  }
+ }
+}

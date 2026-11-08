@@ -1,0 +1,1185 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/tuIe5LpPXK0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6438,
+  "candidatesTokenCount": 10194,
+  "totalTokenCount": 16632,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5275
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.0,
+   "aspect": "9:16",
+   "car": "레인지로버 보그 / 이보크 / 벨라 (Range Rover Vogue, Evoque, Velar)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 6.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 10.4,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 11.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 16.5,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 20.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.1,
+    "end": 23.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 27.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.9,
+    "end": 29.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 36.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 44.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 48.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.6,
+    "end": 51.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 58.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "ناصر",
+    "ko": "나사르",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 2.7,
+    "text": "عربية الأغنياء",
+    "ko": "부자들의 차",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "رجال أعمال",
+    "ko": "사업가들",
+    "kind": "키워드 스티커",
+    "y_pct": 27.5,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.1,
+    "text": "سياسيين",
+    "ko": "정치인들",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 66.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.3,
+    "text": "أ/ب الشياكة",
+    "ko": "럭셔리의 기본",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.2,
+    "text": "IN THE BACK VIP",
+    "ko": "뒷좌석 VIP",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.2,
+    "text": "عشان\nمحدش يشوف الباشا",
+    "ko": "나으리를 아무도 보지 못하게",
+    "kind": "키워드 스티커",
+    "y_pct": 26.5,
+    "x_center_pct": 23.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#8B1E1E",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "AIR SUSPENSION\nDOUBLE CHAMBER",
+    "ko": "에어 서스펜션 더블 챔버",
+    "kind": "키워드 스티커",
+    "y_pct": 44.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "text": "WIRELESS\nCHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 51.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.3,
+    "text": "طبقة\nاجتماعية لوحده",
+    "ko": "그 자체로 하나의 사회적 계급",
+    "kind": "키워드 스티커",
+    "y_pct": 27.5,
+    "x_center_pct": 76.0,
+    "text_height_pct": 4.5,
+    "color": "#00AA44",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "text": "خدت الحلو",
+    "ko": "좋은 점만 쏙 골라 담음",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 43.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 42.8,
+    "text": "من شياكة",
+    "ko": "세련됨에서",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.9,
+    "end": 44.0,
+    "text": "من رياضية",
+    "ko": "스포티함에서",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.1,
+    "end": 45.4,
+    "text": "بسعر أحسن بكتير",
+    "ko": "훨씬 착한 가격으로",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#00AA44",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 47.0,
+    "text": "الشنطة واسعة",
+    "ko": "넓은 트렁크",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 51.5,
+    "text": "لو ليك فالمغامرة\nLand Cruiser",
+    "ko": "모험을 원한다면 랜드크루저",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 56.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#B71C1C",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.6,
+    "end": 53.0,
+    "text": "لو ليك فالعنف",
+    "ko": "압도적 파워를 원한다면",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#B71C1C",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 58.0,
+    "text": "بجوار قصر الكبابجي\nطريق السويس",
+    "ko": "수에즈 로드 카밥지 궁전 옆",
+    "kind": "키워드 스티커",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "휙",
+    "event": "랜드로버 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "이집트 국기 및 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "쿵",
+    "event": "일론 머스크 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "쿵",
+    "event": "푸틴 이미지 전환 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "통풍/열선 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "휙",
+    "event": "휠 및 서스펜션 텍스트 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "3열 열선 불꽃 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "이보크 전면 로고 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "톡",
+    "event": "무선충전 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "톡",
+    "event": "카플레이/알렉사 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.6,
+    "type": "톡",
+    "event": "보그 미니어처 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.8,
+    "type": "톡",
+    "event": "스포츠 미니어처 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "돈 소리",
+    "event": "돈다발/동전 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.1,
+    "type": "쿵",
+    "event": "사막 점프하는 랜드크루저 합성 영상 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 51.6,
+    "type": "쿵",
+    "event": "에스컬레이드 및 김정은 밈 합성 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 54.8,
+    "type": "띵",
+    "event": "위치 핀 맵 마커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.8,
+    "end": 2.7,
+    "what": "랜드로버 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 52.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 2.7,
+    "what": "이집트 국기",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 33.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "이집트 시장 강조",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "what": "일론 머스크 사진",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 53.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사업가 상징 밈",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.1,
+    "what": "블라디미르 푸틴 사진",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 56.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "정치인 상징 밈",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.3,
+    "what": "눈 결정 및 불꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 35.0,
+    "y_pct": 71.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍 및 열선 시트 기능 안내",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.0,
+    "what": "불꽃 아이콘 및 3열 시트 하이라이트",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 45.0,
+    "y_pct": 62.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "3열 열선 시트 강조",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.0,
+    "what": "랜드로버 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 37.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델 강조",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "what": "무선충전 와이파이 심볼",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무선 충전 기능 표시",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "what": "카플레이/알렉사/안드로이드오토 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 표시",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.0,
+    "what": "금화 항아리 및 떨어지는 코인",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 75.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "부유한 이미지 상징",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 42.8,
+    "what": "레인지로버 보그 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 35.0,
+    "y_pct": 67.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "보그의 장점 차용 설명",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.0,
+    "what": "레인지로버 스포츠 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 40.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스포츠 모델 장점 차용 설명",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.4,
+    "what": "달러 지폐와 금화 일러스트",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 48.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가성비/가격적 메리트 설명",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 51.5,
+    "what": "점프하는 랜드크루저 합성 영상",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 52.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "오프로드 모험 상징",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.0,
+    "what": "캐딜락 지붕 위의 김정은 합성 밈",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 52.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "위압감/강력함 상징 밈",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 58.0,
+    "what": "빨간색 지도 핀 마커",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 18.0,
+    "y_pct": 41.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "쇼룸 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "أنا ناصر وهقولك ليه رينج روفر عربية الأغنياء في مصر",
+    "ko": "저는 나사르입니다. 왜 레인지로버가 이집트 부자들의 차인지 알려드릴게요."
+   },
+   {
+    "start": 2.7,
+    "end": 6.4,
+    "text": "أولاً الفوج ممثلين رجال أعمال سياسيين أ ب الشياكة",
+    "ko": "첫째로 보그는 배우, 사업가, 정치인들의 차로 고급스러움의 기본입니다."
+   },
+   {
+    "start": 6.4,
+    "end": 14.0,
+    "text": "وعشان المهم بيركب ورا بيستمتع بالمساج والتسخين والتبريد وقدامه شاشة يراقب منها نجاحه وستاير عشان محدش يشوف الباشا",
+    "ko": "VIP는 뒷좌석에 타기 때문에 마사지, 열선, 통풍 시트를 즐기고, 모니터로 성공을 체크하며 커튼으로 나으리의 모습을 가립니다."
+   },
+   {
+    "start": 14.0,
+    "end": 16.5,
+    "text": "وبدوال تشامبر إير سسبنشن كأنك ماشي على سحاب",
+    "ko": "듀얼 챔버 에어 서스펜션으로 마치 구름 위를 달리는 듯합니다."
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "text": "وريتز عنده اللونج فيها صف تالت واصله تسخين في حالة كنتوا 7 أغنياء",
+    "ko": "리즈 쇼룸의 롱바디 모델은 3열에도 열선이 있어 7명의 부자가 함께 탈 수 있습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 23.5,
+    "text": "ولو بنت أو شاب صغير بس شيك جداً رينج روفر إيفوك",
+    "ko": "젊고 스타일리시한 여성이나 남성에게는 레인지로버 이보크가 제격입니다."
+   },
+   {
+    "start": 23.5,
+    "end": 31.8,
+    "text": "فيها كل حاجة خد بالك شاحن وايرلس شاشة فيها أبل كاربلاي وأندرويد أوتو بيلت إن أليكسا هيد أب وديجيتال ديسبلاي واللوجو ده طبقة اجتماعية لوحده",
+    "ko": "무선 충전, 카플레이, 안드로이드 오토, 알렉사 내장, HUD와 디지털 계기판까지 다 갖췄고, 이 로고 자체가 하나의 신분입니다."
+   },
+   {
+    "start": 31.8,
+    "end": 36.6,
+    "text": "والكنبة بتسخين وتاخد صحابك كلهم وعلى رأي المثل لو البنت راكبة إيفوك يبقى بابا راكب فوج",
+    "ko": "뒷좌석 열선도 있고 친구들과 함께 탈 수 있죠. 속담처럼 딸이 이보크를 탄다면 아빠는 보그를 탑니다."
+   },
+   {
+    "start": 36.6,
+    "end": 39.5,
+    "text": "وأحبهم للمصريين رينج روفر فيلار وهقولك ليه",
+    "ko": "그리고 이집트인들이 가장 사랑하는 차는 레인지로버 벨라인데, 이유를 말씀드리죠."
+   },
+   {
+    "start": 39.5,
+    "end": 44.8,
+    "text": "خدت الحلو من كله من شياكة الفوج ومن رياضية الإسبورت وبسعر أحسن بكتير",
+    "ko": "보그의 고급스러움과 스포츠의 역동성을 합쳤으면서도 가격은 훨씬 합리적입니다."
+   },
+   {
+    "start": 44.8,
+    "end": 49.6,
+    "text": "والشنطة واسعة تاخد شنط السفر وانت رايح الساحل الجونة شوف بتصيف فين وأحبهم للعائلات كمان",
+    "ko": "트렁크가 넓어 엘구나나 북부 해안 휴양지로 여행 갈 때 짐을 넉넉히 실을 수 있어 가족들에게도 최고입니다."
+   },
+   {
+    "start": 49.6,
+    "end": 53.0,
+    "text": "لو ليك فالمغامرة فيه لاندكروزر ولو ليك فالعنف خد إسكاليد",
+    "ko": "모험을 원한다면 랜드크루저, 위압적인 포스를 원한다면 에스컬레이드도 있죠."
+   },
+   {
+    "start": 53.0,
+    "end": 58.0,
+    "text": "الحاجة المشتركة إن العربيات دي في معرض ريتز طريق السويس بجوار قصر الكبابجي",
+    "ko": "이 모든 차들의 공통점은 수에즈 로드 카밥지 궁전 옆 리츠 쇼룸에 있다는 것입니다."
+   },
+   {
+    "start": 58.0,
+    "end": 58.0,
+    "text": "",
+    "ko": ""
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "레인지로버가 이집트 부자의 상징인 이유 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.7,
+    "end": 20.0,
+    "speed": "빠름",
+    "summary": "레인지로버 보그 VIP 뒷좌석 및 에어 서스펜션 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 20.0,
+    "end": 36.6,
+    "speed": "빠름",
+    "summary": "젊은 층을 위한 레인지로버 이보크 옵션 및 상징성"
+   },
+   {
+    "stage": "차 소개",
+    "start": 36.6,
+    "end": 49.6,
+    "speed": "빠름",
+    "summary": "가장 대중적인 레인지로버 벨라의 가성비 및 트렁크 공간"
+   },
+   {
+    "stage": "차 소개",
+    "start": 49.6,
+    "end": 53.0,
+    "speed": "빠름",
+    "summary": "대체 선택지(랜드크루저, 에스컬레이드) 밈과 함께 언급"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 53.0,
+    "end": 58.0,
+    "speed": "보통",
+    "summary": "리츠(Ritz) 쇼룸 위치 및 방문 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면을 가로지르며 역동적으로 이동하고 카메라가 타이트하게 추적함",
+   "설명하는 모델(보그, 이보크, 벨라)마다 핵심 타깃층과 상징성을 명확히 규정",
+   "옵션(통풍, 열선, 서스펜션, 무선충전 등) 언급 시 해당 부위 클로즈업과 직관적인 팝업 그래픽 동시 노출",
+   "유명 인사(머스크, 푸틴 등)와 과장된 점프 합성 영상을 밈으로 활용해 시각적 재미 부여",
+   "엔딩에서는 매장 전경으로 물러나며 위치 핀 그래픽으로 쇼룸 위치 안내"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.5,
+    "end": 10.3,
+    "feature": "뒷좌석 통풍 및 열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "얼음 눈송이 및 타오르는 불꽃 아이콘",
+    "x_pct": 35.0,
+    "y_pct": 71.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "feature": "뒷좌석 엔터테인먼트 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "뒷좌석 시트백 모니터 화면 직접 터치 조작",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "feature": "전동 사이드 선블라인드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손으로 창문 선블라인드를 가리키며 프라이버시 시연",
+    "x_pct": 30.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "feature": "듀얼 챔버 에어 서스펜션",
+    "shown_how": "글자 카드",
+    "icon_desc": "휠 아치 부위에 텍스트 그래픽 오버레이",
+    "x_pct": 74.0,
+    "y_pct": 44.5,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.0,
+    "feature": "3열 열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "3열 시트 착좌면에 오렌지색 하이라이트 및 불꽃 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 62.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "feature": "무선 충전 패드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "센터 콘솔 무선충전 공간 가리킴 및 와이파이 심볼",
+    "x_pct": 51.0,
+    "y_pct": 70.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "feature": "애플 카플레이 및 알렉사 음성비서",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "메인 터치스크린 상단에 서비스 앱 로고 팝업",
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 48.0,
+    "feature": "대용량 트렁크 공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "진행자가 트렁크 안에 직접 걸터앉아 넉넉한 공간감 과시",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 고급 쇼룸 앞 레인지로버 라인업 사이에 서서 이집트 부자들이 이 차를 타는 이유를 밝히겠다며 시작함",
+   "type": "질문",
+   "text": "ليه رينج روفر عربية الأغنياء في مصر",
+   "ko": "왜 레인지로버가 이집트 부자들의 차일까요?"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "레인지로버 보그는 사업가와 정치인 등 최고위층을 상징하는 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 8.5,
+    "point": "보그의 뒷좌석은 마사지, 통풍/열선, 개별 모니터, 전동 커튼 등 호화 VIP 공간",
+    "category": "편의"
+   },
+   {
+    "t": 15.0,
+    "point": "듀얼 챔버 에어 서스펜션으로 구름 위를 달리는 듯한 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 18.0,
+    "point": "롱휠베이스(LWB) 모델은 3열 시트에도 열선이 탑재되어 7인 탑승 가능",
+    "category": "공간"
+   },
+   {
+    "t": 21.5,
+    "point": "이보크는 세련된 젊은 남녀를 위한 트렌디한 엔트리 럭셔리",
+    "category": "디자인"
+   },
+   {
+    "t": 25.0,
+    "point": "이보크에는 무선 충전, 카플레이, 내장 알렉사, HUD 등 최첨단 테크 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 40.5,
+    "point": "벨라는 보그의 고급스러움과 스포츠의 역동성을 합리적 가격에 결합한 이집트 최고 인기 모델",
+    "category": "가격·조건"
+   },
+   {
+    "t": 46.5,
+    "point": "벨라는 휴양지 장거리 여행에 넉넉한 대용량 패밀리 트렁크 공간 보유",
+    "category": "공간"
+   },
+   {
+    "t": 50.5,
+    "point": "오프로드 모험에는 랜드크루저, 압도적 포스에는 에스컬레이드가 대안",
+    "category": "성능"
+   },
+   {
+    "t": 55.0,
+    "point": "소개된 모든 차량은 수에즈 로드 리츠(Ritz) 쇼룸에서 만날 수 있음",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 54.8,
+   "text": "بجوار قصر الكبابجي طريق السويس",
+   "ko": "수에즈 로드 카밥지 궁전 옆 리츠 쇼룸으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "휠",
+    "센터 화면",
+    "계기판",
+    "실내 앞",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

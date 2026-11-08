@@ -1,0 +1,1017 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/TZsHdhSiGQ4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8626,
+  "candidatesTokenCount": 8367,
+  "totalTokenCount": 17909,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7463
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 916,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 82.0,
+   "aspect": "9:16",
+   "car": "Rolls-Royce Cullinan Black Badge",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.4,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 30.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 38.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 44.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 50.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 56.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 60.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 64.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.9,
+    "end": 107.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.5,
+    "end": 112.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 112.5,
+    "end": 116.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 116.5,
+    "end": 122.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 2.5,
+    "text": "افخم عربيه ممكن تشتريها",
+    "ko": "당신이 살 수 있는 가장 럭셔리한 차",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "افخم",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.8,
+    "text": "Rolls Royce Cullinan Black Badge",
+    "ko": "롤스로이스 컬리넌 블랙 배지",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "Cullinan",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.8,
+    "text": "مش عربيه عاديه",
+    "ko": "평범한 차가 아닙니다",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مش",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.2,
+    "text": "وهيبه مش في اي عربيه تانيه",
+    "ko": "다른 어떤 차에서도 볼 수 없는 위엄",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "وهيبه",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.5,
+    "text": "Black Badge يعني اغلي حاجه",
+    "ko": "블랙 배지 = 최상위 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -3.0,
+    "entrance": "밀려옴",
+    "highlight_word": "اغلي",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 13.8,
+    "text": "Pantheon",
+    "ko": "판테온 그릴",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.5,
+    "text": "Two Tone 22",
+    "ko": "투톤 22인치",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Two",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "افخم انواع الجلود",
+    "ko": "최고급 가죽",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "افخم",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 30.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.6,
+    "text": "واااااو !!",
+    "ko": "와우!!",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 105.0,
+    "end": 107.0,
+    "text": "Suicide doors",
+    "ko": "수이사이드 도어",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "Suicide",
+    "sure": true
+   },
+   {
+    "start": 111.0,
+    "end": 113.0,
+    "text": "HandMade طبعا",
+    "ko": "당연히 핸드메이드",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HandMade",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "첫 스티커 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "차량 전면 샷 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "휙",
+    "event": "전환 트랜지션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "휙",
+    "event": "문 열며 장면 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "톡",
+    "event": "보닛 엠블럼 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "휠 클로즈업 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "휙",
+    "event": "서스펜션 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "딸깍",
+    "event": "카본 파이버 패널 누르는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "딸깍",
+    "event": "센터 콘솔 다이얼 조작 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.2,
+    "type": "딸깍",
+    "event": "송풍구 메탈 노브 당겨지는 찰칵 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 45.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "버튼으로 운전석 자동문 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.0,
+    "type": "딸깍",
+    "event": "뒷좌석 테이블 및 스크린 전동 전개",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.5,
+    "type": "딸깍",
+    "event": "뒷좌석 냉장고 도어 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.5,
+    "type": "딸깍",
+    "event": "센터 암레스트 미니바 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 102.0,
+    "type": "딸깍",
+    "event": "전동 컵홀더 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 107.2,
+    "type": "딸깍",
+    "event": "도어 내장 우산 팝업 버튼 사운드",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "웅장하고 고급스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.0,
+    "end": 2.5,
+    "what": "별 아이콘과 텍스트 상자",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 70.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가장 럭셔리한 차 강조",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.0,
+    "what": "손가락 지시 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 35.0,
+    "y_pct": 45.0,
+    "entrance": "바로",
+    "purpose": "플로팅 휠 캡 로고 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "أنا ناصر ودي أفخم عربية أنت ممكن تشتريها",
+    "ko": "저는 나사르입니다. 이건 당신이 살 수 있는 가장 럭셔리한 차입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 5.0,
+    "text": "Rolls-Royce Cullinan Black Badge",
+    "ko": "롤스로이스 컬리넌 블랙 배지입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 7.3,
+    "text": "مش عربية عادية دي طبقة اجتماعية وقصة سنين",
+    "ko": "평범한 차가 아닙니다. 이건 사회적 신분과 오랜 역사입니다."
+   },
+   {
+    "start": 7.3,
+    "end": 9.4,
+    "text": "وهيبة مش في أي عربية تانية",
+    "ko": "다른 어떤 차에도 없는 위엄이죠."
+   },
+   {
+    "start": 9.4,
+    "end": 13.5,
+    "text": "وبلاك بادج يعني أعلى حاجة فعندك إمبلم ولوجو بلاك داوت وبانثيون جريل",
+    "ko": "블랙 배지는 최고봉을 의미합니다. 블랙아웃 엠블럼과 로고, 판테온 그릴이 적용되었습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "text": "اللوجو ثابت والعربية بتتحرك، تو تون ريمز مقاس 22 إنش",
+    "ko": "차는 굴러가도 로고는 고정되는 22인치 투톤 휠,"
+   },
+   {
+    "start": 17.5,
+    "end": 21.8,
+    "text": "بأدابتيف إير سسبنشن عشان تحس إنك ماشي على سحاب",
+    "ko": "어댑티브 에어 서스펜션으로 마치 구름 위를 달리는 기분을 줍니다."
+   },
+   {
+    "start": 21.8,
+    "end": 23.6,
+    "text": "وعشان زيادة الهدوء، بيبان سوفت كلوز",
+    "ko": "더 완벽한 정숙성을 위한 소프트 클로징 도어."
+   },
+   {
+    "start": 23.6,
+    "end": 26.0,
+    "text": "عندك ستار لايتس على شكل السما في إنجلترا",
+    "ko": "영국 밤하늘 모양의 스타라이트 헤드라이너,"
+   },
+   {
+    "start": 26.0,
+    "end": 30.5,
+    "text": "وفول جرين ليذر يعني أفخم أنواع الجلود، وطبعا تسخين وتبريد ومساج",
+    "ko": "최고급 풀그레인 가죽에 통풍, 열선, 마사지 기능까지 갖췄습니다."
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "هاندكرافتد كاربون فايبر، ودايل للتحكم في الإسبيريت سيستم",
+    "ko": "수작업 카본 파이버 트림과 스피릿 시스템 제어 다이얼,"
+   },
+   {
+    "start": 34.0,
+    "end": 38.6,
+    "text": "أفخم ماتيريال في العالم واسمع كده... واووو !!",
+    "ko": "세계에서 가장 고급스러운 소재들, 이 소리 들어보세요... 와우!!"
+   },
+   {
+    "start": 38.6,
+    "end": 44.5,
+    "text": "عندك هيد اب ديسبلاي وديجيتال انالوج ديسبلاي، وأفخم لوجو عربية ودريكسيون هو الأريح في العالم",
+    "ko": "헤드업 디스플레이와 디지털 아날로그 계기판, 세계에서 가장 편안한 스티어링 휠,"
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "text": "ولو دوست هنا، الباب بتاعك هيقفل",
+    "ko": "여기를 누르면 운전석 문이 자동으로 닫힙니다."
+   },
+   {
+    "start": 46.8,
+    "end": 50.8,
+    "text": "عندك كلاس بيزود العزل ويحسن الكلايمت، وبيلوز وكنب مريح جداً",
+    "ko": "격벽 유리로 방음과 공조를 극대화했고, 편안한 베개 쿠션과 시트,"
+   },
+   {
+    "start": 50.8,
+    "end": 56.6,
+    "text": "ترابيزة من الكاربون فايبر ولو دوست هنا هيفتحلك شاشة تتسلى عليها",
+    "ko": "카본 피크닉 테이블과 버튼을 누르면 전개되는 인포테인먼트 모니터,"
+   },
+   {
+    "start": 56.6,
+    "end": 60.0,
+    "text": "عندك تلاجة فيها كاسات عشان المشروبات في الصيف، ميني بار",
+    "ko": "여름철 시원한 음료를 위한 크리스털 글라스 냉장고와 미니바,"
+   },
+   {
+    "start": 60.0,
+    "end": 64.9,
+    "text": "دايل للتحكم في الشاشة، أروش كاب هولدرز ومكان للكاسات",
+    "ko": "스크린 조작 다이얼과 최고급 컵홀더 및 글라스 거치 공간,"
+   },
+   {
+    "start": 105.0,
+    "end": 112.5,
+    "text": "عندك سويسايد دورز، ولو دوست هنا هيطلعلك شمسية، والخط ده واحد بس اللي بيرسمه في العالم، هاندميد طبعاً",
+    "ko": "수이사이드 도어와 전용 우산 팝업, 세계에서 단 한 사람이 직접 그리는 핸드메이드 코치라인,"
+   },
+   {
+    "start": 112.5,
+    "end": 122.0,
+    "text": "وهتلاقيها في تيتشرز موتورز، بقالهم 20 سنة في السوق بتلات فروع في المهندسين، وفرع في الصحراوي أمام داندي مول، وفرع الساحل أمام مراسي، واتصل على 15078",
+    "ko": "티처 모터스에서 만나실 수 있습니다. 20년 전통에 모한디신 3개 지점, 사막고속도로 댄디몰 앞, 북부 해안 마라시 앞 지점이 있으며, 15078로 문의하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "당신이 살 수 있는 가장 럭셔리한 차 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 9.4,
+    "speed": "빠름",
+    "summary": "롤스로이스 컬리넌 블랙 배지 외관 및 위엄 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 9.4,
+    "end": 21.8,
+    "speed": "빠름",
+    "summary": "블랙 배지 디테일, 22인치 휠, 에어 서스펜션"
+   },
+   {
+    "stage": "기능",
+    "start": 21.8,
+    "end": 105.0,
+    "speed": "빠름",
+    "summary": "실내 가죽/스타라이트, 조작계, 자동문, 2열 VIP 편의장비 투어"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 105.0,
+    "end": 122.0,
+    "speed": "보통",
+    "summary": "수이사이드 도어/우산/코치라인 및 티처 모터스 매장 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 빠른 대사와 동작에 맞춰 1~3초 간격으로 매우 역동적인 컷 전환",
+   "화면 우측/중앙에 볼드한 아랍어·영어 키워드 스티커를 리듬감 있게 팝업",
+   "차량 부품 작동(딸깍 소리, 모터 소리, 도어 닫힘) 시 현장 오디오를 극적으로 강조",
+   "각 옵션 소개 시 카메라를 가까이 대며 디테일한 소재감과 마감 과시"
+  ],
+  "option_highlights": [
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "feature": "블랙아웃 판테온 그릴 및 엠블럼",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "feature": "플로팅 휠 캡 & 22인치 투톤 휠",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 45.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.6,
+    "feature": "소프트 클로징 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.0,
+    "feature": "스타라이트 헤드라이너",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "feature": "메탈 송풍구 컨트롤 노브",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "feature": "운전석 원터치 자동문 닫힘 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 65.0,
+    "y_pct": 60.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 56.6,
+    "feature": "전동식 피크닉 테이블 및 리어 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 55.0,
+    "y_pct": 55.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 60.0,
+    "feature": "리어 암레스트 냉장고 및 크리스털 글라스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 106.0,
+    "end": 108.5,
+    "feature": "도어 내장 전용 우산 사출 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 109.0,
+    "end": 112.0,
+    "feature": "수작업 코치라인",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 55.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 롤스로이스 컬리넌 앞에서 당신이 살 수 있는 가장 럭셔리한 차라고 당차게 소개함",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر ودي أفخم عربية أنت ممكن تشتريها",
+   "ko": "저는 나사르입니다. 이건 당신이 살 수 있는 가장 럭셔리한 차입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "구매 가능한 세상에서 가장 럭셔리한 SUV 소개",
+    "category": "희소성"
+   },
+   {
+    "t": 6.0,
+    "point": "단순한 차가 아닌 사회적 신분과 역사의 상징",
+    "category": "희소성"
+   },
+   {
+    "t": 10.0,
+    "point": "블랙 배지 전용 블랙아웃 판테온 그릴과 엠블럼",
+    "category": "디자인"
+   },
+   {
+    "t": 15.0,
+    "point": "수평을 유지하는 플로팅 로고가 달린 22인치 투톤 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 18.0,
+    "point": "구름 위를 걷는 듯한 어댑티브 에어 서스펜션 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 24.0,
+    "point": "영국 밤하늘을 형상화한 스타라이트 루프",
+    "category": "디자인"
+   },
+   {
+    "t": 27.0,
+    "point": "열선, 통풍, 마사지가 포함된 최고급 풀그레인 가죽 시트",
+    "category": "편의"
+   },
+   {
+    "t": 32.0,
+    "point": "정교한 수작업 카본 파이버 트림 및 인포테인먼트 다이얼",
+    "category": "디자인"
+   },
+   {
+    "t": 45.0,
+    "point": "실내에서 버튼 하나로 닫히는 전동식 파워 도어",
+    "category": "편의"
+   },
+   {
+    "t": 48.0,
+    "point": "실내 정숙성과 냉난방 효율을 극대화하는 후석 분리 격벽 유리",
+    "category": "편의"
+   },
+   {
+    "t": 53.0,
+    "point": "원터치로 펼쳐지는 피크닉 테이블 및 엔터테인먼트 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 58.0,
+    "point": "전용 크리스털 글라스가 구비된 리어 냉장고와 미니바",
+    "category": "편의"
+   },
+   {
+    "t": 106.0,
+    "point": "도어 잼에 수납되는 원터치 사출식 롤스로이스 우산",
+    "category": "편의"
+   },
+   {
+    "t": 110.0,
+    "point": "전 세계 단 한 명의 장인이 그리는 핸드메이드 코치라인",
+    "category": "디자인"
+   },
+   {
+    "t": 115.0,
+    "point": "티처 모터스의 지점 위치 및 핫라인 안내",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 120.0,
+   "text": "واتصل على 15078",
+   "ko": "15078로 문의 전화하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "휠",
+    "실내 앞",
+    "뒷좌석",
+    "외관 측면",
+    "사람"
+   ]
+  }
+ }
+}

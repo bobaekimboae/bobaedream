@@ -1,0 +1,1054 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/seYNN6vs6xs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9439,
+  "candidatesTokenCount": 9009,
+  "totalTokenCount": 19231,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8276
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 783,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 91.0,
+   "aspect": "9:16",
+   "car": "Kia Carnival VIP 2026",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 9.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 17.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 26.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 30.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 38.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 43.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.1,
+    "end": 47.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 51.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 101.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 101.4,
+    "end": 105.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 105.7,
+    "end": 111.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 111.6,
+    "end": 127.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 127.4,
+    "end": 131.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.2,
+    "end": 2.5,
+    "text": "L.E 3M",
+    "ko": "300만 이집트 파운드부터",
+    "kind": "가격",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.2,
+    "color": "#2EEB5E",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3M",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.2,
+    "text": "تسخين تبريد",
+    "ko": "열선 / 통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1C88E3",
+    "bg_width_pct": 28.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 11.8,
+    "text": "مقتنعتش",
+    "ko": "아직 납득 안 감",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 66.0,
+    "text_height_pct": 4.5,
+    "color": "#1C2434",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.2,
+    "end": 37.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 5.0,
+    "color": "#F39C12",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.5,
+    "text": "كهرباء تسخين تبريد",
+    "ko": "전동 시트 / 열선 / 통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#2980B9",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كهرباء",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 38.8,
+    "text": "على حسب التوتو",
+    "ko": "예산에 따라",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E67E22",
+    "bg_width_pct": 26.0,
+    "tilt_deg": 10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.8,
+    "text": "360° CAMERA",
+    "ko": "360도 서라운드 뷰",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "360°",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 51.8,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 53.8,
+    "text": "تسخين CRUISE CONTROL",
+    "ko": "열선 핸들 / 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 7.0,
+    "color": "#F39C12",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 122.0,
+    "end": 125.8,
+    "text": "20+ سنة خبرة أمريكا أوروبا الصين",
+    "ko": "20년 이상 경력 (미국·유럽·중국 수입)",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 14.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20+",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "쿵",
+    "event": "3M 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "톡",
+    "event": "열선 통풍 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "딸깍",
+    "event": "리모컨 버튼 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "리클라이닝 시트 눕혀지는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "커튼 치는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "딸깍",
+    "event": "테이블 펼치기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "VIP 시트 회전 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "딸깍",
+    "event": "도어 버튼 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "파워 슬라이딩 도어 개방음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "띵",
+    "event": "360 카메라 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.0,
+    "type": "톡",
+    "event": "스티어링 휠 열선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 118.8,
+    "type": "띵",
+    "event": "전화 수신/발신 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 127.2,
+    "type": "딸깍",
+    "event": "악수 손뼉 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "도입부 빠른 비트 시작"
+    },
+    {
+     "t": 111.6,
+     "what": "상담 사무실 씬 전환 후 잔잔해짐"
+    },
+    {
+     "t": 127.4,
+     "what": "엔딩 브랜딩 아웃트로 비트 강조"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.1,
+    "end": 2.8,
+    "what": "3D 300만 EGP 녹색 텍스트 & 빛 효과",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 후킹",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.2,
+    "what": "불꽃 및 얼음 아이콘 스티커",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 58.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "열선/통풍 기능 설명",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "what": "눈송이/냉기 CG 오버레이 효과",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "강력한 에어컨 표현",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.5,
+    "what": "360 카메라 강조 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 52.0,
+    "y_pct": 27.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "어라운드 뷰 강조",
+    "sure": true
+   },
+   {
+    "start": 118.8,
+    "end": 120.5,
+    "what": "전화 거는 중 아이콘 (CALLING...)",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 68.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "아내에게 전화하는 콩트 연출",
+    "sure": true
+   },
+   {
+    "start": 128.0,
+    "end": 131.0,
+    "what": "Arabity 로고 및 수입 주문 연락처 정보 카드",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "최종 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "أنا ناصر، ودي شقة من أول 3 مليون جنيه، ولا إسكان الشباب!",
+    "ko": "전 나사르입니다. 이건 300만 파운드부터 시작하는 아파트급 밴입니다!"
+   },
+   {
+    "start": 3.5,
+    "end": 5.7,
+    "text": "طب ما تورهالنا كده؟ بس هي ضلمة كده ليه؟",
+    "ko": "어디 한번 보여줘 봐요. 근데 왜 이렇게 어둡죠?"
+   },
+   {
+    "start": 5.8,
+    "end": 11.2,
+    "text": "ضلمة مين! بص عندك لايت هاوس، السقف بتاعك شمواه، والكنب تسخين وتبريد.",
+    "ko": "어둡긴요! 루프 라이트에 스웨이드 천장, 시트는 열선과 통풍까지 다 있어요."
+   },
+   {
+    "start": 11.2,
+    "end": 12.0,
+    "text": "لسه ما اقتنعتش.",
+    "ko": "아직 납득 안 되는데요."
+   },
+   {
+    "start": 12.0,
+    "end": 17.0,
+    "text": "عندك تلفزيون، وأمبيانت لايت عشان المود يكمل، ولو حبيت تنام...",
+    "ko": "대형 TV에 분위기 살려주는 앰비언트 라이트, 그리고 자고 싶다면 이렇게 침대로 변신하죠."
+   },
+   {
+    "start": 17.1,
+    "end": 19.8,
+    "text": "كل ده بـ 3 مليون؟ أنا بردان قوي!",
+    "ko": "이게 다 300만에 된다고요? 근데 너무 추운데요!"
+   },
+   {
+    "start": 19.8,
+    "end": 22.4,
+    "text": "ما طبعاً، عشان واصلك تكييف من أكتر من 10 فتحات!",
+    "ko": "당연하죠, 에어컨 송풍구가 10개도 넘게 연결돼 있으니까요!"
+   },
+   {
+    "start": 22.4,
+    "end": 24.3,
+    "text": "والفضيحة دي؟ الناس حتتفرج علينا؟",
+    "ko": "이러다 밖에서 사람들 다 쳐다보면 어쩌죠?"
+   },
+   {
+    "start": 24.3,
+    "end": 26.3,
+    "text": "بدل الستارة ركبوا لك اتنين!",
+    "ko": "커튼을 하나도 아니고 두 겹으로 달아줬잖아요!"
+   },
+   {
+    "start": 26.3,
+    "end": 27.2,
+    "text": "طب افرض عندي شغل؟",
+    "ko": "만약 차에서 일해야 하면요?"
+   },
+   {
+    "start": 27.2,
+    "end": 30.5,
+    "text": "اتفضل اللاب، وبالفيشة بتاعته كمان! مش عاجبك؟ وصله بالتلفزيون!",
+    "ko": "노트북 테이블에 콘센트까지 있습니다! 화면이 작으면 TV로 연결하세요!"
+   },
+   {
+    "start": 30.5,
+    "end": 34.2,
+    "text": "الكرسي بيتحرك، وفيه مسند للإيد، وتقدر تقلبه للناس اللي ورا.",
+    "ko": "시트는 자유롭게 회전되고 암레스트도 있고, 뒤쪽 승객과 마주보게 돌릴 수도 있죠."
+   },
+   {
+    "start": 34.2,
+    "end": 35.0,
+    "text": "بس كده؟",
+    "ko": "그게 다예요?"
+   },
+   {
+    "start": 35.0,
+    "end": 38.6,
+    "text": "وفيه تسخين، وتقدر تطلبه تسخين وتبريد وكهربا على حسب التوتو!",
+    "ko": "열선도 있고, 예산에 맞춰 열선·통풍·전동 시트까지 맞춤 주문 가능해요!"
+   },
+   {
+    "start": 38.6,
+    "end": 43.4,
+    "text": "وقمة في السهولة، بتدوس على زرار عشان الباب يفتح، وعلى واحد تاني عشان الباب يقفل.",
+    "ko": "버튼 하나 누르면 문이 열리고, 또 누르면 닫히는 최고로 편한 시스템이죠."
+   },
+   {
+    "start": 43.4,
+    "end": 46.0,
+    "text": "كل ده بـ 3 مليون؟ - آه، عند عربيتي بس!",
+    "ko": "이 모든 게 300만 파운드에? - 네, 오직 '아라비티'에서만 가능합니다!"
+   },
+   {
+    "start": 46.1,
+    "end": 51.5,
+    "text": "المراية كاميرا، هيد اب ديسبلاي، ودبل سكرين بكاميرات 360 وشاحن وايرلس.",
+    "ko": "디지털 룸미러 카메라, HUD, 듀얼 스크린에 360 어라운드 뷰, 무선 충전기까지 완벽해요."
+   },
+   {
+    "start": 51.5,
+    "end": 56.8,
+    "text": "وعندك دركسيون تسخين، كروز كنترول، ودرايف مود، والكراسي تسخين وتبريد.",
+    "ko": "열선 핸들, 크루즈 컨트롤, 주행 모드 선택에 앞좌석도 열선·통풍이 다 들어갑니다."
+   },
+   {
+    "start": 102.0,
+    "end": 105.7,
+    "text": "العربية دي ارتفاعها قد إيه؟ - أكتر من كفاية، ما تقلقش من تحت ولا من فوق!",
+    "ko": "이 차 전고가 얼마나 되죠? - 충분히 높아서 아래든 위든 걱정할 필요 전혀 없어요!"
+   },
+   {
+    "start": 105.8,
+    "end": 111.5,
+    "text": "موتور مايلد هايبرد 242 حصان. - أنا شاري بـ 3 مليون! - طب تعال ورايا.",
+    "ko": "242마력 마일드 하이브리드 엔진입니다. - 300만에 살게요! - 그럼 따라오세요."
+   },
+   {
+    "start": 112.0,
+    "end": 118.0,
+    "text": "بتيجي المكتب وأفرّجك على العربيات وتشوف أنسب سعر ليك، وفي أسرع وقت.",
+    "ko": "사무실로 오시면 차량들을 보며 가장 알맞은 가격과 빠른 출고 조건을 맞춰드립니다."
+   },
+   {
+    "start": 121.8,
+    "end": 127.4,
+    "text": "الشركة دي بقى لها أكتر من 20 سنة بتستورد عربيات من أمريكا وأوروبا والصين وكوريا.",
+    "ko": "저희 회사는 20년 넘게 미국, 유럽, 중국, 한국에서 차량을 직수입해온 신뢰의 기업입니다."
+   },
+   {
+    "start": 127.4,
+    "end": 128.5,
+    "text": "اتفقنا!",
+    "ko": "계약 완료!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.5,
+    "speed": "빠름",
+    "summary": "300만 EGP로 사는 '움직이는 아파트' 카니발 VIP 소개 훅"
+   },
+   {
+    "stage": "기능",
+    "start": 3.5,
+    "end": 38.6,
+    "speed": "빠름",
+    "summary": "VIP 뒷좌석 실내 투어 (조명, 침대 시트, 에어컨, 커튼, 회전 시트)"
+   },
+   {
+    "stage": "편의",
+    "start": 38.6,
+    "end": 43.5,
+    "speed": "보통",
+    "summary": "전자동 파워 슬라이딩 도어 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 43.5,
+    "end": 56.8,
+    "speed": "빠름",
+    "summary": "운전석 첨단 옵션(HUD, 360 카메라, 디지털 룸미러, 열선/통풍)"
+   },
+   {
+    "stage": "사양",
+    "start": 101.4,
+    "end": 111.6,
+    "speed": "보통",
+    "summary": "하이루프 전고 및 242마력 하이브리드 파워트레인 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 111.6,
+    "end": 121.5,
+    "speed": "보통",
+    "summary": "사무실 계약 상담 및 수입 견적 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 121.5,
+    "end": 127.4,
+    "speed": "보통",
+    "summary": "20년 업력 수입 전문 회사 Arabity 신뢰도 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 127.4,
+    "end": 131.0,
+    "speed": "느림",
+    "summary": "주문 및 직수입 문의 전화번호 안내"
+   }
+  ],
+  "rules": [
+   "고객의 의심과 질문에 딜러가 즉석에서 옵션을 직접 만지며 증명하는 티키타카 콩트 포맷",
+   "말하는 옵션(열선, 통풍, 전동, 카메라)마다 직관적인 팝업 스티커와 효과음을 동시 매칭",
+   "실제 시트 리클라이닝, 도어 개폐, 회전 시트의 기계음과 딸깍 소리를 살려 현장감 강화",
+   "아파트 매매가와 비교하는 파격적인 가성비 프레임(300만 EGP)으로 시청자 관심 유지",
+   "영상 말미에 사무실 상담 씬과 수입 이력(20년)을 보여주며 실질적인 직수입 구매 전환 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.8,
+    "end": 9.2,
+    "feature": "루프 라이트하우스 및 스웨이드 천장",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "천장 조명 및 스웨이드 가죽 손 터치",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "feature": "시트 열선 및 통풍",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 및 눈송이 아이콘과 아랍어 텍스트",
+    "x_pct": 68.0,
+    "y_pct": 62.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "feature": "천장 대형 스마트 TV 및 앰비언트 라이트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "리모컨으로 TV 및 천장 LED 컬러 제어",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 17.5,
+    "feature": "풀 플랫 침대형 리클라이닝 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "두 사람이 완전히 누울 수 있는 침대 모드",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.4,
+    "feature": "천장 다중 에어컨 송풍구 (10구 이상)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "천장 루프 측면 공조 에어벤트 가리킴",
+    "x_pct": 30.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.3,
+    "feature": "VIP 이중 프라이버시 커튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손으로 창문 커튼을 직접 닫는 시연",
+    "x_pct": 35.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 30.5,
+    "feature": "접이식 비즈니스 테이블 및 220V 콘센트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "노트북 작업용 테이블 펼치기 및 전원 연결",
+    "x_pct": 40.0,
+    "y_pct": 60.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 34.2,
+    "feature": "180도 스위블(회전) VIP 독립 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "레버를 당겨 시트를 뒤돌려 마주보는 배치",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 43.0,
+    "feature": "원터치 파워 슬라이딩 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "외장/내장 버튼 터치로 자동 개폐",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 46.1,
+    "end": 47.9,
+    "feature": "디지털 카메라 룸미러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "룸미러를 터치하여 후방 카메라 화면 전환",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 51.5,
+    "feature": "360도 어라운드 뷰 및 무선 충전",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "카메라 아이콘 및 무선충전 텍스트 팝업",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "블랙 기아 카니발 하이리무진 앞에서 300만 파운드짜리 움직이는 아파트라고 외치는 리뷰어",
+   "type": "가격",
+   "text": "أنا ناصر، ودي شقة من أول 3 مليون جنيه، ولا إسكان الشباب!",
+   "ko": "저는 나사르입니다. 300만 파운드부터 시작하는 이 차는 청년주택 아파트보다 낫습니다!"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "300만 EGP대부터 시작하는 럭셔리 VIP 미니밴",
+    "category": "가격·조건"
+   },
+   {
+    "t": 8.0,
+    "point": "스웨이드 마감 하이루프와 은하수 무드 조명 탑재",
+    "category": "디자인"
+   },
+   {
+    "t": 10.5,
+    "point": "전 좌석 열선 및 통풍 시트 기본 지원",
+    "category": "편의"
+   },
+   {
+    "t": 13.5,
+    "point": "대형 스마트 TV 모니터와 앰비언트 라이트",
+    "category": "편의"
+   },
+   {
+    "t": 16.0,
+    "point": "완전 평탄화 가능한 전동 침대형 시트",
+    "category": "공간"
+   },
+   {
+    "t": 21.0,
+    "point": "천장 전체에 10개 이상 배치된 강력한 에어컨 덕트",
+    "category": "편의"
+   },
+   {
+    "t": 25.0,
+    "point": "외부 시선을 완벽 차단하는 이중 프라이버시 커튼",
+    "category": "편의"
+   },
+   {
+    "t": 28.5,
+    "point": "노트북 작업용 수납식 테이블 및 전원 콘센트",
+    "category": "편의"
+   },
+   {
+    "t": 32.5,
+    "point": "360도 회전되어 마주보고 대화 가능한 VIP 캡틴 시트",
+    "category": "편의"
+   },
+   {
+    "t": 40.5,
+    "point": "버튼 하나로 열고 닫는 전자동 파워 슬라이딩 도어",
+    "category": "편의"
+   },
+   {
+    "t": 47.0,
+    "point": "디지털 카메라 룸미러 및 헤드업 디스플레이(HUD)",
+    "category": "안전"
+   },
+   {
+    "t": 49.5,
+    "point": "360도 서라운드 뷰 모니터 및 스마트폰 무선 충전",
+    "category": "안전"
+   },
+   {
+    "t": 53.0,
+    "point": "열선 스티어링 휠과 스마트 크루즈 컨트롤",
+    "category": "편의"
+   },
+   {
+    "t": 108.0,
+    "point": "242마력 마일드 하이브리드 고효율 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 123.0,
+    "point": "미국·유럽·중국·한국 직수입 20년 업력의 전문성",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 128.0,
+   "text": "ORDER & IMPORT YOUR OWN KIA CARNIVAL VIP 2026 CALL US NOW",
+   "ko": "나만의 기아 카니발 VIP 2026 주문 및 수입, 지금 전화주세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 측면",
+    "실내 앞",
+    "계기판",
+    "외관 전면",
+    "기타"
+   ]
+  }
+ }
+}

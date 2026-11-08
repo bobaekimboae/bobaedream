@@ -1,0 +1,728 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Cju3z3rf6pE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8548,
+  "candidatesTokenCount": 6003,
+  "totalTokenCount": 14551,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7385
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 82.0,
+   "aspect": "9:16",
+   "car": "Bentley Bentayga Azure",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.1,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 9.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.3,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 23.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 26.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 31.8,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 36.1,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 39.4,
+    "part": "실내 앞",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.4,
+    "end": 43.1,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.8,
+    "part": "센터 화면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 54.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 57.6,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.6,
+    "end": 101.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 101.5,
+    "end": 107.0,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.0,
+    "end": 110.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 110.8,
+    "end": 116.3,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 116.3,
+    "end": 121.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "BENTAYGA",
+    "ko": "벤테이가",
+    "kind": "제목",
+    "y_pct": 32.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 5.5,
+    "color": "#F3DE97",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.8,
+    "text": "CRYSTAL-CUT HEADLAMPS",
+    "ko": "크리스털 컷 헤드램프",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.0,
+    "color": "#F3DE97",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 61.5,
+    "text": "V8 540hp 770Nm",
+    "ko": "V8 540마력 770Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 6.5,
+    "color": "#F3DE97",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 116.0,
+    "end": 121.5,
+    "text": "طريق السويس",
+    "ko": "수에즈 도로",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "벤테이가 타이틀 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "휙",
+    "event": "헤드램프 그래픽 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "딸깍",
+    "event": "도어 오디오 버튼 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "자동문 닫히는 모터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 선블라인드 작동음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 58.5,
+    "type": "쿵",
+    "event": "V8 스펙 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 109.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 112.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 열림 비프음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "고급스럽고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "Bentley 엠블럼 및 Bentayga 골드 텍스트",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 38.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 61.5,
+    "what": "V8 엔진 스펙 그래픽 (골드 방사형 효과)",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 55.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 안내",
+    "sure": true
+   },
+   {
+    "start": 116.0,
+    "end": 121.5,
+    "what": "위치 핀 아이콘 및 전시장 안내 문구",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 60.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "أنا ناصر، ودي قصر على أربع كاوتشات",
+    "ko": "저는 나사르입니다. 이건 네 바퀴 달린 궁전이죠."
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "Bentley Bentayga Azure Edition",
+    "ko": "벤틀리 벤테이가 아줄 에디션입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 9.5,
+    "text": "بنتلي حاجة فخمة، بنتياجا فخمة جدا، بس أزور إيديشن هي أعلى حاجة ممكن تشتريها",
+    "ko": "벤틀리는 럭셔리하고 벤테이가는 매우 고급스럽지만, 아줄 에디션은 구매할 수 있는 최고봉입니다."
+   },
+   {
+    "start": 9.5,
+    "end": 14.5,
+    "text": "بتشع حضور، عندك شبك كروم، الجريلز كروم",
+    "ko": "존재감이 뿜어져 나옵니다. 크롬 그릴이 자리잡고 있죠."
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "text": "وعشان مفيش قصر من غير كريستال، عندك أجمل كريستال لايتس في العالم",
+    "ko": "크리스털 없는 궁전은 없듯이 세계에서 가장 아름다운 크리스털 라이트가 있습니다."
+   },
+   {
+    "start": 17.0,
+    "end": 23.5,
+    "text": "ده الدريكسيون بتاعهم اللي فيه تسخين، ميتالك بادل شيفترز، هيد-أب، وديجيتال ديسبلاي",
+    "ko": "열선 핸들, 메탈 패들 시프트, HUD와 디지털 디스플레이가 장착되어 있습니다."
+   },
+   {
+    "start": 23.5,
+    "end": 32.0,
+    "text": "أخشاب فخمة جداً، إنتيريور تو-تون، شاحن وايرلس، كوكبيت للتحكم، ساعة بسعر عربية لوحدها، والغير المشهور من بنتلي",
+    "ko": "최고급 원목, 투톤 인테리어, 무선 충전기, 조종석 패널, 차 한 대 값인 시계와 벤틀리 시그니처 기어봉이 있습니다."
+   },
+   {
+    "start": 32.0,
+    "end": 39.0,
+    "text": "بانوراميك سن روف، السقف جلد، هيد ريست بيتحرك، أيرلاين سيتس تسخين وتبريد ومساج",
+    "ko": "파노라마 선루프, 가죽 천장, 조절식 헤드레스트, 열선/통풍/마사지가 되는 항공기식 시트가 있습니다."
+   },
+   {
+    "start": 39.0,
+    "end": 43.5,
+    "text": "عندك Naim ساوند سيستم، وماتتعبش نفسك مع الباب، بتدوس هنا وبيقفل لوحده",
+    "ko": "네임 오디오 시스템이 있고 문 닫느라 애쓸 필요 없이 버튼을 누르면 자동으로 닫힙니다."
+   },
+   {
+    "start": 43.5,
+    "end": 48.0,
+    "text": "الكنب تسخين وتبريد، وستائر شمسية",
+    "ko": "뒷좌석도 열선 및 통풍이 지원되며 전동 선커튼이 있습니다."
+   },
+   {
+    "start": 48.0,
+    "end": 54.5,
+    "text": "شاشة بتتحكم فيها في العربية، ترجع الظهر وتقفل كل حاجة",
+    "ko": "차량을 조작하는 스크린이 있고, 등받이를 눕히며 모든 걸 닫을 수 있습니다."
+   },
+   {
+    "start": 54.5,
+    "end": 61.5,
+    "text": "موتور V8 نفس اللي على لامبورجيني أوروس، بيخرج 540 حصان و 770 نيوتن",
+    "ko": "람보르기니 우루스와 동일한 V8 엔진으로 540마력, 770토크를 발휘합니다."
+   },
+   {
+    "start": 61.5,
+    "end": 70.0,
+    "text": "لوجو بنتلي بيتحرك عشان يفضل معدول، جنوط 22 إنش تو-تون، وكاوتش مبطن للعزل",
+    "ko": "벤틀리 휠 캡 로고는 항상 수평을 유지하며, 22인치 투톤 휠과 흡음 타이어가 적용되었습니다."
+   },
+   {
+    "start": 70.0,
+    "end": 76.0,
+    "text": "الأبواب سوفت كلوز، وشنطة تشيل مليار جنيه ومتبطنة صوف",
+    "ko": "도어는 소프트 클로징이고, 트렁크는 10억 파운드도 실을 만큼 넓고 양모로 마감되었습니다."
+   },
+   {
+    "start": 76.0,
+    "end": 82.0,
+    "text": "في منها ثلاثة بأسعار مختلفة هتلاقيهم في معرض ريتز طريق السويس",
+    "ko": "서로 다른 가격의 3대가 수에즈 도로변 리츠 모터스에 입고되어 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "네 바퀴 달린 궁전 벤틀리 벤테이가 아줄 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 17.0,
+    "speed": "빠름",
+    "summary": "외관 디자인(크롬 그릴, 크리스털 헤드램프)"
+   },
+   {
+    "stage": "기능",
+    "start": 17.0,
+    "end": 54.5,
+    "speed": "빠름",
+    "summary": "운전석 편의사양, 뒷좌석 럭셔리 시트 및 자동문·컨트롤러 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 54.5,
+    "end": 76.0,
+    "speed": "빠름",
+    "summary": "우루스 기반 V8 엔진, 22인치 플로팅 휠캡, 소프트 클로징, 울 트렁크"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 76.0,
+    "end": 82.0,
+    "speed": "보통",
+    "summary": "판매처(리츠 모터스 수에즈 도로점) 안내 및 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 손짓하며 파츠를 가리키고 직후 디테일 컷으로 빠르게 전환",
+   "화려한 옵션(자동 도어 닫힘, 전동 선커튼, 휠 캡)은 실제 작동 과정을 밀착 촬영",
+   "중요한 키워드(차명, 램프, 엔진 스펙, 매장 위치)만 골드/화이트 그래픽으로 임팩트 있게 강조",
+   "럭셔리 차량의 비유적 표현(궁전, 10억 파운드 적재 등)을 위트 있게 사용"
+  ],
+  "option_highlights": [
+   {
+    "start": 14.5,
+    "end": 16.7,
+    "feature": "크리스털 컷 헤드램프",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 72.0,
+    "y_pct": 33.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.1,
+    "feature": "뒷좌석 전동 도어 클로즈",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "feature": "전동 선블라인드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.0,
+    "feature": "뒷좌석 무선 컨트롤러 터치스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 101.5,
+    "end": 104.5,
+    "feature": "플로팅 휠 캡 로고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 109.0,
+    "end": 111.0,
+    "feature": "소프트 클로징 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라 앞에서 활기차게 인사하며 '네 바퀴 달린 궁전'이라며 벤틀리 벤테이가를 소개",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر، ودي قصر على أربع كاوتشات",
+   "ko": "저는 나사르입니다. 이건 네 바퀴 달린 궁전이죠."
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "바퀴 달린 궁전 같은 벤틀리 벤테이가 아줄 에디션",
+    "category": "희소성"
+   },
+   {
+    "t": 12.0,
+    "point": "전면 풀 크롬 그릴과 크리스털 헤드램프",
+    "category": "디자인"
+   },
+   {
+    "t": 19.0,
+    "point": "열선 핸들, 메탈 패들, HUD, 디지털 클러스터",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "투톤 가죽, 리얼 우드, 초고가 명품 아날로그 시계",
+    "category": "디자인"
+   },
+   {
+    "t": 35.0,
+    "point": "파노라마 선루프 및 항공기 1등석 시트 (열선/통풍/마사지)",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "버튼으로 자동 닫히는 리어 도어",
+    "category": "편의"
+   },
+   {
+    "t": 56.0,
+    "point": "우루스와 공유하는 540마력 V8 트윈터보 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 63.0,
+    "point": "항상 정자세를 유지하는 셀프 레벨링 휠 캡 로고와 흡음 타이어",
+    "category": "디자인"
+   },
+   {
+    "t": 72.0,
+    "point": "소프트 도어 클로징과 양모로 마감된 광활한 트렁크",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 76.0,
+   "text": "هتلاقيهم في معرض ريتز طريق السويس",
+   "ko": "수에즈 도로변 리츠 전시장에서 만나보실 수 있습니다.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "실내 앞",
+    "뒷좌석",
+    "엔진룸",
+    "휠",
+    "옵션 작동",
+    "외관 후면",
+    "외관 전면"
+   ]
+  }
+ }
+}
