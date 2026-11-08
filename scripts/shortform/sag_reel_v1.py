@@ -864,20 +864,30 @@ def phrase_img_be(text, kw=-1):
 
 
 def phrase_img_de(text):
-    """오토스카우트24 독일 말 자막(채널 쇼츠 화면): 바탕·외곽선 없이 중간 굵기 흰 글자 + 부드러운 그림자, 강조 없음, 영화 자막처럼 조용히"""
+    """오토스카우트24 독일 말 자막(원본 쇼츠 직접 실측 2026-11-08 + 120편 분석): 바탕 없음 · 굵은 흰 글자 + 얇은 검정 외곽선 + 옅은 그림자,
+    강조색 없음(97%가 말 자막, 외곽선 78%), 바로 등장(95%), 문장 그대로 한 줄, 화면 높이 58%"""
     k = ('de', text)
     if k in _cache:
         return _cache[k]
     from PIL import ImageFilter
-    fnt = ImageFont.truetype(SEMI, 54)
+    fnt = ImageFont.truetype(BOLD, 60)
     text = text.strip(' ,.')
-    tw = fnt.getlength(text)
-    im = Image.new('RGBA', (int(tw + 80), 120), (0, 0, 0, 0))
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 60 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    lh = 78
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + 80), lh * len(lines) + 40), (0, 0, 0, 0))
     sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
-    ImageDraw.Draw(sh).text((40 + 2, 62), text, font=fnt, fill=(0, 0, 0, 200), anchor='lm')
-    sh = sh.filter(ImageFilter.GaussianBlur(6))
-    im.alpha_composite(sh)
-    ImageDraw.Draw(im).text((40, 60), text, font=fnt, fill=(255, 255, 255), anchor='lm')
+    sd = ImageDraw.Draw(sh)
+    for i, l in enumerate(lines):
+        sd.text((im.width / 2 + 2, 20 + lh * i + lh / 2 + 3), l, font=fnt, fill=(0, 0, 0, 150), anchor='mm', stroke_width=4, stroke_fill=(0, 0, 0, 150))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
+    d = ImageDraw.Draw(im)
+    for i, l in enumerate(lines):
+        d.text((im.width / 2, 20 + lh * i + lh / 2), l, font=fnt, fill=(255, 255, 255), anchor='mm', stroke_width=4, stroke_fill=(0, 0, 0))
     _cache[k] = im
     return im
 
@@ -1036,10 +1046,10 @@ def overlay(T, total, shots, shot, blk):
             cy = STYLE.get('cap_cy', 1300)
             paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, min(1, (T - cur[0]) / .04))
             return ov, False
-        if STYLE.get('cap_style') == 'de':  # 독일: 그림자만 있는 흰 글자, 0.12초 페이드
+        if STYLE.get('cap_style') == 'de':  # 독일: 외곽선 흰 글자, 강조 없음, 바로 등장
             im = phrase_img_de(cur[2])
-            cy = STYLE.get('cap_cy', 1180)
-            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, k)
+            cy = STYLE.get('cap_cy', 1114)
+            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, min(1, (T - cur[0]) / .04))
             return ov, False
         if STYLE.get('cap_style') == 'plain':  # 오토스카우트 NL 말 자막: 바탕 없이 흰 굵은 글자+검정 외곽선, 지금 말하는 낱말만 파랑(말 따라 이동), 톡 등장
             act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
