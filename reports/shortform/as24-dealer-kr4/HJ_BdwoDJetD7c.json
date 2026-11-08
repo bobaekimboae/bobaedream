@@ -1,0 +1,928 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/BdwoDJetD7c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6630,
+  "candidatesTokenCount": 7281,
+  "totalTokenCount": 13911,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5370
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.9,
+   "aspect": "9:16",
+   "car": "페라리 296 GTB",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 3.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.4,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.2,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.1,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 36.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 37.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 38.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 43.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 46.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.4,
+    "end": 48.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 50.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 52.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 54.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.4,
+    "end": 56.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.4,
+    "end": 57.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.9,
+    "end": 59.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "보시는",
+    "ko": "보시는",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.0,
+    "text": "페라리",
+    "ko": "페라리",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.0,
+    "text": "미쳤다는데",
+    "ko": "미쳤다는데",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.1,
+    "text": "신차가는",
+    "ko": "신차가는",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "450,000,000",
+    "ko": "4억 5천만 원",
+    "kind": "가격",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.5,
+    "text": "현재",
+    "ko": "현재",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.3,
+    "text": "1억",
+    "ko": "1억",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.0,
+    "text": "감가",
+    "ko": "감가",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.1,
+    "text": "차도",
+    "ko": "차도",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 10.3,
+    "text": "최신형인데..",
+    "ko": "최신형인데..",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.8,
+    "text": "과연",
+    "ko": "과연",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "text": "판매할까요?!",
+    "ko": "판매할까요?!",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.5,
+    "text": "296 GTB",
+    "ko": "296 GTB",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.8,
+    "text": "830HP",
+    "ko": "830마력",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "text": "2.9초",
+    "ko": "2.9초",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 49.5,
+    "text": "3000km",
+    "ko": "3000km",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.4,
+    "type": "휙",
+    "event": "화면 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "키 보여주는 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "띵",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "쿵",
+    "event": "1억 감가 자막 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "휙",
+    "event": "296 GTB 타이틀 텍스트 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "쿵",
+    "event": "830HP 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "휙",
+    "event": "제로백 2.9초 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 긴장감 있는 비트",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "what": "가성비 최고 네온 효과 텍스트",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "페이드",
+    "purpose": "시선 유도 및 훅 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "지금 보시는 최신형 페라리 가성비가 미쳤다는데 알고 계셨나요?",
+    "ko": "지금 보시는 최신형 페라리 가성비가 미쳤다는데 알고 계셨나요?"
+   },
+   {
+    "start": 3.0,
+    "end": 7.7,
+    "text": "신차가는 4억 5천만 원인데 현재 1억 이상 감가 되었습니다.",
+    "ko": "신차가는 4억 5천만 원인데 현재 1억 이상 감가 되었습니다."
+   },
+   {
+    "start": 7.7,
+    "end": 11.5,
+    "text": "오래된 차도 아니고 최신형인데요. 흠 과연 얼마에 판매할까요?",
+    "ko": "오래된 차도 아니고 최신형인데요. 흠 과연 얼마에 판매할까요?"
+   },
+   {
+    "start": 11.5,
+    "end": 16.0,
+    "text": "오늘은 올 레드로 멋을 냈습니다. 최신형 하이브리드 페라리 296 GTB를 소개합니다.",
+    "ko": "오늘은 올 레드로 멋을 냈습니다. 최신형 하이브리드 페라리 296 GTB를 소개합니다."
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "올데이 하이브리드 슈퍼카로 사랑받는 이유와 그 매력은 무엇일까요?",
+    "ko": "올데이 하이브리드 슈퍼카로 사랑받는 이유와 그 매력은 무엇일까요?"
+   },
+   {
+    "start": 20.0,
+    "end": 23.3,
+    "text": "먼저 830마력 슈퍼카인데 승차감은 911보다 말캉합니다.",
+    "ko": "먼저 830마력 슈퍼카인데 승차감은 911보다 말캉합니다."
+   },
+   {
+    "start": 23.3,
+    "end": 27.5,
+    "text": "편의 사양으로 무선 애플 카플레이와 통풍 시트 서라운드 뷰까지 있습니다.",
+    "ko": "편의 사양으로 무선 애플 카플레이와 통풍 시트 서라운드 뷰까지 있습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 31.8,
+    "text": "핸들도 정말 가볍고 변속 느낌, 가속감 모두 고급스러움 그 자체입니다!",
+    "ko": "핸들도 정말 가볍고 변속 느낌, 가속감 모두 고급스러움 그 자체입니다!"
+   },
+   {
+    "start": 31.8,
+    "end": 36.3,
+    "text": "더 놀라운 사실은 EV 모드로 짧은 거리 기름 한 방울 없이 출퇴근 가능하구요!",
+    "ko": "더 놀라운 사실은 EV 모드로 짧은 거리 기름 한 방울 없이 출퇴근 가능하구요!"
+   },
+   {
+    "start": 36.3,
+    "end": 41.5,
+    "text": "엔진을 깨우면 최신형 V6 하이브리드 슈퍼카답게 제로백은 2.9초 달성!",
+    "ko": "엔진을 깨우면 최신형 V6 하이브리드 슈퍼카답게 제로백은 2.9초 달성!"
+   },
+   {
+    "start": 41.5,
+    "end": 46.0,
+    "text": "더 말이 필요한가요? 외장은 로쏘 코르사 레드 컬러에 실내 가죽은 로쏘 페라리 컬러!",
+    "ko": "더 말이 필요한가요? 외장은 로쏘 코르사 레드 컬러에 실내 가죽은 로쏘 페라리 컬러!"
+   },
+   {
+    "start": 46.0,
+    "end": 49.5,
+    "text": "2023년 출고 차량이지만 주행거리는 고작 3000km!",
+    "ko": "2023년 출고 차량이지만 주행거리는 고작 3000km!"
+   },
+   {
+    "start": 49.5,
+    "end": 55.5,
+    "text": "와! 당연히 완전 무사고 보험이력 0원, 신차나 다름없는 이 컨디션으로 이 차량을 구매하실 새로운 주인분을 찾습니다!",
+    "ko": "와! 당연히 완전 무사고 보험이력 0원, 신차나 다름없는 이 컨디션으로 이 차량을 구매하실 새로운 주인분을 찾습니다!"
+   },
+   {
+    "start": 55.5,
+    "end": 59.9,
+    "text": "판매 가격과 더 많은 정보를 본문에서 확인해 보세요. 감사합니다.",
+    "ko": "판매 가격과 더 많은 정보를 본문에서 확인해 보세요. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 11.5,
+    "speed": "빠름",
+    "summary": "신차가 4억 5천 대비 1억 감가된 최신 페라리 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.5,
+    "end": 20.0,
+    "speed": "보통",
+    "summary": "올레드 페라리 296 GTB 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 20.0,
+    "end": 23.3,
+    "speed": "빠름",
+    "summary": "830마력 출력과 편안한 승차감 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 23.3,
+    "end": 31.8,
+    "speed": "빠름",
+    "summary": "카플레이, 통풍시트, 어라운드뷰 등 편의 옵션 및 주행 질감"
+   },
+   {
+    "stage": "기능",
+    "start": 31.8,
+    "end": 41.5,
+    "speed": "빠름",
+    "summary": "EV 주행 가능 모드 및 제로백 2.9초 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 41.5,
+    "end": 49.5,
+    "speed": "보통",
+    "summary": "외장/실내 색상 조합 및 실주행거리 3000km 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 49.5,
+    "end": 55.5,
+    "speed": "빠름",
+    "summary": "완전 무사고, 보험이력 0원 상태 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 55.5,
+    "end": 59.9,
+    "speed": "보통",
+    "summary": "본문 확인 안내 및 마무리 인사"
+   }
+  ],
+  "rules": [
+   "핵심 강조 단어는 노란색 볼드 자막으로 화면 중앙 하단에 배치",
+   "화면 전환마다 빠른 컷 전환과 휘익/쿵 효과음을 적절히 매칭",
+   "차량의 장점을 1~2초 단위의 짧은 컷으로 연속적으로 전달하여 몰입도 극대화",
+   "본문 텍스트 확인 유도로 댓글/설명란 전환 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 23.3,
+    "end": 26.2,
+    "feature": "무선 애플 카플레이 & 통풍시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.5,
+    "feature": "서라운드 뷰",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "네온 그래픽 '가성비 최고'와 함께 페라리 296 GTB 주행/조명 샷 등장",
+   "type": "가격",
+   "text": "지금 보시는 최신형 페라리 가성비가 미쳤다는데 알고 계셨나요?"
+  },
+  "narration_points": [
+   {
+    "t": 4.1,
+    "point": "신차가 4억 5천만 원에서 1억 이상 감가",
+    "category": "가격·조건"
+   },
+   {
+    "t": 20.0,
+    "point": "830마력 슈퍼카지만 911보다 편안한 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 24.0,
+    "point": "무선 카플레이, 통풍시트, 서라운드 뷰 장착",
+    "category": "편의"
+   },
+   {
+    "t": 32.5,
+    "point": "전기 EV 모드로 출퇴근 가능",
+    "category": "편의"
+   },
+   {
+    "t": 39.5,
+    "point": "제로백 2.9초의 초고성능",
+    "category": "성능"
+   },
+   {
+    "t": 42.5,
+    "point": "외장 로쏘 코르사, 실내 로쏘 페라리 올레드 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 47.5,
+    "point": "2023년식 실주행 3,000km, 무사고 보험이력 0원",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 13.0
+  },
+  "cta": {
+   "t": 56.0,
+   "text": "판매 가격과 더 많은 정보를 본문에서 확인해 보세요.",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "실내 키",
+    "센터페시아",
+    "계기판",
+    "실내 시트",
+    "휠",
+    "전체 외관",
+    "실내 디테일",
+    "외관 디테일",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 중앙 1~2줄의 굵은 텍스트 자막 및 노란색 포인트 강조 일관되게 사용"
+  }
+ }
+}

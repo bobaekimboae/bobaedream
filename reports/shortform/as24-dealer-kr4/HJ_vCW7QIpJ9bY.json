@@ -1,0 +1,815 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/vCW7QIpJ9bY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6007,
+  "candidatesTokenCount": 6559,
+  "totalTokenCount": 13298,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4747
+   }
+  ],
+  "thoughtsTokenCount": 732,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 52.5,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.1,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 10.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 24.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 37.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 40.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 47.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 49.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 52.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "신차",
+    "ko": "신차",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "신차",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.4,
+    "text": "5년간",
+    "ko": "5년간",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5년간",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.2,
+    "text": "1인 소유",
+    "ko": "1인 소유",
+    "kind": "말 자막",
+    "y_pct": 6.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1인 소유",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "판매합니다!",
+    "ko": "판매합니다!",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "판매합니다!",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "20,000km",
+    "ko": "20,000km",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20,000km",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "text": "URUS V8",
+    "ko": "우루스 V8",
+    "kind": "제목",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "URUS V8",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "Blue Eleos",
+    "ko": "블루 엘리오스",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Blue Eleos",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "text": "308,000,000원",
+    "ko": "308,000,000원",
+    "kind": "가격",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "308,000,000원",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 41.5,
+    "text": "무사고!",
+    "ko": "무사고!",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "무사고!",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 42.6,
+    "text": "0원!",
+    "ko": "0원!",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "0원!",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "텍스트 및 강조 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.4,
+    "type": "톡",
+    "event": "1인 소유 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "휙",
+    "event": "휠 컷으로 전환되는 셔터/슬라이드 트랜지션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "휙",
+    "event": "무광 PPF 전환 이펙트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "띵",
+    "event": "신차가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.8,
+    "type": "톡",
+    "event": "0원 강조 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "what": "말풍선/강조 스티커 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 35.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 강조",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.5,
+    "what": "강조 스파크 이펙트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 60.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시선 유도",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "what": "원형 무광 래핑 시뮬레이션 와이프 효과",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "밀려옴",
+    "purpose": "무광 PPF 시공 시 외관 비주얼 제시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "신차 구매하시고 5년간 1인 소유하셨던 우루스를 판매합니다!",
+    "ko": "신차 구매하시고 5년간 1인 소유하셨던 우루스를 판매합니다!"
+   },
+   {
+    "start": 3.6,
+    "end": 8.0,
+    "text": "바쁜 비즈니스로 5년간 주행거리는 고작 20,000km입니다.",
+    "ko": "바쁜 비즈니스로 5년간 주행거리는 고작 20,000km입니다."
+   },
+   {
+    "start": 8.0,
+    "end": 13.5,
+    "text": "8기통 트윈터보 람보르기니 SUV 출시로 전 세계를 놀라게 했던 우루스, 지금은 얼마에 판매될까요?",
+    "ko": "8기통 트윈터보 람보르기니 SUV 출시로 전 세계를 놀라게 했던 우루스, 지금은 얼마에 판매될까요?"
+   },
+   {
+    "start": 13.5,
+    "end": 18.5,
+    "text": "23인치 휠 옵션 포함된 바디는 블루 엘리오스 컬러로 펄이 가득 들어간 파란색!",
+    "ko": "23인치 휠 옵션 포함된 바디는 블루 엘리오스 컬러로 펄이 가득 들어간 파란색!"
+   },
+   {
+    "start": 18.5,
+    "end": 21.5,
+    "text": "전체 무광 PPF 하면 정말 이쁠 것 같은데요. 와, 이쁘겠다.",
+    "ko": "전체 무광 PPF 하면 정말 이쁠 것 같은데요. 와, 이쁘겠다."
+   },
+   {
+    "start": 21.5,
+    "end": 30.5,
+    "text": "실내로 들어서면 퀼팅 옵션이 포함된 실내에 3D B&O 오디오, 파노라마 루프 당연히 있고요. 통풍 마사지 시트와 여기에 흔치 않은 이중접합 유리 옵션까지 모두 포함!",
+    "ko": "실내로 들어서면 퀼팅 옵션이 포함된 실내에 3D B&O 오디오, 파노라마 루프 당연히 있고요. 통풍 마사지 시트와 여기에 흔치 않은 이중접합 유리 옵션까지 모두 포함!"
+   },
+   {
+    "start": 30.5,
+    "end": 35.0,
+    "text": "당시 신차 출고 금액은 3억 800만 원. 이 중 옵션 비용은 약 5,000만 원입니다.",
+    "ko": "당시 신차 출고 금액은 3억 800만 원. 이 중 옵션 비용은 약 5,000만 원입니다."
+   },
+   {
+    "start": 35.0,
+    "end": 40.5,
+    "text": "지금은 지바겐 3억 시대인데, 하하. 잘 관리된 1인 소유 우루스가 좋은 선택이 될 수 있습니다.",
+    "ko": "지금은 지바겐 3억 시대인데, 하하. 잘 관리된 1인 소유 우루스가 좋은 선택이 될 수 있습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 44.5,
+    "text": "완전 무사고! 보험 이력 0원! 매우 청결한 컨디션으로 위탁 판매합니다.",
+    "ko": "완전 무사고! 보험 이력 0원! 매우 청결한 컨디션으로 위탁 판매합니다."
+   },
+   {
+    "start": 44.5,
+    "end": 48.5,
+    "text": "현금 차량으로 할부와 일시불, 그리고 중고 리스까지 원하시는 상품으로 진행 가능합니다.",
+    "ko": "현금 차량으로 할부와 일시불, 그리고 중고 리스까지 원하시는 상품으로 진행 가능합니다."
+   },
+   {
+    "start": 48.5,
+    "end": 52.5,
+    "text": "판매 가격과 더 많은 정보를 본문에서 확인해보세요. 감사합니다.",
+    "ko": "판매 가격과 더 많은 정보를 본문에서 확인해보세요. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.6,
+    "speed": "빠름",
+    "summary": "신차 1인 소유 우루스 매물 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 3.6,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "주행거리 20,000km 및 8기통 파워트레인 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 13.5,
+    "end": 21.5,
+    "speed": "보통",
+    "summary": "외관 컬러(Blue Eleos) 및 23인치 휠 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 21.5,
+    "end": 30.5,
+    "speed": "빠름",
+    "summary": "실내 주요 옵션(B&O 오디오, 파노라마루프, 통풍/마사지 시트, 이중접합유리)"
+   },
+   {
+    "stage": "가격",
+    "start": 30.5,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "신차 출고가(3억 8백) 및 옵션가, 가성비 어필"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.5,
+    "end": 48.5,
+    "speed": "보통",
+    "summary": "무사고/보험이력 0원 위탁 조건 및 금융 상품(리스/할부) 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 48.5,
+    "end": 52.5,
+    "speed": "보통",
+    "summary": "상세 가격 본문 확인 유도(CTA)"
+   }
+  ],
+  "rules": [
+   "단어 단위로 통통 튀며 교체되는 중앙 하단 노란색/흰색 자막 사용",
+   "옵션 및 강점 설명 시 1~2초 단위의 컷 전환으로 빠른 템포 유지",
+   "화면 전환마다 휙/톡 효과음을 넣어 몰입도 향상",
+   "상세 가격은 본문(캡션)으로 유도하여 체류 시간 및 클릭 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "feature": "23인치 휠",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "feature": "무광 PPF 가상 시공",
+    "shown_how": "화면 분할",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 24.8,
+    "feature": "3D B&O 오디오 전동 트위터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "feature": "파노라마 루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.8,
+    "feature": "통풍 마사지 퀼팅 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 52.5,
+    "feature": "서라운드 뷰",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "지하주차장에서 헤드램프를 켠 파란색 람보르기니 우루스의 전후면을 빠르게 보여주며 '신차 1인 소유 판매'를 알림",
+   "type": "희귀차",
+   "text": "신차 구매하시고 5년간 1인 소유하셨던 우루스를 판매합니다!"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "5년간 1인 신차 출고 소유 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 6.8,
+    "point": "5년간 주행거리 20,000km의 짧은 실키로수",
+    "category": "상태·이력"
+   },
+   {
+    "t": 8.5,
+    "point": "V8 8기통 트윈터보 고성능 슈퍼 SUV",
+    "category": "성능"
+   },
+   {
+    "t": 14.0,
+    "point": "23인치 휠 및 Blue Eleos 펄 컬러 바디",
+    "category": "디자인"
+   },
+   {
+    "t": 22.5,
+    "point": "실내 퀼팅, B&O 오디오, 파노라마루프, 통풍/마사지, 이중접합유리 풀옵션",
+    "category": "편의"
+   },
+   {
+    "t": 31.0,
+    "point": "출고가 3억 800만 원 (옵션가 약 5,000만 원 포함)",
+    "category": "가격·조건"
+   },
+   {
+    "t": 41.0,
+    "point": "완전 무사고 및 보험이력 0원",
+    "category": "상태·이력"
+   },
+   {
+    "t": 45.0,
+    "point": "현금 차량으로 할부/일시불/중고리스 모두 가능",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.8
+  },
+  "cta": {
+   "t": 48.5,
+   "text": "판매 가격과 더 많은 정보를 본문에서 확인해보세요",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "외관 후면",
+    "계기판",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "실내 앞",
+    "옵션 작동",
+    "외관 후면",
+    "휠",
+    "센터 화면",
+    "실내 앞",
+    "뒷좌석",
+    "센터 화면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "FLOSSY 번호판 플레이트와 노란색 포인트의 자막 스타일 유지"
+  }
+ }
+}

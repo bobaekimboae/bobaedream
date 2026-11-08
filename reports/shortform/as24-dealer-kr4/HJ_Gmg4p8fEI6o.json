@@ -1,0 +1,227 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/Gmg4p8fEI6o",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3623,
+  "candidatesTokenCount": 2052,
+  "totalTokenCount": 7059,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2363
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 1384,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.4,
+   "aspect": "9:16",
+   "car": "롤스로이스 팬텀 드롭헤드 쿠페",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 25.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 7.0,
+    "text": "팬텀 드롭헤드 쿠페\nIN SEOUL 등장",
+    "ko": "팬텀 드롭헤드 쿠페\nIN SEOUL 등장",
+    "kind": "제목",
+    "y_pct": 61.0,
+    "x_center_pct": 33.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "IN SEOUL 등장",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 15.0,
+    "text": "V12 자연흡기 5.6M\n초대형 4인승 오픈카",
+    "ko": "V12 자연흡기 5.6M\n초대형 4인승 오픈카",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 21.0,
+    "text": "블랙뱃지 스타일 튜닝\n진짜 남자의 오픈카 입고",
+    "ko": "블랙뱃지 스타일 튜닝\n진짜 남자의 오픈카 입고",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 25.4,
+    "text": "구매 문의 환영합니다!",
+    "ko": "구매 문의 환영합니다!",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 34.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/트랩",
+   "bpm_est": 125,
+   "mood": "웅장하고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.0,
+    "speed": "보통",
+    "summary": "팬텀 드롭헤드 쿠페 소프트탑 개폐 시연 시작 및 차종 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 7.0,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "V12 엔진 및 차체 전장 크기 스펙 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 15.0,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "블랙뱃지 스타일 튜닝 포인트 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 21.0,
+    "end": 25.4,
+    "speed": "보통",
+    "summary": "소프트탑 체결 완료 및 구매 문의 유도"
+   }
+  ],
+  "rules": [
+   "단일 롱테이크 샷으로 오픈탑의 작동 전체 과정을 자연스럽게 노출한다",
+   "시선의 방해를 최소화하기 위해 화면 좌측 하단에 간결한 2줄 자막으로 핵심 스펙만 제시한다",
+   "목소리 설명 대신 웅장한 비트 음악을 깔아 차량의 압도적인 아우라를 강조한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 25.4,
+    "feature": "전동 소프트탑 컨버터블 개폐",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "실내 쇼룸 2층 높이에서 바라본 롤스로이스 팬텀 드롭헤드의 소프트탑이 닫히기 시작하는 희귀한 장면",
+   "type": "희귀차",
+   "text": "팬텀 드롭헤드 쿠페 IN SEOUL 등장"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "초희귀 모델 팬텀 드롭헤드 쿠페 서울 등장",
+    "category": "희소성"
+   },
+   {
+    "t": 7.0,
+    "point": "V12 자연흡기 엔진과 5.6미터에 달하는 초대형 4인승 오픈카",
+    "category": "성능"
+   },
+   {
+    "t": 15.0,
+    "point": "블랙뱃지 스타일로 튜닝된 압도적 외관",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 21.0,
+   "text": "구매 문의 환영합니다!",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 후면",
+    "옵션 작동"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검은색 외곽선이 들어간 화이트/옐로우 볼드 자막 스타일"
+  }
+ }
+}
