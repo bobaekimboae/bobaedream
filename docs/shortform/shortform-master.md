@@ -181,7 +181,12 @@
 | T57 | rea-video b32fbbd(Apache-2.0) | ✅ | 노트북 `Documents\tools\rea-video`, Python 3.12에 설치. 스킬을 `~/.claude` · `~/.codex` · `~/.agents` skills에 연결. 윈도우는 사용자 환경 변수 `PYTHONIOENCODING=utf-8` · `PYTHONUTF8=1` 필요(없으면 중국어 도움말에서 멈춤). 독일 쇼츠 25초 → 13컷 · 소리 분리 · 178 BPM · 효과음 2개, 8분 10초. 화면 모델 없이 돌리면 실사/AI 판단 신뢰도 낮음(이번 55%, 실사를 「AI 66%」로 오판) → 제미나이를 `REA_VLM_*`로 붙이거나 에이전트가 `rea-video review`로 직접 보고 고쳐야 함 |
 | T58 | PySceneDetect 0.7.2 | ✅ | 컷 경계 검출. opencv는 rea-video와 같은 headless 하나만 씀(`--no-deps` 설치) |
 | T59 | HyperFrames 스킬 4종 | ✅ | `hyperframes` · `-cli` · `-registry` · `remotion-to-hyperframes`, 클로드 · 코덱스 모두 |
-| T60 | beat_this · CLAP · SAM 2 · audio-separator | ⏸ | torch(약 2GB)가 필요해 보류. 노트북 GPU 확인 뒤 결정 |
+| T60 | beat_this · CLAP · SAM 2 | ⏸ | 그래픽카드 필요. Thinkbook은 Intel 내장(메모리 64GB)이라 보류 |
+| T62 | auto-editor 29.3.1 (Unlicense) | ✅ | 무음 후보만 표시: `--edit audio:threshold=0.04 --export v1` → chunks 속도 99999 = 자를 후보. 시동음·문 닫힘 보호 먼저 |
+| T63 | audio-separator 0.48.0 (MIT, UVR 모델) | 🧪 | torch 2.15 CPU와 함께 설치. rea-video stems와 비교용 |
+| T64 | librosa 1.0.0 (ISC) | ✅ | 박자 시각 추출. keyandbpm(AGPL, 박자 시각 없음) 대신 |
+| T65 | Ollama + Qwen2.5-VL 7B | ⏸ | 노트북 네트워크에서 설치 파일 다운로드 504. 재시도 필요 |
+| T66 | 스킬 `bobae-video-tools` | ✅ | 도구별 명령·주의점. 노트북 `문서\tools\bobae-video-tools`, 클로드·코덱스·agents 스킬 폴더에 연결 |
 | T61 | Raea | ⏸ | FSL 라이선스(경쟁 사용 제한) · canary 버전이라 보류 |
 
 ## 4. 남은 일
