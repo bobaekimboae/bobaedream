@@ -1,0 +1,478 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/RVZQovY32HM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7839,
+  "candidatesTokenCount": 4437,
+  "totalTokenCount": 12797,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6471
+   }
+  ],
+  "thoughtsTokenCount": 521,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 71.5,
+   "aspect": "9:16",
+   "car": "해당 없음(자동차 정기검사 규정 인터뷰)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 15.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 28.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 34.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 45.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 50.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 64.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.5,
+    "end": 71.5,
+    "part": "기타",
+    "camera": "확대",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 4.5,
+    "text": "Anne De Baetzelier PRESENTATRICE",
+    "ko": "안 드 바에첼리어 / 진행자",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "Anne De Baetzelier",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 9.5,
+    "text": "Annick De Ridder MINISTER MOBILITEIT",
+    "ko": "아닉 드 리더 / 교통부 장관",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "Annick De Ridder",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 15.5,
+    "text": "Vanaf 1 september om de 2 jaar naar de autokeuring voor personenwagens ouder dan 4 jaar.",
+    "ko": "9월 1일부터 4년 이상 된 승용차는 2년에 한 번 정기검사.",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 33.5,
+    "text": "Taxis, ambulances en bussen maar om het jaar op controle",
+    "ko": "택시, 구급차, 버스는 1년에 한 번만 검사",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 50.5,
+    "text": "Bij ongeval of groot gebrek pas controleren na 2 maand",
+    "ko": "사고나 중대 결함 발생 시 2개월 후에 재검사",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 9.8,
+    "type": "휙",
+    "event": "첫 번째 노란색 핵심 요약 카드 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "휙",
+    "event": "요약 카드에서 스튜디오 영상으로 복귀",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.0,
+    "type": "휙",
+    "event": "두 번째 핵심 요약 카드 슬라이드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "휙",
+    "event": "세 번째 요약 카드 슬라이드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 64.8,
+    "type": "쿵",
+    "event": "엔딩 로고 및 스티어링 휠 등장 충격음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "로파이 비트 / 팝 인스트루멘털",
+   "bpm_est": 95,
+   "mood": "차분하고 전문적인 토크쇼 분위기",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 64.5,
+     "what": "대화 종료 후 아웃트로 비트 볼륨 상승"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 64.5,
+    "what": "우측 상단 AutoScout24 로고 워터마크",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 82.0,
+    "y_pct": 4.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 64.5,
+    "end": 71.5,
+    "what": "IN THE DRIVER'S SEAT By AutoScout24 팟캐스트 아웃트로 화면",
+    "is_3d": true,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "확대 전환",
+    "purpose": "엔드카드 및 채널 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "Sinds 1 september zijn de regels rond de technische keuring in Vlaanderen veranderd.",
+    "ko": "9월 1일부터 플랑드르 지역의 자동차 정기검사 규정이 변경되었습니다."
+   },
+   {
+    "start": 4.8,
+    "end": 9.8,
+    "text": "Er is inderdaad behoorlijk wat veranderd, onder andere dat voor personenwagens...",
+    "ko": "실제로 꽤 많은 변화가 있었는데요, 승용차의 경우 등을 포함해..."
+   },
+   {
+    "start": 9.8,
+    "end": 15.6,
+    "text": "...het altijd in de toekomst om de 2 jaar zal zijn voor wagens ouder dan 4 jaar.",
+    "ko": "앞으로는 4년 이상 된 차량의 경우 항상 2년에 한 번씩 검사받게 됩니다."
+   },
+   {
+    "start": 15.6,
+    "end": 27.5,
+    "text": "Maar ook de lichte vracht bestelwagens die gaan we allemaal geleidelijk aan naar om de 2 jaar brengen. Nu is dat ook nog om het jaar. En ook niet onbelangrijk: taxi's bijvoorbeeld...",
+    "ko": "소형 화물 밴도 점차 2년 주기로 전환될 예정입니다. 지금은 매년 받아야 하죠. 또한 중요한 점으로, 예를 들어 택시의 경우..."
+   },
+   {
+    "start": 27.5,
+    "end": 36.0,
+    "text": "...of ambulances of bussen, soms moesten die om de 3 maand of om de 6 maand, die worden allemaal naar om het jaar gebracht.",
+    "ko": "...구급차나 버스는 기존에 3개월 또는 6개월마다 검사를 받아야 했지만 모두 1년 주기로 완화됩니다."
+   },
+   {
+    "start": 36.0,
+    "end": 45.4,
+    "text": "En ook andere dingen: bijvoorbeeld de verplichte keuring van de trekhaak gaat eruit, dat wordt geïntegreerd in de gehele keuring maar niet meer apart.",
+    "ko": "그리고 견인용 고리(토우바)의 의무 검사가 폐지되어 전체 검사에 통합되고 별도로 받지 않아도 됩니다."
+   },
+   {
+    "start": 45.4,
+    "end": 54.0,
+    "text": "En je krijgt ook bij een heel groot gebrek 2 maanden om het herstel te doen en niet 15 dagen, want dat was gewoon ondoenbaar voor heel veel gezinnen en ook voor de garages.",
+    "ko": "중대한 결함이 발생했을 때도 15일이 아닌 2개월의 수리 유예 기간을 얻게 됩니다. 기존 규정은 많은 가정과 정비소에 너무 비현실적이었기 때문입니다."
+   },
+   {
+    "start": 54.0,
+    "end": 64.5,
+    "text": "Dat is ook logisch, dat vraagt aan de verzekering. Keuring is wel degelijk gigantisch belangrijk voor de verkeersveiligheid, en de Vlaming moet ook voelen dat het terecht is dat die af en toe langs de keuring moet.",
+    "ko": "보험 처리 등도 감안하면 당연한 조치입니다. 정기검사는 교통안전에 매우 중요하며, 시민들도 검사를 받는 것이 타당하다고 느껴야 합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "진행자가 플랑드르 정기검사 변경 이슈 질문 제기"
+   },
+   {
+    "stage": "기능",
+    "start": 4.8,
+    "end": 28.0,
+    "speed": "보통",
+    "summary": "승용차 및 밴의 2년 주기 완화 정책 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 28.0,
+    "end": 45.4,
+    "speed": "보통",
+    "summary": "대중교통/구급차 검사 완화 및 견인고리 별도 검사 폐지"
+   },
+   {
+    "stage": "기능",
+    "start": 45.4,
+    "end": 64.5,
+    "speed": "보통",
+    "summary": "중대 결함 재검사 유예기간 2개월 연장 및 제도 정당성 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 64.5,
+    "end": 71.5,
+    "speed": "보통",
+    "summary": "팟캐스트 'IN THE DRIVER'S SEAT' 채널 플랫폼 안내 엔드스크린"
+   }
+  ],
+  "rules": [
+   "진행자 및 게스트 소개 네임태그는 노란 브러시 스트로크 질감의 직사각형 배경을 하단에 배치한다.",
+   "핵심 제도 변경점이 등장할 때 전체 화면을 채우는 시그니처 옐로우(#FEE600) 카드와 마이크 아이콘으로 핵심 문구를 굵은 산세리프로 명확히 전달한다.",
+   "요약 카드가 화면에 전환될 때 경쾌한 스와이프 휘익(Whoosh) 효과음을 매치하여 시청자의 집중을 전환한다.",
+   "복잡한 정책 설명 인터뷰 도중 실시간 말자막(자막 테두리/강조색 변환)을 화면 하단에 띄워 가독성을 높인다.",
+   "마지막 엔드카드는 팟캐스트 공식 로고와 플랫폼(유튜브, 스포티파이, 애플팟캐스트, 링크드인) 아이콘을 정렬하여 구독을 유도한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게, 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.0,
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 6,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FEE600",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 48,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "굵게, 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 2,
+    "box": "붓질 모양",
+    "box_color": "#FEE600",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 2.0,
+    "text_height_pct": 3.2,
+    "y_pct": 68.0,
+    "x_center_pct": 35.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#111111",
+    "in_anim": "페이드",
+    "in_ms": 250,
+    "out_anim": "페이드",
+    "stay_sec": 4.0,
+    "count": 2,
+    "sure": true
+   },
+   {
+    "role": "제목",
+    "font": "아주 굵게, 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FEE600",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 5.0,
+    "text_height_pct": 3.5,
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "max_lines": 4,
+    "words_per_line": 5,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "옆에서 밀려옴",
+    "in_ms": 300,
+    "out_anim": "밀려옴",
+    "stay_sec": 5.5,
+    "count": 3,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "휙",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 250,
+    "loud_vs_voice": "비슷",
+    "count": 3
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "쿵",
+    "offset_ms_vs_visual": 50,
+    "length_ms": 500,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 64.5,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 7.0
+  },
+  "safe_zone_note": "오른쪽 인터랙션 버튼 영역(좋아요, 댓글 등)과 하단 캡션 영역을 고려하여 핵심 자막과 정보 카드를 중앙 15~85% 구역에 안정적으로 배치함."
+ }
+}

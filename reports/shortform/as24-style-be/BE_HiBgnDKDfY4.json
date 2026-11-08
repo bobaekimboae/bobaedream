@@ -1,0 +1,517 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/HiBgnDKDfY4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3276,
+  "candidatesTokenCount": 4526,
+  "totalTokenCount": 8184,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1908
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "thoughtsTokenCount": 382,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.3,
+   "aspect": "9:16",
+   "car": "Fiat 500, VW Golf GTI, Audi RS Q3, Porsche Taycan",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 11.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Je krijgt €50.000. Welke auto kies jij?",
+    "ko": "5만 유로가 생긴다면 어떤 차를 고르시겠어요?",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "€50.000",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.6,
+    "text": "Ik een nieuwe 500 cabrio een hybride.",
+    "ko": "저는 새 피아트 500 카브리오 하이브리드요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": "없음",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "500 cabrio",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 11.6,
+    "text": "Volkswagen. Ik heb een Golf 10 jaar oud, maar ik ben daar nog altijd heel content van.",
+    "ko": "폭스바겐이요. 10년 된 골프가 있는데 여전히 아주 만족하거든요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": "없음",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Volkswagen",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.5,
+    "text": "Ik zou het eigenlijk niet weten, maar toch een hoger model.",
+    "ko": "사실 잘 모르겠지만, 그래도 좀 더 차고가 높은 모델이요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": "없음",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "hoger model",
+    "sure": true
+   },
+   {
+    "start": 15.7,
+    "end": 17.5,
+    "text": "Porsche Taycan, ik leg wel bij.",
+    "ko": "포르쉐 타이칸이요, 돈은 제가 더 보탤게요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": "없음",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Porsche Taycan",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.3,
+    "text": "Die Porsche Taycan is te koop op AutoScout24.be",
+    "ko": "그 포르쉐 타이칸은 AutoScout24.be에서 구매하실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": "없음",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.8,
+    "type": "톡",
+    "event": "피아트 500 매물 카드 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "톡",
+    "event": "폭스바겐 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "톡",
+    "event": "폭스바겐 골프 매물 카드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "아우디 RS Q3 매물 카드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "포르쉐 타이칸 매물 카드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "펑키 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "what": "Fiat 500 AutoScout24 매물 카드 그래픽",
+    "is_3d": false,
+    "size_w_pct": 46.0,
+    "x_pct": 48.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "언급된 차량 시세 및 매물 제시",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 7.8,
+    "what": "폭스바겐 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 11.8,
+    "what": "VW Golf GTI AutoScout24 매물 카드 그래픽",
+    "is_3d": false,
+    "size_w_pct": 46.0,
+    "x_pct": 48.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "언급된 차량 시세 및 매물 제시",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "what": "Audi RS Q3 AutoScout24 매물 카드 그래픽",
+    "is_3d": false,
+    "size_w_pct": 46.0,
+    "x_pct": 48.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "높은 모델 제안 매물 제시",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "what": "Porsche Taycan AutoScout24 매물 카드 그래픽",
+    "is_3d": false,
+    "size_w_pct": 46.0,
+    "x_pct": 48.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "언급된 차량 시세 및 매물 제시",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.3,
+    "what": "AutoScout24 브랜드 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Je krijgt €50.000. Welke auto kies jij?",
+    "ko": "5만 유로가 생긴다면 어떤 차를 사시겠습니까?"
+   },
+   {
+    "start": 2.6,
+    "end": 6.8,
+    "text": "Ik een nieuwe 500 cabrio een hybride.",
+    "ko": "저는 새 피아트 500 카브리오 하이브리드요."
+   },
+   {
+    "start": 6.8,
+    "end": 11.8,
+    "text": "Volkswagen. Ik heb een Golf 10 jaar oud, maar ik ben daar nog altijd heel content van.",
+    "ko": "폭스바겐이요. 10년 된 골프가 있는데 아직도 정말 만족스러워요."
+   },
+   {
+    "start": 11.8,
+    "end": 15.6,
+    "text": "Ik zou het eigenlijk niet weten, maar toch een hoger model.",
+    "ko": "전 사실 잘 모르겠는데, 그래도 차고가 높은 모델이요."
+   },
+   {
+    "start": 15.6,
+    "end": 17.6,
+    "text": "Porsche Taycan, ik leg wel bij.",
+    "ko": "포르쉐 타이칸이요. 차액은 제가 낼게요."
+   },
+   {
+    "start": 17.6,
+    "end": 20.3,
+    "text": "Die Porsche Taycan is te koop op AutoScout24.be",
+    "ko": "그 포르쉐 타이칸은 AutoScout24.be에서 사실 수 있어요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.6,
+    "speed": "빠름",
+    "summary": "진행자가 5만 유로가 주어지면 무슨 차를 살지 시청자와 인터뷰이에게 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.6,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "첫 번째 여성 답변: 피아트 500 카브리오 하이브리드 및 매물 카드 노출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 11.8,
+    "speed": "보통",
+    "summary": "두 번째 여성 답변: 폭스바겐 골프 GTI 및 만족도 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.8,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "세 번째 여성 답변: 높은 SUV 모델(아우디 RS Q3 매물 제시)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 15.6,
+    "end": 17.6,
+    "speed": "빠름",
+    "summary": "남성 인터뷰이 답변: 포르쉐 타이칸"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 17.6,
+    "end": 20.3,
+    "speed": "빠름",
+    "summary": "진행자가 해당 차량을 AutoScout24에서 구매할 수 있다고 마무리하며 로고 노출"
+   }
+  ],
+  "rules": [
+   "인터뷰이가 특정 차종을 말하는 순간 실제 AutoScout24 앱 매물 카드 형태의 그래픽 칩을 상단에 팝업 효과음과 함께 띄움",
+   "매물 카드에는 차량 사진, 모델명, 가격(€ 단위)이 직관적으로 표기되어 시청자의 가격 체감을 도움",
+   "자막은 하단 중앙에 배치되며 핵심 키워드는 밝은 노란색으로 강조 처리함",
+   "도입부 질문 배너는 브랜드 시그니처인 옐로우 박스를 활용해 시선 집중",
+   "영상 말미에는 인터뷰이가 언급한 차를 플랫폼에서 살 수 있음을 밝히며 브랜드 로고로 CTA 유도"
+  ],
+  "caption_styles": [
+   {
+    "role": "제목",
+    "font": "아주 굵게 고딕체",
+    "letter_case": "문장형",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFE600",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 2.0,
+    "text_height_pct": 3.8,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFE600",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "말 자막",
+    "font": "굵게 고딕체",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 3,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.2,
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 5,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFE600",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 3.5,
+    "count": 5,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "굵게 고딕체",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFFFFF",
+    "box_corner_px_at_1080": 16,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 2.2,
+    "y_pct": 20.0,
+    "x_center_pct": 48.0,
+    "max_lines": 3,
+    "words_per_line": 3,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 3.0,
+    "count": 4,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 100
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 4
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 150,
+    "loud_vs_voice": "비슷",
+    "count": 2
+   }
+  ],
+  "end_card": {
+   "start_sec": 17.6,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.7
+  },
+  "safe_zone_note": "자막이 y 82%에 위치해 쇼츠 하단 타이틀/인터랙션 영역을 간신히 피하며, 매물 정보 칩은 상단(y 20%)에 위치하여 우측 좋아요/댓글 UI와 겹치지 않게 중앙 약간 왼쪽에 배치됨"
+ }
+}

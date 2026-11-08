@@ -1,0 +1,268 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/gS6Q5NDJUiY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2277,
+  "candidatesTokenCount": 2410,
+  "totalTokenCount": 4687,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.3,
+   "aspect": "9:16",
+   "car": "Mazda CX-80",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.0,
+    "end": 7.4,
+    "text": "Mazda CX-80\n€56.490",
+    "ko": "마쓰다 CX-80 / 56,490 유로",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Mazda",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.3,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.0,
+    "type": "톡",
+    "event": "차량 모델명 및 가격 스티커 팝업 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 92,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "화면 분할 3컷 빠른 비트 싱크 인트로"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 7.4,
+    "speed": "보통",
+    "summary": "차량 외관 및 실내 컷 전환과 모델명/가격 칩 표시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.4,
+    "end": 9.3,
+    "speed": "보통",
+    "summary": "AutoScout24 로고 엔딩 카드"
+   }
+  ],
+  "rules": [
+   "초반 2초 동안 3단 분할 컷을 비트에 맞춰 한 칸씩 채우며 시선을 사로잡는다",
+   "메인 컷이 시작될 때 시그니처 옐로우 컬러 칩과 '톡' 효과음으로 차명과 가격을 강조한다",
+   "음악 비트에 딱 맞추어 컷을 전환하며 외관 디테일과 실내 파노라마 선루프를 보여준다",
+   "영상 말미에 브랜드 시그니처 옐로우 칩 디자인의 AutoScout24 로고로 통일감 있게 마무리한다"
+  ],
+  "caption_styles": [
+   {
+    "role": "키워드 칩",
+    "font": "굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFE500",
+    "box_corner_px_at_1080": 30,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 4.2,
+    "y_pct": 14.5,
+    "x_center_pct": 52.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFE500",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 5.4,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFE500",
+    "box_corner_px_at_1080": 24,
+    "box_padding_pct": 4.0,
+    "text_height_pct": 8.0,
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFE500",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.9,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "조금 먼저",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 7.4,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 1.9
+  },
+  "safe_zone_note": "상단 15% 영역에 칩을 배치하여 플랫폼 상하단 및 우측 UI와의 간섭을 완벽히 회피함"
+ }
+}

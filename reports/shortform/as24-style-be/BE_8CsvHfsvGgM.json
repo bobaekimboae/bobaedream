@@ -1,0 +1,261 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/8CsvHfsvGgM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2277,
+  "candidatesTokenCount": 2474,
+  "totalTokenCount": 5271,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   }
+  ],
+  "thoughtsTokenCount": 520,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.9,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLC 43 AMG",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.2,
+    "end": 7.7,
+    "text": "Mercedes Benz\nGLC 43 AMG",
+    "ko": "메르세데스 벤츠 GLC 43 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": "Mercedes Benz",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.9,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/R&B 비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.2,
+    "end": 7.7,
+    "what": "옐로우 찢어진 종이 질감의 텍스트 배너 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 17.5,
+    "y_pct": 71.0,
+    "entrance": "바로",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.9,
+    "what": "AutoScout24 브랜드 시그니처 옐로우 스티커 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.5,
+    "y_pct": 42.0,
+    "entrance": "바로",
+    "purpose": "채널/브랜드 로고 각인",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.2,
+    "speed": "빠름",
+    "summary": "3단 분할 화면으로 외관 및 실내 핵심 모습을 한눈에 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.2,
+    "end": 7.7,
+    "speed": "보통",
+    "summary": "전면, 실내 1열, 2열, 휠, 헤드라이트를 음악 비트에 맞춰 연속 쇼케이스"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.7,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "후면 엠블럼 배경 위에 AutoScout24 로고 노출하며 마무리"
+   }
+  ],
+  "rules": [
+   "시작 1초 동안 3분할 몽타주 컷으로 차량의 전체적인 실루엣과 인테리어를 압축 노출한다.",
+   "차량 정보 자막은 하단 중앙에 노란색 찢어진 종이 스티커 그래픽을 활용해 시선을 집중시킨다.",
+   "내레이션 없이 음악 비트에 맞추어 약 1.2~1.4초 주기로 주요 디테일 컷을 빠르게 전환한다.",
+   "엔딩에는 브랜드 고유 컬러(옐로우)와 로고 그래픽을 화면 중앙에 배치하여 채널 아이덴티티를 확립한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "키워드 칩",
+    "font": "굵게(산세리프)",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 1.5,
+    "text_height_pct": 4.5,
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFEA00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 6.5,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게(산세리프)",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 2.0,
+    "text_height_pct": 6.0,
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFEA00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 2.2,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "조금 먼저",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [],
+  "end_card": {
+   "start_sec": 7.7,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.2
+  },
+  "safe_zone_note": "스티커 자막이 화면 75~80% 높이에 배치되어 릴스/쇼츠 하단 캡션 오버레이 영역과 살짝 겹칠 위험이 있으나 중앙 정렬로 우측 상호작용 아이콘(좋아요·댓글)과의 간섭은 회피됨."
+ }
+}

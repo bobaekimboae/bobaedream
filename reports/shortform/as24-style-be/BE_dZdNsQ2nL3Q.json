@@ -1,0 +1,848 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/dZdNsQ2nL3Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6465,
+  "candidatesTokenCount": 8449,
+  "totalTokenCount": 15436,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5097
+   }
+  ],
+  "thoughtsTokenCount": 522,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 56.4,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLA 250e, GLC 43 AMG, GLE 53 AMG",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 10.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 41.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 45.4,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 48.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 56.4,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Welke kies jij?",
+    "ko": "어떤 걸 고르시겠어요?",
+    "kind": "제목",
+    "y_pct": 23.5,
+    "x_center_pct": 47.0,
+    "text_height_pct": 6.8,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 42.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "kies",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Als je zou moeten kiezen",
+    "ko": "만약 당신이 선택해야 한다면",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "zou",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.6,
+    "text": "Mercedes-Benz\nGLA 250e",
+    "ko": "메르세데스-벤츠 GLA 250e",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 4.8,
+    "text": "Mercedes-Benz\nGLC 43 AMG",
+    "ko": "메르세데스-벤츠 GLC 43 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.0,
+    "text": "Mercedes-Benz\nGLE 53 AMG",
+    "ko": "메르세데스-벤츠 GLE 53 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "text": "Mercedes-Benz\nGLA 250e",
+    "ko": "메르세데스-벤츠 GLA 250e",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "€29.980\n€29.450",
+    "ko": "기존 29,980유로 → 29,450유로",
+    "kind": "가격",
+    "y_pct": 19.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 7.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -6.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€29.450",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 23.5,
+    "text": "Mercedes-Benz\nGLC 43 AMG",
+    "ko": "메르세데스-벤츠 GLC 43 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 35.1,
+    "text": "€37.490\n€36.860",
+    "ko": "기존 37,490유로 → 36,860유로",
+    "kind": "가격",
+    "y_pct": 19.5,
+    "x_center_pct": 46.0,
+    "text_height_pct": 7.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -6.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€36.860",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.2,
+    "text": "Mercedes-Benz\nGLE 53 AMG",
+    "ko": "메르세데스-벤츠 GLE 53 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 51.0,
+    "text": "€63.900\n€62.750",
+    "ko": "기존 63,900유로 → 62,750유로",
+    "kind": "가격",
+    "y_pct": 19.5,
+    "x_center_pct": 69.0,
+    "text_height_pct": 7.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -6.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€62.750",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "헤드라인 질문 칩 'Welke kies jij?' 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "GLA 250e 이름 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.6,
+    "type": "톡",
+    "event": "GLC 43 AMG 이름 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "GLE 53 AMG 이름 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "돈 소리",
+    "event": "GLA 할인 가격표 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "GLC 운전석 차 문 닫히는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "돈 소리",
+    "event": "GLC 할인 가격표 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.9,
+    "type": "돈 소리",
+    "event": "GLE 할인 가격표 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.8,
+    "type": "휙",
+    "event": "엔딩 AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 힙합 인스트루멘털",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활동적",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "인트로 비트 시작"
+    },
+    {
+     "t": 53.5,
+     "what": "엔딩 페이드아웃"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "what": "Welke kies jij? 노란색 붓질 느낌 스티커",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 26.0,
+    "y_pct": 19.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시청자 참여 유도 훅",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "what": "GLA 250e 가격 할인 태그",
+    "is_3d": false,
+    "size_w_pct": 36.0,
+    "x_pct": 56.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "할인 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 35.1,
+    "what": "GLC 43 AMG 가격 할인 태그",
+    "is_3d": false,
+    "size_w_pct": 36.0,
+    "x_pct": 28.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "할인 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 51.0,
+    "what": "GLE 53 AMG 가격 할인 태그",
+    "is_3d": false,
+    "size_w_pct": 36.0,
+    "x_pct": 51.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "할인 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 56.4,
+    "what": "AutoScout24 로고 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 26.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.9,
+    "text": "Als je zou moeten kiezen, ga jij voor de Mercedes-Benz GLA, GLC of de GLE?",
+    "ko": "선택해야 한다면 메르세데스-벤츠 GLA, GLC, 아니면 GLE 중 어떤 걸 고르시겠어요?"
+   },
+   {
+    "start": 5.9,
+    "end": 10.7,
+    "text": "Deze Mercedes-Benz GLA 250e is een plug-in hybride,",
+    "ko": "이 메르세데스-벤츠 GLA 250e는 플러그인 하이브리드 모델이며,"
+   },
+   {
+    "start": 10.7,
+    "end": 12.8,
+    "text": "komt uit 2022,",
+    "ko": "2022년식이고,"
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "66.800km,",
+    "ko": "주행거리는 66,800km,"
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "text": "hij heeft 218 pk,",
+    "ko": "218마력입니다."
+   },
+   {
+    "start": 16.7,
+    "end": 20.0,
+    "text": "en hij kost €29.450.",
+    "ko": "가격은 29,450유로입니다."
+   },
+   {
+    "start": 20.0,
+    "end": 23.9,
+    "text": "Of ga jij voor de Mercedes-Benz GLC 43 AMG?",
+    "ko": "아니면 메르세데스-벤츠 GLC 43 AMG를 고르시겠습니까?"
+   },
+   {
+    "start": 23.9,
+    "end": 25.8,
+    "text": "Dit is een Biturbo 4MATIC,",
+    "ko": "바이터보 4MATIC 모델이며,"
+   },
+   {
+    "start": 25.8,
+    "end": 27.5,
+    "text": "hij komt uit 2017,",
+    "ko": "2017년식,"
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "hij heeft 367 pk,",
+    "ko": "367마력,"
+   },
+   {
+    "start": 29.5,
+    "end": 32.5,
+    "text": "en hij heeft 71.300km op de teller,",
+    "ko": "계기판 기준 71,300km를 주행했고,"
+   },
+   {
+    "start": 32.5,
+    "end": 35.1,
+    "text": "en kost €36.860.",
+    "ko": "가격은 36,860유로입니다."
+   },
+   {
+    "start": 35.1,
+    "end": 40.5,
+    "text": "Of ga jij all-in en kies je voor de Mercedes-Benz GLE 53 AMG?",
+    "ko": "아니면 올인해서 메르세데스-벤츠 GLE 53 AMG를 선택하시겠습니까?"
+   },
+   {
+    "start": 40.5,
+    "end": 42.0,
+    "text": "Turbo 4MATIC+,",
+    "ko": "터보 4MATIC+ 모델로,"
+   },
+   {
+    "start": 42.0,
+    "end": 43.8,
+    "text": "komt uit 2022,",
+    "ko": "2022년식,"
+   },
+   {
+    "start": 43.8,
+    "end": 45.8,
+    "text": "heeft 102.000 km gereden,",
+    "ko": "102,000km를 달렸으며,"
+   },
+   {
+    "start": 45.8,
+    "end": 48.7,
+    "text": "heeft 435 pk,",
+    "ko": "435마력,"
+   },
+   {
+    "start": 48.7,
+    "end": 50.8,
+    "text": "en hij kost €62.750.",
+    "ko": "가격은 62,750유로입니다."
+   },
+   {
+    "start": 50.8,
+    "end": 56.4,
+    "text": "Je vindt ze in de showroom van Falcomotive en op autoscout24.be.",
+    "ko": "Falcomotive 전시장과 autoscout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.9,
+    "speed": "빠름",
+    "summary": "3대의 벤츠 SUV 중 무엇을 선택할지 비교 질문 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.9,
+    "end": 20.0,
+    "speed": "보통",
+    "summary": "첫 번째 차량 GLA 250e 사양(연식, 주행거리, 출력) 및 가격 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 20.0,
+    "end": 35.1,
+    "speed": "보통",
+    "summary": "두 번째 차량 GLC 43 AMG 사양 및 가격 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 35.1,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "세 번째 차량 GLE 53 AMG 사양 및 가격 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.8,
+    "end": 56.4,
+    "speed": "보통",
+    "summary": "쇼룸 워크어웨이 샷 및 AutoScout24 방문 안내"
+   }
+  ],
+  "rules": [
+   "비교 형식으로 3가지 차종을 동일한 스펙 순서(연식 -> 키로수 -> 마력 -> 가격)로 설명하여 일관성을 유지함",
+   "가격이 나올 때마다 노란색 태그 스티커에 기존 정가를 붉은색 취소선으로 긋고 할인가를 크게 표시함",
+   "화면 중앙 하단에 말하는 텍스트 자막을 깔고 핵심 키워드는 노란색으로 강조함",
+   "차량 모델명이 바뀔 때마다 상단 또는 차체 옆에 노란색 텍스트로 모델명을 명확히 고지함"
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 6,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.2,
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFE500",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.2,
+    "count": 18,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#FFE500",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 8,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 5.2,
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 6,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFE500",
+    "box_corner_px_at_1080": 10,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 6.8,
+    "y_pct": 19.5,
+    "x_center_pct": 65.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#D32F2F",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 200,
+    "out_anim": "바로",
+    "stay_sec": 2.2,
+    "count": 3,
+    "sure": true
+   },
+   {
+    "role": "제목",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFE500",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 6.5,
+    "y_pct": 23.5,
+    "x_center_pct": 47.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.2,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 4
+   },
+   {
+    "event": "가격 등장",
+    "sound": "돈 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 250,
+    "loud_vs_voice": "더 큼",
+    "count": 3
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "휙",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 200,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   },
+   {
+    "event": "실제 차 소리",
+    "sound": "실제 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 300,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 53.8,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 2.6
+  },
+  "safe_zone_note": "제목 칩 및 가격 칩은 상단 15~25% 영역에 배치되어 우측 숏폼 아이콘과 하단 제목/계정 정보에 가려지지 않도록 안전구역 준수"
+ }
+}
