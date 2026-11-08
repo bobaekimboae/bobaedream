@@ -807,6 +807,58 @@ def phrase_img_v12(text, kw=-1, boxed=False):
     return im
 
 
+def phrase_img_as24(text):
+    """오토스카우트24 말 자막(200편 분석): 원본 칠(노션 DB 파일 그대로) 위 흰 굵은 글자, 칠 폭 56~80%, 기울기 0도,
+    화면 높이 65%, 톡 튀어나옴. 칠 색은 보배드림 블루 #306BD9(노랑 자리를 우리 색으로)"""
+    text = text.strip(' ,.')
+    keep = {k: STYLE.get(k) for k in ('pad', 'stk_minw', 'stk_maxw', 'stk_weight')}
+    STYLE.update(pad=(1.15, 2.4), stk_minw=.56, stk_maxw=.80, stk_weight='bold')
+    try:
+        im = _sticker_core(text, 61, 0.0, False, True)
+    finally:
+        for k2, v in keep.items():
+            if v is None:
+                STYLE.pop(k2, None)
+            else:
+                STYLE[k2] = v
+    return im
+
+
+def phrase_img_nl(text, kw=-1):
+    """오토스카우트24 네덜란드·벨기에 말 자막(200편 분석, 2026-11-08): 꽉 찬 검정 상자 + 흰 굵은 글자, 상자는 글자 폭에 맞춤,
+    강조어 칩은 보배드림 파랑 #306BD9 + 흰 글자(AS24 노랑 자리를 우리 브랜드색으로, 2026-11-08 사용자), 톡 튀어나오며 등장. 화면 높이 65% 근처(NL 중앙값 65%, BE 70%)"""
+    k = ('nl', text, kw)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(BLACK, 62)
+    text = text.strip(' ,.')
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 70 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    gap = fnt.getlength(' ')
+    lh, pad_x, pad_y = 84, 30, 14
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + pad_x * 2), lh * len(lines) + pad_y * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, im.width - 1, im.height - 1), 10, fill=(0, 0, 0, 240))
+    wi = 0
+    for li, line in enumerate(lines):
+        x = (im.width - fnt.getlength(line)) / 2
+        y = pad_y + lh * li + lh / 2
+        for w in line.split(' '):
+            col = (255, 255, 255)
+            if wi == kw:
+                d.rounded_rectangle((x - 8, y - 36, x + fnt.getlength(w) + 8, y + 38), 8, fill=tuple(STYLE.get('cap_kw_bg', BLUE)) + (255,))
+                col = tuple(STYLE.get('cap_kw_fg', (255, 255, 255)))
+            d.text((x, y), w, font=fnt, fill=col, anchor='lm')
+            wi += 1
+            x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
 def phrase_img(text, act=-1):
     """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(세이프존 폭 810px을 넘으면 가운데 띄어쓰기에서 2줄)
     · 줄 높이 화면의 약 4.2% · 화면 아래 데드존(하단 약 450px)과 오른쪽 버튼 줄을 피한 고정 위치 · 문장부호 없음 · 숫자만 노랑"""
@@ -907,6 +959,20 @@ def overlay(T, total, shots, shot, blk):
             cur = ph
     if cur:
         k = min(1.0, (T - cur[0]) / 0.12)
+        if STYLE.get('cap_style') == 'as24':  # 오토스카우트24: 칠 자막 + 톡 튀어나옴(스티커와 같은 움직임)
+            im = phrase_img_as24(cur[2])
+            e = back((T - cur[0]) / 0.28)
+            sc = max(.05, e)
+            cy = STYLE.get('cap_cy', 1248)
+            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .1), sc)
+            return ov, False
+        if STYLE.get('cap_style') == 'nl':  # 오토스카우트 NL·BE: 검정 상자 + 톡 튀어나옴, 높이 65%
+            im = phrase_img_nl(cur[2], cap_keyword(cur[2], blk))
+            e = back((T - cur[0]) / 0.16)
+            sc = max(.05, 0.82 + 0.18 * e)
+            cy = STYLE.get('cap_cy', 1248)
+            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
+            return ov, False
         if STYLE.get('cap_style') == 'v12':  # 자막 상자 y 1050~1220 가운데
             im = phrase_img_v12(cur[2], cap_keyword(cur[2], blk), CAP_BRIGHT >= 0.7)
             paste(ov, im, W / 2 - im.width / 2, 1135 - im.height / 2, k)
