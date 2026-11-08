@@ -1,0 +1,676 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/ujA8k95kjxA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3182,
+  "candidatesTokenCount": 5557,
+  "totalTokenCount": 8739,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1814
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 19.3,
+   "aspect": "9:16",
+   "car": "Volkswagen Polo, Volkswagen Scirocco, SEAT Ibiza, Ford Fiesta",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "Wat was jouw eerste auto?",
+    "ko": "너의 첫 차는 무엇이었나요?",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA28",
+    "bg_width_pct": 78.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.6,
+    "text": "Ik had een",
+    "ko": "저는 가지고 있었어요",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 3.2,
+    "text": "Volkswagen Polo",
+    "ko": "폭스바겐 폴로",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Volkswagen",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.1,
+    "text": "maar zo ja",
+    "ko": "하지만 뭐랄까",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.0,
+    "text": "zo'n heel oud",
+    "ko": "엄청 오래된",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "text": "met zo'n choke.",
+    "ko": "초크 밸브가 달린.",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.3,
+    "text": "Dat was een",
+    "ko": "그건 바로",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.5,
+    "text": "Volkswagen Scirocco.",
+    "ko": "폭스바겐 시로코였어요.",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Volkswagen",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.6,
+    "text": "Seat Ibiza",
+    "ko": "세아트 이비자",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Seat",
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 10.6,
+    "text": "een knalrooie",
+    "ko": "강렬한 빨간색",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 11.5,
+    "text": "Een oude Ford",
+    "ko": "오래된 포드",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.6,
+    "text": "Fiesta van het witgele kruis",
+    "ko": "피에스타 보건기관용 차였어요",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Fiesta",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.6,
+    "text": "37.000 Frank.",
+    "ko": "37,000 프랑이었죠.",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "37.000",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.9,
+    "text": "naar een 1ste auto",
+    "ko": "첫 차를 찾고 계시다면",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "1ste",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 17.8,
+    "text": "die vind je",
+    "ko": "여기서 찾으실 수 있어요",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.3,
+    "text": "AutoScout24.be",
+    "ko": "AutoScout24.be",
+    "kind": "끝 화면",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA28",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.8,
+    "type": "톡",
+    "event": "Polo 스카우트 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "Scirocco 스카우트 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "Ibiza 스카우트 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "Fiesta 스카우트 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스 로파이 팝",
+   "bpm_est": 115,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.8,
+    "end": 6.8,
+    "what": "AutoScout24 폭스바겐 폴로 매물 카드",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매물 정보 및 시세 제시",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.5,
+    "what": "AutoScout24 폭스바겐 시로코 매물 카드",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매물 정보 및 시세 제시",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "what": "AutoScout24 세아트 이비자 매물 카드",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매물 정보 및 시세 제시",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.6,
+    "what": "AutoScout24 포드 피에스타 매물 카드",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매물 정보 및 시세 제시",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.3,
+    "what": "AutoScout24 브랜드 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 각인",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "Wat was jouw eerste auto?",
+    "ko": "너의 첫 차는 무엇이었나요?"
+   },
+   {
+    "start": 0.8,
+    "end": 6.8,
+    "text": "Ik had een Volkswagen Polo, maar zo ja, zo'n heel oud nog met zo'n choke.",
+    "ko": "저는 폭스바겐 폴로가 있었는데, 엄청 옛날 거라 초크 밸브가 달린 거였어요."
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "Dat was een Volkswagen Scirocco.",
+    "ko": "폭스바겐 시로코였어요."
+   },
+   {
+    "start": 8.5,
+    "end": 10.6,
+    "text": "En een Seat Ibiza, een knalrooie.",
+    "ko": "그리고 세아트 이비자요, 쨍한 빨간색이었죠."
+   },
+   {
+    "start": 10.6,
+    "end": 15.6,
+    "text": "Een oude Ford Fiestake van 't Wit-Gele Kruis, 37.000 frank.",
+    "ko": "보건기관에서 쓰던 낡은 포드 피에스타였는데, 3만 7천 프랑 줬어요."
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "text": "Nog op zoek naar een eerste auto? Die vind je op AutoScout24.be.",
+    "ko": "아직 첫 차를 찾고 계신가요? AutoScout24.be에서 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 0.8,
+    "speed": "빠름",
+    "summary": "진행자의 첫 차 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 0.8,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "첫 번째 시민 인터뷰(폭스바겐 폴로)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 8.5,
+    "speed": "빠름",
+    "summary": "두 번째 시민 인터뷰(폭스바겐 시로코)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.5,
+    "end": 10.6,
+    "speed": "빠름",
+    "summary": "세 번째 시민 인터뷰(세아트 이비자)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.6,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "네 번째 시민 인터뷰(포드 피에스타 및 가격)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 15.6,
+    "end": 19.3,
+    "speed": "보통",
+    "summary": "진행자 클로징 및 AutoScout24 앱/웹사이트 유도"
+   }
+  ],
+  "rules": [
+   "길거리 인터뷰 형식으로 시민이 언급한 첫 차 모델을 실제 AutoScout24 등록 카드 그래픽으로 즉각 시각화한다.",
+   "차량 카드 그래픽이 튀어나올 때마다 경쾌한 '톡' 효과음(팝업 사운드)을 동기화하여 주목도를 높인다.",
+   "자막은 화면 중앙 상단에 배치하고 핵심 차종 및 가격 단어에 브랜드 옐로우 하이라이트를 적용한다.",
+   "헤드라인 질문과 엔딩 로고에는 기울어진 노란색 브러시 테이프 배경 박스를 사용하여 브랜드 아이덴티티를 통일한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "제목",
+    "font": "굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA28",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 3.8,
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 5,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 0.8,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "말 자막",
+    "font": "굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 6,
+    "box": "없음",
+    "box_color": null,
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.4,
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFEA28",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.0,
+    "count": 12,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA28",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 7.0,
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.7,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "조금 뒤",
+   "chip_offset_ms": 200
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 80,
+    "loud_vs_voice": "비슷",
+    "count": 4
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 90,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 17.6,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 1.7
+  },
+  "safe_zone_note": "자막이 y 38~43% 중앙 상단에 위치해 하단 UI(설명, 계정명, 오디오 트랙)와 우측 인터랙션 버튼(좋아요, 댓글 등) 간섭을 완벽히 회피함."
+ }
+}

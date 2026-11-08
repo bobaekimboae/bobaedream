@@ -1,0 +1,323 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/dHXve9RWVCI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2277,
+  "candidatesTokenCount": 2970,
+  "totalTokenCount": 5247,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.5,
+   "aspect": "9:16",
+   "car": "Mazda MX-5",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 1.4,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.0,
+    "end": 7.4,
+    "text": "Mazda MX-5\n€21.450",
+    "ko": "마쓰다 MX-5 / €21,450",
+    "kind": "가격",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Mazda",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.5,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "기타",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기/엔진 배기음 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.0,
+    "type": "톡",
+    "event": "차량명 및 가격 배너 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.0,
+    "end": 7.4,
+    "what": "노란색 찢어진 종이/붓터치 스타일 배경의 차량명 및 가격 칩",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 36.5,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량명과 가격 정보 전달",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.5,
+    "what": "AutoScout24 노란색 브러시 심볼 및 텍스트 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔드카드 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "차량 외관 및 실내 빠른 연속 컷"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 7.4,
+    "speed": "보통",
+    "summary": "인포테인먼트, 휠, 전면, 실내, 스티어링 휠 등 디테일 컷과 함께 가격 표시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.4,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "차량 후면 위 AutoScout24 로고 노출 및 아웃트로"
+   }
+  ],
+  "rules": [
+   "음성 해설 없이 경쾌한 비트 음악과 배기음 효과로 시작하여 빠른 컷 전환으로 몰입감 유도",
+   "화면 중앙 상단에 노란색 비정형 붓터치 배경을 넣고 검정/흰색 굵은 폰트로 차종 및 가격을 일괄 노출",
+   "텍스트 칩과 로고 등장 시 '톡' 또는 '팝' 효과음을 동기화하여 시각 요소 강조",
+   "엔딩에서는 차량 후면 배경 위에 공식 로고 스티커를 띄우며 간결하게 종료"
+  ],
+  "caption_styles": [
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 4.5,
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFFFFF",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 5.4,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 5.8,
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "페이드",
+    "stay_sec": 2.1,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   },
+   {
+    "event": "실제 차 소리",
+    "sound": "실제 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 800,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 7.4,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.1
+  },
+  "safe_zone_note": "중앙 및 상단 30~60% 영역에 그래픽 칩을 배치하여 하단 캡션 영역과 우측 반응 버튼(좋아요·댓글)에 간섭되지 않는 안전 영역 준수"
+ }
+}
