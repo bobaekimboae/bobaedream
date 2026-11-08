@@ -1,0 +1,814 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/0Osv4McxabI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5173,
+  "candidatesTokenCount": 6516,
+  "totalTokenCount": 11689,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4010
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.8,
+   "aspect": "9:16",
+   "car": "Ducati Diavel V4",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 10.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.2,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 23.3,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 33.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 38.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.4,
+    "end": 4.8,
+    "text": "GRANTURISMO V4\nXDIAVEL",
+    "ko": "그란투리스모 V4 디아벨",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "XDIAVEL",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "text": "168hp",
+    "ko": "168마력",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.9,
+    "text": "KG\n230",
+    "ko": "230kg",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.9,
+    "text": "DRIVE\nMODES",
+    "ko": "주행 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 12.8,
+    "text": "CRUISE\nCONTROL",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 33.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 13.5,
+    "text": "MEDIA\nCONTROL",
+    "ko": "미디어 제어",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "6.9\"",
+    "ko": "6.9인치",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "text": "THIN-FILM-TRANSISTOR\nTFT",
+    "ko": "박막 트랜지스터 TFT",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "text": "1158cc",
+    "ko": "1158cc",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.0,
+    "text": "MONOSHOCK\nABSORBER",
+    "ko": "모노쇼크 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.5,
+    "text": "SPORT RIMS\nTWO TONE",
+    "ko": "투톤 스포츠 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.0,
+    "text": "240/45",
+    "ko": "240/45",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.4,
+    "type": "휙",
+    "event": "바이크 샷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "휙",
+    "event": "모토GP 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "쿵",
+    "event": "168hp 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "쿵",
+    "event": "230kg 추 그래픽 떨어짐",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "딸깍",
+    "event": "핸들바 버튼 가리킴",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "딸깍",
+    "event": "크루즈컨트롤 가리킴",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "딸깍",
+    "event": "미디어컨트롤 가리킴",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "띵",
+    "event": "디스플레이 6.9인치 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "휙",
+    "event": "엔진 내부 투시 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 배기구 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 29.2,
+    "type": "휙",
+    "event": "총알 발사 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "띵",
+    "event": "브렘보 캘리퍼 하이라이트",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 24.3,
+     "what": "배기음 시연 위해 일시 음소거"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "what": "모토GP 레이서 트랙 영상 합성",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "페이드",
+    "purpose": "모토GP 기술 기반 설명",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.9,
+    "what": "230kg 대형 추 및 토끼 캐릭터",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 70.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "공차중량 강조 및 유머",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "what": "햇빛 밝기 슬라이더 UI",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "밀려옴",
+    "purpose": "TFT 시인성 설명",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.8,
+    "what": "투시된 엔진 메커니즘 3D",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 내부 구조 노출",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "what": "헤드라이트에서 발사되는 총알",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "강렬한 전면 디자인 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "أنا ناصر وده تعريف الدوبامين راش",
+    "ko": "저는 나사르고, 이것이 바로 도파민 러시의 정의입니다."
+   },
+   {
+    "start": 2.4,
+    "end": 5.0,
+    "text": "دوكاتي ديافيل في فور",
+    "ko": "두카티 디아벨 V4."
+   },
+   {
+    "start": 5.0,
+    "end": 7.8,
+    "text": "جابوه من سباقات الموتو جي بي وخلوه يخرج 168 حصان",
+    "ko": "모토GP 레이스에서 가져와 168마력을 내뿜게 만들었습니다."
+   },
+   {
+    "start": 7.8,
+    "end": 10.9,
+    "text": "على وزن 230 كيلو يعني صاحبك التخين أتقل منه",
+    "ko": "무게는 230kg으로 덩치 큰 친구보다 가볍습니다."
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "عندك درايف مود سلكتر، كروز كنترول، تحكم في الشاشة",
+    "ko": "드라이브 모드 셀렉터, 크루즈 컨트롤, 화면 컨트롤이 있고"
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "الـ 6.9 إنش بتكنولوجيا TFT",
+    "ko": "6.9인치 TFT 기술 화면이 들어갔습니다."
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "text": "عشان تحسنلك السطوع",
+    "ko": "햇빛 아래에서도 시인성을 높여줍니다."
+   },
+   {
+    "start": 17.6,
+    "end": 20.2,
+    "text": "مافهوش غلطة، جرانتوريزمو V4",
+    "ko": "흠잡을 데 없는 그란투리스모 V4입니다."
+   },
+   {
+    "start": 20.2,
+    "end": 23.3,
+    "text": "لأنه ممكن تسافر بيه بموتور 1158 سي سي",
+    "ko": "1158cc 엔진으로 투어링 여행도 가능하며,"
+   },
+   {
+    "start": 23.3,
+    "end": 26.8,
+    "text": "بـ 4 إكزوست، صوتهم...",
+    "ko": "4개의 쿼드 머플러, 소리를 들어보시죠."
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "text": "ببينت اسمه دارك لافا",
+    "ko": "다크 라바 컬러 페인트가 적용되었습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "text": "ولما تشوف الوش ده اعرف ان في طلقة قدامك",
+    "ko": "이 앞모습을 보면 눈앞에 총알이 있는 듯한 느낌이죠."
+   },
+   {
+    "start": 30.7,
+    "end": 33.1,
+    "text": "وعندك إير إنتيك عملاق وبرمبو بريكس",
+    "ko": "거대한 에어 인테이크와 브렘보 브레이크,"
+   },
+   {
+    "start": 33.1,
+    "end": 38.8,
+    "text": "وعندك مونوشوك ابزوربر، وسبورت ريمز تو تون، وفردة عملاقة 240/45 ديابلو روسو من بيريللي",
+    "ko": "모노쇼크 서스펜션, 투톤 스포츠 림, 그리고 피렐리 디아블로 로쏘 240/45 광폭 타이어까지."
+   },
+   {
+    "start": 38.8,
+    "end": 44.8,
+    "text": "الوحش ده في دوكاتي مصر السخنة، وماتنساش تعمل فولو عشان مايفوتكش أجمد العربيات والموتوسيكلات",
+    "ko": "이 괴물은 두카티 이집트 소크나 지점에 있습니다. 멋진 차와 바이크 소식을 놓치지 않으려면 팔로우하세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "빠름",
+    "summary": "도파민 러시 멘트와 함께 두카티 디아벨 V4 등장"
+   },
+   {
+    "stage": "사양",
+    "start": 4.9,
+    "end": 10.9,
+    "speed": "빠름",
+    "summary": "출력과 공차중량 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 10.9,
+    "end": 17.6,
+    "speed": "빠름",
+    "summary": "핸들 조작계 및 TFT 계기판 디스플레이 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 17.6,
+    "end": 38.8,
+    "speed": "빠름",
+    "summary": "엔진, 쿼드 머플러 배기음, 브렘보 브레이크, 타이어 사양"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 38.8,
+    "end": 44.8,
+    "speed": "보통",
+    "summary": "전시장 위치 및 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "손가락으로 부품을 짚는 순간 정확히 맞춰 텍스트 스티커와 클릭음 연출",
+   "스펙 숫자(마력, 무게, 배기량)는 큼직한 3D 타이포그래피나 입체 오브젝트로 강조",
+   "배기음을 들려줄 때는 배경음악을 완전히 끊어 엔진 소리에 집중 유도",
+   "특징 설명 시 빠른 컷 전환과 다이내믹한 줌 인/아웃 활용"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.9,
+    "end": 11.9,
+    "feature": "주행 모드 셀렉터",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 12.8,
+    "feature": "크루즈 컨트롤 버튼",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 33.0,
+    "y_pct": 24.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "feature": "6.9인치 TFT 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 35.0,
+    "y_pct": 30.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.8,
+    "feature": "4구 배기구 머플러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "배기구 숫자 1,2,3,4 카운트 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 33.1,
+    "feature": "브렘보 브레이크 캘리퍼",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "빨간 브렘보 로고 발광 하이라이트",
+    "x_pct": 45.0,
+    "y_pct": 52.0,
+    "size_w_pct": 35.0,
+    "follows_object": true,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 보며 '도파민 러시의 정의'라며 두카티 매장 앞 바이크를 소개",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر وده تعريف الدوبامين راش",
+   "ko": "저는 나사르고, 이것이 바로 도파민 러시의 정의입니다."
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "모토GP 기술이 적용된 168마력 출력",
+    "category": "성능"
+   },
+   {
+    "t": 7.8,
+    "point": "공차중량 230kg의 가벼운 차체",
+    "category": "성능"
+   },
+   {
+    "t": 11.0,
+    "point": "주행 모드, 크루즈 컨트롤, 미디어 조작 핸들 스위치",
+    "category": "편의"
+   },
+   {
+    "t": 13.5,
+    "point": "햇빛에서도 시인성이 뛰어난 6.9인치 TFT 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 20.5,
+    "point": "투어링 여행에 최적화된 1158cc 그란투리스모 V4 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 23.3,
+    "point": "강렬한 사운드를 내는 쿼드 머플러",
+    "category": "성능"
+   },
+   {
+    "t": 27.0,
+    "point": "다크 라바 익스테리어 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 31.5,
+    "point": "거대한 에어 인테이크와 브렘보 고성능 브레이크",
+    "category": "안전"
+   },
+   {
+    "t": 35.0,
+    "point": "피렐리 디아블로 로쏘 240/45 초광폭 리어 타이어",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 41.5,
+   "text": "وماتنساش تعمل فولو",
+   "ko": "팔로우 잊지 마세요",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "옵션 작동",
+    "계기판",
+    "엔진룸",
+    "외관 후면",
+    "외관 전면",
+    "휠"
+   ]
+  }
+ }
+}

@@ -1,0 +1,893 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/nnKPD7d_Elw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6815,
+  "candidatesTokenCount": 7202,
+  "totalTokenCount": 14017,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5652
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 63.0,
+   "aspect": "9:16",
+   "car": "폭스바겐 타이론 (Volkswagen Tayron)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 16.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 24.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 35.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 41.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 47.9,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 55.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 59.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 63.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "أنا ناصر",
+    "ko": "나는 나사르",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "text": "نوح باشا",
+    "ko": "누흐 파샤",
+    "kind": "키워드 스티커",
+    "y_pct": 32.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.5,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "بس أنا مقتنع",
+    "ko": "하지만 난 이미 납득했어",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.8,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 85.0,
+    "text_height_pct": 5.0,
+    "color": "#FF6B00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "text": "MEDIA CONTROL",
+    "ko": "미디어 제어",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.0,
+    "color": "#FF2A2A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.0,
+    "text": "DRIVE MODE",
+    "ko": "드라이브 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.0,
+    "color": "#FF2A2A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.2,
+    "text": "2X WIRELESS CHARGER",
+    "ko": "무선 충전기 2구",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2A2A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.5,
+    "text": "THREE ZONE",
+    "ko": "3존 공조",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#C0D6E4",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.0,
+    "text": "7 SEATS",
+    "ko": "7인승",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 42.5,
+    "text": "282L",
+    "ko": "282리터",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 43.8,
+    "text": "345L",
+    "ko": "345리터",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.2,
+    "text": "885L",
+    "ko": "885리터",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.2,
+    "end": 47.0,
+    "text": "2090L",
+    "ko": "2090리터",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.0,
+    "text": "EURONCAP",
+    "ko": "유로앤캡",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 52.0,
+    "text": "ACTIVE SAFETY",
+    "ko": "능동 안전 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 17.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 55.5,
+    "end": 57.5,
+    "text": "يخت خطير",
+    "ko": "엄청난 요트",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FF2A2A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 62.5,
+    "text": "2,890,000 L.E",
+    "ko": "2,890,000 이집트 파운드",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.5,
+    "type": "띵",
+    "event": "게스트 이름 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "딸깍",
+    "event": "마사지 시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.2,
+    "type": "휙",
+    "event": "열선/통풍 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.1,
+    "type": "톡",
+    "event": "카플레이/안드로이드 오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "딸깍",
+    "event": "다이얼 조작 및 미디어 컨트롤 텍스트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.1,
+    "type": "톡",
+    "event": "무선충전 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.8,
+    "type": "휙",
+    "event": "파노라마 썬루프 햇살 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.2,
+    "type": "딸깍",
+    "event": "선블라인드 사생활 보호 아이콘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "바람 소리",
+    "event": "공조기 연기 효과 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.2,
+    "type": "띵",
+    "event": "7시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "톡",
+    "event": "트렁크 282L 용량 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.6,
+    "type": "톡",
+    "event": "트렁크 345L 용량 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "톡",
+    "event": "트렁크 885L 폴딩 용량 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "쿵",
+    "event": "트렁크 전체 폴딩 2090L 표시",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 48.5,
+    "type": "띵",
+    "event": "유로앤캡 5성 별점 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.9,
+    "type": "돈 소리",
+    "event": "최종 가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "경쾌한 힙합/팝 비트",
+   "bpm_est": 115,
+   "mood": "유쾌함, 빠른 전개",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.5,
+    "end": 7.0,
+    "what": "마사지 시트 작동 표시 아이콘",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 28.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 기능 설명",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.0,
+    "what": "열선(빨간 화살표) 및 통풍(눈꽃) 아이콘",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 40.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "통풍/열선 시연 강조",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "what": "애플 카플레이 및 안드로이드 오토 로고",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 45.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "연동 기능 안내",
+    "sure": true
+   },
+   {
+    "start": 48.3,
+    "end": 50.5,
+    "what": "Euro NCAP 5스타 그래픽",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전 등급 안내",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 62.5,
+    "what": "폭스바겐 로고 및 타이론 영문 레터링과 3D 가격 프레임",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 23.0,
+    "entrance": "밀려옴",
+    "purpose": "최종 가격 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر وهقنع نوح باشا هو ليه محتاج تايرون في حياته... بس أنا مقتنع!",
+    "ko": "나는 나사르, 누흐에게 왜 인생에 타이론이 필요한지 설득해볼 겁니다... 근데 난 이미 납득했어!"
+   },
+   {
+    "start": 4.5,
+    "end": 10.9,
+    "text": "إيه رأيك في راحة الكرسي والمساج والتبريد والتسخين؟",
+    "ko": "시트 편안함이랑 마사지, 통풍이랑 열선 어때?"
+   },
+   {
+    "start": 10.9,
+    "end": 16.5,
+    "text": "التكنولوجيا بقى: دركسيون تسخين، ديجيتال، هيد اب ديسبلاي، شاشة كبيرة جداً وأبل كاربلاي وأندرويد أوتو",
+    "ko": "기술 옵션으로는: 열선 핸들, 디지털 계기판, HUD, 대형 화면에 카플레이와 안드로이드 오토까지."
+   },
+   {
+    "start": 16.5,
+    "end": 22.0,
+    "text": "والنوب دي تتحكم في الميديا والدرايف مود، واتنين شاحن وايرلس عشان متتخانقوش",
+    "ko": "이 다이얼로 미디어랑 주행 모드 조절하고, 싸우지 말라고 무선 충전기도 2개야."
+   },
+   {
+    "start": 24.3,
+    "end": 35.8,
+    "text": "بانوراما كبيرة، ستارة للخصوصية، تكييف تريبل زون، والكنبة بتتحرك قدام وورا",
+    "ko": "대형 파노라마 루프, 프라이버시 선쉐이드, 3존 에어컨, 그리고 2열 시트 슬라이딩까지."
+   },
+   {
+    "start": 36.0,
+    "end": 47.9,
+    "text": "7 راكب، والشنطة بتوصل من 345 لتر لحد أكتر من 2000 لتر",
+    "ko": "7인승에 트렁크 용량은 345리터부터 접으면 2000리터 이상까지 나와."
+   },
+   {
+    "start": 48.0,
+    "end": 55.0,
+    "text": "5 نجوم أمان في يورو إنكاب، وأكتيف سيفتي، تناسب أي عيلة",
+    "ko": "유로 NCAP 안전도 별 5개, 능동형 안전 시스템으로 어떤 가족에게도 완벽해."
+   },
+   {
+    "start": 59.8,
+    "end": 62.8,
+    "text": "السعر 2,890,000 جنيه استيراد",
+    "ko": "가격은 수입 기준 2,890,000 EGP(이집트 파운드)입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "지인을 차로 끌어당기며 타이론을 사야 하는 이유 설득 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 24.0,
+    "speed": "빠름",
+    "summary": "1열 편의 기능(마사지, 통풍, 대형 화면, 콘솔 다이얼, 듀얼 충전)"
+   },
+   {
+    "stage": "사양",
+    "start": 24.0,
+    "end": 48.0,
+    "speed": "빠름",
+    "summary": "2~3열 공간, 파노라마 루프, 3존 에어컨, 7인승 폴딩 트렁크 용량"
+   },
+   {
+    "stage": "차 소개",
+    "start": 48.0,
+    "end": 55.0,
+    "speed": "보통",
+    "summary": "유로앤캡 5스타 및 능동 안전, 패밀리카 적합성 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 55.0,
+    "end": 63.0,
+    "speed": "빠름",
+    "summary": "요트와 가격 비교 후 최종 수입 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 62.0,
+    "end": 63.0,
+    "speed": "느림",
+    "summary": "차량 전면 샷과 최종 가격 자막으로 마무리"
+   }
+  ],
+  "rules": [
+   "진행자 둘 간의 만담 티키타카로 대사 템포를 빠르게 끌고 감",
+   "언급하는 부품이나 옵션 위치 바로 위에 직관적인 2D/3D 스티커와 숫자를 팝업",
+   "트렁크는 단계별 시트 폴딩에 맞춰 리터(L) 숫자를 즉시 갱신",
+   "화면 전환마다 톡/딸깍/휙 등 짧고 명확한 폴리 효과음 삽입",
+   "마지막 3초 전면 외관 풀샷에 3D 텍스트로 가격을 강렬하게 강조"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.5,
+    "end": 7.0,
+    "feature": "시트 마사지",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 마사지 볼 작동 그래픽",
+    "x_pct": 28.0,
+    "y_pct": 28.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.0,
+    "feature": "통풍 및 열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "빨간색 열선 화살표와 파란색 눈꽃 송이",
+    "x_pct": 40.0,
+    "y_pct": 25.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "feature": "애플 카플레이 / 안드로이드 오토",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "카플레이 및 안드로이드 오토 공식 로고",
+    "x_pct": 45.0,
+    "y_pct": 38.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "feature": "통합 컨트롤 다이얼",
+    "shown_how": "글자 카드",
+    "icon_desc": "다이얼 위에 붉은색 네온 텍스트 오버레이",
+    "x_pct": 55.0,
+    "y_pct": 40.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.5,
+    "feature": "듀얼 무선 충전기",
+    "shown_how": "글자 카드",
+    "icon_desc": "2X WIRELESS CHARGER 네온 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 36.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.5,
+    "feature": "3존 풀오토 에어컨",
+    "shown_how": "글자 카드",
+    "icon_desc": "송풍구 위 THREE ZONE 연기 효과 글자",
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "바람 소리",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 47.0,
+    "feature": "폴딩 시트 및 트렁크 용량",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "단계별 시트 폴딩과 함께 커지는 리터 수치 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 43.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 동료의 손을 붙잡고 이 차가 왜 필요한지 강제로 설득하겠다며 차 안으로 끌고 들어감",
+   "type": "행동",
+   "text": "أنا ناصر وهقنع نوح باشا هو ليه محتاج تايرون في حياته",
+   "ko": "나는 나사르, 누흐에게 왜 인생에 타이론이 필요한지 설득해보겠습니다"
+  },
+  "narration_points": [
+   {
+    "t": 5.5,
+    "point": "앞좌석 마사지, 통풍, 열선 시트 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 11.5,
+    "point": "열선 스티어링 휠, HUD, 대형 센터 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 17.5,
+    "point": "드라이브 모드/볼륨 통합 다이얼 및 듀얼 무선 충전 패드",
+    "category": "편의"
+   },
+   {
+    "t": 25.5,
+    "point": "파노라마 선루프, 2열 수동 선블라인드, 3존 독립 공조",
+    "category": "편의"
+   },
+   {
+    "t": 36.0,
+    "point": "7인승 시트 구성 및 최대 2090리터까지 확장되는 트렁크",
+    "category": "공간"
+   },
+   {
+    "t": 48.5,
+    "point": "유로앤캡 5스타 안전 등급 및 능동형 주행 안전 사양",
+    "category": "안전"
+   },
+   {
+    "t": 60.0,
+    "point": "수입 신차 기준 가격 약 289만 EGP",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "옵션 작동",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

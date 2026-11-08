@@ -1,0 +1,664 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/5YNMCHdcCc4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 11075,
+  "candidatesTokenCount": 5372,
+  "totalTokenCount": 16447,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 9912
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 109.1,
+   "aspect": "9:16",
+   "car": "Toyota Sequoia TRD Pro & Limited",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.7,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 21.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 27.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 36.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 46.3,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.3,
+    "end": 50.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 54.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 59.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 104.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.5,
+    "end": 109.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 7.7,
+    "end": 9.2,
+    "text": "NEW DRLS",
+    "ko": "새로운 주간주행등",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "text": "FUNCTIONAL VENTS",
+    "ko": "기능성 에어덕트",
+    "kind": "키워드 스티커",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.3,
+    "text": "ALERT LIGHTS",
+    "ko": "경고등",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "text": "OFF ROAD TIRES",
+    "ko": "오프로드 타이어",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.5,
+    "text": "FORGED ALUMINUM",
+    "ko": "단조 알루미늄",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 27.2,
+    "text": "V6 3400 CC",
+    "ko": "V6 3400cc",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E74C3C",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.8,
+    "text": "TRD SEQUOIA 437 HP / 790 NM",
+    "ko": "TRD 세쿼이아 437마력 / 790토크",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E74C3C",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 109.1,
+    "end": 109.1,
+    "text": "وصلة دهشور الشيخ زايد",
+    "ko": "셰이크 자이드 다슈르 링크",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E74C3C",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "차량 소개 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "톡",
+    "event": "NEW DRLS 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "톡",
+    "event": "FUNCTIONAL VENTS 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "톡",
+    "event": "ALERT LIGHTS 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "OFF ROAD 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "톡",
+    "event": "FORGED ALUMINUM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "딸깍",
+    "event": "후면 유리창 개방 버튼 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.5,
+    "type": "띵",
+    "event": "통풍 시트 아이콘 활성화",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 105.0,
+    "type": "톡",
+    "event": "무선충전 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 5.0,
+    "what": "도요타 세쿼이아 및 TRD PRO 로고 엠블럼 그래픽",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "확대 전환",
+    "purpose": "차종 소개",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "what": "FOX 서스펜션 로고 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 70.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "서스펜션 사양 강조",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 27.0,
+    "what": "엔진룸 하이브리드 V6 X-ray 그래픽",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "entrance": "페이드",
+    "purpose": "파워트레인 구조 시각화",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 59.0,
+    "what": "시트 통풍/열선 모션 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 60.0,
+    "entrance": "페이드",
+    "purpose": "시트 편의사양 안내",
+    "sure": true
+   },
+   {
+    "start": 105.0,
+    "end": 106.5,
+    "what": "무선 충전 패드 번개 표시 그래픽",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 60.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무선충전 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "text": "أنا ناصر ولأول مرة في مصر تويوتا سيكويا TRD Pro و i-FORCE MAX",
+    "ko": "저는 나사르입니다. 이집트 최초로 공개하는 도요타 세쿼이아 TRD Pro와 i-FORCE MAX입니다!"
+   },
+   {
+    "start": 5.0,
+    "end": 14.0,
+    "text": "في TRD Pro عندك كاموفلاج ديفندرز، DRLs الجديدة، فنتس تبريد عملاق للموتور",
+    "ko": "TRD Pro 모델에는 카무플라주 펜더, 새로운 DRL, 엔진을 위한 대형 쿨링 에어덕트가 있습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 22.0,
+    "text": "والعفشة فوكس إنترنال باي باس، كوتشات أوف رود، وجنوط بي بي إس",
+    "ko": "FOX 인터널 바이패스 서스펜션, 오프로드 타이어, BBS 단조 휠이 적용되었습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 32.0,
+    "text": "i-FORCE MAX 6 سلندر 3400 سي سي توين تيربو 437 حصان و 790 نيوتن",
+    "ko": "i-FORCE MAX V6 3400cc 트윈터보 엔진으로 437마력과 790Nm 토크를 발휘합니다."
+   },
+   {
+    "start": 32.0,
+    "end": 54.8,
+    "text": "صوت الوحش مساحة الشنطة ممتازة وممكن تفتح الإزاز لوحده",
+    "ko": "우렁찬 배기음과 넓은 트렁크 공간, 후면 유리창만 단독으로 열 수도 있습니다."
+   },
+   {
+    "start": 54.8,
+    "end": 104.5,
+    "text": "شاشة 14 إنش، مقاعد تبريد وتسخين، وسقف بانوراما كبير وتحكم كامل",
+    "ko": "14인치 디스플레이, 통풍/열선 시트, 대형 파노라마 선루프와 다양한 주행 제어 기능이 있습니다."
+   },
+   {
+    "start": 104.5,
+    "end": 109.1,
+    "text": "في بكر أوتو وصلة دهشور الشيخ زايد",
+    "ko": "셰이크 자이드 다슈르 링크에 위치한 바크르 오토에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "이집트 최초 공개 도요타 세쿼이아 하이라이트 인트로"
+   },
+   {
+    "stage": "사양",
+    "start": 5.0,
+    "end": 32.0,
+    "speed": "빠름",
+    "summary": "외관 TRD 파츠, 서스펜션 및 V6 하이브리드 엔진 성능"
+   },
+   {
+    "stage": "기능",
+    "start": 32.0,
+    "end": 54.8,
+    "speed": "보통",
+    "summary": "배기음 청음 및 트렁크 다기능 수납, 뒷유리 개방"
+   },
+   {
+    "stage": "기능",
+    "start": 54.8,
+    "end": 104.5,
+    "speed": "빠름",
+    "summary": "실내 디스플레이, 시트 옵션, 수납공간 및 뒷좌석 투어"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 104.5,
+    "end": 109.1,
+    "speed": "보통",
+    "summary": "매장 위치 안내 및 마무리 인사"
+   }
+  ],
+  "rules": [
+   "진행자의 신속하고 에너지 넘치는 속사포 내레이션에 맞춰 1~2초 간격 빠른 컷 전환을 유지한다.",
+   "새로운 하드웨어 파츠나 스펙 언급 시 영문 3D 텍스트와 전용 그래픽을 즉각 띄워 전문성을 강조한다.",
+   "배기음이나 버튼 작동음 등 차량의 시연 소리가 나올 때는 배경음악을 줄이고 원음을 부각한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "feature": "FOX 오프로드 서스펜션",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "FOX 로고와 코일오버 그래픽",
+    "x_pct": 70.0,
+    "y_pct": 35.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 54.5,
+    "feature": "후면 유리창 개방 기능",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 59.0,
+    "feature": "시트 통풍 기능",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 위로 퍼지는 푸른색 눈꽃 아이콘",
+    "x_pct": 55.0,
+    "y_pct": 60.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 105.0,
+    "end": 106.5,
+    "feature": "스마트폰 무선 충전",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "원형 패드 위 번개 충전 아이콘",
+    "x_pct": 60.0,
+    "y_pct": 50.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 매장 앞에서 이집트 최초로 입고된 도요타 세쿼이아를 열정적으로 소개하며 뒤에 거대한 3D 타이틀이 떠오름",
+   "type": "희귀차",
+   "text": "أنا ناصر ولأول مرة في مصر تويوتا سيكويا",
+   "ko": "저는 나사르입니다. 이집트 최초로 선보이는 도요타 세쿼이아입니다!"
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "오프로드 내구성을 위한 카무플라주 패턴 펜더 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 14.0,
+    "point": "공장 출고 순정 튜닝된 FOX 바이패스 서스펜션 장착",
+    "category": "성능"
+   },
+   {
+    "t": 22.0,
+    "point": "V6 3.4리터 트윈터보 437마력 하이브리드 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 37.0,
+    "point": "3열 시트 폴딩 및 벤치형 소파로 변형 가능한 트렁크 공간",
+    "category": "공간"
+   },
+   {
+    "t": 51.0,
+    "point": "트렁크 도어 전체를 열지 않고 유리창만 별도 개폐 가능",
+    "category": "편의"
+   },
+   {
+    "t": 107.0,
+    "point": "구동력 및 노면 제어를 위한 직관적인 물리 버튼과 다이얼",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 107.0,
+   "text": "في بكر أوتو وصلة دهشور الشيخ زايد",
+   "ko": "바크르 오토(셰이크 자이드 다슈르 링크 지점)를 방문하세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "휠",
+    "엔진룸",
+    "외관 후면",
+    "트렁크",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "뒷좌석",
+    "외관 전면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,1035 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/7DnNI5n3-i4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9542,
+  "candidatesTokenCount": 10946,
+  "totalTokenCount": 21315,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8379
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 827,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 92.5,
+   "aspect": "9:16",
+   "car": "Rolls-Royce Spectre Black Badge",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 12.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 21.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 26.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 36.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 41.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 45.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 48.2,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 51.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.8,
+    "end": 57.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 102.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 102.6,
+    "end": 108.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 108.6,
+    "end": 112.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 112.5,
+    "end": 116.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 116.7,
+    "end": 119.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 119.5,
+    "end": 123.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 123.5,
+    "end": 126.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 126.8,
+    "end": 132.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 10.4,
+    "end": 12.0,
+    "text": "تبريد",
+    "ko": "통풍 (쿨링)",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#2196F3",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "GOODWOOD CLOCK",
+    "ko": "굿우드 아날로그 시계",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.6,
+    "text": "تسخين",
+    "ko": "열선 (히팅)",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FF9800",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 47.5,
+    "text": "2 CUP HOLDER",
+    "ko": "2구 컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 48.2,
+    "text": "AC CONTROL",
+    "ko": "공조 제어",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.5,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 51.8,
+    "text": "23\"",
+    "ko": "23인치",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#673AB7",
+    "bg_width_pct": 24.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 55.0,
+    "text": "SPLIT LEDs",
+    "ko": "분리형 LED 헤드라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 61.5,
+    "text": "4,000$",
+    "ko": "4,000달러",
+    "kind": "가격",
+    "y_pct": 40.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 107.4,
+    "end": 108.8,
+    "text": "RED CALIPERS",
+    "ko": "레드 브레이크 캘리퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#FF3366",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 113.1,
+    "end": 114.8,
+    "text": "BESPOKE AUDIO",
+    "ko": "비스포크 오디오 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#673AB7",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 120.3,
+    "end": 123.5,
+    "text": "577 HP / 900 NM",
+    "ko": "577마력 / 900Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#673AB7",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 124.0,
+    "end": 126.8,
+    "text": "RANGE 600 KM",
+    "ko": "주행거리 600km",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#5C6BC0",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 129.8,
+    "end": 132.5,
+    "text": "طريق السويس بجوار قصر الكبابجي",
+    "ko": "카바브지 궁전 옆 수에즈 로드",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#8E24AA",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.2,
+    "type": "쿵",
+    "event": "스펙터 그래픽 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.4,
+    "type": "톡",
+    "event": "쿨링(통풍) 그래픽 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 손잡이 당겨 전동 도어 자동 열림",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "딸깍",
+    "event": "콘솔 전동 도어 닫힘 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.8,
+    "type": "톡",
+    "event": "시트 히팅 그래픽 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.8,
+    "type": "톡",
+    "event": "23인치 그래픽 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.8,
+    "type": "돈 소리",
+    "event": "환희의 여신상 엠블럼 가격 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 61.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "환희의 여신상 도난 방지 자동 수납 작동음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 113.1,
+    "type": "휙",
+    "event": "Bespoke 오디오 3D 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 120.3,
+    "type": "쿵",
+    "event": "577마력 파워 스펙 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 124.0,
+    "type": "쿵",
+    "event": "600km 주행거리 배너 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 129.8,
+    "type": "톡",
+    "event": "위치 핀 맵 마커 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "고급스럽고 경쾌하며 웅장한",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 3.0,
+     "what": "인트로 후 본 비트 전환"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "what": "RR SPECTRE BLACK BADGE 텍스트 및 무한대 로고",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "차명 및 트림 강조",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.0,
+    "what": "눈꽃 아이콘과 아랍어 쿨링 텍스트 카드",
+    "is_3d": true,
+    "size_w_pct": 28.0,
+    "x_pct": 24.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍시트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "what": "RR Goodwood Clock 그래픽 로고",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 40.0,
+    "entrance": "페이드",
+    "purpose": "굿우드 아날로그 시계 강조",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.6,
+    "what": "불꽃 아이콘과 아랍어 열선 텍스트 카드",
+    "is_3d": true,
+    "size_w_pct": 28.0,
+    "x_pct": 60.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "뒷좌석 열선 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 57.8,
+    "what": "Black Badge 무한대 네온 심볼",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 55.0,
+    "y_pct": 20.0,
+    "entrance": "페이드",
+    "purpose": "블랙 배지 에디션 상징 강조",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 61.5,
+    "what": "초록색 달러 가격 배지",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 60.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "환희의 여신상 단품 가격 표기",
+    "sure": true
+   },
+   {
+    "start": 120.3,
+    "end": 123.5,
+    "what": "577 HP 보라색 3D 스펙 배너",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "출력 및 토크 제원 강조",
+    "sure": true
+   },
+   {
+    "start": 124.0,
+    "end": 126.8,
+    "what": "RANGE 600 KM 네온 3D 전광판",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 40.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "1회 충전 주행거리 강조",
+    "sure": true
+   },
+   {
+    "start": 129.8,
+    "end": 132.5,
+    "what": "매장 위치 핀 지도 마커 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 35.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "أنا ناصر ودي أفخم سبورت كوبيه في العالم",
+    "ko": "저는 나사르입니다. 이건 세상에서 가장 럭셔리한 스포츠 쿠페입니다."
+   },
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "text": "رولز رويس سبكتر بلاك بادج",
+    "ko": "롤스로이스 스펙터 블랙 배지입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 8.0,
+    "text": "الشغل بيبتدي من جوه، عندك ستارلايت على شكل نجوم السما في جودوود",
+    "ko": "시작은 실내부터입니다. 굿우드의 밤하늘 별들을 형상화한 스타라이트 헤드라이너가 있고,"
+   },
+   {
+    "start": 8.0,
+    "end": 12.0,
+    "text": "لوجو خطير عشان التصوير، والكراسي فيها تسخين وتبريد ومساج",
+    "ko": "멋진 로고와 함께 시트에는 열선, 통풍, 마사지 기능이 들어있습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "text": "و5000 نجمة مرسومين بالليزر",
+    "ko": "그리고 레이저로 새겨진 5,000여 개의 별빛 페시아가 있습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 17.0,
+    "text": "الخامات من جوه بتتكلم عن نفسها",
+    "ko": "내장재의 고급스러움은 말할 필요도 없습니다."
+   },
+   {
+    "start": 17.0,
+    "end": 21.5,
+    "text": "عندك أذكى سبيكر سيستم عملته رولز رويس، ساعة من رولز رويس وهاند كرافتد كاربون فايبر مكمل معاك على طول الكونسول",
+    "ko": "롤스로이스 최고의 스피커 시스템과 아날로그 시계, 센터 콘솔을 따라 이어지는 수제 카본 파이버가 적용되었습니다."
+   },
+   {
+    "start": 21.5,
+    "end": 26.0,
+    "text": "اتنين كب هولدر، مساحة تخزين، والشاحن وايرلس",
+    "ko": "2구 컵홀더, 수납공간, 그리고 무선 충전기가 있습니다."
+   },
+   {
+    "start": 26.0,
+    "end": 30.0,
+    "text": "عشان تفتح الباب كل اللي عليك بتشد الأكرة وهو هيفتح نفسه لوحده",
+    "ko": "문을 열려면 손잡이를 가볍게 당기기만 하면 스스로 열립니다."
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "وعشان تقفله يا بتدوس على الفرامل أو بتدوس على الزرار ده وهو هيقفل نفسه لوحده",
+    "ko": "닫을 때는 브레이크를 밟거나 이 버튼을 누르면 저절로 닫힙니다."
+   },
+   {
+    "start": 34.0,
+    "end": 36.2,
+    "text": "مش هتتعب نفسك خالص",
+    "ko": "전혀 힘을 들일 필요가 없습니다."
+   },
+   {
+    "start": 36.2,
+    "end": 41.5,
+    "text": "حتى التابلوه بتاعك تو تون، عندك هيد اب وديجيتال ديسبلاي، دركسيون يدل على النجاح وهو من الأريح في العالم",
+    "ko": "투톤 대시보드와 헤드업 디스플레이, 디지털 계기판, 그리고 세상에서 가장 편안하고 성공을 상징하는 스티어링 휠이 있습니다."
+   },
+   {
+    "start": 41.5,
+    "end": 45.8,
+    "text": "عندك لوجو بلاك بادج، والكنبة بتاعتك تسخين وأظن دي أريح كنبة كوبيه في العالم",
+    "ko": "블랙 배지 로고와 열선이 들어간 뒷좌석은 세상에서 가장 편안한 쿠페 시트일 것입니다."
+   },
+   {
+    "start": 45.8,
+    "end": 48.0,
+    "text": "عندك اتنين كب هولدر وتحكم في التكييف",
+    "ko": "2구 컵홀더와 독립 공조 컨트롤이 마련되어 있습니다."
+   },
+   {
+    "start": 48.0,
+    "end": 51.8,
+    "text": "اللوجو ثابت والعربية بتتحرك، وجنط خطير مقاس 23",
+    "ko": "차가 달려도 휠 캡의 로고는 고정되어 있으며, 멋진 23인치 휠이 장착되었습니다."
+   },
+   {
+    "start": 51.8,
+    "end": 57.5,
+    "text": "ودي ان ايه رولز رويس الجديد، بالسبليت ال اي ديز، والالومينيتد بلاك د بانثيون جريلز عشان دي البلاك بادج",
+    "ko": "새로운 롤스로이스 디자인 DNA로 분리형 LED와 불이 들어오는 블랙 판테온 그릴이 블랙 배지 트림에 들어갑니다."
+   },
+   {
+    "start": 57.5,
+    "end": 62.5,
+    "text": "في البلاك بادج الإمبلم بحوالي 4000 دولار، فلو حد حاول يسرقه هيختفي",
+    "ko": "블랙 배지 엠블럼은 약 4,000달러에 달해서 누군가 훔치려 하면 안으로 숨어버립니다."
+   },
+   {
+    "start": 103.0,
+    "end": 108.5,
+    "text": "ولمسات الانتيريور اللي بالأحمر مكملة معاك على العتب الجانبي، وعلى الهاند ميد ريد لاين الجانبي، حتى الكاليبرز لونها أحمر",
+    "ko": "실내 레드 포인트는 도어 스커프와 외관 수제 레드 코치라인, 심지어 브레이크 캘리퍼 색상까지 이어집니다."
+   },
+   {
+    "start": 108.5,
+    "end": 112.5,
+    "text": "الدواسات بتاعتك جلد وصوف من أفخم الأنواع، وعشان رفاهية ودانك",
+    "ko": "바닥 매트는 최고급 가죽과 양모 소재이며, 귀의 호사를 위해"
+   },
+   {
+    "start": 112.5,
+    "end": 116.5,
+    "text": "بيسبوك أوديو من الأفضل في العالم، وتصميم النجوم مكمل على البيبان",
+    "ko": "세계 최고 수준의 비스포크 오디오와 도어 트림까지 이어지는 별빛 스타라이트 디자인이 적용되었습니다."
+   },
+   {
+    "start": 116.5,
+    "end": 119.5,
+    "text": "ولو الدنيا مطرت، رولز رويس حطولك شمسية",
+    "ko": "비가 올 때를 대비해 롤스로이스 도어 내부에는 전용 우산이 내장되어 있습니다."
+   },
+   {
+    "start": 119.5,
+    "end": 123.5,
+    "text": "وبتطلع 577 حصان و900 نيوتن، تشد طيارة",
+    "ko": "577마력과 900Nm 토크를 뿜어내 비행기도 끌 수 있을 정도입니다."
+   },
+   {
+    "start": 123.5,
+    "end": 126.8,
+    "text": "والرينج بتاعها 600 كيلو، لو مشوارك أبعد ابقى خد طيارة",
+    "ko": "주행거리는 600km이며, 더 먼 곳을 가려면 비행기를 타야 할 것입니다."
+   },
+   {
+    "start": 126.8,
+    "end": 132.5,
+    "text": "لو عايز سبكتر، جوست، أو كولينان أي رولز رويس عامة هتلاقيها في ريتز أوتو، طريق السويس بجوار قصر الكبابجي",
+    "ko": "스펙터, 고스트, 컬리넌 등 모든 롤스로이스를 찾으신다면 카바브지 궁전 옆 수에즈 로드의 리츠 오토로 오세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "세상에서 가장 럭셔리한 스포츠 쿠페 롤스로이스 스펙터 블랙 배지 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 5.0,
+    "end": 48.0,
+    "speed": "빠름",
+    "summary": "스타라이트 헤드라이너, 쿨링/히팅 시트, 카본 콘솔, 전동 도어, 뒷좌석 편의사양 리뷰"
+   },
+   {
+    "stage": "차 소개",
+    "start": 48.0,
+    "end": 119.5,
+    "speed": "빠름",
+    "summary": "플로팅 휠캡, 23인치 휠, 분리형 헤드램프, 자동 수납 엠블럼, 비스포크 오디오 및 우산 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 119.5,
+    "end": 126.8,
+    "speed": "보통",
+    "summary": "577마력, 900Nm 토크, 600km 주행거리 전기 파워트레인 성능 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 126.8,
+    "end": 132.5,
+    "speed": "보통",
+    "summary": "리츠 오토 전시장 위치 안내 및 방문 유도 CTA"
+   }
+  ],
+  "rules": [
+   "호스트의 리듬감 넘치는 빠른 멘트에 맞춰 3초 내외로 실내외 주요 특징 컷을 전환한다.",
+   "핵심 옵션(통풍, 열선, 휠 인치수, 마력, 주행거리)마다 3D 부유형 그래픽 카드를 화면에 직접 매핑하여 직관성을 높인다.",
+   "전동 도어 작동, 브레이크 페달 도어 닫힘, 환희의 여신상 도난 방지 수납 기능 등 실제 작동 시연을 클로즈업으로 증명한다.",
+   "전시장의 외관 로고와 차량을 함께 배치하고 영상 말미에 매장 위치 핀과 차량 라인업을 보여주며 구매 문의를 유도한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 10.4,
+    "end": 12.0,
+    "feature": "통풍 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "눈꽃 아이콘과 아랍어 텍스트가 적힌 3D 파란색 카드",
+    "x_pct": 38.0,
+    "y_pct": 52.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.8,
+    "feature": "파워 어시스트 자동 도어 열림",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도어 손잡이를 가볍게 당겨 문이 자동으로 열리는 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.0,
+    "feature": "원터치 자동 도어 닫힘",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "센터 콘솔 버튼 조작 및 브레이크 조작으로 문이 자동으로 닫힘",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.6,
+    "feature": "뒷좌석 열선 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "불꽃 아이콘과 오렌지색 열선 텍스트 카드",
+    "x_pct": 75.0,
+    "y_pct": 55.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 51.5,
+    "feature": "플로팅 휠 캡",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "바퀴가 굴러가도 가운데 RR 로고가 수평을 유지하는 모습",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 62.5,
+    "feature": "도난 방지 환희의 여신상 자동 수납",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "엠블럼을 건드리자 보닛 안으로 신속히 들어가는 동작",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 116.5,
+    "end": 119.5,
+    "feature": "도어 내장형 롤스로이스 우산",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도어 프레임 안에서 수납된 전용 우산을 꺼내는 모습",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 럭셔리 쇼룸 앞 보라색 롤스로이스 스펙터 앞에서 자신감 넘치는 포즈로 세상에서 가장 럭셔리한 스포츠 쿠페를 소개",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر ودي أفخم سبورت كوبيه في العالم",
+   "ko": "저는 나사르입니다. 이건 세상에서 가장 럭셔리한 스포츠 쿠페입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "롤스로이스의 전기 럭셔리 스포츠 쿠페 스펙터 블랙 배지 트림 소개",
+    "category": "희소성"
+   },
+   {
+    "t": 6.5,
+    "point": "굿우드 밤하늘을 수놓은 스타라이트 헤드라이너와 통풍·마사지 시트",
+    "category": "편의"
+   },
+   {
+    "t": 12.5,
+    "point": "레이저로 새겨진 5,500여 개 별빛이 빛나는 페시아 대시보드",
+    "category": "디자인"
+   },
+   {
+    "t": 28.0,
+    "point": "손잡이 당김 및 버튼/브레이크 조작으로 열리고 닫히는 완전 자동 전동 도어",
+    "category": "편의"
+   },
+   {
+    "t": 48.5,
+    "point": "바퀴가 돌아도 똑바로 서 있는 플로팅 휠 캡과 23인치 대형 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 58.5,
+    "point": "4,000달러 상당의 환희의 여신상 엠블럼과 터치 시 즉시 수납되는 도난 방지 기능",
+    "category": "안전"
+   },
+   {
+    "t": 113.0,
+    "point": "도어 패널까지 이어지는 스타라이트와 최상급 비스포크 오디오 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 120.0,
+    "point": "577마력과 900Nm의 강력한 파워트레인 및 1회 충전 600km 주행거리",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 128.0,
+   "text": "هتلاقيها في ريتز أوتو، طريق السويس بجوار قصر الكبابجي",
+   "ko": "카바브지 궁전 옆 수에즈 로드에 위치한 리츠 오토(RITZ AUTO) 매장에서 만나보세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "옵션 작동",
+    "계기판",
+    "뒷좌석",
+    "휠",
+    "외관 전면",
+    "옵션 작동",
+    "외관 측면",
+    "옵션 작동",
+    "외관 전면",
+    "외관 후면"
+   ]
+  }
+ }
+}

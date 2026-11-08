@@ -1,0 +1,919 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/4UtPN1cT5ZM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7163,
+  "candidatesTokenCount": 7719,
+  "totalTokenCount": 14882,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6000
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 65.5,
+   "aspect": "9:16",
+   "car": "다양한 고급차 (Range Rover Sport, Audi RS Q8, Mercedes-Benz, BMW, Maserati 등)",
+   "format": "투어",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 23.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 26.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 30.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 37.4,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 40.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 43.6,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 47.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 51.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.9,
+    "end": 55.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 60.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 65.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 14.1,
+    "end": 16.4,
+    "text": "40 YEARS EXPERIENCE",
+    "ko": "40년 경력",
+    "kind": "키워드 스티커",
+    "y_pct": 28.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#D4AF37",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "40",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "text": "مش أي حد يشتغل في عربيتك",
+    "ko": "아무나 당신의 차를 만지게 하지 마세요",
+    "kind": "키워드 스티커",
+    "y_pct": 49.5,
+    "x_center_pct": 41.5,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D9534F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 20.3,
+    "text": "ايا كان نوع عربيتك",
+    "ko": "당신의 차 종류가 무엇이든",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#202020",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 22.0,
+    "text": "تبقي مطمن عليها",
+    "ko": "안심할 수 있습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#202020",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.8,
+    "text": "علي أعلي مستوي",
+    "ko": "최고의 수준으로",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FF6B2B",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 25.8,
+    "text": "سمكره دهان",
+    "ko": "판금 도색",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.0,
+    "text": "حتي الفرن بتاعهم معتمد",
+    "ko": "도색 부스조차 공식 인증됨",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#202020",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.6,
+    "text": "SPACE AREA: 1800M",
+    "ko": "전체 면적: 1800㎡",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1800M",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 33.6,
+    "text": "TOTAL CAR: 50",
+    "ko": "수용 대수: 50대",
+    "kind": "키워드 스티커",
+    "y_pct": 32.5,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "50",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "text": "أجهزة متطورة",
+    "ko": "최첨단 장비",
+    "kind": "키워드 스티커",
+    "y_pct": 61.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D9534F",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "VISUAL PLUS",
+    "ko": "비주얼 플러스",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#1E90FF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.5,
+    "text": "VIP",
+    "ko": "VIP",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "text": "تاخد المشروب بتاعك",
+    "ko": "음료를 마시며",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#202020",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 51.5,
+    "text": "وبيخلص لك كل الإجراءات",
+    "ko": "모든 수속을 신속 처리",
+    "kind": "키워드 스티커",
+    "y_pct": 43.5,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1E90FF",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 65.5,
+    "text": "73 الشطر الخامس\nمتفرع من شارع الخمسين\nزهراء المعادي",
+    "ko": "73 알샤트르 알카메스, 알캄신 거리 분기, 자흐라 알마아디",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2F5597",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "바이크 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "띵",
+    "event": "40년 경력 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "경고 표시 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "휙",
+    "event": "페라리 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.3,
+    "type": "휙",
+    "event": "렉서스 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.1,
+    "type": "띵",
+    "event": "엔지니어 캐릭터 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "휙",
+    "event": "판금 도색 그래픽 반반 분할 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "띵",
+    "event": "별점 인증 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "면적 카운트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "딸깍",
+    "event": "체크 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "띵",
+    "event": "비주얼 플러스 장비 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "띵",
+    "event": "VIP 반짝이 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.5,
+    "type": "딸깍",
+    "event": "체크리스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.5,
+    "type": "돈 소리",
+    "event": "화면에 돈비 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "톡",
+    "event": "주소 안내 팝업 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 14.1,
+    "end": 16.4,
+    "what": "월계수 40년 경력 골드 엠블럼",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 28.5,
+    "entrance": "톡 튀어나옴",
+    "purpose": "신뢰도 강조",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.3,
+    "what": "페라리 로고 홀로그램",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "슈퍼카 대응 강조",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.5,
+    "what": "렉서스 로고 홀로그램",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "고급 브랜드 대응 강조",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.8,
+    "what": "엔지니어 체크리스트 3D 캐릭터",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전문성 강조",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "what": "진단 기기 태블릿 홀로그램",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "첨단 장비 강조",
+    "sure": true
+   },
+   {
+    "start": 54.3,
+    "end": 55.7,
+    "what": "천장에서 쏟아지는 지폐 비 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "비싼 정비소 비용 비유",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.5,
+    "end": 3.7,
+    "text": "لو عربيتك فخمة وغالية عليك يبقى لازم تصين في مكان مضمون",
+    "ko": "만약 당신의 차가 고급차이고 소중하다면, 믿을 수 있는 곳에서 정비해야 합니다."
+   },
+   {
+    "start": 3.7,
+    "end": 7.5,
+    "text": "مجموعة الأصيل بتبتدي فيز جديدة لصيانة العربيات اللاكشري والإكزوتيك",
+    "ko": "알 아실 그룹에서 럭셔리 및 엑조틱 차량 정비를 위한 새로운 페이즈를 시작합니다."
+   },
+   {
+    "start": 7.5,
+    "end": 11.5,
+    "text": "باسم أوثينتك سيرفيس وده كان طلب من العملاء بتوعه اللي أوريدي بيصينوا عربياتهم عنده",
+    "ko": "이름은 어센틱 서비스이며, 이미 이곳을 이용하던 고객들의 요청으로 시작되었습니다."
+   },
+   {
+    "start": 11.5,
+    "end": 14.0,
+    "text": "ده غير الفرع بتاع أوثينتك كير وعندهم خبرة 40 سنة في السوق",
+    "ko": "어센틱 케어 지점 외에도 업계 40년의 경험을 보유하고 있습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 18.5,
+    "text": "فيصبوها كلها في عربيتك وده مهم جدا لأن مش أي حد يشتغل في عربيتك",
+    "ko": "그 노하우를 당신의 차에 쏟아부으며, 아무나 차를 만지게 둘 수 없기에 매우 중요합니다."
+   },
+   {
+    "start": 18.5,
+    "end": 23.5,
+    "text": "فأيا كان نوع عربيتك فتقدر تبقى مطمن عليها لأنها في إيد صنايعية ومهندسين على أعلى مستوى",
+    "ko": "차종이 무엇이든 최고 수준의 엔지니어와 기술자들의 손에 맡겨져 안심할 수 있습니다."
+   },
+   {
+    "start": 23.5,
+    "end": 28.0,
+    "text": "وعندهم سمكرة ودهان لكل العربيات حتى الفرن بتاعهم معتمد من براندات كتير",
+    "ko": "전 차종 판금 및 도색이 가능하며 도색 부스까지 많은 브랜드의 공식 승인을 받았습니다."
+   },
+   {
+    "start": 28.0,
+    "end": 30.6,
+    "text": "ودي كل خدمات العناية بالعربية من أول البرودكشن",
+    "ko": "보호 필름 작업부터 차량에 필요한 모든 관리 서비스를 제공합니다."
+   },
+   {
+    "start": 30.6,
+    "end": 33.7,
+    "text": "والصرح ده 1800 متر ويشيل لحد 50 عربية يوميا",
+    "ko": "이 시설은 1,800㎡ 규모로 하루 최대 50대를 수용할 수 있습니다."
+   },
+   {
+    "start": 33.7,
+    "end": 37.4,
+    "text": "وطبعا بيستخدموا أجهزة متطورة عشان التشخيص والكشف على الأعطال",
+    "ko": "물론 진단과 결함 검출을 위해 최첨단 장비를 활용합니다."
+   },
+   {
+    "start": 37.4,
+    "end": 41.0,
+    "text": "زي جهاز الفيجوال بلس اللي بيجمع ما بين خبرة المهندس والتكنولوجي عشان الدقة",
+    "ko": "엔지니어의 경험과 기술을 결합해 정밀도를 높인 비주얼 플러스 장비처럼 말이죠."
+   },
+   {
+    "start": 41.0,
+    "end": 44.0,
+    "text": "وبيستعملوا قطع غيار أصلية من بوش وماجنيتي ماريللي",
+    "ko": "그리고 보쉬 및 마그네티 마렐리의 순정 부품만을 사용합니다."
+   },
+   {
+    "start": 44.0,
+    "end": 48.0,
+    "text": "وعشان أنت عميل VIP تقدر تيجي وتاخد المشروب بتاعك وتتفرج على عربيتك وهي بتتصين",
+    "ko": "VIP 고객을 위해 음료를 즐기며 차가 정비되는 모습을 직접 볼 수 있는 라운지도 갖췄습니다."
+   },
+   {
+    "start": 48.0,
+    "end": 52.0,
+    "text": "كمان لما بتيجي مهندس الاستقبال بيستقبلك وبيخلص لك كل الإجراءات بتاعتك",
+    "ko": "도착 시 리셉션 엔지니어가 맞이하여 모든 수속을 대행해 드립니다."
+   },
+   {
+    "start": 52.0,
+    "end": 56.0,
+    "text": "فلو عربيتك استيراد الضمان خلص أو مش عايز تصين في التوكيل عشان غالي جدا",
+    "ko": "직수입 차량이거나 보증이 끝났거나 공식 센터 비용이 너무 비싸 고민이시라면,"
+   },
+   {
+    "start": 56.0,
+    "end": 60.5,
+    "text": "أوثينتك سيرفيس بيديلك ضمان سنة على كل قطع الغيار وتقدر تفتح ملف ضمان زي التوكيل بالظبط",
+    "ko": "어센틱 서비스에서 모든 부품 1년 보증을 제공하며 공식 센터와 똑같은 보증 파일을 생성해 줍니다."
+   },
+   {
+    "start": 60.5,
+    "end": 65.5,
+    "text": "والعنوان 73 الشطر الخامس متفرع من شارع الخمسين زهراء المعادي",
+    "ko": "위치는 자흐라 알마아디 알캄신 거리 인근 73 알샤트르 알카메스입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "삼륜 바이크를 탄 채 믿을 만한 고급차 정비소의 필요성 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 14.0,
+    "speed": "빠름",
+    "summary": "알 아실 그룹의 어센틱 서비스 론칭 소개 및 40년 업력 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 14.0,
+    "end": 30.6,
+    "speed": "빠름",
+    "summary": "엔지니어 수준, 판금/도색 공식 인증 부스 및 차량 케어 서비스 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 30.6,
+    "end": 44.0,
+    "speed": "빠름",
+    "summary": "1,800㎡ 규모, 50대 수용력, 비주얼 플러스 정밀 진단기 및 순정 부품 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 44.0,
+    "end": 52.0,
+    "speed": "보통",
+    "summary": "VIP 고객 대기 라운지 및 원스톱 접수 프로세스 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 52.0,
+    "end": 60.5,
+    "speed": "빠름",
+    "summary": "공식 서비스센터 대비 가성비 및 1년 부품 보증 보장 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 60.5,
+    "end": 65.5,
+    "speed": "보통",
+    "summary": "매장 외관과 함께 위치 주소 안내 자막 노출"
+   }
+  ],
+  "rules": [
+   "매 멘트의 핵심 단어마다 3D 일러스트나 입체 스티커를 정확한 효과음과 동기화해 팝업시킨다.",
+   "공식 센터의 비싼 비용을 언급할 때는 지폐가 비처럼 내리는 3D 그래픽으로 시각적 공감을 유도한다.",
+   "넓은 작업 공간을 위에서 내려다보는 부감 샷을 활용해 규모감(1800㎡)을 극대화한다.",
+   "신뢰도를 높이기 위해 브랜드 로고(보쉬, 마렐리, 3M, 헥시스 등)를 작업장 벽면과 그래픽으로 지속 노출한다.",
+   "마지막에는 방문을 유도하도록 정확한 도로명 주소를 눈에 띄는 박스 자막으로 고정해 배치한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 24.0,
+    "end": 26.0,
+    "feature": "판금 도색",
+    "shown_how": "화면 분할",
+    "icon_desc": "차량 반쪽 복원 전후 대비 스티커",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "feature": "비주얼 플러스 진단 장비",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "컴퓨터 진단 화면이 표시된 태블릿 모니터 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.0,
+    "feature": "VIP 고객 휴게 라운지",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "커피잔 및 반짝이는 VIP 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정비소 앞 삼륜 바이크에 탄 채 강력한 가속음과 함께 시작하며 프리미엄 정비소 방문을 강조",
+   "type": "질문",
+   "text": "لو عربيتك فخمة وغالية عليك يبقى لازم تصين في مكان مضمون",
+   "ko": "소중한 고급차를 믿고 맡길 곳을 찾으시나요?"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "고급차 정비는 신뢰할 수 있는 전문 센터에서 진행해야 함",
+    "category": "상태"
+   },
+   {
+    "t": 14.0,
+    "point": "40년 전통의 노하우를 바탕으로 엑조틱/럭셔리카 정비 전담 부서 신설",
+    "category": "상태"
+   },
+   {
+    "t": 24.5,
+    "point": "공식 인증 부스에서 진행되는 고품질 판금 및 도색",
+    "category": "상태"
+   },
+   {
+    "t": 32.0,
+    "point": "1,800㎡의 초대형 센터 규모와 일일 최대 50대 정비 역량",
+    "category": "공간"
+   },
+   {
+    "t": 38.5,
+    "point": "비주얼 플러스를 통한 하이테크 정밀 스캔 진단 제공",
+    "category": "성능"
+   },
+   {
+    "t": 42.0,
+    "point": "보쉬, 마그네티 마렐리 정품 순정 부품 사용",
+    "category": "성능"
+   },
+   {
+    "t": 46.0,
+    "point": "정비 진행 상황을 조망할 수 있는 VIP 전용 프리미엄 라운지",
+    "category": "편의"
+   },
+   {
+    "t": 57.0,
+    "point": "공식 센터 대비 합리적인 가격과 전 부품 1년 보증 제도",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 61.0,
+   "text": "73 الشطر الخامس متفرع من شارع الخمسين زهراء المعادي",
+   "ko": "자흐라 알마아디 알캄신 거리 73 알샤트르 알카메스로 방문하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 후면",
+    "엔진룸",
+    "기타"
+   ]
+  }
+ }
+}

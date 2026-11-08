@@ -1,0 +1,992 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/7CHc-iyh2oA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 10174,
+  "candidatesTokenCount": 8200,
+  "totalTokenCount": 18374,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 9011
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 99.4,
+   "aspect": "9:16",
+   "car": "BYD Yangwang U8 L",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 28.2,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.2,
+    "end": 31.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.6,
+    "end": 33.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 36.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 41.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 47.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 51.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.6,
+    "end": 56.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 62.7,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.7,
+    "end": 67.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.5,
+    "end": 74.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 74.8,
+    "end": 83.7,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 83.7,
+    "end": 90.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 90.1,
+    "end": 93.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 93.3,
+    "end": 99.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "text": "QUEEN RANIA",
+    "ko": "라니아 여왕",
+    "kind": "제목",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "QUEEN",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "text": "YANGWANG U8 L",
+    "ko": "양왕 U8 L",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "YANGWANG",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "أذكى مما تتخيل",
+    "ko": "상상 이상으로 똑똑한",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#2070D0",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 21.6,
+    "text": "CAMERA 18 / RADAR 19 / LIDAR 3 / SENSOR 40",
+    "ko": "카메라 18 / 레이더 19 / 라이다 3 / 센서 40",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#00F0FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "text": "1080 HP / 1500 NM",
+    "ko": "1080 마력 / 1500 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 18.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#00C0FF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.0,
+    "text": "0 - 100 3.5s",
+    "ko": "제로백 3.5초",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#00DFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.5,
+    "text": "CLTC +1000KM",
+    "ko": "CLTC 기준 1000km 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "2000CC TURBO / RANGE EXTENDER",
+    "ko": "2000cc 터보 주행거리 연장기",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 5.0,
+    "color": "#00FFFF",
+    "background": "칠",
+    "bg_color": "#0070FF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.0,
+    "text": "PASSENGER SCREEN",
+    "ko": "동승석 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 4.0,
+    "color": "#00FFC0",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.2,
+    "text": "فخم جدا",
+    "ko": "매우 고급스러움",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 5.0,
+    "color": "#FFAA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 100.8,
+    "end": 103.0,
+    "text": "HEAD UP DISPLAY",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#00F0FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 133.5,
+    "end": 135.5,
+    "text": "الوحيدة في مصر",
+    "ko": "이집트 유일",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 137.5,
+    "end": 139.4,
+    "text": "17916",
+    "ko": "17916",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00B0FF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "휙",
+    "event": "국기 그래픽 및 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "쿵",
+    "event": "화면 전환 및 인트로 시작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "띵",
+    "event": "YANGWANG U8 L 네온 엠블럼 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.2,
+    "type": "톡",
+    "event": "뇌 CG 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "센서 스펙 숫자 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.2,
+    "type": "휙",
+    "event": "마력 및 토크 그래픽 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.2,
+    "type": "휙",
+    "event": "가속도 시각화 그래픽 회전",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "톡",
+    "event": "주행거리 CLTC 텍스트 카드 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.2,
+    "type": "휙",
+    "event": "터보 엔진 박스 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.1,
+    "type": "띵",
+    "event": "시트 통풍/열선 아이콘 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 53.8,
+    "type": "딸깍",
+    "event": "콘솔 조작 버튼 누름과 동기화",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 55.6,
+    "type": "딸깍",
+    "event": "카메라 팝다운 기능 작동 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 101.5,
+    "type": "톡",
+    "event": "HUD 그래픽 텍스트 강조",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 110.5,
+    "type": "톡",
+    "event": "터치스크린 컨트롤 아이콘 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 119.5,
+    "type": "띵",
+    "event": "Dynaudio 스피커 브랜딩 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 137.8,
+    "type": "띵",
+    "event": "전화번호 CTA 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 트렌디 힙합 비트",
+   "bpm_est": 118,
+   "mood": "에너지 넘치고 신나는",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "빠른 비트 인트로"
+    },
+    {
+     "t": 13.0,
+     "what": "메인 테마 비트 전개"
+    },
+    {
+     "t": 133.0,
+     "what": "마무리 아웃트로 비트 고조"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "what": "요르단 펄럭이는 국기 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "밀려옴",
+    "purpose": "훅 시선 집중",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.5,
+    "what": "네온 글로우 YANGWANG U8 L 3D 로고",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 각인",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "what": "전기 신호가 흐르는 3D 뇌 그래픽",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스마트 AI 강조",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "what": "차량 휠 위 가상 엔진 모터 투시 CG",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 60.0,
+    "y_pct": 38.0,
+    "entrance": "페이드",
+    "purpose": "인휠 독립 모터 시각화",
+    "sure": true
+   },
+   {
+    "start": 110.0,
+    "end": 112.5,
+    "what": "시트 불꽃/마사지 애니메이션 아이콘",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 기능 시각화",
+    "sure": true
+   },
+   {
+    "start": 133.2,
+    "end": 135.5,
+    "what": "이집트 펄럭이는 국기 CG",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "지역 유일 매물 강조",
+    "sure": true
+   },
+   {
+    "start": 135.5,
+    "end": 137.5,
+    "what": "QN AUTOMOTIVE 골드 엠블럼",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "딜러 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "عربية الملكة رانيا ملكة الأردن",
+    "ko": "요르단 라니아 여왕의 자동차입니다."
+   },
+   {
+    "start": 2.2,
+    "end": 6.8,
+    "text": "عربية تدخل أي ركنة بالعرض مهما كانت ضيقة",
+    "ko": "아무리 좁은 주차공간이라도 옆으로 평행주차해서 들어갈 수 있는 차죠."
+   },
+   {
+    "start": 6.8,
+    "end": 11.0,
+    "text": "وبتقدر تنزل المية لحد 160 سم ولمدة نص ساعة",
+    "ko": "게다가 최대 160cm 깊이의 물에 들어가 30분 동안 떠다닐 수 있습니다."
+   },
+   {
+    "start": 11.0,
+    "end": 15.6,
+    "text": "أنا ناصر وأنا نصر الله ودي اليانج وانج U8 L",
+    "ko": "저는 나사르고, 저는 나스랄라입니다. 이것이 바로 양왕 U8 L입니다."
+   },
+   {
+    "start": 15.6,
+    "end": 24.3,
+    "text": "أذكى مما تتخيل بكتير 18 كاميرا و 19 رادار و 3 لايدار و 40 سنسور",
+    "ko": "상상 이상으로 똑똑합니다. 카메라 18개, 레이더 19개, 라이다 3개, 센서 40개까지."
+   },
+   {
+    "start": 24.3,
+    "end": 33.6,
+    "text": "وموتور على كل عجلة بيطلعوا 1080 حصان و 1500 نيوتن ومن 0 لـ 100 في 3 ثواني ونصف بتطير",
+    "ko": "각 바퀴마다 모터가 달려 1080마력에 1500토크를 내뿜고, 제로백은 3.5초 만에 날아갑니다."
+   },
+   {
+    "start": 33.6,
+    "end": 41.6,
+    "text": "والرينج بتاعها CLTC أكتر من 1000 كيلو عشان عليها موتور 2000 تربو بيشتغل كـ Range Extender",
+    "ko": "CLTC 주행가능거리는 1000km가 넘습니다. 2000cc 터보 엔진이 발전기 역할을 하기 때문이죠."
+   },
+   {
+    "start": 41.6,
+    "end": 56.5,
+    "text": "خد نفس لسه هنخش جوه فتحة سقف شاشات وكراسي تبريد وتسخين ومساج والمراية تقلب كاميرا",
+    "ko": "숨 한번 고르시고, 이제 실내로 들어갑니다. 선루프, 디스플레이, 마사지 시트에 룸미러 카메라까지."
+   },
+   {
+    "start": 56.5,
+    "end": 67.5,
+    "text": "دريكسيون فخم جداً هيد اب ديسبلاي وصف تاني فاميه بالكهربا وترابيزة",
+    "ko": "고급스러운 스티어링 휠, HUD, 2열 전동 블라인드와 간이 테이블까지 갖췄습니다."
+   },
+   {
+    "start": 67.5,
+    "end": 83.7,
+    "text": "تلاجة وشاشة تحكم في الكراسي وشحن وايرلس وسقف بانوراما عملاق و 32 سماعة Dynaudio",
+    "ko": "냉장고 겸 온장고, 터치 조작 디스플레이, 무선충전, 거대한 파노라마 루프, 32개 다인오디오 스피커."
+   },
+   {
+    "start": 83.7,
+    "end": 93.3,
+    "text": "الزرار اللي في الجنب هيحطك في وضعية الـ Zero Gravity Mode وتلفزيون تتسلى عليه في الطريق",
+    "ko": "측면 버튼을 누르면 무중력 제로 그래비티 모드로 눕혀지고, 천장 TV로 지루할 틈이 없습니다."
+   },
+   {
+    "start": 93.3,
+    "end": 99.4,
+    "text": "الوحيدة في مصر هتلاقيها بس في QN Automotive وتقدر تحجز من الرقم ده",
+    "ko": "이집트에서 단 한 대뿐인 차량, 오직 QN Automotive에서 만나보실 수 있으며 이 번호로 예약하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 11.0,
+    "speed": "빠름",
+    "summary": "라니아 여왕의 차, 탱크턴 횡이동 주차, 30분 수륙양용 주행 영상으로 강력한 충격"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.0,
+    "end": 17.6,
+    "speed": "보통",
+    "summary": "호스트 2인 인사 및 양왕 U8 L 모델명과 지능형 센서 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 17.6,
+    "end": 41.6,
+    "speed": "빠름",
+    "summary": "4모터 1080마력, 제로백 3.5초, 주행거리 1000km+ 레인지 익스텐더 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 41.6,
+    "end": 93.3,
+    "speed": "빠름",
+    "summary": "1열 팝업 카메라·스크린 및 2열 제로 그래비티 시트, 테이블, 냉장고, 천장 TV 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 93.3,
+    "end": 99.4,
+    "speed": "보통",
+    "summary": "이집트 유일 독점 차량 강조 및 딜러사 예약 전화번호 CTA"
+   }
+  ],
+  "rules": [
+   "호스트 2인이 주고받는 핑퐁 대화 구조로 호흡을 매우 빠르게 유지한다.",
+   "핵심 스펙 수치(센서 개수, 마력, 제로백, 주행거리)는 네온 컬러 3D 카드 스티커로 즉각 띄운다.",
+   "실내 첨단 편의기능(스크린, 버튼, 냉장고, 전동시트)은 손가락으로 직접 터치하고 움직이는 물리적 시연을 근접 촬영한다.",
+   "처음 10초 이내에 수중 주행, 제자리 회전 등 바이럴 클립을 선배치하여 이탈을 원천 차단한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 2.2,
+    "end": 6.8,
+    "feature": "크랩 워크 및 탱크 턴 주차",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "feature": "비상 수중 도하 모드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.6,
+    "feature": "통합 ADAS 센서 패키지",
+    "shown_how": "글자 카드",
+    "icon_desc": "카메라, 레이더, 라이다 개수 팝업",
+    "x_pct": 75.0,
+    "y_pct": 28.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 51.6,
+    "end": 56.5,
+    "feature": "디지털 룸미러 셀카 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 107.5,
+    "end": 109.8,
+    "feature": "콘솔 냉온장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 124.0,
+    "end": 130.0,
+    "feature": "제로 그래비티 무중력 리클라이닝 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 85.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 131.0,
+    "end": 133.0,
+    "feature": "천장 전동 접이식 엔터테인먼트 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "요르단 라니아 여왕의 국기와 함께 옆으로 게걸음 주차하는 양왕 U8 L의 모습",
+   "type": "희귀차",
+   "text": "عربية الملكة رانيا ملكة الأردن عربية تدخل أي ركنة بالعرض",
+   "ko": "요르단 라니아 여왕의 차! 어떤 좁은 주차장도 옆으로 들어가는 차!"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "요르단 라니아 여왕이 타는 초호화 오프로더",
+    "category": "희소성"
+   },
+   {
+    "t": 4.0,
+    "point": "옆으로 평행이동 주행이 가능한 탱크턴 조향",
+    "category": "성능"
+   },
+   {
+    "t": 8.0,
+    "point": "수심 1.6m에서 30분간 물에 떠서 항해 가능",
+    "category": "성능"
+   },
+   {
+    "t": 19.0,
+    "point": "라이다 3개, 레이더 19개, 카메라 18개, 센서 40개의 자율주행 하드웨어",
+    "category": "안전"
+   },
+   {
+    "t": 26.0,
+    "point": "독립 인휠 4모터 합산 출력 1080마력, 1500토크",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "제로백 3.5초의 압도적 가속력",
+    "category": "성능"
+   },
+   {
+    "t": 36.0,
+    "point": "2.0 터보 레인지 익스텐더를 탑재해 주행거리 1,000km 초과",
+    "category": "성능"
+   },
+   {
+    "t": 54.0,
+    "point": "터치 한 번으로 내려오는 룸미러 내장 셀카 팝다운 카메라",
+    "category": "편의"
+   },
+   {
+    "t": 70.0,
+    "point": "냉장고 겸용 온장고 및 2열 센터 컨트롤 터치스크린",
+    "category": "편의"
+   },
+   {
+    "t": 80.0,
+    "point": "32개 스피커의 최고급 다인오디오 사운드 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 87.0,
+    "point": "완전 침대처럼 눕혀지는 무중력 제로 그래비티 모드 시트",
+    "category": "편의"
+   },
+   {
+    "t": 95.0,
+    "point": "이집트 내 단 1대뿐인 매물로 독점 판매",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 97.5,
+   "text": "17916",
+   "ko": "17916 번호로 예약 문의",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "휠",
+    "외관 측면",
+    "엔진룸",
+    "실내 앞",
+    "센터 화면",
+    "옵션 작동",
+    "계기판",
+    "뒷좌석",
+    "외관 전면"
+   ]
+  }
+ }
+}

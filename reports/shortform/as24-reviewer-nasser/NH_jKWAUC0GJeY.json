@@ -1,0 +1,682 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/jKWAUC0GJeY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5163,
+  "candidatesTokenCount": 6942,
+  "totalTokenCount": 13655,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4000
+   }
+  ],
+  "thoughtsTokenCount": 1550,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.4,
+   "aspect": "9:16",
+   "car": "람보르기니 레부엘토, 메르세데스-AMG G63, 브라부스 G바겐, C200, GLB, 레인지로버 보그, CLA, 레인지로버 벨라, GLC 등",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 11.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 21.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 32.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 38.7,
+    "part": "기타",
+    "camera": "드론",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.7,
+    "end": 44.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.0,
+    "end": 5.8,
+    "text": "19,500,000 MERCEDES G63",
+    "ko": "1950만 EGP 메르세데스 G63",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19,500,000",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.4,
+    "text": "4,150,000 MERCEDES C 200",
+    "ko": "415만 EGP 메르세데스 C200",
+    "kind": "가격",
+    "y_pct": 19.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4,150,000",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.8,
+    "text": "4,450,000 MERCEDES GLB",
+    "ko": "445만 EGP 메르세데스 GLB",
+    "kind": "가격",
+    "y_pct": 16.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4,450,000",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 16.6,
+    "text": "17,000,000 Range Rover Vogue",
+    "ko": "1700만 EGP 레인지로버 보그",
+    "kind": "가격",
+    "y_pct": 16.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "17,000,000",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.8,
+    "text": "CLA 2026 3,600,000 / CLA 2027 3,800,000",
+    "ko": "CLA 26년형 360만 / CLA 27년형 380만 EGP",
+    "kind": "가격",
+    "y_pct": 28.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3,600,000",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.5,
+    "text": "6,100,000 RANGE ROVER VELAR",
+    "ko": "610만 EGP 레인지로버 벨라",
+    "kind": "가격",
+    "y_pct": 16.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6,100,000",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.9,
+    "text": "6,140,000 MERCEDES GLC IMSA",
+    "ko": "614만 EGP 메르세데스 GLC IMSA",
+    "kind": "가격",
+    "y_pct": 16.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6,140,000",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 32.0,
+    "text": "5,860,000 MERCEDES GLC 300 AMG",
+    "ko": "586만 EGP 메르세데스 GLC 300 AMG",
+    "kind": "가격",
+    "y_pct": 16.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5,860,000",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 35.5,
+    "text": "ستوك كبير جداً",
+    "ko": "엄청나게 많은 재고 보유",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ستوك",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.5,
+    "text": "استلام فوري",
+    "ko": "즉시 당일 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "فوري",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "위치 핀 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "휙",
+    "event": "G63 가격 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "쿵",
+    "event": "브라부스 로고 및 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "휙",
+    "event": "C200 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "휙",
+    "event": "GLB 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.0,
+    "type": "휙",
+    "event": "레인지로버 보그 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "딸깍",
+    "event": "CLA 옵션 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "휙",
+    "event": "벨라 가격 배너 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "휙",
+    "event": "GLC IMSA 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.2,
+    "type": "휙",
+    "event": "GLC 300 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "톡",
+    "event": "재고 대량 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.0,
+    "type": "톡",
+    "event": "즉시 출고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.6,
+    "type": "딸깍",
+    "event": "최종 위치 핀 안내 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "트랩 힙합 비트",
+   "bpm_est": 125,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 2.5,
+    "what": "슈퍼카 아이콘 및 위치 핀 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "장소 및 주제 인지",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 4.5,
+    "what": "차량 색상 옵션 원형 뱃지 4개",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선택 가능한 컬러 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.7,
+    "what": "Brabus 2026 원형 엠블럼 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "튜너 브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.4,
+    "what": "전시장 위치 핀 및 안내 배너",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 40.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "방문 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "أنا ناصر ودي أجمد عربيات في وصلة دهشور",
+    "ko": "저는 나사르이고, 여긴 다흐슈르 연결로에서 가장 멋진 차들입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 5.8,
+    "text": "كل ألوان الـ G63 من أول 19 مليون ونص",
+    "ko": "G63의 모든 색상이 1950만 파운드부터 시작합니다."
+   },
+   {
+    "start": 5.8,
+    "end": 7.7,
+    "text": "وفي منها اتنين أوريجنال برابوس 26",
+    "ko": "그중 오리지널 브라부스 2026 모델 2대도 있습니다."
+   },
+   {
+    "start": 7.7,
+    "end": 11.4,
+    "text": "C200 بـ 4 مليون 150 وفي منها كتير جداً",
+    "ko": "C200은 415만 파운드이며 재고가 아주 많습니다."
+   },
+   {
+    "start": 11.4,
+    "end": 13.8,
+    "text": "الـ GLB بـ 4 مليون 450",
+    "ko": "GLB는 445만 파운드입니다."
+   },
+   {
+    "start": 13.8,
+    "end": 16.6,
+    "text": "رينج روفر فوج بـ 17 مليون جنيه",
+    "ko": "레인지로버 보그는 1700만 이집트 파운드입니다."
+   },
+   {
+    "start": 16.6,
+    "end": 21.8,
+    "text": "CLA الشكل الجديد، الـ 26 بـ 3 مليون 600 والـ 27 بـ 3 مليون 800",
+    "ko": "신형 CLA는 26년형이 360만 파운드, 27년형이 380만 파운드입니다."
+   },
+   {
+    "start": 21.8,
+    "end": 25.5,
+    "text": "رينج روفر فيلار 26 بـ 6 مليون 100",
+    "ko": "레인지로버 벨라 26년형은 610만 파운드입니다."
+   },
+   {
+    "start": 25.5,
+    "end": 28.9,
+    "text": "GLC الـ IMSA إديشن بـ 6 مليون 140",
+    "ko": "GLC IMSA 에디션은 614만 파운드입니다."
+   },
+   {
+    "start": 28.9,
+    "end": 32.0,
+    "text": "GLC 300 AMG بـ 5 مليون 860",
+    "ko": "GLC 300 AMG는 586만 파운드입니다."
+   },
+   {
+    "start": 32.0,
+    "end": 38.7,
+    "text": "كل العربيات دي في منها ستوك كبير جداً لكل الأذواق واستلام فوري كمان",
+    "ko": "이 모든 차량은 취향별로 대량 재고가 준비되어 있고 즉시 출고 가능합니다."
+   },
+   {
+    "start": 38.7,
+    "end": 44.4,
+    "text": "كل دا جوا العرض وهتلاقيهم في الصياد أوتو وصلة دهشور الشيخ زايد",
+    "ko": "이 모든 혜택은 셰이크 자이드 다흐슈르 연결로의 사야드 오토에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "람보르기니 레부엘토 앞에서 나사르의 인트로"
+   },
+   {
+    "stage": "가격",
+    "start": 2.8,
+    "end": 32.0,
+    "speed": "빠름",
+    "summary": "G바겐, C200, GLB, 레인지로버, CLA, 벨라, GLC 등 차종별 정확한 가격 순차 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 32.0,
+    "end": 38.7,
+    "speed": "보통",
+    "summary": "전시장 드론 풀샷으로 대규모 보유 재고 및 즉시 출고 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 38.7,
+    "end": 44.4,
+    "speed": "보통",
+    "summary": "사야드 오토 딜러십 방문 및 위치 CTA"
+   }
+  ],
+  "rules": [
+   "각 차종마다 2~3초 단위로 템포를 끊어 가격표 그래픽과 함께 신속하게 전환한다.",
+   "모든 가격 배너는 딜러십 시그니처 로고와 네온 그린/화이트 폰트를 일관되게 적용한다.",
+   "차종을 말하는 순간 '휙' 하는 전환 효과음과 함께 가격 자막을 즉시 팝업시킨다.",
+   "중반부 드론 항공 뷰를 활용해 딜러십의 압도적인 재고 물량을 시각적으로 입증한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 2.9,
+    "end": 4.5,
+    "feature": "G63 외장 색상 선택 옵션",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "차량 바디 컬러를 나타내는 4색 원형 팔레트 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 14.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.7,
+    "feature": "브라부스 튜닝 에디션",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "브라부스 B 로고 배지",
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "오렌지색 람보르기니 레부엘토 시저도어를 열고 걸어나오며 최고급 차량 소개 선언",
+   "type": "희귀차",
+   "text": "أنا ناصر ودي أجمد عربيات في وصلة دهشور",
+   "ko": "저는 나사르이고, 다흐슈르 연결로에서 가장 핫한 차들을 보여드립니다"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "메르세데스-AMG G63 전 색상 1950만 EGP부터 시작",
+    "category": "가격·조건"
+   },
+   {
+    "t": 6.0,
+    "point": "오리지널 브라부스 튜닝 모델 2대 보유",
+    "category": "희소성"
+   },
+   {
+    "t": 9.0,
+    "point": "C200 415만 EGP 대량 재고 확보",
+    "category": "가격·조건"
+   },
+   {
+    "t": 12.0,
+    "point": "메르세데스 GLB 445만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 14.5,
+    "point": "레인지로버 보그 1700만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 18.0,
+    "point": "신형 CLA 연식별 360만/380만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 23.0,
+    "point": "레인지로버 벨라 610만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 26.5,
+    "point": "GLC IMSA 에디션 614만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 30.0,
+    "point": "GLC 300 AMG 586만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 34.0,
+    "point": "모든 라인업 풍부한 재고 및 즉시 당일 출고 가능",
+    "category": "상태"
+   }
+  ],
+  "cta": {
+   "t": 41.5,
+   "text": "وهتلاقيهم في الصياد أوتو وصلة دهشور الشيخ زايد",
+   "ko": "셰이크 자이드 다흐슈르 연결로의 사야드 오토를 찾아주세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 전면",
+    "외관 전면",
+    "외관 전면",
+    "외관 전면",
+    "외관 전면",
+    "기타"
+   ]
+  }
+ }
+}
