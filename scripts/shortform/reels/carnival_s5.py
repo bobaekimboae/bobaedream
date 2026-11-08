@@ -7,9 +7,9 @@ CAR = dict(name='기아 더 뉴 카니발 그래비티', gen='4세대', year='20
 HOOK = dict(title='카니발 매물 나왔슈', line1='그래비티 · 9인승', line2='24년08월 · 30,736km · 3,800만원', size=100)
 # 규격 v1.2(노션 「영상 분석 스킬 조합」 5-1·5-2, 2026-11-08): 35초 안팎 설명형 · 말은 0.2초 안에 시작 · 말 자막 Pretendard ExtraBold 60
 #   말 자막 = 오토스카우트24 방식(2026-11-08 사용자): 원본 칠(블루 #306BD9) 위 흰 굵은 글자 · 기울기 0 · 톡 튀어나옴 · 높이 65%
-#   (이전 v1.2 외곽선 · y 1050~1220은 cap_style='v12') · 2~4어절 · 강조어 1개 #FFD56A · 부위 라벨 칠 #306BD9(AS24 원본 칠) · 끝 화면 약 2.4초
+#   말 자막 cap_style='plain'(NL 원본처럼 바탕 없음 · 흰 굵은 글자+검정 외곽선 · 강조어 1개만 파랑 #306BD9 · 톡 등장 · 높이 65%) · 2~4어절 · 부위 라벨 칠 #306BD9(AS24 원본 칠) · 끝 화면 약 2.4초
 #   효과음 최소 팩(스티커·숫자 「톡」, 가격 「띵」, 부위 바뀔 때 「휙」) — v3에서 안 들렸던 문제로 효과음 버스 0.22 → 0.55 · −14 LUFS
-STYLE = dict(stk_bg=(48, 107, 217), stk_fg=(255, 255, 255), hl='chip', cap_cx=540, cap_style='as24', cap_cy=1248,
+STYLE = dict(stk_bg=(48, 107, 217), stk_fg=(255, 255, 255), hl='chip', cap_cx=540, cap_style='plain', cap_kw_col=(48, 107, 217), cap_cy=1248,
              feat_size=70, big_size=104, pad=(1.6, 2.85), big_pad=(1.1, 2.5), feat_y=780, big_y=760, price_y=470,
              stk_weight='semi', tilt_k=.6, feat_pos='as24', stk_minw=.46, stk_maxw=.70, stk_shape='as24',
              sfx_pack=True, sfx_bus=0.55)
