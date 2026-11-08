@@ -1,0 +1,665 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/8IpELvmGsJk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5102,
+  "candidatesTokenCount": 5545,
+  "totalTokenCount": 10647,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3734
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41.5,
+   "aspect": "9:16",
+   "car": "BMW M3 Touring (Individual Malachite Green Metallic)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 19.3,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 27.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 36.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 37.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 39.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "BMW Individual",
+    "ko": "BMW 인디비주얼",
+    "kind": "제목",
+    "y_pct": 28.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 82.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 0.3,
+    "end": 3.7,
+    "text": "Die diepe groene glans, het lijkt alsof die van kleur verandert in het licht.",
+    "ko": "저 깊은 초록빛 광택, 빛에 따라 색이 변하는 것 같아요.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "Malachite Grun",
+    "ko": "말라카이트 그린",
+    "kind": "키워드 스티커",
+    "y_pct": 23.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 78.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Malachite",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 8.5,
+    "text": "Groen mineraal",
+    "ko": "녹색 광물",
+    "kind": "키워드 스티커",
+    "y_pct": 17.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Groen",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 17.5,
+    "text": "Individual Malachite Green Metalic",
+    "ko": "인디비주얼 말라카이트 그린 메탈릭",
+    "kind": "키워드 스티커",
+    "y_pct": 24.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 82.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.5,
+    "text": "BMW Individual programma",
+    "ko": "BMW 인디비주얼 프로그램",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.6,
+    "end": 22.0,
+    "text": "BMW Individual",
+    "ko": "BMW 인디비주얼",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 26.5,
+    "text": "✓ Volledig personaliseren",
+    "ko": "✓ 완전 맞춤 제작",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "text": "2026",
+    "ko": "2026",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.1,
+    "end": 33.6,
+    "text": "6.211 KM",
+    "ko": "6,211 km",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 36.3,
+    "text": "€102.900",
+    "ko": "102,900유로",
+    "kind": "가격",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 39.5,
+    "text": "AUTO-POINT Casier",
+    "ko": "오토포인트 카지에르",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -4,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "BMW Individual 타이틀 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "Malachite Grun 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.9,
+    "type": "톡",
+    "event": "Groen mineraal 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.2,
+    "type": "톡",
+    "event": "Individual Malachite Green Metalic 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "BMW Individual programma 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.6,
+    "type": "톡",
+    "event": "BMW Individual 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.8,
+    "type": "톡",
+    "event": "체크박스 옵션 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "연식 2026 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.1,
+    "type": "톡",
+    "event": "주행거리 6.211 KM 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.8,
+    "type": "돈 소리",
+    "event": "가격 102.900유로 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.6,
+    "type": "톡",
+    "event": "딜러사 로고 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 칩 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 트렌디 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Die diepe groene glans, het lijkt alsof die van kleur verandert in het licht.",
+    "ko": "저 깊은 초록빛 광택, 빛에 따라 색이 변하는 것 같아요."
+   },
+   {
+    "start": 3.7,
+    "end": 7.8,
+    "text": "Dit is de kleur Malachite Grun. Malachite is groen mineraal.",
+    "ko": "이 색상은 말라카이트 그린입니다. 말라카이트는 녹색 광물이죠."
+   },
+   {
+    "start": 7.8,
+    "end": 11.8,
+    "text": "De lak heeft een diepe, bijna juweelachtige groene metallic glans.",
+    "ko": "도장면은 깊고 거의 보석 같은 초록색 메탈릭 광택을 띱니다."
+   },
+   {
+    "start": 11.8,
+    "end": 19.3,
+    "text": "BMW noemt deze kleur officieel Individual Malachite Green Metallic via het BMW Individual programma.",
+    "ko": "BMW는 이 색상을 BMW 인디비주얼 프로그램을 통해 '인디비주얼 말라카이트 그린 메탈릭'이라 공식 명명합니다."
+   },
+   {
+    "start": 19.3,
+    "end": 27.6,
+    "text": "BMW Individual is het maatwerkprogramma van BMW waarmee je je auto volledig kunt personaliseren ver voorbij de standaard opties.",
+    "ko": "BMW 인디비주얼은 기본 옵션을 훨씬 넘어 차량을 완전히 맞춤 구성할 수 있는 BMW의 비스포크 프로그램입니다."
+   },
+   {
+    "start": 27.6,
+    "end": 36.3,
+    "text": "Deze BMW M3 Touring komt uit 2026, heeft 6.211 km gereden en hij kost €102.900.",
+    "ko": "이 BMW M3 투어링은 2026년식, 6,211km 주행했으며 가격은 102,900유로입니다."
+   },
+   {
+    "start": 36.3,
+    "end": 41.5,
+    "text": "Je vindt hem in de showroom van Auto-Point Casier en op AutoScout24.be.",
+    "ko": "오토포인트 카지에르 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "독특한 외장 컬러 광택 보여주며 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 19.3,
+    "speed": "보통",
+    "summary": "말라카이트 그린 메탈릭 컬러와 인디비주얼 프로그램 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 19.3,
+    "end": 27.6,
+    "speed": "보통",
+    "summary": "BMW 인디비주얼 커스터마이징 특징 및 실내 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 27.6,
+    "end": 36.3,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 차량 가격 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 36.3,
+    "end": 41.5,
+    "speed": "보통",
+    "summary": "딜러 쇼룸 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "핵심 키워드나 수치가 언급될 때 AutoScout24 시그니처 옐로우 박스 칩이 약간의 회전각과 함께 팝업된다.",
+   "정보 칩이 팝업될 때 명확한 '톡' 효과음이 동기화되어 주목도를 높인다.",
+   "가격이 등장하는 시점에는 전용 금전 효과음이 삽입된다.",
+   "하단 말 자막은 단어별 하이라이트 없이 심플한 흰색 텍스트와 얇은 검정 외곽선으로 가독성을 유지한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 3,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0,
+    "text_height_pct": 3.2,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 6,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 7,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 12,
+    "box_padding_pct": 4.5,
+    "text_height_pct": 4.2,
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 120,
+    "out_anim": "바로",
+    "stay_sec": 2.2,
+    "count": 9,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "대문자",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 20,
+    "box_padding_pct": 5.0,
+    "text_height_pct": 5.2,
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 120,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 10
+   },
+   {
+    "event": "가격 등장",
+    "sound": "돈 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 450,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 39.5,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 2.0
+  },
+  "safe_zone_note": "오토스카우트 옐로우 그래픽 칩은 대부분 상단 15~30% 영역에 배치되어 숏폼 UI 요소와의 간섭을 피함. 말 자막은 68% 위치로 숏폼 하단 UI 영역 바로 위에 안전하게 배치됨."
+ }
+}

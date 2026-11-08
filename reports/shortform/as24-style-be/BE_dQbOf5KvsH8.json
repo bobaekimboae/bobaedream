@@ -1,0 +1,478 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/dQbOf5KvsH8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4749,
+  "candidatesTokenCount": 4089,
+  "totalTokenCount": 8838,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3381
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "Tesla Roadster",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 24.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 26.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 30.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 38.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Wist jij dat er maar een heel klein marktaandeel is van deze auto?",
+    "ko": "이 차의 시장 점유율이 아주 적다는 걸 알고 계셨나요?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "heel klein",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.4,
+    "text": "Dit is de Tesla Roadster.",
+    "ko": "이것은 테슬라 로드스터입니다.",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Tesla Roadster",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 10.0,
+    "text": "De Roadsters zijn super zeldzaam aan het worden en rijden inderdaad nog maar amper rond.",
+    "ko": "로드스터는 극도로 희귀해지고 있으며 실제로 도로에서 거의 볼 수 없습니다.",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "super zeldzaam",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.5,
+    "text": "Van de 2450 stuks ooit gemaakt, waarvan 575 stuks voor Europa,",
+    "ko": "역대 생산된 2,450대 중 유럽 배정 물량 575대 중,",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2450 stuks",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.7,
+    "text": "rijden er misschien nog maar de helft rond.",
+    "ko": "아마 절반 정도만 도로를 달리고 있을 것입니다.",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "de helft",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 24.1,
+    "text": "Veel zijn kapot gereden, defect geraakt of opgekocht door Tesla om als donorauto te dienen.",
+    "ko": "많은 수가 사고로 파손되거나 고장 났거나, 부품 공급용(도너카)으로 테슬라에 회수되었습니다.",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "donorauto",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 30.8,
+    "text": "Op zich ook heel bijzonder is dat Nikola Brussels er een tiental heeft staan, terwijl er op de markt maar ongeveer een 20-tal te koop staan.",
+    "ko": "니콜라 브뤼셀에 약 10대가 있다는 점도 특별한데, 시장 전체에 판매 중인 매물도 약 20대뿐입니다.",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "20 tal",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 37.5,
+    "text": "Je vindt de Tesla Roadsters in de showroom van Nikola Brussels en op AutoScout24.be",
+    "ko": "이 테슬라 로드스터들은 니콜라 브뤼셀 전시장과 AutoScout24.be에서 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 32.8,
+    "type": "톡",
+    "event": "NIKOLA BRUSSELS 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 정보 전달에 적합함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 32.5,
+    "end": 34.6,
+    "what": "NIKOLA BRUSSELS 텍스트 박스 로고",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "딜러사 소개",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.8,
+    "what": "AutoScout24 로고 (노란색 브러시 배경 포함)",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Wist jij dat er maar een heel klein marktaandeel is van deze auto?",
+    "ko": "이 차의 시장 점유율이 아주 적다는 걸 알고 계셨나요?"
+   },
+   {
+    "start": 3.8,
+    "end": 5.4,
+    "text": "Dit is de Tesla Roadster.",
+    "ko": "이것은 테슬라 로드스터입니다."
+   },
+   {
+    "start": 5.4,
+    "end": 10.0,
+    "text": "De Roadsters zijn super zeldzaam aan het worden en rijden inderdaad nog maar amper rond.",
+    "ko": "로드스터는 극도로 희귀해지고 있으며 실제로 도로에서 거의 볼 수 없습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 14.5,
+    "text": "Van de 2450 stuks ooit gemaakt, waarvan 575 stuks voor Europa,",
+    "ko": "역대 생산된 2,450대 중 유럽 배정 물량 575대 중,"
+   },
+   {
+    "start": 14.5,
+    "end": 18.7,
+    "text": "rijden er misschien nog maar de helft rond.",
+    "ko": "아마 절반 정도만 도로를 달리고 있을 것입니다."
+   },
+   {
+    "start": 18.7,
+    "end": 24.1,
+    "text": "Veel zijn kapot gereden, defect geraakt of opgekocht door Tesla om als donorauto te dienen.",
+    "ko": "많은 수가 사고로 파손되거나 고장 났거나, 부품 공급용으로 테슬라에 회수되었습니다."
+   },
+   {
+    "start": 24.1,
+    "end": 30.8,
+    "text": "Op zich ook heel bijzonder is dat Nikola Brussels er een tiental heeft staan, terwijl er op de markt maar ongeveer een 20-tal te koop staan.",
+    "ko": "니콜라 브뤼셀에 약 10대가 있다는 점도 특별한데, 시장 전체에 판매 중인 매물도 약 20대뿐입니다."
+   },
+   {
+    "start": 30.8,
+    "end": 37.5,
+    "text": "Je vindt de Tesla Roadsters in de showroom van Nikola Brussels en op AutoScout24.be",
+    "ko": "이 테슬라 로드스터들은 니콜라 브뤼셀 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "보통",
+    "summary": "희귀한 차종 언급하며 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.8,
+    "end": 10.0,
+    "speed": "보통",
+    "summary": "테슬라 로드스터의 희귀성 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.0,
+    "end": 24.1,
+    "speed": "보통",
+    "summary": "생산 대수, 잔존 대수 및 부품차 소진 배경 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 24.1,
+    "end": 30.8,
+    "speed": "보통",
+    "summary": "전시장 매물 현황 및 시장 매물 수와 앱 매물 화면"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 30.8,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "전시장 위치 및 AutoScout24 앱 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 말소리에 맞춰 실시간 단어 단위로 강조색(노란색)이 바뀌는 단어 하이라이트 자막 적용",
+   "화면 하단 68~72% 위치에 굵은 산세리프 폰트로 1~2줄 단위 깔끔한 자막 유지",
+   "플랫폼 및 딜러 로고가 나타날 때 경쾌한 '톡' 효과음으로 시선 집중",
+   "실제 앱 화면 캡처 스크롤 컷을 인서트하여 신뢰도와 가격/스펙 정보 전달력 향상"
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0,
+    "text_height_pct": 3.8,
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#F3E500",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.2,
+    "count": 8,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 2
+   }
+  ],
+  "end_card": {
+   "start_sec": 34.6,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 3.4
+  },
+  "safe_zone_note": "자막이 세로 70% 근처에 위치하여 틱톡/릴스의 하단 텍스트 및 UI와 겹치지 않는 안전 영역에 배치됨"
+ }
+}
