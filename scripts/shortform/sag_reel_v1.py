@@ -1150,7 +1150,9 @@ def overlay(T, total, shots, shot, blk):
                 ws = cur[2].strip(' ,.').split(' ')
                 kt = cur[3][kw] if kw < len(cur[3]) else cur[0]
                 if T >= kt:
-                    ch = kw_chip_be2(ws[kw])
+                    wd = ws[kw]
+                    m = re.match(r'^([0-9][0-9.,]*(?:km|cc|마력|만원|년|월)?)', wd)  # 조사(밖에·에 등) 떼고 숫자+단위만
+                    ch = kw_chip_be2(m.group(1) if m else re.sub(r'(에|가|이|는|은|을|를|도|만|밖에)$', '', wd))
                     e = back((T - kt) / 0.2)
                     sc = max(.05, e)
                     top = cy - im.height / 2 - ch.height + 6
