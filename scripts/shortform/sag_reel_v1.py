@@ -630,6 +630,10 @@ def _sticker_core(txt, size=72, tilt=-2.0, big=False, no_mark=False):
         from brushfill import original_mask
         mask = original_mask(w, h, margin=m)
         return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
+    if STYLE.get('stk_shape') == 'flat':  # 오토스카우트24 독일: 모서리 거의 없는 납작한 단색 상자, 2~3도 기울임
+        mask = Image.new('L', (w + m * 2, h + m * 2), 0)
+        ImageDraw.Draw(mask).rounded_rectangle((m, m, m + w, m + h), 4, fill=255)
+        return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
     if STYLE.get('stk_shape') == 'as24gen':  # 공용 칠 라이브러리 v1(원본을 본떠 새로 그린 리본 칠 8종)
         from brushfill import brush_mask
         mask = brush_mask(w, h, text=txt, margin=m)
@@ -824,6 +828,60 @@ def phrase_img_as24(text):
     return im
 
 
+def phrase_img_be(text, kw=-1):
+    """오토스카우트24 벨기에 말 자막(100편 분석): 흰 굵은 글자 + 얇은 검정 외곽선, 바로 등장(69%),
+    강조어 1개만 노랑 형광펜 칠(#FFE600) 위 검정 글자"""
+    k = ('be', text, kw)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(BLACK, 58)
+    text = text.strip(' ,.')
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 60 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    gap = fnt.getlength(' ')
+    lh, pad_x, pad_y = 80, 30, 12
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + pad_x * 2), lh * len(lines) + pad_y * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    wi = 0
+    for li, line in enumerate(lines):
+        x = (im.width - fnt.getlength(line)) / 2
+        y = pad_y + lh * li + lh / 2
+        for w in line.split(' '):
+            if wi == kw:
+                lw = fnt.getlength(w)
+                d.polygon([(x - 10, y - 30), (x + lw + 12, y - 34), (x + lw + 8, y + 34), (x - 12, y + 32)], fill=(255, 230, 0, 255))
+                d.text((x, y), w, font=fnt, fill=(17, 17, 17), anchor='lm')
+            else:
+                d.text((x, y), w, font=fnt, fill=(255, 255, 255), anchor='lm', stroke_width=4, stroke_fill=(0, 0, 0))
+            wi += 1
+            x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
+def phrase_img_de(text):
+    """오토스카우트24 독일 말 자막(채널 쇼츠 화면): 바탕·외곽선 없이 중간 굵기 흰 글자 + 부드러운 그림자, 강조 없음, 영화 자막처럼 조용히"""
+    k = ('de', text)
+    if k in _cache:
+        return _cache[k]
+    from PIL import ImageFilter
+    fnt = ImageFont.truetype(SEMI, 54)
+    text = text.strip(' ,.')
+    tw = fnt.getlength(text)
+    im = Image.new('RGBA', (int(tw + 80), 120), (0, 0, 0, 0))
+    sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).text((40 + 2, 62), text, font=fnt, fill=(0, 0, 0, 200), anchor='lm')
+    sh = sh.filter(ImageFilter.GaussianBlur(6))
+    im.alpha_composite(sh)
+    ImageDraw.Draw(im).text((40, 60), text, font=fnt, fill=(255, 255, 255), anchor='lm')
+    _cache[k] = im
+    return im
+
+
 def phrase_img_nl(text, kw=-1):
     """오토스카우트24 네덜란드·벨기에 말 자막(200편 분석, 2026-11-08): 꽉 찬 검정 상자 + 흰 굵은 글자, 상자는 글자 폭에 맞춤,
     강조어 칩은 보배드림 파랑 #306BD9 + 흰 글자(AS24 노랑 자리를 우리 브랜드색으로, 2026-11-08 사용자), 톡 튀어나오며 등장. 화면 높이 65% 근처(NL 중앙값 65%, BE 70%)"""
@@ -972,6 +1030,16 @@ def overlay(T, total, shots, shot, blk):
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1248)
             paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
+            return ov, False
+        if STYLE.get('cap_style') == 'be':  # 벨기에: 바로 등장, 강조어만 노랑 형광펜
+            im = phrase_img_be(cur[2], cap_keyword(cur[2], blk))
+            cy = STYLE.get('cap_cy', 1300)
+            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, min(1, (T - cur[0]) / .04))
+            return ov, False
+        if STYLE.get('cap_style') == 'de':  # 독일: 그림자만 있는 흰 글자, 0.12초 페이드
+            im = phrase_img_de(cur[2])
+            cy = STYLE.get('cap_cy', 1180)
+            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, k)
             return ov, False
         if STYLE.get('cap_style') == 'plain':  # 오토스카우트 NL 말 자막: 바탕 없이 흰 굵은 글자+검정 외곽선, 지금 말하는 낱말만 파랑(말 따라 이동), 톡 등장
             act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
