@@ -807,6 +807,23 @@ def phrase_img_v12(text, kw=-1, boxed=False):
     return im
 
 
+def phrase_img_as24(text):
+    """오토스카우트24 말 자막(200편 분석): 원본 칠(노션 DB 파일 그대로) 위 흰 굵은 글자, 칠 폭 56~80%, 기울기 0도,
+    화면 높이 65%, 톡 튀어나옴. 칠 색은 보배드림 블루 #306BD9(노랑 자리를 우리 색으로)"""
+    text = text.strip(' ,.')
+    keep = {k: STYLE.get(k) for k in ('pad', 'stk_minw', 'stk_maxw', 'stk_weight')}
+    STYLE.update(pad=(1.15, 2.4), stk_minw=.56, stk_maxw=.80, stk_weight='bold')
+    try:
+        im = _sticker_core(text, 61, 0.0, False, True)
+    finally:
+        for k2, v in keep.items():
+            if v is None:
+                STYLE.pop(k2, None)
+            else:
+                STYLE[k2] = v
+    return im
+
+
 def phrase_img_nl(text, kw=-1):
     """오토스카우트24 네덜란드·벨기에 말 자막(200편 분석, 2026-11-08): 꽉 찬 검정 상자 + 흰 굵은 글자, 상자는 글자 폭에 맞춤,
     강조어 칩은 보배드림 파랑 #306BD9 + 흰 글자(AS24 노랑 자리를 우리 브랜드색으로, 2026-11-08 사용자), 톡 튀어나오며 등장. 화면 높이 65% 근처(NL 중앙값 65%, BE 70%)"""
@@ -942,6 +959,13 @@ def overlay(T, total, shots, shot, blk):
             cur = ph
     if cur:
         k = min(1.0, (T - cur[0]) / 0.12)
+        if STYLE.get('cap_style') == 'as24':  # 오토스카우트24: 칠 자막 + 톡 튀어나옴(스티커와 같은 움직임)
+            im = phrase_img_as24(cur[2])
+            e = back((T - cur[0]) / 0.28)
+            sc = max(.05, e)
+            cy = STYLE.get('cap_cy', 1248)
+            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .1), sc)
+            return ov, False
         if STYLE.get('cap_style') == 'nl':  # 오토스카우트 NL·BE: 검정 상자 + 톡 튀어나옴, 높이 65%
             im = phrase_img_nl(cur[2], cap_keyword(cur[2], blk))
             e = back((T - cur[0]) / 0.16)
