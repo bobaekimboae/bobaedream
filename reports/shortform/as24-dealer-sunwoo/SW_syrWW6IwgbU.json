@@ -1,0 +1,652 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/syrWW6IwgbU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6715,
+  "candidatesTokenCount": 5321,
+  "totalTokenCount": 12036,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5459
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.1,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스 S",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 24.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 27.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 35.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 37.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 40.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 44.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.3,
+    "end": 52.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.4,
+    "end": 55.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.6,
+    "end": 60.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "여러분 이 차는 순수 내연기관 우루스의 마지막 모델입니다.",
+    "ko": "여러분 이 차는 순수 내연기관 우루스의 마지막 모델입니다.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "LAMBORGHINI URUS S",
+    "ko": "람보르기니 우루스 S",
+    "kind": "제목",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 27.2,
+    "text": "EXTC. BLU NETHUNS",
+    "ko": "외장: 블루 네툰스",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C2D4A",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 34.0,
+    "text": "23\" TAIGETE BRONZE FINISHED",
+    "ko": "23인치 타이지테 브론즈 피니시 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#4A3B1C",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 42.0,
+    "text": "NERO & GIALLO PERFORMANTE TRIM",
+    "ko": "네로 & 지알로 퍼포만테 트림",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 47.0,
+    "text": "3D B&O AUDIO SYSTEM",
+    "ko": "3D B&O 오디오 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.8,
+    "type": "쿵",
+    "event": "차량명 텍스트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "딸깍",
+    "event": "외장 컬러 옵션 뱃지 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "딸깍",
+    "event": "휠 스펙 뱃지 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "딸깍",
+    "event": "실내 트림 뱃지 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "딸깍",
+    "event": "오디오 스펙 뱃지 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "세련되고 묵직함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "what": "LAMBORGHINI URUS S 텍스트 오버레이",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 15.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "차종 강조",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 59.5,
+    "what": "손가락 포인팅 이모티콘 자막",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 45.0,
+    "y_pct": 85.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하단 본문 유도 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "여러분 이 차는 순수 내연기관 우루스의 마지막 모델입니다.",
+    "ko": "여러분 이 차는 순수 내연기관 우루스의 마지막 모델입니다."
+   },
+   {
+    "start": 3.3,
+    "end": 6.2,
+    "text": "실용성과 승차감까지 갖춘 슈퍼 스포츠 SUV.",
+    "ko": "실용성과 승차감까지 갖춘 슈퍼 스포츠 SUV."
+   },
+   {
+    "start": 6.3,
+    "end": 9.2,
+    "text": "안녕하세요, 람보르기니 우루스 S 입고되었습니다.",
+    "ko": "안녕하세요, 람보르기니 우루스 S 입고되었습니다."
+   },
+   {
+    "start": 9.3,
+    "end": 14.5,
+    "text": "출시한 지 어느덧 10년이 지난 람보르기니의 효자 상품. 수출 수요도 줄어들어서 중고 금액대가 상당히 괜찮아졌죠.",
+    "ko": "출시한 지 어느덧 10년이 지난 람보르기니의 효자 상품. 수출 수요도 줄어들어서 중고 금액대가 상당히 괜찮아졌죠."
+   },
+   {
+    "start": 14.6,
+    "end": 22.0,
+    "text": "뒷좌석 포지션도 널널하고 666마력의 8기통 성능도 과분하고 그야말로 팔방미인 올라운더 차량입니다.",
+    "ko": "뒷좌석 포지션도 널널하고 666마력의 8기통 성능도 과분하고 그야말로 팔방미인 올라운더 차량입니다."
+   },
+   {
+    "start": 22.1,
+    "end": 27.2,
+    "text": "외장 컬러는 그냥 파란색 아니고 무려 1900만 원의 블루 네툰스 옵션 페인트입니다.",
+    "ko": "외장 컬러는 그냥 파란색 아니고 무려 1900만 원의 블루 네툰스 옵션 페인트입니다."
+   },
+   {
+    "start": 27.3,
+    "end": 33.2,
+    "text": "여러 색상의 페인트를 레이어로 올려 실내 실외의 느낌이 조금씩 달라요. 거기에 23인치 브론즈 피니시 휠까지,",
+    "ko": "여러 색상의 페인트를 레이어로 올려 실내 실외의 느낌이 조금씩 달라요. 거기에 23인치 브론즈 피니시 휠까지,"
+   },
+   {
+    "start": 33.3,
+    "end": 38.0,
+    "text": "하이글로스 마감 처리된 플라스틱 포인트까지 잘 어울리는 개성 만점의 조합입니다.",
+    "ko": "하이글로스 마감 처리된 플라스틱 포인트까지 잘 어울리는 개성 만점의 조합입니다."
+   },
+   {
+    "start": 38.1,
+    "end": 43.1,
+    "text": "실내는 퍼포만테 트림이 적용된 블랙 컬러에 옐로우 포인트, 마사지와 통풍 기능이 적용되어 있습니다.",
+    "ko": "실내는 퍼포만테 트림이 적용된 블랙 컬러에 옐로우 포인트, 마사지와 통풍 기능이 적용되어 있습니다."
+   },
+   {
+    "start": 43.2,
+    "end": 48.5,
+    "text": "3D B&O 옵션도 빠지면 섭섭하죠. 가변식 트위터가 적용되어 눈과 귀를 즐겁게 해줍니다.",
+    "ko": "3D B&O 옵션도 빠지면 섭섭하죠. 가변식 트위터가 적용되어 눈과 귀를 즐겁게 해줍니다."
+   },
+   {
+    "start": 48.6,
+    "end": 56.5,
+    "text": "2024년 12월 최초 등록 후 주행거리 약 28,600km, 메인터넌스와 워런티가 5년 적용된 차량으로",
+    "ko": "2024년 12월 최초 등록 후 주행거리 약 28,600km, 메인터넌스와 워런티가 5년 적용된 차량으로"
+   },
+   {
+    "start": 56.6,
+    "end": 60.1,
+    "text": "구매에 필요한 자세한 정보는 하단 본문을 참고해 주세요. 감사합니다.",
+    "ko": "구매에 필요한 자세한 정보는 하단 본문을 참고해 주세요. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.2,
+    "speed": "빠름",
+    "summary": "마지막 순수 내연기관 우루스 S 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.3,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "입고 소식 및 최근 중고 시세 언급"
+   },
+   {
+    "stage": "사양",
+    "start": 14.6,
+    "end": 22.0,
+    "speed": "보통",
+    "summary": "출력 및 올라운더 성격 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 22.1,
+    "end": 48.5,
+    "speed": "보통",
+    "summary": "외장 특수 컬러, 휠, 실내 트림, B&O 오디오 상세 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 48.6,
+    "end": 56.5,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 보증 조건 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 56.6,
+    "end": 60.1,
+    "speed": "보통",
+    "summary": "하단 본문 참조 및 마무리 인사"
+   }
+  ],
+  "rules": [
+   "옵션이나 스펙을 설명할 때 하단에 공식 명칭 뱃지 스티커를 띄움",
+   "화면 전환에 과도한 트랜지션 대신 단순 컷 전환 위주로 깔끔하게 구성",
+   "차량의 고가 옵션 컬러 및 오디오 작동 부위를 클로즈업하여 시각적 만족도 제공"
+  ],
+  "option_highlights": [
+   {
+    "start": 24.3,
+    "end": 27.2,
+    "feature": "블루 네툰스 페인트",
+    "shown_how": "글자 카드",
+    "icon_desc": "EXTC. BLU NETHUNS 텍스트 박스",
+    "x_pct": 27.0,
+    "y_pct": 74.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 34.0,
+    "feature": "23인치 타이지테 브론즈 피니시 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "23\" TAIGETE BRONZE FINISHED 텍스트 박스",
+    "x_pct": 17.0,
+    "y_pct": 74.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 42.0,
+    "feature": "네로 & 지알로 퍼포만테 트림",
+    "shown_how": "글자 카드",
+    "icon_desc": "NERO & GIALLO PERFORMANTE TRIM 텍스트 박스",
+    "x_pct": 17.0,
+    "y_pct": 74.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 47.0,
+    "feature": "3D B&O 오디오 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "3D B&O AUDIO SYSTEM 텍스트 박스",
+    "x_pct": 25.0,
+    "y_pct": 74.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야간 도심에 서 있는 블루 우루스 S와 '마지막 순수 내연기관 모델' 멘트",
+   "type": "희귀차",
+   "text": "순수 내연기관 우루스의 마지막 모델"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "마지막 순수 내연기관 우루스 S 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 13.5,
+    "point": "수출 수요 감소로 합리적인 중고 시세 형성",
+    "category": "가격·조건"
+   },
+   {
+    "t": 18.0,
+    "point": "666마력 8기통 엔진의 파워풀한 성능",
+    "category": "성능"
+   },
+   {
+    "t": 24.5,
+    "point": "1,900만 원 상당의 블루 네툰스 외장 옵션 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 32.0,
+    "point": "23인치 타이지테 브론즈 피니시 휠 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 38.5,
+    "point": "퍼포만테 트림 실내 인테리어 및 통풍·마사지 시트",
+    "category": "편의"
+   },
+   {
+    "t": 44.0,
+    "point": "뱅앤올룹슨 3D 오디오 및 팝업 가변 트위터",
+    "category": "편의"
+   },
+   {
+    "t": 51.0,
+    "point": "24년 12월식, 28,600km, 5년 워런티 및 메인터넌스 잔여",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "서울오토갤러리 번호판 가드 및 배경"
+   ],
+   "t": 22.0
+  },
+  "cta": {
+   "t": 57.0,
+   "text": "하단 본문을 참고해주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "휠",
+    "실내 앞",
+    "뒷좌석",
+    "옵션 작동"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 중앙 1단 강조형 굵은 폰트 자막과 스펙 박스 라벨링 통일"
+  }
+ }
+}

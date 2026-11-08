@@ -1,0 +1,753 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/yG4qp-Y6_KE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7539,
+  "candidatesTokenCount": 6284,
+  "totalTokenCount": 13823,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6283
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 70.0,
+   "aspect": "9:16",
+   "car": "롤스로이스 고스트 블랙배지 (1세대 후기형)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 13.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.3,
+    "end": 15.6,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 26.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 41.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 45.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 49.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 52.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.2,
+    "end": 55.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 58.4,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.4,
+    "end": 62.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 66.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.4,
+    "end": 70.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "혹시 세단 찾는 분 계신가요?",
+    "ko": "혹시 세단 찾는 분 계신가요?",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "세단",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.2,
+    "text": "이 차량 한번 보고 가세요",
+    "ko": "이 차량 한번 보고 가세요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "차량",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "text": "ROLLS ROYCE GHOST BLACK-BADGE",
+    "ko": "롤스로이스 고스트 블랙배지",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "GHOST",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "text": "6.6L V12 BMW N74 엔진 + ZF 8HP A/T",
+    "ko": "6.6L V12 BMW N74 엔진 + ZF 8단 변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "BLACK-BADGE 612마력",
+    "ko": "블랙배지 612마력",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "612마력",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.5,
+    "text": "블랙 크롬 + 전용 휠 + 테크니컬 카본 베니어 등",
+    "ko": "블랙 크롬 + 전용 휠 + 테크니컬 카본 베니어 등",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 37.5,
+    "text": "TAILORED PURPLE + BLACK INTC.",
+    "ko": "테일러드 퍼플 + 블랙 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#E0B0FF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 64.0,
+    "text": "2020년 정식 출고, 주행거리 약 52,800km, 완전무사고",
+    "ko": "2020년 정식 출고, 주행거리 약 52,800km, 완전무사고",
+    "kind": "가격",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.8,
+    "type": "휙",
+    "event": "화면 전환 및 차명 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "엔진 스펙 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "쿵",
+    "event": "해골 이모티콘 및 612마력 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.5,
+    "type": "딸깍",
+    "event": "마우스 클릭 아이콘 모션",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 66.0,
+    "type": "딸깍",
+    "event": "클릭 모션",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "세련되고 묵직함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "what": "롤스로이스 고스트 블랙배지 타이틀 텍스트 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "차 소개",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.0,
+    "what": "고양이 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기타",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.5,
+    "what": "해골 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기타",
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 60.5,
+    "what": "클릭 마우스 커서 아이콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 70.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기타",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "혹시 세단 찾는 분 계신가요?",
+    "ko": "혹시 세단 찾는 분 계신가요?"
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "text": "이 차량 한번 보고 가세요.",
+    "ko": "이 차량 한번 보고 가세요."
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "text": "편의성 한가득인 신형 모델도 좋지만 클래식함과 럭셔리를 찾으신다면",
+    "ko": "편의성 한가득인 신형 모델도 좋지만 클래식함과 럭셔리를 찾으신다면"
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "text": "안녕하세요. 롤스로이스 고스트 블랙배지 입고되었습니다.",
+    "ko": "안녕하세요. 롤스로이스 고스트 블랙배지 입고되었습니다."
+   },
+   {
+    "start": 9.8,
+    "end": 13.3,
+    "text": "1세대 고스트는 BMW와 상당 부분을 공유합니다.",
+    "ko": "1세대 고스트는 BMW와 상당 부분을 공유합니다."
+   },
+   {
+    "start": 13.3,
+    "end": 18.2,
+    "text": "근본의 6.6L V12 엔진과 더불어 ZF 8단 변속기까지.",
+    "ko": "근본의 6.6L V12 엔진과 더불어 ZF 8단 변속기까지."
+   },
+   {
+    "start": 18.2,
+    "end": 21.0,
+    "text": "물론 제작은 영국 굿우드에서 전부 수작업으로 이루어집니다.",
+    "ko": "물론 제작은 영국 굿우드에서 전부 수작업으로 이루어집니다."
+   },
+   {
+    "start": 21.0,
+    "end": 24.3,
+    "text": "일반 모델에 비해 약 40마력 높은 블랙배지 모델은요,",
+    "ko": "일반 모델에 비해 약 40마력 높은 블랙배지 모델은요,"
+   },
+   {
+    "start": 24.3,
+    "end": 30.5,
+    "text": "익스테리어 블랙 크롬 파츠, 블랙배지 전용 휠, 그리고 실내에는 테크니컬 카본 베니어가 적용됩니다.",
+    "ko": "익스테리어 블랙 크롬 파츠, 블랙배지 전용 휠, 그리고 실내에는 테크니컬 카본 베니어가 적용됩니다."
+   },
+   {
+    "start": 30.5,
+    "end": 38.0,
+    "text": "거기에 시그니처 컬러라고 할 수 있는 테일러드 퍼플 인테리어. 스포티하면서 럭셔리함까지 다 갖춘 오너 드리븐 세단이죠.",
+    "ko": "거기에 시그니처 컬러라고 할 수 있는 테일러드 퍼플 인테리어. 스포티하면서 럭셔리함까지 다 갖춘 오너 드리븐 세단이죠."
+   },
+   {
+    "start": 38.0,
+    "end": 45.8,
+    "text": "이 차량처럼 18년식 이후 출시되는 시리즈 2, 즉 후기형 모델은 전면 헤드램프 디자인과 실내 터치스크린 등 디자인과 편의사양이 개선되었습니다.",
+    "ko": "이 차량처럼 18년식 이후 출시되는 시리즈 2, 즉 후기형 모델은 전면 헤드램프 디자인과 실내 터치스크린 등 디자인과 편의사양이 개선되었습니다."
+   },
+   {
+    "start": 45.8,
+    "end": 52.0,
+    "text": "또한 눈에 보이지는 않지만 차량 하부의 개선된 서스펜션이 한층 더 훌륭한 승차감을 제공하죠.",
+    "ko": "또한 눈에 보이지는 않지만 차량 하부의 개선된 서스펜션이 한층 더 훌륭한 승차감을 제공하죠."
+   },
+   {
+    "start": 52.0,
+    "end": 59.5,
+    "text": "직접 운전해도 훌륭하고 뒷자리도 역시 만족스러운 이 차량. 출고 후 6년이 지난 지금은 구형이 되었지만 훗날 소장가치가 상승할 차량이라고 생각합니다.",
+    "ko": "직접 운전해도 훌륭하고 뒷자리도 역시 만족스러운 이 차량. 출고 후 6년이 지난 지금은 구형이 되었지만 훗날 소장가치가 상승할 차량이라고 생각합니다."
+   },
+   {
+    "start": 59.5,
+    "end": 64.5,
+    "text": "2020년 정식 출고 후 주행거리는 약 52,800km. 당연히 사고는 없으며",
+    "ko": "2020년 정식 출고 후 주행거리는 약 52,800km. 당연히 사고는 없으며"
+   },
+   {
+    "start": 64.5,
+    "end": 70.0,
+    "text": "이 차량의 구매에 필요한 자세한 정보는 하단 본문을 참고해주세요. 감사합니다.",
+    "ko": "이 차량의 구매에 필요한 자세한 정보는 하단 본문을 참고해주세요. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "세단 찾는 구매자에게 고급 세단 제안"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 10.0,
+    "speed": "보통",
+    "summary": "롤스로이스 고스트 블랙배지 입고 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.0,
+    "end": 24.0,
+    "speed": "보통",
+    "summary": "엔진, 미션, 영국 수작업 제작, 612마력 제원 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 24.0,
+    "end": 52.0,
+    "speed": "보통",
+    "summary": "블랙배지 전용 옵션, 퍼플 인테리어, 후기형 변경점 및 서스펜션 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 52.0,
+    "end": 64.5,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 완전무사고 매물 정보 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 64.5,
+    "end": 70.0,
+    "speed": "보통",
+    "summary": "본문 확인 안내 및 인사"
+   }
+  ],
+  "rules": [
+   "단어 단위로 색상이 바뀌는 자막 하이라이트 효과 적용",
+   "스펙 정보는 화면 하단 가로 박스 자막으로 정리하여 노출",
+   "화면 전환마다 줌 인 줌 아웃 트랜지션을 적극 활용하여 역동성 부여",
+   "중요 포인트마다 밈 스티커나 클릭 이모지를 삽입해 시선 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "feature": "6.6L V12 BMW N74 엔진",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 78.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "feature": "블랙 크롬 파츠 및 전용 휠",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 30.5,
+    "feature": "테크니컬 카본 베니어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 37.5,
+    "feature": "테일러드 퍼플 인테리어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 45.5,
+    "feature": "시리즈 2 후기형 LED 헤드램프 및 터치스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정차된 롤스로이스 고스트를 향해 걸어가며 세단 찾는 분 계신가요 질문",
+   "type": "질문",
+   "text": "혹시 세단 찾는 분 계신가요? 이 차량 한번 보고 가세요"
+  },
+  "narration_points": [
+   {
+    "t": 10.0,
+    "point": "1세대 고스트 BMW 엔진 및 8단 변속기 공유",
+    "category": "성능"
+   },
+   {
+    "t": 18.5,
+    "point": "영국 굿우드 공장 수작업 생산",
+    "category": "희소성"
+   },
+   {
+    "t": 22.0,
+    "point": "일반형 대비 40마력 높은 612마력 세팅",
+    "category": "성능"
+   },
+   {
+    "t": 27.0,
+    "point": "블랙배지 전용 카본 베니어 및 퍼플 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 41.0,
+    "point": "시리즈 2 후기형 외관 및 터치스크린 개선",
+    "category": "편의"
+   },
+   {
+    "t": 48.0,
+    "point": "개선형 서스펜션으로 승차감 업그레이드",
+    "category": "성능"
+   },
+   {
+    "t": 60.0,
+    "point": "2020년 출고, 52,800km 주행, 완전무사고 매물",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "본문 참고"
+   ],
+   "t": 67.0
+  },
+  "cta": {
+   "t": 66.5,
+   "text": "이 차량의 구매에 필요한 자세한 정보는 하단 본문을 참고해주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "엔진룸",
+    "외관 후면",
+    "휠",
+    "도어 트림",
+    "실내 앞좌석",
+    "뒷좌석",
+    "외관 디테일",
+    "실내 센터페시아",
+    "뒷좌석 콘솔",
+    "실내 아날로그 시계"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 블랙 박스 자막과 중앙 하이라이트 보이스 텍스트 고정 사용"
+  }
+ }
+}

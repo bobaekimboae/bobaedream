@@ -1,0 +1,1019 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/wShCKQ1pGEU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6186,
+  "candidatesTokenCount": 8928,
+  "totalTokenCount": 15552,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4930
+   }
+  ],
+  "thoughtsTokenCount": 438,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 54.5,
+   "aspect": "9:16",
+   "car": "포르쉐 마칸 EV 4S",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.1,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 19.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 34.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 37.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 40.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 42.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.7,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.7,
+    "end": 49.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 54.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "여러분 여기",
+    "ko": "여러분 여기",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "또 귀여운 컬러 조합의",
+    "ko": "또 귀여운 컬러 조합의",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.2,
+    "text": "전기 붕붕이를 보고가세요!",
+    "ko": "전기 붕붕이를 보고가세요!",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.8,
+    "text": "2024년부터 출시된",
+    "ko": "2024년부터 출시된",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 10.3,
+    "text": "순수 전기차로만 출시했습니다",
+    "ko": "순수 전기차로만 출시했습니다",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.8,
+    "text": "전기와 너무 잘 어울리는\n프로즌 블루 메탈릭",
+    "ko": "전기와 너무 잘 어울리는 프로즌 블루 메탈릭",
+    "kind": "말 자막",
+    "y_pct": 83.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#5FE8ED",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "프로즌 블루 메탈릭",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "글래시어 블루 라이트 스트립 적용",
+    "ko": "글래시어 블루 라이트 스트립 적용",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.9,
+    "text": "LED 테일라이트!\n디테일 100점!",
+    "ko": "LED 테일라이트! 디테일 100점!",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 19.3,
+    "text": "촌스럽지 않은\n21\" 마칸 디자인 휠",
+    "ko": "촌스럽지 않은 21인치 마칸 디자인 휠",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.8,
+    "text": "부드러운 주행감이 장점이죠\nPASM 포함!",
+    "ko": "부드러운 주행감이 장점이죠 PASM 포함!",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.8,
+    "text": "INTC. 크레용, 블랙 레더 패키지",
+    "ko": "INTC. 크레용, 블랙 레더 패키지",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "text": "헤드레스트의 포르쉐 크레스트부터\n(★★★★★)",
+    "ko": "헤드레스트의 포르쉐 크레스트부터 (별점 5개)",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.0,
+    "text": "아크틱 블루 색상의 안전벨트",
+    "ko": "아크틱 블루 색상의 안전벨트",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#5FE8ED",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.7,
+    "text": "같은 색상의 스톱워치 다이얼까지!",
+    "ko": "같은 색상의 스톱워치 다이얼까지!",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 34.2,
+    "text": "\"온통 파스텔 톤\"\n너무 예뻐요!",
+    "ko": "\"온통 파스텔 톤\" 너무 예뻐요!",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 37.1,
+    "text": "조수석 디스플레이까지 포함!",
+    "ko": "조수석 디스플레이까지 포함!",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 39.0,
+    "text": "컴팩트한 크기",
+    "ko": "컴팩트한 크기",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.3,
+    "text": "부족함 없는 2열 포지션",
+    "ko": "부족함 없는 2열 포지션",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.3,
+    "end": 42.8,
+    "text": "사륜구동으로 안전하고",
+    "ko": "사륜구동으로 안전하고",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.8,
+    "text": "약 450km !",
+    "ko": "약 450km !",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "450km",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.7,
+    "text": "옵션표를 가득 채우는\n이 차량의 신차 가격은?",
+    "ko": "옵션표를 가득 채우는 이 차량의 신차 가격은?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.7,
+    "end": 49.0,
+    "text": "₩146,700,000",
+    "ko": "1억 4670만 원",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "146,700,000",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.5,
+    "text": "완전무사고!",
+    "ko": "완전무사고!",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.5,
+    "text": "이 차량의 구매 정보는?",
+    "ko": "이 차량의 구매 정보는?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "휙",
+    "event": "차량명 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "딸깍",
+    "event": "마우스 클릭 아이콘 모션",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 46.7,
+    "type": "쿵",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.8,
+    "type": "딸깍",
+    "event": "클릭 손가락 및 물방울 이펙트",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.7,
+    "end": 6.0,
+    "what": "PORSCHE MACAN EV 4S 텍스트 배너 카드",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "밀려옴",
+    "purpose": "차종 안내",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.5,
+    "what": "마우스 커서 클릭 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "포르쉐 레터링 램프 강조",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 34.2,
+    "what": "선글라스 낀 엄지척 이모지 스티커",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 70.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "감탄 강조",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.7,
+    "what": "포르쉐 공식 옵션 견적표 문서 이미지",
+    "is_3d": false,
+    "size_w_pct": 95.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "바로",
+    "purpose": "옵션 증빙",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 54.5,
+    "what": "하단 가리키는 픽셀 손가락 및 에너지 물방울 그래픽",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하단 본문 확인 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "여러분 여기 너무 예쁘고 또 귀여운 컬러 조합의 전기 붕붕이를 보고가세요!",
+    "ko": "여러분 여기 너무 예쁘고 또 귀여운 컬러 조합의 전기 붕붕이를 보고가세요!"
+   },
+   {
+    "start": 3.7,
+    "end": 6.2,
+    "text": "안녕하세요 포르쉐 마칸 EV 4S 입고되었습니다.",
+    "ko": "안녕하세요 포르쉐 마칸 EV 4S 입고되었습니다."
+   },
+   {
+    "start": 6.2,
+    "end": 10.3,
+    "text": "2024년부터 출시된 2세대 마칸은 순수 전기차로만 출시했습니다.",
+    "ko": "2024년부터 출시된 2세대 마칸은 순수 전기차로만 출시했습니다."
+   },
+   {
+    "start": 10.3,
+    "end": 12.8,
+    "text": "전기와 너무 잘 어울리는 프로즌 블루 메탈릭",
+    "ko": "전기와 너무 잘 어울리는 프로즌 블루 메탈릭"
+   },
+   {
+    "start": 12.8,
+    "end": 16.9,
+    "text": "글래시어 블루 라이트 스트립이 적용된 LED 테일라이트까지 디테일 100점입니다.",
+    "ko": "글래시어 블루 라이트 스트립이 적용된 LED 테일라이트까지 디테일 100점입니다."
+   },
+   {
+    "start": 16.9,
+    "end": 21.8,
+    "text": "촌스럽지 않은 21인치 마칸 디자인 휠과 PASM이 포함되어 부드러운 주행감이 장점이죠.",
+    "ko": "촌스럽지 않은 21인치 마칸 디자인 휠과 PASM이 포함되어 부드러운 주행감이 장점이죠."
+   },
+   {
+    "start": 21.8,
+    "end": 24.8,
+    "text": "실내는 크레용 컬러의 가죽 패키지가 적용되었습니다.",
+    "ko": "실내는 크레용 컬러의 가죽 패키지가 적용되었습니다."
+   },
+   {
+    "start": 24.8,
+    "end": 29.0,
+    "text": "헤드레스트의 포르쉐 크레스트부터 아크틱 블루 색상의 안전벨트,",
+    "ko": "헤드레스트의 포르쉐 크레스트부터 아크틱 블루 색상의 안전벨트,"
+   },
+   {
+    "start": 29.0,
+    "end": 34.2,
+    "text": "같은 색상의 스톱워치 다이얼까지 파스텔 톤으로 온통 꾸몄습니다. 너무 예뻐요!",
+    "ko": "같은 색상의 스톱워치 다이얼까지 파스텔 톤으로 온통 꾸몄습니다. 너무 예뻐요!"
+   },
+   {
+    "start": 34.2,
+    "end": 37.1,
+    "text": "요즘에 너도나도 포함하는 조수석 디스플레이까지 포함되어 있습니다.",
+    "ko": "요즘에 너도나도 포함하는 조수석 디스플레이까지 포함되어 있습니다."
+   },
+   {
+    "start": 37.1,
+    "end": 44.8,
+    "text": "컴팩트한 크기에 부족함 없는 2열 포지션 사륜구동으로 안전하고 완충 시 주행 가능 거리는 약 450km입니다.",
+    "ko": "컴팩트한 크기에 부족함 없는 2열 포지션 사륜구동으로 안전하고 완충 시 주행 가능 거리는 약 450km입니다."
+   },
+   {
+    "start": 44.8,
+    "end": 49.0,
+    "text": "옵션표를 가득 채우는 이 차량의 신차 가격은 1억 4670만 원이며,",
+    "ko": "옵션표를 가득 채우는 이 차량의 신차 가격은 1억 4670만 원이며,"
+   },
+   {
+    "start": 49.0,
+    "end": 54.5,
+    "text": "완전무사고에 보험이력도 없는 이 차량의 구매 정보는 하단 본문을 참고해주세요. 감사합니다.",
+    "ko": "완전무사고에 보험이력도 없는 이 차량의 구매 정보는 하단 본문을 참고해주세요. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "예쁘고 귀여운 전기 붕붕이 마칸 EV 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "포르쉐 마칸 EV 4S 입고 소식 및 프로즌 블루 메탈릭 외관"
+   },
+   {
+    "stage": "기능",
+    "start": 12.8,
+    "end": 37.1,
+    "speed": "보통",
+    "summary": "테일라이트, 21인치 휠/PASM, 크레용 실내, 아크틱블루 벨트/다이얼, 조수석 디스플레이 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 37.1,
+    "end": 44.8,
+    "speed": "보통",
+    "summary": "2열 공간, 4륜구동, 완충 시 주행거리 약 450km"
+   },
+   {
+    "stage": "가격",
+    "start": 44.8,
+    "end": 49.0,
+    "speed": "보통",
+    "summary": "신차 옵션표 및 출고가 1억 4,670만 원 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 49.0,
+    "end": 54.5,
+    "speed": "보통",
+    "summary": "완전무사고 강조 및 하단 본문 구매 정보 확인 유도"
+   }
+  ],
+  "rules": [
+   "자막은 하단 중앙에 검정 외곽선의 깔끔한 고딕체로 배치하고 포인트 단어는 하늘색이나 노란색으로 강조한다.",
+   "새로운 옵션 포인트가 나올 때마다 부드러운 컷 전환 또는 와이프(밀기) 트랜지션을 사용한다.",
+   "핵심 옵션 포인트(LED 레터링, 조수석 디스플레이, 스톱워치)마다 시각적 그래픽이나 스티커, 클릭 효과음을 덧붙인다.",
+   "공식 옵션표 캡처본을 직접 띄워 신차 출고가와 풍부한 옵션 내역의 신뢰도를 높인다.",
+   "영상 말미에 계기판 주행거리/화면을 보여주며 완전무사고 이력을 언급하고 하단 상세설명 링크로 전환을 유도한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 12.8,
+    "end": 16.9,
+    "feature": "글래시어 블루 라이트 스트립 LED 테일라이트",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "마우스 클릭 손가락 커서 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 21.8,
+    "feature": "21인치 마칸 디자인 휠 & PASM",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 78.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 26.8,
+    "feature": "크레용 블랙 레더 & 헤드레스트 크레스트",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 34.2,
+    "feature": "아크틱 블루 안전벨트 & 스톱워치 다이얼",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 37.1,
+    "feature": "조수석 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 도로에 서 있는 파스텔톤 마칸을 걸어가며 찍으며 '너무 예쁘고 귀여운 전기 붕붕이' 멘트",
+   "type": "감탄·리액션",
+   "text": "여러분 여기 너무 예쁘고 또 귀여운 컬러 조합의 전기 붕붕이를 보고가세요!"
+  },
+  "narration_points": [
+   {
+    "t": 10.3,
+    "point": "전기와 잘 어울리는 프로즌 블루 메탈릭 외장 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 13.5,
+    "point": "글래시어 블루 라이트 스트립이 적용된 LED 테일라이트",
+    "category": "디자인"
+   },
+   {
+    "t": 17.5,
+    "point": "21인치 마칸 디자인 휠 및 부드러운 주행감의 PASM 서스펜션",
+    "category": "성능"
+   },
+   {
+    "t": 22.0,
+    "point": "실내 크레용/블랙 투톤 레더 패키지 및 헤드레스트 포르쉐 크레스트",
+    "category": "디자인"
+   },
+   {
+    "t": 27.0,
+    "point": "아크틱 블루 컬러 안전벨트 및 스톱워치 다이얼의 파스텔 톤 통일감",
+    "category": "디자인"
+   },
+   {
+    "t": 34.5,
+    "point": "최신 트렌드 옵션인 조수석 전용 디스플레이 적용",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "넉넉한 2열 공간, 4륜구동 안전성, 1회 충전 450km 주행 가능 거리",
+    "category": "성능"
+   },
+   {
+    "t": 45.0,
+    "point": "풀옵션에 준하는 옵션표와 신차가 1억 4,670만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 49.5,
+    "point": "완전무사고, 보험 이력 전무한 신차급 컨디션",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "번호판 플레이트(MANSORY)",
+    "신차가격"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 51.5,
+   "text": "이 차량의 구매 정보는 하단 본문을 참고해주세요.",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "휠",
+    "실내 앞",
+    "뒷좌석",
+    "센터 화면",
+    "계기판"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색 고딕 말자막에 강조색(하늘/노랑) 포인트 사용 및 끝부분 하단 본문 유도 손가락 그래픽 통일"
+  }
+ }
+}

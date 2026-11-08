@@ -1,0 +1,773 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/jCYDdsg1lOA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6722,
+  "candidatesTokenCount": 7973,
+  "totalTokenCount": 15917,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5466
+   }
+  ],
+  "thoughtsTokenCount": 1222,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.0,
+   "aspect": "9:16",
+   "car": "롤스로이스 스펙터 (Rolls-Royce Spectre)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.7,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 14.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 18.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.1,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 30.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 33.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 37.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 41.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 48.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.4,
+    "end": 50.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 56.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.4,
+    "end": 60.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "여러분 이 차는 현존하는 전기차 중에서 가장 비싼 편입니다",
+    "ko": "여러분 이 차는 현존하는 전기차 중에서 가장 비싼 편입니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "가장",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.7,
+    "text": "ROLLS ROYCE\nSPECTRE",
+    "ko": "롤스로이스 스펙터",
+    "kind": "제목",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "확대 전환",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "text": "팬텀 약 ₩780,000,000 (BASE)\n스펙터 ₩750,000,000 (옵션 포함)",
+    "ko": "팬텀 약 ₩780,000,000 (BASE) / 스펙터 ₩750,000,000 (옵션 포함)",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "₩750,000,000",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.1,
+    "text": "WLTP 기준 488~520km",
+    "ko": "WLTP 기준 488~520km",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.3,
+    "end": 27.6,
+    "text": "EXTC. Tempest Grey (투톤 컬러 PPF)",
+    "ko": "외장 템페스트 그레이 (투톤 컬러 PPF)",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.6,
+    "text": "23' 7-Spoke Part Polished Wheels (₩23,000,000)",
+    "ko": "23인치 7-스포크 파트 폴리시드 휠 (2,300만 원)",
+    "kind": "가격",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩23,000,000",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "text": "스타라이트 도어 (₩28,000,000)",
+    "ko": "스타라이트 도어 (2,800만 원)",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩28,000,000",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.5,
+    "text": "Turquoise + White + Black",
+    "ko": "터키석 + 화이트 + 블랙",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 47.3,
+    "text": "비스포크 오디오 (₩28,000,000)",
+    "ko": "비스포크 오디오 (2,800만 원)",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩28,000,000",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 49.3,
+    "text": "₩128,000,000",
+    "ko": "옵션가 1억 2,800만 원",
+    "kind": "가격",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 51.5,
+    "text": "₩750,000,000",
+    "ko": "신차가 7억 5,000만 원",
+    "kind": "가격",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.6,
+    "end": 54.0,
+    "text": "보증기간 잔존 (~2028. 02)",
+    "ko": "보증기간 잔존 (~2028. 02)",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1ACC",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.2,
+    "type": "띵",
+    "event": "환희의 여신상 반짝이 이펙트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "휙",
+    "event": "화면 전환 및 차명 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "딸깍",
+    "event": "가격 비교 박스 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "딸깍",
+    "event": "휠 옵션 정보 카드 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "딸깍",
+    "event": "스타라이트 도어 옵션 카드 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "딸깍",
+    "event": "오디오 옵션 카드 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 47.5,
+    "type": "돈 소리",
+    "event": "총 옵션가 대형 노란 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.5,
+    "type": "돈 소리",
+    "event": "신차가 대형 노란 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "세련되고 묵직하며 고급스러운 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 5.0,
+    "end": 8.0,
+    "what": "환희의 여신상 주위 반짝이 별빛 효과",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "페이드",
+    "purpose": "럭셔리 엠블럼 강조",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 60.0,
+    "what": "손가락 클릭 아이콘 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 8.0,
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하단 본문 링크 클릭 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "text": "여러분 이 차는 현존하는 전기차 중에서 가장 비싼 편입니다.",
+    "ko": "여러분 이 차는 현존하는 전기차 중에서 가장 비싼 편입니다."
+   },
+   {
+    "start": 3.5,
+    "end": 7.9,
+    "text": "정숙성과 편안함을 추구하는 롤스로이스에서 전기차는 훌륭한 선택지 아니겠습니까?",
+    "ko": "정숙성과 편안함을 추구하는 롤스로이스에서 전기차는 훌륭한 선택지 아니겠습니까?"
+   },
+   {
+    "start": 7.9,
+    "end": 11.2,
+    "text": "안녕하세요. 롤스로이스 스펙터 입고되었습니다.",
+    "ko": "안녕하세요. 롤스로이스 스펙터 입고되었습니다."
+   },
+   {
+    "start": 11.2,
+    "end": 15.8,
+    "text": "2023년 출시한 브랜드 최초의 전기차량이며 문짝 두 개인 레이스의 후속 모델입니다.",
+    "ko": "2023년 출시한 브랜드 최초의 전기차량이며 문짝 두 개인 레이스의 후속 모델입니다."
+   },
+   {
+    "start": 15.8,
+    "end": 18.7,
+    "text": "가격은 플래그십 모델인 팬텀과 맞먹는 수준이죠.",
+    "ko": "가격은 플래그십 모델인 팬텀과 맞먹는 수준이죠."
+   },
+   {
+    "start": 18.7,
+    "end": 24.8,
+    "text": "컬리넌보다 무거운 3톤에 가까운 무게를 자랑하지만 대용량 배터리를 장착해 주행가능거리는 500km를 넘어가죠.",
+    "ko": "컬리넌보다 무거운 3톤에 가까운 무게를 자랑하지만 대용량 배터리를 장착해 주행가능거리는 500km를 넘어가죠."
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "text": "외장 컬러는 템페스트 그레이. 묵직한 그레이 톤에 메탈릭 페인트.",
+    "ko": "외장 컬러는 템페스트 그레이. 묵직한 그레이 톤에 메탈릭 페인트."
+   },
+   {
+    "start": 29.8,
+    "end": 34.8,
+    "text": "23인치 스펙터 전용 휠까지 장착 완료. 무려 2,300만 원의 옵션 휠입니다.",
+    "ko": "23인치 스펙터 전용 휠까지 장착 완료. 무려 2,300만 원의 옵션 휠입니다."
+   },
+   {
+    "start": 34.8,
+    "end": 37.8,
+    "text": "익스테리어도 럭셔리 그 자체이지만 인테리어는 더더욱 훌륭합니다.",
+    "ko": "익스테리어도 럭셔리 그 자체이지만 인테리어는 더더욱 훌륭합니다."
+   },
+   {
+    "start": 37.8,
+    "end": 42.0,
+    "text": "스펙터부터 적용되는 스타라이트 도어가 포함된 비스포크 오더 인테리어.",
+    "ko": "스펙터부터 적용되는 스타라이트 도어가 포함된 비스포크 오더 인테리어."
+   },
+   {
+    "start": 42.0,
+    "end": 45.0,
+    "text": "터키석 화이트 블랙 세 가지 조합이 기가 막힙니다. 와우.",
+    "ko": "터키석 화이트 블랙 세 가지 조합이 기가 막힙니다. 와우."
+   },
+   {
+    "start": 45.0,
+    "end": 50.8,
+    "text": "비스포크 오디오까지 포함한 총 옵션 프라이스만 1억 2,800만 원. 신차가는 7억 5,000만 원입니다.",
+    "ko": "비스포크 오디오까지 포함한 총 옵션 프라이스만 1억 2,800만 원. 신차가는 7억 5,000만 원입니다."
+   },
+   {
+    "start": 50.8,
+    "end": 56.5,
+    "text": "2024년 출고 후 약 1,300km 주행했고, 사고 하나 없이 보증은 내후년까지 넉넉합니다.",
+    "ko": "2024년 출고 후 약 1,300km 주행했고, 사고 하나 없이 보증은 내후년까지 넉넉합니다."
+   },
+   {
+    "start": 56.5,
+    "end": 60.0,
+    "text": "이 차량의 구매에 필요한 자세한 정보는 하단 본문을 참고해주세요.",
+    "ko": "이 차량의 구매에 필요한 자세한 정보는 하단 본문을 참고해주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.9,
+    "speed": "보통",
+    "summary": "현존 최고가 전기차 질문 던지며 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.9,
+    "end": 18.7,
+    "speed": "빠름",
+    "summary": "입고 소식, 모델 계보 및 팬텀급 가격대 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.7,
+    "end": 25.1,
+    "speed": "빠름",
+    "summary": "차량 무게 및 배터리 주행거리 스펙 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 25.1,
+    "end": 45.0,
+    "speed": "빠름",
+    "summary": "템페스트 그레이 외장, 23인치 휠, 스타라이트 도어, 시트 색상 조합 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 45.0,
+    "end": 50.8,
+    "speed": "빠름",
+    "summary": "옵션 가격 총액 및 신차가 7억 5천 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 50.8,
+    "end": 60.0,
+    "speed": "보통",
+    "summary": "주행거리, 무사고 보증 안내 및 하단 본문 구매 문의 유도"
+   }
+  ],
+  "rules": [
+   "단어 단위로 리드미컬하게 튀어나오는 중앙 볼드 자막 사용",
+   "주요 스펙과 개별 옵션 가격은 반투명 검은색 둥근 직사각형 카드 자막으로 표시",
+   "옵션 총액 및 신차가 등 큰 금액은 굵은 노란색 텍스트와 캐시 사운드로 강조",
+   "비트감 있는 힙합 인스트루먼트에 맞춰 2~4초 간격으로 빠른 컷 전환 유지",
+   "영상 말미에 손가락 클릭 아이콘 애니메이션으로 유튜브 쇼츠 본문 더보기 클릭 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 28.5,
+    "end": 33.6,
+    "feature": "23인치 7-스포크 휠 (2,300만 원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "feature": "스타라이트 도어 (2,800만 원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 48.0,
+    "feature": "비스포크 오디오 (2,800만 원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "길가에 주차된 롤스로이스 스펙터 전면으로 다가가며 가장 비싼 전기차라는 멘트",
+   "type": "가격",
+   "text": "여러분 이 차는 현존하는 전기차 중에서 가장 비싼 편입니다"
+  },
+  "narration_points": [
+   {
+    "t": 2.0,
+    "point": "현존하는 전기차 중 가장 비싼 편",
+    "category": "가격·조건"
+   },
+   {
+    "t": 12.0,
+    "point": "브랜드 최초 순수 전기차이자 2도어 레이스 후속",
+    "category": "희소성"
+   },
+   {
+    "t": 16.5,
+    "point": "플래그십 팬텀에 필적하는 7억 원대 가격",
+    "category": "가격·조건"
+   },
+   {
+    "t": 22.0,
+    "point": "3톤에 육박하는 중량과 500km 이상 주행 가능 거리",
+    "category": "성능"
+   },
+   {
+    "t": 26.0,
+    "point": "템페스트 그레이 투톤 메탈릭 컬러 외장",
+    "category": "디자인"
+   },
+   {
+    "t": 31.0,
+    "point": "2,300만 원 상당의 23인치 전용 옵션 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 39.0,
+    "point": "2,800만 원 상당의 스타라이트 도어 비스포크 사양",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "터키석, 화이트, 블랙 3색 비스포크 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 47.0,
+    "point": "총 옵션가 1억 2,800만 원, 신차가 7억 5,000만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 53.0,
+    "point": "2024년식 실주행 1,300km 완전무사고 및 넉넉한 보증 잔존",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "가격",
+    "연식",
+    "주행거리",
+    "보증기간"
+   ],
+   "t": 51.0
+  },
+  "cta": {
+   "t": 57.0,
+   "text": "하단 본문을 참고해주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "계기판",
+    "휠",
+    "실내 앞",
+    "옵션 작동",
+    "센터 화면",
+    "뒷좌석"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단/하단 정보 캡슐 박스 폰트 및 노란색 포인트 가격 자막 양식을 통일감 있게 적용함"
+  }
+ }
+}

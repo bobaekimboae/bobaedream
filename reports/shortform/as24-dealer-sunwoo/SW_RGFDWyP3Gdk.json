@@ -1,0 +1,668 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/RGFDWyP3Gdk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6710,
+  "candidatesTokenCount": 5705,
+  "totalTokenCount": 12415,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5454
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.1,
+   "aspect": "9:16",
+   "car": "레인지로버 P530 오토바이오그래피 LWB",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 10.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 16.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 21.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 31.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 34.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.3,
+    "end": 36.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 42.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.7,
+    "end": 48.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 51.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.9,
+    "end": 54.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 58.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 60.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "혹시 여기 겨울철 패밀리카 찾으시는 분 계신가요?",
+    "ko": "혹시 여기 겨울철 패밀리카 찾으시는 분 계신가요?",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "타자",
+    "highlight_word": "여기",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "text": "강력한 포스의 사륜구동 올블랙 SUV 승차감도 일등입니다.",
+    "ko": "강력한 포스의 사륜구동 올블랙 SUV 승차감도 일등입니다.",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "타자",
+    "highlight_word": "사륜구동",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.0,
+    "text": "RANGE ROVER\nP530\nAB LWB",
+    "ko": "레인지로버 P530 AB LWB",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.5,
+    "text": "SWB : 5,052mm\nLWB : 5,252mm",
+    "ko": "SWB : 5,052mm\nLWB : 5,252mm",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.9,
+    "text": "전동 사이드스텝 , 메르디안 오디오 , 2열 리클라이닝 O",
+    "ko": "전동 사이드스텝, 메르디안 오디오, 2열 리클라이닝 O",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 36.6,
+    "text": "산토리니 블랙 + 블랙팩St 드레스업",
+    "ko": "산토리니 블랙 + 블랙팩 스타일 드레스업",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 42.7,
+    "text": "캐러웨이 베이지 인테리어 + 우드 베니어",
+    "ko": "캐러웨이 베이지 인테리어 + 우드 베니어",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 60.1,
+    "text": "Range Rover\nP530 AB LWB\n1억 후반 최고의 스포츠 유틸리티\n올블랙 익스테리어 · 캐러웨이\n현금차 · 리클라이닝 시트 · 완전무사고",
+    "ko": "Range Rover P530 AB LWB...",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "화면 줌인 및 해골 이모지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "휙",
+    "event": "화면 전환 및 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.5,
+    "type": "딸깍",
+    "event": "마우스 클릭 효과음과 클릭 이모지",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.1,
+    "type": "딸깍",
+    "event": "마우스 클릭 효과음과 클릭 이모지",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "딸깍",
+    "event": "마우스 클릭 효과음과 클릭 이모지",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "세련되고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "what": "해골 이모지 스티커",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "강조",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.2,
+    "what": "손가락 마우스 커서 클릭 애니메이션 및 블루 이모지",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "주목 유도",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.6,
+    "what": "고양이 밈 스티커",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "유머/주목 유도",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.0,
+    "what": "하트 고양이 밈 스티커",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "감탄/주목 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "혹시 여기 겨울철 패밀리카 찾으시는 분 계신가요?",
+    "ko": "혹시 여기 겨울철 패밀리카 찾으시는 분 계신가요?"
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "text": "강력한 포스의 사륜구동 올블랙 SUV 승차감도 일등입니다.",
+    "ko": "강력한 포스의 사륜구동 올블랙 SUV 승차감도 일등입니다."
+   },
+   {
+    "start": 5.4,
+    "end": 8.0,
+    "text": "안녕하세요 레인지로버 P530 AB 롱바디 입고되었습니다.",
+    "ko": "안녕하세요 레인지로버 P530 AB 롱바디 입고되었습니다."
+   },
+   {
+    "start": 8.0,
+    "end": 12.0,
+    "text": "고급 SUV의 표본이라고 할 수 있는 세계 최초의 럭셔리 SUV.",
+    "ko": "고급 SUV의 표본이라고 할 수 있는 세계 최초의 럭셔리 SUV."
+   },
+   {
+    "start": 12.0,
+    "end": 16.5,
+    "text": "스탠다드 휠베이스에 비해 차량 길이가 20cm 긴 롱바디입니다. 길어진 만큼 뒷자리가 넓어졌습니다.",
+    "ko": "스탠다드 휠베이스에 비해 차량 길이가 20cm 긴 롱바디입니다. 길어진 만큼 뒷자리가 넓어졌습니다."
+   },
+   {
+    "start": 16.5,
+    "end": 21.6,
+    "text": "사실상 레인지로버는 롱바디가 기본이죠. 판매되는 매물 대수만 보아도 롱바디가 압도적으로 많습니다.",
+    "ko": "사실상 레인지로버는 롱바디가 기본이죠. 판매되는 매물 대수만 보아도 롱바디가 압도적으로 많습니다."
+   },
+   {
+    "start": 21.6,
+    "end": 25.0,
+    "text": "코로나 시절 마이너스 옵션이 가득했던 P530이지만",
+    "ko": "코로나 시절 마이너스 옵션이 가득했던 P530이지만"
+   },
+   {
+    "start": 25.0,
+    "end": 29.5,
+    "text": "이 차량은 전동 사이드스텝, 메르디안 오디오, 그리고 2열 리클라이닝 시트까지 모두 포함되었습니다.",
+    "ko": "이 차량은 전동 사이드스텝, 메르디안 오디오, 그리고 2열 리클라이닝 시트까지 모두 포함되었습니다."
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "text": "외장은 산토리니 블랙 메탈릭, 화이트 색상과 더불어 가장 인기 많은 컬러죠.",
+    "ko": "외장은 산토리니 블랙 메탈릭, 화이트 색상과 더불어 가장 인기 많은 컬러죠."
+   },
+   {
+    "start": 33.5,
+    "end": 36.6,
+    "text": "거기에 전면 그릴 가니쉬, 그리고 휠까지 전부 다 블랙으로 드레스업 완료되었습니다.",
+    "ko": "거기에 전면 그릴 가니쉬, 그리고 휠까지 전부 다 블랙으로 드레스업 완료되었습니다."
+   },
+   {
+    "start": 36.6,
+    "end": 42.7,
+    "text": "실내는 캐러웨이 베이지 인테리어. 전부 가죽으로 마감된 럭셔리의 표본이죠. 마찬가지로 소비자 선호 색상입니다.",
+    "ko": "실내는 캐러웨이 베이지 인테리어. 전부 가죽으로 마감된 럭셔리의 표본이죠. 마찬가지로 소비자 선호 색상입니다."
+   },
+   {
+    "start": 42.7,
+    "end": 49.5,
+    "text": "컬리넌이 등장하기 전까지는 사막의 롤스로이스라고 불렸을 정도로 다이내믹 에어매틱 서스펜션의 승차감은 두말할 필요가 없습니다. 완벽해요.",
+    "ko": "컬리넌이 등장하기 전까지는 사막의 롤스로이스라고 불렸을 정도로 다이내믹 에어매틱 서스펜션의 승차감은 두말할 필요가 없습니다. 완벽해요."
+   },
+   {
+    "start": 49.5,
+    "end": 56.5,
+    "text": "2023년 출고 후 주행거리 약 7만 km. 누유, 누수 전혀 없고 전체 PPF까지 시공된 완전무사고 차량이며",
+    "ko": "2023년 출고 후 주행거리 약 7만 km. 누유, 누수 전혀 없고 전체 PPF까지 시공된 완전무사고 차량이며"
+   },
+   {
+    "start": 56.5,
+    "end": 60.1,
+    "text": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요. 감사합니다.",
+    "ko": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "겨울철 패밀리카 질문 및 차량의 강력한 포스 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "차량 모델명 소개 및 LWB 롱바디의 넉넉한 공간성 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 21.6,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "누락 없는 풀옵션(전동 사이드스텝, 메르디안, 리클라이닝) 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 29.5,
+    "end": 49.5,
+    "speed": "보통",
+    "summary": "올블랙 드레스업 외관, 캐러웨이 실내 및 에어서스펜션 승차감 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 49.5,
+    "end": 60.1,
+    "speed": "보통",
+    "summary": "주행거리, 무사고 및 PPF 이력 안내와 본문 확인 유도 요약 화면"
+   }
+  ],
+  "rules": [
+   "단어 단위로 리듬감 있게 하이라이트되는 하단 자막 활용",
+   "스펙이나 세부 옵션 정보는 화면 하단 검정 박스 자막으로 고정 노출",
+   "화면 전환마다 줌인 트랜지션과 클릭 사운드 효과음을 일치시킴",
+   "중간중간 귀여운 동물/클릭 밈 스티커를 삽입해 시선 유지"
+  ],
+  "option_highlights": [
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "feature": "메르디안 오디오",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.9,
+    "feature": "2열 리클라이닝 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.6,
+    "feature": "블랙팩 휠/그릴 드레스업",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 도로에 서 있는 검정색 레인지로버를 향해 걸어가며 '겨울철 패밀리카 찾으시는 분 계신가요?' 질문",
+   "type": "질문",
+   "text": "혹시 여기 겨울철 패밀리카 찾으시는 분 계신가요?"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "겨울철 패밀리카 추천",
+    "category": "편의"
+   },
+   {
+    "t": 13.5,
+    "point": "스탠다드 대비 20cm 더 긴 롱바디로 넉넉한 2열 공간",
+    "category": "공간"
+   },
+   {
+    "t": 25.5,
+    "point": "마이너스 옵션 없이 전동발판, 메르디안, 리클라이닝 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 34.0,
+    "point": "산토리니 블랙에 그릴/휠까지 올블랙 드레스업 완료",
+    "category": "디자인"
+   },
+   {
+    "t": 38.0,
+    "point": "소비자 선호 캐러웨이 베이지 인테리어 풀가죽 마감",
+    "category": "디자인"
+   },
+   {
+    "t": 46.0,
+    "point": "사막의 롤스로이스 다이내믹 에어매틱 서스펜션 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 51.5,
+    "point": "2023년식 7만km 무사고 및 전체 PPF 시공",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "가격 등 보인 항목"
+   ],
+   "t": 58.7
+  },
+  "cta": {
+   "t": 57.0,
+   "text": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요.",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "뒷좌석",
+    "옵션 작동",
+    "휠",
+    "실내 앞",
+    "트렁크"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 텍스트 박스와 타이핑 자막 스타일을 일관되게 유지"
+  }
+ }
+}
