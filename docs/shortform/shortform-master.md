@@ -178,6 +178,11 @@
 | T54 | faster-whisper 1.2.1(small, CPU int8) | ✅ | 낱말별 시각 포함 받아쓰기. 틱톡 30초 남짓 46.6초(첫 실행, de). av는 14~15 버전으로 고정(19는 오류) |
 | T55 | instaloader 4.16 | 💡 | 인스타 계정 릴스 묶음 보관용. 로그인 없이는 막힐 수 있음 |
 | T56 | Gemini 분석기(as24_analyze.py) | 🧪 | 지금은 유튜브 주소만. 인스타 · 틱톡은 받은 파일을 Files API로 올리게 고쳐야 함 |
+| T57 | rea-video b32fbbd(Apache-2.0) | ✅ | 노트북 `Documents\tools\rea-video`, Python 3.12에 설치. 스킬을 `~/.claude` · `~/.codex` · `~/.agents` skills에 연결. 윈도우는 사용자 환경 변수 `PYTHONIOENCODING=utf-8` · `PYTHONUTF8=1` 필요(없으면 중국어 도움말에서 멈춤). 독일 쇼츠 25초 → 13컷 · 소리 분리 · 178 BPM · 효과음 2개, 8분 10초. 화면 모델 없이 돌리면 실사/AI 판단 신뢰도 낮음(이번 55%, 실사를 「AI 66%」로 오판) → 제미나이를 `REA_VLM_*`로 붙이거나 에이전트가 `rea-video review`로 직접 보고 고쳐야 함 |
+| T58 | PySceneDetect 0.7.2 | ✅ | 컷 경계 검출. opencv는 rea-video와 같은 headless 하나만 씀(`--no-deps` 설치) |
+| T59 | HyperFrames 스킬 4종 | ✅ | `hyperframes` · `-cli` · `-registry` · `remotion-to-hyperframes`, 클로드 · 코덱스 모두 |
+| T60 | beat_this · CLAP · SAM 2 · audio-separator | ⏸ | torch(약 2GB)가 필요해 보류. 노트북 GPU 확인 뒤 결정 |
+| T61 | Raea | ⏸ | FSL 라이선스(경쟁 사용 제한) · canary 버전이라 보류 |
 
 ## 4. 남은 일
 - 독일(DE) 쇼츠 100편 분석(Gemini 무료 한도 풀린 뒤), BE 효과음 강한 모델 재분석
