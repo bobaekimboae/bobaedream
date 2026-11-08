@@ -39,11 +39,24 @@ PROMPT = """너는 숏폼 영상 편집 분석가다. 이 세로 쇼츠(오토�
 
 # 목록 파일 이름 앞부분으로 분석 종류를 고른다: reviewer-*.txt · dealer-*.txt · 그 밖 = as24
 CHANNEL = {
+    "style": "오토스카우트24 공식 채널(자막·칩·효과음 디자인 정밀 분석)",
     "as24": "오토스카우트24 공식 채널",
     "reviewer": "이집트 자동차 리뷰어 나사르 헤시엔(Nasser Hessien) 채널, 주로 아랍어(이집트 방언)",
     "dealer": "한국 서울오토갤러리 중고차 딜러가 자기 매물을 올린 채널, 한국어",
 }
 EXTRA = {
+    "style": """
+이번 분석의 핵심은 자막·정보 칩·효과음의 디자인 규칙이다. 아래 키를 같은 JSON 안에 반드시 넣어라. 화면 비율은 세로 1080x1920 기준 퍼센트로 적는다.
+ "caption_styles": [{"role": "말 자막|키워드 칩|가격 칩|제목|끝 화면|기타","font": "굵기(보통|굵게|아주 굵게)와 모양(세리프 없음 등)","letter_case": "대문자|문장형|혼합",
+     "text_color","outline": "없음|검정 외곽선|그림자","outline_px_at_1080": 숫자,"box": "없음|직사각|붓질 모양|둥근 알약","box_color","box_corner_px_at_1080": 숫자,
+     "box_padding_pct": 숫자,"text_height_pct": 숫자,"y_pct": 숫자,"x_center_pct": 숫자,"max_lines": 숫자,"words_per_line": 숫자,
+     "highlight": "말하는 낱말 색 바꿈|핵심 낱말 박스|없음","highlight_color","in_anim": "바로|톡 튀어나옴(커졌다 작아짐)|아래서 위로|옆에서 밀려옴|페이드|타자",
+     "in_ms": 숫자,"out_anim": "바로|페이드|작아짐","stay_sec": 숫자,"count": 이 영상에서 이 역할이 나온 횟수,"sure": 참/거짓}],
+ "chip_rules": {"one_at_a_time": 참/거짓,"chip_vs_speech_same_time": 참/거짓,"chip_when": "말하는 낱말과 동시|조금 먼저|조금 뒤","chip_offset_ms": 숫자},
+ "sfx_rules": [{"event": "칩 등장|가격 등장|컷 전환|로고·끝 화면|실제 차 소리|기타","sound": "톡|휙|띵|딸깍|쿵|돈 소리|실제 소리|기타","offset_ms_vs_visual": 숫자,"length_ms": 숫자,"loud_vs_voice": "더 큼|비슷|더 작음","count": 숫자}],
+ "end_card": {"start_sec","what": "로고|앱 안내|가격|딜러 연락|기타","bg": "노랑 전체|차 위에 겹침|기타","sec": 숫자},
+ "safe_zone_note": "인스타·유튜브 버튼에 가리는지와 아래·오른쪽 여백 관찰"
+""",
     "reviewer": """
 아래 키도 같은 JSON 안에 반드시 넣어라(기능·옵션을 화면에 어떻게 보여 주는지가 이번 분석의 핵심이다).
  "option_highlights": [{"start","end","feature": "기능·옵션 이름(한국어)","shown_how": "3D 아이콘|2D 아이콘|글자 카드|화살표·원 표시|확대|화면 분할|실제 작동 시연|말로만|기타",
