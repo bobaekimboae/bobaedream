@@ -1,0 +1,692 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/0CpiTYRh4jE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4371,
+  "candidatesTokenCount": 5623,
+  "totalTokenCount": 9994,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3111
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.6,
+   "aspect": "9:16",
+   "car": "페라리 296 GTS",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 26.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.2,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "스페셜 화이트 296 GTS\n와.. 신차가 5억 5100만원",
+    "ko": "스페셜 화이트 296 GTS\n와.. 신차가 5억 5100만원",
+    "kind": "제목",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "스페셜 화이트",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "text": "순백 화이트 옵션 컬러\nBianco Cervino",
+    "ko": "순백 화이트 옵션 컬러\nBianco Cervino",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "순백 화이트 옵션 컬러",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.0,
+    "text": "순백 화이트 스페셜 가죽",
+    "ko": "순백 화이트 스페셜 가죽",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "순백 화이트",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.4,
+    "text": "Pele Bianca\nEXTRA RANGE LEATHER",
+    "ko": "펠레 비앙카\n엑스트라 레인지 가죽",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Pele Bianca",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.8,
+    "text": "전체 PPF 시공 완료 차량",
+    "ko": "전체 PPF 시공 완료 차량",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "전체 PPF",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "text": "신차가 551,500,000원",
+    "ko": "신차가 551,500,000원",
+    "kind": "가격",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "신차가",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "text": "완전 무사고, 보험이력 0원",
+    "ko": "완전 무사고, 보험이력 0원",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "완전 무사고",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.5,
+    "text": "프리미엄 HIFI 오디오 포함",
+    "ko": "프리미엄 HIFI 오디오 포함",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "프리미엄 HIFI 오디오",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.6,
+    "text": "테크니컬 다이아몬드 컷 단조 휠",
+    "ko": "테크니컬 다이아몬드 컷 단조 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 84.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "테크니컬 다이아몬드 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.8,
+    "text": "2025년 02월, 정식 출고",
+    "ko": "2025년 02월, 정식 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2025년 02월",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 26.0,
+    "text": "주행거리 3,550km",
+    "ko": "주행거리 3,550km",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "주행거리",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "text": "차고 조절 리프팅 기능",
+    "ko": "차고 조절 리프팅 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 84.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "차고 조절 리프팅",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.8,
+    "text": "메리츠 캐피탈 금융리스",
+    "ko": "메리츠 캐피탈 금융리스",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "메리츠 캐피탈",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.2,
+    "text": "모든 조건 변경 가능 상품",
+    "ko": "모든 조건 변경 가능 상품",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "모든 조건 변경 가능",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.6,
+    "text": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "ko": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "kind": "기타",
+    "y_pct": 84.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 86.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "[프로필 방문]",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Trap / Hip-hop Beat",
+   "bpm_est": 130,
+   "mood": "트렌디하고 묵직한",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "what": "원형 회전 인서트(화이트 시트 실내 인서트)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 27.5,
+    "y_pct": 10.0,
+    "entrance": "확대 전환",
+    "purpose": "훅",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "보통",
+    "summary": "차량 전면과 신차가 강조 텍스트, 원형 인서트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 11.8,
+    "speed": "보통",
+    "summary": "외장 컬러(비앙코 세르비노), 가죽 옵션, PPF 시공 내역 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 11.8,
+    "end": 26.0,
+    "speed": "보통",
+    "summary": "신차가, 무사고 이력, 오디오, 휠, 연식 및 주행거리 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 26.0,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "리프팅 기능 버튼 조작부 및 센터 콘솔 디테일"
+   },
+   {
+    "stage": "가격",
+    "start": 29.8,
+    "end": 32.2,
+    "speed": "보통",
+    "summary": "금융리스 조건 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 32.2,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "프로필 방문 CTA"
+   }
+  ],
+  "rules": [
+   "자막 바를 반투명 검은색 상자에 흰색 볼드 폰트와 노란색 강조 키워드로 일관되게 배치",
+   "비트 템포에 맞춰 약 2~2.5초 간격으로 차량 디테일 컷 전환",
+   "별도 음성 내레이션 없이 음악 비트와 텍스트 자막만으로 스펙 전달",
+   "마지막 화면에서 프로필 방문 유도 안내 문구 표시"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "feature": "외장 컬러 Bianco Cervino",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 39.5,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 9.4,
+    "feature": "화이트 스페셜 가죽 (Pele Bianca EXTRA RANGE LEATHER)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.8,
+    "feature": "전체 PPF 시공",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 66.5,
+    "size_w_pct": 74.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.5,
+    "feature": "프리미엄 HIFI 오디오 (JBL)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 69.5,
+    "size_w_pct": 76.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.6,
+    "feature": "테크니컬 다이아몬드 컷 단조 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 84.5,
+    "size_w_pct": 85.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "feature": "차고 조절 리프팅 기능",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 84.5,
+    "size_w_pct": 72.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "스페셜 화이트 296 GTS 차량 전면과 상단 실내 원형 인서트, 신차가 5억 5100만원 자막",
+   "type": "가격",
+   "text": "스페셜 화이트 296 GTS 와.. 신차가 5억 5100만원"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "신차가 5억 5100만원 상당의 296 GTS",
+    "category": "가격·조건"
+   },
+   {
+    "t": 2.5,
+    "point": "순백 화이트 옵션 컬러 Bianco Cervino 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 4.6,
+    "point": "Pele Bianca EXTRA RANGE LEATHER 순백 화이트 스페셜 가죽 실내",
+    "category": "디자인"
+   },
+   {
+    "t": 9.4,
+    "point": "전체 PPF 시공 완료 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 11.8,
+    "point": "정확한 신차가 551,500,000원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 14.5,
+    "point": "완전 무사고 및 보험이력 0원",
+    "category": "상태·이력"
+   },
+   {
+    "t": 17.0,
+    "point": "프리미엄 HIFI 오디오 시스템 포함",
+    "category": "편의"
+   },
+   {
+    "t": 19.5,
+    "point": "테크니컬 다이아몬드 컷 단조 휠 장착",
+    "category": "디자인"
+   },
+   {
+    "t": 21.6,
+    "point": "2025년 2월 정식 출고 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 23.8,
+    "point": "실주행거리 3,550km",
+    "category": "상태·이력"
+   },
+   {
+    "t": 26.0,
+    "point": "차고 조절 리프팅 기능 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "메리츠 캐피탈 금융리스 승계 (조건 변경 가능)",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 32.2,
+   "text": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "실내 시트",
+    "외관 전면",
+    "외관 후면",
+    "실내 조수석/운전석",
+    "도어 트림 오디오",
+    "휠",
+    "스티어링 휠",
+    "계기판",
+    "리프팅 버튼",
+    "센터 콘솔",
+    "조수석 디스플레이",
+    "실내 오픈 전경"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검은 반투명 박스에 옐로우 키워드 하이라이트를 주는 고정 자막 템플릿 사용"
+  }
+ }
+}

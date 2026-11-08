@@ -1,0 +1,782 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/NLkDbneEoNU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6625,
+  "candidatesTokenCount": 6274,
+  "totalTokenCount": 13634,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5365
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 735,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.7,
+   "aspect": "9:16",
+   "car": "페라리 296 GTS",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.9,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 20.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 22.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 31.7,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 33.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 37.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 48.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 51.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.9,
+    "end": 53.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 56.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 58.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "text": "오늘은 사심 가득합니다",
+    "ko": "오늘은 사심 가득합니다",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "사심",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.6,
+    "text": "제가 현재 가장 추천하는 슈퍼카입니다!",
+    "ko": "제가 현재 가장 추천하는 슈퍼카입니다!",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "슈퍼카",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "저는 직업 특성상 이 차 저 차 다 타 보는데",
+    "ko": "저는 직업 특성상 이 차 저 차 다 타 보는데",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.6,
+    "text": "유독 이 차종이 마음에 들어요!",
+    "ko": "유독 이 차종이 마음에 들어요!",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "마음",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "text": "제로백 2.9초로 빠른 건 당연하고",
+    "ko": "제로백 2.9초로 빠른 건 당연하고",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "빠른",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.9,
+    "text": "진짜 편안한 승차감에 실내 유입 사운드도 끝내줍니다",
+    "ko": "진짜 편안한 승차감에 실내 유입 사운드도 끝내줍니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "승차감",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.5,
+    "text": "오늘은 현재 가장 핫한 5억 페라리 모델 296 GTS를 소개합니다!",
+    "ko": "오늘은 현재 가장 핫한 5억 페라리 모델 296 GTS를 소개합니다!",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5억 페라리",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "text": "296 GTS",
+    "ko": "296 GTS",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "휙",
+    "event": "화면 전환 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.9,
+    "type": "띵",
+    "event": "별점 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "휙",
+    "event": "말풍선 효과 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "딸깍",
+    "event": "체크 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "쿵",
+    "event": "296 GTS 타이틀 카드 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 30.7,
+    "type": "톡",
+    "event": "계기판 클로즈업 전환",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.9,
+    "end": 3.6,
+    "what": "별 5개 평가 아이콘",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 추천 강조",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "what": "노란색 만화풍 강조 말풍선 선",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시선 유도",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.6,
+    "what": "초록색 체크 원형 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선호도 표현",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "what": "마우스 클릭 포인터 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 25.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "소개 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "text": "오늘은 사심 가득합니다",
+    "ko": "오늘은 사심 가득합니다"
+   },
+   {
+    "start": 1.9,
+    "end": 3.6,
+    "text": "제가 현재 가장 추천하는 슈퍼카입니다!",
+    "ko": "제가 현재 가장 추천하는 슈퍼카입니다!"
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "저는 직업 특성상 이 차 저 차 다 타 보는데 유독 이 차종이 마음에 들어요!",
+    "ko": "저는 직업 특성상 이 차 저 차 다 타 보는데 유독 이 차종이 마음에 들어요!"
+   },
+   {
+    "start": 8.7,
+    "end": 13.0,
+    "text": "제로백 2.9초로 빠른 건 당연하고 진짜 편안한 승차감에 실내 유입 사운드도 끝내줍니다",
+    "ko": "제로백 2.9초로 빠른 건 당연하고 진짜 편안한 승차감에 실내 유입 사운드도 끝내줍니다"
+   },
+   {
+    "start": 13.0,
+    "end": 17.5,
+    "text": "오늘은 현재 가장 핫한 5억 페라리 모델 296 GTS를 소개합니다!",
+    "ko": "오늘은 현재 가장 핫한 5억 페라리 모델 296 GTS를 소개합니다!"
+   },
+   {
+    "start": 17.5,
+    "end": 20.6,
+    "text": "지난주 위탁 입고된 따끈따끈한 아이입니다 너무 예쁘죠?",
+    "ko": "지난주 위탁 입고된 따끈따끈한 아이입니다 너무 예쁘죠?"
+   },
+   {
+    "start": 20.6,
+    "end": 25.5,
+    "text": "여기에 오픈카 모델이고 가장 진보된 V6 PHEV 방식의 파워트레인을 보유한 차량이죠!",
+    "ko": "여기에 오픈카 모델이고 가장 진보된 V6 PHEV 방식의 파워트레인을 보유한 차량이죠!"
+   },
+   {
+    "start": 25.5,
+    "end": 30.7,
+    "text": "사비아 베이지 가죽에 아름다운 로쏘 코르사 외장 컬러는 가장 인기 많은 구성 중 하나입니다!",
+    "ko": "사비아 베이지 가죽에 아름다운 로쏘 코르사 외장 컬러는 가장 인기 많은 구성 중 하나입니다!"
+   },
+   {
+    "start": 30.7,
+    "end": 34.8,
+    "text": "ACC를 포함한 반자율 주행부터 통풍시트 서라운드 뷰 등 편의 사항 가득하고요",
+    "ko": "ACC를 포함한 반자율 주행부터 통풍시트 서라운드 뷰 등 편의 사항 가득하고요"
+   },
+   {
+    "start": 34.8,
+    "end": 39.8,
+    "text": "2024년 10월 정식 출고 차량으로 아직 무상 보증 1년 이상 남아 있습니다",
+    "ko": "2024년 10월 정식 출고 차량으로 아직 무상 보증 1년 이상 남아 있습니다"
+   },
+   {
+    "start": 39.8,
+    "end": 44.4,
+    "text": "1년 보증 연장 비용이 약 1,500만 원이니 아무래도 보증 남은 차량이 좋으실 겁니다",
+    "ko": "1년 보증 연장 비용이 약 1,500만 원이니 아무래도 보증 남은 차량이 좋으실 겁니다"
+   },
+   {
+    "start": 44.4,
+    "end": 48.8,
+    "text": "주행 거리는 약 4,300km, 짧은 주행 거리로 사용감 일체 없습니다",
+    "ko": "주행 거리는 약 4,300km, 짧은 주행 거리로 사용감 일체 없습니다"
+   },
+   {
+    "start": 48.8,
+    "end": 53.0,
+    "text": "얼마 전 공식 중고차 사업부에서 구매하신 차량이며 금융리스라 취등록세 없이 구매 가능합니다",
+    "ko": "얼마 전 공식 중고차 사업부에서 구매하신 차량이며 금융리스라 취등록세 없이 구매 가능합니다"
+   },
+   {
+    "start": 53.0,
+    "end": 58.7,
+    "text": "현재 이 차량을 위탁 판매 중입니다 판매 가격과 더 많은 정보를 본문에서 확인해 보세요! 감사합니다",
+    "ko": "현재 이 차량을 위탁 판매 중입니다 판매 가격과 더 많은 정보를 본문에서 확인해 보세요! 감사합니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "페라리 키 보여주며 사심 가득 최애 슈퍼카 어그로"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "차량 주행감/승차감 장점 및 5억대 페라리 296 GTS 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 17.5,
+    "end": 30.7,
+    "speed": "보통",
+    "summary": "V6 PHEV 오픈탑, 사비아 베이지 시트 및 로쏘 코르사 외장 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 30.7,
+    "end": 34.8,
+    "speed": "빠름",
+    "summary": "ACC 반자율, 통풍시트, 서라운드뷰 등 계기판 옵션 화면 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 34.8,
+    "end": 53.0,
+    "speed": "보통",
+    "summary": "24년식 출고, 보증 기간 잔여, 주행거리 4,300km, 금융리스 조건"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.0,
+    "end": 58.7,
+    "speed": "보통",
+    "summary": "위탁 판매 안내 및 본문 상세 정보 확인 CTA"
+   }
+  ],
+  "rules": [
+   "자막 키워드는 2~3글자씩 큼직하게 중앙 하단에 빠르게 전환되도록 배치",
+   "중요 단어 등장 시 톡 튀어나오는 애니메이션과 효과음(띵/휙/쿵) 결합",
+   "매물 번호판 대신 자체 로고 플레이트(FLOSSY) 장착하여 브랜드 노출",
+   "스펙 정보와 금융 혜택(취등록세 면제, 보증 잔여)을 명확하게 어필"
+  ],
+  "option_highlights": [
+   {
+    "start": 30.7,
+    "end": 31.7,
+    "feature": "ACC 반자율 주행",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 33.0,
+    "feature": "통풍/열선 시트 공조",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.8,
+    "feature": "서라운드 뷰 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "페라리 스마트키를 손에 쥐고 흔들며 사심 가득 강력 추천 슈퍼카라고 어그로",
+   "type": "행동",
+   "text": "오늘은 사심 가득합니다 제가 현재 가장 추천하는 슈퍼카입니다!"
+  },
+  "narration_points": [
+   {
+    "t": 8.7,
+    "point": "제로백 2.9초의 폭발적 가속력과 편안한 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 20.6,
+    "point": "V6 PHEV 오픈탑 스파이더 모델",
+    "category": "디자인"
+   },
+   {
+    "t": 25.5,
+    "point": "로쏘 코르사 외장 + 사비아 베이지 실내 인기 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 30.7,
+    "point": "ACC 반자율 주행, 통풍시트, 서라운드 뷰 등 풍부한 옵션",
+    "category": "편의"
+   },
+   {
+    "t": 34.8,
+    "point": "2024년 10월 출고, 무상 보증 1년 이상 잔여",
+    "category": "상태·이력"
+   },
+   {
+    "t": 44.4,
+    "point": "실주행거리 약 4,300km로 무주행급 컨디션",
+    "category": "상태·이력"
+   },
+   {
+    "t": 48.8,
+    "point": "금융리스 승계로 취등록세 부담 없이 구매 가능",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "번호판 플레이트 상호(FLOSSY)"
+   ],
+   "t": 4.5
+  },
+  "cta": {
+   "t": 56.1,
+   "text": "판매 가격과 더 많은 정보를 본문에서 확인해보세요!",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "키",
+    "실내 앞",
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "외관 전면",
+    "외관 후면",
+    "휠",
+    "계기판",
+    "옵션 작동",
+    "센터 화면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "번호판에 FLOSSY 자체 로고 부착 및 볼드한 화이트 텍스트 자막 틀 유지"
+  }
+ }
+}

@@ -1,0 +1,633 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/Qu9W88oGkgA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4098,
+  "candidatesTokenCount": 6156,
+  "totalTokenCount": 11114,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2838
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 860,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.0,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 SLR 맥라렌",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 16.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.1,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 23.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 25.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "SLR 맥라렌 블랙 입고\n아직 한국에 남아있다니!",
+    "ko": "SLR 맥라렌 블랙 입고 아직 한국에 남아있다니!",
+    "kind": "제목",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SLR 맥라렌 블랙",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "text": "귀한 검정색 개체",
+    "ko": "귀한 검정색 개체",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.0,
+    "text": "원조 버터플라이 도어",
+    "ko": "원조 버터플라이 도어",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 54.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "원조",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.2,
+    "text": "너무 깨끗한 실내",
+    "ko": "너무 깨끗한 실내",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.3,
+    "text": "10명 중 10명은\n시동 버튼 못찾음!",
+    "ko": "10명 중 10명은 시동 버튼 못찾음!",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.3,
+    "text": "벤츠 & 맥라렌 공동 제작",
+    "ko": "벤츠 & 맥라렌 공동 제작",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 16.1,
+    "text": "맥라렌의 에어로 기술",
+    "ko": "맥라렌의 에어로 기술",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.1,
+    "end": 17.5,
+    "text": "벤츠의 V8 수퍼차저 엔진",
+    "ko": "벤츠의 V8 수퍼차저 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.4,
+    "text": "두 브랜드의 유일한 합작품",
+    "ko": "두 브랜드의 유일한 합작품",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.2,
+    "text": "2005년형 직수입 모델",
+    "ko": "2005년형 직수입 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 23.4,
+    "text": "카본 풀 버킷 시트 적용",
+    "ko": "카본 풀 버킷 시트 적용",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 25.4,
+    "text": "주행거리 55,315km",
+    "ko": "주행거리 55,315km",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 56.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "text": "핸들은 벤츠 마크\n계기판은 맥라렌 로고",
+    "ko": "핸들은 벤츠 마크 계기판은 맥라렌 로고",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 54.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.0,
+    "text": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "ko": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "[프로필 방문]",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 10.8,
+    "type": "띵",
+    "event": "기어 노브 상단 엔진 스타트 버튼 노출 시 강조 그래픽 발생",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스웨이브/일렉트로닉",
+   "bpm_est": 120,
+   "mood": "웅장하고 미래지향적인 분위기",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 10.6,
+    "end": 11.5,
+    "what": "시동 버튼 주위 노란색/은색 스파크 방사형 강조 이펙트",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 51.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시동 버튼 위치 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "한국에 극소수 남은 희귀한 블랙 SLR 맥라렌 외관 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.1,
+    "end": 12.3,
+    "speed": "보통",
+    "summary": "버터플라이 도어 및 실내 깨끗함, 기어노브 시동 버튼 기믹 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 12.3,
+    "end": 27.6,
+    "speed": "빠름",
+    "summary": "벤츠와 맥라렌 합작 배경, 파워트레인, 연식 및 주행거리, 내장 사양 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 27.6,
+    "end": 31.0,
+    "speed": "보통",
+    "summary": "센터 콘솔 오디오 커버 작동 시연 및 프로필 링크 방문 유도"
+   }
+  ],
+  "rules": [
+   "음성 해설 없이 비트감 있는 배경음악과 간결한 텍스트 카드로만 차량 특징을 전달",
+   "검정 반투명 라운드 박스 위에 흰색 고딕 폰트와 노란색 포인트 강조 색상을 사용해 일관된 가독성 유지",
+   "기어봉 플립형 시동 버튼 등 상징적인 히든 기믹 작동 장면에서 그래픽과 효과음으로 이목 집중",
+   "마지막 컷에서 프로필 방문 유도 자막으로 매물 문의 연결"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.1,
+    "end": 7.0,
+    "feature": "버터플라이 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "size_w_pct": 54.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.3,
+    "feature": "기어노브 내장 플립형 엔진 스타트 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "방사형 스파크 그래픽",
+    "x_pct": 51.0,
+    "y_pct": 50.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 23.4,
+    "feature": "카본 풀 버킷 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 66.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.0,
+    "feature": "센터페시아 전동/플립형 오디오 커버",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 66.0,
+    "size_w_pct": 74.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "버터플라이 도어가 양쪽으로 열린 블랙 바디 SLR 맥라렌의 위용과 '아직 한국에 남아있다니!' 문구",
+   "type": "희귀차",
+   "text": "SLR 맥라렌 블랙 입고 아직 한국에 남아있다니!"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "한국에 극소수만 남은 SLR 맥라렌 블랙 모델 입고",
+    "category": "희소성"
+   },
+   {
+    "t": 2.1,
+    "point": "희소성 높은 순정 검정색 바디",
+    "category": "희소성"
+   },
+   {
+    "t": 4.1,
+    "point": "원조 버터플라이 도어 장착",
+    "category": "디자인"
+   },
+   {
+    "t": 7.0,
+    "point": "연식 대비 매우 깨끗한 블루/블랙 가죽 실내",
+    "category": "상태·이력"
+   },
+   {
+    "t": 9.2,
+    "point": "기어 시프트 노브 상단 커버 안에 숨겨진 시동 버튼",
+    "category": "편의"
+   },
+   {
+    "t": 12.3,
+    "point": "메르세데스-벤츠와 맥라렌의 역사적인 공동 개발 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 14.3,
+    "point": "맥라렌의 F1 레이싱 기반 에어로다이내믹 기술 적용",
+    "category": "성능"
+   },
+   {
+    "t": 16.1,
+    "point": "벤츠 AMG V8 슈퍼차저 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 19.4,
+    "point": "2005년형 직수입 매물",
+    "category": "상태·이력"
+   },
+   {
+    "t": 21.2,
+    "point": "카본 파이버 풀 버킷 시트 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 23.4,
+    "point": "누적 주행거리 55,315km",
+    "category": "상태·이력"
+   },
+   {
+    "t": 25.4,
+    "point": "스티어링 휠의 삼각별 마크와 계기판 속 맥라렌 로고의 조화",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "프로필 방문 유도"
+   ],
+   "t": 27.6
+  },
+  "cta": {
+   "t": 27.6,
+   "text": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "외관 측면",
+    "실내 앞",
+    "기어 노브/시동버튼",
+    "외관 전면",
+    "외관 측면 에어벤트",
+    "보닛 에어덕트",
+    "전면 그릴 엠블럼",
+    "실내 시트",
+    "스티어링 휠",
+    "계기판",
+    "센터페시아"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검은색 반투명 박스에 흰색 텍스트와 노란색 하이라이트를 결합한 일관된 자막 서식 적용"
+  }
+ }
+}

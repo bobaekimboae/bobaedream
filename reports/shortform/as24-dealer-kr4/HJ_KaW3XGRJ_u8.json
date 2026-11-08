@@ -1,0 +1,806 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/KaW3XGRJ_u8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5257,
+  "candidatesTokenCount": 6591,
+  "totalTokenCount": 11848,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3997
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.0,
+   "aspect": "9:16",
+   "car": "페라리 812 GTS",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 21.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 39.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "8억 12기통 페라리 오픈카\n국내 최고의 812 GTS 영접",
+    "ko": "8억 12기통 페라리 오픈카\n국내 최고의 812 GTS 영접",
+    "kind": "제목",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "8억 12기통 페라리 오픈카",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.8,
+    "text": "14초 만에 열리는 하드탑",
+    "ko": "14초 만에 열리는 하드탑",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.7,
+    "text": "투피스 타입으로 트렁크 공간 확보",
+    "ko": "투피스 타입으로 트렁크 공간 확보",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.3,
+    "text": "45km/h 이하에서 오픈 가능",
+    "ko": "45km/h 이하에서 오픈 가능",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.4,
+    "text": "크레마 & 지알로 실내 컬러",
+    "ko": "크레마 & 지알로 실내 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.4,
+    "text": "지알로 컬러 핸들 림 페인트",
+    "ko": "지알로 컬러 핸들 림 페인트",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.4,
+    "text": "투톤 데이토나 레이싱 시트",
+    "ko": "투톤 데이토나 레이싱 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.4,
+    "text": "지알로 싱글 페인팅 버튼",
+    "ko": "지알로 싱글 페인팅 버튼",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.8,
+    "text": "스페셜 DREAMLINE 페인팅",
+    "ko": "스페셜 DREAMLINE 페인팅",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.7,
+    "text": "지알로 페인팅 카본 플레이트",
+    "ko": "지알로 페인팅 카본 플레이트",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.4,
+    "text": "2021년 10월, 정식 출고",
+    "ko": "2021년 10월, 정식 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.4,
+    "text": "주행거리 3,080km",
+    "ko": "주행거리 3,080km",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.4,
+    "text": "스페셜 옵션이 한가득..",
+    "ko": "스페셜 옵션이 한가득..",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.4,
+    "text": "스페셜 주문 외장 컬러\nBlu Elettrico EXTC",
+    "ko": "스페셜 주문 외장 컬러\nBlu Elettrico EXTC",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.4,
+    "text": "옵션 포함 총 8억원 이상,",
+    "ko": "옵션 포함 총 8억원 이상,",
+    "kind": "가격",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.4,
+    "text": "국내 최정상급 812 GTS",
+    "ko": "국내 최정상급 812 GTS",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 39.4,
+    "text": "메리츠 캐피탈 금융리스 승계\n(일시불 가능, 조건 변경 자유)",
+    "ko": "메리츠 캐피탈 금융리스 승계\n(일시불 가능, 조건 변경 자유)",
+    "kind": "가격",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.4,
+    "text": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "ko": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "[프로필 방문]",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "페라리 고회전 배기음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스웨이브/일렉트로닉",
+   "bpm_est": 115,
+   "mood": "세련되고 웅장함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "what": "실내 원형 확대 인서트",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "바로",
+    "purpose": "실내 가죽 인테리어 미리보기",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.0,
+    "what": "손 흔드는 이모티콘 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인사 및 마무리",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "812.. 8억원 12기통.",
+    "ko": "812.. 8억원 12기통."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "보통",
+    "summary": "8억 12기통 페라리 812 GTS 외관 및 배기음 훅"
+   },
+   {
+    "stage": "기능",
+    "start": 2.5,
+    "end": 9.4,
+    "speed": "빠름",
+    "summary": "14초 만에 열리는 하드탑 작동 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 9.4,
+    "end": 24.8,
+    "speed": "빠름",
+    "summary": "실내외 스페셜 페인팅 및 가죽 옵션 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 24.8,
+    "end": 32.5,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 외장 컬러 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 32.5,
+    "end": 39.5,
+    "speed": "보통",
+    "summary": "옵션 포함 신차가격 8억 및 금융리스 승계 조건"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.5,
+    "end": 44.0,
+    "speed": "보통",
+    "summary": "프로필 방문 CTA 및 엔딩 이모티콘"
+   }
+  ],
+  "rules": [
+   "자막은 화면 중앙 또는 3분의 1 지점에 굵은 고딕과 검은색 외곽선, 노란색/흰색 텍스트로 통일감 있게 배치한다.",
+   "페라리 배기음을 인트로에 넣어 청각적 몰입감을 유도한다.",
+   "하드탑 오픈 메커니즘을 상세 단계별로 컷 분할하여 보여준다.",
+   "스페셜 오더된 디테일 옵션을 클로즈업 샷으로 빠르게 나열한다.",
+   "마지막에는 리스 승계 조건과 프로필 링크 유도 CTA로 마무리한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 2.5,
+    "end": 9.4,
+    "feature": "전동식 하드탑",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.4,
+    "feature": "크레마 & 지알로 실내 컬러",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.4,
+    "feature": "지알로 컬러 스티어링 휠 림 페인트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.4,
+    "feature": "투톤 데이토나 레이싱 시트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.4,
+    "feature": "지알로 싱글 페인팅 버튼",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.8,
+    "feature": "스페셜 DREAMLINE 페인팅",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.7,
+    "feature": "지알로 페인팅 카본 플레이트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "우렁찬 V12 배기음과 함께 문이 열려 있는 블루 컬러의 페라리 812 GTS 측면 샷과 8억 가격 텍스트 노출",
+   "type": "가격",
+   "text": "8억 12기통 페라리 오픈카 국내 최고의 812 GTS 영접"
+  },
+  "narration_points": [
+   {
+    "t": 2.5,
+    "point": "14초 만에 열리는 2피스 하드탑 및 주행 중 오픈 가능",
+    "category": "편의"
+   },
+   {
+    "t": 9.4,
+    "point": "크레마 및 지알로 스페셜 실내 가죽 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 11.5,
+    "point": "지알로 컬러 림 및 시트, 버튼 등 독보적 스페셜 페인팅 옵션",
+    "category": "디자인"
+   },
+   {
+    "t": 18.5,
+    "point": "외관 스페셜 드림라인 및 카본 플레이트",
+    "category": "디자인"
+   },
+   {
+    "t": 24.8,
+    "point": "2021년식 3,080km 짧은 실주행거리",
+    "category": "상태·이력"
+   },
+   {
+    "t": 30.5,
+    "point": "스페셜 외장 컬러 Blu Elettrico 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 36.5,
+    "point": "옵션가 포함 8억 이상, 메리츠캐피탈 금융리스 승계",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 39.5,
+   "text": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+   "method": "프로필 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 측면",
+    "하드탑 개폐",
+    "실내 인테리어",
+    "핸들",
+    "시트",
+    "센터콘솔",
+    "외관 리어/프론트/측면",
+    "도어스텝",
+    "계기판",
+    "외관 풀샷"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색/흰색 볼드 텍스트에 검은 테두리를 일관되게 사용하고 차량 스펙을 리듬감 있게 배치"
+  }
+ }
+}

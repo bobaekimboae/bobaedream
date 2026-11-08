@@ -1,0 +1,726 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/kRFcBZ4KUss",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6534,
+  "candidatesTokenCount": 6316,
+  "totalTokenCount": 13748,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5274
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 898,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.7,
+   "aspect": "9:16",
+   "car": "페라리 푸로산게",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 10.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 22.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 29.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 36.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 41.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 42.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.7,
+    "end": 46.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 51.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 55.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 57.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "페라리의 충격적인 옵션비용",
+    "ko": "페라리의 충격적인 옵션비용",
+    "kind": "제목",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "충격적인",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "과연 얼마씩 할까요?",
+    "ko": "과연 얼마씩 할까요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "얼마씩",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.8,
+    "text": "2,200만 원 상당의 파노라마 루프",
+    "ko": "2,200만 원 상당의 파노라마 루프",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,200만",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 14.5,
+    "text": "핸들 열선 140만 원",
+    "ko": "핸들 열선 140만 원",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "140만",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 18.5,
+    "text": "앞좌석 통풍시트 630만 원",
+    "ko": "앞좌석 통풍시트 630만 원",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "630만",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.5,
+    "text": "뒷좌석 통풍시트 450만 원 추가!",
+    "ko": "뒷좌석 통풍시트 450만 원 추가!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "450만",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.0,
+    "text": "37,000,000 원 페인트",
+    "ko": "37,000,000 원 페인트",
+    "kind": "가격",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "37,000,000",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.5,
+    "text": "카본 옵션 약 60,000,000 원",
+    "ko": "카본 옵션 약 60,000,000 원",
+    "kind": "가격",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "60,000,000",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 45.0,
+    "text": "717,000,000 원",
+    "ko": "717,000,000 원",
+    "kind": "가격",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "717,000,000",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 51.0,
+    "text": "2025년 출고 / 700km 주행 위탁판매 중",
+    "ko": "2025년 출고 / 700km 주행 위탁판매 중",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "위탁판매",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "이모지 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "돈 소리",
+    "event": "고양이 돈 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "띵",
+    "event": "핸들 열선 강조 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "딸깍",
+    "event": "다이얼 조작 시연",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.3,
+    "type": "쿵",
+    "event": "놀란 고양이 밈 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "쿵",
+    "event": "3700만원 페인트 가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 35.5,
+    "type": "쿵",
+    "event": "카본 6000만원 가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 43.8,
+    "type": "쿵",
+    "event": "총 신차가격 7억 1700만원 자막 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 흥미진진함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "what": "선글라스 낀 노란 이모지 3D",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시선 유도",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.0,
+    "what": "돈 든 선글라스 고양이 밈 2D",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 충격 강조",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "what": "핸들 열선 화살표 및 반짝이 그래픽",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 82.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 부위 강조",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "what": "놀란 고양이 밈 스티커",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 58.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비싼 옵션 놀람 표현",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "페라리의 충격적인 옵션 비용 과연 얼마씩 할까요? 바로 알아보겠습니다.",
+    "ko": "페라리의 충격적인 옵션 비용 과연 얼마씩 할까요? 바로 알아보겠습니다."
+   },
+   {
+    "start": 4.6,
+    "end": 10.4,
+    "text": "먼저 2,200만 원 상당의 파노라마 루프. 금으로 만들었나요? 참고로 열고 닫는 것은 불가능합니다.",
+    "ko": "먼저 2,200만 원 상당의 파노라마 루프. 금으로 만들었나요? 참고로 열고 닫는 것은 불가능합니다."
+   },
+   {
+    "start": 10.5,
+    "end": 14.8,
+    "text": "핸따 아시죠 핸따? 열선 핸들 기능은 140만 원입니다.",
+    "ko": "핸따 아시죠 핸따? 열선 핸들 기능은 140만 원입니다."
+   },
+   {
+    "start": 14.9,
+    "end": 18.7,
+    "text": "한국의 더운 여름 통풍 시트 필수잖아요? 630만 원 추가입니다.",
+    "ko": "한국의 더운 여름 통풍 시트 필수잖아요? 630만 원 추가입니다."
+   },
+   {
+    "start": 18.8,
+    "end": 22.8,
+    "text": "잠깐! 뒷좌석 통풍 시트는 별도입니다. 450만 원 추가!",
+    "ko": "잠깐! 뒷좌석 통풍 시트는 별도입니다. 450만 원 추가!"
+   },
+   {
+    "start": 22.9,
+    "end": 29.5,
+    "text": "그리고 범상치 않은 노란색 컬러 비용이 대박인데요. 3중 레이어드 스페셜 컬러로 무려 페인트 비용만 3,700만 원에 달합니다.",
+    "ko": "그리고 범상치 않은 노란색 컬러 비용이 대박인데요. 3중 레이어드 스페셜 컬러로 무려 페인트 비용만 3,700만 원에 달합니다."
+   },
+   {
+    "start": 29.6,
+    "end": 36.6,
+    "text": "화려한 외관에 빠질 수 없는 풀카본 옵션으로 모든 차체를 감쌌습니다. 이 차량에 들어간 카본 옵션의 총금액만 약 6,000만 원이 넘습니다.",
+    "ko": "화려한 외관에 빠질 수 없는 풀카본 옵션으로 모든 차체를 감쌌습니다. 이 차량에 들어간 카본 옵션의 총금액만 약 6,000만 원이 넘습니다."
+   },
+   {
+    "start": 36.7,
+    "end": 41.5,
+    "text": "오늘은 지알로 트리플 스트라토 스페셜 컬러의 페라리 푸로산게를 만나보았습니다.",
+    "ko": "오늘은 지알로 트리플 스트라토 스페셜 컬러의 페라리 푸로산게를 만나보았습니다."
+   },
+   {
+    "start": 41.6,
+    "end": 46.5,
+    "text": "이렇게 다양한 옵션이 포함된 이 차량의 신차 가격은 7억 1,700만 원입니다.",
+    "ko": "이렇게 다양한 옵션이 포함된 이 차량의 신차 가격은 7억 1,700만 원입니다."
+   },
+   {
+    "start": 46.6,
+    "end": 51.5,
+    "text": "고객님께서 2025년 출고 받으신 따끈따끈한 차량입니다. 지금까지 현재 700km 주행하셨고 제가 현재 위탁 판매 중입니다.",
+    "ko": "고객님께서 2025년 출고 받으신 따끈따끈한 차량입니다. 지금까지 현재 700km 주행하셨고 제가 현재 위탁 판매 중입니다."
+   },
+   {
+    "start": 51.6,
+    "end": 57.7,
+    "text": "구매를 원하신다면 본문을 확인해 주세요. 판매 가격과 더 많은 정보를 만나보실 수 있습니다. 감사합니다.",
+    "ko": "구매를 원하신다면 본문을 확인해 주세요. 판매 가격과 더 많은 정보를 만나보실 수 있습니다. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "페라리의 충격적인 옵션 가격 질문으로 호기심 유발"
+   },
+   {
+    "stage": "옵션 작동",
+    "start": 4.6,
+    "end": 22.8,
+    "speed": "빠름",
+    "summary": "루프, 열선핸들, 앞/뒤 통풍시트 개별 옵션 가격 나열"
+   },
+   {
+    "stage": "사양",
+    "start": 22.9,
+    "end": 36.6,
+    "speed": "보통",
+    "summary": "스페셜 옐로우 페인트(3700만) 및 풀 카본(6000만) 외관 사양 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 36.7,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "전체 신차 가격 7억 1,700만 원 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 46.6,
+    "end": 57.7,
+    "speed": "보통",
+    "summary": "위탁판매 매물 정보(2025년식, 700km) 안내 및 본문 링크 CTA"
+   }
+  ],
+  "rules": [
+   "자극적인 질문형 훅과 3D/2D 이모지 캐릭터를 첫 2초에 배치하여 이탈 방지",
+   "옵션마다 충격적인 개별 가격을 강렬한 노란색 굵은 폰트 자막과 임팩트 효과음으로 강조",
+   "단순 매물 홍보가 아닌 고가 옵션 탐구 콘텐츠 형식으로 시작해 후반부에 위탁판매 매물로 연결",
+   "다이얼 조작 등 디테일한 손 인터랙션을 보여주며 실물감 증대"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.8,
+    "end": 10.4,
+    "feature": "파노라마 루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "고양이 돈 스티커",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 14.8,
+    "feature": "열선 핸들",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "노란색 반짝이 및 화살표",
+    "x_pct": 82.0,
+    "y_pct": 42.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.7,
+    "feature": "앞좌석 통풍 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "화면 내 터치스크린 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 22.8,
+    "feature": "뒷좌석 통풍 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "놀란 고양이 스티커",
+    "x_pct": 58.0,
+    "y_pct": 60.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 29.5,
+    "feature": "3중 레이어드 스페셜 컬러 페인트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 29.6,
+    "end": 36.6,
+    "feature": "풀 익스테리어 카본 옵션",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "노란색 페라리 푸로산게 외관과 '페라리의 충격적인 옵션비용' 자막 및 선글라스 이모지",
+   "type": "질문",
+   "text": "페라리의 충격적인 옵션비용 과연 얼마씩 할까요?"
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "2,200만 원짜리 파노라마 루프는 열리지 않음",
+    "category": "편의"
+   },
+   {
+    "t": 11.0,
+    "point": "열선 핸들 옵션 가격 140만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 15.0,
+    "point": "앞좌석 통풍시트 630만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 19.0,
+    "point": "뒷좌석 통풍시트 450만 원 별도 추가",
+    "category": "가격·조건"
+   },
+   {
+    "t": 25.0,
+    "point": "지알로 트리플 스트라토 3중 특수 페인트 비용만 3,700만 원",
+    "category": "디자인"
+   },
+   {
+    "t": 32.0,
+    "point": "외관 풀 카본 옵션 비용만 약 6,000만 원 이상",
+    "category": "디자인"
+   },
+   {
+    "t": 43.0,
+    "point": "옵션 포함 총 신차 출고가 7억 1,700만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 47.0,
+    "point": "2025년 출고 실주행 700km 위탁판매 실매물",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "번호판 BITURBO 로고"
+   ],
+   "t": 0.1
+  },
+  "cta": {
+   "t": 52.0,
+   "text": "구매를 원하신다면 본문을 확인해 주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "루프",
+    "실내 스티어링",
+    "센터콘솔 조작",
+    "뒷좌석",
+    "외관 후면",
+    "외관 카본 파츠",
+    "지하주차장",
+    "계기판",
+    "실내 전체"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색 볼드 포인트 자막, 밈 그래픽 스티커, 번호판 가림용 BITURBO 플레이트 일관 적용"
+  }
+ }
+}

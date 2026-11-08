@@ -1,0 +1,764 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/lqPYkIctDhU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5446,
+  "candidatesTokenCount": 6283,
+  "totalTokenCount": 11729,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4186
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.1,
+   "aspect": "9:16",
+   "car": "람보르기니 아벤타도르 S",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 19.9,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.9,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 40.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.1,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "냉동 보관 아벤타도르 S\n주행거리 964KM ㄷㄷ",
+    "ko": "냉동 보관 아벤타도르 S\n주행거리 964KM ㄷㄷ",
+    "kind": "제목",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "냉동 보관 아벤타도르 S",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.9,
+    "text": "6년간 극소 주행 소장 관리",
+    "ko": "6년간 극소 주행 소장 관리",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "6년간 극소 주행",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.4,
+    "text": "Nero Pegaso metallic\n메탈릭 블랙 원색 컬러",
+    "ko": "Nero Pegaso metallic\n메탈릭 블랙 원색 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Nero Pegaso metallic",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.9,
+    "text": "지정 업체 매년 메인터넌스",
+    "ko": "지정 업체 매년 메인터넌스",
+    "kind": "키워드 스티커",
+    "y_pct": 37.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "지정 업체 매년 메인터넌스",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.8,
+    "text": "20/21 Dione Forged 휠",
+    "ko": "20/21 Dione Forged 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "20/21 Dione Forged 휠",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "text": "신차 상태에서 전체 PPF",
+    "ko": "신차 상태에서 전체 PPF",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "전체 PPF",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.9,
+    "text": "람보르기니 정품 풀카본",
+    "ko": "람보르기니 정품 풀카본",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "정품 풀카본",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 19.9,
+    "text": "엔진 베이 정품 풀카본\nX-Frame 카본 프레임",
+    "ko": "엔진 베이 정품 풀카본\nX-Frame 카본 프레임",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "엔진 베이 정품 풀카본",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "text": "올블랙 카본 배트카 in 서울",
+    "ko": "올블랙 카본 배트카 in 서울",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "올블랙 카본 배트카 in 서울",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "text": "실 주행거리 964km\n주유는 몇번 하셨을까요?",
+    "ko": "실 주행거리 964km\n주유는 몇번 하셨을까요?",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "주유는 몇번 하셨을까요?",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.0,
+    "text": "올순정 출고 상태 그대로..",
+    "ko": "올순정 출고 상태 그대로..",
+    "kind": "키워드 스티커",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "올순정 출고 상태 그대로..",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "text": "단정한 올블랙 실내",
+    "ko": "단정한 올블랙 실내",
+    "kind": "키워드 스티커",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "단정한 올블랙 실내",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.8,
+    "text": "번들거림, 구김 없는 시트",
+    "ko": "번들거림, 구김 없는 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "번들거림, 구김 없는 시트",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.1,
+    "text": "새상품급 컨디션의 실내 상태",
+    "ko": "새상품급 컨디션의 실내 상태",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "새상품급 컨디션의 실내 상태",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.7,
+    "text": "람보르기니 센소넘 오디오",
+    "ko": "람보르기니 센소넘 오디오",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "센소넘 오디오",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.8,
+    "text": "2019년 05월, 직수입",
+    "ko": "2019년 05월, 직수입",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2019년 05월, 직수입",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.9,
+    "text": "주행거리 964km",
+    "ko": "주행거리 964km",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "주행거리 964km",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 40.0,
+    "text": "완전 무사고, 보험이력 0원",
+    "ko": "완전 무사고, 보험이력 0원",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "보험이력 0원",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.1,
+    "text": "현금 차량 (리스/할부 가능)",
+    "ko": "현금 차량 (리스/할부 가능)",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "현금 차량 (리스/할부 가능)",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.8,
+    "text": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "ko": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "[프로필 방문]",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "슈퍼카 가속 및 엔진 배기음 시작",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스웨이브/일렉트로닉",
+   "bpm_est": 115,
+   "mood": "웅장하고 비장한 분위기",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "what": "놀라는 이모지(😱)",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "바로",
+    "purpose": "시선 유도 및 감정 강조",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.1,
+    "what": "손 흔드는 이모지(👋)",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 인사",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.6,
+    "speed": "보통",
+    "summary": "주행거리 964km의 냉동보관급 아벤타도르 S 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.6,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "외관 풀카본, 전신 PPF, 휠, 엔진룸 상태 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 24.8,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "실내 가죽 시트 컨디션, 센소넘 오디오 및 연식 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 35.8,
+    "end": 42.1,
+    "speed": "보통",
+    "summary": "실주행거리, 무사고 이력, 현금/리스/할부 가능 여부 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 42.1,
+    "end": 46.1,
+    "speed": "보통",
+    "summary": "프로필 방문 유도 및 엔딩 애니메이션"
+   }
+  ],
+  "rules": [
+   "배경음악과 강력한 슈퍼카 배기음을 배경으로 음성 내레이션 없이 텍스트로 정보 전달",
+   "검은색 외곽선의 굵은 고딕 폰트로 텍스트 가독성 확보 및 노란색 포인트 강조",
+   "외관 디테일(카본 파츠, 휠)에서 실내 컨디션, 구매 조건 순으로 속도감 있게 컷 전환"
+  ],
+  "option_highlights": [
+   {
+    "start": 9.9,
+    "end": 11.8,
+    "feature": "20/21 Dione Forged 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 36.5,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 19.9,
+    "feature": "정품 풀카본 & X-Frame",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 67.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.7,
+    "feature": "람보르기니 센소넘 오디오",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 66.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "우렁찬 슈퍼카 배기음과 함께 964km 신차급 주행거리 강조 자막",
+   "type": "숫자·성능",
+   "text": "냉동 보관 아벤타도르 S 주행거리 964KM ㄷㄷ"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "주행거리 964km의 극소 주행 소장용 차량",
+    "category": "희소성"
+   },
+   {
+    "t": 5.0,
+    "point": "Nero Pegaso metallic 정품 블랙 원색 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "신차 상태 전체 PPF 및 람보르기니 정품 풀카본 적용",
+    "category": "상태·이력"
+   },
+   {
+    "t": 28.5,
+    "point": "구김이나 번들거림 없는 신차급 실내 시트 상태",
+    "category": "상태·이력"
+   },
+   {
+    "t": 38.0,
+    "point": "완전 무사고, 보험이력 0원의 현금 차량 (리스/할부 가능)",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "번호판 위치 상호(MANSORY 표기 번호판 가림판)"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 42.1,
+   "text": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "휠",
+    "외관 측면 카본",
+    "엔진룸",
+    "주유구",
+    "머플러",
+    "실내 좌석/시트",
+    "도어 트림/오디오",
+    "스티어링 휠",
+    "계기판",
+    "센터페시아"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검은 외곽선 텍스트 + 노란색 포인트 강조 자막 스타일 유지"
+  }
+ }
+}
