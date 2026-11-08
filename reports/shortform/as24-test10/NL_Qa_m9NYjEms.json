@@ -1,0 +1,435 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Qa_m9NYjEms",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2483,
+  "candidatesTokenCount": 4174,
+  "totalTokenCount": 7419,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1741
+   }
+  ],
+  "thoughtsTokenCount": 762,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 19.5,
+   "aspect": "9:16",
+   "car": "Jaguar F-Type Convertible",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 10.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 19.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "RAAD HET MERK & MODEL VAN DEZE AUTO",
+    "ko": "이 차의 브랜드와 모델을 맞춰보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.1,
+    "text": "IK GEEF JE EEN PAAR TIPS",
+    "ko": "몇 가지 힌트를 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.0,
+    "text": "HET MERK BESTAAT AL SINDS",
+    "ko": "이 브랜드는 설립된 지",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.3,
+    "text": "1922",
+    "ko": "1922년",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.6,
+    "text": "MAAR HAD TOEN NOG EEN ANDERE NAAM",
+    "ko": "하지만 그땐 다른 이름이었습니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.1,
+    "text": "HET LOGO VAN HET MERK",
+    "ko": "브랜드의 로고는",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 10.5,
+    "text": "SPRINGEND ROOFDIER",
+    "ko": "도약하는 맹수",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.0,
+    "text": "DIT IS EEN CABRIO EN",
+    "ko": "이 차는 오픈카이며",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "HET AUTOMERK KOMT UIT",
+    "ko": "이 브랜드의 출신 국가는",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "ENGELAND",
+    "ko": "영국",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.7,
+    "text": "KAN JIJ RADEN WELK MERK",
+    "ko": "어떤 브랜드인지 맞출 수 있나요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.0,
+    "text": "EN MODEL DEZE AUTO IS",
+    "ko": "그리고 모델명은 무엇일까요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "text": "LAAT HET WETEN IN EEN REACTIE",
+    "ko": "댓글로 알려주세요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "헤드라인 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.7,
+    "type": "톡",
+    "event": "자막 박스 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.2,
+    "type": "톡",
+    "event": "힌트 1 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "띵",
+    "event": "1922 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.6,
+    "type": "휙",
+    "event": "실내 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.1,
+    "type": "띵",
+    "event": "SPRINGEND ROOFDIER 키워드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.5,
+    "type": "휙",
+    "event": "실외 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "띵",
+    "event": "ENGELAND 키워드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "댓글 유도 자막 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "Kan jij raden welk merk en model deze auto is?",
+    "ko": "이 차의 브랜드와 모델명을 맞출 수 있나요?"
+   },
+   {
+    "start": 2.6,
+    "end": 4.0,
+    "text": "Ik geef je een paar tips.",
+    "ko": "힌트를 몇 개 드릴게요."
+   },
+   {
+    "start": 4.0,
+    "end": 7.6,
+    "text": "Het merk bestaat al sinds 1922 maar had toen nog een andere naam.",
+    "ko": "이 브랜드는 1922년부터 시작되었지만 당시엔 다른 이름이었습니다."
+   },
+   {
+    "start": 7.6,
+    "end": 10.5,
+    "text": "En het logo van het merk is een springend roofdier.",
+    "ko": "그리고 이 브랜드의 로고는 도약하는 맹수입니다."
+   },
+   {
+    "start": 10.5,
+    "end": 14.8,
+    "text": "Dit is een cabrio en het automerk komt uit Engeland.",
+    "ko": "이 차는 카브리올레 컨버터블이고 브랜드는 영국 출신입니다."
+   },
+   {
+    "start": 14.8,
+    "end": 19.5,
+    "text": "Dus ik ben benieuwd, kan jij raden welk merk en model deze auto is? Laat het weten in een reactie.",
+    "ko": "과연 맞출 수 있을까요? 어떤 브랜드와 모델인지 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "진행자가 차를 가리키며 브랜드와 모델 퀴즈를 출제"
+   },
+   {
+    "stage": "기능",
+    "start": 3.8,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "설립 연도, 동물 로고, 국적 등 단계별 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 14.8,
+    "end": 19.5,
+    "speed": "보통",
+    "summary": "댓글 참여 유도 (CTA)"
+   }
+  ],
+  "rules": [
+   "검은색 배경에 노란색 굵은 볼드 폰트의 라운드 박스 자막을 일관되게 활용하여 가독성을 극대화한다.",
+   "핵심 키워드(연도, 상징, 국가)가 제시될 때마다 강조 사운드('띵'/'톡')를 맞춰 시청자 주의를 끈다.",
+   "진행자가 화면 중앙에서 차의 특징적인 힌트를 리듬감 있게 던져 댓글 참여(CTA)를 자연스럽게 유도한다."
+  ]
+ }
+}

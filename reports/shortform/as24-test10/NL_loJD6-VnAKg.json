@@ -1,0 +1,564 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/loJD6-VnAKg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3844,
+  "candidatesTokenCount": 5529,
+  "totalTokenCount": 10858,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1485,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.8,
+   "aspect": "9:16",
+   "car": "Volkswagen T-Roc R",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 32.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "text": "DEZE VOLKSWAGEN T-ROC HEEFT",
+    "ko": "이 폭스바겐 티록은",
+    "kind": "말 자막",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLKSWAGEN T-ROC",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.3,
+    "text": "4 UITLATEN",
+    "ko": "4개의 배기구를 가졌습니다",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 12.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.4,
+    "text": "WAAROM IS DAT?",
+    "ko": "왜 그럴까요?",
+    "kind": "말 자막",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.3,
+    "text": "OMDAT DIT ABSOLUUT GEEN NORMALE T-ROC IS",
+    "ko": "절대 평범한 티록이 아니기 때문이죠",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEEN NORMALE",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.5,
+    "text": "DIT IS DE T-ROC R",
+    "ko": "이것은 티록 R입니다",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "T-ROC R",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.8,
+    "text": "300 PK 🏁",
+    "ko": "300마력 🏁",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "300 PK",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.7,
+    "text": "4,8 SECONDEN",
+    "ko": "4.8초",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4,8",
+    "sure": true
+   },
+   {
+    "start": 12.7,
+    "end": 15.6,
+    "text": "MAAR DIT EXEMPLAAR HEEFT NOG IETS BIJZONDERS",
+    "ko": "하지만 이 차량은 특별한 점이 또 있습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BIJZONDERS",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.0,
+    "text": "AKRAPOVIC UITLAATSYSTEEM ✓",
+    "ko": "아크라포빅 배기 시스템 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AKRAPOVIC",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.6,
+    "text": "MINDER GEWICHT ✓",
+    "ko": "가벼워진 무게 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.0,
+    "text": "96.000 KM",
+    "ko": "96,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.3,
+    "text": "€32.495",
+    "ko": "32,495 유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.0,
+    "text": "📍 RIJNMOND AUTOMOTIVE",
+    "ko": "📍 라인몬트 오토모티브",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.8,
+    "type": "톡",
+    "event": "배기구 4 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "300 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.0,
+    "type": "휙",
+    "event": "4,8 초 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "딸깍",
+    "event": "아크라포빅 체크마크 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "딸깍",
+    "event": "Minder Gewicht 체크마크 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.8,
+    "type": "톡",
+    "event": "주행거리 수치 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "돈 소리",
+    "event": "가격 자막 크게 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "핀 아이콘과 위치 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.3,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 전환",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활동적인",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 32.5,
+    "end": 34.8,
+    "what": "AutoScout24 노란색 브러시 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "Deze Volkswagen T-Roc heeft 4 uitlaten. Waarom is dat?",
+    "ko": "이 폭스바겐 티록은 배기구가 4개나 있습니다. 왜 그럴까요?"
+   },
+   {
+    "start": 4.4,
+    "end": 8.5,
+    "text": "Omdat dit absoluut geen normale T-Roc is. Dit is de T-Roc R.",
+    "ko": "절대 일반적인 티록이 아니기 때문입니다. 바로 티록 R 모델이죠."
+   },
+   {
+    "start": 8.5,
+    "end": 12.7,
+    "text": "Hij heeft 300 pk en hij gaat in 4,8 seconden van 0 naar 100.",
+    "ko": "300마력의 출력을 내며, 0에서 100km/h까지 단 4.8초 만에 주파합니다."
+   },
+   {
+    "start": 12.7,
+    "end": 18.0,
+    "text": "Maar dit exemplaar heeft nog iets bijzonders. Hij heeft namelijk een Akrapovic uitlaatsysteem.",
+    "ko": "하지만 이 차량에는 더욱 특별한 점이 있습니다. 바로 아크라포빅 배기 시스템이 장착되어 있다는 점입니다."
+   },
+   {
+    "start": 18.0,
+    "end": 21.6,
+    "text": "Minder gewicht en een krachtiger geluid dan een standaard uitlaat.",
+    "ko": "기본 배기보다 무게는 줄이고 훨씬 더 강력한 사운드를 자랑합니다."
+   },
+   {
+    "start": 21.6,
+    "end": 28.5,
+    "text": "En hij komt uit 2020, heeft 96.000 km gelopen en hij kost €32.495.",
+    "ko": "2020년식에 주행거리는 96,000km이며, 가격은 32,495유로입니다."
+   },
+   {
+    "start": 28.5,
+    "end": 34.8,
+    "text": "En je vindt hem in de showroom van Rijnmond Automotive en natuurlijk op AutoScout24.nl.",
+    "ko": "라인몬트 오토모티브 전시장에서 만나보실 수 있으며, 물론 AutoScout24.nl에서도 확인 가능합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "배기구가 4개인 이유를 던지며 시청자 호기심 자극"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 8.5,
+    "speed": "보통",
+    "summary": "일반 티록이 아닌 고성능 T-Roc R 모델 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 8.5,
+    "end": 12.8,
+    "speed": "빠름",
+    "summary": "300마력과 제로백 4.8초 성능 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 12.8,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "차량의 핵심 옵션인 아크라포빅 배기 시스템 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 21.6,
+    "end": 28.5,
+    "speed": "빠름",
+    "summary": "연식, 주행거리 및 판매 가격 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.5,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "딜러 위치 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 32.5,
+    "end": 34.8,
+    "speed": "빠름",
+    "summary": "오토스카우트24 플랫폼 CTA 및 로고 노출"
+   }
+  ],
+  "rules": [
+   "호기심 유발 질문으로 3초 이내에 시선을 끄는 훅 구성",
+   "중요한 키워드(숫자, 차명, 배기 브랜드)는 노란색 볼드 텍스트로 강조",
+   "화면 전환마다 경쾌한 효과음을 삽입하여 지루함 방지",
+   "진행자가 직접 차량 주위를 걸으며 동적인 쇼룸 투어 연출",
+   "차량 스펙 설명 후 가격과 구매처(AutoScout24)로 깔끔하게 전환"
+  ]
+ }
+}

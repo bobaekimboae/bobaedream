@@ -1,0 +1,150 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/2bwJvLh30w0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1482,
+  "candidatesTokenCount": 1267,
+  "totalTokenCount": 3001,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 740
+   }
+  ],
+  "thoughtsTokenCount": 252,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 8.8,
+   "aspect": "9:16",
+   "car": "홍치 E-HS9 (Hongqi E-HS9)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 8.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "키워드 스티커",
+    "y_pct": 70.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RAAD HET MERK",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.0,
+    "text": "LAAT HET WETEN IN EEN REACTIE",
+    "ko": "댓글로 알려주세요",
+    "kind": "키워드 스티커",
+    "y_pct": 86.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "REACTIE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.2,
+    "type": "딸깍",
+    "event": "AutoScout24 로고 등장 및 마우스 커서 클릭 연출",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 그루브한",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.8,
+    "end": 8.8,
+    "what": "AutoScout24 로고 및 마우스 커서 그래픽",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 행동 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "보통",
+    "summary": "진행자가 차 안에서 손을 흔들며 브랜드 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 2.5,
+    "end": 6.0,
+    "speed": "보통",
+    "summary": "스티어링 휠 로고와 와이드 디스플레이를 비추며 댓글 참여 유도"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 6.0,
+    "end": 8.8,
+    "speed": "보통",
+    "summary": "AutoScout24 로고 애니메이션과 함께 마무리"
+   }
+  ],
+  "rules": [
+   "초반 1초 내에 퀴즈 질문 자막(노란색 강조 폰트)을 띄워 시청자 호기심 유발",
+   "운전석 실내 및 엠블럼, 대시보드 스크린을 클로즈업하여 단서를 제공",
+   "말소리 없이 경쾌한 비트 음악과 시각적 제스처만으로 시청자 댓글 참여 유도",
+   "마지막 2~3초에 브랜드 로고 애니메이션으로 채널 아이덴티티 각인"
+  ]
+ }
+}
