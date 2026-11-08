@@ -1,0 +1,1192 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/0JA6Gi6wjnE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6621,
+  "candidatesTokenCount": 12146,
+  "totalTokenCount": 19617,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5458
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 850,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.1,
+   "aspect": "9:16",
+   "car": "현대 i30 해치백 (Hyundai i30 Facelift)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.7,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 20.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.6,
+    "end": 33.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 48.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 52.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.3,
+    "end": 60.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.1,
+    "end": 1.2,
+    "text": "انا ناصر",
+    "ko": "저는 나세르입니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ناصر",
+    "sure": true
+   },
+   {
+    "start": 1.3,
+    "end": 2.1,
+    "text": "وفي دقيقة",
+    "ko": "그리고 1분 안에",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1A237E",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "دقيقة",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.0,
+    "text": "الشكل الجديد",
+    "ko": "새로운 디자인",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 5.8,
+    "text": "جنط جميل",
+    "ko": "멋진 휠",
+    "kind": "말 자막",
+    "y_pct": 91.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.8,
+    "text": "الخلفي من",
+    "ko": "후륜 서스펜션",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 77.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.9,
+    "text": "ومن قدام",
+    "ko": "그리고 전면은",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.9,
+    "text": "بكتير عندك",
+    "ko": "훨씬 멋져졌고",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.0,
+    "text": "وكمان خلفية",
+    "ko": "후방 센서와 램프",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.5,
+    "text": "كاميرا الركنة",
+    "ko": "후방 카메라",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.6,
+    "text": "من امتع الاشكال للسواقة",
+    "ko": "운전하기 가장 재미있는 형태",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.8,
+    "text": "يوفر استهلاك البنزين يحسن التسارع",
+    "ko": "연비 개선 및 가속력 향상",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#29B6F6",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.5,
+    "text": "ومن جوا",
+    "ko": "그리고 실내는",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.6,
+    "text": "داعم قطنية",
+    "ko": "요추 지지대",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 3.8,
+    "color": "#29B6F6",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.4,
+    "text": "وستائرية",
+    "ko": "커튼 에어백",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.8,
+    "text": "عشان ركب السواق",
+    "ko": "운전자 무릎 보호용",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.2,
+    "end": 53.6,
+    "text": "وكمان بتجري",
+    "ko": "게다가 잘 달립니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.8,
+    "type": "휙",
+    "event": "현대 3D 로고 및 타이틀 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "17인치 휠 및 브레이크 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "Tire Pressure Monitoring 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "톡",
+    "event": "Multi Link 서스펜션 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "띵",
+    "event": "Full LED 헤드램프 그래픽 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "띵",
+    "event": "Sensors 그래픽 펄스",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "딸깍",
+    "event": "후방 카메라 엠블럼 오픈 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "엔진 1500 CC 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.3,
+    "type": "톡",
+    "event": "140 HP 마력 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.9,
+    "type": "톡",
+    "event": "253 NM 토크 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.1,
+    "type": "휙",
+    "event": "Mild Hybrid 3D 텍스트 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "휙",
+    "event": "파노라마 선루프 3D 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "톡",
+    "event": "10.25 inch 스크린 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "딸깍",
+    "event": "무선 충전 및 오토홀드 버튼 가리킴",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "휙",
+    "event": "디지털 계기판 드라이브 모드 전환 사운드",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "가속 페달을 밟으며 엔진 급가속 배기음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 53.0,
+     "what": "주행 가속 사운드 강조를 위해 음악 볼륨 감소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.0,
+    "end": 4.1,
+    "what": "HYUNDAI i30 3D 입체 로고 및 레터링",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "위에서 확대되며 등장",
+    "purpose": "차종 소개",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.2,
+    "what": "Electronic Brake 텍스트",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 65.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.7,
+    "what": "Tire Pressure Monitoring 텍스트",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 60.0,
+    "y_pct": 24.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.9,
+    "what": "Multi Link 서스펜션 3D 모델 및 텍스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 40.0,
+    "y_pct": 65.0,
+    "entrance": "밀려옴",
+    "purpose": "하체 구조 설명",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.1,
+    "what": "Full LED 텍스트",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 65.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "라이트 옵션 설명",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.3,
+    "what": "Sensors 텍스트 및 파동 아이콘",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "주차 센서 강조",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "what": "Camera 3D 텍스트 및 렌즈 효과",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "후방 카메라 강조",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.2,
+    "what": "1500 CC 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배기량 수치",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 23.8,
+    "what": "140 HP 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "출력 수치",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.4,
+    "what": "253 NM 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "토크 수치",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.8,
+    "what": "Mild Hybrid 엔진/모터 그래픽 및 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하이브리드 시스템 설명",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 31.6,
+    "what": "Panoramic Roof 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선루프 강조",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.5,
+    "what": "10.25 inch 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "디스플레이 크기 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "أنا ناصر، وفي دقيقة",
+    "ko": "저는 나세르입니다, 1분 만에"
+   },
+   {
+    "start": 2.0,
+    "end": 4.1,
+    "text": "هيونداي i30 الشكل الجديد",
+    "ko": "현대 i30 페이스리프트 신형을 소개합니다."
+   },
+   {
+    "start": 4.1,
+    "end": 7.7,
+    "text": "جنط جميل جداً مقاس 17، إلكترونيك بريك، تاير بريشر مونيتورينج",
+    "ko": "매우 멋진 17인치 휠, 전자식 파킹 브레이크, TPMS 타이어 공기압 센서,"
+   },
+   {
+    "start": 7.7,
+    "end": 10.0,
+    "text": "والساسبينشن الخلفي من مالتي لينك",
+    "ko": "후륜 서스펜션은 멀티링크 방식입니다."
+   },
+   {
+    "start": 10.0,
+    "end": 14.1,
+    "text": "ومن قدام بقت أحلى بكتير، عندك DRLs رَوشة جداً، فول LED",
+    "ko": "전면 디자인은 훨씬 세련되어졌고 세련된 주간주행등과 풀 LED 라이트가 적용되었습니다."
+   },
+   {
+    "start": 14.1,
+    "end": 16.0,
+    "text": "وسينسورز أمامية وكمان خلفية",
+    "ko": "전방 및 후방 주차 센서도 갖추고 있습니다."
+   },
+   {
+    "start": 16.0,
+    "end": 18.0,
+    "text": "بأنوار جميلة جداً، كاميرا للركنة",
+    "ko": "멋진 테일램프 조명과 후방 카메라도 있습니다."
+   },
+   {
+    "start": 18.0,
+    "end": 21.0,
+    "text": "والضهر الهاتشباك من أمتع الأشكال للسواقة",
+    "ko": "해치백 디자인은 운전 재미가 가장 뛰어난 형태죠."
+   },
+   {
+    "start": 21.0,
+    "end": 25.5,
+    "text": "وعندك موتور 1500 تيربو، 140 حصان، و253 نيوتن، مايلد هايبرد",
+    "ko": "1.5 터보 엔진으로 140마력, 253토크를 발휘하며 마일드 하이브리드가 탑재되었습니다."
+   },
+   {
+    "start": 25.5,
+    "end": 29.8,
+    "text": "يعني موتور كهرباء صغير بيساعد موتور البنزين إنه يوفر استهلاك البنزين ويحسن التسارع",
+    "ko": "소형 전기 모터가 가솔린 엔진을 보조해 연비를 절약하고 가속 성능을 끌어올립니다."
+   },
+   {
+    "start": 29.8,
+    "end": 33.7,
+    "text": "ومن جوا عندك سقف بانوراما، كرسي السواق ميموري وفي داعم للقطنية",
+    "ko": "실내에는 파노라마 선루프, 운전석 메모리 시트와 럼버 서포트가 제공됩니다."
+   },
+   {
+    "start": 33.7,
+    "end": 36.8,
+    "text": "شاشة 10 وربع إنش فيها وايرلس أبل كاربلاي وأندرويد أوتو",
+    "ko": "10.25인치 디스플레이에는 무선 애플 카플레이와 안드로이드 오토가 지원됩니다."
+   },
+   {
+    "start": 36.8,
+    "end": 41.0,
+    "text": "شاحن وايرلس، أوتو هولد، والدرايف مود سيليكتور بيغيرلك شكل العدادات",
+    "ko": "무선 충전기, 오토 홀드, 그리고 드라이브 모드 셀렉터로 계기판 디자인이 바뀝니다."
+   },
+   {
+    "start": 41.0,
+    "end": 43.1,
+    "text": "كروز كنترول وبادل شيفترز",
+    "ko": "크루즈 컨트롤과 패들 시프트가 포함되어 있습니다."
+   },
+   {
+    "start": 43.1,
+    "end": 48.9,
+    "text": "وإيرباجز أمامية وجانبية وستائرية وتحت الدريكسيون عشان ركب السواق",
+    "ko": "전면, 사이드, 커튼 에어백뿐만 아니라 운전자 무릎 에어백까지 갖췄습니다."
+   },
+   {
+    "start": 48.9,
+    "end": 52.3,
+    "text": "وعندك كنبة تشيل 3 من صحابك بس بلاش يكونوا عمالقة يعني",
+    "ko": "뒷좌석엔 친구 3명이 탈 수 있지만 너무 거구는 곤란합니다."
+   },
+   {
+    "start": 52.3,
+    "end": 60.1,
+    "text": "وكمان بتجري!",
+    "ko": "게다가 엄청나게 잘 나갑니다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "1분 안에 신형 i30를 전부 보여주겠다는 자기소개 및 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "현대 i30 페이스리프트 외관 타이틀 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.1,
+    "end": 20.7,
+    "speed": "빠름",
+    "summary": "휠, 브레이크, 서스펜션, 램프, 센서, 후방 카메라 등 외관 디테일"
+   },
+   {
+    "stage": "사양",
+    "start": 20.7,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "1.5 터보 마일드 하이브리드 파워트레인 스펙 및 작동 원리"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 52.3,
+    "speed": "빠름",
+    "summary": "실내 편의 옵션(디스플레이, 선루프, 시트), 에어백 안전성 및 2열 공간"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 52.3,
+    "end": 60.1,
+    "speed": "빠름",
+    "summary": "실제 도로 급가속 주행 시연으로 마무리"
+   }
+  ],
+  "rules": [
+   "진행자의 말 속도에 맞춰 1초 미만 단위로 카메라 앵글을 빠르게 전환한다",
+   "소개하는 부품이나 옵션 위치 위에 트래킹된 3D 텍스트와 그래픽 요소를 띄운다",
+   "화면 하단 또는 측면에 핵심 아랍어 키워드 자막 박스를 타이밍에 맞춰 띄운다",
+   "모든 주요 옵션 그래픽 등장 시 경쾌한 효과음(톡, 휙)을 배치한다",
+   "엔진 스펙은 수치(CC, HP, NM)를 큼직한 3D 타이포그래피로 연달아 전환한다",
+   "영상 말미에 직접 가속 주행하는 1인칭 POV 컷을 넣어 역동성을 극대화한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.1,
+    "end": 5.8,
+    "feature": "17인치 휠 및 전자식 브레이크",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "휠 표면에 떠 있는 입체 'Electronic Brake' 영문 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 22.0,
+    "size_w_pct": 55.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.7,
+    "feature": "타이어 공기압 감지 시스템(TPMS)",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "'Tire Pressure Monitoring' 3D 입체 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 24.0,
+    "size_w_pct": 60.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.9,
+    "feature": "멀티링크 후륜 서스펜션",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "후륜 휠 하우스 옆에 배치된 3D 서스펜션 스프링/쇼크업소버 모델과 Multi Link 텍스트",
+    "x_pct": 40.0,
+    "y_pct": 65.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.1,
+    "feature": "풀 LED 헤드램프 및 주간주행등",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "헤드램프 전면에 표시되는 입체 'Full LED' 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.3,
+    "feature": "전방 주차 센서",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "센서 구멍 주변으로 퍼지는 파동 아이콘과 'Sensors' 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "feature": "히든 후방 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "트렁크 현대 엠블럼이 열리며 튀어나오는 후방 카메라와 Camera 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "size_w_pct": 45.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.8,
+    "feature": "마일드 하이브리드 파워트레인",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "가솔린 엔진 모델과 전기 모터 3D 모델 및 연비 향상 그래픽 화살표",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 31.6,
+    "feature": "파노라마 선루프",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "천장 개구부에 떠 있는 파란색 3D 'Panoramic Roof' 레터링",
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.8,
+    "feature": "10.25인치 디스플레이 및 무선 스마트폰 프로젝션",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "10.25 inch 텍스트 및 애플 카플레이/안드로이드 오토 로고 아이콘",
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.0,
+    "feature": "주행 모드 연동 디지털 클러스터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "에코/노멀 모드(블루)에서 스포츠 모드(레드)로 변하는 풀 디지털 계기판 화면",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.1,
+    "feature": "패들 시프트 및 크루즈 컨트롤",
+    "shown_how": "글자 카드",
+    "icon_desc": "스티어링 휠 버튼과 뒷면 패들을 손으로 조작하며 'paddle shifters' 영문 텍스트 표시",
+    "x_pct": 35.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 48.9,
+    "feature": "다중 에어백 시스템(무릎 에어백 포함)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "진행자가 A필러 커튼 에어백 위치와 스티어링 컬럼 아래 무릎 에어백 위치를 직접 가리킴",
+    "x_pct": 60.0,
+    "y_pct": 70.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 자기 이름을 말하고 '1분 만에 끝낸다'며 신형 현대 i30 앞을 비춤",
+   "type": "행동",
+   "text": "أنا ناصر وفي دقيقة.. هيونداي i30 الشكل الجديد",
+   "ko": "저는 나세르입니다. 단 1분 만에 현대 i30 신형을 보여드립니다."
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "17인치 알로이 휠과 전자식 브레이크 및 TPMS 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 8.0,
+    "point": "후륜 멀티링크 서스펜션 탑재로 주행 안정성 확보",
+    "category": "성능"
+   },
+   {
+    "t": 11.5,
+    "point": "더 스포티해진 전면부 디자인과 풀 LED 램프 및 전후방 센서",
+    "category": "디자인"
+   },
+   {
+    "t": 17.5,
+    "point": "엠블럼 연동 후방 카메라와 운전 재미가 뛰어난 해치백 바디",
+    "category": "편의"
+   },
+   {
+    "t": 22.0,
+    "point": "1.5 터보 140마력 253토크 마일드 하이브리드 파워트레인 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 27.0,
+    "point": "전기 모터가 엔진을 도와 연비와 초기 가속 응답성을 향상",
+    "category": "성능"
+   },
+   {
+    "t": 31.0,
+    "point": "파노라마 선루프와 메모리 및 럼버 서포트 시트",
+    "category": "편의"
+   },
+   {
+    "t": 34.5,
+    "point": "10.25인치 무선 카플레이 지원 모니터와 무선 충전",
+    "category": "편의"
+   },
+   {
+    "t": 39.0,
+    "point": "모드별 그래픽이 바뀌는 디지털 계기판과 패들 시프트",
+    "category": "편의"
+   },
+   {
+    "t": 45.0,
+    "point": "운전석 무릎 에어백을 포함한 풀 에어백 패키지",
+    "category": "안전"
+   },
+   {
+    "t": 50.0,
+    "point": "뒷좌석 성인 3인이 탑승 가능한 2열 레그룸 공간",
+    "category": "공간"
+   },
+   {
+    "t": 54.0,
+    "point": "실제 도로에서 경쾌하고 빠른 급가속 달리기 실력",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "휠",
+    "하체(서스펜션)",
+    "외관 전면(헤드램프)",
+    "외관 후면(테일램프 및 카메라)",
+    "엔진룸/사이드",
+    "실내 앞(선루프)",
+    "실내 앞(시트)",
+    "센터 화면",
+    "센터 콘솔(충전기/기어)",
+    "계기판",
+    "스티어링 휠",
+    "안전(에어백 위치)",
+    "뒷좌석",
+    "도로 주행"
+   ]
+  }
+ }
+}

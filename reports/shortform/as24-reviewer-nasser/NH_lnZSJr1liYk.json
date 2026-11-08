@@ -1,0 +1,1183 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/lnZSJr1liYk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8000,
+  "candidatesTokenCount": 10615,
+  "totalTokenCount": 18808,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6837
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 193,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 75.3,
+   "aspect": "9:16",
+   "car": "Various Luxury Cars (Mercedes-AMG GT 63 S, Dodge Challenger SRT Hellcat, Porsche 718, Land Cruiser, Mercedes V300, GLC, S-Class, E-Class, C-Class, Porsche Cayenne)",
+   "format": "투어",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 13.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 21.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 26.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 34.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 43.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 49.3,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 53.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.3,
+    "end": 60.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.3,
+    "end": 65.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 65.6,
+    "end": 71.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 72.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 72.5,
+    "end": 75.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.1,
+    "end": 6.1,
+    "text": "GT 63 S AMG",
+    "ko": "GT 63 S AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GT",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.5,
+    "text": "1,500,000",
+    "ko": "150만 (선수금)",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1,500,000",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "text": "SRT HELLCAT",
+    "ko": "SRT 헬캣",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2B43",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SRT",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.8,
+    "text": "1,800,000",
+    "ko": "180만 (선수금)",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1,800,000",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.6,
+    "text": "عندك حاجة بـ بس؟",
+    "ko": "2인승 모델만 있나요?",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "text": "حد يسيب دي؟",
+    "ko": "이걸 놔두고 간다고요?",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "text": "Boxster",
+    "ko": "박스터",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": -5.0,
+    "entrance": "페이드",
+    "highlight_word": "Boxster",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "text": "Cayman",
+    "ko": "카이맨",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": -5.0,
+    "entrance": "페이드",
+    "highlight_word": "Cayman",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.7,
+    "text": "2,800,000",
+    "ko": "280만 (선수금)",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,800,000",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "text": "V300",
+    "ko": "V300",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V300",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.5,
+    "text": "1,800,000",
+    "ko": "180만 (선수금)",
+    "kind": "가격",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1,800,000",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.5,
+    "text": "GLC",
+    "ko": "GLC",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GLC",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.6,
+    "text": "1,000,000",
+    "ko": "100만 (선수금)",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1,000,000",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.7,
+    "text": "أقل من السعر الرسمي",
+    "ko": "공식 가격 이하",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 49.3,
+    "text": "فخمة فخمة",
+    "ko": "진짜 럭셔리한 것",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#0288D1",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.8,
+    "text": "2,800,000",
+    "ko": "280만 (선수금)",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,800,000",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.0,
+    "text": "7.3M",
+    "ko": "730만",
+    "kind": "가격",
+    "y_pct": 28.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 9.0,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7.3M",
+    "sure": true
+   },
+   {
+    "start": 62.2,
+    "end": 64.7,
+    "text": "5,000,000",
+    "ko": "500만 시작",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 9.5,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5,000,000",
+    "sure": true
+   },
+   {
+    "start": 66.0,
+    "end": 67.2,
+    "text": "2024",
+    "ko": "2024년형",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 67.2,
+    "end": 68.3,
+    "text": "2025",
+    "ko": "2025년형",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "2025",
+    "sure": true
+   },
+   {
+    "start": 68.3,
+    "end": 69.5,
+    "text": "2026",
+    "ko": "2026년형",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "2026",
+    "sure": true
+   },
+   {
+    "start": 69.0,
+    "end": 71.2,
+    "text": "3,000,000",
+    "ko": "300만 시작",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.5,
+    "color": "#E6FFE6",
+    "background": "칠",
+    "bg_color": "#1F7A38",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3,000,000",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "카이엔 가속 주행 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.0,
+    "type": "톡",
+    "event": "GT63S 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.3,
+    "type": "돈 소리",
+    "event": "1,500,000 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "톡",
+    "event": "SRT Hellcat 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "돈 소리",
+    "event": "1,800,000 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "헬캣 머플러 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "휙",
+    "event": "Boxster 사진 그래픽 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "휙",
+    "event": "Cayman 사진 그래픽 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "돈 소리",
+    "event": "랜드크루저 2,800,000 선수금 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "V300 엠블럼 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "돈 소리",
+    "event": "1,800,000 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "딸깍",
+    "event": "V-Class 접이식 테이블 펼치기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "톡",
+    "event": "GLC 엠블럼 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "돈 소리",
+    "event": "1,000,000 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.6,
+    "type": "톡",
+    "event": "공식 가격 이하 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.5,
+    "type": "돈 소리",
+    "event": "S클래스 2,800,000 선수금 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.8,
+    "type": "돈 소리",
+    "event": "GLC 43 AMG 7.3M 가격 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.2,
+    "type": "돈 소리",
+    "event": "E클래스 5,000,000 가격 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 69.0,
+    "type": "돈 소리",
+    "event": "C클래스 3,000,000 가격 그래픽",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스 비트 힙합",
+   "bpm_est": 118,
+   "mood": "경쾌하고 빠른 템포의 상업용 팝 비트",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.1,
+    "end": 6.1,
+    "what": "메르세데스 엠블럼 & GT 63 S AMG 3D 뱃지 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 27.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.5,
+    "what": "녹색 연기 이펙트와 3D 입체 숫자 1,500,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "what": "SRT Hellcat 레드 3D 엠블럼 그래픽",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.8,
+    "what": "녹색 연기 이펙트와 3D 입체 숫자 1,800,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "what": "포르쉐 박스터 컷아웃 차량 이미지",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 27.0,
+    "y_pct": 10.0,
+    "entrance": "페이드",
+    "purpose": "재고 모델 안내",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "what": "포르쉐 카이맨 컷아웃 차량 이미지",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 27.0,
+    "y_pct": 10.0,
+    "entrance": "페이드",
+    "purpose": "재고 모델 안내",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.7,
+    "what": "녹색 연기 이펙트와 3D 숫자 2,800,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "what": "벤츠 스타 로고 & V300 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.5,
+    "what": "녹색 연기 이펙트와 3D 숫자 1,800,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.5,
+    "what": "벤츠 스타 로고 & GLC 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 32.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.6,
+    "what": "녹색 연기 이펙트와 3D 숫자 1,000,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.8,
+    "what": "녹색 연기 이펙트와 3D 숫자 2,800,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.0,
+    "what": "녹색 연기 이펙트와 3D 숫자 7.3M",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "판매 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 62.2,
+    "end": 64.7,
+    "what": "녹색 연기 이펙트와 3D 숫자 5,000,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 25.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 69.0,
+    "end": 71.2,
+    "what": "녹색 연기 이펙트와 3D 숫자 3,000,000",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수금 가격 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 1.5,
+    "end": 3.7,
+    "text": "عربيتك عندي! اتفضل فرجني",
+    "ko": "원하는 차 다 있어! 어디 한번 보여줘 봐요."
+   },
+   {
+    "start": 3.8,
+    "end": 8.7,
+    "text": "GT 63 S AMG.. بحب العربية دي. يا عم بسيطة، هاديهالك بمقدم مليون ونص، تعالى افرجك على الباقي",
+    "ko": "GT 63 S AMG.. 저 이 차 정말 좋아해요. 문제없지! 선수금 150만에 넘길게. 나머지 다른 차도 보러 가자고."
+   },
+   {
+    "start": 8.8,
+    "end": 13.0,
+    "text": "SRT Hellcat جامدة دي بكام؟ هاديهالك بمقدم مليون و 800، تعالى اسمعك حاجة",
+    "ko": "SRT 헬캣 멋진데 이건 얼마예요? 선수금 180만에 주지, 이 소리 한번 들어봐."
+   },
+   {
+    "start": 13.1,
+    "end": 16.7,
+    "text": "اسمع كده.. عندك حاجة بس؟ يا راجل حد يسيب دي؟ تعالى",
+    "ko": "들어봐.. 혹시 2인승 모델만 있나요? 아니 이 명차를 두고 딴 걸 찾아? 이리 와봐."
+   },
+   {
+    "start": 16.8,
+    "end": 21.9,
+    "text": "عندك Boxster عندك Cayman، شارك بلو، نيفي بلو، وعندك ابيض وعندك احمر",
+    "ko": "박스터도 있고 카이맨도 있어. 샤크 블루, 네이비 블루, 흰색, 빨간색 다 갖추고 있지."
+   },
+   {
+    "start": 22.0,
+    "end": 26.9,
+    "text": "بالنسبة للدبابات؟ ما فيش اكتر منهم هنا، لاندكروزر 2025 هاديهالك بمقدم 2 مليون و 800",
+    "ko": "대형 탱크 같은 SUV는요? 여기 넘쳐나지! 2025년형 랜드크루저, 선수금 280만에 줄게."
+   },
+   {
+    "start": 27.0,
+    "end": 34.6,
+    "text": "فرجني على الـ V-Class، بكام الشقة دي؟ دي V300، هاديهالك بمقدم مليون و 800 الف.. المفروض اكل هنا؟ هي للشغل بس في حالتك كل عادي",
+    "ko": "V-Class 좀 보여줘요. 이 움직이는 아파트는 얼마예요? V300이고 선수금 180만 파운드야. 여기서 밥 먹어도 되나요? 원래 업무용인데 당신은 먹어도 돼."
+   },
+   {
+    "start": 34.7,
+    "end": 38.8,
+    "text": "GLC 26 وهاديهالك بمقدم مليون جنيه. انا عايز رنج روفر",
+    "ko": "GLC 26은 선수금 100만 파운드에 가능해. 전 레인지로버를 원하는데요."
+   },
+   {
+    "start": 38.9,
+    "end": 43.6,
+    "text": "موجود، عندك سبورت وعندك فيلار، وكيل وعليها بروتكشن. ما عندكش بي ام خالص؟",
+    "ko": "당연히 있지! 스포츠도 있고 벨라도 있어. 공식 보증에 PPF 시공까지 완료됐어. BMW는 없나요?"
+   },
+   {
+    "start": 43.7,
+    "end": 49.3,
+    "text": "موجود يا عم تعالى، X6 واي بي ام تاني اقدر ادهالك بأقل من سعرها الرسمي. لا انا عايز حاجة فخمة فخمة",
+    "ko": "있지 당연히! X6랑 다른 BMW는 공식 출고가보다 싸게 줄 수 있어. 아니, 전 진짜 완전 최고급 럭셔리를 원해요."
+   },
+   {
+    "start": 49.4,
+    "end": 53.3,
+    "text": "طلبك عندي، S هاديهالك بمقدم 2 مليون و 800. لا طويلة عليا دي ممكن نشوف الـ E؟",
+    "ko": "딱 준비돼 있지. S클래스 선수금 280만! 너무 긴데 E클래스는 볼 수 없나요?"
+   },
+   {
+    "start": 53.4,
+    "end": 60.3,
+    "text": "موجود، GLC 43 هاديهالك بـ 7 مليون و 300، باكت سيت وكربون فايبر شغل من الاخر.. انا مش قولتلك عايز E؟",
+    "ko": "여기 봐, GLC 43은 730만! 버킷 시트에 카본 파이버까지 풀옵션이야. E클래스 원한다고 하지 않았어요?"
+   },
+   {
+    "start": 60.4,
+    "end": 65.6,
+    "text": "عندي E 25 و 26 و Exclusive، والاسعار بتبدأ من 5 مليون جنيه. عندك حاجة تانية؟",
+    "ko": "E클래스 25년형, 26년형 익스클루시브 다 있고 500만 파운드부터 시작이야. 다른 건 또 뭐 있어요?"
+   },
+   {
+    "start": 65.7,
+    "end": 71.0,
+    "text": "السيهات هنا من 24 و 25 و 26، وبـ 3 مليون جنيه بتبدأ اسعارها",
+    "ko": "C클래스는 24, 25, 26년형 전부 있고 300만 파운드부터 시작이야."
+   },
+   {
+    "start": 71.1,
+    "end": 75.3,
+    "text": "انا عارف انا هشتري ايه.. خلاص يعني؟ وهتلاقي عربيتك في Bespoke سيبارك التجمع",
+    "ko": "내가 뭘 살지 알겠네요. 결정했어? 여러분의 차는 비스포크(뉴 카이로 C-Park)에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "카이엔 급출발 후 손님이 차를 보여달라며 딜러와 대화 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 16.7,
+    "speed": "빠름",
+    "summary": "메르세데스-AMG GT 63 S 및 닷지 챌린저 SRT 헬캣 소개 및 배기음 청음"
+   },
+   {
+    "stage": "차 소개",
+    "start": 16.7,
+    "end": 26.9,
+    "speed": "빠름",
+    "summary": "포르쉐 718 라인업 및 토요타 랜드크루저 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 26.9,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "메르세데스 V-Class(V300) 탑승 후 접이식 비즈니스 테이블 시연 및 유머러스한 대화"
+   },
+   {
+    "stage": "차 소개",
+    "start": 34.6,
+    "end": 49.3,
+    "speed": "빠름",
+    "summary": "GLC, 레인지로버 스포츠/벨라, BMW X6 트렁크에 앉아 공식 가격 이하 할인 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 49.3,
+    "end": 71.0,
+    "speed": "빠름",
+    "summary": "벤츠 S클래스, GLC 43 AMG 실내 버킷시트, E클래스, C클래스 연식별 선수금 순차 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 71.0,
+    "end": 75.3,
+    "speed": "보통",
+    "summary": "카이엔을 타고 출발하며 비스포크 쇼룸 매장 방문 안내"
+   }
+  ],
+  "rules": [
+   "손님이 원하는 차를 말하면 딜러가 매장 내 실차를 1대씩 보여주며 선수금(Down payment)을 3D 입체 그래픽으로 크게 노출",
+   "차량마다 모델명 로고나 엠블럼을 후드 위에 3D 스티커로 팝업 표시",
+   "선수금 금액 자막이 뜰 때마다 묵직한 캐시/돈 카운팅 효과음(돈 소리) 삽입",
+   "중간중간 배기음 듣기, V클래스 테이블 펴고 밥먹기, X6 트렁크에 걸터앉기 등 상황극(꽁트) 연출로 몰입도 유지",
+   "컷 전환이 매우 빠르며 대사가 끝나는 즉시 다음 차종으로 동선을 이동하여 쇼룸 전체 재고를 스피디하게 과시"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "feature": "머플러 배기음 시연",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "feature": "접이식 비즈니스 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 40.0,
+    "y_pct": 60.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 58.0,
+    "feature": "AMG 버킷 시트 및 카본 파이버 인테리어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "돈 소리",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "빨간색 포르쉐 카이엔이 화면 앞으로 다가온 후 창문을 내리고 차를 보여달라며 바로 흥미 유발",
+   "type": "행동",
+   "text": "عربيتك عندي! اتفضل فرجني",
+   "ko": "원하는 차 다 있어! 어디 한번 보여줘 봐요."
+  },
+  "narration_points": [
+   {
+    "t": 6.3,
+    "point": "Mercedes-AMG GT 63 S 선수금 150만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.8,
+    "point": "Dodge Challenger SRT Hellcat 선수금 180만 파운드 및 배기음",
+    "category": "성능"
+   },
+   {
+    "t": 17.5,
+    "point": "포르쉐 718 박스터 및 카이맨 다양한 컬러 재고 보유",
+    "category": "희소성"
+   },
+   {
+    "t": 24.5,
+    "point": "2025년형 토요타 랜드크루저 선수금 280만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 30.0,
+    "point": "메르세데스 V-Class (V300) 리무진 선수금 180만 파운드",
+    "category": "편의"
+   },
+   {
+    "t": 36.5,
+    "point": "메르세데스 GLC 26 선수금 100만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 41.0,
+    "point": "레인지로버 스포츠 & 벨라 공식 보증 및 PPF 시공 완비",
+    "category": "상태"
+   },
+   {
+    "t": 46.0,
+    "point": "BMW X6 및 전 라인업 공식 출고가 이하 할인 판매",
+    "category": "가격·조건"
+   },
+   {
+    "t": 51.0,
+    "point": "메르세데스 S-Class 선수금 280만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 55.0,
+    "point": "메르세데스 GLC 43 AMG 카본/버킷시트 730만 파운드",
+    "category": "사양"
+   },
+   {
+    "t": 62.5,
+    "point": "메르세데스 E-Class 500만 파운드부터 시작",
+    "category": "가격·조건"
+   },
+   {
+    "t": 69.0,
+    "point": "메르세데스 C-Class 300만 파운드부터 시작",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 72.5,
+   "text": "وهتلاقي عربيتك في Bespoke سيبارك التجمع",
+   "ko": "여러분의 드림카는 비스포크 오토모티브 (뉴 카이로 C-Park)에서 찾아보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 전면 (포르쉐 카이엔)",
+    "외관 전면 (AMG GT 63 S)",
+    "외관 전면 및 후면 머플러 (SRT 헬캣)",
+    "외관 전면 (포르쉐 718 라인업)",
+    "외관 전면 (랜드크루저)",
+    "뒷좌석 실내 (V-Class V300)",
+    "외관 전면 (GLC)",
+    "외관 전면 (레인지로버 스포츠/벨라)",
+    "트렁크 (BMW X6)",
+    "뒷좌석 실내 (S-Class)",
+    "실내 앞 (GLC 43 AMG)",
+    "외관 전면 (E-Class)",
+    "외관 전면 (C-Class)",
+    "외관 전면 (포르쉐 카이엔 퇴장)"
+   ]
+  }
+ }
+}

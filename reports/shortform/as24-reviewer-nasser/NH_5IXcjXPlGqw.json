@@ -1,0 +1,945 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/5IXcjXPlGqw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8535,
+  "candidatesTokenCount": 8060,
+  "totalTokenCount": 16595,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7372
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 81.3,
+   "aspect": "9:16",
+   "car": "BMW M8 Competition Gran Coupe & M850i Gran Coupe",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.7,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 8.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 11.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 18.6,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.4,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.7,
+    "end": 33.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 37.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.0,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.2,
+    "part": "실내 앞",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 48.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 55.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 59.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 64.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.6,
+    "end": 67.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.8,
+    "end": 71.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 75.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 75.9,
+    "end": 77.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 77.8,
+    "end": 81.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "text": "M8 COMPETITION",
+    "ko": "M8 컴페티션",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.9,
+    "text": "السرعة / التماسك",
+    "ko": "속도 / 접지력",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#118833",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.0,
+    "text": "V8 625hp 750Nm TWIN TURBO",
+    "ko": "V8 625마력 750토크 트윈터보",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#E5A93B",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.8,
+    "text": "أعرض",
+    "ko": "더 넓음",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.4,
+    "text": "ENGINE MOUNTS",
+    "ko": "엔진 마운트",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "LASER LIGHTS",
+    "ko": "레이저 라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.2,
+    "text": "21\"",
+    "ko": "21인치",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.2,
+    "end": 33.2,
+    "text": "DRILLED DISCS",
+    "ko": "타공 디스크",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.5,
+    "text": "M تسخين",
+    "ko": "열선 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#F39C12",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 108.5,
+    "end": 110.8,
+    "text": "أهدأ / أرخص / 1/1",
+    "ko": "더 조용함 / 더 저렴함 / 이집트 1대 한정",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D35400",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 117.8,
+    "end": 121.0,
+    "text": "وصلة دهشور الشيخ زايد",
+    "ko": "셰이크 자이드 다흐슈르 링크",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2C3E50",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "휙",
+    "event": "M8 컴페티션 그래픽 슬라이드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "톡",
+    "event": "접지력/속도 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "M8 컴페티션 배기음 가속 사운드 팝앤뱅",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "쿵",
+    "event": "V8 엔진 스펙 텍스트 등장 쿵 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "톡",
+    "event": "타이어 폭 그래픽 화살표 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "딸깍",
+    "event": "엔진 마운트 포인팅 사운드",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "휙",
+    "event": "레이저 라이트 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "21인치 휠 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.2,
+    "type": "톡",
+    "event": "타공 디스크 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "띵",
+    "event": "M 스티어링 휠 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "딸깍",
+    "event": "M1, M2 버튼 그래픽 원 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 56.0,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 108.5,
+    "type": "휙",
+    "event": "M850i 차이점 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 117.8,
+    "type": "띵",
+    "event": "매장 위치 핀 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/트랩 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 스포티함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 8.5,
+     "what": "배기음 출력을 위해 음악 볼륨 일시 뮤트"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "M 컬러 스트라이프 및 M8 Competition 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "차명 강조",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 8.0,
+    "what": "차량 트랙션 및 속도 그래픽 카드",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 75.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "특징 설명",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.0,
+    "what": "V8 Twin Turbo 625hp 750Nm 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 45.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 스펙 요약",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.8,
+    "what": "타이어 너비 측정 줄자 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 35.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "타이어 폭 강조",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.0,
+    "what": "스티어링 휠 M1 / M2 버튼 강조 원형 태그",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "조작 버튼 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 55.8,
+    "end": 57.5,
+    "what": "Apple CarPlay 및 Android Auto 로고 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 안내",
+    "sure": true
+   },
+   {
+    "start": 117.8,
+    "end": 121.0,
+    "what": "지도 핀 아이콘 및 위치 안내 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "أنا ناصر ودي من أجمد البي إمات في العالم",
+    "ko": "저는 나사르입니다. 이건 전 세계에서 가장 멋진 BMW 중 하나죠."
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "BMW M8 Competition",
+    "ko": "BMW M8 컴페티션입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 8.3,
+    "text": "ولما تشوف كومبيتيشن على M يبقى تعرف إن السرعة أكتر، التماسك أعلى، وطبعاً الصوت",
+    "ko": "M에 컴페티션이 붙어있다면 더 빠른 속도, 높은 접지력, 그리고 당연히 배기음이죠!"
+   },
+   {
+    "start": 12.0,
+    "end": 18.6,
+    "text": "وعندك كفر كاربون فايبر على الموتور التوين تيربو V8 اللي بيطلع 625 حصان و750 نيوتن",
+    "ko": "카본 엔진 커버가 덮인 트윈터보 V8 엔진은 625마력, 750토크를 발휘합니다."
+   },
+   {
+    "start": 18.6,
+    "end": 24.8,
+    "text": "ولزيادة الثبات عندك كاوتش أعرض، دفع كلي، بارز عشان تمسك بودي العربية عشان يزودوا التماسك وأنت طاير",
+    "ko": "안정성을 높이기 위해 더 광폭 타이어, 사륜구동, 차체를 잡아주는 마운트 바로 고속 주행 접지력을 극대화했습니다."
+   },
+   {
+    "start": 25.0,
+    "end": 33.3,
+    "text": "ومن قدام شكلها خطير، أقوى كبوت هتشوفه في حياتك، ليزر لايتس، وجنط خطير مقاس 21 إنش ودسكات دريلد",
+    "ko": "전면 디자인도 압도적입니다. 멋진 보닛, 레이저 라이트, 21인치 휠과 타공 디스크까지 갖췄죠."
+   },
+   {
+    "start": 33.3,
+    "end": 41.5,
+    "text": "ولتقليل الوزن كربون فايبر في السقف وسبويلر، وشنطة أوسع بكتير عشان دي جران كوبيه",
+    "ko": "경량화를 위한 카본 루프와 립 스포일러, 그란쿠페 모델이라 트렁크도 넉넉합니다."
+   },
+   {
+    "start": 42.0,
+    "end": 50.0,
+    "text": "لوجو M في كل حتة، كراسي تبريد وتسخين مع أجنحة تمسكك في الجري، سقف ألكنتارا وهيد أب ديسبلاي",
+    "ko": "실내 곳곳의 M 로고, 통풍·열선 버킷시트, 알칸타라 헤드라이너와 HUD가 들어있습니다."
+   },
+   {
+    "start": 50.0,
+    "end": 59.5,
+    "text": "دريكسيون M بتسخين وأزرار M1 و M2، شاشة تدعم كاربلاي وأندرويد، وفتيس ZF صاروخي",
+    "ko": "열선 M 핸들, 커스텀 M1/M2 버튼, 카플레이와 안드로이드 오토, 변속이 번개같은 ZF 미션까지."
+   },
+   {
+    "start": 59.9,
+    "end": 67.8,
+    "text": "في الخلف كراسي بتسخين، تحكم في الستاير، تكييف رباعي ونظام صوتي باورس آند ويلكنز",
+    "ko": "뒷좌석 열선 시트, 전동 블라인드, 4존 공조기 및 바워스앤윌킨스 오디오 시스템이 적용되었습니다."
+   },
+   {
+    "start": 67.8,
+    "end": 77.8,
+    "text": "ولو عايز أهدى وأرخص وبسبيك وحيد في مصر، عندك الـ 850 بفرش كريستال وحيد في مصر",
+    "ko": "만약 더 부드럽고 가성비 좋으며 이집트 유일의 사양을 원한다면, 크리스탈 내장의 M850i도 있습니다."
+   },
+   {
+    "start": 77.8,
+    "end": 81.3,
+    "text": "وهتلاقيهم في بلاتينوم أوتو، وصلة دهشور الشيخ زايد",
+    "ko": "셰이크 자이드 다흐슈르 링크에 위치한 플래티넘 오토에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "M8 컴페티션 소개 및 시선 집중"
+   },
+   {
+    "stage": "사양",
+    "start": 4.5,
+    "end": 24.8,
+    "speed": "빠름",
+    "summary": "배기음 시연 및 V8 엔진 스펙, 주행 안전 보강 사양"
+   },
+   {
+    "stage": "기능",
+    "start": 25.0,
+    "end": 67.8,
+    "speed": "빠름",
+    "summary": "외관 익스테리어 파츠 및 앞뒤 실내 옵션 리뷰"
+   },
+   {
+    "stage": "차 소개",
+    "start": 67.8,
+    "end": 77.8,
+    "speed": "보통",
+    "summary": "대안 차종 M850i 소개 및 크리스털 인테리어 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 77.8,
+    "end": 81.3,
+    "speed": "보통",
+    "summary": "매장 위치 안내(CTA)"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 말을 빠르게 이어가며 1~2초 단위로 세부 부품 클로즈업 컷을 교차 편집한다",
+   "중요 스펙(V8, 625hp, 21인치 등)은 굵은 영문 대문자 그래픽과 SFX를 동시에 띄워 직관적으로 전달한다",
+   "배기음을 들려줄 때는 배경음악을 완전히 제거해 현장 사운드를 부각한다",
+   "설명하는 물리적 부품(버튼, 너비, 마운트)에 화살표나 원형 그래픽을 정확히 오버레이한다",
+   "마지막에는 대안 모델과 함께 매장 방문 유도(위치 안내)로 마무리한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 18.6,
+    "end": 20.8,
+    "feature": "광폭 타이어",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "타이어 단면 폭 측정 줄자 및 텍스트",
+    "x_pct": 35.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.4,
+    "feature": "엔진 스트럿 바 및 마운트",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "엔진룸 마운트 위치를 가리키는 손과 글자 태그",
+    "x_pct": 60.0,
+    "y_pct": 38.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "feature": "BMW 레이저 라이트",
+    "shown_how": "글자 카드",
+    "icon_desc": "헤드램프 위에 레이저 라이트 영문 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "휙",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.0,
+    "feature": "M1 / M2 드라이브 모드 버튼",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "스티어링 휠 빨간색 패들 버튼 위치에 원형 강조 표시",
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 55.8,
+    "end": 57.5,
+    "feature": "무선 스마트폰 프로젝션(카플레이/안드로이드)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "디스플레이 옆 애플 카플레이 및 안드로이드 오토 앱 아이콘",
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 62.5,
+    "end": 64.5,
+    "feature": "전동 뒷좌석 롤러 선블라인드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락으로 도어 버튼을 눌러 측면 선블라인드 상승 작동 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 75.9,
+    "end": 77.8,
+    "feature": "제스처 컨트롤",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락을 디스플레이 앞에서 돌려 볼륨을 조절하는 제스처 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 향해 걸어나오며 전 세계에서 가장 강력한 BMW 중 하나라며 M8 컴페티션을 소개함",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر ودي من أجمد البي إمات في العالم",
+   "ko": "저는 나사르입니다. 이건 전 세계에서 가장 멋진 BMW 중 하나죠."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "컴페티션 트림의 높은 속도, 접지력, 강력한 사운드",
+    "category": "성능"
+   },
+   {
+    "t": 14.5,
+    "point": "V8 트윈터보 625마력, 750Nm 토크의 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 20.0,
+    "point": "더 넓은 폭의 광폭 타이어와 사륜구동 및 차체 보강 마운트",
+    "category": "안전"
+   },
+   {
+    "t": 27.5,
+    "point": "카본 루프, 레이저 라이트, 21인치 휠 및 타공 디스크 브레이크",
+    "category": "디자인"
+   },
+   {
+    "t": 45.0,
+    "point": "M 스포츠 버킷 시트(통풍/열선) 및 알칸타라 천장, HUD",
+    "category": "편의"
+   },
+   {
+    "t": 53.0,
+    "point": "M 커스텀 버튼이 장착된 열선 스티어링 휠과 ZF 변속기",
+    "category": "성능"
+   },
+   {
+    "t": 62.0,
+    "point": "뒷좌석 전동 선블라인드, 4존 에어컨, 바워스앤윌킨스 사운드",
+    "category": "편의"
+   },
+   {
+    "t": 71.0,
+    "point": "대안으로 추천하는 이집트 유일 스펙의 크리스탈 인테리어 M850i",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 78.0,
+   "text": "وصلة دهشور الشيخ زايد",
+   "ko": "셰이크 자이드 다흐슈르 링크 플래티넘 오토에서 확인하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 후면",
+    "엔진룸",
+    "휠",
+    "엔진룸",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "트렁크",
+    "실내 앞",
+    "센터 화면",
+    "뒷좌석",
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "외관 전면"
+   ]
+  }
+ }
+}

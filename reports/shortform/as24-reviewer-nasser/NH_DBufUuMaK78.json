@@ -1,0 +1,1070 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/DBufUuMaK78",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9347,
+  "candidatesTokenCount": 11223,
+  "totalTokenCount": 21610,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8184
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 1040,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 89.8,
+   "aspect": "9:16",
+   "car": "Skoda Kodiaq vs Peugeot 5008",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.3,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.3,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.8,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 33.2,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 37.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 42.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 48.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 53.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 56.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 59.2,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.2,
+    "end": 64.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 68.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.2,
+    "end": 72.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 77.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 77.8,
+    "end": 82.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 82.5,
+    "end": 86.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 86.6,
+    "end": 89.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "KODIAQ / 5008",
+    "ko": "코디악 대 5008",
+    "kind": "제목",
+    "y_pct": 36.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.0,
+    "text": "هادي\nجميلة ببساطة",
+    "ko": "차분하고 심플한 아름다움",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.2,
+    "text": "19\"\nبراحة على المطبات",
+    "ko": "19인치, 과속방지턱 주의",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.5,
+    "color": "#E67E22",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.2,
+    "text": "Heads up Display",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 73.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 25.8,
+    "text": "Paddle shifters",
+    "ko": "패들 시프트",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -8.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "text": "5008",
+    "ko": "5008",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 33.0,
+    "text_height_pct": 8.0,
+    "color": "#FF3333",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "text": "مساج",
+    "ko": "마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.5,
+    "color": "#E67E22",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.7,
+    "text": "الخصوصية",
+    "ko": "프라이버시",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 56.1,
+    "text": "صف تالت\nيفضل للأطفال",
+    "ko": "3열 좌석, 어린이에 권장",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 66.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.1,
+    "text": "أوسع شوية",
+    "ko": "조금 더 넓음",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 63.8,
+    "text": "2,750,000\nNO ADAS SYSTEM",
+    "ko": "275만 EGP / 주행보조 미포함",
+    "kind": "가격",
+    "y_pct": 19.0,
+    "x_center_pct": 64.0,
+    "text_height_pct": 7.0,
+    "color": "#55FF55",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 64.2,
+    "end": 68.0,
+    "text": "2,450,000\n+ ADAS SYSTEM",
+    "ko": "245만 EGP / 주행보조 포함",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 7.0,
+    "color": "#55FF55",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 68.3,
+    "end": 72.5,
+    "text": "TurboCC 1400\nHP 150\nNM 250",
+    "ko": "1400cc 터보 / 150마력 / 250Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 18.0,
+    "color": "#FF3B30",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 75.5,
+    "text": "HP 180\nNM 300",
+    "ko": "180마력 / 300Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 14.0,
+    "color": "#FF3B30",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 75.8,
+    "end": 77.8,
+    "text": "Liter 250 -> 2042",
+    "ko": "250리터 ~ 2042리터",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 12.0,
+    "color": "#FF3B30",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 78.5,
+    "end": 82.3,
+    "text": "Liter 270 -> 2105\nالاتنين واسعين جدا",
+    "ko": "270리터 ~ 2105리터, 둘 다 매우 넓음",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 84.0,
+    "end": 86.6,
+    "text": "هليوبوليس / المعادي / المهندسين\nالهرم / طنطا / زايد / السويس",
+    "ko": "헬리오폴리스/마아디/모한데신/하람/탄타/자이드/수에즈",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 87.0,
+    "end": 89.8,
+    "text": "19949",
+    "ko": "19949",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 34.0,
+    "text_height_pct": 10.0,
+    "color": "#E63946",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "차량 엠블럼 로고 및 차명 타이틀 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "톡",
+    "event": "외관 평가 키워드 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "톡",
+    "event": "휠 사이즈 19인치 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "시트 열선 3D 글자 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.3,
+    "type": "톡",
+    "event": "애플 카플레이 및 안드로이드 오토 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "HUD 텍스트 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "톡",
+    "event": "패들시프트 텍스트 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.6,
+    "type": "톡",
+    "event": "5008 3D 타이틀 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "톡",
+    "event": "마사지 옵션 텍스트 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "뒷좌석 열선 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.6,
+    "type": "톡",
+    "event": "햇빛가리개 차단 프라이버시 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.6,
+    "type": "톡",
+    "event": "3열 설명 텍스트 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.8,
+    "type": "돈 소리",
+    "event": "코디악 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 64.2,
+    "type": "돈 소리",
+    "event": "5008 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 68.3,
+    "type": "쿵",
+    "event": "코디악 엔진 스펙 숫자 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 72.8,
+    "type": "쿵",
+    "event": "5008 엔진 스펙 숫자 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 75.8,
+    "type": "톡",
+    "event": "트렁크 용량 숫자 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 87.0,
+    "type": "띵",
+    "event": "대표번호 19949 3D 숫자 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "what": "Skoda 및 Peugeot 브랜드 로고 3D 엠블럼",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 대상 브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "what": "시트 표면 위 3D 열선 아랍어 텍스트",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 40.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 열선 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 23.0,
+    "what": "Apple CarPlay 및 Android Auto 2D 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 65.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스마트폰 미러링 연동 강조",
+    "sure": true
+   },
+   {
+    "start": 87.0,
+    "end": 89.8,
+    "what": "전화번호 19949 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 35.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "문의 전화번호 전달",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر ودول عمالقة السوق كودياك ضد 5008",
+    "ko": "저는 나세르입니다. 시장의 두 거인, 코디악 대 5008입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 9.8,
+    "text": "الكودياك شكلها هادي وجميلة ببساطة، بس الـ 5008 بتلعب عالرياضية والزوايا الحادة في كل حتة",
+    "ko": "코디악은 차분하고 심플하게 예쁜 반면, 5008은 스포티함과 날카로운 각을 강조합니다."
+   },
+   {
+    "start": 9.8,
+    "end": 15.2,
+    "text": "وده بان في شكل الجنوط بتاع العربيتين، وبالمناسبة الاتنين 19 فبراحة عالمطبات",
+    "ko": "이것은 두 차의 휠 디자인에서도 드러납니다. 참고로 둘 다 19인치라 과속방지턱에선 조심해야 합니다."
+   },
+   {
+    "start": 15.2,
+    "end": 20.9,
+    "text": "كراسي الكودياك فيها تسخين وتبريد ومساج، مساحات تخزين هنا وهنا، كب هولدرز، شاحن وايرلس",
+    "ko": "코디악 시트는 열선, 통풍, 마사지가 있고 수납공간, 컵홀더, 무선 충전기가 있습니다."
+   },
+   {
+    "start": 20.9,
+    "end": 25.8,
+    "text": "شاشة كبيرة فيها أبل كاربلاي وأندرويد أوتو، هيد اب ديسبلاي، ديجيتال ديسبلاي، بادل شيفترز",
+    "ko": "애플 카플레이와 안드로이드 오토가 지원되는 대형 스크린, HUD, 디지털 계기판, 패들 시프트가 있습니다."
+   },
+   {
+    "start": 25.8,
+    "end": 37.8,
+    "text": "موجودين في الـ 5008، الدريكسيون بتاعها أجمل بكتير، دبل سكرين فيها أبل كاربلاي وأندرويد أوتو بتصميم طاير، شاشة للاختصارات والكونسول بتاعك شكله جميل، مساحة تخزين، أمبينت لايتس ترويش جداً",
+    "ko": "5008에도 다 있으며, 스티어링 휠 디자인이 훨씬 멋지고 플로팅 디자인의 듀얼 스크린, 바로가기 터치바, 예쁜 콘솔, 앰비언트 라이트가 끝내줍니다."
+   },
+   {
+    "start": 37.8,
+    "end": 47.7,
+    "text": "فبصراحة الـ 5008 تكسب، وكراسيها تسخين وتبريد ومساج، والكنبة تسخين، وعندك أمبينت لايت في السقف، سقف بانوراما، وستاير عشان الخصوصية",
+    "ko": "솔직히 실내는 5008의 승리입니다. 시트 열선/통풍/마사지, 2열 열선, 천장 앰비언트 라이트, 파노라마 선루프, 프라이버시 커튼까지 있습니다."
+   },
+   {
+    "start": 47.7,
+    "end": 53.0,
+    "text": "موجودة في الكودياك برضو، أهو السقف البانوراما والتكييف التريبل زون، مساحة التخزين بتتحرك وهي سنة أوسع",
+    "ko": "코디악에도 파노라마 선루프, 트라이존 공조기가 있으며 수납함 조절 및 2열 공간이 살짝 더 넓습니다."
+   },
+   {
+    "start": 53.0,
+    "end": 59.2,
+    "text": "والكودياك فيها صف تالت يفضل للأطفال، نفس الكلام في الـ 5008 وهي أوسع شوية كمان",
+    "ko": "코디악 3열은 어린이에 적합하며, 5008 역시 마찬가지지만 공간이 약간 더 여유롭습니다."
+   },
+   {
+    "start": 59.2,
+    "end": 64.0,
+    "text": "والفئات الكاملة، الكودياك بـ 2,750,000",
+    "ko": "풀옵션 기준 코디악은 275만 EGP (주행보조 미포함),"
+   },
+   {
+    "start": 64.0,
+    "end": 68.2,
+    "text": "والـ 5008 بـ 2,450,000",
+    "ko": "5008은 245만 EGP (주행보조 포함)입니다."
+   },
+   {
+    "start": 68.2,
+    "end": 72.8,
+    "text": "موتور الكودياك 1400 تيربو 150 حصان و250 نيوتن",
+    "ko": "코디악 엔진은 1400 터보, 150마력, 250Nm 토크이며,"
+   },
+   {
+    "start": 72.8,
+    "end": 77.8,
+    "text": "والـ 5008 180 حصان و300 نيوتن، يعني دي أقوى بشوية، شنطة الـ 5008 من أول 250 لتر لحد 2042 لتر",
+    "ko": "5008은 180마력, 300Nm로 더 강력합니다. 5008 트렁크는 250리터에서 최대 2042리터까지,"
+   },
+   {
+    "start": 77.8,
+    "end": 82.5,
+    "text": "والكودياك من أول 270 لتر لحد 2105 لتر، الاتنين واسعين جداً",
+    "ko": "코디악은 270리터에서 최대 2105리터로 둘 다 아주 넓습니다."
+   },
+   {
+    "start": 82.5,
+    "end": 89.8,
+    "text": "وأي عربية أنت عايزها في المتحدة القصراوي في كل الفروع وبأحسن سعر كمان، أو كلمهم على 19949",
+    "ko": "원하시는 차량은 엘카스라위 전 지점에서 최고 조건으로 만나보시거나 19949로 문의하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "시장 라이벌 두 대의 SUV 전면 대결 선언 및 로고 연출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 15.2,
+    "speed": "빠름",
+    "summary": "익스테리어 디자인 및 19인치 휠 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 15.2,
+    "end": 59.2,
+    "speed": "빠름",
+    "summary": "인테리어, 시트 편의사양, 스크린, 파노라마 선루프 및 2~3열 실내 거주성 비교"
+   },
+   {
+    "stage": "가격",
+    "start": 59.2,
+    "end": 68.2,
+    "speed": "보통",
+    "summary": "두 차량의 풀옵션 판매 가격 및 ADAS 탑재 여부 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 68.2,
+    "end": 82.5,
+    "speed": "빠름",
+    "summary": "엔진 출력/토크 및 트렁크 적재 용량 폴딩 시트 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 82.5,
+    "end": 89.8,
+    "speed": "보통",
+    "summary": "딜러사 지점 안내 및 대표 콜센터 번호 팝업"
+   }
+  ],
+  "rules": [
+   "비교 항목마다 두 차량을 1:1로 빠르게 번갈아 보여주며 템포를 극대화한다.",
+   "핵심 옵션(열선, 마사지 등)은 시트나 실내 요소 위에 3D 입체 텍스트로 트래킹하듯 띄운다.",
+   "스펙 수치(마력, 토크, 리터 용량)는 대형 폰트의 볼드 텍스트로 시각화하여 직관성을 높인다.",
+   "가격 비교 시 ADAS 유무 같은 결정적인 옵션 차이를 가격 텍스트 하단에 즉시 명시한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "feature": "앞좌석 시트 열선/통풍/마사지",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "시트 표면에 주황색 3D 입체 글자 'تسخين'(열선)",
+    "x_pct": 40.0,
+    "y_pct": 33.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.0,
+    "feature": "애플 카플레이 / 안드로이드 오토",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "디스플레이 상단에 뜬 애플 카플레이 및 안드로이드 오토 로고",
+    "x_pct": 65.0,
+    "y_pct": 18.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.2,
+    "feature": "헤드업 디스플레이 (HUD)",
+    "shown_how": "글자 카드",
+    "icon_desc": "대시보드 위 HUD 투영 부위를 가리키는 영문 텍스트",
+    "x_pct": 73.0,
+    "y_pct": 48.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "feature": "시트 마사지 기능",
+    "shown_how": "글자 카드",
+    "icon_desc": "시트 등받이에 표시된 아랍어 'مساج'(마사지)",
+    "x_pct": 82.0,
+    "y_pct": 37.0,
+    "size_w_pct": 25.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.7,
+    "feature": "2열 수동 선블라인드 (프라이버시 커튼)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도어 트림에서 선블라인드를 직접 손으로 끌어올림",
+    "x_pct": 72.0,
+    "y_pct": 39.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 전시장을 걸어 나오며 '시장의 거인들'이라며 코디악과 5008 대결을 외침",
+   "type": "행동",
+   "text": "أنا ناصر ودول عمالقة السوق كودياك ضد 5008",
+   "ko": "저는 나세르입니다. 시장의 두 거인, 코디악 대 5008입니다."
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "코디악은 차분하고 심플한 디자인, 5008은 날렵하고 스포티한 엣지 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 12.8,
+    "point": "두 차량 모두 19인치 대형 휠을 장착해 요철 통과 시 주의 필요",
+    "category": "디자인"
+   },
+   {
+    "t": 16.0,
+    "point": "코디악 실내: 앞좌석 열선/통풍/마사지, 무선충전, HUD 및 패들시프트 제공",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "5008 실내: 미래지향적 플로팅 듀얼 스크린과 스포티한 핸들, 감성적인 앰비언트 라이트 우세",
+    "category": "편의"
+   },
+   {
+    "t": 54.0,
+    "point": "두 차의 3열 시트는 아동용에 적합하나 5008이 약간 더 여유로움",
+    "category": "공간"
+   },
+   {
+    "t": 60.0,
+    "point": "코디악은 275만(ADAS 미포함), 5008은 245만(ADAS 포함)으로 가격 가성비는 5008 우세",
+    "category": "가격·조건"
+   },
+   {
+    "t": 70.0,
+    "point": "동력성능은 코디악 150마력/250Nm 대비 5008이 180마력/300Nm로 더 강력함",
+    "category": "성능"
+   },
+   {
+    "t": 76.0,
+    "point": "트렁크 최대 용량은 코디악 2105L, 5008 2042L로 둘 다 탁월함",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 87.0,
+   "text": "كلمهم على 19949",
+   "ko": "19949로 문의 전화하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "휠",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "뒷좌석",
+    "옵션 작동",
+    "가격",
+    "엔진룸",
+    "트렁크",
+    "사람"
+   ]
+  }
+ }
+}

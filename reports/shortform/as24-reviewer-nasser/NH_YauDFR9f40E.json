@@ -1,0 +1,742 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/YauDFR9f40E",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5436,
+  "candidatesTokenCount": 6116,
+  "totalTokenCount": 11764,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4273
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 212,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.1,
+   "aspect": "9:16",
+   "car": "Range Rover Evoque",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.3,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.0,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 16.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 25.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 35.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 44.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 47.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "لو باباكي",
+    "ko": "만약 아빠가",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "مجبلكيش",
+    "ko": "사주지 않았다면",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "شكي في حبه ليكي",
+    "ko": "널 사랑하는지 의심해봐",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "حبه",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "text": "WIRELESS شاحن",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.0,
+    "text": "CUPHOLDERS",
+    "ko": "컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.5,
+    "text": "قسطي على سنة",
+    "ko": "1년 할부로",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.0,
+    "text": "70 ش النزهة مصر الجديدة",
+    "ko": "노즈하 거리 70, 헬리오폴리스",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "휙",
+    "event": "차량 전면 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "열선 시트 불꽃 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "띵",
+    "event": "애플 카플레이 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "띵",
+    "event": "안드로이드 오토 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.7,
+    "type": "톡",
+    "event": "무선충전 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "휙",
+    "event": "160hp 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.2,
+    "type": "띵",
+    "event": "안전 센서/카메라 아이콘 모음 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "쿵",
+    "event": "SALE 3D 텍스트와 지폐 폭죽 효과",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "what": "랜드로버 로고 및 이보크 텍스트 로고",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "what": "불꽃 이모지 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 56.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 열선 강조",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.5,
+    "what": "Apple CarPlay 및 Android Auto 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "스마트폰 연동 강조",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "what": "160hp & 260Nm 출력 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "위에서 떨어짐",
+    "purpose": "엔진 스펙 전달",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 39.5,
+    "what": "센서/카메라/레이더 타겟 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 40.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전 주행 보조 시스템 강조",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 42.5,
+    "what": "SALE 텍스트 및 날리는 달러 지폐 파티클",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "폭발",
+    "purpose": "할인 프로모션 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "لو باباكي جوزك خطيبك مجابلكيش العربية دي شكي في حبه ليكي",
+    "ko": "만약 당신의 아빠나 남편, 약혼자가 이 차를 사주지 않는다면 그 사랑을 의심해보세요."
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "text": "Range Rover Evoque",
+    "ko": "레인지로버 이보크입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 7.3,
+    "text": "في دلع من جوه، عندك سقف بانوراما، الكراسي تسخين",
+    "ko": "내부엔 온갖 호사가 있죠. 파노라마 선루프에 열선 시트,"
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "text": "Apple CarPlay و Android Auto، أظن باين",
+    "ko": "애플 카플레이와 안드로이드 오토가 지원되고요,"
+   },
+   {
+    "start": 9.9,
+    "end": 14.5,
+    "text": "Head-up و Digital Display، دركسيون ربنا يكتبهولك مش هتحتاجي حاجة تاني",
+    "ko": "헤드업 디스플레이와 디지털 계기판, 완벽한 스티어링 휠까지 더 이상 필요한 게 없습니다."
+   },
+   {
+    "start": 14.5,
+    "end": 20.8,
+    "text": "وبالنسبة لمساحات التخزين عندك مكان لشنطة الميك اب، شاحن Wireless، Cupholders عشان الماتشا ومساحة تخزين كمان",
+    "ko": "수납공간으로는 메이크업 가방 넣을 곳, 무선 충전기, 말차 음료를 위한 컵홀더와 추가 수납공간이 있습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 25.8,
+    "text": "والعربية تشيل 5 أو 6 بنات مستريحين، ولو قربتوا من بعض أكتر هتشيل أكتر",
+    "ko": "차량에는 여자 5~6명이 편안히 탈 수 있고, 더 붙어 앉으면 더 많이 탈 수 있죠."
+   },
+   {
+    "start": 25.8,
+    "end": 29.8,
+    "text": "موتور 160 حصان و 260 نيوتن عشان لو بتحبي الجري برضه",
+    "ko": "160마력에 260토크 엔진으로 스피드를 즐기기에도 충분합니다."
+   },
+   {
+    "start": 29.8,
+    "end": 35.8,
+    "text": "وعندك مكان لشنط الشلة لو مسافرين، شنطك وشنط الأولاد وتشيل عربية البيبي",
+    "ko": "여행 갈 때 친구들 짐가방, 아이들 짐, 유모차까지 실을 수 있는 트렁크 공간이 있습니다."
+   },
+   {
+    "start": 35.8,
+    "end": 40.8,
+    "text": "وعشان تحميكي عندك Sensors، كاميرات، رادارات، Blind Spot، وسائل أمان و Airbags",
+    "ko": "안전을 위해 센서, 카메라, 레이더, 사각지대 경보, 에어백 등 모든 안전 장치가 완비되어 있습니다."
+   },
+   {
+    "start": 40.8,
+    "end": 47.1,
+    "text": "وعليها عرض قسطي على سنة بدون فوائد وخليه يجيبهالك من Gear Up 70 شارع النزهة مصر الجديدة",
+    "ko": "무이자 1년 할부 프로모션 중이니 헬리오폴리스 엘노즈하 70번지 Gear Up에서 장만하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "아빠나 남편이 이 차를 안 사주면 사랑을 의심하라는 자극적 멘트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "레인지로버 이보크 외관 전면 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 5.0,
+    "end": 20.8,
+    "speed": "빠름",
+    "summary": "파노라마 루프, 열선시트, 디스플레이, 무선충전 등 여성 타깃 실내 옵션 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 20.8,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "뒷좌석 탑승 인원 수 및 엔진 출력 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 40.8,
+    "speed": "빠름",
+    "summary": "넓은 트렁크 수납 및 안전 센서 시스템 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 40.8,
+    "end": 44.0,
+    "speed": "빠름",
+    "summary": "1년 무이자 할부 특별 프로모션 발표"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 44.0,
+    "end": 47.1,
+    "speed": "보통",
+    "summary": "Gear Up 매장 위치 안내 및 구매 독려"
+   }
+  ],
+  "rules": [
+   "자극적이고 유머러스한 관계성 멘트(아빠/남편/약혼자)로 여성 시청자의 시선을 시작 3초 내에 사로잡음",
+   "화장품 가방 수납, 말차 음료 컵홀더 등 타깃 고객(여성) 라이프스타일에 맞춘 디테일한 소구점 언급",
+   "옵션을 설명할 때마다 직관적인 2D/3D 아이콘 및 키워드 자막을 화면에 팝업하여 시각적 몰입도 유지",
+   "전시장 정문 앞에서 외관, 실내, 2열, 트렁크로 이어지는 빠른 템포의 풀투어 편집",
+   "영상 말미에 무이자 할부 혜택과 매장 주소를 명확히 제시하여 방문 구매 전환 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.3,
+    "feature": "시트 열선",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "타오르는 불꽃 이모지",
+    "x_pct": 50.0,
+    "y_pct": 56.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "feature": "스마트폰 미러링",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "애플 카플레이 및 안드로이드 오토 로고",
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "feature": "HUD 및 디지털 계기판",
+    "shown_how": "글자 카드",
+    "icon_desc": "HEAD UP 및 DIGITAL DISPLAY 영문 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "feature": "무선 충전 패드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "스마트폰을 올린 센터콘솔 수납함",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 40.0,
+    "feature": "안전 주행 보조 센서 패키지",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "조준경 레이더, 감시 카메라, 센서 경고 엠블럼",
+    "x_pct": 40.0,
+    "y_pct": 22.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "남자가 본넷에 기대어 '만약 당신의 아빠/남편이 이 차를 안 사주면 사랑하는지 의심해봐라'며 도발",
+   "type": "질문",
+   "text": "لو باباكي جوزك خطيبك مجابلكيش العربية دي شكي في حبه ليكي",
+   "ko": "아빠나 남편, 약혼자가 이 차를 안 사준다면 사랑을 의심해보세요"
+  },
+  "narration_points": [
+   {
+    "t": 5.5,
+    "point": "시원한 파노라마 루프와 안락한 열선 가죽 시트",
+    "category": "편의"
+   },
+   {
+    "t": 8.0,
+    "point": "대화면 디스플레이와 애플 카플레이/안드로이드 오토 지원",
+    "category": "편의"
+   },
+   {
+    "t": 10.5,
+    "point": "헤드업 디스플레이와 풀 디지털 계기판 적용",
+    "category": "편의"
+   },
+   {
+    "t": 15.0,
+    "point": "화장품 가방 보관 공간과 무선 스마트폰 충전 패드",
+    "category": "공간"
+   },
+   {
+    "t": 18.0,
+    "point": "말차 라떼 전용 컵홀더 및 다양한 수납 포켓",
+    "category": "편의"
+   },
+   {
+    "t": 22.0,
+    "point": "성인 여성 5~6명이 여유롭게 탑승 가능한 2열 공간",
+    "category": "공간"
+   },
+   {
+    "t": 26.5,
+    "point": "경쾌한 주행성능을 내는 160마력, 260Nm 토크 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 31.0,
+    "point": "여행용 캐리어와 유모차까지 모두 들어가는 대형 트렁크",
+    "category": "공간"
+   },
+   {
+    "t": 37.0,
+    "point": "전후방 센서, 서라운드 카메라, 사각지대 감지 및 다중 에어백",
+    "category": "안전"
+   },
+   {
+    "t": 41.5,
+    "point": "1년 무이자 할부 특별 금융 프로모션",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 44.0,
+   "text": "70 ش النزهة مصر الجديدة GEAR UP",
+   "ko": "헬리오폴리스 엘노즈하 70번지 GEAR UP 매장 방문",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "실내 수납공간",
+    "뒷좌석",
+    "외관 전면",
+    "트렁크",
+    "외관 전면",
+    "선루프 탑승 모습"
+   ]
+  }
+ }
+}

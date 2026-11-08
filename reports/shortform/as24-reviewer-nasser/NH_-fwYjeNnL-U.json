@@ -1,0 +1,852 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/-fwYjeNnL-U",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7348,
+  "candidatesTokenCount": 7629,
+  "totalTokenCount": 15547,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6185
+   }
+  ],
+  "thoughtsTokenCount": 570,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 68.0,
+   "aspect": "9:16",
+   "car": "Porsche 911 GT3 (992)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.2,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 6.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 26.2,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 33.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 38.6,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 43.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 46.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 50.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 53.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.4,
+    "end": 59.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 68.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.3,
+    "end": 4.5,
+    "text": "GT3RS",
+    "ko": "GT3 RS",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#E50914",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.2,
+    "text": "GT3RS\nENGINE",
+    "ko": "GT3 RS 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#E50914",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "500KG\nDOWN FORCE",
+    "ko": "500kg 다운포스",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.5,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.8,
+    "text": "SPORT\nEXHAUST",
+    "ko": "스포츠 배기",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.5,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "text": "CARBON\nCERAMIC",
+    "ko": "카본 세라믹 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.5,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.7,
+    "end": 31.8,
+    "text": "CENTER\nLOCK",
+    "ko": "센터 락 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 5.5,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.8,
+    "text": "502hp\n450Nm",
+    "ko": "502마력 / 450Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 7.0,
+    "color": "#FEE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.0,
+    "text": "RPM\n9000",
+    "ko": "9000 RPM",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 6.5,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.1,
+    "text": "DAYDATE\nARABIC EDITION",
+    "ko": "데이데이트 아랍 에디션",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.3,
+    "end": 52.0,
+    "text": "PDK",
+    "ko": "PDK 변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 6.0,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.4,
+    "text": "CHRONO\nPACKAGE",
+    "ko": "크로노 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FEE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.1,
+    "type": "쿵",
+    "event": "타이틀 그래픽 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.3,
+    "type": "톡",
+    "event": "GT3RS 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "휙",
+    "event": "공기흐름 CG 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "띵",
+    "event": "500KG 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스포츠 배기 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 27.6,
+    "type": "톡",
+    "event": "카본 세라믹 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "센터락 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "보닛 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "톡",
+    "event": "마력/토크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "9000 RPM 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "런치 컨트롤 가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 48.1,
+    "type": "띵",
+    "event": "롤렉스 로고 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.4,
+    "type": "톡",
+    "event": "PDK 로고 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.1,
+    "type": "톡",
+    "event": "크로노 패키지 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 신나는",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 24.0,
+     "what": "배기음 청취를 위해 볼륨 급격히 줄임"
+    },
+    {
+     "t": 44.0,
+     "what": "가속 배기음 청취를 위해 볼륨 줄임"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.1,
+    "end": 3.2,
+    "what": "Luxury Line Automotive GT3 3D 로고 오프닝",
+    "is_3d": true,
+    "size_w_pct": 90.0,
+    "x_pct": 5.0,
+    "y_pct": 10.0,
+    "entrance": "확대 전환",
+    "purpose": "인트로 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 6.2,
+    "what": "Porsche GT3 RS 차량 컷아웃 및 드리프트 영상 합성",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 35.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 공유 설명",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 14.5,
+    "what": "차체 공기흐름을 보여주는 푸른색 CG 에어로 그래픽",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 10.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "공기역학 시각화",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.1,
+    "what": "롤렉스 왕관 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 65.0,
+    "y_pct": 23.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시계 브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 50.3,
+    "end": 52.0,
+    "what": "포르쉐 방패 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 16.0,
+    "x_pct": 22.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "PDK 설명 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "أنا ناصر، ودي عربية الأحلام!",
+    "ko": "저는 나사르입니다. 그리고 이것은 꿈의 차입니다!"
+   },
+   {
+    "start": 2.1,
+    "end": 6.3,
+    "text": "بورشه GT3، ودي هي نفس موتور الـ GT3 RS بس تنفع تتساق كل يوم.",
+    "ko": "포르쉐 GT3! GT3 RS와 같은 엔진이지만 매일 탈 수 있는 차죠."
+   },
+   {
+    "start": 6.3,
+    "end": 14.8,
+    "text": "وبإيرودايناميكس طلقة، الهواء اللي بيخش من هنا بيروح يبرد على الكاوتشات، واللي بيخش من هنا بيخرج من ع الكبوت ويمشي على ضهر العربية ويخش يبرد الموتور.",
+    "ko": "뛰어난 에어로다이내믹스! 이쪽으로 들어간 공기는 브레이크를 식히고, 이쪽으로 들어간 공기는 보닛을 거쳐 차량 루프를 타고 뒤 엔진을 냉각합니다."
+   },
+   {
+    "start": 14.8,
+    "end": 23.9,
+    "text": "ولزيادة الثبات عندك وينج تقدر تظبطه مانيوال بيزود داونفورس نص طن على ضهر العربية، دكتين لتشتيت الهواء، وسبورت ديفيوزر، وسبورت إكزوست.",
+    "ko": "접지력을 높이기 위해 수동 조절식 리어 윙이 있어 0.5톤의 다운포스를 만들어내고, 공기 덕트와 스포츠 디퓨저, 스포츠 배기가 장착되어 있습니다."
+   },
+   {
+    "start": 26.2,
+    "end": 33.3,
+    "text": "وعشان توقف الوحش ده عندك كاربون سيراميك بريكس دريلد عشان التهوية، سنتر لوك زي السباقات، كاوتشات ميشلان سبورت عشان تمسك في الطريق.",
+    "ko": "이 괴물을 멈추기 위해 타공 카본 세라믹 브레이크, 레이스 카 방식 센터 락 휠, 노면을 움켜쥐는 미쉐린 파일럿 스포츠 타이어가 장착되어 있습니다."
+   },
+   {
+    "start": 33.3,
+    "end": 38.6,
+    "text": "ولتخفيف الوزن عندك كاربون فايبر بونيت، وشنطة تحط فيها الخوذة، شنطة الجيم، اللي إنت عايزه.",
+    "ko": "경량화를 위한 카본 파이버 보닛, 그리고 헬멧이나 헬스 가방 등을 넣을 수 있는 프렁크 공간이 있습니다."
+   },
+   {
+    "start": 38.6,
+    "end": 44.0,
+    "text": "والوحش بيخرج 502 حصان، 450 نيوتن، وبيرف لـ 9000 RPM، وفيها لونش كنترول!",
+    "ko": "이 괴물은 502마력, 450Nm를 발휘하며 9000 RPM까지 회전합니다. 그리고 런치 컨트롤도 있죠!"
+   },
+   {
+    "start": 46.8,
+    "end": 59.9,
+    "text": "داي ديت كتابة بالعربي من Luxury Line Watches، أقوى فتيس في العالم، أبل كاربلاي وأندرويد أوتو، ستوب ووتش للتراكات، أهم 5 عدادات، دريكسيون الكانتارا بستيتش لونه أصفر وبادل شيفترز.",
+    "ko": "아랍어 다이얼 롤렉스 데이데이트 시계, 세계 최고의 PDK 변속기, 애플 카플레이/안드로이드 오토, 서킷용 스톱워치, 포르쉐 고유의 5연속 계기판, 옐로우 스티칭 알칸타라 스티어링 휠과 패들 시프트까지 갖췄습니다."
+   },
+   {
+    "start": 59.9,
+    "end": 68.0,
+    "text": "وأي بورشه هتحتاجها، كاريرا أو كاريرا 4، GT3، كايين، ماكان هتلاقيهم في Luxury Line Automotive، البنفسج 6، التجمع الأول.",
+    "ko": "카레라, 카레라 4, GT3, 카이엔, 마칸 등 원하는 모든 포르쉐는 럭셔리 라인 오토모티브(알 바나프세즈 6, 퍼스트 세틀먼트)에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.2,
+    "speed": "빠름",
+    "summary": "리뷰어 댄스 및 드림카 포르쉐 GT3 인트로 그래픽"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.2,
+    "end": 6.3,
+    "speed": "빠름",
+    "summary": "GT3 RS 엔진을 품은 데일리카 GT3 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 6.3,
+    "end": 26.2,
+    "speed": "보통",
+    "summary": "에어로다이내믹스 공기흐름 및 리어윙 다운포스, 배기음 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 26.2,
+    "end": 46.8,
+    "speed": "빠름",
+    "summary": "카본 세라믹 브레이크, 프렁크, 엔진 제원(502hp/9000RPM) 및 런치 컨트롤"
+   },
+   {
+    "stage": "기능",
+    "start": 46.8,
+    "end": 59.9,
+    "speed": "보통",
+    "summary": "실내 PDK 기어노브, 크로노 패키지, 계기판, 버킷시트 특징 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 59.9,
+    "end": 68.0,
+    "speed": "보통",
+    "summary": "럭셔리 라인 매장 쇼룸 보유 포르쉐 라인업 소개 및 위치 안내"
+   }
+  ],
+  "rules": [
+   "도입 3초 내에 흥겨운 춤 동작과 화려한 3D 타이틀 그래픽으로 즉각적인 시선 집중",
+   "공기역학 설명 시 차체를 따라 움직이는 푸른색 3D 공기흐름 그래픽을 오버레이하여 시각적 직관성 극대화",
+   "엔진 스펙, 다운포스 수치 등 핵심 성능 수치는 볼드한 노란색 텍스트 스티커와 효과음(톡/띵)을 동기화하여 강조",
+   "배기음 및 런치 컨트롤 발진 순간에는 배경 음악을 완전히 줄여 실제 엔진 사운드에 몰입 유도",
+   "단단한 레이싱 버킷 시트에서 일어날 때의 현실적인 힘겨움을 유머러스하게 연출하여 재미 요소 부여",
+   "마지막 컷에서 매장 내 다양한 포르쉐 보유 차종을 파노라마로 보여주며 쇼룸 방문 CTA 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 7.7,
+    "end": 14.5,
+    "feature": "에어로다이내믹 공기흐름 설계",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차체 전면 범퍼에서 브레이크 및 보닛 위를 지나 리어 엔진으로 흐르는 입체 공기선",
+    "x_pct": 20.0,
+    "y_pct": 30.0,
+    "size_w_pct": 60.0,
+    "follows_object": true,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "feature": "수동 조절식 리어 윙 (500kg 다운포스)",
+    "shown_how": "글자 카드",
+    "icon_desc": "노란색 텍스트와 체크 표시의 500KG DOWN FORCE 그래픽",
+    "x_pct": 70.0,
+    "y_pct": 24.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.8,
+    "feature": "스포츠 배기 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "노란색 SPORT EXHAUST 텍스트 스티커",
+    "x_pct": 60.0,
+    "y_pct": 72.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "feature": "카본 세라믹 브레이크 (PCCB)",
+    "shown_how": "글자 카드",
+    "icon_desc": "노란색 캘리퍼 부근에 배치된 CARBON CERAMIC 텍스트",
+    "x_pct": 75.0,
+    "y_pct": 33.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 29.7,
+    "end": 31.8,
+    "feature": "센터 락 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "휠 허브에 지시선과 함께 뜨는 CENTER LOCK 텍스트",
+    "x_pct": 72.0,
+    "y_pct": 47.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 52.0,
+    "feature": "PDK 듀얼클러치 변속기",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "포르쉐 엠블럼과 PDK 노란색 글자 스티커",
+    "x_pct": 30.0,
+    "y_pct": 44.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.4,
+    "feature": "스포츠 크로노 패키지 스톱워치",
+    "shown_how": "글자 카드",
+    "icon_desc": "대시보드 상단 아날로그 시계 위에 배치된 CHRONO PACKAGE 엠블럼형 스티커",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 빨간 GT3 앞에서 흥겹게 춤추며 '이것은 꿈의 차'라고 외친 뒤 강렬한 3D 타이틀 효과 등장",
+   "type": "행동",
+   "text": "أنا ناصر، ودي عربية الأحلام!",
+   "ko": "저는 나사르입니다. 그리고 이것은 꿈의 차입니다!"
+  },
+  "narration_points": [
+   {
+    "t": 4.0,
+    "point": "GT3 RS와 동일한 고회전 자연흡기 엔진 장착",
+    "category": "성능"
+   },
+   {
+    "t": 8.0,
+    "point": "브레이크 냉각 및 루프를 거쳐 엔진으로 향하는 정교한 공기역학 설계",
+    "category": "디자인"
+   },
+   {
+    "t": 17.0,
+    "point": "수동 조절식 리어 윙이 생성하는 500kg의 다운포스",
+    "category": "성능"
+   },
+   {
+    "t": 28.0,
+    "point": "타공 카본 세라믹 브레이크와 레이싱 규격 센터 락 휠",
+    "category": "성능"
+   },
+   {
+    "t": 35.0,
+    "point": "카본 파이버 보닛 적용 및 프렁크 적재 공간",
+    "category": "공간"
+   },
+   {
+    "t": 40.0,
+    "point": "최고출력 502마력, 450Nm 토크, 9000 RPM 고회전 및 런치 컨트롤",
+    "category": "성능"
+   },
+   {
+    "t": 51.0,
+    "point": "초고속 변속의 PDK 및 애플 카플레이, 크로노 패키지",
+    "category": "편의"
+   },
+   {
+    "t": 56.0,
+    "point": "옐로우 스티칭 알칸타라 스티어링 휠과 포르쉐 5연속 클러스터",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 60.0,
+   "text": "هتلاقيهم في Luxury Line Automotive، البنفسج 6، التجمع الأول",
+   "ko": "럭셔리 라인 오토모티브 매장(알 바나프세즈 6, 퍼스트 세틀먼트)을 방문하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "휠",
+    "트렁크",
+    "실내 앞",
+    "센터 화면",
+    "계기판"
+   ]
+  }
+ }
+}

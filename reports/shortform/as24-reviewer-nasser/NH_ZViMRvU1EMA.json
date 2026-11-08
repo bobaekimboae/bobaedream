@@ -1,0 +1,944 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/ZViMRvU1EMA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7811,
+  "candidatesTokenCount": 9854,
+  "totalTokenCount": 18544,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6648
+   }
+  ],
+  "thoughtsTokenCount": 879,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 73.0,
+   "aspect": "9:16",
+   "car": "Chery Arrizo 8",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 10.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 15.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 23.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 38.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 53.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 59.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 63.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.1,
+    "end": 66.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 70.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.0,
+    "end": 73.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.9,
+    "end": 5.0,
+    "text": "8 ARRIZO",
+    "ko": "아리조 8",
+    "kind": "제목",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#4CE8C5",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.8,
+    "text": "TURBO 1600cc / 197hp / 290Nm",
+    "ko": "터보 1600cc / 197마력 / 290Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 16.0,
+    "color": "#F1D26E",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "197hp",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.8,
+    "text": "استهلاك البنزين",
+    "ko": "연비 소모량",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#444444",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "10L / 100KM",
+    "ko": "100km당 10리터",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "10L",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "الأجمل",
+    "ko": "가장 아름다운 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF33",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 37.0,
+    "text": "EPS EBD ESP / 6 AIRBAGS",
+    "ko": "EPS EBD ESP / 에어백 6개",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6 AIRBAGS",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.8,
+    "text": "+400L",
+    "ko": "400리터 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 49.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFC043",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.1,
+    "end": 50.5,
+    "text": "CRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.0,
+    "text": "24.6\"",
+    "ko": "24.6인치 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 61.2,
+    "end": 62.8,
+    "text": "تبريد",
+    "ko": "통풍/냉풍",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#5BE5FF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 73.0,
+    "text": "150,000 KM / 6 سنين",
+    "ko": "15만km / 6년 보증",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#5BE5FF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "150,000 KM",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "쿵",
+    "event": "타이틀 그래픽 ARRIZO 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "휙",
+    "event": "엔진 후드 열림과 함께 스펙 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "딸깍",
+    "event": "스티어링 패들 시프트 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.9,
+    "type": "딸깍",
+    "event": "주유구 도어 오픈",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "띵",
+    "event": "사이드미러 사각지대 경고 아이콘 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.0,
+    "type": "톡",
+    "event": "맥퍼슨 서스펜션 3D 그래픽 부착",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "멀티링크 후륜 서스펜션 3D 그래픽 부착",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "톡",
+    "event": "안전 옵션 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 열리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "톡",
+    "event": "열선 스티어링 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.0,
+    "type": "톡",
+    "event": "24.6인치 스크린 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.5,
+    "type": "딸깍",
+    "event": "센터 콘솔 커버 슬라이드 오픈",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 106.5,
+    "type": "톡",
+    "event": "손가락 스냅(핑거스냅)으로 앰비언트 라이트 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.9,
+    "end": 5.0,
+    "what": "3D ARRIZO 8 로고 배경 합성",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "차명 각인",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.8,
+    "what": "엔진 스펙 플로팅 박스 카드",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 60.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 제원 강조",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "what": "연비 수치 그리드 배경 및 10L 텍스트",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 75.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "실연비 표시",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.0,
+    "what": "전륜 맥퍼슨 스트럿 3D 서스펜션 분해도",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "서스펜션 구조 시각화",
+    "sure": true
+   },
+   {
+    "start": 29.1,
+    "end": 30.5,
+    "what": "후륜 멀티링크 서스펜션 3D 분해도",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "서스펜션 구조 시각화",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.8,
+    "what": "트렁크 내부 3D 거대 용량 텍스트 (+400L)",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "트렁크 적재용량 강조",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.5,
+    "what": "CarPlay & Android Auto 플로팅 아이콘",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "폰 프로젝션 기능 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "أنا ناصر وأظن دي أحلى عربية تحت المليون ونص",
+    "ko": "저는 나세르입니다. 150만 EGP 이하에서 가장 멋진 차라고 생각합니다."
+   },
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "text": "شيري أريزو 8",
+    "ko": "체리 아리조 8입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 10.5,
+    "text": "مبدئياً تصميم العربية طويل وفخم جداً وهي أجمل من أغلب المنافسين الصينيين والكوريين وبدون ذكر أسماء",
+    "ko": "우선 차체 디자인이 길고 매우 고급스러우며 이름은 안 밝히겠지만 대부분의 중국·한국 경쟁 차종보다 예쁩니다."
+   },
+   {
+    "start": 10.5,
+    "end": 15.5,
+    "text": "والموتور 1600 تربو 197 حصان و 290 نيوتن متوصلين بـ",
+    "ko": "엔진은 1600cc 터보 197마력, 290토크가 매칭되어 있으며"
+   },
+   {
+    "start": 15.5,
+    "end": 18.0,
+    "text": "فتيس DCT بالباديل شيفترز",
+    "ko": "패들 시프트가 달린 DCT 변속기가 탑재됩니다."
+   },
+   {
+    "start": 18.0,
+    "end": 23.5,
+    "text": "وبالمناسبة استهلاك البنزين لو ماشي كويس من غير حركات نيد فور سبيد دي هتستهلك تحت الـ 10 مستريح بس لو هتجري أوهوه",
+    "ko": "참고로 연비는 니드포스피드처럼 쏘지 않고 얌전히 타면 100km당 10L 이하로 여유롭지만, 밟으면 많이 먹습니다."
+   },
+   {
+    "start": 23.5,
+    "end": 27.5,
+    "text": "وعندك بلايند سبوت وتاير بريشر مونيتور وأجمل جنط في الفئة بلا منازع",
+    "ko": "사각지대 감지, 공기압 모니터링이 있고 동급에서 압도적으로 가장 예쁜 휠이 들어갑니다."
+   },
+   {
+    "start": 27.5,
+    "end": 30.8,
+    "text": "والعفشة من قدام ماكفرسون ومن ورا مالتي لينك",
+    "ko": "서스펜션은 전륜 맥퍼슨, 후륜 멀티링크 방식입니다."
+   },
+   {
+    "start": 30.8,
+    "end": 33.0,
+    "text": "وعن تجربة دول خلوها ثابتة على الطرق السريعة",
+    "ko": "실제 주행해 보니 고속도로에서 매우 안정적이었습니다."
+   },
+   {
+    "start": 33.0,
+    "end": 38.8,
+    "text": "وعشان الأمان أهم حاجة عندك ABS, EBD, ESP و 6 إيرباج ومانع تصادم اللي بيحمي ضهر العربية من الموتوسيكلات",
+    "ko": "안전이 가장 중요하므로 ABS, EBD, ESP와 에어백 6개, 오토바이로부터 차량 후면을 보호하는 후방 충돌 방지가 있습니다."
+   },
+   {
+    "start": 38.8,
+    "end": 45.8,
+    "text": "ومن ورا أحلى كمان، عندك لايت بار شكله جميل جداً بالليل، كاميرات 360 وشنطة أكتر من 400 لتر",
+    "ko": "후면은 더 멋집니다. 밤에 정말 예쁜 라이트바, 360도 카메라, 400리터가 넘는 트렁크가 제공됩니다."
+   },
+   {
+    "start": 45.8,
+    "end": 53.5,
+    "text": "عندك تحكم في الكراسي من الببان، الدريكسيون جلد وفيه تسخين، أدابتف كروز كنترول، دبل سكرين أكتر من 24 إنش فيها آبل كاربلاي وأندرويد أوتو",
+    "ko": "도어에서 시트를 조절할 수 있고 열선 가죽 스티어링 휠, 어댑티브 크루즈, 카플레이/안드로이드 오토가 지원되는 24인치 넘는 듀얼 스크린이 있습니다."
+   },
+   {
+    "start": 53.5,
+    "end": 59.8,
+    "text": "شاحن وايرلس، اتنين كاب هولدرز، نوب للتحكم في الميديا، ومساحة تخزين واصل لها تبريد عشان المشروبات في الصيف",
+    "ko": "무선 충전기, 컵홀더 2개, 미디어 조그 다이얼, 여름철 음료를 위한 냉장 수납공간까지 갖췄습니다."
+   },
+   {
+    "start": 59.8,
+    "end": 63.0,
+    "text": "والكراسي بتاعتها كبيرة، مريحة، شكلها جميل، وفيها تسخين وتبريد",
+    "ko": "시트는 큼직하고 편안하며 예쁘고 통풍과 열선 모두 지원합니다."
+   },
+   {
+    "start": 63.0,
+    "end": 66.8,
+    "text": "عندك سقف بانوراما، والكنبة واسعة فعلاً، و8 سماعات من سوني",
+    "ko": "파노라마 선루프, 넉넉한 2열 공간, 8개의 소니 프리미엄 오디오 스피커가 있습니다."
+   },
+   {
+    "start": 66.8,
+    "end": 70.0,
+    "text": "ولو عملت كده، هيبقى عندك أمبينت لايتس جميلة جداً",
+    "ko": "그리고 이렇게 손가락을 튕기면 실내에 환상적인 앰비언트 라이트가 들어옵니다."
+   },
+   {
+    "start": 70.0,
+    "end": 73.0,
+    "text": "وبضمان غبور 6 سنين أو 150 ألف كيلو، اقتنعت؟",
+    "ko": "가부르 공식 보증 6년 또는 15만km입니다. 맘에 드셨나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "150만 EGP 이하 최고의 세단이라는 멘트로 시작하며 모델명 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.0,
+    "end": 10.5,
+    "speed": "보통",
+    "summary": "외관 디자인 비율과 고급감, 타사 대비 강점 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 10.5,
+    "end": 33.0,
+    "speed": "빠름",
+    "summary": "1.6T 엔진, DCT, 연비, 서스펜션 구조 및 고속 주행 안정성"
+   },
+   {
+    "stage": "기능",
+    "start": 33.0,
+    "end": 70.0,
+    "speed": "빠름",
+    "summary": "안전장치, 후면 라이트바, 트렁크, 실내 편의사양, 통풍시트, 앰비언트 라이트 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 70.0,
+    "end": 73.0,
+    "speed": "보통",
+    "summary": "공식 워런티 조건(6년/15만km) 전달 및 마무리 질문"
+   }
+  ],
+  "rules": [
+   "각 부품이나 옵션 명칭이 언급될 때 3D 트래킹 텍스트 및 서스펜션/부품 그래픽을 화면에 직접 매칭해 시각화한다.",
+   "실제 차 내부 수납함(냉장 기능)에서 차가운 캔을 꺼내는 등 실생활 체감형 연출을 적극 활용한다.",
+   "야간 조명(리어 라이트바, 앰비언트 라이트)은 손가락 스냅 효과음과 함께 밤 씬으로 전환하여 시각적 대비를 준다.",
+   "빠른 비트 음악과 템포에 맞춰 1~2초 간격으로 짧고 타이트하게 컷을 전환한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 15.5,
+    "end": 17.5,
+    "feature": "패들 시프트 및 DCT 변속기",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.2,
+    "feature": "사각지대 감지(BLIND SPOT)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "사이드미러 위 노란색/빨간색 차선 변경 차량 경고 아이콘",
+    "x_pct": 75.0,
+    "y_pct": 25.0,
+    "size_w_pct": 25.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "feature": "전륜 맥퍼슨 및 후륜 멀티링크 서스펜션",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차체 휠하우스 투시 3D 서스펜션 분해도 모델",
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 47.5,
+    "feature": "도어 트림 전동 시트 조절 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 48.0,
+    "y_pct": 40.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 49.0,
+    "feature": "열선 스티어링 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "주황색 열선 효과 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 59.5,
+    "feature": "냉장 센터 콘솔 쿨링 박스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "차가운 형광 음료수 캔을 콘솔에서 꺼내 들어 올림",
+    "x_pct": 60.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 60.8,
+    "end": 62.8,
+    "feature": "시트 통풍 기능",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "시트 표면에 파란색 냉각 격자 패턴 오버레이",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 45.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 70.0,
+    "feature": "멀티컬러 앰비언트 라이트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "야간 실내 전체 도어 및 대시보드 네온 조명 활성화",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 차 옆으로 걸어 나오며 '150만 이하에서 가장 멋진 차'라고 단언함",
+   "type": "가격",
+   "text": "أنا ناصر وأظن دي أحلى عربية تحت المليون ونص",
+   "ko": "저는 나세르입니다. 150만 EGP 이하에서 가장 멋진 차라고 생각합니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "150만 이집트 파운드 이하 최고의 가성비 디자인 세단",
+    "category": "가격·조건"
+   },
+   {
+    "t": 6.5,
+    "point": "경쟁 중국/한국산 세단보다 길고 고급스러운 외관 라인",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "1.6 가솔린 터보 197마력, 290Nm 출력과 DCT 변속기 조합",
+    "category": "성능"
+   },
+   {
+    "t": 20.0,
+    "point": "얌전한 정속 주행 시 100km당 10L 이하 연비 유지",
+    "category": "성능"
+   },
+   {
+    "t": 28.5,
+    "point": "전륜 맥퍼슨, 후륜 멀티링크 독립현가로 뛰어난 고속 안정성",
+    "category": "성능"
+   },
+   {
+    "t": 35.0,
+    "point": "6에어백 및 오토바이 후방 추돌 감지 방지 시스템 탑재",
+    "category": "안전"
+   },
+   {
+    "t": 44.0,
+    "point": "400리터 이상의 넉넉한 전동 트렁크 공간",
+    "category": "공간"
+   },
+   {
+    "t": 51.0,
+    "point": "24.6인치 일체형 디스플레이 및 카플레이/안드로이드 오토 지원",
+    "category": "편의"
+   },
+   {
+    "t": 57.0,
+    "point": "여름철을 위한 센터 콘솔 쿨링 박스 냉장 수납함",
+    "category": "편의"
+   },
+   {
+    "t": 61.5,
+    "point": "열선 및 통풍 시트 동시 지원",
+    "category": "편의"
+   },
+   {
+    "t": 71.0,
+    "point": "공식 딜러 가부르(Ghabbour) 6년 또는 15만km 워런티",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 72.0,
+   "text": "اقتنعت؟",
+   "ko": "마음에 드셨나요? (댓글 유도)",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "엔진룸",
+    "실내 운전석",
+    "외관 측면/주유구",
+    "휠/서스펜션",
+    "외관 후면",
+    "도어/시트",
+    "트렁크",
+    "센터 디스플레이",
+    "센터 콘솔",
+    "시트",
+    "뒷좌석",
+    "실내 앰비언트 라이트",
+    "외관 전면"
+   ]
+  }
+ }
+}

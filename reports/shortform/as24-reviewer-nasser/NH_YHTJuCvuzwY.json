@@ -1,0 +1,844 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/YHTJuCvuzwY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6530,
+  "candidatesTokenCount": 8654,
+  "totalTokenCount": 15974,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5367
+   }
+  ],
+  "thoughtsTokenCount": 790,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.5,
+   "aspect": "9:16",
+   "car": "하발 H7 하이브리드 (Haval H7 HEV)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 7.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 14.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.7,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.3,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 27.2,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.1,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 34.6,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 39.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 44.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.1,
+    "end": 48.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 53.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 58.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "text": "HAVAL H7 HYBRID",
+    "ko": "하발 H7 하이브리드",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 6.8,
+    "text": "TURBO 1500cc 240hp",
+    "ko": "1500cc 터보 240마력",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FEE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.5,
+    "text": "530Nm",
+    "ko": "530Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 10.8,
+    "text": "300Nm",
+    "ko": "하이브리드 모터 300Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.0,
+    "color": "#FFDD00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "بيحسن استهلاك البنزين",
+    "ko": "연비 향상",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#C87820",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "<7L / 100 KM",
+    "ko": "100km당 7L 미만",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 6.5,
+    "color": "#FFF033",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.8,
+    "text": "تسخين",
+    "ko": "시트 열선/통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.5,
+    "color": "#FFA500",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.0,
+    "text": "تسخين",
+    "ko": "핸들 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFA500",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.2,
+    "text": "BLINDSPOT ASSIST",
+    "ko": "사각지대 경고",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 43.5,
+    "text": "GROUND CLEARANCE 210 MM",
+    "ko": "최저지상고 210mm",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#333333",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "210 MM",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 56.6,
+    "text": "480L",
+    "ko": "트렁크 용량 480리터",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.8,
+    "end": 58.5,
+    "text": "1360L",
+    "ko": "폴딩 시 1360리터",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 12.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.6,
+    "type": "쿵",
+    "event": "HAVAL H7 거대 로고 폭발 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "휙",
+    "event": "엔진 스펙 3D 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "쿵",
+    "event": "530Nm 토크 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "톡",
+    "event": "HEV 전기모터 그래픽 및 300Nm 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "휙",
+    "event": "계기판 연비 게이지 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.2,
+    "type": "휙",
+    "event": "하늘에서 연비 수치로 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.1,
+    "type": "톡",
+    "event": "본넷 위 3D 엔진 홀로그램 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "휙",
+    "event": "시트 열선 불꽃 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "띵",
+    "event": "540도 카메라 및 애플 카플레이 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "무선충전 패드 전파 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.4,
+    "type": "휙",
+    "event": "스티어링 휠 열선 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "띵",
+    "event": "사각지대 경고 아이콘 사이드미러에 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 손잡이 조작 딸깍 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "휙",
+    "event": "최저지상고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "띵",
+    "event": "휠에 근육질 팔 그래픽 합성 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.8,
+    "type": "쿵",
+    "event": "트렁크 480L 3D 텍스트 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 56.8,
+    "type": "쿵",
+    "event": "시트 폴딩 1360L 3D 텍스트 팝업",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 트랩 비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 신나는",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "인트로 비트 시작"
+    },
+    {
+     "t": 39.8,
+     "what": "지상고 파트 비트 유지"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.5,
+    "end": 3.4,
+    "what": "거대 HAVAL H7 3D 텍스트 및 모래 폭발 효과",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 임팩트 전달",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.8,
+    "what": "하이브리드 모터 3D 렌더링 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "HEV 전기모터 토크 설명",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 18.5,
+    "what": "본넷 위 3D 엔진 홀로그램 (과열 빨간색 -> 안정 하늘색)",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 55.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 내구성 및 정숙성 시각화",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.0,
+    "what": "휠에 바벨을 든 만화 근육 팔 합성",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 75.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "휠과 차체의 단단함/근육질 느낌 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "أنا ناصر وهافال عملوا دبابة، هافال H7 هايبرد",
+    "ko": "저는 나사르입니다. 하발이 탱크 같은 차를 만들었습니다. 하발 H7 하이브리드!"
+   },
+   {
+    "start": 3.5,
+    "end": 7.3,
+    "text": "الماتور 1500 تربو 240 حصان وهنا تحس إنها شبه المنافسين",
+    "ko": "엔진은 1500cc 터보 240마력으로 경쟁 모델들과 비슷해 보이지만,"
+   },
+   {
+    "start": 7.4,
+    "end": 11.0,
+    "text": "بس العزم هنا 530 نيوتن، منهم 300 من الماتور الهايبرد",
+    "ko": "토크는 무려 530Nm이고 그중 300Nm은 하이브리드 모터에서 나옵니다."
+   },
+   {
+    "start": 11.1,
+    "end": 14.8,
+    "text": "وده حسن استهلاك البنزين جداً، وصله لتحت السبعة",
+    "ko": "이 덕분에 연비가 대폭 개선되어 100km당 7리터 미만으로 떨어졌습니다."
+   },
+   {
+    "start": 14.9,
+    "end": 18.7,
+    "text": "وده خلى صوت الموتور ما بيعلاش وما ياكلش في نفسه، فـ إن شاء الله تعيش معاك أكثر",
+    "ko": "엔진 회전수가 과도하게 올라가지 않아 엔진 소음도 적고 마모도 덜해 오래 탑니다."
+   },
+   {
+    "start": 18.8,
+    "end": 24.3,
+    "text": "ومن جوه عندك الكراسي تسخين وتبريد، كاميرات 540، آبل كاربلاي وأندرويد أوتو، شاحن وايرلس",
+    "ko": "실내에는 통풍/열선 시트, 540도 어라운드 뷰, 카플레이/안드로이드 오토, 무선 충전기가 있고,"
+   },
+   {
+    "start": 24.4,
+    "end": 29.8,
+    "text": "دريكسيون مالتي فنكشن وفيه تسخين، بلايند سبوت اسيست، ديجيتال ديسبلاي وهيد اب ديسبلاي",
+    "ko": "열선 다기능 핸들, 사각지대 경고, 디지털 클러스터, HUD까지 탑재되어 있습니다."
+   },
+   {
+    "start": 29.9,
+    "end": 34.6,
+    "text": "درايف مود سلكتور، مكان عشان تحط حاجتك أو تمسك نفسك، كاب هولدر، وشكل المسامير والمقابض بيعنفوا التصميم",
+    "ko": "드라이브 모드 다이얼, 보조 손잡이, 컵홀더, 볼트와 손잡이 디테일이 거친 매력을 더합니다."
+   },
+   {
+    "start": 34.7,
+    "end": 39.8,
+    "text": "وعندك سقف بانوراما، وشماسات عشان الخصوصية، مساحة الرجلين كويسة، وكده يبقى فيها كل حاجة",
+    "ko": "파노라마 선루프, 프라이버시 커튼, 넓은 2열 레그룸까지 필요한 건 다 갖췄습니다."
+   },
+   {
+    "start": 39.9,
+    "end": 44.0,
+    "text": "وعالية جداً عن الأرض، فلا تخاف من مطبات ولا من حفر",
+    "ko": "지상고가 매우 높아 방지턱이나 패인 도로도 걱정 없습니다."
+   },
+   {
+    "start": 44.1,
+    "end": 53.0,
+    "text": "وش العربية تحسه بيروح الجيم، عضلات قوية على الكبوت، وش مكشر، عضلات في الجناب وحتى الجنط تحسه رايح الجيم",
+    "ko": "차 전면부는 헬스장에 다니는 듯 근육질 보닛과 강인한 인상, 펜더 볼륨, 휠까지 탄탄합니다."
+   },
+   {
+    "start": 53.1,
+    "end": 58.5,
+    "text": "وعندك شنطة كهربا بتفتح بالرجل 480 لتر، أو 1360 لتر لما تنزل الكراسي",
+    "ko": "발 동작으로 열리는 스마트 전동 트렁크는 480리터, 시트를 접으면 1360리터입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "하발에서 탱크 같은 H7 하이브리드를 만들었다고 강렬한 VFX로 인트로 훅"
+   },
+   {
+    "stage": "사양",
+    "start": 3.4,
+    "end": 18.7,
+    "speed": "빠름",
+    "summary": "터보 엔진 마력, 전기모터 합산 토크 530Nm, 뛰어난 연비와 엔진 내구성 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 18.7,
+    "end": 39.8,
+    "speed": "빠름",
+    "summary": "시트 통풍/열선, 540도 카메라, HUD, 투박하고 견고한 오프로더 감성 실내 및 2열 공간"
+   },
+   {
+    "stage": "차 소개",
+    "start": 39.8,
+    "end": 58.5,
+    "speed": "빠름",
+    "summary": "210mm 지상고 누워서 시연, 근육질 외관 디자인, 킥모션 전동 트렁크 용량"
+   }
+  ],
+  "rules": [
+   "말하는 부위나 스펙에 맞춰 트래킹 3D 텍스트나 그래픽을 즉각 띄워 몰입도 극대화",
+   "화려한 3D 그래픽(엔진 홀로그램, 거대 텍스트, 근육 팔)으로 지루하지 않게 시각적 보충",
+   "기능이나 수치가 언급될 때마다 임팩트 있는 효과음(쿵, 휙, 띵)을 1:1로 정확히 동기화",
+   "지상고를 직접 차량 뒤에 누워서 설명하는 등 파격적이고 유쾌한 동작으로 시선 고정",
+   "단점 나열보다 장점과 편의 기능을 템포 빠르게 압축 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 19.3,
+    "end": 20.8,
+    "feature": "시트 열선 및 통풍",
+    "shown_how": "글자 카드",
+    "icon_desc": "시트 위에 주황색 불꽃 모티브의 아랍어 열선 텍스트",
+    "x_pct": 45.0,
+    "y_pct": 30.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "feature": "540도 어라운드 뷰 모니터 및 스마트폰 연동",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "카메라 540도 아이콘 및 카플레이/안드로이드오토 로고",
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "feature": "스마트폰 무선 충전",
+    "shown_how": "글자 카드",
+    "icon_desc": "무선 충전 패드 위에 와이파이 모양 전파 기호와 영문 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 68.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.2,
+    "feature": "사각지대 어시스트 (BLIS)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "사이드미러 옆 두 대의 차량 충돌 경고 아이콘",
+    "x_pct": 28.0,
+    "y_pct": 38.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 56.5,
+    "feature": "핸즈프리 스마트 전동 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "발 킥 모션으로 트렁크가 전동으로 열림",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 모래 위에서 차를 가리키며 '하발이 탱크를 만들었다'고 외치자 뒤에서 거대 하발 로고가 폭발하듯 나타남",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر وهافال عملوا دبابة، هافال H7 هايبرد",
+   "ko": "저는 나사르입니다. 하발이 탱크를 만들었습니다. 하발 H7 하이브리드!"
+  },
+  "narration_points": [
+   {
+    "t": 3.5,
+    "point": "1.5L 터보 240마력 하이브리드 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 7.4,
+    "point": "최대 토크 530Nm (전기모터 300Nm 기여)",
+    "category": "성능"
+   },
+   {
+    "t": 11.2,
+    "point": "100km당 7L 미만의 우수한 연비",
+    "category": "성능"
+   },
+   {
+    "t": 19.0,
+    "point": "통풍/열선 시트, 540도 뷰, 무선충전, HUD 등 풍부한 편의옵션",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "파노라마 선루프와 넓은 뒷좌석 거주성",
+    "category": "공간"
+   },
+   {
+    "t": 40.0,
+    "point": "험로도 걱정 없는 210mm의 높은 지상고",
+    "category": "성능"
+   },
+   {
+    "t": 44.5,
+    "point": "헬스장에서 운동한 듯 각지고 다부진 근육질 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 54.0,
+    "point": "전동 킥모션 테일게이트 및 480L~1360L 트렁크 공간",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "외관 측면",
+    "엔진룸",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 후면",
+    "외관 전면",
+    "외관 측면",
+    "트렁크"
+   ]
+  }
+ }
+}

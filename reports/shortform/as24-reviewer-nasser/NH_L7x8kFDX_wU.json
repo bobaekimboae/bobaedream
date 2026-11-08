@@ -1,0 +1,995 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/L7x8kFDX_wU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5174,
+  "candidatesTokenCount": 8173,
+  "totalTokenCount": 13347,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4011
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.3,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLC 300 Coupe / GLC",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 30.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.3,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 36.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 37.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 39.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 44.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.4,
+    "end": 2.4,
+    "text": "تعالى اركبك GLC",
+    "ko": "GLC 태워드릴게요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GLC",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "زي ما سمعت",
+    "ko": "들으신 대로",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.4,
+    "text": "بس دا موديل 2024",
+    "ko": "하지만 이건 2024년식",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.1,
+    "text": "كل العربيات زيرو",
+    "ko": "모든 차량 신차(제로 마일)",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 10.1,
+    "text": "منها الاسود والابيض",
+    "ko": "블랙과 화이트",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.4,
+    "text": "ورمادي وكلهم فرش جملي",
+    "ko": "그레이, 모두 카멜 시트",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "فرش ابيض دا spec خطير",
+    "ko": "화이트 시트, 이 옵션은 대박",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "spec",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.0,
+    "text": "موديل السنة GLC 300",
+    "ko": "올해 모델 GLC 300",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GLC 300",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.8,
+    "text": "اشتري 2024 ووفر فلوسك",
+    "ko": "2024년식 사고 돈을 아끼세요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.0,
+    "text": "سقف بانوراما",
+    "ko": "파노라마 선루프",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.0,
+    "text": "الشيشيني موتورز",
+    "ko": "엘 셰셰니 모터스",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "GLC 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "휙",
+    "event": "장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.2,
+    "type": "돈 소리",
+    "event": "4,950,000 가격 카운팅",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "휙",
+    "event": "차량 줌인 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "휙",
+    "event": "화이트 차량 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "휙",
+    "event": "그레이 차량 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "실내 도어 오픈 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "띵",
+    "event": "카본 파이버 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "톡",
+    "event": "2026 연식 3D 글자 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "휙",
+    "event": "선루프 개방 가리키기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.3,
+    "type": "띵",
+    "event": "Blind Spot Assist 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "톡",
+    "event": "Digital Display 텍스트 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 34.4,
+    "type": "톡",
+    "event": "열선/통풍 시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.0,
+    "type": "톡",
+    "event": "4 Zone 에어컨 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.1,
+    "type": "톡",
+    "event": "Burmester 오디오 로고 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.3,
+    "type": "톡",
+    "event": "AMG Night Package 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 3.4,
+    "what": "벤츠 로고 및 3D GLC 가격 (4,950,000 EGP)",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 안내 및 훅",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.0,
+    "what": "4,950,000 네온 그린 가격 텍스트",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "타자",
+    "purpose": "가격 강조",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 17.5,
+    "what": "GLC 300 2025 3D 입체 텍스트",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 55.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "신차 연식 강조",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.8,
+    "what": "Carbon Fiber 영문 트래킹 텍스트",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 80.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "실내 소재 강조",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "what": "GLC 2026 3D 골드 텍스트",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 75.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "미래 연식 안내",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.8,
+    "what": "2024 3D 골드 텍스트 및 오버레이",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "추천 연식 강조",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 27.6,
+    "what": "Panorama 영문 타이포그래피",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 25.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "옵션 설명",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "what": "Apple CarPlay 및 Android Auto 3D 로고",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 80.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스마트폰 연동 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.8,
+    "what": "Blind Spot Assist 트래킹 핀 & 텍스트",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 45.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.0,
+    "what": "Digital Display 3D 골드 텍스트",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "계기판 디스플레이 강조",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.0,
+    "what": "4 Zone 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 75.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "공조 시스템 옵션",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.0,
+    "what": "Burmester 필기체 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 60.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사운드 시스템 옵션",
+    "sure": true
+   },
+   {
+    "start": 38.2,
+    "end": 39.8,
+    "what": "AMG Night Package 그래픽 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "외장/트림 패키지 강조",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.0,
+    "what": "전시장 주소 안내 네온 간판 그래픽",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "تعالى اركبك GLC ب 4 مليون 950",
+    "ko": "495만 파운드에 GLC 태워드릴게요"
+   },
+   {
+    "start": 3.4,
+    "end": 7.4,
+    "text": "زي ما سمعت ب 4 مليون 950 بس دا موديل 2024",
+    "ko": "들으신 대로 495만 파운드입니다. 단 이건 2024년식이에요"
+   },
+   {
+    "start": 7.4,
+    "end": 11.5,
+    "text": "كل العربيات زيرو منها الاسود والابيض ورمادي وكلهم فرش جملي",
+    "ko": "모든 차는 신차고 블랙, 화이트, 그레이 색상에 카멜 시트입니다"
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "text": "واحدة بس اسود فرش ابيض ال spec دا خطير",
+    "ko": "단 한 대만 블랙에 화이트 시트인데, 이 옵션은 정말 멋집니다"
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "text": "ولو عايز موديل السنة GLC 300 2025",
+    "ko": "올해 모델을 원하시면 GLC 300 2025년식도 있습니다"
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "الوحيدة فرش احمر والشكل الكاربون فايبر",
+    "ko": "유일한 레드 시트에 카본 파이버 트림입니다"
+   },
+   {
+    "start": 20.0,
+    "end": 23.5,
+    "text": "وموديل السنة الجاية موجود ال 26 وبسعر خطير",
+    "ko": "내년 모델인 2026년식도 입고 예정이고 가격도 훌륭합니다"
+   },
+   {
+    "start": 23.5,
+    "end": 26.0,
+    "text": "ورأيي الشخصي اشتري ال 24 ووفر فلوسك",
+    "ko": "제 개인적인 의견은 24년식을 사서 돈을 아끼세요"
+   },
+   {
+    "start": 26.0,
+    "end": 30.5,
+    "text": "وكلهم فيهم سقف بانوراما، كاميرات 360، ابل كاربلاي، اندرويد اوتو",
+    "ko": "전 차량에 파노라마 루프, 360도 카메라, 애플 카플레이, 안드로이드 오토 탑재"
+   },
+   {
+    "start": 30.5,
+    "end": 33.3,
+    "text": "هيد اب ديسبلاي، بلايند سبوت اسيست، ديجيتال ديسبلاي",
+    "ko": "HUD, 사각지대 경고, 디지털 계기판"
+   },
+   {
+    "start": 33.3,
+    "end": 35.8,
+    "text": "والكراسي فيها تسخين وتبريد وميموري",
+    "ko": "시트는 열선, 통풍, 메모리 기능 포함"
+   },
+   {
+    "start": 35.8,
+    "end": 39.8,
+    "text": "وتكييف فور زون وسماعات بورمستر ونايت باكيدج و AMG",
+    "ko": "4존 에어컨, 부메스터 오디오, 나이트 패키지 및 AMG 라인"
+   },
+   {
+    "start": 39.8,
+    "end": 44.3,
+    "text": "واهم حاجة هتلاقيهم في الشيشيني موتورز في 7 حافظ رمضان بجوار النادي الاهلي",
+    "ko": "가장 중요한 건 엘 셰셰니 모터스(알 아흘리 클럽 옆 하페즈 라마단 7번가)에서 만날 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "파격 가격 495만 제시하며 전시장 앞에서 러닝 입장"
+   },
+   {
+    "stage": "가격",
+    "start": 3.4,
+    "end": 7.4,
+    "speed": "보통",
+    "summary": "2024년식 GLC 재고 및 파격가 재확인"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.4,
+    "end": 14.8,
+    "speed": "빠름",
+    "summary": "차량 외장 색상(블랙/화이트/그레이)과 실내 시트(카멜/화이트) 매칭 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 14.8,
+    "end": 26.0,
+    "speed": "빠름",
+    "summary": "2025 GLC 300 레드 시트 카본 트림 소개 및 연식별 비교 조언"
+   },
+   {
+    "stage": "기능",
+    "start": 26.0,
+    "end": 39.8,
+    "speed": "빠름",
+    "summary": "루프, 360 카메라, HUD, 통풍시트, 부메스터 등 주요 풀옵션 연속 하이라이트"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.8,
+    "end": 44.3,
+    "speed": "보통",
+    "summary": "전시장 주소 안내 및 방문 유도 CTA"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 밖에서 안으로 뛰어 들어오며 강렬한 가격 숫자로 첫 3초 시선 집중",
+   "화면 상단에 실물과 매칭되는 대형 3D 타이포그래피(연식, 가격, 옵션명)를 배치해 정보 전달 극대화",
+   "빠른 말 속도에 맞춰 컷 편집을 1~2초 단위로 비트에 맞춰 쪼개어 속도감 유지",
+   "실내 옵션(선루프, 카플레이, HUD, 공조기, 스피커)을 손가락으로 짚을 때마다 모션 그래픽과 싱크 효과음 삽입"
+  ],
+  "option_highlights": [
+   {
+    "start": 26.5,
+    "end": 27.6,
+    "feature": "파노라마 선루프",
+    "shown_how": "글자 카드",
+    "icon_desc": "Panorama 3D 입체 영문 텍스트",
+    "x_pct": 25.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "feature": "애플 카플레이 / 안드로이드 오토",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "녹색 카플레이 및 파란색 안드로이드 오토 3D 앱 아이콘",
+    "x_pct": 82.0,
+    "y_pct": 33.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.5,
+    "feature": "사각지대 어시스트 (Blind Spot Assist)",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "사이드미러 위 레이더 파동 모션 핀과 텍스트",
+    "x_pct": 45.0,
+    "y_pct": 22.0,
+    "size_w_pct": 40.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 33.5,
+    "feature": "디지털 클러스터 계기판",
+    "shown_how": "글자 카드",
+    "icon_desc": "Digital Display 골드 네온 3D 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.5,
+    "feature": "통풍 및 열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 등받이에 푸른색 쿨링 바람 그래픽 애니메이션",
+    "x_pct": 38.0,
+    "y_pct": 65.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 36.8,
+    "feature": "4존 자동 에어컨",
+    "shown_how": "글자 카드",
+    "icon_desc": "4 Zone 3D 입체 텍스트",
+    "x_pct": 75.0,
+    "y_pct": 25.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 37.8,
+    "feature": "부메스터 프리미엄 사운드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "도어 스피커 위 Burmester 공식 필기체 로고",
+    "x_pct": 60.0,
+    "y_pct": 65.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.8,
+    "feature": "AMG 나이트 패키지",
+    "shown_how": "글자 카드",
+    "icon_desc": "AMG 로고 및 NIGHT PACKAGE 볼드 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 매장 계단에서 카메라 쪽으로 뛰어나오며 GLC를 495만 파운드에 타라는 파격 제안을 던짐",
+   "type": "가격",
+   "text": "تعالى اركبك GLC ب 4 مليون 950",
+   "ko": "495만 파운드에 GLC 타러 오세요"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "495만 파운드라는 파격적인 GLC 가격 제시",
+    "category": "가격·조건"
+   },
+   {
+    "t": 5.8,
+    "point": "2024년식 제로 마일 신차 재고 다수 보유",
+    "category": "상태"
+   },
+   {
+    "t": 9.5,
+    "point": "블랙/화이트/그레이 외장과 카멜 시트 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 12.5,
+    "point": "희귀한 블랙 외장 & 화이트 시트 스펙 보유",
+    "category": "희소성"
+   },
+   {
+    "t": 16.0,
+    "point": "2025년식 GLC 300 레드 시트 및 카본 트림 소개",
+    "category": "디자인"
+   },
+   {
+    "t": 24.0,
+    "point": "가격 가성비 관점에서 2024년식 구매 추천",
+    "category": "가격·조건"
+   },
+   {
+    "t": 28.0,
+    "point": "파노라마 루프, 360도 카메라, 카플레이 등 풀옵션 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 31.5,
+    "point": "HUD, 사각지대 어시스트 등 첨단 안전 기능 장착",
+    "category": "안전"
+   },
+   {
+    "t": 34.5,
+    "point": "통풍·열선 시트, 4존 에어컨, 부메스터 오디오, AMG 나이트 패키지 장착",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 41.5,
+   "text": "الشيشيني موتورز - 7 حافظ رمضان بجوار النادي الاهلي",
+   "ko": "엘 셰셰니 모터스 (알 아흘리 클럽 옆 7 하페즈 라마단)로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "딜러",
+   "part_order": [
+    "전시장 전경",
+    "외관 전면",
+    "실내 앞",
+    "외관 측면",
+    "센터 화면",
+    "계기판",
+    "뒷좌석",
+    "전시장 전경"
+   ]
+  }
+ }
+}
