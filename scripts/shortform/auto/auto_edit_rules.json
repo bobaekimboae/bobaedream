@@ -911,8 +911,8 @@
  "voice": {
   "_why": "사용자 지시 2026-11-09: 일레븐랩스도 AI 티 벗겨내기. 일레븐랩스 v4 공식 안내(숫자는 글로 쓴 그대로, 태그는 분위기가 바뀌는 곳에만, 안정도 낮추면 억양이 다양) + 원본 NL·BE 말투",
   "model": "eleven_v4",
-  "voice_id": "dnZGOA54w68T7vLLPFTp",
-  "voice_name": "Klamon - Bright, Warm, Clear & Friendly",
+  "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
+  "voice_name": "Minho - Seoul Creative Clear Voice (30대 서울 남성)",
   "numbers": "digits",
   "settings": {
    "stability": 0.35,
@@ -951,8 +951,17 @@
     "name": "Rowan - Warm and Gentle",
     "age": "middle_aged"
    },
-   "_note": "2026-11-10 사용자 「목소리 조금 나이 올리자」 — 사용자가 고르면 voice_id 교체"
-  }
+   "_note": "2026-11-10 사용자 「목소리 조금 나이 올리자」 — 사용자가 고르면 voice_id 교체",
+   "C": {
+    "voice_id": "q5opP0zJPCcJBRD3F5Ay",
+    "name": "jake korean (30대 중후반 리뷰 톤)"
+   },
+   "D": {
+    "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
+    "name": "Minho (30대 SNS 톤) — 채택"
+   }
+  },
+  "_voice_note": "2026-11-10 사용자 「30대로」→「D로」: 기본 목소리 Klamon(dnZGOA54w68T7vLLPFTp) → Minho. 후보 기록은 candidates_older"
  },
  "chip_priority": {
   "_note": "숫자가 작을수록 먼저 뺀다. 옵션 칩은 가장 나중",
