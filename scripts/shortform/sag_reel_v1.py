@@ -852,7 +852,7 @@ def _sticker_core(txt, size=72, tilt=-2.0, big=False, no_mark=False):
             h = int(h * 1.35)  # 두 줄 붓은 글자가 두 획을 덮도록 조금 높게
         mask = theme_mask(w, h, theme_pick(kind, w, h), margin=m)
         keep = STYLE.get('stk_bg'), STYLE.get('stk_fg')
-        STYLE['stk_bg'], STYLE['stk_fg'] = tk['color'], (0, 0, 0)
+        STYLE['stk_bg'], STYLE['stk_fg'] = STYLE.get('cap_kw_col') or tk['color'], (0, 0, 0)  # 2026-11-10 사용자: 칩 색은 모두 원본 영상 노랑(칠 모양만 노션 원본)
         try:
             return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
         finally:
