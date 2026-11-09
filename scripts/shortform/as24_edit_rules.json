@@ -1,0 +1,48 @@
+{
+  "version": "v3-2026-11-09",
+  "source": "docs/shortform/as24-edit-skeleton-v3.md (NL 200 + BE 198 shorts, 317 overlays judged)",
+  "frame": {"w": 1080, "h": 1920, "safe_bottom_pct": 20},
+  "bands": {
+    "top": {"cy_pct": 24, "range": [17, 38]},
+    "mid": {"cy_pct": 55, "range": [50, 59]},
+    "low": {"cy_pct": 70, "range": [61, 76]}
+  },
+  "part_side": {
+    "seats": "low", "speaker": "low", "screen_infotainment": "low", "steering_wheel": "low",
+    "gear_shifter": "top", "trunk": "low", "wheel_rim": "top", "headlight": "low", "grille": "mid",
+    "exterior_rear": "top", "mirror": "top", "exterior_front": "top", "exterior_3_4": "top",
+    "exterior_side": "top", "person": "mid", "interior_dash": "top", "door": "mid", "unknown": "mid"
+  },
+  "styles": {
+    "nl": {
+      "label": {"bg": "#000000", "fg": "#FFD400", "case": "upper", "tilt_deg": 0, "w_pct": 47, "h_pct": 3.6, "hold_s": 1.3, "lead_s": 0.06, "entry": ["full", "typewriter_glow"], "sfx": "pop"},
+      "number": {"bg": null, "fg": "#FFD400", "stroke": "#000000", "tilt_deg": 0, "band": "top", "hold_s": 1.3, "lead_s": 0.22, "entry": ["full", "countup"], "hide_speech": true, "sfx": "pop_or_none"},
+      "check_list": {"prefix": "✓ ", "max_lines": 3},
+      "end_logo": {"hold_s": 1.6, "entry": "scale_up", "sfx": "ding"}
+    },
+    "be": {
+      "label": {"bg": "#FFD400", "shape": "brush_tape", "fg": "#000000", "case": "as_spoken", "tilt_deg": 2.7, "w_pct": 63, "h_pct": 10.8, "hold_s": 1.8, "lead_s": 0.16, "entry": ["tape_then_text", "pop_scale"], "sfx": "none"},
+      "price": {"shape": "brush_tape", "tilt_deg": -6, "band": "top"},
+      "number": {"fg": "#000000", "shadow": "#FFD400", "band": "top", "hold_s": 1.4, "sfx": "none"},
+      "end_logo": {"band": "top", "hold_s": 1.3, "entry": "scale_up", "sfx": "none"}
+    },
+    "bobae": {
+      "_fixed": "user decision 2026-11-08: chip blue #306BD9 + white, karaoke yellow #EEEF05 only",
+      "label": {"bg": "#306BD9", "fg": "#FFFFFF", "case": "as_spoken", "tilt_deg": 0, "w_pct": 47, "h_pct": 4.2, "hold_s": 1.3, "lead_s": 0.06, "entry": ["full", "typewriter_glow"], "sfx": "pop"},
+      "label_be_variant": {"bg": "#306BD9", "shape": "brush_tape", "fg": "#FFFFFF", "tilt_deg": 2.7, "entry": ["tape_then_text"], "sfx": "pop"},
+      "number": {"fg": "#FFFFFF", "stroke": "#000000", "band": "top", "hold_s": 1.3, "lead_s": 0.22, "hide_speech": true, "sfx": "pop"},
+      "check_list": {"prefix": "✓ ", "max_lines": 3},
+      "end_logo": {"hold_s": 2.0, "entry": "scale_up", "sfx": "ding"}
+    }
+  },
+  "rules": {
+    "min_shot_s": 0.8,
+    "max_chars_one_line": 16,
+    "sfx_min_gap_s": 0.6,
+    "list_after_n_options": 3,
+    "number_topics": ["price", "mileage", "year", "power"],
+    "wide_parts_for_numbers": ["exterior_front", "exterior_3_4", "exterior_side", "exterior_rear"],
+    "never_cover_part": true,
+    "keep_slot_and_swap_text_within_shot": true
+  }
+}
