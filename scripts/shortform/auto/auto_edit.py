@@ -271,6 +271,9 @@ def make_script_nasser(F, style, shots=None):
         elif ps:
             ph.append(W(f'최고출력은 {int(ps)}마력입니다.'))
             st.append((f'{int(ps)}마력', 0, {}))
+        elif eng:  # 2026-11-10 차란차 매물: 마력 정보 없음 → 배기량·연료(매물 정보)만, 구동이 있으면 이어서
+            ph.append(W(f"{eng} 엔진에, {F['drive']} 구동입니다." if F.get('drive') else f'{eng} 엔진입니다.'))
+            st.append((eng, 0, {}))
         if long and F.get('drive') and ps:
             ph.append(W(f"{F['drive']} 구동입니다."))
             st.append((f"{F['drive']} 구동", len(ph) - 1, {}))

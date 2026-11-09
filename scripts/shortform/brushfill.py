@@ -125,10 +125,12 @@ def original_mask(w: int, h: int, name: str | None = None, margin: int = 0) -> I
 
     name = name or pick_original(w, h)
     path = os.path.join(ORIGINAL_DIR, name + ".svg")
-    png = subprocess.run(["rsvg-convert", "-w", str(w), "-h", str(h), path], check=True, capture_output=True).stdout
+    png = subprocess.run(["rsvg-convert", "-w", str(w * 2), "-h", str(h * 2), path], check=True, capture_output=True).stdout
     im = Image.open(io.BytesIO(png)).convert("RGBA")
-    if im.size != (w, h):
-        im = im.resize((w, h), Image.LANCZOS)
+    bb = im.getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
+    if bb:  # 원본 파일 안 투명 여백을 빼고 칠 모양만 칸에 꽉 채움(파일 자체는 그대로)
+        im = im.crop(bb)
+    im = im.resize((w, h), Image.LANCZOS)
     m = Image.new("L", (w + margin * 2, h + margin * 2), 0)
     m.paste(im.getchannel("A"), (margin, margin))
     return m
@@ -156,10 +158,12 @@ def theme_mask(w: int, h: int, name: str, margin: int = 0) -> Image.Image:
     import subprocess
 
     path = os.path.join(THEME_DIR, name + ".svg")
-    png = subprocess.run(["rsvg-convert", "-w", str(w), "-h", str(h), path], check=True, capture_output=True).stdout
+    png = subprocess.run(["rsvg-convert", "-w", str(w * 2), "-h", str(h * 2), path], check=True, capture_output=True).stdout
     im = Image.open(io.BytesIO(png)).convert("RGBA")
-    if im.size != (w, h):
-        im = im.resize((w, h), Image.LANCZOS)
+    bb = im.getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
+    if bb:  # 원본 파일 안 투명 여백을 빼고 칠 모양만 칸에 꽉 채움(파일 자체는 그대로)
+        im = im.crop(bb)
+    im = im.resize((w, h), Image.LANCZOS)
     m = Image.new("L", (w + margin * 2, h + margin * 2), 0)
     m.paste(im.getchannel("A"), (margin, margin))
     return m

@@ -86,12 +86,12 @@ EDIT_PRESETS = {
     'bobae_nl': dict(chip_theme=True, cap_style='plain', cap_kw_col=(244, 242, 9), stk_bg=(0, 0, 0), stk_fg=(244, 242, 9),  # 2026-11-10 원본 100% 재현: 칩 = 검정 상자 + 노랑 #F4F209(원본 6편 실측)
                      cap_cy=1152, chip_delay=0.4,  # 60%, 칩은 구절 시작 +0.4초(200편)  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
                      stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=False, cap_cut_gap=0.0,  # 2026-11-10 원본 눈 대조: NL은 말하는 동안 자막이 비는 순간이 없다(큰 숫자는 자막 위에 함께)
-                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, sfx_mode='orig', sfx_profile='nl', sfx_pitch=1.19, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='heavy', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True, no_progress=True, cap_heavy=True, cap_size=64, cap_track=-0.04, cap_stroke=8,
+                     bgm='file', bgm_vol=0.12, sfx_music=False, sfx_pack=True, sfx_type='ding', sfx_hook=True, sfx_mode='orig', sfx_profile='nl', sfx_pitch=1.19, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='heavy', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True, no_progress=True, cap_heavy=True, cap_size=64, cap_track=-0.04, cap_stroke=8,
                      cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
     'bobae_be': dict(chip_theme=True, cap_style='be3', cap_kw_col=(247, 236, 56), stk_bg=(247, 236, 56), stk_fg=(0, 0, 0),  # 원본 100% 재현: 노랑 붓띠 #F7EC38 + 검정 글자(원본 6편 실측)
                      cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
                      stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
-                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='ding', sfx_mode='orig', sfx_profile='be', sfx_pitch=0.96, shot_target_s=0, no_progress=True, hook_be=True, cap_chunk_chars=13, cap_chunk_words=4, end_style='logo', end_tail_s=2.0,
+                     bgm='file', bgm_vol=0.34, sfx_pack=True, sfx_type='ding', sfx_mode='orig', sfx_profile='be', sfx_pitch=0.96, shot_target_s=0, no_progress=True, hook_be=True, cap_chunk_chars=13, cap_chunk_words=4, end_style='logo', end_tail_s=2.0,
                      cut_early_s=0.6, shot_min_s=1.5, cut_on_phrase_every=3),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
 }
 _ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
@@ -482,6 +482,14 @@ def build_bgm(total, bpm=112, sr=48000):
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st.tobytes())
 
 
+def build_bgm_file(total, sr=48000):
+    """보배드림 자체 제작 배경음(일레븐랩스 음악, public/assets/shortform/bgm/) — 영상 길이로 자르고 앞 0.3초·끝 1.5초 페이드"""
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'public', 'assets', 'shortform', 'bgm')
+    src = os.path.join(root, STYLE.get('bgm_file', 'bobae_showroom_v1.mp3'))
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-stream_loop', '-1', '-i', src, '-t', f'{total:.2f}', '-ac', '2', '-ar', str(sr),
+                    '-af', f'afade=t=in:d=0.3,afade=t=out:st={max(0, total - 1.5):.2f}:d=1.5', os.path.join(OUT, 'bgm.wav')], check=True)
+
+
 def build_bgm_spy(total, bpm=92, sr=48000):
     """잔잔한 스파이 영화풍 배경음악(코드로 새로 만듦, 007 원곡 멜로디·리듬 미사용).
     느린 워킹 베이스 + 브러시 스네어 + 하이햇 셔플 + 떨리는 비브라폰풍 단조 화음. 장르 분위기만 빌림"""
@@ -839,6 +847,7 @@ def _sticker_core(txt, size=72, tilt=-2.0, big=False, no_mark=False):
         from brushfill import THEME_KINDS, theme_pick, theme_mask
         kind = chip_kind(txt)
         tk = THEME_KINDS[kind]
+        h = max(h, int(cap * 1.75))  # 칠이 글자 위아래를 다 덮게(원본: 칠 높이 ≈ 글자 높이 1.7~1.9배)
         if kind == 'feature':
             h = int(h * 1.35)  # 두 줄 붓은 글자가 두 획을 덮도록 조금 높게
         mask = theme_mask(w, h, theme_pick(kind, w, h), margin=m)
@@ -1668,7 +1677,7 @@ def main():
     t_start = time.time()
     ext = os.environ.get('SAG_VOICE_FILE')
     total = align_external(ext, os.environ['SAG_VOICE_WORDS']) if ext else build_voice()
-    (build_bgm_spy if STYLE.get('bgm') == 'spy' else build_bgm)(total)
+    {'spy': build_bgm_spy, 'file': build_bgm_file}.get(STYLE.get('bgm'), build_bgm)(total)
     build_phrases()
     build_sfx(total)
     cap = cv2.VideoCapture(SRC)
