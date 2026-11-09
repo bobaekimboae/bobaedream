@@ -22,6 +22,7 @@ os.makedirs(OUT, exist_ok=True)
 W, H, FPS = 1080, 1920, 30
 FONTS = os.path.join(os.path.dirname(__file__), 'fonts')  # Pretendard 1.3.9 (OFL)
 BLACK = os.path.join(FONTS, 'Pretendard-ExtraBold.otf')
+HEAVY = os.path.join(FONTS, 'Pretendard-Black.otf')  # 2026-11-10 원본 NL 자막·칩은 아주 굵은 글자
 BOLD = os.path.join(FONTS, 'Pretendard-Bold.otf')
 SEMI = os.path.join(FONTS, 'Pretendard-SemiBold.otf')
 MED = os.path.join(FONTS, 'Pretendard-Medium.otf')
@@ -84,11 +85,11 @@ if os.environ.get('SAG_CONFIG'):
 EDIT_PRESETS = {
     'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1152, chip_delay=0.4,  # 60%, 칩은 구절 시작 +0.4초(200편)  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
                      stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=False, cap_cut_gap=0.0,  # 2026-11-10 원본 눈 대조: NL은 말하는 동안 자막이 비는 순간이 없다(큰 숫자는 자막 위에 함께)
-                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='bold', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True,
+                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='heavy', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True, no_progress=True, cap_heavy=True, cap_size=64, cap_track=-0.04, cap_stroke=8,
                      cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
     'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
                      stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
-                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0,
+                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0, no_progress=True, hook_be=True,
                      cut_early_s=0.6, shot_min_s=1.5, cut_on_phrase_every=3),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
 }
 _ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
@@ -733,7 +734,7 @@ def _sticker_core(txt, size=72, tilt=-2.0, big=False, no_mark=False):
     import random
     rnd = random.Random(txt + str(size))
     # 오토스카우트24 2차 실측(2026-11-07 벨기에 「Carbon」): 기능 스티커 글자는 중간 굵기 → STYLE stk_weight='semi'
-    fnt = ImageFont.truetype(SEMI if (STYLE.get('stk_weight') == 'semi' and not big) else BOLD, size)
+    fnt = ImageFont.truetype(SEMI if (STYLE.get('stk_weight') == 'semi' and not big) else HEAVY if STYLE.get('stk_weight') == 'heavy' else BOLD, size)
     bb = fnt.getbbox(txt)
     tw, cap = bb[2] - bb[0], size * 0.74
     # 포인트 표시(MARKS, 설정 파일): '✓' = 글자 뒤 흰 체크(오토스카우트24 네덜란드식), 그 밖 = 색 이모지를 칠 오른쪽 끝에 걸치게
@@ -944,6 +945,52 @@ def phrase_img_v12(text, kw=-1, boxed=False):
             d.text((x, y), w, font=fnt, fill=col, anchor='lm', stroke_width=0 if boxed else 6, stroke_fill=(0, 0, 0))
             wi += 1
             x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
+def phrase_img_nlcap(text, kw=-1):
+    """네덜란드판 말 자막(2026-11-10 원본 1YivF6HjLTw 확대 대조): 아주 굵은 글자(Black) · 글자 사이 좁게 · 두꺼운 검정 외곽선 + 옅은 아래 그림자 · 말하는 어절만 노랑"""
+    col_k = tuple(STYLE.get('cap_kw_col', (238, 239, 5)))
+    k = ('nlcap', text, kw, col_k)
+    if k in _cache:
+        return _cache[k]
+    from PIL import ImageFilter
+    sz = STYLE.get('cap_size', 64)
+    fnt = ImageFont.truetype(HEAVY, sz)
+    tr = STYLE.get('cap_track', -0.04) * sz  # 글자 사이(음수 = 좁게)
+    stw = STYLE.get('cap_stroke', 8)
+    text = text.strip(' ,.')
+    ws = text.split(' ')
+    def wlen(w):
+        return sum(fnt.getlength(c) for c in w) + tr * (len(w) - 1)
+    gap = fnt.getlength(' ') * 0.8
+    tw = sum(wlen(w) for w in ws) + gap * (len(ws) - 1)
+    lh = int(sz * 1.3)
+    im = Image.new('RGBA', (int(tw + 2 * stw + 40), lh + 2 * stw + 30), (0, 0, 0, 0))
+    sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    d, sd = ImageDraw.Draw(im), ImageDraw.Draw(sh)
+    y = im.height / 2
+    for pass_ in (0, 1):
+        x = (im.width - tw) / 2
+        for wi, w in enumerate(ws):
+            col = col_k if wi == kw else (255, 255, 255)
+            for c in w:
+                if pass_ == 0:
+                    sd.text((x + 2, y + 5), c, font=fnt, fill=(0, 0, 0, 170), anchor='lm', stroke_width=stw, stroke_fill=(0, 0, 0, 170))
+                else:
+                    d.text((x, y), c, font=fnt, fill=(0, 0, 0), anchor='lm', stroke_width=stw, stroke_fill=(0, 0, 0))
+                x += fnt.getlength(c) + tr
+            x += gap - tr
+        if pass_ == 0:
+            im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
+    x = (im.width - tw) / 2
+    for wi, w in enumerate(ws):
+        col = col_k if wi == kw else (255, 255, 255)
+        for c in w:
+            d.text((x, y), c, font=fnt, fill=col, anchor='lm')
+            x += fnt.getlength(c) + tr
+        x += gap - tr
     _cache[k] = im
     return im
 
@@ -1236,7 +1283,8 @@ def overlay(T, total, shots, shot, blk):
     end_t = BLOCKS[-1]['t1'] + 0.35
     # 진행선
     d = ImageDraw.Draw(ov)
-    d.rectangle((0, 0, int(W * T / total), 7), fill=BLUE + (255,))
+    if not STYLE.get('no_progress'):  # 2026-11-10 원본 NL·BE에는 진행선이 없다
+        d.rectangle((0, 0, int(W * T / total), 7), fill=BLUE + (255,))
     if T >= end_t:
         return ov, True
     # 첫 장면 훅(오토스카우트24식): 차명 스티커 + 그 아래 흰 가격
@@ -1254,7 +1302,21 @@ def overlay(T, total, shots, shot, blk):
                     t2 = _im
                 else:
                     t3 = _im
-        if STYLE.get('hook_minimal'):  # 원본 NL: 첫 화면은 차명 한 줄만(위쪽 약 17%), 사양·가격 줄 없음
+        if STYLE.get('hook_be'):  # 2026-11-10 원본 BE 눈 대조: 브랜드 한 낱말만 기울어진 띠, 모델은 같은 줄 흰 글자, 그 아래 한 줄 작은 설명(위 약 24%)
+            _tw = hk['title'].split(' ', 1)
+            _b = sticker(_tw[0], 84, STYLE.get('tilt_fixed', -5.7), True)
+            _m = text_img(_tw[1], 84, HEAVY, stroke=4) if len(_tw) > 1 else None
+            _sub = text_img(hk['line1'], 48, BLACK, stroke=4)
+            if _sub.width > W - 96:
+                _sub = text_img(hk['line1'], max(28, int(48 * (W - 96) / _sub.width)), BLACK, stroke=4)
+            _wid = _b.width + (_m.width - 10 if _m else 0)
+            _x0, _cy = (W - _wid) / 2, H * .24
+            paste(ov, _b, _x0 + _b.width * (1 - e) / 2, _cy - _b.height / 2 + _b.height * (1 - e) / 2, min(1, T / .15), e)
+            if _m:
+                paste(ov, _m, _x0 + _b.width - 10, _cy - _m.height / 2, min(1, T / .15))
+            paste(ov, _sub, (W - _sub.width) / 2, _cy + _b.height / 2 + 4 + 20 * (1 - ease((T - .25) / .3)), ease((T - .25) / .3))
+            t1 = t2 = t3 = None
+        elif STYLE.get('hook_minimal'):  # 원본 NL: 첫 화면은 차명 한 줄만(위쪽 약 17%), 사양·가격 줄 없음
             if T < 2.2:  # 원본: 차명은 약 2초
                 paste(ov, t1, (W - t1.width * e) / 2, H * .17 - t1.height / 2 + t1.height * (1 - e) / 2, min(1, T / .15, (2.2 - T) / .12), e)
             t2 = t3 = None
@@ -1444,7 +1506,7 @@ def overlay(T, total, shots, shot, blk):
                 t_in = cur[3][g[0]] if g[0] < len(cur[3]) else cur[0]
                 t_in = cur[0] if gi == 0 else t_in
                 act = act - g[0]
-            im = phrase_img_v12(txt, act, False)
+            im = phrase_img_nlcap(txt, act) if STYLE.get('cap_heavy') else phrase_img_v12(txt, act, False)
             e = back((T - t_in) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1248)
