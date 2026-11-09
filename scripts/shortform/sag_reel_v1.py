@@ -82,11 +82,11 @@ if os.environ.get('SAG_CONFIG'):
 # 편집 판(2026-11-09 사용자: 네덜란드판·벨기에판을 골라 쓴다). STYLE['edit_style'] 또는 SAG_EDIT 로 고른다.
 # 수치 근거: docs/shortform/as24-caption-rules-v2.md · as24-sfx-rules-v1.md · as24-4country-compare-v1.md, 칩 규칙은 as24_edit_rules.json의 bobae_nl·bobae_be
 EDIT_PRESETS = {
-    'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1248,  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 65%
+    'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1190,  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
                      stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=True, cap_cut_gap=0.0,
-                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', shot_target_s=2.5),
-    'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1286,  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 67%
-                     stk_shape='as24', tilt_k=1.0, big_numbers=False, big_hides_cap=False, cap_cut_gap=0.3,
+                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, shot_target_s=2.5),
+    'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1229,  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
+                     stk_shape='as24', tilt_k=1.0, tilt_fixed=-2.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
                      bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0),
 }
 _ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
@@ -274,6 +274,10 @@ def sfx_as24_hits(music):
                 continue  # 안내 문구는 정보 칩이 아니다
             cands.append(dict(t=PHRASES[b['ph0'] + pidx][0] + 0.1, type=STYLE.get('sfx_type', 'ding'), prio=prio(txt), txt=txt))
     keep = AP.pick_sfx(cands, SX, R, music)
+    if STYLE.get('sfx_hook'):  # 네덜란드판: 첫 화면 제목에도 딩(NL 첫 화면 효과음 약 46%, 2026-11-09 재조사)
+        th = 0.05
+        if all(abs(k['t'] - th) >= SX.get('min_gap_s', 0.6) for k in keep):
+            keep.append(dict(t=th + SX.get('lead_s', 0.02), type=STYLE.get('sfx_type', 'ding'), prio=-1, txt='hook'))
     lead = SX.get('lead_s', 0.02)
     return [(round(max(0.0, k['t'] - lead), 3), k['type']) for k in sorted(keep, key=lambda k: k['t'])]
 
@@ -1225,8 +1229,12 @@ def overlay(T, total, shots, shot, blk):
         big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)
         big = big and STYLE.get('big_numbers', True)  # 벨기에판: 숫자도 칩 안에(크게 튀어나오지 않음)
         if big:
-            big_on = True  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
+            big_on = True
+        elif STYLE.get('numchip_hides_cap') and re.search(r'\d', txt):
+            big_on = True  # 벨기에판: 숫자 칩(가격·km·연식)이 떠 있는 동안 말 자막을 숨김(BE 9/50)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
         tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6] * STYLE.get('tilt_k', 1.0)
+        if STYLE.get('tilt_fixed') is not None:
+            tilt = STYLE['tilt_fixed'] + (-0.8, 0.6, 0.0)[(bi + si) % 3] * (STYLE['tilt_fixed'] != 0)  # 벨기에판: 늘 반시계(1~4도)
         im = sticker(txt, STYLE['big_size'] if big else STYLE['feat_size'], tilt, big)
         k = T - st
         out = ease((en - T) / .12)
@@ -1257,7 +1265,7 @@ def overlay(T, total, shots, shot, blk):
     for ph in PHRASES:
         if ph[0] <= T < ph[1]:
             cur = ph
-    if cur and big_on and STYLE.get('big_hides_cap'):
+    if cur and big_on and (STYLE.get('big_hides_cap') or STYLE.get('numchip_hides_cap')):
         cur = None  # 네덜란드판: 큰 숫자가 떠 있는 동안 말 자막을 숨긴다(NL 39/50)
     if cur and STYLE.get('cap_cut_gap'):
         g = STYLE['cap_cut_gap']
