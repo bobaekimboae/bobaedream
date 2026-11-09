@@ -1,0 +1,845 @@
+{
+ "version": "auto-1.0 (2026-11-09)",
+ "purpose": "사람 없이 NL·BE 편집을 만드는 자동 편집 규칙. 근거 문서 docs/shortform/as24-nl-be-edit-manual-v4.md · as24-edit-skeleton-v3.md. 수치 중 'init'은 초기값이며 calibrate.py로 원본과 맞춰 고친다",
+ "parts": [
+  "exterior_front",
+  "exterior_rear",
+  "exterior_side",
+  "exterior_3_4",
+  "wheel",
+  "headlight",
+  "taillight",
+  "grille",
+  "mirror",
+  "roof",
+  "door",
+  "interior_dash",
+  "steering_wheel",
+  "screen",
+  "console",
+  "gear",
+  "seats_front",
+  "seats_rear",
+  "interior_ceiling",
+  "speaker",
+  "trunk",
+  "engine_bay",
+  "charging_port",
+  "key",
+  "person",
+  "other"
+ ],
+ "part_band": {
+  "_src": "as24-edit-skeleton-v3 §3 (판정 440곳): 부위를 가리지 않고 반대쪽 띠. top≈26% · mid≈52% · low≈68%. low 띠 칩이 뜨면 말 자막을 숨긴다(NL 이름표가 자막 자리에 대신 뜸)",
+  "seats_front": "low",
+  "seats_rear": "low",
+  "speaker": "low",
+  "screen": "low",
+  "console": "top",
+  "gear": "top",
+  "trunk": "low",
+  "wheel": "top",
+  "headlight": "low",
+  "taillight": "top",
+  "grille": "mid",
+  "exterior_rear": "top",
+  "mirror": "top",
+  "exterior_front": "top",
+  "exterior_3_4": "top",
+  "exterior_side": "top",
+  "roof": "low",
+  "interior_ceiling": "low",
+  "steering_wheel": "top",
+  "interior_dash": "low",
+  "door": "mid",
+  "engine_bay": "top",
+  "charging_port": "top",
+  "key": "mid",
+  "person": "mid",
+  "other": "mid"
+ },
+ "band_y": {
+  "top": 480,
+  "mid": 820,
+  "low": 1420,
+  "_note": "1920 기준 칩 가운데 높이. 말 자막은 NL 1190·BE 1229라 mid는 그 위 370px. low는 자막과 겹치므로 low 칩이 떠 있는 동안 자막을 숨긴다(2026-11-09 시험 렌더에서 1000은 자막에 붙어 보여 820으로 고침)"
+ },
+ "option_catalog": [
+  {
+   "name": "선루프",
+   "chip": "선루프",
+   "say": "선루프",
+   "parts": [
+    "roof",
+    "interior_ceiling"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "파노라마선루프",
+   "chip": "파노라마 선루프",
+   "say": "파노라마 선루프",
+   "parts": [
+    "roof",
+    "interior_ceiling"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "알루미늄휠",
+   "chip": "알루미늄 휠",
+   "say": "알루미늄 휠",
+   "parts": [
+    "wheel"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "전동사이드미러",
+   "chip": "전동 사이드미러",
+   "say": "전동 사이드미러",
+   "parts": [
+    "mirror"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "HID램프",
+   "chip": "HID 램프",
+   "say": "HID 램프",
+   "parts": [
+    "headlight"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "LED헤드램프",
+   "chip": "LED 헤드램프",
+   "say": "LED 헤드램프",
+   "parts": [
+    "headlight",
+    "exterior_front"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "어댑티드헤드램프",
+   "chip": "어댑티브 헤드램프",
+   "say": "어댑티브 헤드램프",
+   "parts": [
+    "headlight",
+    "exterior_front"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "LED리어램프",
+   "chip": "LED 리어램프",
+   "say": "LED 리어램프",
+   "parts": [
+    "taillight",
+    "exterior_rear"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "데이라이트",
+   "chip": "데이라이트",
+   "say": "데이라이트",
+   "parts": [
+    "headlight"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "하이빔어시스트",
+   "chip": "하이빔 어시스트",
+   "say": "하이빔 어시스트",
+   "parts": [
+    "headlight",
+    "interior_dash"
+   ],
+   "tier": 2,
+   "visible": false
+  },
+  {
+   "name": "압축도어",
+   "chip": "고스트 도어",
+   "say": "고스트 도어",
+   "parts": [
+    "door"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "자동슬라이딩도어",
+   "chip": "전동 슬라이딩 도어",
+   "say": "전동 슬라이딩 도어",
+   "parts": [
+    "door"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "전동사이드스탭",
+   "chip": "전동 사이드스텝",
+   "say": "전동 사이드스텝",
+   "parts": [
+    "exterior_side",
+    "door"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "루프랙",
+   "chip": "루프랙",
+   "say": "루프랙",
+   "parts": [
+    "roof",
+    "exterior_side"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "가죽시트",
+   "chip": "가죽 시트",
+   "say": "가죽 시트",
+   "parts": [
+    "seats_front",
+    "seats_rear"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "전동시트(운전석)",
+   "chip": "전동 시트",
+   "say": "전동 시트",
+   "parts": [
+    "seats_front"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "전동시트(동승석)",
+   "chip": "동승석 전동 시트",
+   "say": "동승석 전동 시트",
+   "parts": [
+    "seats_front"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "열선시트(앞좌석)",
+   "chip": "열선 시트",
+   "say": "열선 시트",
+   "parts": [
+    "seats_front",
+    "console"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "열선시트(뒷좌석)",
+   "chip": "뒷좌석 열선",
+   "say": "뒷좌석 열선",
+   "parts": [
+    "seats_rear"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "통풍시트",
+   "chip": "통풍 시트",
+   "say": "통풍 시트",
+   "parts": [
+    "seats_front",
+    "console"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "메모리시트",
+   "chip": "메모리 시트",
+   "say": "메모리 시트",
+   "parts": [
+    "seats_front",
+    "door"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "폴딩시트",
+   "chip": "폴딩 시트",
+   "say": "폴딩 시트",
+   "parts": [
+    "seats_rear",
+    "trunk"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "마사지시트",
+   "chip": "마사지 시트",
+   "say": "마사지 시트",
+   "parts": [
+    "seats_front"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "워크인시트",
+   "chip": "워크인 시트",
+   "say": "워크인 시트",
+   "parts": [
+    "seats_front"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "요추받침",
+   "chip": "요추 받침",
+   "say": "요추 받침",
+   "parts": [
+    "seats_front"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "하이패스룸미러",
+   "chip": "하이패스 룸미러",
+   "say": "하이패스 룸미러",
+   "parts": [
+    "interior_ceiling",
+    "interior_dash"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "ECM룸미러",
+   "chip": "ECM 룸미러",
+   "say": "ECM 룸미러",
+   "parts": [
+    "interior_ceiling"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "뒷좌석에어벤트",
+   "chip": "뒷좌석 송풍구",
+   "say": "뒷좌석 송풍구",
+   "parts": [
+    "seats_rear",
+    "console"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "패들쉬프트",
+   "chip": "패들 시프트",
+   "say": "패들 시프트",
+   "parts": [
+    "steering_wheel"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "전동햇빛가리개",
+   "chip": "전동 햇빛가리개",
+   "say": "전동 햇빛가리개",
+   "parts": [
+    "seats_rear",
+    "door"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "엠비언트라이트",
+   "chip": "엠비언트 라이트",
+   "say": "엠비언트 라이트",
+   "parts": [
+    "interior_dash",
+    "door"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "후방센서",
+   "chip": "후방 센서",
+   "say": "후방 센서",
+   "parts": [
+    "exterior_rear"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "전방센서",
+   "chip": "전방 센서",
+   "say": "전방 센서",
+   "parts": [
+    "exterior_front"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "후방카메라",
+   "chip": "후방 카메라",
+   "say": "후방 카메라",
+   "parts": [
+    "screen",
+    "exterior_rear"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "전방카메라",
+   "chip": "전방 카메라",
+   "say": "전방 카메라",
+   "parts": [
+    "screen",
+    "exterior_front"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "어라운드뷰",
+   "chip": "어라운드뷰",
+   "say": "어라운드뷰",
+   "parts": [
+    "screen"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "차선이탈경보(LDWS)",
+   "chip": "차선이탈 경보",
+   "say": "차선이탈 경보",
+   "parts": [
+    "interior_dash",
+    "steering_wheel"
+   ],
+   "tier": 2,
+   "visible": false
+  },
+  {
+   "name": "자동긴급제동",
+   "chip": "자동 긴급제동",
+   "say": "자동 긴급제동",
+   "parts": [
+    "exterior_front",
+    "interior_dash"
+   ],
+   "tier": 2,
+   "visible": false
+  },
+  {
+   "name": "전자제어서스펜션(ECS)",
+   "chip": "전자제어 서스펜션",
+   "say": "전자제어 서스펜션",
+   "parts": [
+    "wheel",
+    "console"
+   ],
+   "tier": 1,
+   "visible": false
+  },
+  {
+   "name": "후측방경보",
+   "chip": "후측방 경보",
+   "say": "후측방 경보",
+   "parts": [
+    "mirror"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "스마트키",
+   "chip": "스마트키",
+   "say": "스마트키",
+   "parts": [
+    "key",
+    "door"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "열선핸들",
+   "chip": "열선 핸들",
+   "say": "열선 핸들",
+   "parts": [
+    "steering_wheel"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "자동에어컨",
+   "chip": "자동 에어컨",
+   "say": "자동 에어컨",
+   "parts": [
+    "console",
+    "interior_dash"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "좌우독립에어컨",
+   "chip": "듀얼 에어컨",
+   "say": "듀얼 에어컨",
+   "parts": [
+    "console"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "크루즈컨트롤",
+   "chip": "크루즈 컨트롤",
+   "say": "크루즈 컨트롤",
+   "parts": [
+    "steering_wheel"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "스마트크루즈컨트롤",
+   "chip": "스마트 크루즈",
+   "say": "스마트 크루즈",
+   "parts": [
+    "steering_wheel",
+    "interior_dash"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "전동트렁크",
+   "chip": "전동 트렁크",
+   "say": "전동 트렁크",
+   "parts": [
+    "trunk",
+    "exterior_rear"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "스마트트렁크",
+   "chip": "스마트 트렁크",
+   "say": "스마트 트렁크",
+   "parts": [
+    "trunk",
+    "exterior_rear"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "전자주차브레이크(EPB)",
+   "chip": "전자식 파킹",
+   "say": "전자식 파킹",
+   "parts": [
+    "console",
+    "gear"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "헤드업디스플레이(HUD)",
+   "chip": "HUD",
+   "say": "헤드업 디스플레이",
+   "parts": [
+    "interior_dash",
+    "steering_wheel"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "무선충전",
+   "chip": "무선 충전",
+   "say": "무선 충전",
+   "parts": [
+    "console"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "자동주차",
+   "chip": "자동 주차",
+   "say": "자동 주차",
+   "parts": [
+    "screen",
+    "console"
+   ],
+   "tier": 1,
+   "visible": false
+  },
+  {
+   "name": "냉장고",
+   "chip": "냉장고",
+   "say": "냉장고",
+   "parts": [
+    "console",
+    "seats_rear"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "네비게이션(순정)",
+   "chip": "순정 내비",
+   "say": "순정 내비게이션",
+   "parts": [
+    "screen"
+   ],
+   "tier": 3,
+   "visible": true
+  },
+  {
+   "name": "블루투스",
+   "chip": "블루투스",
+   "say": "블루투스",
+   "parts": [
+    "screen",
+    "steering_wheel"
+   ],
+   "tier": 3,
+   "visible": false
+  },
+  {
+   "name": "뒷좌석TV",
+   "chip": "뒷좌석 모니터",
+   "say": "뒷좌석 모니터",
+   "parts": [
+    "seats_rear"
+   ],
+   "tier": 1,
+   "visible": true
+  },
+  {
+   "name": "스마트폰미러링",
+   "chip": "애플 카플레이",
+   "say": "애플 카플레이",
+   "parts": [
+    "screen"
+   ],
+   "tier": 2,
+   "visible": true
+  },
+  {
+   "name": "AV시스템",
+   "chip": "프리미엄 오디오",
+   "say": "프리미엄 오디오",
+   "parts": [
+    "speaker",
+    "door"
+   ],
+   "tier": 2,
+   "visible": true
+  }
+ ],
+ "option_exposure": {
+  "_why": "사용자 지시 2026-11-09: 옵션 기능 칩 노출이 가장 중요",
+  "select": "매물 옵션 중 tier 오름차순, 같은 tier는 visible 먼저. 그 부위 장면(shots)이 있는 옵션만 칩을 띄운다. visible=false 옵션은 screen·interior_dash·steering_wheel 장면이 있을 때만",
+  "max_per_video": {
+   "bobae_nl": 4,
+   "bobae_be": 3,
+   "_note": "init. NL 새 50편 중 ✓ 옵션 칩 20편, 판정표본 옵션 칩 NL 12·BE 19. 재교정 대상"
+  },
+  "say": "옵션 이름을 그대로 말한다(칩 글자 = 말한 낱말). 말하지 않은 옵션은 띄우지 않는다",
+  "phrase": "옵션 하나 = 자막 구절 하나 = 장면 하나. 칩은 그 구절 시작 +0.1초에 뜬다(±0.2초가 원본 범위)",
+  "hold_s": {
+   "bobae_nl": 1.3,
+   "bobae_be": 1.8
+  },
+  "checklist": {
+   "bobae_nl": {
+    "on": true,
+    "min_items": 2,
+    "max_lines": 3,
+    "mark": "✓",
+    "band": "mid",
+    "_src": "NL ✓ 목록이 한 줄씩 늘어남, 장면 끝에 한꺼번에 사라짐(v3 §4)"
+   },
+   "bobae_be": {
+    "on": false
+   }
+  },
+  "placement": "part_band 기준, 부위를 가리지 않음, 아래 20% 비움, 가로 가운데",
+  "shot": "구절 장면은 그 옵션 parts 중 점수가 가장 높은 장면. 최소 0.8초. 같은 장면을 두 번 쓰지 않음(어쩔 수 없으면 다른 구간)",
+  "fallback": "맞는 장면이 없으면 그 옵션은 대본에서 빼고 다음 순위 옵션을 쓴다"
+ },
+ "script": {
+  "_rule": "매물 정보에 있는 사실만 말한다. 지어내지 않는다. 숫자는 TTS용 한글 읽기 + 화면 표시용 숫자(SHOW)로 짝을 만든다",
+  "sections": {
+   "bobae_nl": [
+    "hook",
+    "exterior",
+    "power",
+    "options",
+    "condition",
+    "cta"
+   ],
+   "bobae_be": [
+    "hook",
+    "exterior",
+    "options",
+    "condition",
+    "cta"
+   ]
+  },
+  "target_s": {
+   "bobae_nl": [
+    28,
+    40
+   ],
+   "bobae_be": [
+    22,
+    32
+   ]
+  },
+  "cap_words": [
+   2,
+   4
+  ],
+  "parts_for_section": {
+   "hook": [
+    "exterior_3_4",
+    "exterior_front",
+    "grille",
+    "exterior_side"
+   ],
+   "exterior": [
+    "exterior_front",
+    "exterior_side",
+    "exterior_rear",
+    "wheel",
+    "headlight",
+    "exterior_3_4"
+   ],
+   "power": [
+    "engine_bay",
+    "exterior_rear",
+    "taillight",
+    "wheel",
+    "gear"
+   ],
+   "condition": [
+    "interior_dash",
+    "exterior_3_4",
+    "grille",
+    "exterior_side",
+    "exterior_front",
+    "taillight"
+   ],
+   "cta": [
+    "exterior_3_4",
+    "exterior_front",
+    "exterior_rear",
+    "trunk",
+    "taillight"
+   ]
+  },
+  "shot_cost": "순위*2 + 재사용*5 − 점수, 바로 앞 구절과 같은 장면을 이어 쓰면(한 번에 찍은 카메라 이동) 재사용 벌점 0.5. 다시 쓸 땐 앞에서 쓴 구간 뒤부터"
+ },
+ "calibration": {
+  "_how": "calibrate.py가 자동 편집 계획(plan.json)·렌더 결과(meta, sfx_hits)를 재서 원본 측정값과 비교한다. 범위를 벗어나면 규칙을 고친다",
+  "bobae_nl": {
+   "cuts_per_min": [
+    14,
+    19
+   ],
+   "shot_med_s": [
+    2.2,
+    2.9
+   ],
+   "chips_per_min": [
+    6,
+    14
+   ],
+   "option_chips": [
+    2,
+    5
+   ],
+   "sfx_per_video": [
+    3,
+    7
+   ],
+   "sfx_gap_min_s": 1.0,
+   "caption_y_pct": [
+    58,
+    66
+   ],
+   "music": false
+  },
+  "bobae_be": {
+   "cuts_per_min": [
+    18,
+    24
+   ],
+   "shot_med_s": [
+    1.6,
+    2.2
+   ],
+   "chips_per_min": [
+    3,
+    10
+   ],
+   "option_chips": [
+    1,
+    4
+   ],
+   "sfx_per_video": [
+    0,
+    3
+   ],
+   "sfx_gap_min_s": 1.0,
+   "caption_y_pct": [
+    60,
+    68
+   ],
+   "music": true
+  }
+ }
+}

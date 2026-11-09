@@ -1,0 +1,379 @@
+"""보배드림 자동 편집기 — 매물 정보 + 원본 장면 목록 → 네덜란드판/벨기에판 편집 설정 (사람 없이).
+
+규칙: auto_edit_rules.json (옵션 칩 노출 규칙·옵션 사전·부위별 칩 자리·대본 순서·재교정 목표)
+렌더: ../sag_reel_v1.py (EDIT_PRESETS bobae_nl · bobae_be)
+
+순서
+  1) python3 auto_edit.py script facts.json --style bobae_nl --out OUT
+       → OUT/tts.txt (일레븐랩스에 넣을 대본), OUT/plan.json
+  2) 일레븐랩스로 음성 만들기 → OUT/voice.mp3, 받아쓰기 → OUT/words.json ([{text,start,end}] 또는 [[s,e,text]])
+  3) python3 auto_edit.py build facts.json shots.json --style bobae_nl --out OUT
+       → OUT/config.py (CAR · HOOK · BLOCKS · SHOW · MARKS · STYLE), 장면은 실제 말 길이에 맞춰 고름
+  4) SAG_CONFIG=OUT/config.py SAG_VOICE_FILE=OUT/voice.mp3 SAG_VOICE_WORDS=OUT/words_flat.json python3 ../sag_reel_v1.py SRC OUT/render
+  5) python3 calibrate.py OUT  → 원본 측정값과 비교
+
+facts.json: {"id","make","model","gen","trim","color","reg":"23년06월","year":2023,"km":1480,"fuel":"가솔린",
+             "engine":"4.0 V8 트윈터보","power_ps":510,"price_manwon":17390,"options":["통풍시트",...],"region":"경기"}
+shots.json: [{"t0":0.0,"t1":1.6,"part":"exterior_3_4","score":0.9}, ...]  (원본 영상 장면 + 부위, shot_tagger.py가 만듦)
+"""
+import json, os, re, sys, argparse, hashlib, difflib
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RULES = json.load(open(os.path.join(HERE, 'auto_edit_rules.json'), encoding='utf-8'))
+CAT = {o['name']: o for o in RULES['option_catalog']}
+
+# ── 숫자 읽기 (TTS는 한글, 화면은 숫자) ──
+DIG = '영일이삼사오육칠팔구'
+def _four(n):
+    s = ''
+    for v, u in ((1000, '천'), (100, '백'), (10, '십'), (1, '')):
+        d = n // v % 10
+        if d:
+            s += ('' if d == 1 and u else DIG[d]) + u
+    return s
+def num_ko(n):
+    n = int(n)
+    if n == 0:
+        return '영'
+    out = ''
+    for v, u in ((10 ** 8, '억'), (10 ** 4, '만'), (1, '')):
+        q = n // v % 10000
+        if q:
+            out += ('' if q == 1 and u == '만' else _four(q)) + u
+    return out
+
+ABC = dict(A='에이', B='비', C='씨', D='디', E='이', F='에프', G='지', H='에이치', I='아이', J='제이', K='케이', L='엘', M='엠', N='엔',
+           O='오', P='피', Q='큐', R='알', S='에스', T='티', U='유', V='브이', W='더블유', X='엑스', Y='와이', Z='제트')
+def read_ko(tok):
+    """TTS용 읽기: 4.0 → 사점영, V8 → 브이에잇, 510 → 오백십. 한글은 그대로"""
+    def numread(m):
+        a, _, b = m.group(0).partition('.')
+        return num_ko(int(a)) + ('점' + ''.join(DIG[int(c)] for c in b) if b else '')
+    def latin(m):
+        w = m.group(0)
+        if w.upper() == 'V' and m.end() < len(tok) and tok[m.end()].isdigit():
+            return '브이'
+        return ''.join(ABC.get(c.upper(), c) for c in w)
+    out = re.sub(r'[A-Za-z]+', latin, tok)
+    out = re.sub(r'(?<=브이)(\d+)', lambda m: {'6': '식스', '8': '에잇', '10': '텐', '12': '트웰브'}.get(m.group(1), num_ko(int(m.group(1)))), out)
+    return re.sub(r'\d+(?:\.\d+)?', numread, out)
+
+def has_final(word):
+    ch = word.rstrip()[-1]
+    if '가' <= ch <= '힣':
+        return (ord(ch) - 0xAC00) % 28 != 0
+    return ch.lower() in 'lmnr136780' or ch in 'LMNR'
+def josa(word, a, b):  # a = 받침 있을 때(이에요/은/이), b = 없을 때(예요/는/가)
+    return word + (a if has_final(word) else b)
+
+def km_show(km):
+    return f'{km:,}km'
+def price_parts(manwon):
+    eok, man = divmod(int(manwon), 10000)
+    say, show = [], []
+    if eok:
+        say.append(num_ko(eok) + '억'); show.append(f'{eok}억')
+    if man:
+        say.append(num_ko(man) + '만'); show.append(f'{man:,}만')
+    return say, show
+
+def pick(variants, key):
+    h = int(hashlib.md5(key.encode()).hexdigest(), 16)
+    return variants[h % len(variants)]
+
+
+# ── 1단계: 대본 ──
+def make_script(F, style, shots=None):
+    """블록 목록: dict(sec, words=[(tts어절, 화면어절)], caps=[어절수...], stickers=[(칩, 구절번호, {band,part,list})], parts=[구절별 원하는 부위 목록])"""
+    name = f"{F['make']} {F['model']}"
+    key = F.get('id', name)
+    blocks = []
+
+    def blk(sec, phrases, stickers=(), parts=None, **kw):
+        # phrases: [[(say, show), ...], ...] 구절마다 어절 묶음
+        words = [w for ph in phrases for w in ph]
+        blocks.append(dict(sec=sec, words=words, caps=[len(ph) for ph in phrases], phrases=phrases,
+                           stickers=list(stickers), parts=parts or [RULES['script']['parts_for_section'].get(sec, ['other'])] * len(phrases), **kw))
+
+    W = lambda s: [(w, w) for w in s.split()]
+    # 첫 화면
+    color = F.get('color')
+    hook_end = josa(F['model'], '이에요!', '예요!')
+    first = W('보배드림 여러분,') if style == 'bobae_nl' else []
+    phrases = ([first] if first else []) + [W(f"오늘은 {color}" if color else '오늘은'), W(f"{F['make']} {hook_end}")]
+    blk('hook', phrases, hook=True)
+    # 외관·주행
+    st = []
+    if F.get('km') is not None:
+        km = int(F['km'])
+        say = num_ko(km)
+        if km < 30000:
+            ph = [[('주행은', '주행은'), (say, f'{km:,}'), ('킬로밖에', 'km밖에')], W('안 됐어요.')]
+        else:
+            ph = [[('주행', '주행'), (say, f'{km:,}'), ('킬로예요.', 'km예요.')]]
+        st.append((f'주행 {km_show(km)}', 0, {}))
+        blk('exterior', ph, st)
+    # 동력
+    if style == 'bobae_nl' and (F.get('engine') or F.get('power_ps')):
+        ph, st = [], []
+        if F.get('engine'):
+            eng = F['engine']
+            ew = eng.split()
+            tail = '에' if F.get('power_ps') else '예요.'
+            ph.append([(read_ko(w), w) for w in ew[:-1]] + [(read_ko(ew[-1]) + tail, ew[-1] + tail)])
+            st.append((eng, 0, {}))
+        if F.get('power_ps'):
+            ps = int(F['power_ps'])
+            ph.append([(num_ko(ps), str(ps)), ('마력이고요.', '마력이고요.')])
+            st.append((f'{ps}마력', len(ph) - 1, {}))
+        blk('power', ph, st)
+    # 옵션 (가장 중요): 고르기 → 한 옵션 = 한 구절 = 한 장면
+    opts = select_options(F, style, shots)
+    if opts:
+        ph, st, parts = [], [], []
+        n = len(opts)
+        for i, o in enumerate(opts):
+            sw = o['say'].split()
+            tail = '까지' if i == n - 1 and n > 1 else ('에' if i < n - 1 else '')
+            ws = [(w, w) for w in sw[:-1]] + [(sw[-1] + tail, sw[-1] + tail)]
+            ph.append(ws)
+            st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
+            parts.append(o['parts'])
+        only_feat = all(o.get('feature') for o in opts)
+        ph.append(W('갖췄어요.' if only_feat else ('다 들어가 있어요.' if n > 1 else '들어가 있어요.')))
+        parts.append(['interior_dash', 'seats_front', 'console'])
+        blk('options', ph, st, parts=parts)
+    # 판매 조건
+    ph, st = [], []
+    if F.get('reg'):
+        m = re.match(r'(\d+)년(\d+)월', F['reg'])
+        if m:
+            ph.append([(num_ko(int(m.group(1))) + '년', f'{int(m.group(1))}년'), (num_ko(int(m.group(2))) + '월', f'{int(m.group(2))}월'), ('등록,', '등록,')])
+            st.append((f'{int(m.group(1))}년 {int(m.group(2))}월 등록', 0, {}))
+    if F.get('price_manwon'):
+        say, show = price_parts(F['price_manwon'])
+        ws = list(zip(say, show))
+        ws[-1] = (ws[-1][0] + ' 원.', ws[-1][1] + ' 원.')
+        ws = [(a.split()[0], b.split()[0]) for a, b in ws[:-1]] + [(ws[-1][0].split()[0], ws[-1][1].split()[0]), ('원.', '원')]
+        ph.append(ws)
+        st.append((' '.join(show) + '원', len(ph) - 1, {}))
+    if ph:
+        blk('condition', ph, st)
+    # 마무리
+    cta = pick(['자세한 건 보배드림 앱에서 확인해 보세요!', '보배드림 앱에서 바로 확인해 보세요!'], key)
+    cw = W(cta)
+    half = max(1, len(cw) // 2)
+    blk('cta', [cw[:half], cw[half:]], [('보배드림 앱', 0, {})] if '앱' in cta else [], end=True)
+    return blocks
+
+
+def select_options(F, style, shots):
+    ex = RULES['option_exposure']
+    have = set(s['part'] for s in (shots or []))
+    cand = []
+    for nm in F.get('options', []):
+        o = CAT.get(nm)
+        if not o:
+            continue
+        if shots is not None:
+            if o['visible'] and not (have & set(o['parts'])):
+                continue  # 그 부위 장면이 없으면 칩을 띄우지 않는다
+            if not o['visible'] and not (have & {'screen', 'interior_dash', 'steering_wheel'} | (have & set(o['parts']))):
+                continue
+        cand.append(o)
+    for f in F.get('features', []):  # 영상에 보이는 특징(옵션표 밖): 그 부위 장면이 있을 때만
+        if shots is not None and f['part'] not in have:
+            continue
+        cand.append(dict(name=f['chip'], chip=f['chip'], say=f['say'], parts=[f['part']], tier=1, visible=True, feature=True))
+    cand.sort(key=lambda o: (o['tier'], not o['visible']))
+    out, used = [], set()
+    for o in cand:  # 같은 부위만 몰리지 않게 첫 부위가 다른 것부터
+        if o['parts'][0] in used and len(cand) > ex['max_per_video'][style]:
+            continue
+        out.append(o); used.add(o['parts'][0])
+        if len(out) >= ex['max_per_video'][style]:
+            break
+    return out
+
+
+def tts_text(blocks):
+    return ' '.join(w[0] for b in blocks for w in b['words'])
+
+
+# ── 2단계: 말 길이에 맞춰 장면 고르기 ──
+def load_words(path):
+    d = json.load(open(path, encoding='utf-8'))
+    d = d.get('words', d) if isinstance(d, dict) else d
+    out = []
+    for w in d:
+        if isinstance(w, dict):
+            out.append((float(w['start']), float(w['end']), w['text']))
+        else:
+            out.append((float(w[0]), float(w[1]), w[2]))
+    return [w for w in out if w[2].strip()]
+
+def phrase_times(blocks, words):
+    norm = lambda t: re.sub(r'[^0-9A-Za-z가-힣]', '', t)
+    sc, st = [], []
+    for s, e, t in words:
+        t = norm(t)
+        for k, ch in enumerate(t):
+            sc.append(ch); st.append(s + (e - s) * k / max(1, len(t)))
+    bc, own = [], []
+    for bi, b in enumerate(blocks):
+        pi = 0
+        for ph in b['phrases']:
+            for w in ph:
+                for ch in norm(w[0]):
+                    bc.append(ch); own.append((bi, pi))
+            pi += 1
+    sm = difflib.SequenceMatcher(None, ''.join(bc), ''.join(sc), autojunk=False)
+    mp = [None] * len(bc)
+    for a0, b0, n in sm.get_matching_blocks():
+        for k in range(n):
+            mp[a0 + k] = st[b0 + k]
+    known = [i for i, v in enumerate(mp) if v is not None]
+    for i in range(len(mp)):
+        if mp[i] is None:
+            lo = max([k for k in known if k < i], default=None); hi = min([k for k in known if k > i], default=None)
+            mp[i] = mp[hi] if lo is None else (mp[lo] + 0.08 * (i - lo) if hi is None else mp[lo] + (mp[hi] - mp[lo]) * (i - lo) / (hi - lo))
+    first = {}
+    for i, o in enumerate(own):
+        first.setdefault(o, mp[i])
+    keys = sorted(first)
+    end_t = words[-1][1] if words else 0
+    out = {}
+    for j, k in enumerate(keys):
+        out[k] = (first[k], first[keys[j + 1]] if j + 1 < len(keys) else end_t)
+    return out
+
+def assign_shots(blocks, shots, times):
+    """구절마다 원하는 부위 장면을 고른다(규칙 script.shot_cost). 말보다 짧으면 천천히(최소 0.6배) 튼다"""
+    used = {}   # 장면 번호 → 다음에 쓸 수 있는 원본 시각
+    prev = None
+    for bi, b in enumerate(blocks):
+        b['shot_tuples'], b['shot_parts'] = [], []
+        for pi, want in enumerate(b['parts']):
+            s0, s1 = times.get((bi, pi), (0, 1.5))
+            need = max(0.6, s1 - s0)
+            best = None
+            for si, s in enumerate(shots):
+                rank = want.index(s['part']) if s['part'] in want else (len(want) + 2)
+                start = used.get(si, s['t0'] + 0.15)
+                left = s['t1'] - start
+                reuse = 0 if si not in used else (0.5 if si == prev and left >= need * 0.6 else 5)
+                cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * 0.6 else 14)  # 다 쓴 장면은 거의 마지막 수단
+                if best is None or cost < best[0]:
+                    best = (cost, si)
+            si = best[1]
+            s = shots[si]
+            start = used.get(si, s['t0'] + 0.15)
+            if s['t1'] - start < need * 0.6:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
+                start = s['t0'] + 0.15
+            sp = round(min(1.0, max(0.6, (s['t1'] - start) / need)), 2)
+            b['shot_tuples'].append((round(start, 2), sp, 0))
+            b['shot_parts'].append(s['part'])
+            used[si] = start + need * sp
+            prev = si
+    return blocks
+
+
+def write_config(F, blocks, style, path):
+    show, caps_out, B = {}, [], []
+    for b in blocks:
+        caps = []
+        i = 0
+        for ph in b['phrases']:
+            caps.append(' '.join(w[1] for w in ph))
+            for say, sh in ph:
+                if say != sh:
+                    show[say] = sh
+        stickers = []
+        for txt, pidx, meta in b['stickers']:
+            band = RULES['part_band'].get(b.get('shot_parts', [None] * 99)[pidx] if b.get('shot_parts') else meta.get('part'), None) or RULES['part_band'].get(meta.get('part', ''), None)
+            m = {k: v for k, v in meta.items() if k in ('list', 'option')}
+            if band:
+                m['band'] = band
+            stickers.append((txt, pidx, m) if m else (txt, pidx))
+        d = dict(sec=b['sec'], tts=' '.join(w[0] for w in b['words']), caps=caps, shots=b.get('shot_tuples') or [(0.2, 1.0, 0)] * len(caps), stickers=stickers)
+        if b.get('hook'): d['hook'] = True
+        if b.get('end'): d['end'] = True
+        B.append(d)
+    name = f"{F['make']} {F['model']}"
+    price = ' '.join(price_parts(F['price_manwon'])[1]) + '원' if F.get('price_manwon') else ''
+    line2 = ' · '.join(x for x in [f"주행 {km_show(int(F['km']))}" if F.get('km') is not None else '', price] if x)
+    hook = dict(title=name, line1=' · '.join(x for x in [F.get('gen', ''), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
+    car = dict(name=name, year=str(F.get('year', '')), reg=F.get('reg', ''), km=km_show(int(F['km'])) if F.get('km') is not None else '',
+               km_short=km_show(int(F['km'])) if F.get('km') is not None else '', fuel=F.get('fuel', ''), price=price, region=F.get('region', ''),
+               drive=F.get('engine', ''), gen=F.get('gen', ''), color=F.get('color', ''))
+    marks = {txt: '✓' for b in blocks for txt, _, m in b['stickers'] if m.get('list') and style == 'bobae_nl'}
+    src = f"""# 자동 편집기(auto_edit.py)가 만든 설정. 손으로 고치지 말고 facts.json·shots.json·규칙을 고친 뒤 다시 만든다
+exec(open('scripts/shortform/reels/vantage_s3.py', encoding='utf-8').read())  # 공통 STYLE 바탕(글꼴·칠·크기)
+CAR = {json.dumps(car, ensure_ascii=False)}
+HOOK = {json.dumps(hook, ensure_ascii=False)}
+BLOCKS = {json.dumps(B, ensure_ascii=False, indent=1)}
+SHOW = {json.dumps(show, ensure_ascii=False)}
+MARKS = {json.dumps(marks, ensure_ascii=False)}
+STYLE.update(edit_style={style!r}, band_y={json.dumps(RULES['band_y'])}, option_hold={RULES['option_exposure']['hold_s'][style]},
+             checklist={json.dumps(RULES['option_exposure']['checklist'][style])})
+"""
+    src = src.replace('true', 'True').replace('false', 'False')
+    open(path, 'w', encoding='utf-8').write(src)
+
+
+def words_local(mp3, out):
+    """일레븐랩스 받아쓰기(creative_transcribe_audio)가 없을 때: 내 컴퓨터의 faster-whisper로 낱말 시각을 잰다"""
+    from faster_whisper import WhisperModel
+    m = WhisperModel(os.environ.get('SAG_WHISPER', 'small'), device='cpu', compute_type='int8')
+    import subprocess, numpy as np  # av 판이 안 맞는 환경이 있어 ffmpeg로 직접 풀어 넘긴다
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', mp3, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True, check=True).stdout
+    audio = np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+    segs, _ = m.transcribe(audio, language='ko', word_timestamps=True)
+    ws = [dict(text=w.word.strip(), start=round(w.start, 3), end=round(w.end, 3)) for sg in segs for w in sg.words]
+    json.dump(ws, open(out, 'w'), ensure_ascii=False)
+    return ws
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('cmd', choices=['script', 'build'])
+    ap.add_argument('facts'); ap.add_argument('shots', nargs='?')
+    ap.add_argument('--style', default='bobae_nl', choices=['bobae_nl', 'bobae_be'])
+    ap.add_argument('--out', required=True)
+    a = ap.parse_args()
+    os.makedirs(a.out, exist_ok=True)
+    F = json.load(open(a.facts, encoding='utf-8'))
+    shots = json.load(open(a.shots, encoding='utf-8')) if a.shots else None
+    blocks = make_script(F, a.style, shots)
+    if a.cmd == 'script':
+        open(os.path.join(a.out, 'tts.txt'), 'w', encoding='utf-8').write(tts_text(blocks))
+        json.dump(dict(style=a.style, blocks=blocks), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
+        print(tts_text(blocks))
+        return
+    wp = os.path.join(a.out, 'words.json')
+    if not os.path.exists(wp):
+        words_local(os.path.join(a.out, 'voice.mp3'), wp)
+    words = load_words(wp)
+    times = phrase_times(blocks, words)
+    # 렌더러에 넘길 낱말 시각: 받아쓰기 글자(1480kg 같은 오인식)가 아니라 대본 어절에 시각을 붙인다
+    flat = []
+    for bi, b in enumerate(blocks):
+        for pi, ph in enumerate(b['phrases']):
+            t0, t1 = times[(bi, pi)]
+            ends = [w for w in words if t0 + 0.05 < w[1] <= t1 + 0.15]
+            t1 = min(t1, max([w[1] for w in ends], default=t1))  # 구절 뒤 쉼은 빼고
+            L = [max(1, len(re.sub(r'[^0-9A-Za-z가-힣]', '', w[0]))) for w in ph]
+            acc = t0
+            for (say, _), l in zip(ph, L):
+                d = (t1 - t0) * l / sum(L)
+                flat.append(dict(text=say, start=round(acc, 3), end=round(acc + d, 3)))
+                acc += d
+    json.dump(flat, open(os.path.join(a.out, 'words_flat.json'), 'w'), ensure_ascii=False)
+    assign_shots(blocks, shots, times)
+    json.dump(dict(style=a.style, blocks=blocks, times={f'{k[0]}:{k[1]}': v for k, v in times.items()}), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
+    write_config(F, blocks, a.style, os.path.join(a.out, 'config.py'))
+    print('config', os.path.join(a.out, 'config.py'))
+
+
+if __name__ == '__main__':
+    main()

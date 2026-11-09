@@ -1,0 +1,29 @@
+{
+ "id": "vantage-s2",
+ "make": "애스턴마틴",
+ "model": "밴티지",
+ "gen": "2세대",
+ "color": "주황색",
+ "reg": "23년06월",
+ "year": 2023,
+ "km": 1480,
+ "fuel": "가솔린",
+ "engine": "4.0 V8 트윈터보",
+ "power_ps": 510,
+ "price_manwon": 17390,
+ "region": "경기",
+ "_note": "사실: 차란차 매물 페이지 + 2세대 기본형 공식 제원. 옵션표는 미확인이라 options는 비우고, 영상에 보이는 것만 features로 둔다",
+ "options": [],
+ "features": [
+  {
+   "chip": "노란 캘리퍼",
+   "say": "노란 캘리퍼",
+   "part": "wheel"
+  },
+  {
+   "chip": "브라운 톤 실내",
+   "say": "브라운 톤 실내",
+   "part": "seats_front"
+  }
+ ]
+}

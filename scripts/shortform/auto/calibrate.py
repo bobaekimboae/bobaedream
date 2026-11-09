@@ -1,0 +1,78 @@
+"""자동 편집 결과를 원본(네덜란드·벨기에 각 100편) 측정값과 비교한다 — 재교정 고리.
+
+python3 calibrate.py OUT_DIR [OUT_DIR ...]
+  OUT_DIR = auto_edit.py build 결과 폴더(plan.json, config.py, render/sag_reel_v1.mp4, render/sfx_hits.json)
+결과: 항목별 값 · 목표 범위 · 판정(OK / 낮음 / 높음). calib.json 으로도 남긴다.
+목표 범위는 auto_edit_rules.json 의 calibration. 원본을 더 분석해 범위를 고치면 여기 결과가 따라 바뀐다.
+"""
+import json, os, re, subprocess, sys
+HERE = os.path.dirname(os.path.abspath(__file__))
+RULES = json.load(open(os.path.join(HERE, 'auto_edit_rules.json'), encoding='utf-8'))
+
+
+def cuts(mp4, th=0.3):
+    out = subprocess.run(['ffmpeg', '-hide_banner', '-i', mp4, '-vf', f"select='gt(scene,{th})',showinfo", '-an', '-f', 'null', '-'],
+                         capture_output=True, text=True).stderr
+    return [float(x) for x in re.findall(r'pts_time:([0-9.]+)', out)]
+
+
+def dur(mp4):
+    return float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4],
+                                capture_output=True, text=True).stdout)
+
+
+def measure(d):
+    plan = json.load(open(os.path.join(d, 'plan.json'), encoding='utf-8'))
+    style = plan['style']
+    mp4 = os.path.join(d, 'render', 'sag_reel_v1.mp4')
+    T = dur(mp4)
+    c = [t for t in cuts(mp4) if 0.3 < t < T - 2.6]  # 끝 화면 전환은 컷에서 뺀다
+    edges = [0.0] + c + [T - 2.4]
+    lens = sorted(b - a for a, b in zip(edges, edges[1:]) if b > a)
+    med = lens[len(lens) // 2] if lens else 0
+    chips = [s for b in plan['blocks'] for s in b['stickers']]
+    opt = [s for s in chips if len(s) > 2 and s[2].get('option')]
+    sfx = json.load(open(os.path.join(d, 'render', 'sfx_hits.json')))
+    mins = T / 60
+    cfg = open(os.path.join(d, 'config.py'), encoding='utf-8').read()
+    cap_y = {'bobae_nl': 1190, 'bobae_be': 1229}[style] / 1920 * 100
+    m = dict(duration_s=round(T, 1), cuts_per_min=round(len(c) / mins, 1), shot_med_s=round(med, 2),
+             chips_per_min=round(len(chips) / mins, 1), option_chips=len(opt), sfx_per_video=len(sfx['hits']),
+             caption_y_pct=round(cap_y, 1), music=bool(sfx.get('music')))
+    # 옵션 칩 = 그 부위 장면 위인지(옵션 칩 노출 규칙의 핵심)
+    hit = 0
+    for b in plan['blocks']:
+        for s in b['stickers']:
+            if len(s) > 2 and s[2].get('option'):
+                parts = b.get('shot_parts', [])
+                if s[1] < len(parts) and parts[s[1]] == s[2].get('part'):
+                    hit += 1
+    m['option_on_part'] = f'{hit}/{len(opt)}'
+    return style, m
+
+
+def judge(style, m):
+    tg = RULES['calibration'][style]
+    rows = []
+    for k, v in m.items():
+        t = tg.get(k)
+        if isinstance(t, list) and isinstance(v, (int, float)):
+            j = 'OK' if t[0] <= v <= t[1] else ('낮음' if v < t[0] else '높음')
+        elif isinstance(t, bool):
+            j = 'OK' if v == t else '다름'
+        else:
+            j = '-'
+        rows.append((k, v, t, j))
+    return rows
+
+
+if __name__ == '__main__':
+    allr = {}
+    for d in sys.argv[1:]:
+        style, m = measure(d)
+        rows = judge(style, m)
+        allr[d] = dict(style=style, rows=rows)
+        print(f'\n[{style}] {d}')
+        for k, v, t, j in rows:
+            print(f'  {k:16s} {str(v):>8s}  목표 {str(t):14s} {j}')
+        json.dump(dict(style=style, metrics=m, rows=rows), open(os.path.join(d, 'calib.json'), 'w'), ensure_ascii=False, indent=1)

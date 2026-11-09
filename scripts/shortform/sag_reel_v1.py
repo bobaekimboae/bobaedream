@@ -95,6 +95,11 @@ if _ed:
         raise SystemExit(f'편집 판 이름이 틀림: {_ed} (bobae_nl · bobae_be)')
     STYLE.update(EDIT_PRESETS[_ed])
     STYLE['edit_style'] = _ed
+# 칩 세 번째 값(자동 편집기 auto_edit.py): {'band': top|mid|low, 'list': True, 'option': 이름}. 기존 코드는 (글자, 구절번호)만 읽으므로 따로 둔다
+for _b in BLOCKS:
+    _st = _b.get('stickers', [])
+    _b['_smeta'] = [dict(x[2]) if len(x) > 2 else {} for x in _st]
+    _b['stickers'] = [(x[0], x[1]) for x in _st]
 KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|보배드림|테일램프|옆태)')
 
 
@@ -491,8 +496,12 @@ def plan_shots(total):
         tgt = STYLE.get('shot_target_s', 0)
         if tgt and len(bshots) > 1:  # 네덜란드판: 장면 약 2.5초(NL 중간값). 블록 길이에 맞게 장면 수를 줄이고 고르게 남긴다
             nk = min(len(bshots), max(1, round((t1 - t0) / tgt)))
+            # 옵션 칩(자동 편집기): 옵션 하나 = 구절 하나 = 장면 하나. 블록이 짧아도 옵션 장면은 줄이지 않는다
+            opt = sorted({pi for (_, pi), m in zip(b.get('stickers', []), b.get('_smeta', [])) if m.get('option') and pi < len(bshots)})
+            nk = min(len(bshots), max(nk, len(opt) + (0 not in opt)))
             # 칩이 뜨는 구절의 장면을 먼저 남긴다(칩 글자와 화면 부위가 어긋나지 않게: 장면 k = 구절 k)
-            pref = sorted({0} | {pi for _, pi in b.get('stickers', []) if pi < len(bshots)})
+            rest = sorted({0} | {pi for _, pi in b.get('stickers', []) if pi < len(bshots)})
+            pref = opt + [j for j in rest if j not in opt]
             keep = pref[:nk] + [j for j in range(len(bshots)) if j not in pref][:max(0, nk - len(pref))]
             keep = sorted(keep)
             kept_ph = [PHRASES[b['ph0'] + j][0] for j in keep[1:] if b['ph0'] + j < len(PHRASES)]
@@ -1218,14 +1227,44 @@ def overlay(T, total, shots, shot, blk):
     # 숫자 사양은 화면 가운데 크게, 기능 이름은 좌·우·가운데를 번갈아 중간 크기로. 가격은 왼쪽에서 밀려 들어옴
     bi = BLOCKS.index(blk)
     big_on = False
+    smeta = blk.get('_smeta') or [{}] * len(blk.get('stickers', []))
+    chk = STYLE.get('checklist') or {}
+    lst = [i for i, m in enumerate(smeta) if m.get('list')]
+    use_chk = chk.get('on') and len(lst) >= chk.get('min_items', 2)
+    if use_chk:  # 네덜란드판 ✓ 목록: 말할 때마다 한 줄씩 늘고, 장면(블록) 끝에 한꺼번에 사라짐
+        rows = []
+        for i in lst[:chk.get('max_lines', 3)]:
+            st_i = PHRASES[blk['ph0'] + blk['stickers'][i][1]][0] + 0.1
+            if st_i <= T:
+                rows.append((i, st_i))
+        en_all = blk['t1'] + 0.25
+        if rows and T < en_all:
+            out = ease((en_all - T) / .15)
+            ims = [sticker(blk['stickers'][i][0], STYLE['feat_size'], 0.0, False) for i, _ in rows]
+            gap = 18
+            tot = sum(im.height for im in ims) + gap * (len(ims) - 1)
+            y0 = STYLE.get('band_y', {}).get(chk.get('band', 'mid'), STYLE['feat_y']) - tot / 2
+            for (i, st_i), im in zip(rows, ims):
+                e = back((T - st_i) / .28)
+                sc = max(.05, e)
+                x = 96  # 목록은 왼쪽 정렬(원본 NL ✓ 목록)
+                paste(ov, im, x + im.width * (1 - sc) / 2, y0 + im.height * (1 - e) / 2, min(1, (T - st_i) / .1) * out, sc)
+                y0 += im.height + gap
     for si, (txt, pidx) in enumerate(blk.get('stickers', [])):
+        if use_chk and si in lst:
+            continue
         p0 = PHRASES[blk['ph0'] + pidx]
         st = p0[0] + 0.1
         nx = blk.get('stickers')[si + 1][1] if si + 1 < len(blk['stickers']) else None
         en = PHRASES[blk['ph0'] + nx][0] if nx is not None else blk['t1'] + 0.25
         en = min(en, st + 2.6)
+        if smeta[si].get('option') and STYLE.get('option_hold'):
+            en = max(en, min(st + STYLE['option_hold'], blk['t1'] + 0.25))  # 옵션 칩은 최소 hold 초
         if not (st <= T < en):
             continue
+        band = smeta[si].get('band')
+        if band == 'low':
+            big_on = True  # 아래쪽 칩은 말 자막 자리와 겹치므로 그동안 자막을 숨긴다
         big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)
         big = big and STYLE.get('big_numbers', True)  # 벨기에판: 숫자도 칩 안에(크게 튀어나오지 않음)
         if big:
@@ -1255,6 +1294,8 @@ def overlay(T, total, shots, shot, blk):
             else:
                 x = [SAFE_L, SAFE_R - im.width, STYLE.get('cap_cx', SAFE_CX) - im.width / 2][(bi + si) % 3]
             y = STYLE['feat_y'] - ady
+            if band and STYLE.get('band_y'):
+                y = STYLE['band_y'][band] - im.height / 2 - ady  # 부위별 자리(자동 편집기): 그 부위를 가리지 않는 높이
         sc = max(.05, e)
         px_ = x + im.width * (1 - sc) / 2
         if STYLE.get('feat_pos') == 'as24':
@@ -1265,7 +1306,7 @@ def overlay(T, total, shots, shot, blk):
     for ph in PHRASES:
         if ph[0] <= T < ph[1]:
             cur = ph
-    if cur and big_on and (STYLE.get('big_hides_cap') or STYLE.get('numchip_hides_cap')):
+    if cur and big_on and (STYLE.get('big_hides_cap') or STYLE.get('numchip_hides_cap') or STYLE.get('band_y')):
         cur = None  # 네덜란드판: 큰 숫자가 떠 있는 동안 말 자막을 숨긴다(NL 39/50)
     if cur and STYLE.get('cap_cut_gap'):
         g = STYLE['cap_cut_gap']
