@@ -612,6 +612,39 @@ def plan_shots(total):
     return shots
 
 
+def clamp_to_segments(shots, src_dur):
+    """2026-11-10 칩·말 ↔ 화면 어긋남 원인 수정: 컷 편집표가 장면을 줄이거나(shot_target_s) 컷을 당기거나(cut_early)
+    마지막 장면을 영상 끝까지 늘리면, 원본이 그 부위 구간을 넘어 다음 부위(바퀴·트렁크)나 원본 끝 검은 화면이 비친다.
+    장면마다 그 부위 구간(설정 SEGS, 없으면 원본 전체) 안에서 끝나도록 천천히(최저 0.4배) 틀고, 그래도 모자라면 시작을 당긴다"""
+    segs = globals().get('SEGS') or [dict(t0=0.0, t1=src_dur, part='all')]
+    for sh in shots:
+        seg = next((g for g in segs if g['t0'] - 0.05 <= sh['src'] < g['t1']), None) or dict(t0=0.0, t1=src_dur, part='all')
+        end = min(seg['t1'], src_dur) - 0.04
+        dur = max(0.01, sh['b'] - sh['a'])
+        if sh['src'] + dur * sh['sp'] > end:
+            sp = max(0.4, (end - sh['src']) / dur)
+            sh['sp'] = round(min(sh['sp'], sp), 3)
+            if sh['src'] + dur * sh['sp'] > end:
+                sh['src'] = round(max(seg['t0'], end - dur * sh['sp']), 3)
+        sh['part'] = seg['part']
+    return shots
+
+
+def dump_match(shots):
+    """칩마다 실제로 그 순간 화면에 비친 부위를 적는다(OUT/match.json, check_match.py가 읽음)"""
+    rows = []
+    for bi, b in enumerate(BLOCKS):
+        for st in b.get('stickers', []):
+            txt, pi = st[0], st[1]
+            if b['ph0'] + pi >= len(PHRASES):
+                continue
+            t = PHRASES[b['ph0'] + pi][0]
+            sh = next((x for x in shots if x['a'] <= t < x['b']), shots[-1])
+            rows.append(dict(sec=b.get('sec', ''), chip=txt, t=round(t, 2), part=sh.get('part'), src=round(sh['src'] + (t - sh['a']) * sh['sp'], 2)))
+    json.dump(dict(chips=rows, shots=[{k: sh.get(k) for k in ('a', 'b', 'src', 'sp', 'bi', 'k', 'part')} for sh in shots]),
+              open(os.path.join(OUT, 'match.json'), 'w'), ensure_ascii=False, indent=1)
+
+
 def src_frame(shot, T, nframes):
     s = shot['src'] + (T - shot['a']) * shot['sp']
     return int(min(nframes - 1, max(0, round(s * FPS))))
@@ -1682,7 +1715,8 @@ def main():
     build_sfx(total)
     cap = cv2.VideoCapture(SRC)
     nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    shots = plan_shots(total)
+    shots = clamp_to_segments(plan_shots(total), nframes / FPS)
+    dump_match(shots)
     # 번호판: 기본은 가리지 않음(딜러 매물은 번호판 공개가 원칙, 사용자 지시 2026-11-07). SAG_PLATE_COVER=1 이면 자동 가림
     track = plate_track(shots, total, nframes, os.path.join(OUT, 'plates.json')) if PLATE_COVER else {}
     # 필요한 원본 장면만 읽어 둔다

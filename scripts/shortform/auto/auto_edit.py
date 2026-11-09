@@ -466,8 +466,35 @@ def style_of(blocks):
     return blocks[0].get('_style', 'bobae_nl')
 
 
+def merge_shots(shots):
+    """붙어 있는 같은 부위 장면을 하나로 합친다(트렁크 2.6초 + 2.7초 → 5.3초). 장면이 짧게 쪼개져 있으면
+    구절이 장면 끝을 넘어 다음 부위(바퀴·트렁크)가 비쳐 칩·말과 화면이 어긋난다(2026-11-10 차란차 02 「2.5 가솔린」이 바퀴 위)"""
+    out = []
+    for s in sorted(shots, key=lambda x: x['t0']):
+        if out and out[-1]['part'] == s['part'] and abs(out[-1]['t1'] - s['t0']) < 0.05:
+            out[-1] = dict(out[-1], t1=s['t1'], score=max(out[-1].get('score', 0.5), s.get('score', 0.5)))
+        else:
+            out.append(dict(s))
+    return out
+
+
+def fit_in_shot(s, start, need, fit):
+    """장면 끝을 넘지 않게 (시작, 속도)를 정한다. 남은 길이가 모자라면 천천히(최저 MIN_SPEED) 틀고,
+    그래도 모자라면 같은 장면 안에서 시작을 앞으로 당긴다. 장면 밖(다음 부위·영상 끝 검은 화면)으로 넘치지 않음"""
+    MIN_SPEED = 0.4
+    left = s['t1'] - start
+    sp = min(1.0, max(fit, left / need))
+    if need * sp > left + 0.02:
+        sp = max(MIN_SPEED, min(1.0, left / need))
+        if need * sp > left + 0.02:  # 시작을 당겨 장면 안에서 끝나게
+            start = max(s['t0'], s['t1'] - need * sp - 0.02)
+    return round(start, 2), round(sp, 2)
+
+
 def assign_shots(blocks, shots, times):
-    """구절마다 원하는 부위 장면을 고른다(규칙 script.shot_cost). 말보다 짧으면 천천히(최소 0.6배) 튼다"""
+    """구절마다 원하는 부위 장면을 고른다(규칙 script.shot_cost). 말보다 짧으면 천천히(최소 0.6배) 튼다.
+    2026-11-10: 장면은 절대 그 부위 구간 밖으로 넘치지 않는다(넘치면 칩·말과 화면이 어긋남)"""
+    shots = merge_shots(shots)
     used = {}   # 장면 번호 → 다음에 쓸 수 있는 원본 시각
     prev = None
     run = 0.0   # 지금 장면이 이어진 길이(블록을 넘어 이어짐)
@@ -489,8 +516,8 @@ def assign_shots(blocks, shots, times):
                 s = shots[prev]
                 start = used[prev]
                 if s['t1'] - start >= need * 0.6:
-                    sp = round(min(1.0, max(0.6, (s['t1'] - start) / need)), 2)
-                    b['shot_tuples'].append((round(start, 2), sp, 0)); b['shot_parts'].append(s['part'])
+                    start, sp = fit_in_shot(s, start, need, 0.6)
+                    b['shot_tuples'].append((start, sp, 0)); b['shot_parts'].append(s['part'])
                     used[prev] = start + need * sp; run += need
                     b.setdefault('cont', []).append(pi)
                     continue
@@ -523,15 +550,15 @@ def assign_shots(blocks, shots, times):
             fit = 0.5 if pi in optp else 0.6
             if s['t1'] - start < need * fit:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
                 start = s['t0'] + 0.15
-            sp = round(min(1.0, max(fit, (s['t1'] - start) / need)), 2)
-            b['shot_tuples'].append((round(start, 2), sp, 0))
+            start, sp = fit_in_shot(s, start, need, fit)
+            b['shot_tuples'].append((start, sp, 0))
             b['shot_parts'].append(s['part'])
             used[si] = start + need * sp
             prev = si
     return blocks
 
 
-def write_config(F, blocks, style, path):
+def write_config(F, blocks, style, path, segs=None):
     show, caps_out, B = {}, [], []
     for b in blocks:
         caps = []
@@ -567,6 +594,7 @@ def write_config(F, blocks, style, path):
 exec(open('scripts/shortform/reels/vantage_s3.py', encoding='utf-8').read())  # 공통 STYLE 바탕(글꼴·칠·크기)
 CAR = {json.dumps(car, ensure_ascii=False)}
 HOOK = {json.dumps(hook, ensure_ascii=False)}
+SEGS = {json.dumps([dict(t0=g['t0'], t1=g['t1'], part=g['part']) for g in (merge_shots(segs) if segs else [])], ensure_ascii=False)}  # 부위 구간: 렌더러가 장면을 이 안에서만 튼다(2026-11-10)
 BLOCKS = {json.dumps(B, ensure_ascii=False, indent=1)}
 SHOW = {json.dumps(show, ensure_ascii=False)}
 MARKS = {json.dumps(marks, ensure_ascii=False)}
@@ -655,7 +683,7 @@ def main():
     json.dump(flat, open(os.path.join(a.out, 'words_flat.json'), 'w'), ensure_ascii=False)
     assign_shots(blocks, shots, times)
     json.dump(dict(style=a.style, blocks=blocks, times={f'{k[0]}:{k[1]}': v for k, v in times.items()}), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
-    write_config(F, blocks, a.style, os.path.join(a.out, 'config.py'))
+    write_config(F, blocks, a.style, os.path.join(a.out, 'config.py'), shots)
     print('config', os.path.join(a.out, 'config.py'))
 
 
