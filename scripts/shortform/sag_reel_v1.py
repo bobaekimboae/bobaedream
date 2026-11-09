@@ -85,11 +85,11 @@ EDIT_PRESETS = {
     'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1152, chip_delay=0.4,  # 60%, 칩은 구절 시작 +0.4초(200편)  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
                      stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=True, cap_cut_gap=0.0,
                      bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, shot_target_s=2.5,
-                     cut_early_s=1.0, shot_min_s=1.9),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
+                     cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
     'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
                      stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
                      bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0,
-                     cut_early_s=0.6, shot_min_s=1.5),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
+                     cut_early_s=0.6, shot_min_s=1.5, cut_on_phrase_every=3),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
 }
 _ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
 if _ed:
@@ -489,9 +489,16 @@ def plan_shots(total):
     """컷은 말 구절이 바뀌는 순간(자막이 바뀌는 순간)에 넣는다. 편집자가 말 단위로 자르는 방식.
     블록 첫 컷은 그 블록 말보다 LEAD 먼저 바뀐다(그림이 소리보다 살짝 앞서야 자연스러움)"""
     shots = []
+    ncut = [0]
+    ev = STYLE.get('cut_on_phrase_every', 0)  # 원본 컷의 약 1/3은 구절 시작(칩과 같은 순간) — n번째 컷마다 당기지 않는다
+
+    def pull():
+        ncut[0] += 1
+        return not (ev and ncut[0] % ev == 0)
     for bi, b in enumerate(BLOCKS):
         t0 = PHRASES[b['ph0']][0] if bi else 0.0  # 블록 첫 자막이 뜨는 순간 = 컷
-        if bi and STYLE.get('cut_early_s') and shots:
+        # 첫 컷(첫 화면 → 다음 블록)은 당기지 않는다: 원본 첫 컷은 NL 3.3 · BE 2.4초로 늦다
+        if bi > 1 and STYLE.get('cut_early_s') and shots and pull():
             # 원본: 칩은 장면이 바뀌고 약 1초 뒤에 뜬다(칩 ≠ 컷, 컷의 60%는 구절 중간). 블록 컷을 앞 블록 끝 낱말 시작으로 당긴다
             cand_w = [w[0] - LEAD for w in BLOCKS[bi - 1]['words'] if t0 - STYLE['cut_early_s'] - 0.3 <= w[0] - LEAD <= t0 - 0.4]
             last_a = shots[-1]['a']
@@ -533,6 +540,8 @@ def plan_shots(total):
         if STYLE.get('cut_early_s'):  # 블록 안 컷도 칩(구절 시작)보다 조금 먼저: 앞 구절 끝 낱말 시작으로
             ws_ = [w[0] - LEAD for w in b['words']]
             for k in range(1, len(edges) - 1):
+                if not pull():
+                    continue
                 c_ = [w for w in ws_ if edges[k] - STYLE['cut_early_s'] - 0.3 <= w <= edges[k] - 0.35 and w - edges[k - 1] >= STYLE.get('shot_min_s', 1.6) * 0.8]
                 if c_:
                     edges[k] = min(c_)

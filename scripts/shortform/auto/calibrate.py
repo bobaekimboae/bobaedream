@@ -13,6 +13,9 @@ RULES = json.load(open(os.path.join(HERE, 'auto_edit_rules.json'), encoding='utf
 from learn_l1 import cuts_ff as cuts  # 원본 100편을 잰 자와 같은 자(scale 180 · 장면 점수 0.3 · 0.4초 안 겹침은 하나로)
 
 
+CAT_PARTS = {o['name']: o['parts'] for o in RULES['option_catalog']}
+
+
 def dur(mp4):
     return float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4],
                                 capture_output=True, text=True).stdout)
@@ -42,12 +45,14 @@ def measure(d):
         for s in b['stickers']:
             if len(s) > 2 and s[2].get('option'):
                 parts = b.get('shot_parts', [])
-                if s[1] < len(parts) and parts[s[1]] == s[2].get('part'):
+                ok = CAT_PARTS.get(s[2].get('option'), [s[2].get('part')])  # 옵션 사전의 보이는 부위 중 하나면 맞음
+                if s[1] < len(parts) and parts[s[1]] in ok:
                     hit += 1
     m['option_on_part'] = f'{hit}/{len(opt)}'
     # 칩이 새 장면 시작 0.5초 안에 뜨는 비율(원본 NL 0.33 · BE 0.40~0.50). 우리는 컷과 칩을 같은 구절 시작에 걸어 높게 나온다
     tm = plan.get('times', {})
-    cst = [tm[f"{bi}:{s[1]}"][0] + 0.1 for bi, b in enumerate(plan['blocks']) for s in b['stickers'] if f"{bi}:{s[1]}" in tm]
+    dl = RULES['option_exposure'].get('chip_delay', {}).get(style, 0.1)  # 칩이 실제로 뜨는 시각(렌더러 chip_delay)
+    cst = [tm[f"{bi}:{s[1]}"][0] + dl for bi, b in enumerate(plan['blocks']) for s in b['stickers'] if f"{bi}:{s[1]}" in tm]
     if cst:
         m['chip_on_new_shot'] = round(sum(any(0 <= t - x <= 0.5 for x in [0.0] + c) for t in cst) / len(cst), 2)
     return style, m

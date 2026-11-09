@@ -62,6 +62,11 @@ def has_final(word):
     ch = word.rstrip()[-1]
     if '가' <= ch <= '힣':
         return (ord(ch) - 0xAC00) % 28 != 0
+    lw = re.search(r'[A-Za-z]+$', word.rstrip())
+    if lw:  # 로마자로 끝나는 차명: 단어처럼 읽히는 끝말은 규칙표(josa_latin), 아니면 마지막 글자 읽기(엘·엠·엔·알만 받침)
+        for suf, fin in RULES['script'].get('josa_latin', {}).items():
+            if lw.group(0).upper().endswith(suf):
+                return fin
     return ch.lower() in 'lmnr136780' or ch in 'LMNR'
 def josa(word, a, b):  # a = 받침 있을 때(이에요/은/이), b = 없을 때(예요/는/가)
     return word + (a if has_final(word) else b)
@@ -84,6 +89,7 @@ def pick(variants, key):
 
 # ── 1단계: 대본 ──
 def make_script(F, style, shots=None):
+    long = bool(shots) and max(x['t1'] for x in shots) >= RULES['script'].get('long_source_s', 40)
     """블록 목록: dict(sec, words=[(tts어절, 화면어절)], caps=[어절수...], stickers=[(칩, 구절번호, {band,part,list})], parts=[구절별 원하는 부위 목록])"""
     name = f"{F['make']} {F['model']}"
     key = F.get('id', name)
@@ -128,22 +134,39 @@ def make_script(F, style, shots=None):
             ps = int(F['power_ps'])
             ph.append([(f'{ps}마력이고요.', f'{ps}마력이고요.')] if digits else [(num_ko(ps), str(ps)), ('마력이고요.', '마력이고요.')])
             st.append((f'{ps}마력', len(ph) - 1, {}))
+        if long and F.get('drive'):  # 긴 원본: 구동 방식 한 구절 더(매물 정보에 있을 때만)
+            ph.append(W(f"{F['drive']} 구동이에요."))
+            st.append((f"{F['drive']} 구동", len(ph) - 1, {}))
         blk('power', ph, st)
     # 옵션 (가장 중요): 고르기 → 한 옵션 = 한 구절 = 한 장면
-    opts = select_options(F, style, shots)
+    opts = select_options(F, style, shots, long)
     if opts:
         ph, st, parts = [], [], []
         n = len(opts)
+        ends = RULES['script'].get('option_sentence_ends', ['들어가 있고요.', '있어요.'])
         for i, o in enumerate(opts):
             sw = o['say'].split()
+            if long and n > 1:  # 긴 원본: 옵션마다 한 문장(장면을 길게 보여 줄 말), 끝말은 돌려 쓴다
+                if i == n - 1:
+                    tail, more = '까지', W('다 들어가 있어요.')
+                else:  # 끝말 돌려쓰기: [조사, 끝말] — 「~가 들어가 있고요 / ~도 있어요」처럼 같은 끝말이 이어지지 않게
+                    jp, en = ends[i % len(ends)]
+                    tail = josa(sw[-1], '이', '가')[len(sw[-1]):] if jp == '이가' else jp
+                    more = W(en)
+                ws = [(w, w) for w in sw[:-1]] + [(sw[-1] + tail, sw[-1] + tail)] + more
+                ph.append(ws)
+                st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
+                parts.append(o['parts'])
+                continue
             tail = '까지' if i == n - 1 and n > 1 else ('에' if i < n - 1 else '')
             ws = [(w, w) for w in sw[:-1]] + [(sw[-1] + tail, sw[-1] + tail)]
             ph.append(ws)
             st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
             parts.append(o['parts'])
         only_feat = all(o.get('feature') for o in opts)
-        ph.append(W('갖췄어요.' if only_feat else ('다 들어가 있어요.' if n > 1 else '들어가 있어요.')))
-        parts.append(['interior_dash', 'seats_front', 'console'])
+        if not (long and n > 1):
+          ph.append(W('갖췄어요.' if only_feat else ('다 들어가 있어요.' if n > 1 else '들어가 있어요.')))
+          parts.append(['interior_dash', 'seats_front', 'console'])
         blk('options', ph, st, parts=parts)
     # 판매 조건
     ph, st = [], []
@@ -170,8 +193,9 @@ def make_script(F, style, shots=None):
     return blocks
 
 
-def select_options(F, style, shots):
+def select_options(F, style, shots, long=False):
     ex = RULES['option_exposure']
+    cap = ex['max_per_video'][style] + (ex.get('long_extra', {}).get(style, 0) if long else 0)
     have = set(s['part'] for s in (shots or []))
     cand = []
     for nm in F.get('options', []):
@@ -189,13 +213,20 @@ def select_options(F, style, shots):
             continue
         cand.append(dict(name=f['chip'], chip=f['chip'], say=f['say'], parts=[f['part']], tier=1, visible=True, feature=True))
     cand.sort(key=lambda o: (o['tier'], not o['visible']))
-    out, used = [], set()
-    for o in cand:  # 같은 부위만 몰리지 않게 첫 부위가 다른 것부터
-        if o['parts'][0] in used and len(cand) > ex['max_per_video'][style]:
-            continue
-        out.append(o); used.add(o['parts'][0])
-        if len(out) >= ex['max_per_video'][style]:
+    out, used, rest = [], set(), []
+    for o in cand:  # 같은 부위만 몰리지 않게: 원본에 있는 부위 중 아직 안 쓴 부위를 그 옵션의 장면으로
+        ps = [p for p in o['parts'] if shots is None or p in have] or o['parts']
+        free = [p for p in ps if p not in used]
+        if not free:
+            rest.append(dict(o, parts=ps)); continue
+        out.append(dict(o, parts=[free[0]] + [p for p in ps if p != free[0]])); used.add(free[0])
+        if len(out) >= cap:
+            return out
+    for o in rest:  # 부위가 겹쳐도 자리가 남으면 넣는다(같은 부위 다른 구간)
+        if len(out) >= cap:
             break
+        out.append(o)
+    out.sort(key=lambda o: (o['tier'], not o['visible']))
     return out
 
 
@@ -279,6 +310,8 @@ def phrase_times(blocks, words):
     return out
 
 STYLE_MIN = {k: v[0] for k, v in ((k, RULES['calibration'][k]['shot_med_s']) for k in ('bobae_nl', 'bobae_be'))}
+# 장면을 이어 쓰는 기준: 원본 장면 길이 가운데(p25~p75의 중간). 최소값으로 자르면 장면이 원본보다 짧아진다(GLE 긴 원본 시험 1.8초)
+STYLE_TARGET = {k: round(sum(RULES['calibration'][k]['shot_med_s']) / 2, 3) for k in ('bobae_nl', 'bobae_be')}
 def style_of(blocks):
     return blocks[0].get('_style', 'bobae_nl')
 
@@ -293,12 +326,16 @@ def assign_shots(blocks, shots, times):
         optp = {x[1] for x in b['stickers'] if len(x) > 2 and x[2].get('option')}
         for pi, want in enumerate(b['parts']):
             s0, s1 = times.get((bi, pi), (0, 1.5))
+            # 렌더러가 컷을 앞 낱말로 당기면(cut_early) 이 장면이 그만큼 일찍 시작해 길어진다 → 원본 장면을 넘쳐 다음 장면이 비치지 않게 여유를 잡는다
             need = max(0.6, s1 - s0)
+            pad = 0 if bi == 0 and pi == 0 else RULES['script'].get('cut_early_pad', {}).get(style_of(blocks), 0)  # 새 장면에만(이어 쓰는 구절·영상 첫 장면은 당길 컷이 없다)
             # 장면 최소 길이(원본 중간값 아래로 자르지 않음): 짧은 구절은 앞 장면을 이어 쓴다. 옵션 구절은 예외(옵션 = 장면 하나)
             first_hold = bi == 0 and s0 < RULES['learned_l1'][style_of(blocks)]['first_cut_s'] - 0.3  # 원본: 첫 컷은 3.4~3.7초
             # 블록 경계에서도(앞 블록 끝 장면이 아직 짧으면) 이어 쓴다: 원본 컷의 60%는 구절 중간이고 블록마다 자르지 않는다
             prev_opt = (pi - 1) in optp if pi else bool(bi and any(x[1] == len(blocks[bi - 1]['parts']) - 1 and len(x) > 2 and x[2].get('option') for x in blocks[bi - 1]['stickers']))
-            if prev is not None and (pi or bi) and pi not in optp and not prev_opt and (run < STYLE_MIN[style_of(blocks)] or first_hold):
+            # 옵션 구절도 앞 장면이 그 옵션 부위를 이미 보여 주고 있으면 이어 쓴다(칩이 장면 중간에 뜸 — 원본 칩의 2/3는 장면 시작이 아닌 곳)
+            opt_same = pi in optp and prev is not None and shots[prev]['part'] in want and run < STYLE_TARGET[style_of(blocks)] * 1.3
+            if prev is not None and (pi or bi) and ((pi not in optp and not prev_opt) or opt_same) and (run < STYLE_TARGET[style_of(blocks)] or first_hold or opt_same):
                 s = shots[prev]
                 start = used[prev]
                 if s['t1'] - start >= need * 0.6:
@@ -308,18 +345,28 @@ def assign_shots(blocks, shots, times):
                     b.setdefault('cont', []).append(pi)
                     continue
             run = need
+            need = need + pad
+            # 앞을 내다본다: 이 장면이 이어서 덮을 짧은 구절(옵션 아님, 장면 목표 길이까지)도 들어갈 만큼 남은 원본 장면을 고른다
+            # (GLE 시험: 「4륜 구동이에요.」 1.1초 구절이 새 장면이 되어 1.07초 장면이 생김)
+            ahead, k = need, pi + 1
+            while k < len(b['parts']) and k not in optp and ahead - pad < STYLE_TARGET[style_of(blocks)]:
+                t_ = times.get((bi, k))
+                if not t_:
+                    break
+                ahead += t_[1] - t_[0]; k += 1
             best = None
             for si, s in enumerate(shots):
                 rank = want.index(s['part']) if s['part'] in want else (len(want) + 2)
-                start = used.get(si, s['t0'] + 0.15)
+                start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))  # 영상 맨 앞 장면은 앞 여유가 필요 없다
                 left = s['t1'] - start
                 reuse = 0 if si not in used else (0.5 if si == prev and left >= need * 0.6 else 5)
                 cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * 0.6 else 14)  # 다 쓴 장면은 거의 마지막 수단
+                cost += 0 if left >= ahead * 0.6 else 3  # 다음 짧은 구절까지 못 덮으면 조금 불리
                 if best is None or cost < best[0]:
                     best = (cost, si)
             si = best[1]
             s = shots[si]
-            start = used.get(si, s['t0'] + 0.15)
+            start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))
             if s['t1'] - start < need * 0.6:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
                 start = s['t0'] + 0.15
             sp = round(min(1.0, max(0.6, (s['t1'] - start) / need)), 2)

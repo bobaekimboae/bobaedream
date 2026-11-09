@@ -710,7 +710,16 @@
   },
   "placement": "part_band 기준, 부위를 가리지 않음, 아래 20% 비움, 가로 가운데",
   "shot": "구절 장면은 그 옵션 parts 중 점수가 가장 높은 장면. 최소 0.8초. 같은 장면을 두 번 쓰지 않음(어쩔 수 없으면 다른 구간)",
-  "fallback": "맞는 장면이 없으면 그 옵션은 대본에서 빼고 다음 순위 옵션을 쓴다"
+  "fallback": "맞는 장면이 없으면 그 옵션은 대본에서 빼고 다음 순위 옵션을 쓴다",
+  "long_extra": {
+   "bobae_nl": 1,
+   "bobae_be": 1
+  },
+  "chip_delay": {
+   "bobae_nl": 0.4,
+   "bobae_be": 0.05,
+   "_note": "렌더러 프리셋 chip_delay와 같은 값(200편: NL 구절 뒤 0.42초 · BE 0.04초)"
+  }
  },
  "script": {
   "_rule": "매물 정보에 있는 사실만 말한다. 지어내지 않는다. 숫자는 TTS용 한글 읽기 + 화면 표시용 숫자(SHOW)로 짝을 만든다",
@@ -750,7 +759,10 @@
     "exterior_3_4",
     "exterior_front",
     "grille",
-    "exterior_side"
+    "exterior_side",
+    "headlight",
+    "exterior_rear",
+    "wheel"
    ],
    "exterior": [
     "exterior_front",
@@ -783,7 +795,42 @@
     "taillight"
    ]
   },
-  "shot_cost": "순위*2 + 재사용*5 − 점수, 바로 앞 구절과 같은 장면을 이어 쓰면(한 번에 찍은 카메라 이동) 재사용 벌점 0.5. 다시 쓸 땐 앞에서 쓴 구간 뒤부터"
+  "shot_cost": "순위*2 + 재사용*5 − 점수, 바로 앞 구절과 같은 장면을 이어 쓰면(한 번에 찍은 카메라 이동) 재사용 벌점 0.5. 다시 쓸 땐 앞에서 쓴 구간 뒤부터",
+  "josa_latin": {
+   "MATIC": true,
+   "AMG": false,
+   "GT": false,
+   "RS": false,
+   "SUV": false,
+   "EV": false,
+   "PHEV": false,
+   "S": false
+  },
+  "long_source_s": 40,
+  "option_sentence_ends": [
+   [
+    "이가",
+    "들어가 있고요."
+   ],
+   [
+    "도",
+    "있어요."
+   ],
+   [
+    "이가",
+    "달려 있고요."
+   ],
+   [
+    "도",
+    "들어가 있어요."
+   ]
+  ],
+  "_long_note": "원본 영상이 40초 이상이면(NL 원본 중간 40.5초) 옵션을 한 문장씩, 구동 방식 구절 추가. 사실만, 지어내지 않는다",
+  "cut_early_pad": {
+   "bobae_nl": 1.0,
+   "bobae_be": 0.6,
+   "_note": "렌더러 cut_early_s와 같은 값. GLE 시험에서 당긴 컷 때문에 휠 장면이 원본 다음 장면(뒷모습)까지 흘러 0.9초 만에 컷이 하나 더 생김"
+  }
  },
  "calibration": {
   "_how": "calibrate.py가 자동 편집 계획(plan.json)·렌더 결과(meta, sfx_hits)를 재서 원본 측정값과 비교한다. 범위를 벗어나면 규칙을 고친다",
@@ -892,6 +939,19 @@
    "lufs": -16,
    "room_tone_amp": 0.0018,
    "_note": "방 소리는 약 −55dB. 말 사이가 완전 무음이면 합성 티가 난다"
+  },
+  "candidates_older": {
+   "A": {
+    "voice_id": "M0glFuuemBDoLghG62l7",
+    "name": "Jubal — Confident Korean Male, Sales",
+    "age": "middle_aged"
+   },
+   "B": {
+    "voice_id": "5LbhUNiU0e2s8EafwnT5",
+    "name": "Rowan - Warm and Gentle",
+    "age": "middle_aged"
+   },
+   "_note": "2026-11-10 사용자 「목소리 조금 나이 올리자」 — 사용자가 고르면 voice_id 교체"
   }
  },
  "chip_priority": {
