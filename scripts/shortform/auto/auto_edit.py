@@ -403,7 +403,8 @@ def write_config(F, blocks, style, path):
     name = f"{F['make']} {F['model']}"
     price = ' '.join(price_parts(F['price_manwon'])[1]) + '원' if F.get('price_manwon') else ''
     line2 = ' · '.join(x for x in [f"주행 {km_show(int(F['km']))}" if F.get('km') is not None else '', price] if x)
-    hook = dict(title=name, line1=' · '.join(x for x in [F.get('gen', ''), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
+    # 원본 NL: 첫 화면 칩은 브랜드·모델 한 낱말(「LEXUS」)
+    hook = dict(title=f"{F['make']} {F['model'].split()[0]}" if style == 'bobae_nl' else name, line1=' · '.join(x for x in [F.get('gen', ''), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
     car = dict(name=name, year=str(F.get('year', '')), reg=F.get('reg', ''), km=km_show(int(F['km'])) if F.get('km') is not None else '',
                km_short=km_show(int(F['km'])) if F.get('km') is not None else '', fuel=F.get('fuel', ''), price=price, region=F.get('region', ''),
                drive=F.get('engine', ''), gen=F.get('gen', ''), color=F.get('color', ''))
@@ -473,7 +474,7 @@ def main():
         return
     raw = os.path.join(a.out, 'voice.mp3')
     vn = os.path.join(a.out, 'voice_n.wav')
-    if RULES['voice'].get('post', {}).get('on') and os.path.exists(raw) and not os.path.exists(vn):
+    if RULES['voice'].get('post', {}).get('on') and os.path.exists(raw):  # 늘 다시 만든다(예전 잘린 voice_n.wav를 다시 쓰던 사고)
         post_voice(raw, vn)
     wp = os.path.join(a.out, 'words.json')
     if not os.path.exists(wp):
