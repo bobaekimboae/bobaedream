@@ -47,7 +47,10 @@
   "person": "mid",
   "interior_dash": "top",
   "door": "mid",
-  "unknown": "mid"
+  "unknown": "mid",
+  "engine_bay": "top",
+  "studio": "top",
+  "other": "mid"
  },
  "styles": {
   "nl": {
@@ -294,7 +297,8 @@
     "hold_s": 2.0,
     "entry": "scale_up",
     "sfx": "none"
-   }
+   },
+   "_decision": "2026-11-09 사용자: 퀴즈형(LM형)도 효과음을 넣는다(원본 LM에는 없음)"
   }
  },
  "rules": {
@@ -326,7 +330,7 @@
   "label_ratio": 0.4,
   "max_per_video": 6,
   "gain_db_vs_speech": -6,
-  "gain_db_over_speech": -10,
+  "gain_db_over_speech": -6,
   "no_cut_sfx": true,
   "with_music": "reduce",
   "measured": {
@@ -354,6 +358,8 @@
   },
   "music_label_ratio": 0.2,
   "music_max_per_video": 3,
-  "lead_s": 0.02
- }
+  "lead_s": 0.02,
+  "gain_note": "−6dB(목소리 말하는 구간 평균 대비). 말과 겹쳐도 −6dB: −10dB는 측정값이 아닌 제안이었고, 2026-11-08 밴티지 샘플에서 효과음이 안 들려 버스를 올린 수준이 −6dB(재측정 −6.2dB)라서 고정"
+ },
+ "part_side_backtest": "2026-11-09 원본 칩 위치로 되돌려 맞혀 보기: NL 이름표 52/70(74%), BE 띠 23/41(56%, BE는 아래 띠를 더 씀). 겉모습 장면의 ✓ 옵션은 가운데(7/9), 이름·숫자는 위(약 15/23)"
 }

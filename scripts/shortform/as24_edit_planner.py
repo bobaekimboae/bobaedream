@@ -50,6 +50,8 @@ def band_for(part, topic, kind):
     if kind == "number":
         return "top"
     side = RULES["part_side"].get(part or "unknown", "mid")
+    if topic == "option" and (part or "").startswith("exterior"):
+        return "mid"  # 겉모습 장면의 ✓ 옵션 칩은 가운데(NL 실측 7/9), 이름·숫자는 위
     return side
 
 

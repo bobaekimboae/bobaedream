@@ -178,7 +178,7 @@ def _load_sfx(name, sr=48000):
 
 
 def build_sfx_pack(total, sr=48000):
-    """효과음 팩 v1(2026-11-08, 오토스카우트24 쇼츠 분석 반영 · 규격화·절제):
+    """[예전 규칙 — 2026-11-09 전수조사로 대체, sfx_rules='pack_v1'일 때만 씀] 효과음 팩 v1(2026-11-08, 오토스카우트24 쇼츠 분석 반영 · 규격화·절제):
     - 키워드·숫자 스티커가 튀어나올 때마다 「톡」 1번(오토스카우트24 효과음의 64%, 때의 57%가 스티커 등장)
     - 가격 스티커는 「톡」 대신 맑은 「띵」(계산대 소리·충격음은 쓰지 않음)
     - 첫 화면 제목과 끝 명함이 나타날 때 「톡」
@@ -232,9 +232,77 @@ def build_sfx_pack(total, sr=48000):
     json.dump(hits, open(os.path.join(OUT, 'sfx_hits.json'), 'w'))
 
 
+def sfx_as24_hits(music):
+    """확정 효과음 규칙(docs/shortform/as24-sfx-rules-v1.md, 수치는 as24_edit_rules.json의 sfx):
+    스티커·숫자가 뜨기 0.02초 전 「띵」, 스티커의 약 40%만(가격→주행→연식→마력→그 밖 순),
+    0.6초 간격, 영상당 최대 6번, 배경 음악이 있으면 20%·최대 3번. 끝 명함·컷·첫 화면에는 넣지 않는다."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import as24_edit_planner as AP
+    SX, R = AP.RULES['sfx'], AP.RULES['rules']
+    def prio(txt):
+        t = txt.replace(' ', '')
+        if '만원' in t or '억' in t:
+            return 0
+        if re.search(r'km|킬로', t):
+            return 1
+        if re.search(r'년|등록|^\d{4}$', t):
+            return 2
+        if re.search(r'마력|PS|hp', t, re.I):
+            return 3
+        return 5 if re.search(r'\d', t) else 9
+    cands = []
+    for b in BLOCKS:
+        for txt, pidx in b.get('stickers', []):
+            if '보배드림' in txt:
+                continue  # 안내 문구는 정보 칩이 아니다
+            cands.append(dict(t=PHRASES[b['ph0'] + pidx][0] + 0.1, type=STYLE.get('sfx_type', 'ding'), prio=prio(txt), txt=txt))
+    keep = AP.pick_sfx(cands, SX, R, music)
+    lead = SX.get('lead_s', 0.02)
+    return [(round(max(0.0, k['t'] - lead), 3), k['type']) for k in sorted(keep, key=lambda k: k['t'])]
+
+
+def build_sfx_as24(total, sr=48000):
+    n = int(total * sr) + sr
+    out = np.zeros(n)
+    g = STYLE.get('sfx_gain', {})
+    music = STYLE.get('sfx_music', STYLE.get('bgm') != 'none' and STYLE.get('bgm_vol', 0.42) > 0.05)  # 음악이 있으면 효과음을 줄임(BE형). sfx_music=False면 NL형 40%
+    hits = sfx_as24_hits(music)
+    # 크기: 목소리(말하는 구간 평균)보다 −6dB, 그 순간 말과 겹치면 −10dB. 최종 믹스의 효과음 버스(sfx_bus)까지 계산해 맞춘다
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import as24_edit_planner as AP
+    SX = AP.RULES['sfx']
+    vp = os.path.join(OUT, 'voice.wav')
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', vp, '-ac', '1', '-ar', str(sr), '-f', 's16le', '-'], capture_output=True).stdout
+    voice = np.frombuffer(raw, np.int16).astype(float) / 32768
+    rms = lambda x: float(np.sqrt(np.mean(x ** 2))) if len(x) else 0.0
+    act = voice[np.abs(voice) > 0.02]
+    v_db = 20 * np.log10(rms(act) + 1e-9) if len(act) else -22.0
+    bus_db = 20 * np.log10(STYLE.get('sfx_bus', 0.22))
+    levels = []
+    for t, name in hits:
+        x = _load_sfx(name)
+        w = voice[int(t * sr):int((t + 0.4) * sr)]
+        over = len(w) and 20 * np.log10(rms(w) + 1e-9) > v_db - 10  # 그 순간 말이 나오고 있다
+        target = v_db + (SX.get('gain_db_over_speech', -10) if over else SX.get('gain_db_vs_speech', -6))
+        x = x * 10 ** ((target - bus_db - 20 * np.log10(rms(x[:int(0.4 * sr)]) + 1e-9)) / 20) * g.get(name, 1.0)
+        levels.append(round(target - v_db, 1))
+        st = int(t * sr)
+        if 0 <= st < n:
+            m = min(len(x), n - st)
+            out[st:st + m] += x[:m]
+    out = np.clip(out, -1, 1)
+    import wave
+    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
+    with wave.open(os.path.join(OUT, 'sfx.wav'), 'wb') as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
+    json.dump(dict(rules='as24_v1.1', music=music, hits=hits, db_vs_voice=levels), open(os.path.join(OUT, 'sfx_hits.json'), 'w'), ensure_ascii=False)
+
+
 def build_sfx(total, sr=48000):
+    if STYLE.get('sfx_pack') and STYLE.get('sfx_rules', 'as24') == 'as24':
+        return build_sfx_as24(total, sr)
     if STYLE.get('sfx_pack'):
-        return build_sfx_pack(total, sr)
+        return build_sfx_pack(total, sr)  # 예전 팩 v1(스티커마다 톡·컷 휙·끝 톡): sfx_rules='pack_v1' 일 때만
     """부위(섹션)가 바뀌는 컷에만 짧은 휙 소리. 컷마다 넣으면 산만하다는 편집 가이드에 따라 섹션 전환에만"""
     n = int(total * sr) + sr
     out = np.zeros(n)
