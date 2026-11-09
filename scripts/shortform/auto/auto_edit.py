@@ -294,7 +294,7 @@ def make_script_nasser(F, style, shots=None):
     if ph:
         blk('condition', ph, st)
     # ⑤ 끝
-    blk('cta', [W('보배드림 앱에서'), W('만나보세요!')], [('보배드림 앱', 0, {})], end=True)
+    blk('cta', [W('보배드림 앱에서 자세한 정보를 보시거나,'), W('구글·애플 스토어에서 다운받으세요!')], [('보배드림 앱', 0, {})], end=True)  # 2026-11-10 사용자 지시
     return blocks
 
 
@@ -333,6 +333,51 @@ def select_options(F, style, shots, long=False):
         out.append(o)
     out.sort(key=lambda o: (o['tier'], not o['visible']))
     return out
+
+
+DIG = '공일이삼사오육칠팔구'
+
+
+def pron(tok):
+    """화면 낱말 → 목소리 읽기(규칙 pronounce). 끝 문장부호·조사는 그대로 둔다"""
+    P = RULES.get('pronounce', {})
+    m = re.match(r'^(.*?)([!?.,…]*)$', tok)
+    core, punc = m.group(1), m.group(2)
+    for k in sorted(P.get('words', {}), key=len, reverse=True):
+        if k in core:
+            core = core.replace(k, P['words'][k])
+    core = re.sub(r'(\d)\.(\d)', lambda x: DIG[int(x.group(1))] + '점' + ('영' if x.group(2) == '0' else DIG[int(x.group(2))]), core)
+    def model(x):
+        return ''.join(P['letters'].get(c, c) for c in x.group(1)) + ''.join(DIG[int(d)] for d in x.group(2))
+    core = re.sub(r'\b([A-Z]{1,3})(\d{2,3})\b', model, core)
+    return core + punc
+
+
+def apply_pron(blocks):
+    """모든 블록의 (목소리, 화면) 쌍에서 목소리 쪽만 바꾼다. 두 낱말짜리 규칙(씨라이언 7 → 세븐)은 앞 낱말과 함께 본다"""
+    big = RULES.get('pronounce', {}).get('bigrams', {})
+    def fix(ws):
+        out = []
+        for i, w in enumerate(ws):
+            t = w[0]
+            if i and big:
+                prev = re.sub(r'[!?.,…]+$', '', ws[i - 1][1]); cur = re.sub(r'[!?.,…]+$', '', t); punc = t[len(cur):]
+                key = f'{prev} {cur}'
+                if key in big:
+                    out.append((big[key].split(' ', 1)[1] + punc, w[1])); continue
+            out.append((pron(t), w[1]))
+        return out
+    for b in blocks:
+        b['words'] = fix(b['words'])
+        b['phrases'] = [fix(ph) for ph in b['phrases']]
+        if b['words'] and len(b['words']) > 1:  # 구절 경계를 넘는 두 낱말 규칙은 words 기준으로 phrases에 반영
+            flat = [w for ph in b['phrases'] for w in ph]
+            if len(flat) == len(b['words']):
+                k = 0
+                for ph in b['phrases']:
+                    for j in range(len(ph)):
+                        ph[j] = b['words'][k]; k += 1
+    return blocks
 
 
 def tts_text(blocks):
@@ -575,6 +620,7 @@ def main():
     blocks = (make_script_nasser if RULES['script'].get('speech') == 'formal' else make_script)(F, a.style, shots)
     for b in blocks:
         b['_style'] = a.style
+    apply_pron(blocks)  # 2026-11-10 한국어 발음 교정(G80 → 지팔공), 화면 글자는 그대로
     if a.cmd == 'script':
         open(os.path.join(a.out, 'tts.txt'), 'w', encoding='utf-8').write(tts_text(blocks))
         json.dump(RULES['voice']['settings'], open(os.path.join(a.out, 'voice_settings.json'), 'w'))
