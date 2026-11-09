@@ -134,6 +134,37 @@ def original_mask(w: int, h: int, name: str | None = None, margin: int = 0) -> I
     return m
 
 
+# 2026-11-10 사용자 지시: 칩 칠은 노션 「스카우트24 테마별」 DB의 테마_바탕색 패턴 원본(파일 그대로, 원본 색 그대로)
+THEME_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "public", "assets", "shortform", "brush-fill", "as24-theme")
+# 칩 종류 → 원본 칠 후보(이름 = 원본 파일 이름 = 가로_세로)와 원본 색. 글자는 검정
+THEME_KINDS = {
+    "point": {"color": (0xF5, 0xF2, 0x00), "fills": ["168_76", "321_28"]},            # 숫자(가격·주행·연식·마력)
+    "option": {"color": (0x00, 0xFF, 0xD0), "fills": ["193_76", "201_43", "760_62"]},  # 매물 옵션표 옵션
+    "feature": {"color": (0x00, 0xFF, 0xD0), "fills": ["325_76", "446_76"]},           # 그 밖 기능(두 줄 붓)
+}
+
+
+def theme_pick(kind: str, w: float, h: float) -> str:
+    r = max(0.1, w / max(1, h))
+    fills = THEME_KINDS[kind]["fills"]
+    return min(fills, key=lambda n: abs(math.log((int(n.split("_")[0]) / int(n.split("_")[1])) / r)))
+
+
+def theme_mask(w: int, h: int, name: str, margin: int = 0) -> Image.Image:
+    """테마 바탕색 원본 SVG를 w×h로 늘린 알파 마스크. 원본 파일은 그대로"""
+    import io
+    import subprocess
+
+    path = os.path.join(THEME_DIR, name + ".svg")
+    png = subprocess.run(["rsvg-convert", "-w", str(w), "-h", str(h), path], check=True, capture_output=True).stdout
+    im = Image.open(io.BytesIO(png)).convert("RGBA")
+    if im.size != (w, h):
+        im = im.resize((w, h), Image.LANCZOS)
+    m = Image.new("L", (w + margin * 2, h + margin * 2), 0)
+    m.paste(im.getchannel("A"), (margin, margin))
+    return m
+
+
 def safe_box(w: int, h: int) -> tuple[float, float, float, float]:
     """글자를 둘 안전 영역 (x0, y0, x1, y1)"""
     return (w * SAFE["left"], h * SAFE["top"], w * (1 - SAFE["right"]), h * (1 - SAFE["bottom"]))
