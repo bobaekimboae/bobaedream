@@ -138,11 +138,12 @@ def original_mask(w: int, h: int, name: str | None = None, margin: int = 0) -> I
 
 # 2026-11-10 사용자 지시: 칩 칠은 노션 「스카우트24 테마별」 DB의 테마_바탕색 패턴 원본(파일 그대로, 원본 색 그대로)
 THEME_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "public", "assets", "shortform", "brush-fill", "as24-theme")
+# 2026-11-10 사용자: 색은 모두 원본 노랑(민트 사용 안 함). 실제 칠 색은 영상 스타일의 원본 노랑(cap_kw_col)
 # 칩 종류 → 원본 칠 후보(이름 = 원본 파일 이름 = 가로_세로)와 원본 색. 글자는 검정
 THEME_KINDS = {
     "point": {"color": (0xF5, 0xF2, 0x00), "fills": ["168_76", "321_28"]},            # 숫자(가격·주행·연식·마력)
-    "option": {"color": (0x00, 0xFF, 0xD0), "fills": ["193_76", "201_43", "760_62"]},  # 매물 옵션표 옵션
-    "feature": {"color": (0x00, 0xFF, 0xD0), "fills": ["325_76", "446_76"]},           # 그 밖 기능(두 줄 붓)
+    "option": {"color": (0xF5, 0xF2, 0x00), "fills": ["193_76", "201_43", "760_62"]},  # 매물 옵션표 옵션
+    "feature": {"color": (0xF5, 0xF2, 0x00), "fills": ["325_76", "446_76"]},           # 그 밖 기능(두 줄 붓)
 }
 
 
