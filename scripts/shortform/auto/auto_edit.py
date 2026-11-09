@@ -96,6 +96,8 @@ def make_script(F, style, shots=None):
                            stickers=list(stickers), parts=parts or [RULES['script']['parts_for_section'].get(sec, ['other'])] * len(phrases), **kw))
 
     W = lambda s: [(w, w) for w in s.split()]
+    digits = RULES['voice'].get('numbers') == 'digits'  # eleven_v4: 숫자는 글로 쓴 그대로 넘겨야 사람처럼 읽는다(한글로 풀면 또박또박 기계처럼 읽음)
+    N = lambda ko, d: d if digits else ko
     # 첫 화면
     color = F.get('color')
     hook_end = josa(F['model'], '이에요!', '예요!')
@@ -106,11 +108,10 @@ def make_script(F, style, shots=None):
     st = []
     if F.get('km') is not None:
         km = int(F['km'])
-        say = num_ko(km)
-        if km < 30000:
-            ph = [[('주행은', '주행은'), (say, f'{km:,}'), ('킬로밖에', 'km밖에')], W('안 됐어요.')]
-        else:
-            ph = [[('주행', '주행'), (say, f'{km:,}'), ('킬로예요.', 'km예요.')]]
+        say = N(num_ko(km), f'{km:,}')
+        tail_s, tail_d = ('킬로밖에', 'km밖에') if km < 30000 else ('킬로예요.', 'km예요.')
+        num = [(say + tail_s, f'{km:,}' + tail_d)] if digits else [(say, f'{km:,}'), (tail_s, tail_d)]
+        ph = [[('주행은', '주행은')] + num] + ([W('안 탔거든요.')] if km < 30000 else [])
         st.append((f'주행 {km_show(km)}', 0, {}))
         blk('exterior', ph, st)
     # 동력
@@ -120,11 +121,12 @@ def make_script(F, style, shots=None):
             eng = F['engine']
             ew = eng.split()
             tail = '에' if F.get('power_ps') else '예요.'
-            ph.append([(read_ko(w), w) for w in ew[:-1]] + [(read_ko(ew[-1]) + tail, ew[-1] + tail)])
+            rk = (lambda w: w) if digits else read_ko
+            ph.append([(rk(w), w) for w in ew[:-1]] + [(rk(ew[-1]) + tail, ew[-1] + tail)])
             st.append((eng, 0, {}))
         if F.get('power_ps'):
             ps = int(F['power_ps'])
-            ph.append([(num_ko(ps), str(ps)), ('마력이고요.', '마력이고요.')])
+            ph.append([(f'{ps}마력이고요.', f'{ps}마력이고요.')] if digits else [(num_ko(ps), str(ps)), ('마력이고요.', '마력이고요.')])
             st.append((f'{ps}마력', len(ph) - 1, {}))
         blk('power', ph, st)
     # 옵션 (가장 중요): 고르기 → 한 옵션 = 한 구절 = 한 장면
@@ -148,13 +150,14 @@ def make_script(F, style, shots=None):
     if F.get('reg'):
         m = re.match(r'(\d+)년(\d+)월', F['reg'])
         if m:
-            ph.append([(num_ko(int(m.group(1))) + '년', f'{int(m.group(1))}년'), (num_ko(int(m.group(2))) + '월', f'{int(m.group(2))}월'), ('등록,', '등록,')])
+            y, mo = int(m.group(1)), int(m.group(2))
+            ph.append([(N(num_ko(y), str(y)) + '년', f'{y}년'), (N(num_ko(mo), str(mo)) + '월에', f'{mo}월에'), ('등록됐고,', '등록됐고,')])
             st.append((f'{int(m.group(1))}년 {int(m.group(2))}월 등록', 0, {}))
     if F.get('price_manwon'):
         say, show = price_parts(F['price_manwon'])
-        ws = list(zip(say, show))
-        ws[-1] = (ws[-1][0] + ' 원.', ws[-1][1] + ' 원.')
-        ws = [(a.split()[0], b.split()[0]) for a, b in ws[:-1]] + [(ws[-1][0].split()[0], ws[-1][1].split()[0]), ('원.', '원')]
+        if digits:
+            say = show
+        ws = [('가격은', '가격은')] + list(zip(say, show)) + [('원이에요.', '원이에요')]
         ph.append(ws)
         st.append((' '.join(show) + '원', len(ph) - 1, {}))
     if ph:
@@ -197,7 +200,34 @@ def select_options(F, style, shots):
 
 
 def tts_text(blocks):
-    return ' '.join(w[0] for b in blocks for w in b['words'])
+    """일레븐랩스에 넘길 글. 감정 태그는 바뀌는 곳에만(규칙 voice.tags) — 자막·낱말 시각에는 들어가지 않는다"""
+    tags = RULES['voice'].get('tags', {})
+    out = []
+    for b in blocks:
+        t = ' '.join(w[0] for w in b['words'])
+        out.append((tags[b['sec']] + ' ' + t) if tags.get(b['sec']) else t)
+    return ' '.join(out)
+
+
+def chip_budget(blocks, style, dur_s):
+    """칩 수를 원본 범위(재교정 목표 chips_per_min 위 끝) 안으로. 지우는 순서: 낮은 우선순위부터.
+    옵션 칩은 가장 나중에 지운다(가장 중요). 우선순위 = 규칙 chip_priority"""
+    cap = int(RULES['calibration'][style]['chips_per_min'][1] * dur_s / 60)
+    pri = RULES['chip_priority']
+    allc = [(bi, si) for bi, b in enumerate(blocks) for si, _ in enumerate(b['stickers'])]
+    def rank(k):
+        b = blocks[k[0]]; txt, _, m = b['stickers'][k[1]]
+        if m.get('option'): return pri['option']
+        if '만원' in txt: return pri['price']
+        if 'km' in txt: return pri['km']
+        if '마력' in txt: return pri['power']
+        if '등록' in txt: return pri['reg']
+        if '앱' in txt: return pri['app']
+        return pri['other']
+    drop = sorted(allc, key=rank)[:max(0, len(allc) - cap)]
+    for bi, si in sorted(drop, reverse=True):
+        del blocks[bi]['stickers'][si]
+    return [blocks[bi]['sec'] for bi, _ in drop]
 
 
 # ── 2단계: 말 길이에 맞춰 장면 고르기 ──
@@ -247,15 +277,33 @@ def phrase_times(blocks, words):
         out[k] = (first[k], first[keys[j + 1]] if j + 1 < len(keys) else end_t)
     return out
 
+STYLE_MIN = {k: v[0] for k, v in ((k, RULES['calibration'][k]['shot_med_s']) for k in ('bobae_nl', 'bobae_be'))}
+def style_of(blocks):
+    return blocks[0].get('_style', 'bobae_nl')
+
+
 def assign_shots(blocks, shots, times):
     """구절마다 원하는 부위 장면을 고른다(규칙 script.shot_cost). 말보다 짧으면 천천히(최소 0.6배) 튼다"""
     used = {}   # 장면 번호 → 다음에 쓸 수 있는 원본 시각
     prev = None
     for bi, b in enumerate(blocks):
         b['shot_tuples'], b['shot_parts'] = [], []
+        optp = {x[1] for x in b['stickers'] if len(x) > 2 and x[2].get('option')}
+        run = 0.0  # 지금 장면이 이어진 길이
         for pi, want in enumerate(b['parts']):
             s0, s1 = times.get((bi, pi), (0, 1.5))
             need = max(0.6, s1 - s0)
+            # 장면 최소 길이(원본 중간값 아래로 자르지 않음): 짧은 구절은 앞 장면을 이어 쓴다. 옵션 구절은 예외(옵션 = 장면 하나)
+            if pi and prev is not None and pi not in optp and (pi - 1) not in optp and run < STYLE_MIN[style_of(blocks)]:
+                s = shots[prev]
+                start = used[prev]
+                if s['t1'] - start >= need * 0.6:
+                    sp = round(min(1.0, max(0.6, (s['t1'] - start) / need)), 2)
+                    b['shot_tuples'].append((round(start, 2), sp, 0)); b['shot_parts'].append(s['part'])
+                    used[prev] = start + need * sp; run += need
+                    b.setdefault('cont', []).append(pi)
+                    continue
+            run = need
             best = None
             for si, s in enumerate(shots):
                 rank = want.index(s['part']) if s['part'] in want else (len(want) + 2)
@@ -321,6 +369,17 @@ STYLE.update(edit_style={style!r}, band_y={json.dumps(RULES['band_y'])}, option_
     open(path, 'w', encoding='utf-8').write(src)
 
 
+def post_voice(src, dst):
+    """AI 티 줄이기(규칙 voice.post): 너무 깨끗한 디지털 무음 대신 아주 작은 방 소리, 낮은 웅웅 거리 자르기, 치찰음 살짝 누르기, 부드러운 압축.
+    목소리 자체(속도·높이)는 바꾸지 않는다"""
+    import subprocess
+    P = RULES['voice']['post']
+    fl = f"highpass=f={P['highpass_hz']},deesser=i={P['deess']},acompressor=threshold={P['comp_threshold']}dB:ratio={P['comp_ratio']}:attack=8:release=120,loudnorm=I={P['lufs']}:TP=-1.5:LRA=11"
+    dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', src], capture_output=True, text=True).stdout)
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-f', 'lavfi', '-t', f'{dur:.2f}', '-i', f"anoisesrc=color=pink:amplitude={P['room_tone_amp']}:r=44100",
+                    '-filter_complex', f"[0:a]aresample=44100,{fl}[v];[1:a]lowpass=f=3000[n];[v][n]amix=inputs=2:duration=first:normalize=0", '-ar', '44100', dst], check=True)
+
+
 def words_local(mp3, out):
     """일레븐랩스 받아쓰기(creative_transcribe_audio)가 없을 때: 내 컴퓨터의 faster-whisper로 낱말 시각을 잰다"""
     from faster_whisper import WhisperModel
@@ -345,16 +404,26 @@ def main():
     F = json.load(open(a.facts, encoding='utf-8'))
     shots = json.load(open(a.shots, encoding='utf-8')) if a.shots else None
     blocks = make_script(F, a.style, shots)
+    for b in blocks:
+        b['_style'] = a.style
     if a.cmd == 'script':
         open(os.path.join(a.out, 'tts.txt'), 'w', encoding='utf-8').write(tts_text(blocks))
+        json.dump(RULES['voice']['settings'], open(os.path.join(a.out, 'voice_settings.json'), 'w'))
         json.dump(dict(style=a.style, blocks=blocks), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
         print(tts_text(blocks))
         return
+    raw = os.path.join(a.out, 'voice.mp3')
+    vn = os.path.join(a.out, 'voice_n.wav')
+    if RULES['voice'].get('post', {}).get('on') and os.path.exists(raw) and not os.path.exists(vn):
+        post_voice(raw, vn)
     wp = os.path.join(a.out, 'words.json')
     if not os.path.exists(wp):
         words_local(os.path.join(a.out, 'voice.mp3'), wp)
     words = load_words(wp)
     times = phrase_times(blocks, words)
+    dropped = chip_budget(blocks, a.style, words[-1][1] + 2.4)
+    if dropped:
+        print('칩 예산 때문에 뺀 칩:', dropped)
     # 렌더러에 넘길 낱말 시각: 받아쓰기 글자(1480kg 같은 오인식)가 아니라 대본 어절에 시각을 붙인다
     flat = []
     for bi, b in enumerate(blocks):

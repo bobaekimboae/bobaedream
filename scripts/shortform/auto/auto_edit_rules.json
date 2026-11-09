@@ -841,5 +841,48 @@
    ],
    "music": true
   }
+ },
+ "voice": {
+  "_why": "사용자 지시 2026-11-09: 일레븐랩스도 AI 티 벗겨내기. 일레븐랩스 v4 공식 안내(숫자는 글로 쓴 그대로, 태그는 분위기가 바뀌는 곳에만, 안정도 낮추면 억양이 다양) + 원본 NL·BE 말투",
+  "model": "eleven_v4",
+  "voice_id": "dnZGOA54w68T7vLLPFTp",
+  "voice_name": "Klamon - Bright, Warm, Clear & Friendly",
+  "numbers": "digits",
+  "settings": {
+   "stability": 0.35,
+   "similarity": 0.85,
+   "_note": "0.5(기본)은 문장마다 억양이 같아 낭독처럼 들림. 0.3 아래는 발음이 흔들림"
+  },
+  "tags": {
+   "hook": "[warmly]",
+   "options": "[excited]",
+   "cta": "[warmly]"
+  },
+  "script_rules": [
+   "같은 끝말을 두 문장 연달아 쓰지 않는다(-예요 / -거든요 / -고요 / -어요 / -이에요 / -보세요)",
+   "나열(23년 6월 등록, 1억…)은 문장으로 잇는다: 23년 6월에 등록됐고, 가격은 … 원이에요",
+   "감탄사·웃음 태그를 넣지 않는다(과장되면 오히려 AI 티)",
+   "문장은 짧게, 쉼표로 숨 쉴 자리"
+  ],
+  "post": {
+   "on": true,
+   "highpass_hz": 70,
+   "deess": 0.3,
+   "comp_threshold": -18,
+   "comp_ratio": 2.5,
+   "lufs": -16,
+   "room_tone_amp": 0.0018,
+   "_note": "방 소리는 약 −55dB. 말 사이가 완전 무음이면 합성 티가 난다"
+  }
+ },
+ "chip_priority": {
+  "_note": "숫자가 작을수록 먼저 뺀다. 옵션 칩은 가장 나중",
+  "app": 1,
+  "other": 2,
+  "reg": 3,
+  "power": 4,
+  "km": 5,
+  "price": 6,
+  "option": 9
  }
 }
