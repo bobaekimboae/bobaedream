@@ -67,15 +67,22 @@ def plan(spec, style="bobae", music=False):
     st = RULES["styles"][style]
     R = RULES["rules"]
     SX = RULES.get("sfx", {})
-    words, shots = spec["words"], spec["shots"]
+    words, shots = spec["words"], sorted(spec["shots"], key=lambda x: x["t0"])
+    if not shots:
+        raise ValueError("장면 목록(shots)이 비어 있다")
     out, sfx_c, hides = [], [], []
+    said_after = {}
     last_list = None
     used = {"label": 0, "number": 0}
     for f in spec["facts"]:
-        hit = find_say(words, f["say"])
+        key = norm(f["say"])
+        if key in said_after and not f.get("repeat"):
+            continue  # 같은 정보는 한 번만 띄운다(다시 띄우려면 repeat: true)
+        hit = find_say(words, f["say"], said_after.get(key, 0.0))
         if not hit:
             continue  # 말하지 않은 정보는 칩으로 띄우지 않는다
         w0, w1 = hit
+        said_after[key] = w1
         shot = shot_at(shots, w0)
         part = f.get("part") or shot.get("part", "unknown")
         is_num = f.get("topic") in R["number_topics"] and shot.get("part") in R["wide_parts_for_numbers"]
@@ -91,9 +98,9 @@ def plan(spec, style="bobae", music=False):
             continue  # 숫자는 말 자막 안에 그대로(독일형)
         t0 = max(shot["t0"], w0 - spec_k.get("lead_s", 0.0))
         if shot["t1"] - t0 < R["min_shot_s"]:
-            nxt = [s for s in shots if s["t0"] >= shot["t1"]]
+            nxt = [s for s in shots if s["t0"] >= shot["t1"] and s["t1"] - s["t0"] >= R["min_shot_s"] and s["t0"] - w1 <= R.get("max_delay_s", 1.0)]
             if not nxt:
-                continue
+                continue  # 말과 1초 넘게 벌어지면 띄우지 않는다
             shot = nxt[0]; t0 = shot["t0"]
         t1 = min(t0 + spec_k.get("hold_s", 1.3), shot["t1"])
         band = band_for(part, f.get("topic"), kind)
@@ -114,25 +121,48 @@ def plan(spec, style="bobae", music=False):
             last_list = {"shot": shot, "item": item}
         if item:
             out.append(item); used[kind] += 1
-            if spec_k.get("hide_speech"):
-                hides.append([item["t0"], item["t1"]])
             ty = sfx_type(spec_k.get("sfx"))
-            if ty and not (music and SX.get("with_music") == "end_logo_only"):
+            if ty:
                 sfx_c.append({"t": item["t0"], "type": ty, "prio": SFX_PRIORITY.get(f.get("topic"), 9 if kind == "label" else 5)})
-    # 같은 장면·같은 띠에 겹치면 뒤 칩은 반대 띠로
-    for a in out:
-        for b in out:
-            if a is not b and a["band"] == b["band"] and a["t0"] < b["t1"] and b["t0"] < a["t1"] and b["t0"] > a["t0"]:
-                b["band"] = "top" if a["band"] != "top" else "low"
-                b["cy_pct"] = RULES["bands"][b["band"]]["cy_pct"]
+    # 같은 띠에서 겹치면: 앞 칩이 0.6초 이상 보였으면 그 자리에서 글자만 바꾼다(앞 칩을 끝냄).
+    # 아직 짧으면 뒤 칩을 다른 띠로 옮긴다. 큰 숫자는 늘 위 띠, 한 번에 하나만.
+    out.sort(key=lambda o: o["t0"])
+    for i, b in enumerate(out):
+        for a in out[:i]:
+            if b.get("drop"):
+                break
+            if a.get("drop"):
+                continue
+            if a["band"] == b["band"] and b["t0"] < a["t1"]:
+                if b["kind"] == "number" and a["kind"] == "number" and b["t0"] - a["t0"] < R.get("swap_min_shown_s", 0.6) and len(a["text"]) < 3:
+                    a["text"] += b["text"]; a["line_t0"] += b["line_t0"]; a["t1"] = max(a["t1"], b["t1"])
+                    b["drop"] = True  # 짧게 이어 말한 숫자는 3줄까지 쌓는다(BMW Z4 / 2021 / €39.950)
+                elif b["kind"] == "number" or b["t0"] - a["t0"] >= R.get("swap_min_shown_s", 0.6):
+                    a["t1"] = b["t0"]
+                    a["line_t0"] = [x for x in a["line_t0"] if x < a["t1"]] or a["line_t0"][:1]
+                    a["text"] = a["text"][:len(a["line_t0"])]
+                else:
+                    b["band"] = "top" if a["band"] != "top" else "low"
+                    b["cy_pct"] = RULES["bands"][b["band"]]["cy_pct"]
+    out = [o for o in out if not o.get("drop")]
+    end_t = shots[-1]["t1"]
+    el0 = st["end_logo"]
+    if el0.get("hold_s", 0) > 0:
+        for o in out:  # 끝 로고가 뜨면 다른 칩은 내린다
+            o["t1"] = round(min(o["t1"], end_t - el0["hold_s"]), 2)
+        out = [o for o in out if o["t1"] - o["t0"] >= 0.3]
+    hides = [[o["t0"], o["t1"]] for o in out if o["style"].get("hide_speech")]
     end = shots[-1]["t1"] if shots else 0
     el = st["end_logo"]
     if el.get("hold_s", 0) > 0:
         out.append({"kind": "end_logo", "t0": round(end - el["hold_s"], 2), "t1": end, "entry": el["entry"]})
-    sfx = pick_sfx(sfx_c, SX, R)
+    sfx = pick_sfx(sfx_c, SX, R, music)
     ety = sfx_type(el.get("sfx"))
     if ety and el.get("hold_s", 0) > 0:
-        sfx.append({"t": round(end - el["hold_s"], 2), "type": ety})
+        te = round(end - el["hold_s"], 2)
+        gap = SX.get("min_gap_s", R["sfx_min_gap_s"])
+        sfx = [x for x in sfx if abs(x["t"] - te) >= gap]
+        sfx.append({"t": te, "type": ety})
     # 한 영상 한 종류: 가장 많이 쓰인 종류로 통일
     if sfx:
         main = max({x["type"] for x in sfx}, key=lambda k: sum(x["type"] == k for x in sfx))
@@ -141,11 +171,13 @@ def plan(spec, style="bobae", music=False):
     return {"style": style, "music": music, "overlays": out, "sfx": sfx, "hide_speech": hides}
 
 
-def pick_sfx(cands, SX, R):
-    """칩의 약 40%만, 중요한 정보(가격·주행거리·연식·마력) 먼저, 0.6초 간격, 영상당 최대 6번."""
+def pick_sfx(cands, SX, R, music=False):
+    """칩의 약 40%만(음악을 깔면 20%·최대 3번), 중요한 정보(가격·주행거리·연식·마력) 먼저, 0.6초 간격, 영상당 최대 6번."""
     if not cands:
         return []
-    n = min(SX.get("max_per_video", 6), max(1, round(len(cands) * SX.get("label_ratio", 1.0))))
+    ratio = SX.get("music_label_ratio", 0.2) if music else SX.get("label_ratio", 1.0)
+    cap = SX.get("music_max_per_video", 3) if music else SX.get("max_per_video", 6)
+    n = min(cap, max(1, round(len(cands) * ratio)))
     gap = SX.get("min_gap_s", R["sfx_min_gap_s"])
     keep = []
     for c in sorted(cands, key=lambda c: (c["prio"], c["t"])):
@@ -168,6 +200,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("spec")
     ap.add_argument("--style", default="bobae", choices=sorted(RULES["styles"]))
-    ap.add_argument("--music", action="store_true", help="배경 음악을 깔면 효과음은 끝 로고 하나만")
+    ap.add_argument("--music", action="store_true", help="배경 음악을 깔면 효과음을 줄인다(칩의 20%, 최대 3번)")
     a = ap.parse_args()
     print(json.dumps(plan(json.loads(pathlib.Path(a.spec).read_text(encoding="utf-8")), a.style, a.music), ensure_ascii=False, indent=1))

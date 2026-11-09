@@ -1,5 +1,5 @@
 {
- "version": "v4-2026-11-09",
+ "version": "v4.1-2026-11-09",
  "source": "docs/shortform/as24-edit-skeleton-v3.md (NL 200 + BE 198 shorts, 317 overlays judged) + DE 100 / LM 100 visual review + 440 SFX spectrogram checks (docs/shortform/as24-sfx-rules-v1.md, as24-4country-compare-v1.md)",
  "frame": {
   "w": 1080,
@@ -79,7 +79,7 @@
      "countup"
     ],
     "hide_speech": true,
-    "sfx": "ding_or_none"
+    "sfx": "ding"
    },
    "check_list": {
     "prefix": "✓ ",
@@ -88,7 +88,7 @@
    "end_logo": {
     "hold_s": 1.6,
     "entry": "scale_up",
-    "sfx": "ding"
+    "sfx": "none"
    }
   },
   "be": {
@@ -171,7 +171,7 @@
    "end_logo": {
     "hold_s": 2.0,
     "entry": "scale_up",
-    "sfx": "ding"
+    "sfx": "none"
    }
   },
   "de": {
@@ -293,7 +293,7 @@
    "end_logo": {
     "hold_s": 2.0,
     "entry": "scale_up",
-    "sfx": "ding"
+    "sfx": "none"
    }
   }
  },
@@ -315,48 +315,45 @@
    "exterior_rear"
   ],
   "never_cover_part": true,
-  "keep_slot_and_swap_text_within_shot": true
+  "keep_slot_and_swap_text_within_shot": true,
+  "max_delay_s": 1.0,
+  "swap_min_shown_s": 0.6
  },
  "sfx": {
   "pack": "public/assets/shortform/sfx (branch codex/sag-reel-sfx-pack)",
   "one_type_per_video": true,
-  "lead_s": 0.02,
   "min_gap_s": 0.6,
   "label_ratio": 0.4,
   "max_per_video": 6,
   "gain_db_vs_speech": -6,
   "gain_db_over_speech": -10,
   "no_cut_sfx": true,
-  "with_music": "end_logo_only",
+  "with_music": "reduce",
   "measured": {
+   "_method": "spectrogram tiles judged by eye at verified overlay onsets (review_all.json) — 2026-11-09 re-probe",
    "nl": {
-    "chip": 0.4,
-    "cut": 0.08,
-    "end": 0.1,
-    "start": 0.3,
-    "type": "ding",
-    "offset_ms": -20,
-    "dur_ms": 525
+    "label": "27/70 ding, offset -20ms",
+    "big_number": "11/19 ding, -30ms",
+    "end_logo": "2/30 (click)",
+    "cut": "3/40"
    },
    "be": {
-    "chip": 0.15,
-    "cut": 0.1,
-    "end": 0.1,
-    "start": 0.0,
-    "type": "ding/pop"
+    "tape": "9/41 ding 8 pop 1, +70ms (13 unsure)",
+    "end_logo": "1/21",
+    "cut": "4/40"
    },
    "de": {
     "chip": 0,
-    "cut": 0,
-    "end": 0,
-    "start": 0
+    "cut": 0
    },
    "lm": {
     "chip": 0,
-    "cut": 0,
-    "end": 0.05,
-    "start": 0
-   }
-  }
+    "cut": 0
+   },
+   "note": "first-pass end probes used fixed dur-2.2s and missed real logo onsets; superseded"
+  },
+  "music_label_ratio": 0.2,
+  "music_max_per_video": 3,
+  "lead_s": 0.02
  }
 }
