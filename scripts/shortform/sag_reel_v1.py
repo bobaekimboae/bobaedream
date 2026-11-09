@@ -971,6 +971,23 @@ def phrase_img_nl2(text, kw=-1):
     return im
 
 
+def big_num_nl2(word):
+    """네덜란드 원본 학습(2026-11-09, 12편 프레임 실측): 말하는 낱말이 숫자면 말 자막 대신 큰 노랑 숫자(검정 외곽선)가
+    작게 시작해 크게 튀어나온다(「3」 「2019」 「€51.950」 「70.000 KM」). 화면 높이의 약 8% 글자"""
+    k = ('nl2num', word)
+    if k in _cache:
+        return _cache[k]
+    m = re.match(r'^([0-9][0-9.,]*(?:km|cc|마력|만원|만|억|년|월|초)?)', word.strip(' ,.'))
+    t = m.group(1) if m else word
+    fnt = ImageFont.truetype(BLACK, 150)
+    tw = fnt.getlength(t)
+    im = Image.new('RGBA', (int(tw + 60), 210), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.text((im.width / 2, 105), t, font=fnt, fill=tuple(STYLE.get('cap_kw_col', (238, 239, 5))), anchor='mm', stroke_width=10, stroke_fill=(0, 0, 0))
+    _cache[k] = im
+    return im
+
+
 def phrase_img_be2(text):
     """벨기에식 v2(2026-11-09 실측 40편 + 제미나이 80편): 바탕 없음 · 흰 굵은 글자 + 옅은 그림자(말 자막 배경 1위 '그림자') · 외곽선 없음 · 높이 68% · 바로 등장"""
     k = ('be2', text)
@@ -1133,6 +1150,15 @@ def overlay(T, total, shots, shot, blk):
             return ov, False
         if STYLE.get('cap_style') == 'nl2':  # 네덜란드식 v2: 외곽선 흰 글자, 강조어 칩(파랑) 줄 안, 톡 등장, 높이 63%
             act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])  # 지금 말하는 낱말
+            ws_ = cur[2].strip(' ,.').split(' ')
+            if act < len(ws_) and re.match(r'^[0-9]', ws_[act]):  # 숫자 낱말: 말 자막 대신 큰 노랑 숫자가 튀어나옴(원본 「3」 「2019」)
+                nt = cur[3][act]
+                im = big_num_nl2(ws_[act])
+                e = back((T - nt) / 0.25)
+                sc = max(.05, 0.3 + 0.7 * e)
+                cy = STYLE.get('cap_cy', 1210) - 40
+                paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - nt) / .05), sc)
+                return ov, False
             im = phrase_img_nl2(cur[2], act)
             e = back((T - cur[0]) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
