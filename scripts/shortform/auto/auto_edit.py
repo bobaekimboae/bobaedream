@@ -107,7 +107,7 @@ def make_script(F, style, shots=None):
     # 첫 화면
     color = F.get('color')
     hook_end = josa(F['model'], '이에요!', '예요!')
-    first = W('보배드림 여러분,') if style == 'bobae_nl' else []
+    first = (W('자,') if RULES['script'].get('tone') == 'young' else W('보배드림 여러분,')) if style == 'bobae_nl' else []
     phrases = ([first] if first else []) + [W(f"오늘은 {color}" if color else '오늘은'), W(f"{F['make']} {hook_end}")]
     blk('hook', phrases, hook=True)
     # 외관·주행
@@ -144,8 +144,17 @@ def make_script(F, style, shots=None):
         ph, st, parts = [], [], []
         n = len(opts)
         ends = RULES['script'].get('option_sentence_ends', ['들어가 있고요.', '있어요.'])
+        young = RULES['script'].get('tone') == 'young'
         for i, o in enumerate(opts):
             sw = o['say'].split()
+            if young and o.get('benefit') and not o.get('feature'):
+                # 나사르식(2026-11-10): 옵션 이름 + 그게 뭘 해 주는지 한 문장. 연결은 「~가 있어서」·「~는」을 번갈아
+                last = josa(sw[-1], '이 있어서', '가 있어서') if i % 2 == 0 else josa(sw[-1], '은', '는')
+                ws = [(w, w) for w in sw[:-1]] + [(last.split()[0], last.split()[0])] + [(w, w) for w in last.split()[1:]] + W(o['benefit'])
+                ph.append(ws)
+                st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
+                parts.append(o['parts'])
+                continue
             if long and n > 1:  # 긴 원본: 옵션마다 한 문장(장면을 길게 보여 줄 말), 끝말은 돌려 쓴다
                 if i == n - 1:
                     tail, more = '까지', W('다 들어가 있어요.')
@@ -164,7 +173,7 @@ def make_script(F, style, shots=None):
             st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
             parts.append(o['parts'])
         only_feat = all(o.get('feature') for o in opts)
-        if not (long and n > 1):
+        if not (long and n > 1) and not (young and all(o.get('benefit') and not o.get('feature') for o in opts)):
           ph.append(W('갖췄어요.' if only_feat else ('다 들어가 있어요.' if n > 1 else '들어가 있어요.')))
           parts.append(['interior_dash', 'seats_front', 'console'])
         blk('options', ph, st, parts=parts)
