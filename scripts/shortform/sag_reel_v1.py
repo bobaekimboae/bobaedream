@@ -963,11 +963,8 @@ def phrase_img_nl2(text, kw=-1):
         x = (im.width - fnt.getlength(line)) / 2
         y = pad_y + lh * li + lh / 2
         for w in line.split(' '):
-            if wi == kw:
-                d.rounded_rectangle((x - 10, y - 38, x + fnt.getlength(w) + 10, y + 40), 8, fill=BLUE + (255,))
-                d.text((x, y), w, font=fnt, fill=(255, 255, 255), anchor='lm')
-            else:
-                _outline_text(d, (x, y), w, fnt, (255, 255, 255), 5)
+            # 지금 말하는 낱말만 노랑(NL 원본 #EEEF05) — 색 포인트가 목소리를 따라 낱말마다 옮겨 간다
+            _outline_text(d, (x, y), w, fnt, tuple(STYLE.get('cap_kw_col', (238, 239, 5))) if wi == kw else (255, 255, 255), 5)
             wi += 1
             x += fnt.getlength(w) + gap
     _cache[k] = im
@@ -1135,7 +1132,8 @@ def overlay(T, total, shots, shot, blk):
             paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
             return ov, False
         if STYLE.get('cap_style') == 'nl2':  # 네덜란드식 v2: 외곽선 흰 글자, 강조어 칩(파랑) 줄 안, 톡 등장, 높이 63%
-            im = phrase_img_nl2(cur[2], cap_keyword_any(cur[2], blk))
+            act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])  # 지금 말하는 낱말
+            im = phrase_img_nl2(cur[2], act)
             e = back((T - cur[0]) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1210)
