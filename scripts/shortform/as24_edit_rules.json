@@ -1,0 +1,495 @@
+{
+ "version": "v4.1-2026-11-09",
+ "source": "docs/shortform/as24-edit-skeleton-v3.md (NL 200 + BE 198 shorts, 317 overlays judged) + DE 100 / LM 100 visual review + 440 SFX spectrogram checks (docs/shortform/as24-sfx-rules-v1.md, as24-4country-compare-v1.md)",
+ "frame": {
+  "w": 1080,
+  "h": 1920,
+  "safe_bottom_pct": 20
+ },
+ "bands": {
+  "top": {
+   "cy_pct": 24,
+   "range": [
+    17,
+    38
+   ]
+  },
+  "mid": {
+   "cy_pct": 55,
+   "range": [
+    50,
+    59
+   ]
+  },
+  "low": {
+   "cy_pct": 70,
+   "range": [
+    61,
+    76
+   ]
+  }
+ },
+ "part_side": {
+  "seats": "low",
+  "speaker": "low",
+  "screen_infotainment": "low",
+  "steering_wheel": "low",
+  "gear_shifter": "top",
+  "trunk": "low",
+  "wheel_rim": "top",
+  "headlight": "low",
+  "grille": "mid",
+  "exterior_rear": "top",
+  "mirror": "top",
+  "exterior_front": "top",
+  "exterior_3_4": "top",
+  "exterior_side": "top",
+  "person": "mid",
+  "interior_dash": "top",
+  "door": "mid",
+  "unknown": "mid",
+  "engine_bay": "top",
+  "studio": "top",
+  "other": "mid"
+ },
+ "styles": {
+  "nl": {
+   "label": {
+    "bg": "#000000",
+    "fg": "#FFD400",
+    "case": "upper",
+    "tilt_deg": 0,
+    "w_pct": 47,
+    "h_pct": 3.6,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "full",
+     "typewriter_glow"
+    ],
+    "sfx": "ding"
+   },
+   "number": {
+    "bg": null,
+    "fg": "#FFD400",
+    "stroke": "#000000",
+    "tilt_deg": 0,
+    "band": "top",
+    "hold_s": 1.3,
+    "lead_s": 0.22,
+    "entry": [
+     "full",
+     "countup"
+    ],
+    "hide_speech": true,
+    "sfx": "ding"
+   },
+   "check_list": {
+    "prefix": "✓ ",
+    "max_lines": 3
+   },
+   "end_logo": {
+    "hold_s": 1.6,
+    "entry": "scale_up",
+    "sfx": "none"
+   }
+  },
+  "be": {
+   "label": {
+    "bg": "#FFD400",
+    "shape": "brush_tape",
+    "fg": "#000000",
+    "case": "as_spoken",
+    "tilt_deg": 2.7,
+    "w_pct": 63,
+    "h_pct": 10.8,
+    "hold_s": 1.8,
+    "lead_s": 0.16,
+    "entry": [
+     "tape_then_text",
+     "pop_scale"
+    ],
+    "sfx": "ding_or_pop_rare"
+   },
+   "price": {
+    "shape": "brush_tape",
+    "tilt_deg": -6,
+    "band": "top"
+   },
+   "number": {
+    "fg": "#000000",
+    "shadow": "#FFD400",
+    "band": "top",
+    "hold_s": 1.4,
+    "sfx": "none"
+   },
+   "end_logo": {
+    "band": "top",
+    "hold_s": 1.3,
+    "entry": "scale_up",
+    "sfx": "none"
+   }
+  },
+  "bobae": {
+   "_fixed": "user decision 2026-11-08: chip blue #306BD9 + white, karaoke yellow #EEEF05 only",
+   "label": {
+    "bg": "#306BD9",
+    "fg": "#FFFFFF",
+    "case": "as_spoken",
+    "tilt_deg": 0,
+    "w_pct": 47,
+    "h_pct": 4.2,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "full",
+     "typewriter_glow"
+    ],
+    "sfx": "ding",
+    "sfx_lead_s": 0.02
+   },
+   "label_be_variant": {
+    "bg": "#306BD9",
+    "shape": "brush_tape",
+    "fg": "#FFFFFF",
+    "tilt_deg": 2.7,
+    "entry": [
+     "tape_then_text"
+    ],
+    "sfx": "pop"
+   },
+   "number": {
+    "fg": "#FFFFFF",
+    "stroke": "#000000",
+    "band": "top",
+    "hold_s": 1.3,
+    "lead_s": 0.22,
+    "hide_speech": true,
+    "sfx": "ding"
+   },
+   "check_list": {
+    "prefix": "✓ ",
+    "max_lines": 3
+   },
+   "end_logo": {
+    "hold_s": 2.0,
+    "entry": "scale_up",
+    "sfx": "none"
+   },
+   "_alias": "bobae_nl와 같은 칩 규칙(예전 이름). 새 작업은 bobae_nl·bobae_be 중 고른다"
+  },
+  "de": {
+   "_note": "presenter one-take, no chips, sentence-case captions, no logo, no SFX",
+   "label": {
+    "sfx": "none",
+    "max_per_video": 0
+   },
+   "number": {
+    "inline_in_caption": true,
+    "sfx": "none",
+    "max_per_video": 0
+   },
+   "end_logo": {
+    "hold_s": 0,
+    "entry": "none",
+    "sfx": "none"
+   }
+  },
+  "lm": {
+   "_note": "quiz/3-facts frames, uppercase karaoke captions, spec chips only in ad-type",
+   "title": {
+    "band": "top",
+    "cy_pct": 22,
+    "stack_words": true
+   },
+   "label": {
+    "bg": "#FFD400",
+    "fg": "#000000",
+    "name_fg": "#FFFFFF",
+    "band": "top",
+    "cy_pct": 20,
+    "hold_s": 1.5,
+    "sfx": "none",
+    "ad_type_only": true
+   },
+   "number": {
+    "band": "top",
+    "hold_s": 1.3,
+    "sfx": "none"
+   },
+   "end_logo": {
+    "hold_s": 0,
+    "entry": "none",
+    "sfx": "none"
+   }
+  },
+  "bobae_talk": {
+   "_note": "DE-type: dealer talking. fewer chips, no SFX",
+   "label": {
+    "bg": "#306BD9",
+    "fg": "#FFFFFF",
+    "case": "as_spoken",
+    "tilt_deg": 0,
+    "w_pct": 47,
+    "h_pct": 4.2,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "full",
+     "typewriter_glow"
+    ],
+    "sfx": "none",
+    "sfx_lead_s": 0.02,
+    "max_per_video": 2
+   },
+   "number": {
+    "fg": "#FFFFFF",
+    "stroke": "#000000",
+    "band": "top",
+    "hold_s": 1.3,
+    "lead_s": 0.22,
+    "hide_speech": true,
+    "sfx": "none",
+    "max_per_video": 2,
+    "topics_only": [
+     "price",
+     "mileage"
+    ]
+   },
+   "end_logo": {
+    "hold_s": 2.0,
+    "entry": "scale_up",
+    "sfx": "none"
+   }
+  },
+  "bobae_quiz": {
+   "_note": "LM-type: quiz frame",
+   "title": {
+    "band": "top",
+    "cy_pct": 22,
+    "stack_words": true
+   },
+   "label": {
+    "bg": "#306BD9",
+    "fg": "#FFFFFF",
+    "case": "as_spoken",
+    "tilt_deg": 0,
+    "w_pct": 47,
+    "h_pct": 4.2,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "full",
+     "typewriter_glow"
+    ],
+    "sfx": "ding",
+    "sfx_lead_s": 0.02
+   },
+   "number": {
+    "fg": "#FFFFFF",
+    "stroke": "#000000",
+    "band": "top",
+    "hold_s": 1.3,
+    "lead_s": 0.22,
+    "hide_speech": true,
+    "sfx": "ding"
+   },
+   "end_logo": {
+    "hold_s": 2.0,
+    "entry": "scale_up",
+    "sfx": "none"
+   },
+   "_decision": "2026-11-09 사용자: 퀴즈형(LM형)도 효과음을 넣는다(원본 LM에는 없음)"
+  },
+  "bobae_nl": {
+   "_fixed": "user decision 2026-11-08: chip blue #306BD9 + white, karaoke yellow #EEEF05 only",
+   "label": {
+    "bg": "#306BD9",
+    "fg": "#FFFFFF",
+    "case": "as_spoken",
+    "tilt_deg": 0,
+    "w_pct": 47,
+    "h_pct": 4.2,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "full",
+     "typewriter_glow"
+    ],
+    "sfx": "ding",
+    "sfx_lead_s": 0.02
+   },
+   "number": {
+    "fg": "#FFFFFF",
+    "stroke": "#000000",
+    "band": "top",
+    "hold_s": 1.3,
+    "lead_s": 0.22,
+    "hide_speech": true,
+    "sfx": "ding"
+   },
+   "check_list": {
+    "prefix": "✓ ",
+    "max_lines": 3
+   },
+   "end_logo": {
+    "hold_s": 2.0,
+    "entry": "scale_up",
+    "sfx": "none"
+   },
+   "_note": "보배드림 네덜란드판(2026-11-09 사용자: NL·BE 두 판을 골라 쓴다). 음악 없음 · 딩 약 40% · 말 자막 흰 글자+검정 외곽선, 말하는 어절만 노랑 #EEEF05 · 높이 65% · 장면 약 2.5초",
+   "caption": {
+    "style": "outline_karaoke",
+    "cy_pct": 65,
+    "entry": "pop",
+    "karaoke": "#EEEF05",
+    "cut_gap_s": 0
+   },
+   "music": "none",
+   "shot_target_s": 2.5,
+   "sfx_hook": true
+  },
+  "bobae_be": {
+   "_fixed": "user decision 2026-11-08: chip blue #306BD9 + white, karaoke yellow #EEEF05 only",
+   "label": {
+    "bg": "#306BD9",
+    "fg": "#FFFFFF",
+    "case": "as_spoken",
+    "tilt_deg": -2.7,
+    "w_pct": 47,
+    "h_pct": 4.2,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "tape_then_text"
+    ],
+    "sfx": "pop",
+    "sfx_lead_s": 0.02,
+    "shape": "brush_tape",
+    "tilt_note": "늘 반시계 1~4도(재조사 50편 중 붓띠 칩 영상 20편 모두)"
+   },
+   "number": {
+    "fg": "#FFFFFF",
+    "inside_label": true,
+    "band": "top",
+    "hold_s": 1.4,
+    "hide_speech": true,
+    "sfx": "pop"
+   },
+   "check_list": {
+    "prefix": "✓ ",
+    "max_lines": 3
+   },
+   "end_logo": {
+    "hold_s": 2.0,
+    "entry": "scale_up",
+    "sfx": "none"
+   },
+   "price": {
+    "shape": "brush_tape",
+    "tilt_deg": -6,
+    "band": "top"
+   },
+   "_note": "보배드림 벨기에판(2026-11-09 사용자 결정): 배경음악 · 팝 칩의 20% 최대 3번 · 말 자막 그림자 흰 글자, 말하는 어절만 노랑 #EEEF05(벨기에 34/39) · 높이 67% 고정 · 바로 등장 · 컷 경계 0.3초 자막 비움 · 칩은 기울인 파랑 붓띠 · 숫자는 칩 안 · 장면 약 1.9초",
+   "caption": {
+    "style": "shadow_karaoke",
+    "cy_pct": 67,
+    "entry": "instant",
+    "karaoke": "#EEEF05",
+    "cut_gap_s": 0.3
+   },
+   "music": "bgm",
+   "shot_target_s": 1.9
+  }
+ },
+ "rules": {
+  "min_shot_s": 0.8,
+  "max_chars_one_line": 16,
+  "sfx_min_gap_s": 0.6,
+  "list_after_n_options": 3,
+  "number_topics": [
+   "price",
+   "mileage",
+   "year",
+   "power"
+  ],
+  "wide_parts_for_numbers": [
+   "exterior_front",
+   "exterior_3_4",
+   "exterior_side",
+   "exterior_rear"
+  ],
+  "never_cover_part": true,
+  "keep_slot_and_swap_text_within_shot": true,
+  "max_delay_s": 1.0,
+  "swap_min_shown_s": 0.6
+ },
+ "sfx": {
+  "pack": "public/assets/shortform/sfx (branch codex/sag-reel-sfx-pack)",
+  "one_type_per_video": true,
+  "min_gap_s": 1.0,
+  "label_ratio": 0.4,
+  "max_per_video": 6,
+  "gain_db_vs_speech": -6,
+  "gain_db_over_speech": -6,
+  "no_cut_sfx": true,
+  "with_music": "reduce",
+  "measured": {
+   "_method": "spectrogram tiles judged by eye at verified overlay onsets (review_all.json) — 2026-11-09 re-probe",
+   "nl": {
+    "label": "27/70 ding, offset -20ms",
+    "big_number": "11/19 ding, -30ms",
+    "end_logo": "2/30 (click)",
+    "cut": "3/40"
+   },
+   "be": {
+    "tape": "9/41 ding 8 pop 1, +70ms (13 unsure)",
+    "end_logo": "1/21",
+    "cut": "4/40"
+   },
+   "de": {
+    "chip": 0,
+    "cut": 0
+   },
+   "lm": {
+    "chip": 0,
+    "cut": 0
+   },
+   "note": "first-pass end probes used fixed dur-2.2s and missed real logo onsets; superseded",
+   "recheck_2026_11_09": {
+    "method": "RF detector on 12 audio features (sfxscore.py), trained on 549 human spectrogram labels; CV acc 0.93 prec 0.81 rec 0.77; blind check on 67 new moments agree 0.91 prec 0.89 rec 0.89",
+    "nl_100": {
+     "chip_raw": 0.35,
+     "chip_corrected": 0.43,
+     "number_corrected": 0.45,
+     "start_corrected": 0.46,
+     "cut": 0.12,
+     "end_logo": 0.11,
+     "sfx_per_video_med": 5,
+     "zero_videos": 7,
+     "music_videos": 6,
+     "ding_hz_med": 2350,
+     "gap_med_s": 4.25,
+     "gap_p10_s": 1.0
+    },
+    "be_100": {
+     "chip_corrected": 0.23,
+     "number_corrected": 0.15,
+     "start": 0.13,
+     "cut": 0.06,
+     "end_logo": 0.09,
+     "sfx_per_video_med": 1,
+     "zero_videos": 26,
+     "music_videos": 71,
+     "sfx_with_music_med": 1,
+     "sfx_without_music_med": 3
+    }
+   }
+  },
+  "music_label_ratio": 0.2,
+  "music_max_per_video": 3,
+  "lead_s": 0.02,
+  "gain_note": "−6dB(목소리 말하는 구간 평균 대비). 말과 겹쳐도 −6dB: −10dB는 측정값이 아닌 제안이었고, 2026-11-08 밴티지 샘플에서 효과음이 안 들려 버스를 올린 수준이 −6dB(재측정 −6.2dB)라서 고정"
+ },
+ "part_side_backtest": "2026-11-09 원본 칩 위치로 되돌려 맞혀 보기: NL 이름표 52/70(74%), BE 띠 23/41(56%, BE는 아래 띠를 더 씀). 겉모습 장면의 ✓ 옵션은 가운데(7/9), 이름·숫자는 위(약 15/23)"
+}

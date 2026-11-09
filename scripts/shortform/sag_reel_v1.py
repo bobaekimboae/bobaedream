@@ -78,6 +78,30 @@ HOOK = None  # None이면 차명 스티커 + 가격 + 연식·주행·연료
 # 샘플별 설정: SAG_CONFIG=파일.py 이면 CAR · BLOCKS · SHOW · STYLE · HOOK 을 덮어쓴다
 if os.environ.get('SAG_CONFIG'):
     exec(open(os.environ['SAG_CONFIG'], encoding='utf-8').read(), globals())
+
+# 편집 판(2026-11-09 사용자: 네덜란드판·벨기에판을 골라 쓴다). STYLE['edit_style'] 또는 SAG_EDIT 로 고른다.
+# 수치 근거: docs/shortform/as24-caption-rules-v2.md · as24-sfx-rules-v1.md · as24-4country-compare-v1.md, 칩 규칙은 as24_edit_rules.json의 bobae_nl·bobae_be
+EDIT_PRESETS = {
+    'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1152, chip_delay=0.4,  # 60%, 칩은 구절 시작 +0.4초(200편)  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
+                     stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=False, cap_cut_gap=0.0,  # 2026-11-10 원본 눈 대조: NL은 말하는 동안 자막이 비는 순간이 없다(큰 숫자는 자막 위에 함께)
+                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='bold', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True,
+                     cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
+    'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
+                     stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
+                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0,
+                     cut_early_s=0.6, shot_min_s=1.5, cut_on_phrase_every=3),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
+}
+_ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
+if _ed:
+    if _ed not in EDIT_PRESETS:
+        raise SystemExit(f'편집 판 이름이 틀림: {_ed} (bobae_nl · bobae_be)')
+    STYLE.update(EDIT_PRESETS[_ed])
+    STYLE['edit_style'] = _ed
+# 칩 세 번째 값(자동 편집기 auto_edit.py): {'band': top|mid|low, 'list': True, 'option': 이름}. 기존 코드는 (글자, 구절번호)만 읽으므로 따로 둔다
+for _b in BLOCKS:
+    _st = _b.get('stickers', [])
+    _b['_smeta'] = [dict(x[2]) if len(x) > 2 else {} for x in _st]
+    _b['stickers'] = [(x[0], x[1]) for x in _st]
 KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|보배드림|테일램프|옆태)')
 
 
@@ -139,7 +163,7 @@ def align_external(path, words_json):
         ends = starts[1:] + [min(nb - 0.05, starts[-1] + 0.6 + 0.07 * len(ws[-1]))]
         b['words'] = [(s_, e_, SHOW.get(w, w)) for s_, e_, w in zip(starts, ends, ws)]
         b['t0'], b['t1'] = starts[0], ends[-1]
-    total = d + 2.8
+    total = max(d, BLOCKS[-1]['t1'] + 0.35) + STYLE.get('end_tail_s', 2.8 - 0.35) if STYLE.get('end_tail_s') else d + 2.8
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', path, '-af', f'aformat=sample_rates=48000:channel_layouts=stereo,apad=whole_dur={total}',
                     '-t', f'{total:.3f}', os.path.join(OUT, 'voice.wav')], check=True)
     return total
@@ -178,7 +202,7 @@ def _load_sfx(name, sr=48000):
 
 
 def build_sfx_pack(total, sr=48000):
-    """효과음 팩 v1(2026-11-08, 오토스카우트24 쇼츠 분석 반영 · 규격화·절제):
+    """[예전 규칙 — 2026-11-09 전수조사로 대체, sfx_rules='pack_v1'일 때만 씀] 효과음 팩 v1(2026-11-08, 오토스카우트24 쇼츠 분석 반영 · 규격화·절제):
     - 키워드·숫자 스티커가 튀어나올 때마다 「톡」 1번(오토스카우트24 효과음의 64%, 때의 57%가 스티커 등장)
     - 가격 스티커는 「톡」 대신 맑은 「띵」(계산대 소리·충격음은 쓰지 않음)
     - 첫 화면 제목과 끝 명함이 나타날 때 「톡」
@@ -232,9 +256,81 @@ def build_sfx_pack(total, sr=48000):
     json.dump(hits, open(os.path.join(OUT, 'sfx_hits.json'), 'w'))
 
 
+def sfx_as24_hits(music):
+    """확정 효과음 규칙(docs/shortform/as24-sfx-rules-v1.md, 수치는 as24_edit_rules.json의 sfx):
+    스티커·숫자가 뜨기 0.02초 전 「띵」, 스티커의 약 40%만(가격→주행→연식→마력→그 밖 순),
+    0.6초 간격, 영상당 최대 6번, 배경 음악이 있으면 20%·최대 3번. 끝 명함·컷·첫 화면에는 넣지 않는다."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import as24_edit_planner as AP
+    SX, R = AP.RULES['sfx'], AP.RULES['rules']
+    def prio(txt):
+        t = txt.replace(' ', '')
+        if '만원' in t or '억' in t:
+            return 0
+        if re.search(r'km|킬로', t):
+            return 1
+        if re.search(r'년|등록|^\d{4}$', t):
+            return 2
+        if re.search(r'마력|PS|hp', t, re.I):
+            return 3
+        return 5 if re.search(r'\d', t) else 9
+    cands = []
+    for b in BLOCKS:
+        for txt, pidx in b.get('stickers', []):
+            if '보배드림' in txt:
+                continue  # 안내 문구는 정보 칩이 아니다
+            cands.append(dict(t=PHRASES[b['ph0'] + pidx][0] + STYLE.get('chip_delay', 0.1), type=STYLE.get('sfx_type', 'ding'), prio=prio(txt), txt=txt))
+    keep = AP.pick_sfx(cands, SX, R, music)
+    if STYLE.get('sfx_hook'):  # 네덜란드판: 첫 화면 제목에도 딩(NL 첫 화면 효과음 약 46%, 2026-11-09 재조사)
+        th = 0.05
+        if all(abs(k['t'] - th) >= SX.get('min_gap_s', 0.6) for k in keep):
+            keep.append(dict(t=th + SX.get('lead_s', 0.02), type=STYLE.get('sfx_type', 'ding'), prio=-1, txt='hook'))
+    lead = SX.get('lead_s', 0.02)
+    return [(round(max(0.0, k['t'] - lead), 3), k['type']) for k in sorted(keep, key=lambda k: k['t'])]
+
+
+def build_sfx_as24(total, sr=48000):
+    n = int(total * sr) + sr
+    out = np.zeros(n)
+    g = STYLE.get('sfx_gain', {})
+    music = STYLE.get('sfx_music', STYLE.get('bgm') != 'none' and STYLE.get('bgm_vol', 0.42) > 0.05)  # 음악이 있으면 효과음을 줄임(BE형). sfx_music=False면 NL형 40%
+    hits = sfx_as24_hits(music)
+    # 크기: 목소리(말하는 구간 평균)보다 −6dB, 그 순간 말과 겹치면 −10dB. 최종 믹스의 효과음 버스(sfx_bus)까지 계산해 맞춘다
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import as24_edit_planner as AP
+    SX = AP.RULES['sfx']
+    vp = os.path.join(OUT, 'voice.wav')
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', vp, '-ac', '1', '-ar', str(sr), '-f', 's16le', '-'], capture_output=True).stdout
+    voice = np.frombuffer(raw, np.int16).astype(float) / 32768
+    rms = lambda x: float(np.sqrt(np.mean(x ** 2))) if len(x) else 0.0
+    act = voice[np.abs(voice) > 0.02]
+    v_db = 20 * np.log10(rms(act) + 1e-9) if len(act) else -22.0
+    bus_db = 20 * np.log10(STYLE.get('sfx_bus', 0.22))
+    levels = []
+    for t, name in hits:
+        x = _load_sfx(name)
+        w = voice[int(t * sr):int((t + 0.4) * sr)]
+        over = len(w) and 20 * np.log10(rms(w) + 1e-9) > v_db - 10  # 그 순간 말이 나오고 있다
+        target = v_db + (SX.get('gain_db_over_speech', -10) if over else SX.get('gain_db_vs_speech', -6))
+        x = x * 10 ** ((target - bus_db - 20 * np.log10(rms(x[:int(0.4 * sr)]) + 1e-9)) / 20) * g.get(name, 1.0)
+        levels.append(round(target - v_db, 1))
+        st = int(t * sr)
+        if 0 <= st < n:
+            m = min(len(x), n - st)
+            out[st:st + m] += x[:m]
+    out = np.clip(out, -1, 1)
+    import wave
+    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
+    with wave.open(os.path.join(OUT, 'sfx.wav'), 'wb') as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
+    json.dump(dict(rules='as24_v1.1', music=music, hits=hits, db_vs_voice=levels), open(os.path.join(OUT, 'sfx_hits.json'), 'w'), ensure_ascii=False)
+
+
 def build_sfx(total, sr=48000):
+    if STYLE.get('sfx_pack') and STYLE.get('sfx_rules', 'as24') == 'as24':
+        return build_sfx_as24(total, sr)
     if STYLE.get('sfx_pack'):
-        return build_sfx_pack(total, sr)
+        return build_sfx_pack(total, sr)  # 예전 팩 v1(스티커마다 톡·컷 휙·끝 톡): sfx_rules='pack_v1' 일 때만
     """부위(섹션)가 바뀌는 컷에만 짧은 휙 소리. 컷마다 넣으면 산만하다는 편집 가이드에 따라 섹션 전환에만"""
     n = int(total * sr) + sr
     out = np.zeros(n)
@@ -393,11 +489,42 @@ def plan_shots(total):
     """컷은 말 구절이 바뀌는 순간(자막이 바뀌는 순간)에 넣는다. 편집자가 말 단위로 자르는 방식.
     블록 첫 컷은 그 블록 말보다 LEAD 먼저 바뀐다(그림이 소리보다 살짝 앞서야 자연스러움)"""
     shots = []
+    ncut = [0]
+    ev = STYLE.get('cut_on_phrase_every', 0)  # 원본 컷의 약 1/3은 구절 시작(칩과 같은 순간) — n번째 컷마다 당기지 않는다
+
+    def pull():
+        ncut[0] += 1
+        return not (ev and ncut[0] % ev == 0)
     for bi, b in enumerate(BLOCKS):
         t0 = PHRASES[b['ph0']][0] if bi else 0.0  # 블록 첫 자막이 뜨는 순간 = 컷
+        # 첫 컷(첫 화면 → 다음 블록)은 당기지 않는다: 원본 첫 컷은 NL 3.3 · BE 2.4초로 늦다
+        if bi > 1 and STYLE.get('cut_early_s') and shots and pull():
+            # 원본: 칩은 장면이 바뀌고 약 1초 뒤에 뜬다(칩 ≠ 컷, 컷의 60%는 구절 중간). 블록 컷을 앞 블록 끝 낱말 시작으로 당긴다
+            cand_w = [w[0] - LEAD for w in BLOCKS[bi - 1]['words'] if t0 - STYLE['cut_early_s'] - 0.3 <= w[0] - LEAD <= t0 - 0.4]
+            last_a = shots[-1]['a']
+            if cand_w and min(cand_w) - last_a >= STYLE.get('shot_min_s', 1.6):
+                t0 = min(cand_w)
+                shots[-1]['b'] = t0
         t1 = PHRASES[BLOCKS[bi + 1]['ph0']][0] if bi + 1 < len(BLOCKS) else total
         words = [w[0] - LEAD for w in b['words'] if t0 + 0.6 < w[0] - LEAD < t1 - 0.6]
-        n = len(b['shots'])
+        bshots = b['shots']
+        tgt_edges = None
+        tgt = STYLE.get('shot_target_s', 0)
+        if tgt and len(bshots) > 1:  # 네덜란드판: 장면 약 2.5초(NL 중간값). 블록 길이에 맞게 장면 수를 줄이고 고르게 남긴다
+            nk = min(len(bshots), max(1, round((t1 - t0) / tgt)))
+            # 옵션 칩(자동 편집기): 옵션 하나 = 구절 하나 = 장면 하나. 블록이 짧아도 옵션 장면은 줄이지 않는다
+            opt = sorted({pi for (_, pi), m in zip(b.get('stickers', []), b.get('_smeta', [])) if m.get('option') and pi < len(bshots)})
+            nk = min(len(bshots), max(nk, len(opt) + (0 not in opt)))
+            # 칩이 뜨는 구절의 장면을 먼저 남긴다(칩 글자와 화면 부위가 어긋나지 않게: 장면 k = 구절 k)
+            rest = sorted({0} | {pi for _, pi in b.get('stickers', []) if pi < len(bshots)})
+            pref = opt + [j for j in rest if j not in opt]
+            keep = pref[:nk] + [j for j in range(len(bshots)) if j not in pref][:max(0, nk - len(pref))]
+            keep = sorted(keep)
+            kept_ph = [PHRASES[b['ph0'] + j][0] for j in keep[1:] if b['ph0'] + j < len(PHRASES)]
+            bshots = [bshots[j] for j in keep]
+            if len(kept_ph) == len(bshots) - 1:
+                tgt_edges = kept_ph  # 남긴 장면은 그 구절이 시작될 때 바뀐다
+        n = len(bshots)
         cand = [ph[0] for ph in PHRASES if t0 + 0.6 < ph[0] < t1 - 0.6]  # 이 블록 안 자막 시작점
         even = list(np.linspace(t0, t1, n + 1)[1:-1])
         inner = []
@@ -407,8 +534,18 @@ def plan_shots(total):
                 c = min(words, key=lambda x: abs(x - e), default=e)
                 c = c if abs(c - e) < 0.8 and c not in inner else e
             inner.append(c)
+        if tgt_edges is not None and len(bshots) > 1:
+            inner = list(tgt_edges)
         edges = [t0] + sorted(inner) + [t1]
-        for k, (src, sp, plate) in enumerate(b['shots']):
+        if STYLE.get('cut_early_s'):  # 블록 안 컷도 칩(구절 시작)보다 조금 먼저: 앞 구절 끝 낱말 시작으로
+            ws_ = [w[0] - LEAD for w in b['words']]
+            for k in range(1, len(edges) - 1):
+                if not pull():
+                    continue
+                c_ = [w for w in ws_ if edges[k] - STYLE['cut_early_s'] - 0.3 <= w <= edges[k] - 0.35 and w - edges[k - 1] >= STYLE.get('shot_min_s', 1.6) * 0.8]
+                if c_:
+                    edges[k] = min(c_)
+        for k, (src, sp, plate) in enumerate(bshots):
             shots.append(dict(a=edges[k], b=edges[k + 1], src=src, sp=sp, plate=plate, bi=bi, k=k))
     return shots
 
@@ -1002,6 +1139,41 @@ def phrase_img_be2(text):
     return im
 
 
+def phrase_img_be3(text, act=-1):
+    """벨기에판(2026-11-09): 그림자 흰 글자(외곽선 없음) · 말하는 어절만 노랑 #EEEF05 · 높이 67% 고정 · 바로 등장(벨기에 34/39편 방식)"""
+    col_k = tuple(STYLE.get('cap_kw_col', (238, 239, 5)))
+    k = ('be3', text, act, col_k)
+    if k in _cache:
+        return _cache[k]
+    from PIL import ImageFilter
+    fnt = ImageFont.truetype(BLACK, 60)
+    text = text.strip(' ,.')
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 60 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    lh, gap = 80, fnt.getlength(' ')
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + 80), lh * len(lines) + 40), (0, 0, 0, 0))
+    sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(sh)
+    for i, l in enumerate(lines):
+        sd.text((im.width / 2 + 3, 20 + lh * i + lh / 2 + 5), l, font=fnt, fill=(0, 0, 0, 220), anchor='mm', stroke_width=4, stroke_fill=(0, 0, 0, 220))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6)))
+    d = ImageDraw.Draw(im)
+    wi = 0
+    for i, l in enumerate(lines):
+        x = (im.width - fnt.getlength(l)) / 2
+        y = 20 + lh * i + lh / 2
+        for w in l.split(' '):
+            d.text((x, y), w, font=fnt, fill=col_k if wi == act else (255, 255, 255), anchor='lm')
+            wi += 1
+            x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
 def kw_chip_be2(word):
     """벨기에식 키워드 칩(제미나이 80편: 키워드 스티커 214개, y 64% = 말 자막 바로 위, 톡 튀어나옴, 말과 동시):
     칩 색은 보배드림 파랑 + 흰 글자(원본 노랑 #FFE600 + 검정 글자 자리)"""
@@ -1056,6 +1228,9 @@ def phrase_img(text, act=-1):
     return im
 
 
+CAPLOG = []
+
+
 def overlay(T, total, shots, shot, blk):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     end_t = BLOCKS[-1]['t1'] + 0.35
@@ -1068,26 +1243,92 @@ def overlay(T, total, shots, shot, blk):
     if T < BLOCKS[1]['t0']:
         e = back(T / .4)
         hk = HOOK or dict(title=CAR['name'], line1=CAR['price'], line2=f"{CAR['year']} · {CAR['km_short']} · {CAR['fuel']}")
-        t1 = sticker(hk['title'], hk.get('size', 96), -2.5, True)
+        t1 = sticker(hk['title'], STYLE['big_size'] if STYLE.get('hook_minimal') else hk.get('size', 96), 0.0 if STYLE.get('hook_minimal') else -2.5, True)
         t2 = text_img(hk['line1'], 92, BLACK, stroke=7)
         t3 = text_img(hk['line2'], 46, BOLD, stroke=5)
-        paste(ov, t1, (W - t1.width * e) / 2, 300 + t1.height * (1 - e) / 2, min(1, T / .15), e)
+        for _k, (_tx, _sz, _f, _st) in enumerate(((hk['line1'], 92, BLACK, 7), (hk['line2'], 46, BOLD, 5))):  # 화면 폭을 넘으면 줄여서 맞춘다(GLE 첫 화면 글자가 잘림)
+            _im = t2 if _k == 0 else t3
+            if _im.width > W - 96:
+                _im = text_img(_tx, max(28, int(_sz * (W - 96) / _im.width)), _f, stroke=_st)
+                if _k == 0:
+                    t2 = _im
+                else:
+                    t3 = _im
+        if STYLE.get('hook_minimal'):  # 원본 NL: 첫 화면은 차명 한 줄만(위쪽 약 17%), 사양·가격 줄 없음
+            if T < 2.2:  # 원본: 차명은 약 2초
+                paste(ov, t1, (W - t1.width * e) / 2, H * .17 - t1.height / 2 + t1.height * (1 - e) / 2, min(1, T / .15, (2.2 - T) / .12), e)
+            t2 = t3 = None
+        else:
+            paste(ov, t1, (W - t1.width * e) / 2, 300 + t1.height * (1 - e) / 2, min(1, T / .15), e)
         e2 = ease((T - .25) / .3)
-        paste(ov, t2, (W - t2.width) / 2, 300 + t1.height + 6 + 30 * (1 - e2), e2)
-        paste(ov, t3, (W - t3.width) / 2, 300 + t1.height + t2.height + 10, e2)
+        if t2 is not None:
+            paste(ov, t2, (W - t2.width) / 2, 300 + t1.height + 6 + 30 * (1 - e2), e2)
+            paste(ov, t3, (W - t3.width) / 2, 300 + t1.height + t2.height + 10, e2)
     # 키워드 스티커(오토스카우트24식): 부위마다, 말하는 구절에 맞춰 톡 튀어나옴.
     # 숫자 사양은 화면 가운데 크게, 기능 이름은 좌·우·가운데를 번갈아 중간 크기로. 가격은 왼쪽에서 밀려 들어옴
     bi = BLOCKS.index(blk)
+    big_on = False
+    cap_slot = False  # 칩이 말 자막 자리를 쓰는 중(그동안 자막은 숨김 — 원본 NL)
+    smeta = blk.get('_smeta') or [{}] * len(blk.get('stickers', []))
+    chk = STYLE.get('checklist') or {}
+    lst = [i for i, m in enumerate(smeta) if m.get('list')]
+    use_chk = chk.get('on') and len(lst) >= chk.get('min_items', 2)
+    if use_chk:  # 네덜란드판 ✓ 목록: 말할 때마다 한 줄씩 늘고, 장면(블록) 끝에 한꺼번에 사라짐
+        rows = []
+        for i in lst:
+            st_i = PHRASES[blk['ph0'] + blk['stickers'][i][1]][0] + STYLE.get('chip_delay', 0.1)
+            if st_i <= T:
+                rows.append((i, st_i))
+        rows = rows[-chk.get('max_lines', 3):]  # 2026-11-10: 최근 n줄만(지금 말하는 옵션이 늘 보이게). 예전엔 앞 n개에서 멈춰 뒤 옵션이 안 떴다
+        if chk.get('band') == 'cap_hold':
+            hold = STYLE.get('option_hold', 1.33)
+            rows = [(i, st_i) for i, st_i in rows if T < st_i + hold]
+        en_all = blk['t1'] + 0.25
+        if rows and T < en_all:
+            out = ease((en_all - T) / .15)
+            ims = [sticker(blk['stickers'][i][0], STYLE['feat_size'], 0.0, False) for i, _ in rows]
+            gap = 18
+            tot = sum(im.height for im in ims) + gap * (len(ims) - 1)
+            if chk.get('band') == 'cap_hold':  # 2026-11-10 원본 NL 실측: 칩은 자막 자리에서 자막 대신 약 1.3초(말하는 그 낱말), 겹치면 위로 최대 2개, 그 뒤 자막 복귀
+                pass
+            if chk.get('band') == 'above_cap':  # 2026-11-10: 말 자막 바로 위에서 위로 쌓고 자막은 그대로 둔다(옵션 블록 10초 동안 자막이 사라지던 문제)
+                y0 = STYLE.get('cap_cy', 1129) - chk.get('cap_gap', 120) - tot
+            elif chk.get('band') in ('cap', 'cap_hold'):  # 말 자막 자리(아래 줄 = 자막 높이)에서 위로 쌓고, 그동안 자막을 숨긴다(NL 원본 66%)
+                y0 = STYLE.get('cap_cy', 1129) + ims[-1].height / 2 - tot
+                big_on = True
+                cap_slot = True
+            else:
+                y0 = STYLE.get('band_y', {}).get(chk.get('band', 'mid'), STYLE['feat_y']) - tot / 2
+            for (i, st_i), im in zip(rows, ims):
+                e = back((T - st_i) / .28)
+                sc = max(.05, e)
+                x = (W - im.width) / 2 if chk.get('band') in ('cap', 'above_cap', 'cap_hold') else 96  # 자막 자리면 가운데, 아니면 왼쪽 정렬
+                paste(ov, im, x + im.width * (1 - sc) / 2, y0 + im.height * (1 - e) / 2, min(1, (T - st_i) / .1) * out, sc)
+                y0 += im.height + gap
     for si, (txt, pidx) in enumerate(blk.get('stickers', [])):
+        if use_chk and si in lst:
+            continue
         p0 = PHRASES[blk['ph0'] + pidx]
-        st = p0[0] + 0.1
+        st = p0[0] + STYLE.get('chip_delay', 0.1)
         nx = blk.get('stickers')[si + 1][1] if si + 1 < len(blk['stickers']) else None
         en = PHRASES[blk['ph0'] + nx][0] if nx is not None else blk['t1'] + 0.25
-        en = min(en, st + 2.6)
+        en = min(en, st + STYLE.get('chip_hold_max', 2.6))  # 자동 편집기: 원본 칩 유지(NL 1.33 · BE 1.5초)보다 오래 자막을 가리지 않게
+        if smeta[si].get('option') and STYLE.get('option_hold'):
+            en = max(en, min(st + STYLE['option_hold'], blk['t1'] + 0.25))  # 옵션 칩은 최소 hold 초
         if not (st <= T < en):
             continue
-        big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
+        band = smeta[si].get('band')
+        if band == 'low':
+            big_on = True  # 아래쪽 칩은 말 자막 자리와 겹치므로 그동안 자막을 숨긴다
+        big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)
+        big = big and STYLE.get('big_numbers', True)  # 벨기에판: 숫자도 칩 안에(크게 튀어나오지 않음)
+        if big:
+            big_on = True
+        elif STYLE.get('numchip_hides_cap') and re.search(r'\d', txt):
+            big_on = True  # 벨기에판: 숫자 칩(가격·km·연식)이 떠 있는 동안 말 자막을 숨김(BE 9/50)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
         tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6] * STYLE.get('tilt_k', 1.0)
+        if STYLE.get('tilt_fixed') is not None:
+            tilt = STYLE['tilt_fixed'] + (-0.8, 0.6, 0.0)[(bi + si) % 3] * (STYLE['tilt_fixed'] != 0)  # 벨기에판: 늘 반시계(1~4도)
         im = sticker(txt, STYLE['big_size'] if big else STYLE['feat_size'], tilt, big)
         k = T - st
         out = ease((en - T) / .12)
@@ -1108,6 +1349,8 @@ def overlay(T, total, shots, shot, blk):
             else:
                 x = [SAFE_L, SAFE_R - im.width, STYLE.get('cap_cx', SAFE_CX) - im.width / 2][(bi + si) % 3]
             y = STYLE['feat_y'] - ady
+            if band and STYLE.get('band_y'):
+                y = STYLE['band_y'][band] - im.height / 2 - ady  # 부위별 자리(자동 편집기): 그 부위를 가리지 않는 높이
         sc = max(.05, e)
         px_ = x + im.width * (1 - sc) / 2
         if STYLE.get('feat_pos') == 'as24':
@@ -1118,6 +1361,14 @@ def overlay(T, total, shots, shot, blk):
     for ph in PHRASES:
         if ph[0] <= T < ph[1]:
             cur = ph
+    _speech = cur is not None
+    if cur and (cap_slot or (big_on and (STYLE.get('big_hides_cap') or STYLE.get('numchip_hides_cap')))):
+        cur = None  # 네덜란드판: 큰 숫자가 떠 있는 동안 말 자막을 숨긴다(NL 39/50)
+    if cur and STYLE.get('cap_cut_gap'):
+        g = STYLE['cap_cut_gap']
+        if any(sh['a'] > 0.5 and sh['a'] <= T < sh['a'] + g for sh in shots):
+            cur = None  # 벨기에판: 컷이 바뀐 뒤 0.3초는 자막을 비운다
+    CAPLOG.append((round(T, 3), _speech, cur is not None))  # 검수: 말하는데 자막이 빈 프레임 수(meta.cap_gap_s)
     if cur:
         k = min(1.0, (T - cur[0]) / 0.12)
         if STYLE.get('cap_style') == 'as24':  # 오토스카우트24: 칠 자막 + 톡 튀어나옴(스티커와 같은 움직임)
@@ -1132,7 +1383,7 @@ def overlay(T, total, shots, shot, blk):
             e = back((T - cur[0]) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1248)
-            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
+            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - t_in) / .06), sc)
             return ov, False
         if STYLE.get('cap_style') == 'nl2':  # 네덜란드식 v2: 외곽선 흰 글자, 강조어 칩(파랑) 줄 안, 톡 등장, 높이 63%
             im = phrase_img_nl2(cur[2], cap_keyword_any(cur[2], blk))
@@ -1158,6 +1409,12 @@ def overlay(T, total, shots, shot, blk):
                     top = cy - im.height / 2 - ch.height + 6
                     paste(ov, ch, W / 2 - ch.width * sc / 2, top + ch.height * (1 - sc) / 2, min(1, (T - kt) / .06), sc)
             return ov, False
+        if STYLE.get('cap_style') == 'be3':  # 벨기에판: 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 67%
+            act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
+            im = phrase_img_be3(cur[2], act)
+            cy = STYLE.get('cap_cy', 1286)
+            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, min(1, (T - cur[0]) / .04))
+            return ov, False
         if STYLE.get('cap_style') == 'be':  # 벨기에: 바로 등장, 강조어만 노랑 형광펜
             im = phrase_img_be(cur[2], cap_keyword(cur[2], blk))
             cy = STYLE.get('cap_cy', 1300)
@@ -1170,11 +1427,28 @@ def overlay(T, total, shots, shot, blk):
             return ov, False
         if STYLE.get('cap_style') == 'plain':  # 오토스카우트 NL 말 자막: 바탕 없이 흰 굵은 글자+검정 외곽선, 지금 말하는 낱말만 파랑(말 따라 이동), 톡 등장
             act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
-            im = phrase_img_v12(cur[2], act, False)
-            e = back((T - cur[0]) / 0.16)
+            txt, t_in = cur[2], cur[0]
+            N = STYLE.get('cap_chunk_chars')
+            if N:  # 2026-11-10 원본 NL 눈 대조: 자막은 한 줄 1~3낱말, 말 따라 덩어리째 바뀐다(긴 구절을 두 줄로 한꺼번에 띄우지 않음)
+                ws_ = txt.split()
+                groups, g = [], []
+                for j, w in enumerate(ws_):
+                    if g and (sum(len(ws_[x]) for x in g) + len(w) > N or len(g) >= 3):
+                        groups.append(g); g = []
+                    g.append(j)
+                if g:
+                    groups.append(g)
+                gi = next(k for k, g in enumerate(groups) if act in g or act < g[0])
+                g = groups[gi]
+                txt = ' '.join(ws_[j] for j in g)
+                t_in = cur[3][g[0]] if g[0] < len(cur[3]) else cur[0]
+                t_in = cur[0] if gi == 0 else t_in
+                act = act - g[0]
+            im = phrase_img_v12(txt, act, False)
+            e = back((T - t_in) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1248)
-            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
+            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - t_in) / .06), sc)
             return ov, False
         if STYLE.get('cap_style') == 'v12':  # 자막 상자 y 1050~1220 가운데
             im = phrase_img_v12(cur[2], cap_keyword(cur[2], blk), CAP_BRIGHT >= 0.7)
@@ -1187,6 +1461,18 @@ def overlay(T, total, shots, shot, blk):
 
 
 def end_card():
+    if STYLE.get('end_style') == 'logo':  # 2026-11-10 원본 NL 눈 대조: 끝 화면은 로고만 약 2초(가격 명함 없음)
+        im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(im).rectangle((0, 0, W, H), fill=(8, 10, 14, 120))
+        lp = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'public', 'assets', 'shortform', 'bobae_logo_600.png')
+        lg = Image.open(lp).convert('RGBA')
+        a = np.array(lg)
+        word = np.zeros(a.shape[:2], bool); word[:, int(a.shape[1] * 30 / 122) + 4:] = True  # 왼쪽 원(엠블럼)은 그대로, 오른쪽 글자는 흰색
+        a[word & (a[..., 3] > 0), :3] = 255
+        lg = Image.fromarray(a)
+        lg = lg.resize((int(W * .62), int(W * .62 * lg.height / lg.width)), Image.LANCZOS)
+        im.alpha_composite(lg, (int((W - lg.width) / 2), int(H * .45 - lg.height / 2)))
+        return im
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     d.rectangle((0, 0, W, H), fill=(8, 10, 14, 150))
@@ -1298,7 +1584,7 @@ def main():
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
                     '-movflags', '+faststart', final], check=True)
     meta = dict(total=round(total, 2), shots=len(shots), sec_per_cut=round(total / len(shots), 2),
-                plate_frames=sum(1 for v in track.values() if v), render_sec=round(time.time() - t_start, 1),
+                plate_frames=sum(1 for v in track.values() if v), cap_gap_s=round(sum(1 for _, sp, sh in CAPLOG if sp and not sh) / max(1, FPS if 'FPS' in globals() else 30), 2), render_sec=round(time.time() - t_start, 1),
                 blocks=[dict(t=round(b['t0'], 2), sec=b['sec'], text=b['tts']) for b in BLOCKS])
     json.dump(meta, open(os.path.join(OUT, 'meta.json'), 'w'), ensure_ascii=False, indent=1)
     print(meta)

@@ -1,0 +1,23 @@
+[
+ {"t0": 0.0,  "t1": 2.8,  "part": "exterior_front", "score": 0.95},
+ {"t0": 2.8,  "t1": 5.0,  "part": "headlight", "score": 0.9},
+ {"t0": 5.0,  "t1": 8.17, "part": "grille", "score": 0.85},
+ {"t0": 8.17, "t1": 10.7, "part": "wheel", "score": 0.9},
+ {"t0": 10.7, "t1": 13.57,"part": "exterior_rear", "score": 0.85, "note": "트렁크 문 열리는 뒷모습"},
+ {"t0": 13.57,"t1": 15.0, "part": "trunk", "score": 0.85},
+ {"t0": 15.0, "t1": 17.43,"part": "interior_ceiling", "score": 0.8, "note": "파노라마 선루프·뒷좌석"},
+ {"t0": 17.43,"t1": 19.5, "part": "console", "score": 0.8, "note": "뒷좌석 송풍구"},
+ {"t0": 19.5, "t1": 22.0, "part": "console", "score": 0.85},
+ {"t0": 22.0, "t1": 24.0, "part": "screen", "score": 0.8},
+ {"t0": 24.0, "t1": 26.8, "part": "interior_dash", "score": 0.85},
+ {"t0": 26.8, "t1": 29.57,"part": "steering_wheel", "score": 0.85},
+ {"t0": 29.57,"t1": 32.17,"part": "seats_rear", "score": 0.85},
+ {"t0": 32.17,"t1": 34.8, "part": "door", "score": 0.85, "note": "도어 시트 메모리 버튼"},
+ {"t0": 34.8, "t1": 37.5, "part": "seats_front", "score": 0.9},
+ {"t0": 37.5, "t1": 40.03,"part": "interior_dash", "score": 0.85, "note": "계기판"},
+ {"t0": 40.03,"t1": 42.77,"part": "console", "score": 0.85, "note": "센터 콘솔 버튼"},
+ {"t0": 42.77,"t1": 48.17,"part": "screen", "score": 0.95, "note": "어라운드뷰 화면"},
+ {"t0": 48.17,"t1": 50.93,"part": "interior_ceiling", "score": 0.75},
+ {"t0": 50.93,"t1": 54.0, "part": "trunk", "score": 0.85},
+ {"t0": 54.0, "t1": 57.3, "part": "exterior_rear", "score": 0.9}
+]

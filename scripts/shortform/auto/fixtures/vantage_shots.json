@@ -1,0 +1,64 @@
+[
+ {
+  "t0": 0.0,
+  "t1": 2.43,
+  "part": "exterior_front",
+  "score": 0.9
+ },
+ {
+  "t0": 2.43,
+  "t1": 5.5,
+  "part": "grille",
+  "score": 0.9
+ },
+ {
+  "t0": 5.5,
+  "t1": 7.0,
+  "part": "wheel",
+  "score": 0.8
+ },
+ {
+  "t0": 7.0,
+  "t1": 8.4,
+  "part": "exterior_side",
+  "score": 0.8
+ },
+ {
+  "t0": 8.4,
+  "t1": 9.6,
+  "part": "wheel",
+  "score": 0.6,
+  "note": "휠 가운데 근접, 캘리퍼 안 보임"
+ },
+ {
+  "t0": 9.6,
+  "t1": 11.5,
+  "part": "wheel",
+  "score": 0.95,
+  "note": "노란 캘리퍼 보임"
+ },
+ {
+  "t0": 11.5,
+  "t1": 13.9,
+  "part": "seats_front",
+  "score": 0.9
+ },
+ {
+  "t0": 13.9,
+  "t1": 16.73,
+  "part": "exterior_rear",
+  "score": 0.9
+ },
+ {
+  "t0": 16.73,
+  "t1": 19.77,
+  "part": "taillight",
+  "score": 0.85
+ },
+ {
+  "t0": 19.77,
+  "t1": 23.1,
+  "part": "trunk",
+  "score": 0.9
+ }
+]
