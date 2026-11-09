@@ -89,7 +89,7 @@ EDIT_PRESETS = {
                      cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
     'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
                      stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
-                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0, no_progress=True, hook_be=True,
+                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0, no_progress=True, hook_be=True, cap_chunk_chars=13, cap_chunk_words=4, end_style='logo', end_tail_s=2.0,
                      cut_early_s=0.6, shot_min_s=1.5, cut_on_phrase_every=3),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
 }
 _ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
@@ -1278,6 +1278,28 @@ def phrase_img(text, act=-1):
 CAPLOG = []
 
 
+def cap_chunk(cur, act):
+    """2026-11-10 원본 NL·BE 눈 대조: 말 자막은 한 줄 1~3낱말(BE 2~5), 말 따라 덩어리째 바뀐다. 긴 구절을 두 줄로 한꺼번에 띄우지 않는다.
+    돌려주는 것: (보일 글자, 덩어리가 뜬 시각, 덩어리 안 말하는 낱말 번호)"""
+    txt, t_in = cur[2], cur[0]
+    N = STYLE.get('cap_chunk_chars')
+    if not N:
+        return txt, t_in, act
+    ws_ = txt.split()
+    mx = STYLE.get('cap_chunk_words', 3)
+    groups, g = [], []
+    for j, w in enumerate(ws_):
+        if g and (sum(len(ws_[x]) for x in g) + len(w) > N or len(g) >= mx):
+            groups.append(g); g = []
+        g.append(j)
+    if g:
+        groups.append(g)
+    gi = next((k for k, g in enumerate(groups) if act in g or act < g[0]), len(groups) - 1)
+    g = groups[gi]
+    t_in = cur[0] if gi == 0 else (cur[3][g[0]] if g[0] < len(cur[3]) else cur[0])
+    return ' '.join(ws_[j] for j in g), t_in, act - g[0]
+
+
 def overlay(T, total, shots, shot, blk):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     end_t = BLOCKS[-1]['t1'] + 0.35
@@ -1473,9 +1495,10 @@ def overlay(T, total, shots, shot, blk):
             return ov, False
         if STYLE.get('cap_style') == 'be3':  # 벨기에판: 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 67%
             act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
-            im = phrase_img_be3(cur[2], act)
+            txt, t_in, act = cap_chunk(cur, act)
+            im = phrase_img_be3(txt, act)
             cy = STYLE.get('cap_cy', 1286)
-            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, min(1, (T - cur[0]) / .04))
+            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, min(1, (T - t_in) / .04))
             return ov, False
         if STYLE.get('cap_style') == 'be':  # 벨기에: 바로 등장, 강조어만 노랑 형광펜
             im = phrase_img_be(cur[2], cap_keyword(cur[2], blk))
@@ -1489,23 +1512,7 @@ def overlay(T, total, shots, shot, blk):
             return ov, False
         if STYLE.get('cap_style') == 'plain':  # 오토스카우트 NL 말 자막: 바탕 없이 흰 굵은 글자+검정 외곽선, 지금 말하는 낱말만 파랑(말 따라 이동), 톡 등장
             act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
-            txt, t_in = cur[2], cur[0]
-            N = STYLE.get('cap_chunk_chars')
-            if N:  # 2026-11-10 원본 NL 눈 대조: 자막은 한 줄 1~3낱말, 말 따라 덩어리째 바뀐다(긴 구절을 두 줄로 한꺼번에 띄우지 않음)
-                ws_ = txt.split()
-                groups, g = [], []
-                for j, w in enumerate(ws_):
-                    if g and (sum(len(ws_[x]) for x in g) + len(w) > N or len(g) >= 3):
-                        groups.append(g); g = []
-                    g.append(j)
-                if g:
-                    groups.append(g)
-                gi = next(k for k, g in enumerate(groups) if act in g or act < g[0])
-                g = groups[gi]
-                txt = ' '.join(ws_[j] for j in g)
-                t_in = cur[3][g[0]] if g[0] < len(cur[3]) else cur[0]
-                t_in = cur[0] if gi == 0 else t_in
-                act = act - g[0]
+            txt, t_in, act = cap_chunk(cur, act)
             im = phrase_img_nlcap(txt, act) if STYLE.get('cap_heavy') else phrase_img_v12(txt, act, False)
             e = back((T - t_in) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)

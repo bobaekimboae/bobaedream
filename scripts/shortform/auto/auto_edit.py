@@ -369,16 +369,20 @@ def assign_shots(blocks, shots, times):
                 start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))  # 영상 맨 앞 장면은 앞 여유가 필요 없다
                 left = s['t1'] - start
                 reuse = 0 if si not in used else (0.5 if si == prev and left >= need * 0.6 else 5)
-                cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * 0.6 else 14)  # 다 쓴 장면은 거의 마지막 수단
+                fit = 0.5 if pi in optp else 0.6  # 옵션 구절은 그 부위 장면을 조금 더 천천히(0.5배까지) 틀어서라도 쓴다
+                cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * fit else 14)  # 다 쓴 장면은 거의 마지막 수단
+                if pi in optp and s['part'] not in want:
+                    cost += 30  # 2026-11-10: 나사르식 긴 옵션 문장에서 「통풍 시트」 칩이 그릴 장면에 뜸 → 옵션 칩은 반드시 그 부위 장면 위에
                 cost += 0 if left >= ahead * 0.6 else 3  # 다음 짧은 구절까지 못 덮으면 조금 불리
                 if best is None or cost < best[0]:
                     best = (cost, si)
             si = best[1]
             s = shots[si]
             start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))
-            if s['t1'] - start < need * 0.6:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
+            fit = 0.5 if pi in optp else 0.6
+            if s['t1'] - start < need * fit:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
                 start = s['t0'] + 0.15
-            sp = round(min(1.0, max(0.6, (s['t1'] - start) / need)), 2)
+            sp = round(min(1.0, max(fit, (s['t1'] - start) / need)), 2)
             b['shot_tuples'].append((round(start, 2), sp, 0))
             b['shot_parts'].append(s['part'])
             used[si] = start + need * sp
