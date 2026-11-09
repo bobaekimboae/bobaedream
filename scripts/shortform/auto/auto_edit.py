@@ -106,8 +106,9 @@ def make_script(F, style, shots=None):
     N = lambda ko, d: d if digits else ko
     # 첫 화면
     color = F.get('color')
-    hook_end = josa(F['model'], '이에요!', '예요!')
-    first = W('보배드림 여러분,') if style == 'bobae_nl' else []
+    FM = RULES['script'].get('speech') == 'formal'  # 2026-11-10 사용자 지시 「입니다로」: 합니다체(나사르 한국어 자막 말투)
+    hook_end = (F['model'] + '입니다!') if FM else josa(F['model'], '이에요!', '예요!')
+    first = (W('자,') if RULES['script'].get('tone') == 'young' else W('보배드림 여러분,')) if style == 'bobae_nl' else []
     phrases = ([first] if first else []) + [W(f"오늘은 {color}" if color else '오늘은'), W(f"{F['make']} {hook_end}")]
     blk('hook', phrases, hook=True)
     # 외관·주행
@@ -115,9 +116,9 @@ def make_script(F, style, shots=None):
     if F.get('km') is not None:
         km = int(F['km'])
         say = N(num_ko(km), f'{km:,}')
-        tail_s, tail_d = ('킬로밖에', 'km밖에') if km < 30000 else ('킬로예요.', 'km예요.')
+        tail_s, tail_d = ('킬로밖에', 'km밖에') if km < 30000 else (('킬로입니다.', 'km입니다.') if FM else ('킬로예요.', 'km예요.'))
         num = [(say + tail_s, f'{km:,}' + tail_d)] if digits else [(say, f'{km:,}'), (tail_s, tail_d)]
-        ph = [[('주행은', '주행은')] + num] + ([W('안 탔거든요.')] if km < 30000 else [])
+        ph = [[('주행은', '주행은')] + num] + ([W('안 탔습니다.' if FM else '안 탔거든요.')] if km < 30000 else [])
         st.append((f'주행 {km_show(km)}', 0, {}))
         blk('exterior', ph, st)
     # 동력
@@ -126,16 +127,17 @@ def make_script(F, style, shots=None):
         if F.get('engine'):
             eng = F['engine']
             ew = eng.split()
-            tail = '에' if F.get('power_ps') else '예요.'
+            tail = '에' if F.get('power_ps') else ('입니다.' if FM else '예요.')
             rk = (lambda w: w) if digits else read_ko
             ph.append([(rk(w), w) for w in ew[:-1]] + [(rk(ew[-1]) + tail, ew[-1] + tail)])
             st.append((eng, 0, {}))
         if F.get('power_ps'):
             ps = int(F['power_ps'])
-            ph.append([(f'{ps}마력이고요.', f'{ps}마력이고요.')] if digits else [(num_ko(ps), str(ps)), ('마력이고요.', '마력이고요.')])
+            _mt = ('마력이고,' if long and F.get('drive') else '마력입니다.') if FM else '마력이고요.'
+            ph.append([(f'{ps}{_mt}', f'{ps}{_mt}')] if digits else [(num_ko(ps), str(ps)), (_mt, _mt)])
             st.append((f'{ps}마력', len(ph) - 1, {}))
         if long and F.get('drive'):  # 긴 원본: 구동 방식 한 구절 더(매물 정보에 있을 때만)
-            ph.append(W(f"{F['drive']} 구동이에요."))
+            ph.append(W(f"{F['drive']} 구동입니다." if FM else f"{F['drive']} 구동이에요."))
             st.append((f"{F['drive']} 구동", len(ph) - 1, {}))
         blk('power', ph, st)
     # 옵션 (가장 중요): 고르기 → 한 옵션 = 한 구절 = 한 장면
@@ -144,8 +146,17 @@ def make_script(F, style, shots=None):
         ph, st, parts = [], [], []
         n = len(opts)
         ends = RULES['script'].get('option_sentence_ends', ['들어가 있고요.', '있어요.'])
+        young = RULES['script'].get('tone') == 'young'
         for i, o in enumerate(opts):
             sw = o['say'].split()
+            if young and o.get('benefit') and not o.get('feature'):
+                # 나사르식(2026-11-10): 옵션 이름 + 그게 뭘 해 주는지 한 문장. 연결은 「~가 있어서」·「~는」을 번갈아
+                last = josa(sw[-1], '이 있어서', '가 있어서') if i % 2 == 0 else josa(sw[-1], '은', '는')
+                ws = [(w, w) for w in sw[:-1]] + [(last.split()[0], last.split()[0])] + [(w, w) for w in last.split()[1:]] + W(o['benefit'])
+                ph.append(ws)
+                st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
+                parts.append(o['parts'])
+                continue
             if long and n > 1:  # 긴 원본: 옵션마다 한 문장(장면을 길게 보여 줄 말), 끝말은 돌려 쓴다
                 if i == n - 1:
                     tail, more = '까지', W('다 들어가 있어요.')
@@ -164,7 +175,7 @@ def make_script(F, style, shots=None):
             st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
             parts.append(o['parts'])
         only_feat = all(o.get('feature') for o in opts)
-        if not (long and n > 1):
+        if not (long and n > 1) and not (young and all(o.get('benefit') and not o.get('feature') for o in opts)):
           ph.append(W('갖췄어요.' if only_feat else ('다 들어가 있어요.' if n > 1 else '들어가 있어요.')))
           parts.append(['interior_dash', 'seats_front', 'console'])
         blk('options', ph, st, parts=parts)
@@ -180,16 +191,107 @@ def make_script(F, style, shots=None):
         say, show = price_parts(F['price_manwon'])
         if digits:
             say = show
-        ws = [('가격은', '가격은')] + list(zip(say, show)) + [('원이에요.', '원이에요')]
+        ws = [('가격은', '가격은')] + list(zip(say, show)) + ([('원입니다.', '원입니다')] if FM else [('원이에요.', '원이에요')])
         ph.append(ws)
         st.append((' '.join(show) + '원', len(ph) - 1, {}))
     if ph:
         blk('condition', ph, st)
     # 마무리
-    cta = pick(['자세한 건 보배드림 앱에서 확인해 보세요!', '보배드림 앱에서 바로 확인해 보세요!'], key)
+    cta = pick(['자세한 건 보배드림 앱에서 확인하세요!', '보배드림 앱에서 바로 확인하세요!'] if FM else ['자세한 건 보배드림 앱에서 확인해 보세요!', '보배드림 앱에서 바로 확인해 보세요!'], key)
     cw = W(cta)
     half = max(1, len(cw) // 2)
     blk('cta', [cw[:half], cw[half:]], [('보배드림 앱', 0, {})] if '앱' in cta else [], end=True)
+    return blocks
+
+
+def make_script_nasser(F, style, shots=None):
+    """2026-11-10 사용자 지시 「나세르처럼 대사 바꿔」 「입니다로」 「AI 티 제거」.
+    근거: 시트 「나사르헤시엔_유튜브」 한국어 자막(reports/shortform/as24-reviewer-nasser 130편).
+    나사르 말투: ① 첫 줄에 「~를 원하신다면… 차 이름!」 ② 합니다체, 끝을 「~입니다/~죠/~됩니다」로 섞음
+    ③ 옵션마다 그게 뭘 해 주는지 한 문장 ④ 숫자 제원은 기능 뒤에 몰아서 ⑤ 끝은 「~에서 만나보세요」.
+    사실만 쓴다: 옵션은 매물 옵션표, benefit은 그 옵션의 일반 기능, 첫 줄 「~를 원하신다면」은 차종(body)으로만 고른다"""
+    long = bool(shots) and max(x['t1'] for x in shots) >= RULES['script'].get('long_source_s', 40)
+    name = f"{F['make']} {F['model']}"
+    blocks = []
+
+    def blk(sec, phrases, stickers=(), parts=None, **kw):
+        words = [w for ph in phrases for w in ph]
+        blocks.append(dict(sec=sec, words=words, caps=[len(ph) for ph in phrases], phrases=phrases,
+                           stickers=list(stickers), parts=parts or [RULES['script']['parts_for_section'].get(sec, ['other'])] * len(phrases), **kw))
+    W = lambda t: [(w, w) for w in t.split()]
+    def ro(word):  # 으로/로
+        if not has_final(word):
+            return word + '로'
+        c = word[-1]
+        return word + ('로' if ('가' <= c <= '힣' and (ord(c) - 0xAC00) % 28 == 8) else '으로')
+    # ① 첫 줄
+    angle = RULES['script'].get('nasser_hook', {}).get(F.get('body', ''), '')
+    color = F.get('color')
+    ph = []
+    if angle:
+        ph.append(W(angle + '…'))
+    ph.append(W(f"{color} {name}!" if color else f"{name}!"))
+    blk('hook', ph, hook=True)
+    # 주행거리
+    if F.get('km') is not None:
+        km = int(F['km'])
+        tail = 'km밖에 안 됩니다.' if km < 30000 else 'km입니다.'
+        blk('exterior', [[('주행거리는', '주행거리는')] + [(f'{km:,}' + tail.split()[0], f'{km:,}' + tail.split()[0])] + W(' '.join(tail.split()[1:]))] if len(tail.split()) > 1 else [[('주행거리는', '주행거리는'), (f'{km:,}{tail}', f'{km:,}{tail}')]],
+            [(f'주행 {km_show(km)}', 0, {})])
+    # ③ 옵션: 한 옵션 = 한 문장 = 한 장면
+    opts = select_options(F, style, shots, long)
+    if opts:
+        ph, st, parts = [], [], []
+        for i, o in enumerate(opts):
+            sw = o['say'].split()
+            if o.get('feature') or not o.get('benefit_f'):
+                ws = [(w, w) for w in sw] + W('도 갖췄습니다.' if not has_final(sw[-1]) else '도 갖췄습니다.')
+                ws = [(w, w) for w in sw[:-1]] + [(sw[-1] + '도', sw[-1] + '도'), ('갖췄습니다.', '갖췄습니다.')]
+            else:
+                lastw = josa(sw[-1], '이', '가') + ' 있어' if i % 2 == 0 else josa(sw[-1], '은', '는')  # 「~가 있어」·「~는」 번갈아
+                head = [(w, w) for w in sw[:-1]] + [(x, x) for x in lastw.split()]
+                ws = head + W(o['benefit_f'])
+            ph.append(ws)
+            st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
+            parts.append(o['parts'])
+        blk('options', ph, st, parts=parts)
+    # ④ 제원(기능 뒤에)
+    if style == 'bobae_nl' and (F.get('engine') or F.get('power_ps')):
+        ph, st = [], []
+        eng, ps = F.get('engine'), F.get('power_ps')
+        if eng and ps:
+            ew = eng.split()
+            tail = ('을' if has_final(ew[-1]) else '를') if False else ''
+            _e = ew[-1] if '엔진' in eng else ew[-1] + ' 엔진'
+            ph.append([(w, w) for w in ew[:-1]] + [(x, x) for x in (_e.split()[:-1] + [ro(_e.split()[-1])])])
+            st.append((eng, 0, {}))
+            last = f'{int(ps)}마력을 내고,' if long and F.get('drive') else f'{int(ps)}마력을 냅니다.'
+            ph.append(W(last))
+            st.append((f'{int(ps)}마력', len(ph) - 1, {}))
+        elif ps:
+            ph.append(W(f'최고출력은 {int(ps)}마력입니다.'))
+            st.append((f'{int(ps)}마력', 0, {}))
+        if long and F.get('drive') and ps:
+            ph.append(W(f"{F['drive']} 구동입니다."))
+            st.append((f"{F['drive']} 구동", len(ph) - 1, {}))
+        if ph:
+            blk('power', ph, st)
+    # 등록·가격
+    ph, st = [], []
+    if F.get('reg'):
+        m = re.match(r'(\d+)년(\d+)월', F['reg'])
+        if m:
+            y, mo = int(m.group(1)), int(m.group(2))
+            ph.append([(f'{y}년', f'{y}년'), (f'{mo}월', f'{mo}월'), ('등록이고,', '등록이고,')])
+            st.append((f'{y}년 {mo}월 등록', 0, {}))
+    if F.get('price_manwon'):
+        say, show = price_parts(F['price_manwon'])
+        ph.append([('가격은', '가격은')] + list(zip(show, show)) + [('원입니다.', '원입니다.')])
+        st.append((' '.join(show) + '원', len(ph) - 1, {}))
+    if ph:
+        blk('condition', ph, st)
+    # ⑤ 끝
+    blk('cta', [W('보배드림 앱에서'), W('만나보세요!')], [('보배드림 앱', 0, {})], end=True)
     return blocks
 
 
@@ -360,16 +462,20 @@ def assign_shots(blocks, shots, times):
                 start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))  # 영상 맨 앞 장면은 앞 여유가 필요 없다
                 left = s['t1'] - start
                 reuse = 0 if si not in used else (0.5 if si == prev and left >= need * 0.6 else 5)
-                cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * 0.6 else 14)  # 다 쓴 장면은 거의 마지막 수단
+                fit = 0.5 if pi in optp else 0.6  # 옵션 구절은 그 부위 장면을 조금 더 천천히(0.5배까지) 틀어서라도 쓴다
+                cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * fit else 14)  # 다 쓴 장면은 거의 마지막 수단
+                if pi in optp and s['part'] not in want:
+                    cost += 30  # 2026-11-10: 나사르식 긴 옵션 문장에서 「통풍 시트」 칩이 그릴 장면에 뜸 → 옵션 칩은 반드시 그 부위 장면 위에
                 cost += 0 if left >= ahead * 0.6 else 3  # 다음 짧은 구절까지 못 덮으면 조금 불리
                 if best is None or cost < best[0]:
                     best = (cost, si)
             si = best[1]
             s = shots[si]
             start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))
-            if s['t1'] - start < need * 0.6:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
+            fit = 0.5 if pi in optp else 0.6
+            if s['t1'] - start < need * fit:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
                 start = s['t0'] + 0.15
-            sp = round(min(1.0, max(0.6, (s['t1'] - start) / need)), 2)
+            sp = round(min(1.0, max(fit, (s['t1'] - start) / need)), 2)
             b['shot_tuples'].append((round(start, 2), sp, 0))
             b['shot_parts'].append(s['part'])
             used[si] = start + need * sp
@@ -463,7 +569,7 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     F = json.load(open(a.facts, encoding='utf-8'))
     shots = json.load(open(a.shots, encoding='utf-8')) if a.shots else None
-    blocks = make_script(F, a.style, shots)
+    blocks = (make_script_nasser if RULES['script'].get('speech') == 'formal' else make_script)(F, a.style, shots)
     for b in blocks:
         b['_style'] = a.style
     if a.cmd == 'script':

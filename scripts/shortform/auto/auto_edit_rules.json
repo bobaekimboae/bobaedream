@@ -75,7 +75,9 @@
     "interior_ceiling"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "지붕 열고 바람 맞으면서 달릴 수 있어요.",
+   "benefit_f": "지붕을 열고 바람을 맞으며 달릴 수 있습니다."
   },
   {
    "name": "파노라마선루프",
@@ -86,7 +88,9 @@
     "interior_ceiling"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "뒷좌석까지 하늘이 쫙 보여서 실내가 진짜 넓어 보여요.",
+   "benefit_f": "뒷좌석까지 하늘이 열려 실내가 훨씬 넓게 느껴지죠."
   },
   {
    "name": "알루미늄휠",
@@ -96,7 +100,9 @@
     "wheel"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "휠이 가볍고 디자인도 살아요.",
+   "benefit_f": "가볍고 디자인도 살아납니다."
   },
   {
    "name": "전동사이드미러",
@@ -106,7 +112,9 @@
     "mirror"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "시동 끄면 알아서 접혀요.",
+   "benefit_f": "시동을 끄면 알아서 접힙니다."
   },
   {
    "name": "HID램프",
@@ -116,7 +124,9 @@
     "headlight"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "밤길이 하얗고 환하게 보여요.",
+   "benefit_f": "밤길을 하얗게 밝혀 줍니다."
   },
   {
    "name": "LED헤드램프",
@@ -127,7 +137,9 @@
     "exterior_front"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "밤에 앞이 훨씬 밝게 보이고요.",
+   "benefit_f": "밤에도 앞이 또렷하게 보이죠."
   },
   {
    "name": "어댑티드헤드램프",
@@ -138,7 +150,9 @@
     "exterior_front"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "핸들 꺾는 쪽으로 불빛이 같이 돌아가요.",
+   "benefit_f": "핸들을 꺾는 방향으로 불빛이 같이 돌아갑니다."
   },
   {
    "name": "LED리어램프",
@@ -149,7 +163,9 @@
     "exterior_rear"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "뒤에서 봐도 불빛이 또렷하고요.",
+   "benefit_f": "뒤에서 봐도 불빛이 선명하죠."
   },
   {
    "name": "데이라이트",
@@ -159,7 +175,9 @@
     "headlight"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "낮에도 불이 들어와서 눈에 잘 띄어요.",
+   "benefit_f": "낮에도 불이 들어와 눈에 잘 띕니다."
   },
   {
    "name": "하이빔어시스트",
@@ -170,7 +188,9 @@
     "interior_dash"
    ],
    "tier": 2,
-   "visible": false
+   "visible": false,
+   "benefit": "맞은편 차 오면 상향등을 알아서 내려 줘요.",
+   "benefit_f": "맞은편에 차가 오면 상향등을 스스로 내려 줍니다."
   },
   {
    "name": "압축도어",
@@ -180,7 +200,9 @@
     "door"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "문을 살짝만 닫아도 끝까지 스르륵 당겨 닫혀요.",
+   "benefit_f": "문을 살짝만 닫아도 끝까지 당겨서 닫힙니다."
   },
   {
    "name": "자동슬라이딩도어",
@@ -190,7 +212,9 @@
     "door"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "버튼 하나로 뒷문이 알아서 열리고 닫혀요.",
+   "benefit_f": "버튼 하나로 뒷문이 열리고 닫히죠."
   },
   {
    "name": "전동사이드스탭",
@@ -201,7 +225,9 @@
     "door"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "문 열면 발판이 내려와서 타고 내리기 편해요.",
+   "benefit_f": "문을 열면 발판이 내려와 타고 내리기 편합니다."
   },
   {
    "name": "루프랙",
@@ -212,7 +238,9 @@
     "exterior_side"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "캠핑 짐이나 자전거도 지붕에 실을 수 있어요.",
+   "benefit_f": "캠핑 짐이나 자전거까지 지붕에 실을 수 있습니다."
   },
   {
    "name": "가죽시트",
@@ -223,7 +251,9 @@
     "seats_rear"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "촉감 좋고 관리도 편하고요.",
+   "benefit_f": "촉감이 좋고 관리도 쉽죠."
   },
   {
    "name": "전동시트(운전석)",
@@ -233,7 +263,9 @@
     "seats_front"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "버튼으로 시트 위치를 딱 맞출 수 있어요.",
+   "benefit_f": "버튼으로 시트 위치를 맞출 수 있습니다."
   },
   {
    "name": "전동시트(동승석)",
@@ -243,7 +275,9 @@
     "seats_front"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "옆자리도 버튼으로 편하게 맞춰요.",
+   "benefit_f": "옆자리도 버튼으로 맞춥니다."
   },
   {
    "name": "열선시트(앞좌석)",
@@ -254,7 +288,9 @@
     "console"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "겨울에 앉자마자 따뜻하고요.",
+   "benefit_f": "겨울에도 앉자마자 따뜻하고,"
   },
   {
    "name": "열선시트(뒷좌석)",
@@ -264,7 +300,9 @@
     "seats_rear"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "뒷자리 가족도 겨울에 따뜻해요.",
+   "benefit_f": "뒷자리 가족도 겨울에 따뜻하죠."
   },
   {
    "name": "통풍시트",
@@ -275,7 +313,9 @@
     "console"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "여름에 등이 안 끈적이게 바람이 나와요.",
+   "benefit_f": "여름엔 등 뒤로 바람이 나와 시원합니다."
   },
   {
    "name": "메모리시트",
@@ -286,7 +326,9 @@
     "door"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "버튼 하나면 내 운전 자세로 딱 돌아와요.",
+   "benefit_f": "버튼 하나면 내 운전 자세로 돌아오죠."
   },
   {
    "name": "폴딩시트",
@@ -297,7 +339,9 @@
     "trunk"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "접으면 큰 짐도 거뜬히 들어가요.",
+   "benefit_f": "접으면 큰 짐도 들어갑니다."
   },
   {
    "name": "마사지시트",
@@ -307,7 +351,9 @@
     "seats_front"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "달리면서 등이랑 허리를 주물러 줘요.",
+   "benefit_f": "달리는 동안 등과 허리를 풀어 줍니다."
   },
   {
    "name": "워크인시트",
@@ -317,7 +363,9 @@
     "seats_front"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "앞좌석이 밀려서 뒷자리 타기 편해요.",
+   "benefit_f": "앞좌석이 밀려 뒷자리에 타기 쉽습니다."
   },
   {
    "name": "요추받침",
@@ -327,7 +375,9 @@
     "seats_front"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "허리를 받쳐 줘서 장거리도 덜 피곤해요.",
+   "benefit_f": "허리를 받쳐 줘 장거리도 덜 피곤하죠."
   },
   {
    "name": "하이패스룸미러",
@@ -338,7 +388,9 @@
     "interior_dash"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "톨게이트를 그냥 지나가면 돼요.",
+   "benefit_f": "톨게이트를 그대로 지나갈 수 있습니다."
   },
   {
    "name": "ECM룸미러",
@@ -348,7 +400,9 @@
     "interior_ceiling"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "뒤차 불빛이 눈부시면 거울이 알아서 어두워져요.",
+   "benefit_f": "뒤차 불빛이 눈부시면 거울이 스스로 어두워집니다."
   },
   {
    "name": "뒷좌석에어벤트",
@@ -359,7 +413,9 @@
     "console"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "뒷자리에도 바람이 바로 나와요.",
+   "benefit_f": "뒷자리에도 바람이 바로 나오죠."
   },
   {
    "name": "패들쉬프트",
@@ -369,7 +425,9 @@
     "steering_wheel"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "핸들 뒤에서 손가락으로 기어를 바꿔요.",
+   "benefit_f": "핸들 뒤에서 손가락으로 기어를 바꿉니다."
   },
   {
    "name": "전동햇빛가리개",
@@ -380,7 +438,9 @@
     "door"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "뒷유리 햇빛을 버튼 하나로 가려요.",
+   "benefit_f": "뒷유리 햇빛을 버튼 하나로 가립니다."
   },
   {
    "name": "엠비언트라이트",
@@ -391,7 +451,9 @@
     "door"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "밤에 실내 조명 색을 내 맘대로 바꿀 수 있어요.",
+   "benefit_f": "밤에는 실내 조명 색을 원하는 대로 바꿀 수 있죠."
   },
   {
    "name": "후방센서",
@@ -401,7 +463,9 @@
     "exterior_rear"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "뒤에 뭐가 가까우면 소리로 알려 줘요.",
+   "benefit_f": "뒤에 장애물이 가까우면 소리로 알려 줍니다."
   },
   {
    "name": "전방센서",
@@ -411,7 +475,9 @@
     "exterior_front"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "앞에 장애물이 가까우면 알려 줘요.",
+   "benefit_f": "앞에 장애물이 가까우면 알려 줍니다."
   },
   {
    "name": "후방카메라",
@@ -422,7 +488,9 @@
     "exterior_rear"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "후진할 때 뒤가 화면에 다 보여요.",
+   "benefit_f": "후진할 때 뒤가 화면에 그대로 보이죠."
   },
   {
    "name": "전방카메라",
@@ -433,7 +501,9 @@
     "exterior_front"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "앞쪽 사각지대도 화면으로 보여요.",
+   "benefit_f": "앞쪽 사각지대까지 화면으로 보입니다."
   },
   {
    "name": "어라운드뷰",
@@ -443,7 +513,9 @@
     "screen"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "위에서 내려다보듯 차 주변이 다 보여서 주차가 편해요.",
+   "benefit_f": "위에서 내려다보듯 차 주변이 다 보여 주차가 편하죠."
   },
   {
    "name": "차선이탈경보(LDWS)",
@@ -454,7 +526,9 @@
     "steering_wheel"
    ],
    "tier": 2,
-   "visible": false
+   "visible": false,
+   "benefit": "차선 넘어가려고 하면 바로 알려 줘요.",
+   "benefit_f": "차선을 넘으려 하면 바로 알려 줍니다."
   },
   {
    "name": "자동긴급제동",
@@ -465,7 +539,9 @@
     "interior_dash"
    ],
    "tier": 2,
-   "visible": false
+   "visible": false,
+   "benefit": "앞차랑 부딪힐 것 같으면 차가 알아서 서요.",
+   "benefit_f": "앞차와 부딪힐 것 같으면 차가 스스로 멈춥니다."
   },
   {
    "name": "전자제어서스펜션(ECS)",
@@ -476,7 +552,9 @@
     "console"
    ],
    "tier": 1,
-   "visible": false
+   "visible": false,
+   "benefit": "길 상태에 맞춰 승차감을 알아서 바꿔 줘요.",
+   "benefit_f": "노면에 맞춰 승차감을 스스로 바꿔 줍니다."
   },
   {
    "name": "후측방경보",
@@ -486,7 +564,9 @@
     "mirror"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "차선 바꿀 때 옆 뒤에 차 있으면 알려 줘요.",
+   "benefit_f": "차선을 바꿀 때 옆 뒤에 차가 있으면 알려 주죠."
   },
   {
    "name": "스마트키",
@@ -497,7 +577,9 @@
     "door"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "키를 주머니에 넣고 그냥 타면 돼요.",
+   "benefit_f": "키를 주머니에 넣은 채 그대로 타면 됩니다."
   },
   {
    "name": "열선핸들",
@@ -507,7 +589,9 @@
     "steering_wheel"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "겨울에 핸들 잡아도 손이 안 시려요.",
+   "benefit_f": "겨울에도 핸들을 잡는 손이 따뜻하죠."
   },
   {
    "name": "자동에어컨",
@@ -518,7 +602,9 @@
     "interior_dash"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "온도만 맞춰 두면 알아서 조절해요.",
+   "benefit_f": "온도만 정해 두면 알아서 맞춥니다."
   },
   {
    "name": "좌우독립에어컨",
@@ -528,7 +614,9 @@
     "console"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "운전석이랑 조수석 온도를 따로 맞춰요.",
+   "benefit_f": "운전석과 조수석 온도를 따로 맞춥니다."
   },
   {
    "name": "크루즈컨트롤",
@@ -538,7 +626,9 @@
     "steering_wheel"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "고속도로에서 발 떼고 속도를 유지해요.",
+   "benefit_f": "고속도로에서 발을 떼도 속도를 유지합니다."
   },
   {
    "name": "스마트크루즈컨트롤",
@@ -549,7 +639,9 @@
     "interior_dash"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "앞차 따라 속도랑 거리를 알아서 맞춰요.",
+   "benefit_f": "앞차를 따라 속도와 거리를 스스로 맞추죠."
   },
   {
    "name": "전동트렁크",
@@ -560,7 +652,9 @@
     "exterior_rear"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "버튼 하나로 트렁크가 열리고 닫혀요.",
+   "benefit_f": "버튼 하나로 트렁크가 열리고 닫힙니다."
   },
   {
    "name": "스마트트렁크",
@@ -571,7 +665,9 @@
     "exterior_rear"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "키 갖고 뒤에 서 있으면 트렁크가 알아서 열려요.",
+   "benefit_f": "키를 갖고 뒤에 서 있으면 트렁크가 열립니다."
   },
   {
    "name": "전자주차브레이크(EPB)",
@@ -582,7 +678,9 @@
     "gear"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "버튼 하나로 주차 브레이크가 걸려요.",
+   "benefit_f": "버튼 하나로 주차 브레이크가 걸립니다."
   },
   {
    "name": "헤드업디스플레이(HUD)",
@@ -593,7 +691,9 @@
     "steering_wheel"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "속도랑 길 안내가 앞유리에 바로 떠요.",
+   "benefit_f": "속도와 길 안내가 앞유리에 바로 뜹니다."
   },
   {
    "name": "무선충전",
@@ -603,7 +703,9 @@
     "console"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "폰을 올려만 두면 충전돼요.",
+   "benefit_f": "휴대폰을 올려 두기만 하면 충전되죠."
   },
   {
    "name": "자동주차",
@@ -614,7 +716,9 @@
     "console"
    ],
    "tier": 1,
-   "visible": false
+   "visible": false,
+   "benefit": "주차를 차가 알아서 해 줘요.",
+   "benefit_f": "주차를 차가 스스로 해 줍니다."
   },
   {
    "name": "냉장고",
@@ -625,7 +729,9 @@
     "seats_rear"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "음료를 시원하게 넣고 다닐 수 있어요.",
+   "benefit_f": "음료를 시원하게 보관할 수 있죠."
   },
   {
    "name": "네비게이션(순정)",
@@ -635,7 +741,9 @@
     "screen"
    ],
    "tier": 3,
-   "visible": true
+   "visible": true,
+   "benefit": "순정이라 화면이랑 딱 맞게 들어가 있어요.",
+   "benefit_f": "화면에 꼭 맞게 기본으로 들어가 있습니다."
   },
   {
    "name": "블루투스",
@@ -646,7 +754,9 @@
     "steering_wheel"
    ],
    "tier": 3,
-   "visible": false
+   "visible": false,
+   "benefit": "폰 연결해서 음악이랑 통화가 바로 돼요.",
+   "benefit_f": "휴대폰을 연결해 음악과 통화가 바로 됩니다."
   },
   {
    "name": "뒷좌석TV",
@@ -656,7 +766,9 @@
     "seats_rear"
    ],
    "tier": 1,
-   "visible": true
+   "visible": true,
+   "benefit": "뒷자리에서도 영상 볼 수 있어요.",
+   "benefit_f": "뒷자리에서도 영상을 볼 수 있죠."
   },
   {
    "name": "스마트폰미러링",
@@ -666,7 +778,9 @@
     "screen"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "폰 화면이 차 화면에 그대로 떠요.",
+   "benefit_f": "휴대폰 화면이 차 화면에 그대로 뜹니다."
   },
   {
    "name": "AV시스템",
@@ -677,7 +791,9 @@
     "door"
    ],
    "tier": 2,
-   "visible": true
+   "visible": true,
+   "benefit": "소리가 확실히 다르게 들려요.",
+   "benefit_f": "소리가 확실히 다르죠."
   }
  ],
  "option_exposure": {
@@ -715,7 +831,8 @@
   "fallback": "맞는 장면이 없으면 그 옵션은 대본에서 빼고 다음 순위 옵션을 쓴다",
   "long_extra": {
    "bobae_nl": 1,
-   "bobae_be": 1
+   "bobae_be": 0,
+   "_note_be": "2026-11-10 원본 BE 눈 대조: 벨기에는 옵션보다 숫자 띠(가격·km·연식)가 많다. 긴 원본이어도 옵션을 늘리지 않아 칩 예산에서 가격·km 띠가 빠지지 않게"
   },
   "chip_delay": {
    "bobae_nl": 0.4,
@@ -837,7 +954,22 @@
    "bobae_nl": 1.0,
    "bobae_be": 0.6,
    "_note": "렌더러 cut_early_s와 같은 값. GLE 시험에서 당긴 컷 때문에 휠 장면이 원본 다음 장면(뒷모습)까지 흘러 0.9초 만에 컷이 하나 더 생김"
-  }
+  },
+  "_benefit_note": "2026-11-10 사용자 지시: 나사르 헤시엔 쇼츠처럼 옵션마다 「그게 뭘 해 주는지」를 한 문장으로(근거: 시트 「나사르헤시엔_유튜브」 130편 한국어 자막, reports/shortform/as24-reviewer-nasser). benefit은 그 옵션의 일반 기능만 쓰고 이 차의 상태·평가는 쓰지 않는다",
+  "tone": "young",
+  "speech": "formal",
+  "nasser_hook": {
+   "SUV": "넉넉한 SUV를 찾으신다면",
+   "세단": "편안한 세단을 찾으신다면",
+   "쿠페": "달리는 재미를 원하신다면",
+   "컨버터블": "지붕 열고 달리고 싶으시다면",
+   "해치백": "도심에서 타기 좋은 차를 찾으신다면",
+   "왜건": "짐 많이 싣는 차를 찾으신다면",
+   "MPV": "식구 많은 집이라면",
+   "밴": "식구 많은 집이라면",
+   "픽업": "짐도 레저도 다 잡고 싶으시다면"
+  },
+  "_speech_note": "2026-11-10 사용자 「나세르처럼 대사」·「입니다로」·「AI 티 제거」: make_script_nasser 사용. 합니다체 + 끝을 ~죠/~니다로 섞고, 첫 줄 「~를 원하신다면…」, 기능 뒤에 제원, 끝 「~에서 만나보세요」"
  },
  "calibration": {
   "_how": "calibrate.py가 자동 편집 계획(plan.json)·렌더 결과(meta, sfx_hits)를 재서 원본 측정값과 비교한다. 범위를 벗어나면 규칙을 고친다",
@@ -918,8 +1050,8 @@
  "voice": {
   "_why": "사용자 지시 2026-11-09: 일레븐랩스도 AI 티 벗겨내기. 일레븐랩스 v4 공식 안내(숫자는 글로 쓴 그대로, 태그는 분위기가 바뀌는 곳에만, 안정도 낮추면 억양이 다양) + 원본 NL·BE 말투",
   "model": "eleven_v4",
-  "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
-  "voice_name": "Minho - Seoul Creative Clear Voice (30대 서울 남성)",
+  "voice_id": "VwlplMyq7s8eoNKYEgcd",
+  "voice_name": "Dduksang Dragon (20대 남성, 숏츠·릴스용 생동감 있는 목소리)",
   "numbers": "digits",
   "settings": {
    "stability": 0.35,
@@ -927,9 +1059,9 @@
    "_note": "0.5(기본)은 문장마다 억양이 같아 낭독처럼 들림. 0.3 아래는 발음이 흔들림"
   },
   "tags": {
-   "hook": "[warmly]",
-   "options": "[excited]",
-   "cta": "[warmly]"
+   "hook": "",
+   "options": "",
+   "cta": ""
   },
   "script_rules": [
    "같은 끝말을 두 문장 연달아 쓰지 않는다(-예요 / -거든요 / -고요 / -어요 / -이에요 / -보세요)",
@@ -968,7 +1100,12 @@
     "name": "Minho (30대 SNS 톤) — 채택"
    }
   },
-  "_voice_note": "2026-11-10 사용자 「30대로」→「D로」: 기본 목소리 Klamon(dnZGOA54w68T7vLLPFTp) → Minho. 후보 기록은 candidates_older"
+  "_voice_note": "2026-11-10 사용자 지시 「20대 청년 생동감 있게」. 이전 기본 Minho(30대)는 previous에",
+  "previous": {
+   "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
+   "voice_name": "Minho - Seoul Creative Clear Voice (30대 서울 남성)"
+  },
+  "_tags_note": "2026-11-10 「AI 티 제거」: 감정 태그를 모두 뺌(태그가 과장된 억양을 만들어 낭독·광고 티). 말투는 문장 자체로"
  },
  "chip_priority": {
   "_note": "숫자가 작을수록 먼저 뺀다. 옵션 칩은 가장 나중",
