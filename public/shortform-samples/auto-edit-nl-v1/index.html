@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자동 편집 네덜란드판 시험</title>
+<meta name="description" content="매물 정보와 원본 영상만으로 사람 손 없이 만든 오토스카우트24 네덜란드판 방식 숏폼 시험(벤츠 GLE 450)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 24px; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: start; }
+  h1 { grid-column: 1 / -1; margin: 0; font-size: 22px; line-height: 30px; }
+  h1 small { display: block; color: var(--sub); font-size: 14px; font-weight: 400; }
+  .player { position: sticky; top: 16px; background: #000; border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16; }
+  video { width: 100%; height: 100%; display: block; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; }
+  h2 { margin: 0 0 12px; font-size: 18px; line-height: 24px; }
+  ul { margin: 0; padding-left: 18px; color: var(--sub); }
+  img { width: 100%; height: auto; border-radius: 8px; display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--sub); font-weight: 600; }
+  @media (max-width: 720px) { main { grid-template-columns: 1fr; } .player { position: static; max-width: 360px; width: 100%; margin: 0 auto; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>자동 편집 네덜란드판 시험 · 벤츠 GLE 450 4MATIC<small>매물 정보 + 원본 영상 57초 → 사람 손 없이 대본·음성·장면 고르기·자막·칩·효과음까지 자동 (34초)</small></h1>
+  <div class="player"><video src="gle-nl-v3.mp4?v=1" poster="poster.jpg" controls playsinline preload="metadata"></video></div>
+  <div style="display:grid;gap:16px">
+    <section>
+      <h2>원본 네덜란드판과 나란히</h2>
+      <img src="compare.jpg" alt="위 줄 원본 네덜란드판 0~12초, 가운데 줄 우리 0~12초, 아래 줄 우리 14~26초를 0.5초 간격으로 나란히 놓은 사진">
+    </section>
+    <section>
+      <h2>원본에 맞춘 것</h2>
+      <table>
+        <tr><th>항목</th><th>원본 네덜란드판</th><th>이 영상</th></tr>
+        <tr><td>말 자막</td><td>한 줄 1~3낱말, 말하는 낱말 노랑, 글자 높이 약 48px</td><td>한 줄 최대 11자·3어절, 말하는 낱말 노랑, 52px</td></tr>
+        <tr><td>옵션 칩</td><td>자막 자리에서 그 낱말을 말하는 동안(약 1.3초), 겹치면 위로 2개, 상자 103~113px</td><td>같은 방식 1.33초, 최대 2개, 상자 108px</td></tr>
+        <tr><td>숫자 칩</td><td>화면 위쪽 약 22%</td><td>22%</td></tr>
+        <tr><td>첫 화면</td><td>브랜드 한 낱말 칩 약 2초</td><td>「벤츠 GLE」 2.2초</td></tr>
+        <tr><td>끝 화면</td><td>로고만 약 2초</td><td>보배드림 로고 2초</td></tr>
+        <tr><td>효과음</td><td>칩이 뜨는 순간</td><td>칩이 뜨는 순간</td></tr>
+      </table>
+    </section>
+    <section>
+      <h2>알아 둘 점</h2>
+      <ul>
+        <li>사실 근거: 연식·등록(24년 6월)·주행 20,885km·가솔린+전기·가격 7,990만원·옵션(HUD·어라운드뷰·통풍·열선·메모리 시트)은 매물 정보, 381마력은 공식 제원</li>
+        <li>음성: 일레븐랩스 eleven_v4 · Minho(30대 서울 남성), 숫자는 글로 쓴 그대로 읽힘</li>
+        <li>칩 색: 정해 둔 기준(파랑 #306BD9 · 흰 글자). 원본은 검정 상자 · 노랑 글자</li>
+        <li>음악 없음, 효과음은 보배드림 자체 효과음만</li>
+        <li>원본과 남은 차이: 화면 바뀜 22.9회/분(원본 위 끝 22.3), 원본은 진행자가 나오는 영상</li>
+        <li>번호판: 딜러 매물은 번호판 공개가 원칙이라 가리지 않음 · 테스트용 원본(내부 시험용), 외부 게시 전 권리 확인 필요</li>
+      </ul>
+    </section>
+  </div>
+</main>
+</body>
+</html>
