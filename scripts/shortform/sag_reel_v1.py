@@ -963,13 +963,27 @@ def phrase_img_nl2(text, kw=-1):
         x = (im.width - fnt.getlength(line)) / 2
         y = pad_y + lh * li + lh / 2
         for w in line.split(' '):
-            if wi == kw:
-                d.rounded_rectangle((x - 10, y - 38, x + fnt.getlength(w) + 10, y + 40), 8, fill=BLUE + (255,))
-                d.text((x, y), w, font=fnt, fill=(255, 255, 255), anchor='lm')
-            else:
-                _outline_text(d, (x, y), w, fnt, (255, 255, 255), 5)
+            # 지금 말하는 낱말만 노랑(NL 원본 #EEEF05) — 색 포인트가 목소리를 따라 낱말마다 옮겨 간다
+            _outline_text(d, (x, y), w, fnt, tuple(STYLE.get('cap_kw_col', (238, 239, 5))) if wi == kw else (255, 255, 255), 5)
             wi += 1
             x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
+def big_num_nl2(word):
+    """네덜란드 원본 학습(2026-11-09, 12편 프레임 실측): 말하는 낱말이 숫자면 말 자막 대신 큰 노랑 숫자(검정 외곽선)가
+    작게 시작해 크게 튀어나온다(「3」 「2019」 「€51.950」 「70.000 KM」). 화면 높이의 약 8% 글자"""
+    k = ('nl2num', word)
+    if k in _cache:
+        return _cache[k]
+    m = re.match(r'^([0-9][0-9.,]*(?:km|cc|마력|만원|만|억|년|월|초)?)', word.strip(' ,.'))
+    t = m.group(1) if m else word
+    fnt = ImageFont.truetype(BLACK, 150)
+    tw = fnt.getlength(t)
+    im = Image.new('RGBA', (int(tw + 60), 210), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.text((im.width / 2, 105), t, font=fnt, fill=tuple(STYLE.get('cap_kw_col', (238, 239, 5))), anchor='mm', stroke_width=10, stroke_fill=(0, 0, 0))
     _cache[k] = im
     return im
 
@@ -1135,7 +1149,17 @@ def overlay(T, total, shots, shot, blk):
             paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
             return ov, False
         if STYLE.get('cap_style') == 'nl2':  # 네덜란드식 v2: 외곽선 흰 글자, 강조어 칩(파랑) 줄 안, 톡 등장, 높이 63%
-            im = phrase_img_nl2(cur[2], cap_keyword_any(cur[2], blk))
+            act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])  # 지금 말하는 낱말
+            ws_ = cur[2].strip(' ,.').split(' ')
+            if act < len(ws_) and re.match(r'^[0-9]', ws_[act]):  # 숫자 낱말: 말 자막 대신 큰 노랑 숫자가 튀어나옴(원본 「3」 「2019」)
+                nt = cur[3][act]
+                im = big_num_nl2(ws_[act])
+                e = back((T - nt) / 0.25)
+                sc = max(.05, 0.3 + 0.7 * e)
+                cy = STYLE.get('cap_cy', 1210) - 40
+                paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - nt) / .05), sc)
+                return ov, False
+            im = phrase_img_nl2(cur[2], act)
             e = back((T - cur[0]) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1210)
