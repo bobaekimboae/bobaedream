@@ -32,10 +32,10 @@ def measure(d):
     sfx = json.load(open(os.path.join(d, 'render', 'sfx_hits.json')))
     mins = T / 60
     cfg = open(os.path.join(d, 'config.py'), encoding='utf-8').read()
-    cap_y = {'bobae_nl': 1190, 'bobae_be': 1229}[style] / 1920 * 100
+    cap_y = {'bobae_nl': 1129, 'bobae_be': 1283}[style] / 1920 * 100  # 렌더러 프리셋 cap_cy
     m = dict(duration_s=round(T, 1), cuts_per_min=round(len(c) / mins, 1), shot_med_s=round(med, 2),
              chips_per_min=round(len(chips) / mins, 1), option_chips=len(opt), sfx_per_video=len(sfx['hits']),
-             caption_y_pct=round(cap_y, 1), music=bool(sfx.get('music')))
+             caption_y_pct=round(cap_y, 1), music=bool(sfx.get('music')), first_cut_s=round(c[0], 2) if c else None)
     # 옵션 칩 = 그 부위 장면 위인지(옵션 칩 노출 규칙의 핵심)
     hit = 0
     for b in plan['blocks']:

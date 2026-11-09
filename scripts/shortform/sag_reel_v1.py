@@ -82,11 +82,11 @@ if os.environ.get('SAG_CONFIG'):
 # 편집 판(2026-11-09 사용자: 네덜란드판·벨기에판을 골라 쓴다). STYLE['edit_style'] 또는 SAG_EDIT 로 고른다.
 # 수치 근거: docs/shortform/as24-caption-rules-v2.md · as24-sfx-rules-v1.md · as24-4country-compare-v1.md, 칩 규칙은 as24_edit_rules.json의 bobae_nl·bobae_be
 EDIT_PRESETS = {
-    'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1190,  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
+    'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1129,  # 58.8%(1차 재학습 43편)  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
                      stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=True, cap_cut_gap=0.0,
                      bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, shot_target_s=2.5),
-    'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1229,  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
-                     stk_shape='as24', tilt_k=1.0, tilt_fixed=-2.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
+    'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1283, chip_delay=0.21,  # 66.8% · 칩은 구절 시작 +0.21초(1차 재학습 34편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
+                     stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.6, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
                      bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0),
 }
 _ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
@@ -1254,7 +1254,7 @@ def overlay(T, total, shots, shot, blk):
         if use_chk and si in lst:
             continue
         p0 = PHRASES[blk['ph0'] + pidx]
-        st = p0[0] + 0.1
+        st = p0[0] + STYLE.get('chip_delay', 0.1)
         nx = blk.get('stickers')[si + 1][1] if si + 1 < len(blk['stickers']) else None
         en = PHRASES[blk['ph0'] + nx][0] if nx is not None else blk['t1'] + 0.25
         en = min(en, st + 2.6)

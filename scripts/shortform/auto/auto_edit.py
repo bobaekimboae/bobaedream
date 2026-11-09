@@ -294,7 +294,8 @@ def assign_shots(blocks, shots, times):
             s0, s1 = times.get((bi, pi), (0, 1.5))
             need = max(0.6, s1 - s0)
             # 장면 최소 길이(원본 중간값 아래로 자르지 않음): 짧은 구절은 앞 장면을 이어 쓴다. 옵션 구절은 예외(옵션 = 장면 하나)
-            if pi and prev is not None and pi not in optp and (pi - 1) not in optp and run < STYLE_MIN[style_of(blocks)]:
+            first_hold = bi == 0 and s0 < RULES['learned_l1'][style_of(blocks)]['first_cut_s'] - 0.3  # 원본: 첫 컷은 3.4~3.7초
+            if pi and prev is not None and pi not in optp and (pi - 1) not in optp and (run < STYLE_MIN[style_of(blocks)] or first_hold):
                 s = shots[prev]
                 start = used[prev]
                 if s['t1'] - start >= need * 0.6:
@@ -339,6 +340,8 @@ def write_config(F, blocks, style, path):
         stickers = []
         for txt, pidx, meta in b['stickers']:
             band = RULES['part_band'].get(b.get('shot_parts', [None] * 99)[pidx] if b.get('shot_parts') else meta.get('part'), None) or RULES['part_band'].get(meta.get('part', ''), None)
+            if style == 'bobae_be' and band == 'mid':
+                band = 'top'  # BE 원본 칩: 위 44% · 아래 42% · 가운데 15%(1차 재학습)
             m = {k: v for k, v in meta.items() if k in ('list', 'option')}
             if band:
                 m['band'] = band
@@ -362,7 +365,7 @@ HOOK = {json.dumps(hook, ensure_ascii=False)}
 BLOCKS = {json.dumps(B, ensure_ascii=False, indent=1)}
 SHOW = {json.dumps(show, ensure_ascii=False)}
 MARKS = {json.dumps(marks, ensure_ascii=False)}
-STYLE.update(edit_style={style!r}, band_y={json.dumps(RULES['band_y'])}, option_hold={RULES['option_exposure']['hold_s'][style]},
+STYLE.update(edit_style={style!r}, band_y={json.dumps(RULES['band_y_be'] if style == 'bobae_be' else RULES['band_y'])}, option_hold={RULES['option_exposure']['hold_s'][style]},
              checklist={json.dumps(RULES['option_exposure']['checklist'][style])})
 """
     src = src.replace('true', 'True').replace('false', 'False')
