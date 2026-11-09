@@ -212,7 +212,8 @@ def tts_text(blocks):
 def chip_budget(blocks, style, dur_s):
     """칩 수를 원본 범위(재교정 목표 chips_per_min 위 끝) 안으로. 지우는 순서: 낮은 우선순위부터.
     옵션 칩은 가장 나중에 지운다(가장 중요). 우선순위 = 규칙 chip_priority"""
-    cap = int(RULES['calibration'][style]['chips_per_min'][1] * dur_s / 60)
+    lo, hi = RULES['calibration'][style]['chips_per_min']
+    cap = int(((lo + hi) / 2 + hi) / 2 * dur_s / 60)  # 가운데 절반의 위쪽 3/4 지점: 위 끝에 붙으면 길이 오차로 넘친다
     pri = RULES['chip_priority']
     allc = [(bi, si) for bi, b in enumerate(blocks) for si, _ in enumerate(b['stickers'])]
     def rank(k):
@@ -286,16 +287,18 @@ def assign_shots(blocks, shots, times):
     """구절마다 원하는 부위 장면을 고른다(규칙 script.shot_cost). 말보다 짧으면 천천히(최소 0.6배) 튼다"""
     used = {}   # 장면 번호 → 다음에 쓸 수 있는 원본 시각
     prev = None
+    run = 0.0   # 지금 장면이 이어진 길이(블록을 넘어 이어짐)
     for bi, b in enumerate(blocks):
         b['shot_tuples'], b['shot_parts'] = [], []
         optp = {x[1] for x in b['stickers'] if len(x) > 2 and x[2].get('option')}
-        run = 0.0  # 지금 장면이 이어진 길이
         for pi, want in enumerate(b['parts']):
             s0, s1 = times.get((bi, pi), (0, 1.5))
             need = max(0.6, s1 - s0)
             # 장면 최소 길이(원본 중간값 아래로 자르지 않음): 짧은 구절은 앞 장면을 이어 쓴다. 옵션 구절은 예외(옵션 = 장면 하나)
             first_hold = bi == 0 and s0 < RULES['learned_l1'][style_of(blocks)]['first_cut_s'] - 0.3  # 원본: 첫 컷은 3.4~3.7초
-            if pi and prev is not None and pi not in optp and (pi - 1) not in optp and (run < STYLE_MIN[style_of(blocks)] or first_hold):
+            # 블록 경계에서도(앞 블록 끝 장면이 아직 짧으면) 이어 쓴다: 원본 컷의 60%는 구절 중간이고 블록마다 자르지 않는다
+            prev_opt = (pi - 1) in optp if pi else bool(bi and any(x[1] == len(blocks[bi - 1]['parts']) - 1 and len(x) > 2 and x[2].get('option') for x in blocks[bi - 1]['stickers']))
+            if prev is not None and (pi or bi) and pi not in optp and not prev_opt and (run < STYLE_MIN[style_of(blocks)] or first_hold):
                 s = shots[prev]
                 start = used[prev]
                 if s['t1'] - start >= need * 0.6:
