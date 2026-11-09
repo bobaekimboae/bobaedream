@@ -530,6 +530,12 @@ def plan_shots(total):
         if tgt_edges is not None and len(bshots) > 1:
             inner = list(tgt_edges)
         edges = [t0] + sorted(inner) + [t1]
+        if STYLE.get('cut_early_s'):  # 블록 안 컷도 칩(구절 시작)보다 조금 먼저: 앞 구절 끝 낱말 시작으로
+            ws_ = [w[0] - LEAD for w in b['words']]
+            for k in range(1, len(edges) - 1):
+                c_ = [w for w in ws_ if edges[k] - STYLE['cut_early_s'] - 0.3 <= w <= edges[k] - 0.35 and w - edges[k - 1] >= STYLE.get('shot_min_s', 1.6) * 0.8]
+                if c_:
+                    edges[k] = min(c_)
         for k, (src, sp, plate) in enumerate(bshots):
             shots.append(dict(a=edges[k], b=edges[k + 1], src=src, sp=sp, plate=plate, bi=bi, k=k))
     return shots
