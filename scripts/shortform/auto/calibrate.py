@@ -45,6 +45,11 @@ def measure(d):
                 if s[1] < len(parts) and parts[s[1]] == s[2].get('part'):
                     hit += 1
     m['option_on_part'] = f'{hit}/{len(opt)}'
+    # 칩이 새 장면 시작 0.5초 안에 뜨는 비율(원본 NL 0.33 · BE 0.40~0.50). 우리는 컷과 칩을 같은 구절 시작에 걸어 높게 나온다
+    tm = plan.get('times', {})
+    cst = [tm[f"{bi}:{s[1]}"][0] + 0.1 for bi, b in enumerate(plan['blocks']) for s in b['stickers'] if f"{bi}:{s[1]}" in tm]
+    if cst:
+        m['chip_on_new_shot'] = round(sum(any(0 <= t - x <= 0.5 for x in [0.0] + c) for t in cst) / len(cst), 2)
     return style, m
 
 
