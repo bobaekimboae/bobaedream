@@ -1243,11 +1243,15 @@ def overlay(T, total, shots, shot, blk):
             ims = [sticker(blk['stickers'][i][0], STYLE['feat_size'], 0.0, False) for i, _ in rows]
             gap = 18
             tot = sum(im.height for im in ims) + gap * (len(ims) - 1)
-            y0 = STYLE.get('band_y', {}).get(chk.get('band', 'mid'), STYLE['feat_y']) - tot / 2
+            if chk.get('band') == 'cap':  # 말 자막 자리(아래 줄 = 자막 높이)에서 위로 쌓고, 그동안 자막을 숨긴다(NL 원본 66%)
+                y0 = STYLE.get('cap_cy', 1129) + ims[-1].height / 2 - tot
+                big_on = True
+            else:
+                y0 = STYLE.get('band_y', {}).get(chk.get('band', 'mid'), STYLE['feat_y']) - tot / 2
             for (i, st_i), im in zip(rows, ims):
                 e = back((T - st_i) / .28)
                 sc = max(.05, e)
-                x = 96  # 목록은 왼쪽 정렬(원본 NL ✓ 목록)
+                x = (W - im.width) / 2 if chk.get('band') == 'cap' else 96  # 자막 자리면 가운데, 아니면 왼쪽 정렬
                 paste(ov, im, x + im.width * (1 - sc) / 2, y0 + im.height * (1 - e) / 2, min(1, (T - st_i) / .1) * out, sc)
                 y0 += im.height + gap
     for si, (txt, pidx) in enumerate(blk.get('stickers', [])):
