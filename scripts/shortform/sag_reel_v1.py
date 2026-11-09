@@ -85,11 +85,11 @@ if os.environ.get('SAG_CONFIG'):
 EDIT_PRESETS = {
     'bobae_nl': dict(cap_style='plain', cap_kw_col=(238, 239, 5), cap_cy=1152, chip_delay=0.4,  # 60%, 칩은 구절 시작 +0.4초(200편)  # 흰 글자+검정 외곽선, 말하는 어절만 노랑, 톡, 62%(100편 재조사)
                      stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=False, cap_cut_gap=0.0,  # 2026-11-10 원본 눈 대조: NL은 말하는 동안 자막이 비는 순간이 없다(큰 숫자는 자막 위에 함께)
-                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='heavy', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True, no_progress=True, cap_heavy=True, cap_size=64, cap_track=-0.04, cap_stroke=8,
+                     bgm='none', bgm_vol=0.0, sfx_pack=True, sfx_type='ding', sfx_hook=True, sfx_mode='orig', sfx_profile='nl', sfx_pitch=1.19, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='heavy', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True, no_progress=True, cap_heavy=True, cap_size=64, cap_track=-0.04, cap_stroke=8,
                      cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
     'bobae_be': dict(cap_style='be3', cap_kw_col=(238, 239, 5), cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
                      stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
-                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='pop', shot_target_s=0, no_progress=True, hook_be=True, cap_chunk_chars=13, cap_chunk_words=4, end_style='logo', end_tail_s=2.0,
+                     bgm='spy', bgm_vol=0.34, sfx_pack=True, sfx_type='ding', sfx_mode='orig', sfx_profile='be', sfx_pitch=0.96, shot_target_s=0, no_progress=True, hook_be=True, cap_chunk_chars=13, cap_chunk_words=4, end_style='logo', end_tail_s=2.0,
                      cut_early_s=0.6, shot_min_s=1.5, cut_on_phrase_every=3),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
 }
 _ed = os.environ.get('SAG_EDIT') or STYLE.get('edit_style')
@@ -281,13 +281,61 @@ def sfx_as24_hits(music):
             if '보배드림' in txt:
                 continue  # 안내 문구는 정보 칩이 아니다
             cands.append(dict(t=PHRASES[b['ph0'] + pidx][0] + STYLE.get('chip_delay', 0.1), type=STYLE.get('sfx_type', 'ding'), prio=prio(txt), txt=txt))
-    keep = AP.pick_sfx(cands, SX, R, music)
-    if STYLE.get('sfx_hook'):  # 네덜란드판: 첫 화면 제목에도 딩(NL 첫 화면 효과음 약 46%, 2026-11-09 재조사)
-        th = 0.05
-        if all(abs(k['t'] - th) >= SX.get('min_gap_s', 0.6) for k in keep):
-            keep.append(dict(t=th + SX.get('lead_s', 0.02), type=STYLE.get('sfx_type', 'ding'), prio=-1, txt='hook'))
+    if STYLE.get('sfx_mode') == 'orig':
+        keep = sfx_pick_orig(cands, SX, music)
+    else:
+        keep = AP.pick_sfx(cands, SX, R, music)
+        if STYLE.get('sfx_hook'):  # 네덜란드판: 첫 화면 제목에도 딩(NL 첫 화면 효과음 약 46%, 2026-11-09 재조사)
+            th = 0.05
+            if all(abs(k['t'] - th) >= SX.get('min_gap_s', 0.6) for k in keep):
+                keep.append(dict(t=th + SX.get('lead_s', 0.02), type=STYLE.get('sfx_type', 'ding'), prio=-1, txt='hook'))
+    globals()['SFX_CANDS'] = [(round(c['t'], 2), c['txt'], c['prio']) for c in cands]
     lead = SX.get('lead_s', 0.02)
     return [(round(max(0.0, k['t'] - lead), 3), k['type']) for k in sorted(keep, key=lambda k: k['t'])]
+
+
+def sfx_pick_orig(cands, SX, music):
+    """원본 NL/BE 효과음 배치(2026-11-09 RF 재조사, as24_edit_rules.json sfx.measured.recheck_2026_11_09):
+    NL — 첫 화면 제목 1 + 숫자 칩 약 45% + 글자 칩 약 43%, 영상당 중앙값 5(최대 6), 최소 간격 1.0초, 영상 전체에 고르게(간격 중앙값 4.25초).
+    BE — 음악이 깔리면 1번(없으면 3번), 숫자 띠 우선. 컷·끝 로고는 원본에서도 드물어(11~12%) 넣지 않는다."""
+    M = SX.get('measured', {}).get('recheck_2026_11_09', {})
+    gap = SX.get('min_gap_s', 1.0)
+    typ = STYLE.get('sfx_type', 'ding')
+    num = [c for c in cands if c['prio'] <= 5]
+    lab = [c for c in cands if c['prio'] > 5]
+    def spread(pool, n, keep):
+        """이미 고른 소리와 가장 먼 칩부터(같으면 중요한 정보 먼저) n개 — 한쪽에 몰리지 않게"""
+        out = []
+        pool = list(pool)
+        while pool and len(out) < n:
+            ok = [c for c in pool if all(abs(c['t'] - k['t']) >= gap for k in keep + out)]
+            if not ok:
+                break
+            ref = keep + out
+            c = max(ok, key=lambda c: ((min(abs(c['t'] - k['t']) for k in ref) if ref else 1e9), -c['prio']))
+            out.append(c); pool.remove(c)
+        return out
+    if STYLE.get('sfx_profile', 'nl') == 'be':
+        be = M.get('be_100', {})
+        n = int(be.get('sfx_with_music_med', 1) if music else be.get('sfx_without_music_med', 3))
+        keep = spread(sorted(num, key=lambda c: c['prio'])[:max(1, n)], n, [])
+        if len(keep) < n:
+            keep += spread(lab, n - len(keep), keep)
+    else:
+        nl = M.get('nl_100', {})
+        cap = min(int(SX.get('max_per_video', 6)), int(round(nl.get('sfx_per_video_med', 5))))  # 원본 영상당 중앙값 5
+        keep = []
+        if STYLE.get('sfx_hook'):
+            keep.append(dict(t=0.05, type=typ, prio=-1, txt='hook'))
+        n_num = max(1, round(len(num) * nl.get('number_corrected', 0.45))) if num else 0
+        n_lab = round(len(lab) * nl.get('chip_corrected', 0.43))
+        core = [c for c in num if c['prio'] <= 3]  # 가격·주행·연식·마력 먼저(원본 큰 숫자 띠), 엔진·구동 글자는 그다음
+        got = spread(core, min(n_num, cap - len(keep)), keep)
+        keep += got
+        keep += spread([c for c in num if c not in core], min(n_num - len(got), cap - len(keep)), keep)
+        keep += spread(lab, min(n_lab, cap - len(keep)), keep)
+    return sorted(keep, key=lambda k: k['t'])
+
 
 
 def build_sfx_as24(total, sr=48000):
@@ -310,6 +358,9 @@ def build_sfx_as24(total, sr=48000):
     levels = []
     for t, name in hits:
         x = _load_sfx(name)
+        pf = STYLE.get('sfx_pitch', 1.0)  # 원본 딩 높이에 맞춤(NL 약 2.35kHz, BE 약 1.9kHz; 자체 ding.wav는 약 1.98kHz)
+        if pf != 1.0:
+            x = np.interp(np.arange(0, len(x) - 1, pf), np.arange(len(x)), x)
         w = voice[int(t * sr):int((t + 0.4) * sr)]
         over = len(w) and 20 * np.log10(rms(w) + 1e-9) > v_db - 10  # 그 순간 말이 나오고 있다
         target = v_db + (SX.get('gain_db_over_speech', -10) if over else SX.get('gain_db_vs_speech', -6))
@@ -324,7 +375,7 @@ def build_sfx_as24(total, sr=48000):
     st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
     with wave.open(os.path.join(OUT, 'sfx.wav'), 'wb') as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
-    json.dump(dict(rules='as24_v1.1', music=music, hits=hits, db_vs_voice=levels), open(os.path.join(OUT, 'sfx_hits.json'), 'w'), ensure_ascii=False)
+    json.dump(dict(rules='as24_v1.2_orig' if STYLE.get('sfx_mode') == 'orig' else 'as24_v1.1', music=music, pitch=STYLE.get('sfx_pitch', 1.0), hits=hits, db_vs_voice=levels, cands=globals().get('SFX_CANDS')), open(os.path.join(OUT, 'sfx_hits.json'), 'w'), ensure_ascii=False)
 
 
 def build_sfx(total, sr=48000):
