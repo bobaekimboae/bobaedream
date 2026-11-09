@@ -698,11 +698,13 @@
    "bobae_nl": {
     "on": true,
     "min_items": 2,
-    "max_lines": 2,
+    "max_lines": 3,
     "mark": "✓",
-    "band": "cap",
+    "band": "above_cap",
     "_src": "2차 조사(2026-11-09): NL 칩 409개 중 66%가 말 자막 자리(자막 대신, ✓ 기능 칩·숫자), 34%가 위쪽(차명·연식·엔진). 두 칩이 겹쳐 보이는 경우 19% → 최대 2줄, 자막 자리에서 위로 쌓음. 칩 사이 간격 중간 1.2초",
-    "hides_caption": true
+    "hides_caption": false,
+    "cap_gap": 120,
+    "_note": "2026-11-10 사용자 「대사 자막 안 나온다」: 자막 자리 대신 자막 위, 최근 3줄"
    },
    "bobae_be": {
     "on": false
@@ -719,6 +721,11 @@
    "bobae_nl": 0.4,
    "bobae_be": 0.05,
    "_note": "렌더러 프리셋 chip_delay와 같은 값(200편: NL 구절 뒤 0.42초 · BE 0.04초)"
+  },
+  "chip_hold_max": {
+   "bobae_nl": 1.6,
+   "bobae_be": 1.8,
+   "_note": "숫자 칩이 자막을 가리는 최대 시간(원본 유지 NL 1.33 · BE 1.5초 + 여유)"
   }
  },
  "script": {

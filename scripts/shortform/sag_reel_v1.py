@@ -279,7 +279,7 @@ def sfx_as24_hits(music):
         for txt, pidx in b.get('stickers', []):
             if '보배드림' in txt:
                 continue  # 안내 문구는 정보 칩이 아니다
-            cands.append(dict(t=PHRASES[b['ph0'] + pidx][0] + 0.1, type=STYLE.get('sfx_type', 'ding'), prio=prio(txt), txt=txt))
+            cands.append(dict(t=PHRASES[b['ph0'] + pidx][0] + STYLE.get('chip_delay', 0.1), type=STYLE.get('sfx_type', 'ding'), prio=prio(txt), txt=txt))
     keep = AP.pick_sfx(cands, SX, R, music)
     if STYLE.get('sfx_hook'):  # 네덜란드판: 첫 화면 제목에도 딩(NL 첫 화면 효과음 약 46%, 2026-11-09 재조사)
         th = 0.05
@@ -1243,6 +1243,14 @@ def overlay(T, total, shots, shot, blk):
         t1 = sticker(hk['title'], hk.get('size', 96), -2.5, True)
         t2 = text_img(hk['line1'], 92, BLACK, stroke=7)
         t3 = text_img(hk['line2'], 46, BOLD, stroke=5)
+        for _k, (_tx, _sz, _f, _st) in enumerate(((hk['line1'], 92, BLACK, 7), (hk['line2'], 46, BOLD, 5))):  # 화면 폭을 넘으면 줄여서 맞춘다(GLE 첫 화면 글자가 잘림)
+            _im = t2 if _k == 0 else t3
+            if _im.width > W - 96:
+                _im = text_img(_tx, max(28, int(_sz * (W - 96) / _im.width)), _f, stroke=_st)
+                if _k == 0:
+                    t2 = _im
+                else:
+                    t3 = _im
         paste(ov, t1, (W - t1.width * e) / 2, 300 + t1.height * (1 - e) / 2, min(1, T / .15), e)
         e2 = ease((T - .25) / .3)
         paste(ov, t2, (W - t2.width) / 2, 300 + t1.height + 6 + 30 * (1 - e2), e2)
@@ -1257,17 +1265,20 @@ def overlay(T, total, shots, shot, blk):
     use_chk = chk.get('on') and len(lst) >= chk.get('min_items', 2)
     if use_chk:  # 네덜란드판 ✓ 목록: 말할 때마다 한 줄씩 늘고, 장면(블록) 끝에 한꺼번에 사라짐
         rows = []
-        for i in lst[:chk.get('max_lines', 3)]:
-            st_i = PHRASES[blk['ph0'] + blk['stickers'][i][1]][0] + 0.1
+        for i in lst:
+            st_i = PHRASES[blk['ph0'] + blk['stickers'][i][1]][0] + STYLE.get('chip_delay', 0.1)
             if st_i <= T:
                 rows.append((i, st_i))
+        rows = rows[-chk.get('max_lines', 3):]  # 2026-11-10: 최근 n줄만(지금 말하는 옵션이 늘 보이게). 예전엔 앞 n개에서 멈춰 뒤 옵션이 안 떴다
         en_all = blk['t1'] + 0.25
         if rows and T < en_all:
             out = ease((en_all - T) / .15)
             ims = [sticker(blk['stickers'][i][0], STYLE['feat_size'], 0.0, False) for i, _ in rows]
             gap = 18
             tot = sum(im.height for im in ims) + gap * (len(ims) - 1)
-            if chk.get('band') == 'cap':  # 말 자막 자리(아래 줄 = 자막 높이)에서 위로 쌓고, 그동안 자막을 숨긴다(NL 원본 66%)
+            if chk.get('band') == 'above_cap':  # 2026-11-10: 말 자막 바로 위에서 위로 쌓고 자막은 그대로 둔다(옵션 블록 10초 동안 자막이 사라지던 문제)
+                y0 = STYLE.get('cap_cy', 1129) - chk.get('cap_gap', 120) - tot
+            elif chk.get('band') == 'cap':  # 말 자막 자리(아래 줄 = 자막 높이)에서 위로 쌓고, 그동안 자막을 숨긴다(NL 원본 66%)
                 y0 = STYLE.get('cap_cy', 1129) + ims[-1].height / 2 - tot
                 big_on = True
             else:
@@ -1275,7 +1286,7 @@ def overlay(T, total, shots, shot, blk):
             for (i, st_i), im in zip(rows, ims):
                 e = back((T - st_i) / .28)
                 sc = max(.05, e)
-                x = (W - im.width) / 2 if chk.get('band') == 'cap' else 96  # 자막 자리면 가운데, 아니면 왼쪽 정렬
+                x = (W - im.width) / 2 if chk.get('band') in ('cap', 'above_cap') else 96  # 자막 자리면 가운데, 아니면 왼쪽 정렬
                 paste(ov, im, x + im.width * (1 - sc) / 2, y0 + im.height * (1 - e) / 2, min(1, (T - st_i) / .1) * out, sc)
                 y0 += im.height + gap
     for si, (txt, pidx) in enumerate(blk.get('stickers', [])):
@@ -1285,7 +1296,7 @@ def overlay(T, total, shots, shot, blk):
         st = p0[0] + STYLE.get('chip_delay', 0.1)
         nx = blk.get('stickers')[si + 1][1] if si + 1 < len(blk['stickers']) else None
         en = PHRASES[blk['ph0'] + nx][0] if nx is not None else blk['t1'] + 0.25
-        en = min(en, st + 2.6)
+        en = min(en, st + STYLE.get('chip_hold_max', 2.6))  # 자동 편집기: 원본 칩 유지(NL 1.33 · BE 1.5초)보다 오래 자막을 가리지 않게
         if smeta[si].get('option') and STYLE.get('option_hold'):
             en = max(en, min(st + STYLE['option_hold'], blk['t1'] + 0.25))  # 옵션 칩은 최소 hold 초
         if not (st <= T < en):

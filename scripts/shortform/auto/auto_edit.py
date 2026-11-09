@@ -415,7 +415,7 @@ HOOK = {json.dumps(hook, ensure_ascii=False)}
 BLOCKS = {json.dumps(B, ensure_ascii=False, indent=1)}
 SHOW = {json.dumps(show, ensure_ascii=False)}
 MARKS = {json.dumps(marks, ensure_ascii=False)}
-STYLE.update(edit_style={style!r}, band_y={json.dumps(RULES['band_y_be'] if style == 'bobae_be' else RULES['band_y'])}, option_hold={RULES['option_exposure']['hold_s'][style]},
+STYLE.update(edit_style={style!r}, band_y={json.dumps(RULES['band_y_be'] if style == 'bobae_be' else RULES['band_y'])}, option_hold={RULES['option_exposure']['hold_s'][style]}, chip_hold_max={RULES['option_exposure']['chip_hold_max'][style]},
              checklist={json.dumps(RULES['option_exposure']['checklist'][style])})
 """
     src = src.replace('true', 'True').replace('false', 'False')
@@ -427,10 +427,16 @@ def post_voice(src, dst):
     목소리 자체(속도·높이)는 바꾸지 않는다"""
     import subprocess
     P = RULES['voice']['post']
-    fl = f"highpass=f={P['highpass_hz']},deesser=i={P['deess']},acompressor=threshold={P['comp_threshold']}dB:ratio={P['comp_ratio']}:attack=8:release=120,loudnorm=I={P['lufs']}:TP=-1.5:LRA=11"
+    fl = f"highpass=f={P['highpass_hz']},deesser=i={P['deess']},acompressor=threshold={P['comp_threshold']}dB:ratio={P['comp_ratio']}:attack=8:release=120"
+    ln = f"loudnorm=I={P['lufs']}:TP=-1.5:LRA=11"
+    # 2026-11-10 고침: loudnorm을 amix 앞에 두면 loudnorm 지연(약 3초) 때문에 amix가 목소리 끝 3초를 잘라 버렸다(마지막 문장 소리·자막 사라짐).
+    # 방 소리를 섞은 뒤 loudnorm, 방 소리는 넉넉히 길게 만들고 길이는 목소리(first)에 맞춘다
     dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', src], capture_output=True, text=True).stdout)
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-f', 'lavfi', '-t', f'{dur:.2f}', '-i', f"anoisesrc=color=pink:amplitude={P['room_tone_amp']}:r=44100",
-                    '-filter_complex', f"[0:a]aresample=44100,{fl}[v];[1:a]lowpass=f=3000[n];[v][n]amix=inputs=2:duration=first:normalize=0", '-ar', '44100', dst], check=True)
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-f', 'lavfi', '-t', f'{dur + 5:.2f}', '-i', f"anoisesrc=color=pink:amplitude={P['room_tone_amp']}:r=44100",
+                    '-filter_complex', f"[0:a]aresample=44100,{fl}[v];[1:a]lowpass=f=3000[n];[v][n]amix=inputs=2:duration=first:normalize=0,{ln}", '-ar', '44100', dst], check=True)
+    out = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', dst], capture_output=True, text=True).stdout)
+    if out < dur - 0.15:  # 목소리가 잘리면 멈춘다(자막·장면이 소리 없이 남는 사고 방지)
+        raise SystemExit(f'후처리 뒤 목소리가 짧아짐 {dur:.2f} → {out:.2f}초')
 
 
 def words_local(mp3, out):
