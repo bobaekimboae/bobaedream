@@ -10,10 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 RULES = json.load(open(os.path.join(HERE, 'auto_edit_rules.json'), encoding='utf-8'))
 
 
-def cuts(mp4, th=0.3):
-    out = subprocess.run(['ffmpeg', '-hide_banner', '-i', mp4, '-vf', f"select='gt(scene,{th})',showinfo", '-an', '-f', 'null', '-'],
-                         capture_output=True, text=True).stderr
-    return [float(x) for x in re.findall(r'pts_time:([0-9.]+)', out)]
+from learn_l1 import cuts_ff as cuts  # 원본 100편을 잰 자와 같은 자(scale 180 · 장면 점수 0.3 · 0.4초 안 겹침은 하나로)
 
 
 def dur(mp4):
