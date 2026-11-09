@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자동 편집 두 가지 판</title>
+<meta name="description" content="매물 정보와 원본 영상만으로 만든 네덜란드판·벨기에판 숏폼(벤츠 GLE 450), 나사르식 대사">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { margin: 0 0 4px; font-size: 22px; line-height: 30px; }
+  .lead { margin: 0 0 20px; color: var(--sub); }
+  .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  figure { margin: 0; background: var(--card); border-radius: 12px; padding: 12px; }
+  figcaption { font-weight: 700; margin: 0 0 8px; }
+  figcaption span { display: block; font-weight: 400; color: var(--sub); font-size: 13px; }
+  video { width: 100%; aspect-ratio: 9 / 16; background: #000; border-radius: 8px; display: block; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; margin-top: 16px; }
+  h2 { margin: 0 0 10px; font-size: 18px; }
+  ul { margin: 0; padding-left: 18px; color: var(--sub); }
+  @media (max-width: 560px) { .pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>자동 편집 두 가지 판 · 벤츠 GLE 450 4MATIC</h1>
+  <p class="lead">같은 매물 정보와 원본 영상 57초로, 사람 손 없이 대본·음성·장면·자막·칩·효과음까지 자동으로 만든 영상입니다.</p>
+  <div class="pair">
+    <figure>
+      <figcaption>네덜란드판<span>음악 없음 · 딩 효과음 · 아주 굵은 자막 · 자막 자리 칩</span></figcaption>
+      <video src="gle-nl.mp4?v=1" poster="poster-nl.jpg" controls playsinline preload="metadata"></video>
+    </figure>
+    <figure>
+      <figcaption>벨기에판<span>배경음악 · 기울어진 띠 칩 · 그림자 자막 · 브랜드 띠 첫 화면</span></figcaption>
+      <video src="gle-be.mp4?v=1" poster="poster-be.jpg" controls playsinline preload="metadata"></video>
+    </figure>
+  </div>
+  <section>
+    <h2>이번에 바뀐 것</h2>
+    <ul>
+      <li>대사: 나사르 헤시엔 쇼츠처럼 옵션마다 그게 뭘 해 주는지 한 문장으로, 합니다체. 첫 줄은 「넉넉한 SUV를 찾으신다면…」, 제원은 기능 뒤에, 끝은 「보배드림 앱에서 만나보세요」</li>
+      <li>목소리: 20대 남성(일레븐랩스 eleven_v4). 감정 태그를 빼서 과장된 억양을 줄임</li>
+      <li>네덜란드판: 자막을 원본처럼 아주 굵은 글자 + 두꺼운 외곽선, 진행선 없음</li>
+      <li>벨기에판: 첫 화면 「벤츠」만 기울어진 띠 + 모델은 흰 글자, 자막은 한 줄씩 끊어 보여 줌, 끝 화면 로고</li>
+      <li>옵션 칩은 반드시 그 부위가 보이는 장면 위에 뜸</li>
+    </ul>
+  </section>
+  <section>
+    <h2>알아 둘 점</h2>
+    <ul>
+      <li>사실 근거: 연식·등록·주행 20,885km·가격 7,990만원·옵션은 매물 정보, 381마력은 공식 제원. 옵션 설명은 그 옵션의 일반 기능만 말함</li>
+      <li>칩 색은 정해 둔 기준(파랑 #306BD9 · 흰 글자). 원본은 검정·노랑</li>
+      <li>원본 영상은 분석용, 음악·효과음은 보배드림 자체 것만 사용. 번호판은 딜러 매물 원칙대로 가리지 않음(내부 시험용)</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
