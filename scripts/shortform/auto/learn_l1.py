@@ -50,9 +50,9 @@ def near(t, pts):
 
 
 def one(args):
-    key, S, use_video = args
+    key, S, use_video, TR, VD = args
     src, vid = key.split('_', 1)
-    tr = json.load(open(f'{S}/cap100/tr2/{key}.json'))
+    tr = json.load(open(f'{TR}/{key}.json'))
     words = [w for w in tr['words'] if w[1] > w[0] and w[2].strip()]
     res = {x['id']: x for x in json.load(open(f'{S}/rs/res200.json')) if x['src'] == src}[vid]
     scan = json.load(open(f'{S}/rs/scan.json')).get(key, [])
@@ -68,7 +68,7 @@ def one(args):
     pl = [b - a for a, b in zip(ph, ph[1:])]
     r['phrase_med_s'] = q(pl, .5)
     # 컷
-    cuts = cuts_ff(f'{DL}/{src}/{vid}.mp4') if use_video else res['cuts']
+    cuts = cuts_ff(f'{VD}/{src}/{vid}.mp4') if use_video else res['cuts']
     cuts = [c for c in cuts if 0.3 < c < dur - 0.3]
     edges = [0.0] + cuts + [dur]
     shots = [b - a for a, b in zip(edges, edges[1:])]
@@ -82,20 +82,36 @@ def one(args):
         r['cut_on_phrase'] = round(sum(near(c, ph) <= 0.3 for c in cuts) / len(cuts), 2)  # 컷이 구절 시작 ±0.3초
         lead = [c - min(ph, key=lambda p: abs(p - c)) for c in cuts if near(c, ph) <= 0.6]
         r['cut_minus_phrase_med'] = q(lead, .5)  # 음수 = 그림이 말보다 먼저 바뀜
-    # 노랑 트랙 해석(2026-11-09 재학습): NL 노랑 = 말 자막의 말하는 낱말(칩은 검정·파랑 상자라 노랑 트랙에 안 잡힘),
-    # BE 노랑 = 기울어진 붓띠 칩(ang > -80) + 말하는 낱말(기울기 없음). 칩 종류 분류기(67%)는 NL 노랑을 chip으로 잘못 부른다
-    trk = [m for m in res['moments'] if m['kind'] == 'track']
-    kar = [m for m in trk if m['ang'] <= -80 and max(m['kp'], key=m['kp'].get) not in ('logo',)]
-    r['caption_cy'] = q([m['cy'] for m in kar], .5)  # 말 자막 높이 %(말하는 낱말 노랑)
-    chips = [m for m in trk if src == 'be' and m['ang'] > -80 and max(m['kp'], key=m['kp'].get) not in ('logo', 'false')]
-    if src == 'be':
-        r['chips_per_min'] = round(len(chips) / dur * 60, 1)
+    # 노랑 트랙(ov600: t0,t1,cy,h,ang,dk). 2차 조사(2026-11-09, 원본 화면과 눈으로 대조)로 고친 해석:
+    #  NL — 말 자막의 말하는 낱말(높이 2.2 안팎, 영상마다 자막 높이가 다름 → 영상별 최빈 높이),
+    #       위쪽 노랑 굵은 글자·숫자(차명·연식·V8 BITURBO = 칩), 자막 자리의 큰 노랑 글자(✓ 기능 칩·숫자, 그동안 자막 없음)
+    #  BE — 기울어진 노랑 붓띠(ang > -80) = 칩
+    ov = json.load(open(f'{S}/L1/ov600/{key}.json'))['tracks']
+    ov = [m for m in ov if (src == 'be' or m.get('dk', 1) >= 0.1) and not (m['t0'] > dur - 2.6 and m['h'] > 4)]
+    small = [round(m['cy']) for m in ov if m['h'] < 2.7 and m['ang'] <= -80]
+    capy = max(set(small), key=small.count) if small else (58.8 if src == 'nl' else 66.8)
+    r['caption_cy'] = capy
+    chips = []
+    for m in ov:
+        m['t'] = m['t0']; m['tdur'] = m['t1'] - m['t0']
+        if src == 'be':
+            if m['ang'] > -80:
+                m['kind'] = 'brush'; chips.append(m)
+        else:
+            if abs(m['cy'] - capy) <= 3 and m['h'] < 2.7 and m['tdur'] < 1.2:
+                continue  # 말하는 낱말
+            if m['cy'] < capy - 12 and m['h'] >= 2.6:
+                m['kind'] = 'top'; chips.append(m)
+            elif abs(m['cy'] - capy) <= 8 and (m['h'] >= 2.75 or m['tdur'] >= 1.2):
+                m['kind'] = 'cap'; chips.append(m)
+    r['chips_per_min'] = round(len(chips) / dur * 60, 1)
+    r['chip_kinds'] = {k: sum(c['kind'] == k for c in chips) for k in ('top', 'cap', 'brush')}
     r['chip_hold_med'] = q([m['tdur'] for m in chips], .5)
     r['chip_cy'] = [round(m['cy'], 1) for m in chips]
-    r['chip_ang'] = [m['ang'] for m in chips]
+    r['chip_ang'] = [m['ang'] for m in chips if m['ang'] > -80]
     if chips and words:
         off = [m['t'] - min(ws, key=lambda w: abs(w - m['t'])) for m in chips]
-        r['chip_minus_word_med'] = q(off, .5)       # 칩 시작 − 가장 가까운 낱말 시작
+        r['chip_minus_word_med'] = q(off, .5)
         r['chip_minus_phrase_med'] = q([m['t'] - min(ph, key=lambda p: abs(p - m['t'])) for m in chips], .5)
         r['chip_after_cut_med'] = q([m['t'] - max([0.0] + [c for c in cuts if c <= m['t'] + 0.05]) for m in chips], .5)
         r['chip_on_new_shot'] = round(sum((m['t'] - max([0.0] + [c for c in cuts if c <= m['t'] + 0.05])) <= 0.5 for m in chips) / len(chips), 2)
@@ -134,16 +150,17 @@ def summarize(rows):
 
 
 if __name__ == '__main__':
+    # python3 learn_l1.py SCRATCH OUT_DIR [--set l1|l2] [--no-video]
     S, OUT = sys.argv[1], sys.argv[2]
     use_video = '--no-video' not in sys.argv
-    keys = sorted(os.path.basename(p)[:-5] for p in os.listdir(f'{S}/cap100/tr2') if p.endswith('.json'))
-    keys = [k[:-5] if k.endswith('.json') else k for k in keys]
-    keys = sorted(os.path.splitext(k)[0] for k in os.listdir(f'{S}/cap100/tr2') if k.endswith('.json'))
+    st_ = sys.argv[sys.argv.index('--set') + 1] if '--set' in sys.argv else 'l1'
+    TR, VD = {'l1': (f'{S}/cap100/tr2', DL), 'l2': (f'{S}/L2/tr', f'{S}/L2/v')}[st_]
+    keys = sorted(os.path.splitext(k)[0] for k in os.listdir(TR) if k.endswith('.json'))
     with ProcessPoolExecutor(2) as ex:
-        rows = list(ex.map(one, [(k, S, use_video) for k in keys]))
+        rows = list(ex.map(one, [(k, S, use_video, TR, VD) for k in keys]))
     os.makedirs(OUT, exist_ok=True)
-    json.dump(rows, open(f'{OUT}/learned_l1.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(rows, open(f'{OUT}/learned.json', 'w'), ensure_ascii=False, indent=1)
     sm = summarize(rows)
-    json.dump(sm, open(f'{OUT}/learned_l1_summary.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump(sm, open(f'{OUT}/learned_summary.json', 'w'), ensure_ascii=False, indent=1)
     for src in sm:
         print(src, json.dumps({k: (v['p50'] if isinstance(v, dict) and 'p50' in v else v) for k, v in sm[src].items()}, ensure_ascii=False))
