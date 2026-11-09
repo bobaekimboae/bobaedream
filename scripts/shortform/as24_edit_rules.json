@@ -175,7 +175,8 @@
     "hold_s": 2.0,
     "entry": "scale_up",
     "sfx": "none"
-   }
+   },
+   "_alias": "bobae_nl와 같은 칩 규칙(예전 이름). 새 작업은 bobae_nl·bobae_be 중 고른다"
   },
   "de": {
    "_note": "presenter one-take, no chips, sentence-case captions, no logo, no SFX",
@@ -299,6 +300,104 @@
     "sfx": "none"
    },
    "_decision": "2026-11-09 사용자: 퀴즈형(LM형)도 효과음을 넣는다(원본 LM에는 없음)"
+  },
+  "bobae_nl": {
+   "_fixed": "user decision 2026-11-08: chip blue #306BD9 + white, karaoke yellow #EEEF05 only",
+   "label": {
+    "bg": "#306BD9",
+    "fg": "#FFFFFF",
+    "case": "as_spoken",
+    "tilt_deg": 0,
+    "w_pct": 47,
+    "h_pct": 4.2,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "full",
+     "typewriter_glow"
+    ],
+    "sfx": "ding",
+    "sfx_lead_s": 0.02
+   },
+   "number": {
+    "fg": "#FFFFFF",
+    "stroke": "#000000",
+    "band": "top",
+    "hold_s": 1.3,
+    "lead_s": 0.22,
+    "hide_speech": true,
+    "sfx": "ding"
+   },
+   "check_list": {
+    "prefix": "✓ ",
+    "max_lines": 3
+   },
+   "end_logo": {
+    "hold_s": 2.0,
+    "entry": "scale_up",
+    "sfx": "none"
+   },
+   "_note": "보배드림 네덜란드판(2026-11-09 사용자: NL·BE 두 판을 골라 쓴다). 음악 없음 · 딩 약 40% · 말 자막 흰 글자+검정 외곽선, 말하는 어절만 노랑 #EEEF05 · 높이 65% · 장면 약 2.5초",
+   "caption": {
+    "style": "outline_karaoke",
+    "cy_pct": 65,
+    "entry": "pop",
+    "karaoke": "#EEEF05",
+    "cut_gap_s": 0
+   },
+   "music": "none",
+   "shot_target_s": 2.5
+  },
+  "bobae_be": {
+   "_fixed": "user decision 2026-11-08: chip blue #306BD9 + white, karaoke yellow #EEEF05 only",
+   "label": {
+    "bg": "#306BD9",
+    "fg": "#FFFFFF",
+    "case": "as_spoken",
+    "tilt_deg": 2.7,
+    "w_pct": 47,
+    "h_pct": 4.2,
+    "hold_s": 1.3,
+    "lead_s": 0.06,
+    "entry": [
+     "tape_then_text"
+    ],
+    "sfx": "pop",
+    "sfx_lead_s": 0.02,
+    "shape": "brush_tape"
+   },
+   "number": {
+    "fg": "#FFFFFF",
+    "inside_label": true,
+    "band": "top",
+    "hold_s": 1.4,
+    "hide_speech": false,
+    "sfx": "pop"
+   },
+   "check_list": {
+    "prefix": "✓ ",
+    "max_lines": 3
+   },
+   "end_logo": {
+    "hold_s": 2.0,
+    "entry": "scale_up",
+    "sfx": "none"
+   },
+   "price": {
+    "shape": "brush_tape",
+    "tilt_deg": -6,
+    "band": "top"
+   },
+   "_note": "보배드림 벨기에판(2026-11-09 사용자 결정): 배경음악 · 팝 칩의 20% 최대 3번 · 말 자막 그림자 흰 글자, 말하는 어절만 노랑 #EEEF05(벨기에 34/39) · 높이 67% 고정 · 바로 등장 · 컷 경계 0.3초 자막 비움 · 칩은 기울인 파랑 붓띠 · 숫자는 칩 안 · 장면 약 1.9초",
+   "caption": {
+    "style": "shadow_karaoke",
+    "cy_pct": 67,
+    "entry": "instant",
+    "karaoke": "#EEEF05",
+    "cut_gap_s": 0.3
+   },
+   "music": "bgm",
+   "shot_target_s": 1.9
   }
  },
  "rules": {
