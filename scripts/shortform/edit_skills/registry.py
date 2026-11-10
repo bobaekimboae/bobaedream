@@ -64,6 +64,8 @@ SPEC = {
     'S048': dict(build=lambda p, t: D.explain_card(p.get('icon', '🤝'), p['text'], t), zone='middle', cy=.45, motion='pop', dur=2.0, sfx='ding', needs=['text']),
     'S049': dict(build=lambda p, t: D.brand_badge(p['logo']), zone='anchor', cy=.68, motion='pop', dur=1.4, sfx='none', needs=['logo']),
     'S050': dict(build=lambda p, t: D.slogan_card(p.get('text', '내 차 찾기는 보배드림')), zone='top', cy=.3, motion='fade', dur=1.8, sfx='none', needs=[]),
+    'S052': dict(build=lambda p, t: D.series_card(p['title'], p.get('sub', '')), zone='center', cy=.45, motion='pop', dur=2.0, sfx='whoosh', needs=['title']),
+    'S053': dict(build=lambda p, t: D.quote_card(p['text'], p.get('speaker', '')), zone='middle', cy=.45, motion='pop', dur=2.4, sfx='none', needs=['text']),
     # S051 단색 배경 진행자는 촬영 연출(그리는 요소 없음) — planner 가 건너뜀
 }
 

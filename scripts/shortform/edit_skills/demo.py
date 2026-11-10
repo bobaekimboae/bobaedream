@@ -39,6 +39,13 @@ def script(mode, pattern):
         add('reveal', 3.2, photo=1, facts=dict(text='레인지로버 SV'))
         add('comment', 2.6, photo=2)
         add('ending', 3.2, photo=4, facts=dict(slogan='내 차 찾기는 보배드림'))
+    elif pattern == 'P13':
+        # 대담형: 코너 첫 화면 → 질문 → 인용 → 끝. 인용은 촬영한 실제 대답만 넣는다(여기는 자리 표시)
+        add('interview_hook', 3.0, photo=1, facts=dict(series='보배드림 딜러 토크', episode='EP.1'))
+        add('question_hook', 3.0, photo=2, facts=dict(line1='이 차 왜 샀어요?', line2='오너에게 물었습니다'))
+        add('answer', 3.6, photo=6, facts=dict(quote='(실제 대답이 들어갈 자리)', person='차주'))
+        add('point', 3.4, photo=5, facts=dict(text='5.0 V8 슈퍼차저'), anchor=[.42, .52])
+        add('ending', 3.2, photo=4, facts=dict(slogan='내 차 찾기는 보배드림'))
     return dict(mode=mode, pattern=pattern, duration=round(t, 2), car=CAR, beats=beats), ph
 
 

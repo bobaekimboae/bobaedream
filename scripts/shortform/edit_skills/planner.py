@@ -55,7 +55,10 @@ def _params(sid, beat, car):
     if sid == 'S035':
         return beat.get('anchor') and dict(dir='left' if beat['anchor'][0] < .5 else 'right')
     if sid == 'S025':
-        return dict(line1=f.get('line1', '이 차 이름은?'), line2=f.get('line2', '댓글로 맞혀 보세요'))
+        # 첫 화면 문구는 대본에 적힌 것만. 퀴즈 장면에서만 기본 문구를 쓴다(지어낸 질문 금지)
+        if f.get('line1'):
+            return dict(line1=f['line1'], line2=f.get('line2', ''))
+        return dict(line1='이 차 이름은?', line2='댓글로 맞혀 보세요') if beat['scene'] == 'quiz_hook' else None
     if sid == 'S026':
         rows = [(k, car[c]) for k, c in (('주행거리', 'km'), ('연식', 'year'), ('연료', 'fuel')) if car.get(c)]
         return rows and dict(rows=rows)
@@ -102,6 +105,10 @@ def _params(sid, beat, car):
         return f.get('logo') and dict(logo=f['logo'])
     if sid == 'S050':
         return dict(text=f.get('slogan', '내 차 찾기는 보배드림')) if beat['scene'] == 'ending' else None
+    if sid == 'S052':
+        return f.get('series') and dict(title=f['series'], sub=f.get('episode', ''))
+    if sid == 'S053':
+        return f.get('quote') and dict(text=f['quote'], speaker=f.get('person', ''))  # 실제로 한 말만
     if sid == 'S010':
         return dict() if beat['scene'] == 'sold_hook' else None
     if sid in ('S038', 'S039', 'S037', 'S051'):
@@ -183,16 +190,24 @@ def plan(script):
     # 끝 로고
     if not any(e['id'] == 'S030' for e in tl):
         tl.append(dict(id='S030', start=round(dur - 2.2, 2), dur=2.2, params={}, zone='center', cx=.5, cy=SPEC['S030']['cy'], motion='pop', sfx='ding', mode=mode, stack=False))
-    # 효과음 솎기: 원본처럼 요소 4개 중 1개꼴(첫 요소·가격·로고는 남김)
-    keep_every = LIB['sfx']['every_n_overlays']
-    n = 0
-    for e in sorted(tl, key=lambda x: x['start']):
-        if e['zone'] == 'caption' or e['sfx'] == 'none':
-            continue
-        must = e['id'] in ('S030', 'S025') or (e['id'] == 'S004' and e.get('scene') == 'price') or n == 0
-        if not must and n % keep_every:
+    # 효과음 솎기: 원본처럼 요소 4개 중 1개꼴. 꼭 붙일 것(끝 로고·퀴즈 첫 화면·가격 숫자)을 먼저 세고,
+    # 남는 몫만큼만 나머지에 고르게 붙인다(첫 요소 우선).
+    ev = [e for e in sorted(tl, key=lambda x: x['start']) if e['zone'] != 'caption' and e['sfx'] != 'none' and not e.get('stack')]
+    for e in tl:
+        if e.get('stack'):
             e['sfx'] = 'none'
-        n += 1
+    must = [e for e in ev if e['id'] in ('S030', 'S025') or (e['id'] == 'S004' and e.get('scene') == 'price')]
+    n_all = sum(1 for e in tl if e['zone'] != 'caption' and not e.get('stack'))
+    budget = max(len(must), int(n_all * LIB['sfx']['max_ratio']))
+    rest = [e for e in ev if e not in must]
+    room = budget - len(must)
+    keep = set()
+    if room > 0 and rest:
+        step = max(1, len(rest) // room)
+        keep = {id(e) for e in rest[::step][:room]}
+    for e in rest:
+        if id(e) not in keep:
+            e['sfx'] = 'none'
     return dict(duration=dur, mode=mode, pattern=script.get('pattern'), timeline=sorted(tl, key=lambda x: x['start']))
 
 

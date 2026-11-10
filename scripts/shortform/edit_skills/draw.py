@@ -591,3 +591,64 @@ def brand_badge(logo_path, h_ratio=0.06):
 def slogan_card(line, h_ratio=0.04):
     """S050 캠페인 끝 문구 카드 — 흰 큰 문구, 핵심 낱말 노랑 상자"""
     return caption_sentence(line, keyword=line.split()[-1], h_ratio=h_ratio, box_kw=True)
+
+
+def _wrap(text, fnt, max_w):
+    """한국어는 어절 단위로 줄바꿈"""
+    lines, cur = [], ''
+    for w in text.split():
+        t = (cur + ' ' + w).strip()
+        if text_size(t, fnt)[0] <= max_w or not cur:
+            cur = t
+        else:
+            lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def series_card(title, sub='', width=640):
+    """S052 시리즈 타이틀 카드 — 정기 코너(대담·연재) 첫 화면: 진한 둥근 판 + 노랑 원 아이콘 + 흰 굵은 제목 + 보배드림 줄"""
+    h = int(width * 1.15)
+    card = _canvas(width, h)
+    d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, width - 1, h - 1), radius=int(width * .1), fill=(28, 30, 34, 245))
+    r = int(width * .14)
+    cx, cy = width // 2, int(h * .42)
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=YELLOW + (255,), width=int(width * .02))
+    em = emoji('🎙', int(r * 1.1))
+    card.alpha_composite(em, (cx - em.width // 2, cy - em.height // 2))
+    ft = font('black', int(width * .085))
+    ls = _wrap(title, ft, width * .82)
+    y = int(h * .14)
+    for ln in ls[:2]:
+        d.text((cx, y), ln, font=ft, fill=WHITE, anchor='mt')
+        y += int(width * .1)
+    if sub:
+        d.text((cx, int(h * .66)), sub, font=font('xbold', int(width * .055)), fill=YELLOW, anchor='mt')
+    lb = logo_band(h_ratio=.03, sub='')
+    k = min(width * .38 / lb.width, h * .1 / lb.height)
+    lb = lb.resize((int(lb.width * k), int(lb.height * k)), Image.LANCZOS)
+    card.alpha_composite(lb, ((width - lb.width) // 2, int(h * .93) - lb.height))
+    return _shadow(card, 18)
+
+
+def quote_card(text, speaker='', width=900):
+    """S053 인용 문장 카드 — 말한 핵심 문장을 노랑 판에 크게(대담·인터뷰). 말한 사람 이름이 있으면 아래 작게"""
+    ft = font('black', int(width * .07))
+    ls = _wrap(text, ft, width * .8)[:4]
+    lh = int(width * .09)
+    h = int(width * .28) + lh * len(ls) + (int(width * .08) if speaker else 0)
+    card = _canvas(width, h)
+    d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, width - 1, h - 1), radius=int(width * .05), fill=YELLOW + (250,))
+    em = emoji('🎙', int(width * .07))
+    card.alpha_composite(em, ((width - em.width) // 2, int(width * .06)))
+    y = int(width * .17)
+    for ln in ls:
+        d.text((width // 2, y), ln, font=ft, fill=BLACK, anchor='mt')
+        y += lh
+    if speaker:
+        d.text((width // 2, y + int(width * .02)), '— ' + speaker, font=font('bold', int(width * .042)), fill=(40, 40, 40), anchor='mt')
+    return _shadow(card, 16)

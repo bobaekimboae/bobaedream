@@ -1,5 +1,5 @@
 {
- "_note": "편집 스킬 라이브러리 v2. 스킬 번호 고정, 고치면 version만 올린다. 측정: AS24 네덜란드 132 · 벨기에 100 쇼츠(2026-11-10).",
+ "_note": "편집 스킬 라이브러리 v2. 스킬 번호 고정, 고치면 version만 올린다. 측정: AS24 네덜란드 200 · 벨기에 197 쇼츠(2026-11-10).",
  "collision": {
   "one_overlay_per_zone": true,
   "zones": {
@@ -34,13 +34,13 @@
  },
  "timing": {
   "first_overlay_delay": 0.1,
-  "gap_between_overlays": 2.5,
+  "gap_between_overlays": 2.6,
   "gap_q25": 1.4,
-  "gap_q75": 4.3,
+  "gap_q75": 4.5,
   "_note": "원본 400개: 첫 요소가 뜨는 시각 중간값, 요소 사이 간격(0.3초 미만 제외) 중간값"
  },
  "sfx": {
-  "_note": "칠·칩 등장 0.3초 안에 효과음이 붙은 비율: 띠 26% · 이름표 23% · 큰 숫자 23% · 삽입 30% · 로고 21% (2kHz 위 소리 급증 기준, 말소리 섞일 수 있음). 모든 등장에 효과음을 붙이지 않는다.",
+  "_note": "칠·칩 등장 0.3초 안에 효과음이 붙은 비율: 띠 26% · 이름표 24% · 큰 숫자 26% · 삽입 28% · 로고 21% (2kHz 위 소리 급증 기준, 말소리 섞일 수 있음). 모든 등장에 효과음을 붙이지 않는다.",
   "every_n_overlays": 4,
   "max_ratio": 0.35
  },
@@ -170,11 +170,13 @@
    "S032"
   ],
   "interview_hook": [
+   "S052",
    "S025",
    "S033"
   ],
   "answer": [
    "S033",
+   "S053",
    "S004",
    "S027"
   ],
@@ -339,195 +341,195 @@
  "patterns": {
   "P00": {
    "name": "분류 안 됨",
-   "n": 5,
+   "n": 4,
    "nl": 2,
-   "be": 3,
-   "dur_med": 27.6,
-   "cuts_per_s": 0.36,
+   "be": 2,
+   "dur_med": 36.2,
+   "cuts_per_s": 0.39,
    "overlays_per_10s": 2.95,
-   "sfx_per_s": 0.25,
+   "sfx_per_s": 0.29,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.6,
+   "person_rate": 0.75,
+   "end_logo_rate": 0.5,
    "top_subs": {
-    "boxlabel": 3.6,
-    "insert": 1.8,
-    "tape": 1.2,
-    "bigtext": 1.2,
-    "logo": 1.0
+    "boxlabel": 5.0,
+    "insert": 2.0,
+    "bigtext": 1.25,
+    "logo": 1.0,
+    "tape": 0.25
    },
    "first3s": {
-    "insert": 0.8,
-    "tape": 0.4,
-    "boxlabel": 0.4,
-    "bigtext": 0.2
+    "boxlabel": 0.75,
+    "insert": 0.5,
+    "logo": 0.25
    },
    "last4s": {
-    "logo": 0.6,
-    "bigtext": 0.4,
-    "boxlabel": 0.4
+    "logo": 0.5,
+    "boxlabel": 0.5,
+    "insert": 0.25,
+    "bigtext": 0.25
    },
    "examples": [
-    "https://youtube.com/shorts/GWGffYlZJWc",
-    "https://youtube.com/shorts/m29mrfQjrzg",
-    "https://youtube.com/shorts/tLqWA0ItV9I",
-    "https://youtube.com/shorts/-k1BMYx2El0"
+    "https://youtube.com/shorts/-4Hi5myIm7U",
+    "https://youtube.com/shorts/SZYmCShmuGc",
+    "https://youtube.com/shorts/-k1BMYx2El0",
+    "https://youtube.com/shorts/FvobX9zMAT8"
    ]
   },
   "P01": {
    "name": "차명 쇼케이스(분위기)",
-   "n": 59,
-   "nl": 47,
-   "be": 12,
-   "dur_med": 44.1,
-   "cuts_per_s": 0.42,
-   "overlays_per_10s": 3.04,
-   "sfx_per_s": 0.29,
+   "n": 122,
+   "nl": 91,
+   "be": 31,
+   "dur_med": 40.3,
+   "cuts_per_s": 0.39,
+   "overlays_per_10s": 2.95,
+   "sfx_per_s": 0.3,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.71,
+   "person_rate": 0.84,
+   "end_logo_rate": 0.67,
    "top_subs": {
-    "boxlabel": 7.59,
-    "insert": 1.51,
-    "logo": 1.46,
-    "tape": 1.27,
-    "bigtext": 0.59,
-    "icon": 0.58
+    "boxlabel": 6.76,
+    "insert": 1.39,
+    "logo": 1.36,
+    "tape": 1.13,
+    "bigtext": 0.58,
+    "icon": 0.5
    },
    "first3s": {
     "boxlabel": 0.68,
-    "insert": 0.27,
-    "tape": 0.25,
-    "logo": 0.12
+    "tape": 0.24,
+    "insert": 0.22,
+    "icon": 0.09
    },
    "last4s": {
-    "logo": 0.71,
-    "boxlabel": 0.42,
-    "bigtext": 0.1,
-    "insert": 0.08
+    "logo": 0.67,
+    "boxlabel": 0.41,
+    "bigtext": 0.14,
+    "insert": 0.1
    },
    "examples": [
     "https://youtube.com/shorts/-SvtKNG-eYA",
-    "https://youtube.com/shorts/6WRfVaqGTxw",
-    "https://youtube.com/shorts/FKObBET5hvo",
-    "https://youtube.com/shorts/HCxAnsz7TgY"
+    "https://youtube.com/shorts/1z4u1tgaWqo",
+    "https://youtube.com/shorts/3iI9TBvcvmE",
+    "https://youtube.com/shorts/6WRfVaqGTxw"
    ]
   },
   "P02": {
    "name": "차 앞 소개(진행자)",
-   "n": 31,
-   "nl": 14,
-   "be": 17,
-   "dur_med": 34.8,
-   "cuts_per_s": 0.42,
-   "overlays_per_10s": 3.15,
-   "sfx_per_s": 0.3,
+   "n": 50,
+   "nl": 15,
+   "be": 35,
+   "dur_med": 34.6,
+   "cuts_per_s": 0.44,
+   "overlays_per_10s": 2.98,
+   "sfx_per_s": 0.29,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.74,
+   "person_rate": 0.84,
+   "end_logo_rate": 0.78,
    "top_subs": {
-    "boxlabel": 6.87,
-    "insert": 1.55,
-    "logo": 1.48,
-    "tape": 1.23,
-    "bigtext": 0.61,
-    "icon": 0.52
+    "boxlabel": 5.02,
+    "insert": 1.6,
+    "logo": 1.5,
+    "tape": 1.26,
+    "bigtext": 0.64,
+    "icon": 0.36
    },
    "first3s": {
-    "boxlabel": 0.55,
-    "insert": 0.35,
-    "tape": 0.32,
-    "logo": 0.23
+    "boxlabel": 0.4,
+    "tape": 0.36,
+    "insert": 0.34,
+    "logo": 0.18
    },
    "last4s": {
-    "logo": 0.74,
-    "boxlabel": 0.32,
-    "bigtext": 0.26,
+    "logo": 0.78,
+    "bigtext": 0.24,
+    "boxlabel": 0.2,
     "insert": 0.06
    },
    "examples": [
+    "https://youtube.com/shorts/2RcM95bViDM",
     "https://youtube.com/shorts/2aDUWd4JY_c",
     "https://youtube.com/shorts/3GsoIo5uuOQ",
-    "https://youtube.com/shorts/3r5O-1-B8AA",
-    "https://youtube.com/shorts/5HG6oDrdeQ0"
+    "https://youtube.com/shorts/3r5O-1-B8AA"
    ]
   },
   "P03": {
    "name": "퀴즈: 차종·브랜드 맞히기",
-   "n": 37,
-   "nl": 29,
-   "be": 8,
-   "dur_med": 17.6,
-   "cuts_per_s": 0.17,
-   "overlays_per_10s": 3.69,
-   "sfx_per_s": 0.24,
+   "n": 62,
+   "nl": 40,
+   "be": 22,
+   "dur_med": 10.1,
+   "cuts_per_s": 0.19,
+   "overlays_per_10s": 3.63,
+   "sfx_per_s": 0.23,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.57,
+   "person_rate": 0.98,
+   "end_logo_rate": 0.61,
    "top_subs": {
-    "boxlabel": 3.05,
-    "logo": 1.05,
-    "insert": 0.89,
-    "tape": 0.49,
-    "bigtext": 0.3,
-    "icon": 0.08
+    "boxlabel": 2.68,
+    "logo": 1.08,
+    "insert": 0.92,
+    "tape": 0.48,
+    "bigtext": 0.29,
+    "icon": 0.06
    },
    "first3s": {
-    "boxlabel": 0.7,
-    "insert": 0.43,
-    "logo": 0.14,
-    "tape": 0.11
+    "boxlabel": 0.65,
+    "insert": 0.42,
+    "tape": 0.16,
+    "logo": 0.15
    },
    "last4s": {
-    "logo": 0.57,
-    "boxlabel": 0.3,
-    "insert": 0.11,
-    "bigtext": 0.08
+    "logo": 0.61,
+    "boxlabel": 0.24,
+    "insert": 0.13,
+    "bigtext": 0.1
    },
    "examples": [
+    "https://youtube.com/shorts/-8aY8q63t3g",
     "https://youtube.com/shorts/2csZ_JTDIhg",
     "https://youtube.com/shorts/4sBdletteU0",
-    "https://youtube.com/shorts/F7QxwoL6-YY",
-    "https://youtube.com/shorts/RpZNc3B2xig"
+    "https://youtube.com/shorts/5G8QQsedJJU"
    ]
   },
   "P04": {
    "name": "퀴즈: 마력 맞히기",
-   "n": 13,
-   "nl": 10,
-   "be": 3,
-   "dur_med": 33.6,
-   "cuts_per_s": 0.37,
-   "overlays_per_10s": 3.57,
-   "sfx_per_s": 0.3,
+   "n": 20,
+   "nl": 13,
+   "be": 7,
+   "dur_med": 34.7,
+   "cuts_per_s": 0.38,
+   "overlays_per_10s": 3.04,
+   "sfx_per_s": 0.29,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.92,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.85,
    "top_subs": {
-    "boxlabel": 7.92,
-    "logo": 1.92,
-    "insert": 1.38,
-    "tape": 0.92,
-    "icon": 0.23,
-    "bigtext": 0.23
+    "boxlabel": 6.6,
+    "logo": 1.9,
+    "insert": 1.2,
+    "tape": 1.05,
+    "bigtext": 0.3,
+    "icon": 0.2
    },
    "first3s": {
-    "boxlabel": 0.69,
-    "tape": 0.31,
-    "logo": 0.23,
-    "insert": 0.08
+    "boxlabel": 0.6,
+    "tape": 0.3,
+    "logo": 0.25,
+    "insert": 0.15
    },
    "last4s": {
-    "logo": 0.92,
-    "boxlabel": 0.31,
+    "logo": 0.85,
+    "boxlabel": 0.25,
     "insert": 0.15,
-    "icon": 0.08
+    "tape": 0.1
    },
    "examples": [
     "https://youtube.com/shorts/1GcPIHOwGT4",
-    "https://youtube.com/shorts/dBpz0MukCM4",
-    "https://youtube.com/shorts/olp_8F7x6RY",
-    "https://youtube.com/shorts/47HfgkbLU1c"
+    "https://youtube.com/shorts/R3nN4UPyjTo",
+    "https://youtube.com/shorts/cT6DDmp7Pc4",
+    "https://youtube.com/shorts/dBpz0MukCM4"
    ]
   },
   "P05": {
@@ -540,7 +542,7 @@
    "overlays_per_10s": 4.55,
    "sfx_per_s": 0.26,
    "words_per_s": null,
-   "person_rate": null,
+   "person_rate": 1.0,
    "end_logo_rate": 0.0,
    "top_subs": {
     "boxlabel": 5.0,
@@ -558,8 +560,8 @@
    "last4s": {
     "insert": 0.5,
     "icon": 0.5,
-    "bigtext": 0.5,
-    "boxlabel": 0.5
+    "boxlabel": 0.5,
+    "bigtext": 0.5
    },
    "examples": [
     "https://youtube.com/shorts/ej0_7zcH3cE",
@@ -568,194 +570,197 @@
   },
   "P06": {
    "name": "예산·조건 맞춤 추천",
-   "n": 10,
-   "nl": 7,
-   "be": 3,
-   "dur_med": 42.2,
-   "cuts_per_s": 0.41,
-   "overlays_per_10s": 3.72,
-   "sfx_per_s": 0.29,
+   "n": 20,
+   "nl": 11,
+   "be": 9,
+   "dur_med": 36.2,
+   "cuts_per_s": 0.45,
+   "overlays_per_10s": 3.73,
+   "sfx_per_s": 0.31,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.7,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.8,
    "top_subs": {
-    "boxlabel": 9.7,
-    "tape": 3.1,
-    "insert": 1.5,
-    "logo": 1.5,
-    "icon": 1.0,
-    "bigtext": 0.2
+    "boxlabel": 7.6,
+    "tape": 2.8,
+    "logo": 1.9,
+    "insert": 1.25,
+    "icon": 0.85,
+    "bigtext": 0.45
    },
    "first3s": {
-    "boxlabel": 0.8,
-    "tape": 0.3,
-    "insert": 0.3,
-    "icon": 0.1
+    "boxlabel": 0.6,
+    "tape": 0.4,
+    "insert": 0.35,
+    "logo": 0.15
    },
    "last4s": {
-    "logo": 0.7,
-    "boxlabel": 0.5,
-    "bigtext": 0.1,
-    "tape": 0.1
+    "logo": 0.8,
+    "boxlabel": 0.3,
+    "insert": 0.1,
+    "icon": 0.05
    },
    "examples": [
     "https://youtube.com/shorts/-J3OFwUUfdU",
-    "https://youtube.com/shorts/hddEbbS6OFs",
-    "https://youtube.com/shorts/owoj_3NM-YM",
-    "https://youtube.com/shorts/33U9u0L13FE"
+    "https://youtube.com/shorts/HiBgnDKDfY4",
+    "https://youtube.com/shorts/NvF-A2FxY9I",
+    "https://youtube.com/shorts/amqfdKrAbXo"
    ]
   },
   "P07": {
    "name": "가격 공개 매물",
-   "n": 8,
-   "nl": 4,
-   "be": 4,
-   "dur_med": 34.5,
+   "n": 13,
+   "nl": 7,
+   "be": 6,
+   "dur_med": 40.4,
    "cuts_per_s": 0.36,
-   "overlays_per_10s": 3.38,
+   "overlays_per_10s": 2.95,
    "sfx_per_s": 0.28,
    "words_per_s": null,
-   "person_rate": null,
+   "person_rate": 0.92,
    "end_logo_rate": 1.0,
    "top_subs": {
-    "boxlabel": 7.38,
-    "logo": 1.75,
-    "tape": 1.25,
-    "insert": 0.88,
-    "icon": 0.75,
-    "bigtext": 0.38
+    "boxlabel": 6.46,
+    "logo": 1.62,
+    "insert": 1.23,
+    "tape": 1.0,
+    "icon": 0.62,
+    "bigtext": 0.46
    },
    "first3s": {
-    "boxlabel": 0.5,
-    "tape": 0.38,
-    "insert": 0.12,
-    "logo": 0.12
+    "boxlabel": 0.46,
+    "tape": 0.23,
+    "logo": 0.15,
+    "insert": 0.08
    },
    "last4s": {
     "logo": 1.0,
-    "bigtext": 0.25,
-    "boxlabel": 0.25,
-    "insert": 0.12
+    "bigtext": 0.31,
+    "boxlabel": 0.15,
+    "insert": 0.08
    },
    "examples": [
     "https://youtube.com/shorts/AMxDkYw9bkc",
     "https://youtube.com/shorts/V2CygduJKD4",
-    "https://youtube.com/shorts/rzC-_mU1yoM",
-    "https://youtube.com/shorts/zNweYO0hBvs"
+    "https://youtube.com/shorts/ksZW4HQXg5Q",
+    "https://youtube.com/shorts/rzC-_mU1yoM"
    ]
   },
   "P08": {
    "name": "비교·선택 질문",
-   "n": 4,
-   "nl": 1,
-   "be": 3,
-   "dur_med": 33.0,
-   "cuts_per_s": 0.44,
-   "overlays_per_10s": 3.78,
+   "n": 12,
+   "nl": 2,
+   "be": 10,
+   "dur_med": 38.7,
+   "cuts_per_s": 0.42,
+   "overlays_per_10s": 2.8,
    "sfx_per_s": 0.3,
    "words_per_s": null,
-   "person_rate": null,
+   "person_rate": 1.0,
    "end_logo_rate": 1.0,
    "top_subs": {
-    "boxlabel": 10.25,
-    "tape": 2.0,
-    "logo": 1.25,
-    "icon": 0.75,
-    "insert": 0.25,
-    "bigtext": 0.25
+    "boxlabel": 6.08,
+    "tape": 1.92,
+    "logo": 1.33,
+    "insert": 1.17,
+    "bigtext": 0.75,
+    "icon": 0.42
    },
    "first3s": {
-    "tape": 0.5,
     "boxlabel": 0.5,
-    "insert": 0.25
+    "tape": 0.33,
+    "bigtext": 0.08,
+    "insert": 0.08
    },
    "last4s": {
     "logo": 1.0,
-    "bigtext": 0.25,
-    "icon": 0.25,
-    "boxlabel": 0.25
+    "bigtext": 0.17,
+    "icon": 0.08,
+    "boxlabel": 0.08
    },
    "examples": [
-    "https://youtube.com/shorts/NyDBGk0EZhU",
-    "https://youtube.com/shorts/mDksj4HJtsc",
-    "https://youtube.com/shorts/udvNSl9fKd8",
-    "https://youtube.com/shorts/eMafIAIocfw"
+    "https://youtube.com/shorts/-IAZC2JBtTo",
+    "https://youtube.com/shorts/8LQy_9u9j88",
+    "https://youtube.com/shorts/L0Meile86zY",
+    "https://youtube.com/shorts/NyDBGk0EZhU"
    ]
   },
   "P09": {
    "name": "숨은 기능·팁·핵",
-   "n": 8,
+   "n": 11,
    "nl": 3,
-   "be": 5,
-   "dur_med": 28.1,
-   "cuts_per_s": 0.34,
-   "overlays_per_10s": 2.83,
+   "be": 8,
+   "dur_med": 27.6,
+   "cuts_per_s": 0.35,
+   "overlays_per_10s": 2.9,
    "sfx_per_s": 0.3,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.62,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.64,
    "top_subs": {
-    "boxlabel": 3.88,
-    "insert": 1.75,
-    "bigtext": 1.38,
-    "icon": 0.88,
-    "logo": 0.75,
-    "tape": 0.38
+    "boxlabel": 3.45,
+    "insert": 2.27,
+    "bigtext": 1.27,
+    "tape": 1.09,
+    "logo": 0.73,
+    "icon": 0.73
    },
    "first3s": {
-    "boxlabel": 0.75,
-    "insert": 0.38,
-    "bigtext": 0.12
+    "boxlabel": 0.64,
+    "insert": 0.45,
+    "tape": 0.18,
+    "bigtext": 0.09
    },
    "last4s": {
-    "logo": 0.62,
-    "bigtext": 0.38,
-    "boxlabel": 0.38,
-    "insert": 0.12
+    "logo": 0.64,
+    "bigtext": 0.36,
+    "boxlabel": 0.27,
+    "insert": 0.18
    },
    "examples": [
     "https://youtube.com/shorts/8JVIQoP870I",
     "https://youtube.com/shorts/KsX9jmrVn0o",
-    "https://youtube.com/shorts/S8XXbkoBS3c",
-    "https://youtube.com/shorts/h-YY69bL2mU"
+    "https://youtube.com/shorts/MSKmaDWRiSo",
+    "https://youtube.com/shorts/S8XXbkoBS3c"
    ]
   },
   "P10": {
    "name": "상식·브랜드 이야기",
-   "n": 8,
+   "n": 16,
    "nl": 2,
-   "be": 6,
-   "dur_med": 28.1,
+   "be": 14,
+   "dur_med": 34.0,
    "cuts_per_s": 0.47,
-   "overlays_per_10s": 2.84,
-   "sfx_per_s": 0.24,
+   "overlays_per_10s": 2.63,
+   "sfx_per_s": 0.26,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.62,
+   "person_rate": 0.88,
+   "end_logo_rate": 0.75,
    "top_subs": {
-    "boxlabel": 4.75,
-    "tape": 1.12,
-    "logo": 1.0,
-    "insert": 0.88,
-    "icon": 0.25,
-    "bigtext": 0.12
+    "boxlabel": 3.25,
+    "tape": 1.5,
+    "logo": 1.25,
+    "insert": 1.0,
+    "bigtext": 0.88,
+    "icon": 0.44
    },
    "first3s": {
-    "boxlabel": 0.62,
-    "tape": 0.25,
-    "logo": 0.12,
-    "insert": 0.12
+    "boxlabel": 0.38,
+    "tape": 0.31,
+    "insert": 0.19,
+    "bigtext": 0.12
    },
    "last4s": {
-    "logo": 0.62,
-    "boxlabel": 0.25,
-    "icon": 0.12
+    "logo": 0.75,
+    "boxlabel": 0.12,
+    "insert": 0.12,
+    "tape": 0.12
    },
    "examples": [
     "https://youtube.com/shorts/4fnLZfm6jeY",
+    "https://youtube.com/shorts/8IpELvmGsJk",
     "https://youtube.com/shorts/AADy6P3GjAk",
-    "https://youtube.com/shorts/DlFjkTmYnfs",
-    "https://youtube.com/shorts/HG2suItRsuY"
+    "https://youtube.com/shorts/DRoPcCcZts8"
    ]
   },
   "P11": {
@@ -768,7 +773,7 @@
    "overlays_per_10s": 4.73,
    "sfx_per_s": 0.28,
    "words_per_s": null,
-   "person_rate": null,
+   "person_rate": 1.0,
    "end_logo_rate": 0.6,
    "top_subs": {
     "boxlabel": 6.2,
@@ -807,7 +812,7 @@
    "overlays_per_10s": 1.3,
    "sfx_per_s": 0.15,
    "words_per_s": null,
-   "person_rate": null,
+   "person_rate": 0.5,
    "end_logo_rate": 1.0,
    "top_subs": {
     "tape": 1.0,
@@ -831,35 +836,35 @@
   },
   "P13": {
    "name": "거리·선수 인터뷰",
-   "n": 12,
+   "n": 13,
    "nl": 0,
-   "be": 12,
-   "dur_med": 34.5,
-   "cuts_per_s": 0.24,
-   "overlays_per_10s": 2.21,
-   "sfx_per_s": 0.33,
+   "be": 13,
+   "dur_med": 34.8,
+   "cuts_per_s": 0.23,
+   "overlays_per_10s": 2.12,
+   "sfx_per_s": 0.32,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 1.0,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.92,
    "top_subs": {
-    "boxlabel": 2.0,
-    "logo": 1.67,
-    "insert": 1.58,
-    "bigtext": 1.33,
-    "tape": 0.67,
-    "other": 0.25
+    "boxlabel": 2.08,
+    "logo": 1.54,
+    "insert": 1.46,
+    "bigtext": 1.23,
+    "tape": 0.62,
+    "other": 0.23
    },
    "first3s": {
-    "insert": 0.33,
-    "boxlabel": 0.33,
-    "tape": 0.33,
-    "bigtext": 0.25
+    "boxlabel": 0.38,
+    "insert": 0.31,
+    "tape": 0.31,
+    "bigtext": 0.23
    },
    "last4s": {
-    "logo": 1.0,
-    "insert": 0.25,
-    "boxlabel": 0.25,
-    "icon": 0.17
+    "logo": 0.92,
+    "boxlabel": 0.23,
+    "insert": 0.23,
+    "icon": 0.15
    },
    "examples": [
     "https://youtube.com/shorts/PHuIyaZ1zmM",
@@ -870,356 +875,369 @@
   },
   "P14": {
    "name": "시청자 참여 질문",
-   "n": 4,
+   "n": 7,
    "nl": 1,
-   "be": 3,
-   "dur_med": 21.6,
-   "cuts_per_s": 0.56,
-   "overlays_per_10s": 2.12,
-   "sfx_per_s": 0.21,
+   "be": 6,
+   "dur_med": 19.6,
+   "cuts_per_s": 0.46,
+   "overlays_per_10s": 2.68,
+   "sfx_per_s": 0.31,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.5,
+   "person_rate": 0.71,
+   "end_logo_rate": 0.57,
    "top_subs": {
-    "boxlabel": 2.75,
-    "bigtext": 1.25,
-    "tape": 1.0,
-    "logo": 0.75,
-    "insert": 0.25,
-    "icon": 0.25
+    "boxlabel": 1.71,
+    "bigtext": 1.57,
+    "tape": 1.29,
+    "logo": 0.71,
+    "insert": 0.43,
+    "other": 0.14
    },
    "first3s": {
-    "boxlabel": 0.5,
-    "tape": 0.25
+    "tape": 0.43,
+    "boxlabel": 0.29,
+    "insert": 0.14,
+    "bigtext": 0.14
    },
    "last4s": {
-    "logo": 0.5,
-    "tape": 0.25,
-    "bigtext": 0.25
+    "logo": 0.57,
+    "tape": 0.14,
+    "bigtext": 0.14
    },
    "examples": [
     "https://youtube.com/shorts/62AgRg0KAAQ",
-    "https://youtube.com/shorts/mAFBFwsXKKc",
-    "https://youtube.com/shorts/mTMSKml99Lo",
-    "https://youtube.com/shorts/EocI4_6aLak"
+    "https://youtube.com/shorts/O1eDE8tX3V0",
+    "https://youtube.com/shorts/XRixK1ASrAE",
+    "https://youtube.com/shorts/mAFBFwsXKKc"
    ]
   },
   "P15": {
    "name": "판매 완료",
-   "n": 2,
+   "n": 5,
    "nl": 2,
-   "be": 0,
-   "dur_med": 60.0,
-   "cuts_per_s": 0.35,
-   "overlays_per_10s": 3.02,
-   "sfx_per_s": 0.28,
+   "be": 3,
+   "dur_med": 42.1,
+   "cuts_per_s": 0.52,
+   "overlays_per_10s": 1.43,
+   "sfx_per_s": 0.33,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.5,
+   "person_rate": 0.8,
+   "end_logo_rate": 0.6,
    "top_subs": {
-    "boxlabel": 15.0,
-    "insert": 2.0,
-    "tape": 1.0,
-    "logo": 0.5
+    "boxlabel": 6.0,
+    "logo": 1.6,
+    "insert": 0.8,
+    "bigtext": 0.6,
+    "tape": 0.4,
+    "icon": 0.2
    },
    "first3s": {
-    "boxlabel": 1.0,
-    "insert": 0.5
+    "logo": 0.4,
+    "boxlabel": 0.4,
+    "bigtext": 0.2,
+    "insert": 0.2
    },
    "last4s": {
-    "logo": 0.5,
-    "boxlabel": 0.5
+    "logo": 0.6,
+    "icon": 0.2,
+    "boxlabel": 0.2
    },
    "examples": [
-    "https://youtube.com/shorts/CFouyOG3w6U",
-    "https://youtube.com/shorts/stK5_s_S9LU"
+    "https://youtube.com/shorts/BpG9uc2V6QU",
+    "https://youtube.com/shorts/tfuPWZOxCUc",
+    "https://youtube.com/shorts/vOQ7FR_fnr0",
+    "https://youtube.com/shorts/CFouyOG3w6U"
    ]
   },
   "P16": {
    "name": "서비스·플랫폼 홍보",
-   "n": 6,
-   "nl": 0,
-   "be": 6,
-   "dur_med": 28.8,
-   "cuts_per_s": 0.39,
+   "n": 8,
+   "nl": 1,
+   "be": 7,
+   "dur_med": 31.1,
+   "cuts_per_s": 0.25,
    "overlays_per_10s": 3.17,
-   "sfx_per_s": 0.25,
+   "sfx_per_s": 0.28,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.33,
+   "person_rate": 0.88,
+   "end_logo_rate": 0.5,
    "top_subs": {
-    "boxlabel": 2.33,
-    "logo": 2.17,
-    "tape": 2.0,
-    "bigtext": 1.17,
-    "insert": 1.0,
-    "icon": 0.5
+    "boxlabel": 3.38,
+    "logo": 2.25,
+    "tape": 1.5,
+    "insert": 1.25,
+    "bigtext": 1.0,
+    "icon": 0.38
    },
    "first3s": {
-    "tape": 0.33,
-    "insert": 0.33,
-    "boxlabel": 0.17,
-    "logo": 0.17
+    "insert": 0.25,
+    "tape": 0.25,
+    "boxlabel": 0.25,
+    "bigtext": 0.12
    },
    "last4s": {
-    "tape": 0.33,
-    "logo": 0.33,
-    "bigtext": 0.33,
-    "other": 0.17
+    "logo": 0.5,
+    "tape": 0.25,
+    "bigtext": 0.25,
+    "other": 0.12
    },
    "examples": [
+    "https://youtube.com/shorts/57oZQTsKOis",
     "https://youtube.com/shorts/6SoXCrjU9y0",
     "https://youtube.com/shorts/GFYb3CitDOs",
-    "https://youtube.com/shorts/RWTRI1IQxM8",
-    "https://youtube.com/shorts/gfU82u6LfOY"
+    "https://youtube.com/shorts/RWTRI1IQxM8"
    ]
   },
   "P17": {
    "name": "뉴스·제도",
-   "n": 9,
+   "n": 15,
    "nl": 2,
-   "be": 7,
+   "be": 13,
    "dur_med": 34.4,
-   "cuts_per_s": 0.42,
-   "overlays_per_10s": 2.17,
-   "sfx_per_s": 0.24,
+   "cuts_per_s": 0.4,
+   "overlays_per_10s": 2.04,
+   "sfx_per_s": 0.27,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 0.67,
+   "person_rate": 0.67,
+   "end_logo_rate": 0.47,
    "top_subs": {
-    "insert": 2.89,
-    "boxlabel": 2.33,
-    "tape": 1.11,
-    "logo": 0.78,
-    "bigtext": 0.44,
-    "icon": 0.33
+    "insert": 2.27,
+    "boxlabel": 1.93,
+    "tape": 0.8,
+    "logo": 0.8,
+    "bigtext": 0.73,
+    "icon": 0.27
    },
    "first3s": {
-    "insert": 0.78,
-    "tape": 0.33,
-    "icon": 0.22,
-    "boxlabel": 0.11
+    "insert": 0.47,
+    "tape": 0.27,
+    "icon": 0.13,
+    "boxlabel": 0.13
    },
    "last4s": {
-    "logo": 0.67,
-    "bigtext": 0.33,
-    "icon": 0.11,
-    "insert": 0.11
+    "logo": 0.47,
+    "insert": 0.27,
+    "bigtext": 0.2,
+    "icon": 0.07
    },
    "examples": [
     "https://youtube.com/shorts/0ry-lZ0EZ4s",
     "https://youtube.com/shorts/2hTKslU0vHk",
-    "https://youtube.com/shorts/ImNQ6Ta4lIU",
-    "https://youtube.com/shorts/UeyjsVDwc4c"
+    "https://youtube.com/shorts/5o-pT9x8Rp0",
+    "https://youtube.com/shorts/79IRD_Sln-E"
    ]
   },
   "P18": {
    "name": "왜 인기·가치 설명",
-   "n": 7,
+   "n": 10,
    "nl": 5,
-   "be": 2,
-   "dur_med": 44.5,
-   "cuts_per_s": 0.37,
-   "overlays_per_10s": 4.01,
-   "sfx_per_s": 0.32,
+   "be": 5,
+   "dur_med": 45.6,
+   "cuts_per_s": 0.42,
+   "overlays_per_10s": 2.83,
+   "sfx_per_s": 0.3,
    "words_per_s": null,
-   "person_rate": null,
-   "end_logo_rate": 1.0,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.9,
    "top_subs": {
-    "boxlabel": 9.14,
-    "insert": 2.0,
-    "logo": 1.86,
-    "tape": 1.43,
-    "bigtext": 1.43,
-    "icon": 0.57
+    "boxlabel": 7.1,
+    "logo": 2.1,
+    "insert": 1.6,
+    "tape": 1.2,
+    "bigtext": 1.2,
+    "icon": 0.4
    },
    "first3s": {
-    "boxlabel": 0.71,
-    "insert": 0.29,
-    "tape": 0.14,
-    "bigtext": 0.14
+    "boxlabel": 0.6,
+    "insert": 0.3,
+    "bigtext": 0.2,
+    "logo": 0.1
    },
    "last4s": {
-    "logo": 1.0,
-    "boxlabel": 0.29,
-    "bigtext": 0.14
+    "logo": 0.9,
+    "boxlabel": 0.2,
+    "bigtext": 0.1
    },
    "examples": [
     "https://youtube.com/shorts/2C6Esrov2TM",
+    "https://youtube.com/shorts/LURAQRug6xg",
     "https://youtube.com/shorts/dGqK67RYYYA",
-    "https://youtube.com/shorts/CENcWTfhbow",
-    "https://youtube.com/shorts/K4zz0yXh770"
+    "https://youtube.com/shorts/kfpyoq-dU9w"
    ]
   }
  },
  "substats": {
-  "tape": {
-   "n": 269,
-   "videos_nl": 67,
-   "videos_be": 64,
-   "share_nl": 0.508,
-   "share_be": 0.64,
-   "per_video": 2.05,
-   "cy_med": 0.363,
-   "cy_q25": 0.242,
-   "cy_q75": 0.584,
-   "h_med": 0.047,
-   "w_med": 0.483,
-   "dur_med": 1.2,
-   "sfx_03": 0.257,
-   "first3s": 0.275,
-   "last4s": 0.037,
-   "pos_med": 0.34
-  },
-  "insert": {
-   "n": 324,
-   "videos_nl": 83,
-   "videos_be": 70,
-   "share_nl": 0.629,
-   "share_be": 0.7,
-   "per_video": 2.12,
-   "cy_med": 0.482,
-   "cy_q25": 0.375,
-   "cy_q75": 0.556,
-   "h_med": 0.583,
-   "w_med": 0.803,
-   "dur_med": 1.5,
-   "sfx_03": 0.29,
-   "first3s": 0.256,
-   "last4s": 0.074,
-   "pos_med": 0.37
-  },
   "boxlabel": {
-   "n": 1367,
-   "videos_nl": 132,
-   "videos_be": 79,
+   "n": 2031,
+   "videos_nl": 200,
+   "videos_be": 141,
    "share_nl": 1.0,
-   "share_be": 0.79,
-   "per_video": 6.48,
-   "cy_med": 0.531,
-   "cy_q25": 0.317,
-   "cy_q75": 0.645,
-   "h_med": 0.031,
-   "w_med": 0.524,
-   "dur_med": 1.1,
-   "sfx_03": 0.234,
-   "first3s": 0.138,
-   "last4s": 0.06,
-   "pos_med": 0.45
+   "share_be": 0.716,
+   "per_video": 5.96,
+   "cy_med": 0.545,
+   "cy_q25": 0.294,
+   "cy_q75": 0.653,
+   "h_med": 0.032,
+   "w_med": 0.52,
+   "dur_med": 1.2,
+   "sfx_03": 0.24,
+   "first3s": 0.149,
+   "last4s": 0.057,
+   "pos_med": 0.44
+  },
+  "tape": {
+   "n": 449,
+   "videos_nl": 99,
+   "videos_be": 118,
+   "share_nl": 0.495,
+   "share_be": 0.599,
+   "per_video": 2.07,
+   "cy_med": 0.344,
+   "cy_q25": 0.244,
+   "cy_q75": 0.606,
+   "h_med": 0.057,
+   "w_med": 0.494,
+   "dur_med": 1.3,
+   "sfx_03": 0.265,
+   "first3s": 0.276,
+   "last4s": 0.029,
+   "pos_med": 0.32
   },
   "logo": {
-   "n": 317,
-   "videos_nl": 110,
-   "videos_be": 84,
-   "share_nl": 0.833,
-   "share_be": 0.84,
-   "per_video": 1.63,
-   "cy_med": 0.457,
-   "cy_q25": 0.215,
-   "cy_q75": 0.521,
-   "h_med": 0.138,
-   "w_med": 0.461,
-   "dur_med": 1.4,
-   "sfx_03": 0.218,
-   "first3s": 0.095,
-   "last4s": 0.637,
-   "pos_med": 0.93
+   "n": 548,
+   "videos_nl": 173,
+   "videos_be": 156,
+   "share_nl": 0.865,
+   "share_be": 0.792,
+   "per_video": 1.67,
+   "cy_med": 0.455,
+   "cy_q25": 0.228,
+   "cy_q75": 0.524,
+   "h_med": 0.135,
+   "w_med": 0.453,
+   "dur_med": 1.3,
+   "sfx_03": 0.21,
+   "first3s": 0.099,
+   "last4s": 0.644,
+   "pos_med": 0.94
   },
-  "icon": {
-   "n": 102,
-   "videos_nl": 41,
-   "videos_be": 23,
-   "share_nl": 0.311,
-   "share_be": 0.23,
-   "per_video": 1.59,
-   "cy_med": 0.502,
-   "cy_q25": 0.423,
-   "cy_q75": 0.569,
-   "h_med": 0.269,
-   "w_med": 0.611,
-   "dur_med": 0.9,
-   "sfx_03": 0.206,
-   "first3s": 0.176,
-   "last4s": 0.118,
-   "pos_med": 0.46
+  "insert": {
+   "n": 534,
+   "videos_nl": 135,
+   "videos_be": 120,
+   "share_nl": 0.675,
+   "share_be": 0.609,
+   "per_video": 2.09,
+   "cy_med": 0.476,
+   "cy_q25": 0.373,
+   "cy_q75": 0.556,
+   "h_med": 0.589,
+   "w_med": 0.817,
+   "dur_med": 1.4,
+   "sfx_03": 0.275,
+   "first3s": 0.23,
+   "last4s": 0.086,
+   "pos_med": 0.41
   },
   "bigtext": {
-   "n": 140,
-   "videos_nl": 40,
+   "n": 251,
+   "videos_nl": 65,
+   "videos_be": 87,
+   "share_nl": 0.325,
+   "share_be": 0.442,
+   "per_video": 1.65,
+   "cy_med": 0.485,
+   "cy_q25": 0.26,
+   "cy_q75": 0.652,
+   "h_med": 0.08,
+   "w_med": 0.274,
+   "dur_med": 1.2,
+   "sfx_03": 0.263,
+   "first3s": 0.112,
+   "last4s": 0.259,
+   "pos_med": 0.57
+  },
+  "icon": {
+   "n": 152,
+   "videos_nl": 58,
    "videos_be": 42,
-   "share_nl": 0.303,
-   "share_be": 0.42,
-   "per_video": 1.71,
-   "cy_med": 0.473,
-   "cy_q25": 0.242,
-   "cy_q75": 0.656,
-   "h_med": 0.068,
-   "w_med": 0.256,
-   "dur_med": 1.0,
-   "sfx_03": 0.257,
-   "first3s": 0.086,
-   "last4s": 0.293,
+   "share_nl": 0.29,
+   "share_be": 0.213,
+   "per_video": 1.52,
+   "cy_med": 0.511,
+   "cy_q25": 0.428,
+   "cy_q75": 0.591,
+   "h_med": 0.274,
+   "w_med": 0.606,
+   "dur_med": 1.05,
+   "sfx_03": 0.204,
+   "first3s": 0.145,
+   "last4s": 0.138,
+   "pos_med": 0.48
+  },
+  "capword": {
+   "n": 15,
+   "videos_nl": 9,
+   "videos_be": 6,
+   "share_nl": 0.045,
+   "share_be": 0.03,
+   "per_video": 1.0,
+   "cy_med": 0.616,
+   "cy_q25": 0.57,
+   "cy_q75": 0.669,
+   "h_med": 0.021,
+   "w_med": 0.122,
+   "dur_med": 0.7,
+   "sfx_03": 0.267,
+   "first3s": 0.133,
+   "last4s": 0.133,
+   "pos_med": 0.31
+  },
+  "smalltext": {
+   "n": 15,
+   "videos_nl": 12,
+   "videos_be": 2,
+   "share_nl": 0.06,
+   "share_be": 0.01,
+   "per_video": 1.07,
+   "cy_med": 0.309,
+   "cy_q25": 0.223,
+   "cy_q75": 0.446,
+   "h_med": 0.015,
+   "w_med": 0.12,
+   "dur_med": 0.5,
+   "sfx_03": 0.267,
+   "first3s": 0.0,
+   "last4s": 0.133,
    "pos_med": 0.58
   },
   "other": {
-   "n": 13,
-   "videos_nl": 8,
-   "videos_be": 3,
-   "share_nl": 0.061,
-   "share_be": 0.03,
-   "per_video": 1.18,
-   "cy_med": 0.573,
+   "n": 19,
+   "videos_nl": 12,
+   "videos_be": 5,
+   "share_nl": 0.06,
+   "share_be": 0.025,
+   "per_video": 1.12,
+   "cy_med": 0.572,
    "cy_q25": 0.448,
-   "cy_q75": 0.672,
-   "h_med": 0.163,
-   "w_med": 0.583,
-   "dur_med": 0.7,
-   "sfx_03": 0.154,
-   "first3s": 0.077,
-   "last4s": 0.154,
-   "pos_med": 0.67
-  },
-  "capword": {
-   "n": 8,
-   "videos_nl": 7,
-   "videos_be": 1,
-   "share_nl": 0.053,
-   "share_be": 0.01,
-   "per_video": 1.0,
-   "cy_med": 0.576,
-   "cy_q25": 0.564,
-   "cy_q75": 0.661,
-   "h_med": 0.02,
-   "w_med": 0.069,
-   "dur_med": 0.75,
-   "sfx_03": 0.25,
-   "first3s": 0.125,
-   "last4s": 0.125,
-   "pos_med": 0.4
-  },
-  "smalltext": {
-   "n": 11,
-   "videos_nl": 10,
-   "videos_be": 0,
-   "share_nl": 0.076,
-   "share_be": 0.0,
-   "per_video": 1.1,
-   "cy_med": 0.316,
-   "cy_q25": 0.223,
-   "cy_q75": 0.453,
-   "h_med": 0.015,
-   "w_med": 0.067,
-   "dur_med": 0.4,
-   "sfx_03": 0.273,
-   "first3s": 0.0,
-   "last4s": 0.0,
-   "pos_med": 0.5
+   "cy_q75": 0.683,
+   "h_med": 0.106,
+   "w_med": 0.461,
+   "dur_med": 0.8,
+   "sfx_03": 0.158,
+   "first3s": 0.053,
+   "last4s": 0.105,
+   "pos_med": 0.6
   }
  },
  "observed_only": [
   {
    "name": "대중문화 캐릭터 스티커",
-   "why": "영화·드라마 주인공 일러스트를 붙임(N3#313). 남의 캐릭터라 쓰지 않는다. 필요하면 보배드림 자체 일러스트로."
+   "why": "영화·드라마 주인공 일러스트를 붙임(N3#313, N4#798 「Magnum P.I.」). 남의 캐릭터라 쓰지 않는다. 필요하면 보배드림 자체 일러스트로."
+  },
+  {
+   "name": "다른 서비스 로고 띄우기",
+   "why": "차 화면의 넷플릭스 등 다른 회사 로고를 크게 띄움(N4#28, N4#29). 남의 로고라 쓰지 않는다. 기능 이름은 글자 칩(S008)으로."
   }
  ],
  "skills": [
@@ -1237,8 +1255,8 @@
    "when": "차명·브랜드·가격·연식을 처음 소개할 때(첫 3초, 차 위쪽 빈 하늘·천장 자리)",
    "pair": "효과음-팝, 끝 로고",
    "geometry": "세로 중심 0.31~0.62(중간값 0.52), 글자 높이 화면의 3%, 1.1초",
-   "freq": "자동 집계: 네덜란드 132/132개 · 벨기에 79/100개 영상, 영상 하나에 평균 6.48번, 세로 중심 0.317~0.645(중간 0.531), 머무는 시간 1.1초, 효과음 붙는 비율 23%",
-   "video_count": 211,
+   "freq": "자동 집계: 네덜란드 200/200개 · 벨기에 141/197개 영상, 영상 하나에 평균 5.96번, 세로 중심 0.294~0.653(중간 0.545), 머무는 시간 1.2초, 효과음 붙는 비율 24%",
+   "video_count": 341,
    "sources": [
     "네덜란드",
     "벨기에"
@@ -1255,25 +1273,25 @@
    ],
    "asset": "검정 상자 + 노랑 대문자 칩(_sticker_core boxlabel)",
    "stats": {
-    "n": 1367,
-    "videos_nl": 132,
-    "videos_be": 79,
+    "n": 2031,
+    "videos_nl": 200,
+    "videos_be": 141,
     "share_nl": 1.0,
-    "share_be": 0.79,
-    "per_video": 6.48,
-    "cy_med": 0.531,
-    "cy_q25": 0.317,
-    "cy_q75": 0.645,
-    "h_med": 0.031,
-    "w_med": 0.524,
-    "dur_med": 1.1,
-    "sfx_03": 0.234,
-    "first3s": 0.138,
-    "last4s": 0.06,
-    "pos_med": 0.45
+    "share_be": 0.716,
+    "per_video": 5.96,
+    "cy_med": 0.545,
+    "cy_q25": 0.294,
+    "cy_q75": 0.653,
+    "h_med": 0.032,
+    "w_med": 0.52,
+    "dur_med": 1.2,
+    "sfx_03": 0.24,
+    "first3s": 0.149,
+    "last4s": 0.057,
+    "pos_med": 0.44
    },
-   "cy_med": 0.531,
-   "dur_med": 1.1
+   "cy_med": 0.545,
+   "dur_med": 1.2
   },
   {
    "id": "S002",
@@ -1353,8 +1371,8 @@
    "when": "가격·주행거리·마력·연식 숫자를 말하는 그 낱말 시점",
    "pair": "효과음-팝, 숫자 세기",
    "geometry": "세로 0.24~0.66, 글자 높이 7%, 1.1초, 노랑 + 검정 테두리, 바탕 없음",
-   "freq": "자동 집계: 네덜란드 40/132개 · 벨기에 42/100개 영상, 영상 하나에 평균 1.71번, 세로 중심 0.242~0.656(중간 0.473), 머무는 시간 1.0초, 효과음 붙는 비율 26%",
-   "video_count": 82,
+   "freq": "자동 집계: 네덜란드 65/200개 · 벨기에 87/197개 영상, 영상 하나에 평균 1.65번, 세로 중심 0.26~0.652(중간 0.485), 머무는 시간 1.2초, 효과음 붙는 비율 26%",
+   "video_count": 152,
    "sources": [
     "네덜란드",
     "벨기에"
@@ -1371,25 +1389,25 @@
    ],
    "asset": "큰 노랑 숫자(테두리 4px)",
    "stats": {
-    "n": 140,
-    "videos_nl": 40,
-    "videos_be": 42,
-    "share_nl": 0.303,
-    "share_be": 0.42,
-    "per_video": 1.71,
-    "cy_med": 0.473,
-    "cy_q25": 0.242,
-    "cy_q75": 0.656,
-    "h_med": 0.068,
-    "w_med": 0.256,
-    "dur_med": 1.0,
-    "sfx_03": 0.257,
-    "first3s": 0.086,
-    "last4s": 0.293,
-    "pos_med": 0.58
+    "n": 251,
+    "videos_nl": 65,
+    "videos_be": 87,
+    "share_nl": 0.325,
+    "share_be": 0.442,
+    "per_video": 1.65,
+    "cy_med": 0.485,
+    "cy_q25": 0.26,
+    "cy_q75": 0.652,
+    "h_med": 0.08,
+    "w_med": 0.274,
+    "dur_med": 1.2,
+    "sfx_03": 0.263,
+    "first3s": 0.112,
+    "last4s": 0.259,
+    "pos_med": 0.57
    },
-   "cy_med": 0.473,
-   "dur_med": 1.0
+   "cy_med": 0.485,
+   "dur_med": 1.2
   },
   {
    "id": "S005",
@@ -1496,8 +1514,8 @@
    "when": "부위 옆에 색상명·패키지명·짧은 사실을 붙일 때(기울어진 노랑 띠, 검정 글자)",
    "pair": "효과음-팝",
    "geometry": "세로 0.24~0.55, 띠 높이 4%, 1.1초, 3~5도 기울기",
-   "freq": "자동 집계: 네덜란드 67/132개 · 벨기에 64/100개 영상, 영상 하나에 평균 2.05번, 세로 중심 0.242~0.584(중간 0.363), 머무는 시간 1.2초, 효과음 붙는 비율 26%",
-   "video_count": 131,
+   "freq": "자동 집계: 네덜란드 99/200개 · 벨기에 118/197개 영상, 영상 하나에 평균 2.07번, 세로 중심 0.244~0.606(중간 0.344), 머무는 시간 1.3초, 효과음 붙는 비율 26%",
+   "video_count": 217,
    "sources": [
     "네덜란드",
     "벨기에"
@@ -1514,25 +1532,25 @@
    ],
    "asset": "노랑 띠 칩(_sticker_core tape, 스카우트24 테마 바탕색 칠)",
    "stats": {
-    "n": 269,
-    "videos_nl": 67,
-    "videos_be": 64,
-    "share_nl": 0.508,
-    "share_be": 0.64,
-    "per_video": 2.05,
-    "cy_med": 0.363,
-    "cy_q25": 0.242,
-    "cy_q75": 0.584,
-    "h_med": 0.047,
-    "w_med": 0.483,
-    "dur_med": 1.2,
-    "sfx_03": 0.257,
-    "first3s": 0.275,
-    "last4s": 0.037,
-    "pos_med": 0.34
+    "n": 449,
+    "videos_nl": 99,
+    "videos_be": 118,
+    "share_nl": 0.495,
+    "share_be": 0.599,
+    "per_video": 2.07,
+    "cy_med": 0.344,
+    "cy_q25": 0.244,
+    "cy_q75": 0.606,
+    "h_med": 0.057,
+    "w_med": 0.494,
+    "dur_med": 1.3,
+    "sfx_03": 0.265,
+    "first3s": 0.276,
+    "last4s": 0.029,
+    "pos_med": 0.32
    },
-   "cy_med": 0.363,
-   "dur_med": 1.2
+   "cy_med": 0.344,
+   "dur_med": 1.3
   },
   {
    "id": "S009",
@@ -1670,8 +1688,8 @@
    "when": "낱말 감정에 맞는 이모지 1개: 🏁마력 👀퀴즈 🤯놀람 🔥인기 💡팁 📍매장 🚙선택 💵가격",
    "pair": "효과음-팝",
    "geometry": "이모지 높이 6~9%, 낱말 옆, 0.8초",
-   "freq": "자동 집계(같은 모양 묶음, 다른 스킬 포함): 네덜란드 41/132개 · 벨기에 23/100개 영상, 영상 하나에 평균 1.59번, 세로 중심 0.423~0.569(중간 0.502), 머무는 시간 0.9초, 효과음 붙는 비율 21%",
-   "video_count": 64,
+   "freq": "자동 집계(같은 모양 묶음, 다른 스킬 포함): 네덜란드 58/200개 · 벨기에 42/197개 영상, 영상 하나에 평균 1.52번, 세로 중심 0.428~0.591(중간 0.511), 머무는 시간 1.05초, 효과음 붙는 비율 20%",
+   "video_count": 100,
    "sources": [
     "네덜란드",
     "벨기에"
@@ -1688,25 +1706,25 @@
    ],
    "asset": "이모지 세트(트리거 낱말 표)",
    "stats": {
-    "n": 102,
-    "videos_nl": 41,
-    "videos_be": 23,
-    "share_nl": 0.311,
-    "share_be": 0.23,
-    "per_video": 1.59,
-    "cy_med": 0.502,
-    "cy_q25": 0.423,
-    "cy_q75": 0.569,
-    "h_med": 0.269,
-    "w_med": 0.611,
-    "dur_med": 0.9,
-    "sfx_03": 0.206,
-    "first3s": 0.176,
-    "last4s": 0.118,
-    "pos_med": 0.46
+    "n": 152,
+    "videos_nl": 58,
+    "videos_be": 42,
+    "share_nl": 0.29,
+    "share_be": 0.213,
+    "per_video": 1.52,
+    "cy_med": 0.511,
+    "cy_q25": 0.428,
+    "cy_q75": 0.591,
+    "h_med": 0.274,
+    "w_med": 0.606,
+    "dur_med": 1.05,
+    "sfx_03": 0.204,
+    "first3s": 0.145,
+    "last4s": 0.138,
+    "pos_med": 0.48
    },
-   "cy_med": 0.502,
-   "dur_med": 0.9
+   "cy_med": 0.511,
+   "dur_med": 1.05
   },
   {
    "id": "S014",
@@ -1834,8 +1852,8 @@
    "when": "다른 차와 비교할 때 흰 카드(차 사진·차명·가격)를 노랑 테이프로 붙임",
    "pair": "효과음-팝",
    "geometry": "카드 폭 화면 45%, 1.2초",
-   "freq": "자동 집계(같은 모양 묶음, 다른 스킬 포함): 네덜란드 83/132개 · 벨기에 70/100개 영상, 영상 하나에 평균 2.12번, 세로 중심 0.375~0.556(중간 0.482), 머무는 시간 1.5초, 효과음 붙는 비율 29%",
-   "video_count": 153,
+   "freq": "자동 집계(같은 모양 묶음, 다른 스킬 포함): 네덜란드 135/200개 · 벨기에 120/197개 영상, 영상 하나에 평균 2.09번, 세로 중심 0.373~0.556(중간 0.476), 머무는 시간 1.4초, 효과음 붙는 비율 28%",
+   "video_count": 255,
    "sources": [
     "네덜란드",
     "벨기에"
@@ -1852,25 +1870,25 @@
    ],
    "asset": "비교 매물 카드(보배드림 매물 사진·가격)",
    "stats": {
-    "n": 324,
-    "videos_nl": 83,
-    "videos_be": 70,
-    "share_nl": 0.629,
-    "share_be": 0.7,
-    "per_video": 2.12,
-    "cy_med": 0.482,
-    "cy_q25": 0.375,
+    "n": 534,
+    "videos_nl": 135,
+    "videos_be": 120,
+    "share_nl": 0.675,
+    "share_be": 0.609,
+    "per_video": 2.09,
+    "cy_med": 0.476,
+    "cy_q25": 0.373,
     "cy_q75": 0.556,
-    "h_med": 0.583,
-    "w_med": 0.803,
-    "dur_med": 1.5,
-    "sfx_03": 0.29,
-    "first3s": 0.256,
-    "last4s": 0.074,
-    "pos_med": 0.37
+    "h_med": 0.589,
+    "w_med": 0.817,
+    "dur_med": 1.4,
+    "sfx_03": 0.275,
+    "first3s": 0.23,
+    "last4s": 0.086,
+    "pos_med": 0.41
    },
-   "cy_med": 0.482,
-   "dur_med": 1.5
+   "cy_med": 0.476,
+   "dur_med": 1.4
   },
   {
    "id": "S019",
@@ -2220,8 +2238,8 @@
    "when": "영상 끝·중간 로고(작게 → 크게 2단)",
    "pair": "효과음-휙",
    "geometry": "세로 0.22~0.50, 1.4초",
-   "freq": "자동 집계: 네덜란드 110/132개 · 벨기에 84/100개 영상, 영상 하나에 평균 1.63번, 세로 중심 0.215~0.521(중간 0.457), 머무는 시간 1.4초, 효과음 붙는 비율 22%",
-   "video_count": 194,
+   "freq": "자동 집계: 네덜란드 173/200개 · 벨기에 156/197개 영상, 영상 하나에 평균 1.67번, 세로 중심 0.228~0.524(중간 0.455), 머무는 시간 1.3초, 효과음 붙는 비율 21%",
+   "video_count": 329,
    "sources": [
     "네덜란드",
     "벨기에"
@@ -2238,25 +2256,25 @@
    ],
    "asset": "보배드림 로고(작게→크게)",
    "stats": {
-    "n": 317,
-    "videos_nl": 110,
-    "videos_be": 84,
-    "share_nl": 0.833,
-    "share_be": 0.84,
-    "per_video": 1.63,
-    "cy_med": 0.457,
-    "cy_q25": 0.215,
-    "cy_q75": 0.521,
-    "h_med": 0.138,
-    "w_med": 0.461,
-    "dur_med": 1.4,
-    "sfx_03": 0.218,
-    "first3s": 0.095,
-    "last4s": 0.637,
-    "pos_med": 0.93
+    "n": 548,
+    "videos_nl": 173,
+    "videos_be": 156,
+    "share_nl": 0.865,
+    "share_be": 0.792,
+    "per_video": 1.67,
+    "cy_med": 0.455,
+    "cy_q25": 0.228,
+    "cy_q75": 0.524,
+    "h_med": 0.135,
+    "w_med": 0.453,
+    "dur_med": 1.3,
+    "sfx_03": 0.21,
+    "first3s": 0.099,
+    "last4s": 0.644,
+    "pos_med": 0.94
    },
-   "cy_med": 0.457,
-   "dur_med": 1.4
+   "cy_med": 0.455,
+   "dur_med": 1.3
   },
   {
    "id": "S031",
@@ -2479,8 +2497,8 @@
    "when": "말 자막: 흰 대문자 + 검정 테두리, 말하는 낱말만 노랑, 1~3낱말씩",
    "pair": null,
    "geometry": "세로 0.55~0.63, 덩어리 0.4~0.8초",
-   "freq": "자동 집계: 네덜란드 7/132개 · 벨기에 1/100개 영상, 영상 하나에 평균 1.0번, 세로 중심 0.564~0.661(중간 0.576), 머무는 시간 0.75초, 효과음 붙는 비율 25%",
-   "video_count": 8,
+   "freq": "자동 집계: 네덜란드 9/200개 · 벨기에 6/197개 영상, 영상 하나에 평균 1.0번, 세로 중심 0.57~0.669(중간 0.616), 머무는 시간 0.7초, 효과음 붙는 비율 27%",
+   "video_count": 15,
    "sources": [
     "네덜란드",
     "벨기에"
@@ -2495,25 +2513,25 @@
    ],
    "asset": "말 자막(CAP_RULES)",
    "stats": {
-    "n": 8,
-    "videos_nl": 7,
-    "videos_be": 1,
-    "share_nl": 0.053,
-    "share_be": 0.01,
+    "n": 15,
+    "videos_nl": 9,
+    "videos_be": 6,
+    "share_nl": 0.045,
+    "share_be": 0.03,
     "per_video": 1.0,
-    "cy_med": 0.576,
-    "cy_q25": 0.564,
-    "cy_q75": 0.661,
-    "h_med": 0.02,
-    "w_med": 0.069,
-    "dur_med": 0.75,
-    "sfx_03": 0.25,
-    "first3s": 0.125,
-    "last4s": 0.125,
-    "pos_med": 0.4
+    "cy_med": 0.616,
+    "cy_q25": 0.57,
+    "cy_q75": 0.669,
+    "h_med": 0.021,
+    "w_med": 0.122,
+    "dur_med": 0.7,
+    "sfx_03": 0.267,
+    "first3s": 0.133,
+    "last4s": 0.133,
+    "pos_med": 0.31
    },
-   "cy_med": 0.576,
-   "dur_med": 0.75
+   "cy_med": 0.616,
+   "dur_med": 0.7
   },
   {
    "id": "S039",
@@ -2887,6 +2905,62 @@
     "N3#42"
    ],
    "asset": "보배드림 파랑 배경 스튜디오 촬영"
+  },
+  {
+   "id": "S052",
+   "version": "v2",
+   "title": "편집 스킬 52 — 명칭 미정",
+   "note": "시리즈 타이틀 카드",
+   "type": "첫 화면",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "정기 코너(대담·연재)의 첫 화면: 진한 둥근 판 + 원 아이콘 + 코너 이름 + 로고, 1~2초",
+   "pair": "인용 문장 카드",
+   "geometry": "가운데, 화면 폭 60%, 2초",
+   "freq": "관찰 예 3건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N4#42",
+    "N4#246",
+    "N4#302"
+   ],
+   "asset": "보배드림 코너 이름 + 보배드림 로고(원본 코너명·로고 쓰지 않음)"
+  },
+  {
+   "id": "S053",
+   "version": "v2",
+   "title": "편집 스킬 53 — 명칭 미정",
+   "note": "인용 문장 카드",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "대담·인터뷰에서 핵심 한 문장을 노랑 판에 크게 띄울 때(말한 그대로, 지어내지 않음)",
+   "pair": "사람 이름표",
+   "geometry": "가운데, 화면 폭 85%, 2~3초",
+   "freq": "관찰 예 3건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N4#241",
+    "N4#242",
+    "N4#243"
+   ],
+   "asset": "말한 문장 그대로 + 말한 사람 이름"
   }
  ]
 }

@@ -87,12 +87,17 @@ NEW = [
      '마지막 2~3초, 가운데', ['N3#177', 'N3#178', 'N3#179'], '보배드림 캠페인 문구 + 로고'),
     ('S051', '단색 배경 진행자', '사람 연출', [M2], '서비스 설명·공지처럼 차가 없는 영상: 단색(브랜드색) 배경 앞 진행자', '설명용 그림 컷',
      '전체 화면', ['N3#41', 'N3#42'], '보배드림 파랑 배경 스튜디오 촬영'),
+    ('S052', '시리즈 타이틀 카드', '첫 화면', ALL, '정기 코너(대담·연재)의 첫 화면: 진한 둥근 판 + 원 아이콘 + 코너 이름 + 로고, 1~2초', '인용 문장 카드',
+     '가운데, 화면 폭 60%, 2초', ['N4#42', 'N4#246', 'N4#302'], '보배드림 코너 이름 + 보배드림 로고(원본 코너명·로고 쓰지 않음)'),
+    ('S053', '인용 문장 카드', '자막', ALL, '대담·인터뷰에서 핵심 한 문장을 노랑 판에 크게 띄울 때(말한 그대로, 지어내지 않음)', '사람 이름표',
+     '가운데, 화면 폭 85%, 2~3초', ['N4#241', 'N4#242', 'N4#243'], '말한 문장 그대로 + 말한 사람 이름'),
 ]
 for sid, note, typ, modes, when, pair, geo, ex, asset in NEW:
     skills.append(dict(id=sid, version='v2', title=f'편집 스킬 {int(sid[1:])} — 명칭 미정', note=note, type=typ, modes=modes, when=when, pair=pair,
                        geometry=geo, freq=f'관찰 예 {len(ex)}건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)', video_count=None,
                        sources=['네덜란드', '벨기에'], examples=[], example_ids=ex, asset=asset))
-OBSERVED_ONLY = [dict(name='대중문화 캐릭터 스티커', why='영화·드라마 주인공 일러스트를 붙임(N3#313). 남의 캐릭터라 쓰지 않는다. 필요하면 보배드림 자체 일러스트로.')]
+OBSERVED_ONLY = [dict(name='대중문화 캐릭터 스티커', why='영화·드라마 주인공 일러스트를 붙임(N3#313, N4#798 「Magnum P.I.」). 남의 캐릭터라 쓰지 않는다. 필요하면 보배드림 자체 일러스트로.'),
+                 dict(name='다른 서비스 로고 띄우기', why='차 화면의 넷플릭스 등 다른 회사 로고를 크게 띄움(N4#28, N4#29). 남의 로고라 쓰지 않는다. 기능 이름은 글자 칩(S008)으로.')]
 
 # ── 3. 패턴 유형 프로필 ──
 P = defaultdict(list)
@@ -148,7 +153,7 @@ RECIPES.update(
     price_reveal=['S042', 'S004'], comment=['S028'], ending=['S050', 'S030'], budget_hook=['S025', 'S004'], listing=['S021', 'S047', 'S004'],
     compare_hook=['S025'], compare=['S018', 'S047'], choice=['S027'], tip_hook=['S025', 'S013'], point=['S008', 'S020', 'S036'],
     fact_hook=['S025', 'S040'], story=['S049', 'S014', 'S015'], list_hook=['S025', 'S043'], rank=['S043', 'S001'],
-    asmr_hook=['S032'], interview_hook=['S025', 'S033'], answer=['S033', 'S004', 'S027'], question_hook=['S025'],
+    asmr_hook=['S032'], interview_hook=['S052', 'S025', 'S033'], answer=['S033', 'S053', 'S004', 'S027'], question_hook=['S025'],
     sold_hook=['S010', 'S001'], cta=['S029', 'S046'], service_hook=['S025', 'S051'], app=['S019', 'S020'], explain=['S048', 'S045'],
     news_hook=['S025', 'S006'], why_hook=['S025', 'S014'], sound=['S012', 'S032'], point_m3=['S035', 'S020'],
 )
@@ -169,7 +174,10 @@ timing = dict(first_overlay_delay=min(first_t or .5, 1.0), gap_between_overlays=
 out = dict(
     _note=f"편집 스킬 라이브러리 v2. 스킬 번호 고정, 고치면 version만 올린다. 측정: AS24 네덜란드 {NV.get('NL')} · 벨기에 {NV.get('BE')} 쇼츠(2026-11-10).",
     collision=V1['collision'], korean=V1['korean'], timing=timing,
-    sfx=dict(V1['sfx'], every_n_overlays=4, max_ratio=.35),
+    sfx=dict(V1['sfx'], every_n_overlays=4, max_ratio=.35,
+             _note='칠·칩 등장 0.3초 안에 효과음이 붙은 비율: ' + ' · '.join(f"{ko} {round(SUBSTAT[k]['sfx_03'] * 100)}%" for k, ko in
+                   (('tape', '띠'), ('boxlabel', '이름표'), ('bigtext', '큰 숫자'), ('insert', '삽입'), ('logo', '로고')) if k in SUBSTAT)
+                   + ' (2kHz 위 소리 급증 기준, 말소리 섞일 수 있음). 모든 등장에 효과음을 붙이지 않는다.'),
     mode_rules=dict(V1['mode_rules'], **{M1: '사람 이름표·놀람 선·가리키기·덮개 공개·단색 배경 진행자(S033·S034·S035·S037·S051)와 둘 중 하나(S027)는 쓰지 않는다'}),
     auto_check=V1['auto_check'] + ['효과음 붙는 요소 35% 이하', '끝 로고 마지막 4초 안'],
     recipes=RECIPES, pattern_flows=FLOWS, patterns=profiles, substats=SUBSTAT, observed_only=OBSERVED_ONLY,

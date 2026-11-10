@@ -23,11 +23,11 @@ RULES = [
     ('P16', '서비스·플랫폼 홍보', r'autoscout24\.(nl|be)|waardebepaling|verkopen|oplichting|aanbod|perfecte match|volg ons|op zoek naar je volgende|wil je graag jouw auto'),
     ('P17', '뉴스·제도', r'keuring|crisis|stopt|per kilometer|regels|nummer 1 merk|car-pass|tesla.{0,20}(ruimte|zon)|\d{1,2} (juli|september|januari)'),
     ('P09', '숨은 기능·팁·핵', r'hack|tip|optie|verborgen|vakjes|snufjes|details|instellen|schroevendraaier|sleutel|ruimte cre|wist je deze|digital light|lichtshow|p r n d'),
-    ('P10', '상식·브랜드 이야기', r'\d+ ?km (met|op)|staat voor|waar staat|wist je|wist jij|geheim|weetjes|betekent|familie|naam is|lijkt op|officieel|individual|vroeger|merk uit|premiummerk|chinese innovatie|ooit|wat maakt'),
-    ('P14', '시청자 참여 질문', r'zou jij hem kopen|omschijf|wat (was|vind|is volgens)|laat (weten|het weten)|omschrijf|jouw gekste|eerste auto|duurste boete|welke optie mag'),
+    ('P10', '상식·브랜드 이야기', r'\d+ ?km (met|op)|제임스 본드|때문에 .{0,10}익숙|staat voor|waar staat|wist je|wist jij|geheim|weetjes|betekent|familie|naam is|lijkt op|officieel|individual|vroeger|merk uit|premiummerk|chinese innovatie|ooit|wat maakt'),
+    ('P14', '시청자 참여 질문', r'zou jij hem kopen|hoe vaak spot|omschijf|wat (was|vind|is volgens)|laat (weten|het weten)|omschrijf|jouw gekste|eerste auto|duurste boete|welke optie mag'),
     ('P07', '가격 공개 매물', r'kost|€\s?\d|\d[\d.]*\s?euro|vertel ik (op het einde|je zo)|te koop|prijs'),
     ('P18', '왜 인기·가치 설명', r'waarom|populair|best verkochte|meest verkochte|eerste auto|gezinsauto|perfecte|interessante daily|voordeligste|betaalbare|zuinig'),
-    ('P02', '차 앞 소개(진행자)', r'achter mij|naast mij|cartour|ik neem jullie|ik vertel|dit is (de|een|het|geen|niet)|ik laat je|uitgevoerd met|heeft (pas|een|zoveel)|deze .{0,40}(is|heeft|ziet)'),
+    ('P02', '차 앞 소개(진행자)', r'achter mij|naast mij|in 30 seconden|voorzien van|upgrade|is met bijna|past zich aan|camera.s|kiest voor|^de .{2,40} (is|bij)|cartour|ik neem jullie|ik vertel|dit is (de|een|het|geen|niet)|ik laat je|uitgevoerd met|heeft (pas|een|zoveel)|deze .{0,40}(is|heeft|ziet)'),
 ]
 NAMES = {c: n for c, n, _ in RULES}
 NAMES['P01'] = '차명 쇼케이스(분위기)'
@@ -42,7 +42,7 @@ def title_pattern(t):
         if m:
             return code, m.group(0)
     # 차명(+이모지)만 있으면 쇼케이스
-    words = re.sub(r'[^\w€.\-\s]', ' ', t.get('orig') or '').split()
+    words = re.sub(r'[^\w€.\-\s]', ' ', re.sub(r'#\S+', ' ', t.get('orig') or '')).split()
     if t.get('maker') and len(words) <= 9:
         return 'P01', 'car-name-only'
     if 1 <= len(words) <= 6:
