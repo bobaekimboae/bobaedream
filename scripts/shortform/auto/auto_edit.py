@@ -268,7 +268,13 @@ def make_script_nasser(F, style, shots=None):
             ph.append(list(zip((say + '.').split(), (tr + '.').split())))  # 말은 풀어 읽고, 자막은 매물 표기 그대로(P530 AB LWB)
     else:
         ph.append(W(f"{color} {name}!" if color else f"{name}!"))
-    blk('hook', ph, hook=True)
+    aggro = os.environ.get('SAG_HOOK_LINE', '').strip()
+    if aggro:
+        # 2026-11-10 사용자 지시 「후킹 들어가 남성 어그로성 대사」: 첫 구절만 다른 목소리(남성)로 세게. 글은 매물 사실로만(호출하는 쪽 책임)
+        blk('hook', [W(aggro)], hook=True, voice='hook')
+        blk('hook', ph)
+    else:
+        blk('hook', ph, hook=True)
     # 주행거리
     if F.get('km') is not None:
         km = int(F['km'])
