@@ -1557,8 +1557,8 @@ def overlay(T, total, shots, shot, blk):
         if not (st <= T < en):
             continue
         band = smeta[si].get('band')
-        if band == 'low':
-            big_on = True  # 아래쪽 칩은 말 자막 자리와 겹치므로 그동안 자막을 숨긴다
+        if band == 'low' and (globals().get('CAP_RULES') or {}).get('hide_mode', 'related') == 'always':
+            big_on = True  # 아래쪽 칩(1420)은 자막(NL 1190·BE 1229)과 겹치지 않으므로 related 모드에서는 숨기지 않는다(2026-11-10 자막 빠짐 방지)
             hide_txts.append(txt)
         big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)
         big = big and STYLE.get('big_numbers', True)  # 벨기에판: 숫자도 칩 안에(크게 튀어나오지 않음)
