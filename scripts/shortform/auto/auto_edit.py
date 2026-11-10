@@ -99,7 +99,7 @@ def line(o, field, key):
 def make_script(F, style, shots=None):
     long = bool(shots) and max(x['t1'] for x in shots) >= RULES['script'].get('long_source_s', 40)
     """블록 목록: dict(sec, words=[(tts어절, 화면어절)], caps=[어절수...], stickers=[(칩, 구절번호, {band,part,list})], parts=[구절별 원하는 부위 목록])"""
-    name = f"{F['make']} {F['model']}"
+    name = car_name(F)
     key = F.get('id', name)
     blocks = []
 
@@ -212,6 +212,13 @@ def make_script(F, style, shots=None):
     return blocks
 
 
+def car_name(F):
+    """차 이름. 2026-11-10 사용자 지시 「랜드로버는 한국서 뺀다」: 한국에서 모델명만 부르는 제조사는 규칙 script.name_drop_make"""
+    if F['make'] in RULES['script'].get('name_drop_make', []):
+        return F['model']
+    return f"{F['make']} {F['model']}"
+
+
 def make_script_nasser(F, style, shots=None):
     """2026-11-10 사용자 지시 「나세르처럼 대사 바꿔」 「입니다로」 「AI 티 제거」.
     근거: 시트 「나사르헤시엔_유튜브」 한국어 자막(reports/shortform/as24-reviewer-nasser 130편).
@@ -219,7 +226,7 @@ def make_script_nasser(F, style, shots=None):
     ③ 옵션마다 그게 뭘 해 주는지 한 문장 ④ 숫자 제원은 기능 뒤에 몰아서 ⑤ 끝은 「~에서 만나보세요」.
     사실만 쓴다: 옵션은 매물 옵션표, benefit은 그 옵션의 일반 기능, 첫 줄 「~를 원하신다면」은 차종(body)으로만 고른다"""
     long = bool(shots) and max(x['t1'] for x in shots) >= RULES['script'].get('long_source_s', 40)
-    name = f"{F['make']} {F['model']}"
+    name = car_name(F)
     blocks = []
 
     def blk(sec, phrases, stickers=(), parts=None, **kw):
@@ -638,11 +645,11 @@ def write_config(F, blocks, style, path, segs=None):
         if b.get('hook'): d['hook'] = True
         if b.get('end'): d['end'] = True
         B.append(d)
-    name = f"{F['make']} {F['model']}"
+    name = car_name(F)
     price = ' '.join(price_parts(F['price_manwon'])[1]) + '원' if F.get('price_manwon') else ''
     line2 = ' · '.join(x for x in [f"주행 {km_show(int(F['km']))}" if F.get('km') is not None else '', price] if x)
     # 원본 NL: 첫 화면 칩은 브랜드·모델 한 낱말(「LEXUS」)
-    hook = dict(title=f"{F['make']} {F['model'].split()[0]}" if style == 'bobae_nl' else name, line1=' · '.join(x for x in [F.get('gen', ''), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
+    hook = dict(title=(name if F['make'] in RULES['script'].get('name_drop_make', []) else f"{F['make']} {F['model'].split()[0]}") if style == 'bobae_nl' else name, line1=' · '.join(x for x in [F.get('gen', ''), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
     car = dict(name=name, year=str(F.get('year', '')), reg=F.get('reg', ''), km=km_show(int(F['km'])) if F.get('km') is not None else '',
                km_short=km_show(int(F['km'])) if F.get('km') is not None else '', fuel=F.get('fuel', ''), price=price, region=F.get('region', ''),
                drive=F.get('engine', ''), gen=F.get('gen', ''), color=F.get('color', ''))
