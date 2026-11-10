@@ -747,6 +747,15 @@ def main():
     if not os.path.exists(wp):
         words_local(os.path.join(a.out, 'voice.mp3'), wp)
     words = load_words(wp)
+    # 2026-11-10 크로스체크: 대본을 바꾼 뒤 예전 목소리 파일로 만들면 칩·장면이 한 구절씩 밀린다(레인지로버 벨기에 긴 판).
+    # 목소리 받아쓰기와 지금 대본이 다르면 멈춘다(규칙 crosscheck.script_match_min)
+    norm = lambda t: re.sub(r'[^0-9A-Za-z가-힣]', '', t)
+    got, want = norm(''.join(w[2] for w in words)), norm(tts_text(blocks))
+    ratio = difflib.SequenceMatcher(None, got, want, autojunk=False).ratio()
+    lim = RULES.get('crosscheck', {}).get('script_match_min', 0.8)
+    if ratio < lim:
+        sys.exit(f'목소리 파일이 지금 대본과 다릅니다(일치 {ratio:.2f} < {lim}). 대본을 바꿨으면 목소리를 다시 만들고 words.json을 지우세요: {a.out}')
+    print(f'목소리 ↔ 대본 일치 {ratio:.2f}')
     times = phrase_times(blocks, words)
     dropped = chip_budget(blocks, a.style, words[-1][1] + 2.4)
     if dropped:
