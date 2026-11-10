@@ -375,7 +375,11 @@ def pron(tok):
     for k in sorted(P.get('words', {}), key=len, reverse=True):
         if k in core:
             core = core.replace(k, P['words'][k])
-    core = re.sub(r'(\d)\.(\d)', lambda x: DIG[int(x.group(1))] + '점' + ('영' if x.group(2) == '0' else DIG[int(x.group(2))]), core)
+    def dec(x):  # 2026-11-10: 13.7인치가 「1삼점칠」로 읽히던 문제 → 정수부는 십삼, 소수부는 한 자리씩
+        n = int(x.group(1))
+        ip = DIG[n] if n < 10 else ('' if n // 10 == 1 else DIG[n // 10]) + '십' + (DIG[n % 10] if n % 10 else '')
+        return ip + '점' + ''.join('영' if d == '0' else DIG[int(d)] for d in x.group(2))
+    core = re.sub(r'(?<![\d,])(\d{1,2})\.(\d+)', dec, core)
     def model(x):
         return ''.join(P['letters'].get(c, c) for c in x.group(1)) + ''.join(DIG[int(d)] for d in x.group(2))
     core = re.sub(r'\b([A-Z]{1,3})(\d{2,3})\b', model, core)
