@@ -212,6 +212,17 @@ def make_script(F, style, shots=None):
     return blocks
 
 
+def gen_name(F):
+    """세대 표기. 2026-11-10 사용자 지시 「BMW·벤츠·포르쉐 말고는 코드네임 안 쓴다」:
+    그 밖의 제조사는 세대 글자에서 코드네임(L460·(W213)·G30 같은 영문+숫자)을 지우고 「5세대」만 남긴다(규칙 script.codename_makes)"""
+    g = F.get('gen') or ''
+    if not g or F['make'] in RULES['script'].get('codename_makes', []):
+        return g
+    g = re.sub(r'\([^)]*\)', '', g)
+    g = ' '.join(w for w in g.split() if not re.fullmatch(r'[A-Za-z]{1,3}\d{2,4}[A-Za-z]?', w))
+    return g.strip()
+
+
 def car_name(F):
     """차 이름. 2026-11-10 사용자 지시 「랜드로버는 한국서 뺀다」: 한국에서 모델명만 부르는 제조사는 규칙 script.name_drop_make"""
     if F['make'] in RULES['script'].get('name_drop_make', []):
@@ -251,7 +262,7 @@ def make_script_nasser(F, style, shots=None):
         # (세대·트림은 매물 정보 그대로, 읽기만 rules luxury.trim_say로 풀어 읽음)
         lx = RULES['script'].get('luxury', {})
         ph = [W(f"{color} {name}." if color else f"{name}.")]
-        tr = ' '.join(x for x in (F.get('gen'), F.get('trim')) if x)
+        tr = ' '.join(x for x in (gen_name(F), F.get('trim')) if x)
         if tr:
             say = ' '.join(lx.get('trim_say', {}).get(w, w) for w in tr.split())
             ph.append(list(zip((say + '.').split(), (tr + '.').split())))  # 말은 풀어 읽고, 자막은 매물 표기 그대로(P530 AB LWB)
@@ -649,10 +660,10 @@ def write_config(F, blocks, style, path, segs=None):
     price = ' '.join(price_parts(F['price_manwon'])[1]) + '원' if F.get('price_manwon') else ''
     line2 = ' · '.join(x for x in [f"주행 {km_show(int(F['km']))}" if F.get('km') is not None else '', price] if x)
     # 원본 NL: 첫 화면 칩은 브랜드·모델 한 낱말(「LEXUS」)
-    hook = dict(title=(name if F['make'] in RULES['script'].get('name_drop_make', []) else f"{F['make']} {F['model'].split()[0]}") if style == 'bobae_nl' else name, line1=' · '.join(x for x in [F.get('gen', ''), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
+    hook = dict(title=(name if F['make'] in RULES['script'].get('name_drop_make', []) else f"{F['make']} {F['model'].split()[0]}") if style == 'bobae_nl' else name, line1=' · '.join(x for x in [gen_name(F), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
     car = dict(name=name, year=str(F.get('year', '')), reg=F.get('reg', ''), km=km_show(int(F['km'])) if F.get('km') is not None else '',
                km_short=km_show(int(F['km'])) if F.get('km') is not None else '', fuel=F.get('fuel', ''), price=price, region=F.get('region', ''),
-               drive=F.get('engine', ''), gen=F.get('gen', ''), color=F.get('color', ''))
+               drive=F.get('engine', ''), gen=gen_name(F), color=F.get('color', ''))
     marks = {txt: '✓' for b in blocks for txt, _, m in b['stickers'] if m.get('list') and style == 'bobae_nl'}
     src = f"""# 자동 편집기(auto_edit.py)가 만든 설정. 손으로 고치지 말고 facts.json·shots.json·규칙을 고친 뒤 다시 만든다
 exec(open('scripts/shortform/reels/vantage_s3.py', encoding='utf-8').read())  # 공통 STYLE 바탕(글꼴·칠·크기)
