@@ -1378,5 +1378,16 @@
    "min_word_db": -9,
    "_note": "완성 영상 소리에서 낱말마다 원래 목소리보다 이 dB 이상 작아지면 「음성 빠짐」(배경음·덕킹·잘림 검사)"
   }
+ },
+ "crosscheck": {
+  "_rule": "완성본 크로스체크 기준(crosscheck.py). 2~9번 항목 실패가 1건이라도 있으면 배포 전 다시 만든다",
+  "black_luma": 12,
+  "black_max_s": 0.3,
+  "lufs": -14,
+  "lufs_tol": 1.5,
+  "tp_max": -1.0,
+  "end_min_s": 1.5,
+  "end_max_s": 3.5,
+  "mint_px": 40
  }
 }
