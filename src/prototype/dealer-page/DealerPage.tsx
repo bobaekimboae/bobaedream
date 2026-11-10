@@ -272,7 +272,7 @@ const DEALER_HERO_POSTER = asset("seoul-auto-gallery/header/building-bluehour-v0
 const DEALER_HERO_VIDEO = {
   brand: "Ferrari · Lamborghini",
   model: "12Cilindri · Revuelto",
-  src: asset("dealer-page/supercar-header-v01.mp4"),
+  src: asset("https://bobaekimboae.github.io/bobaedream-media-3/dealer-page/supercar-header-v01.mp4"),
   poster: asset("dealer-page/supercar-header-v01.webp"),
 } as const;
 

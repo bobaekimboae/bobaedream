@@ -53,7 +53,7 @@
     '차량 구입을 고민하는 분들을 위해 외관, 휠, 실내, 트렁크 순서로 사진을 모았습니다. 여러 비율의 사진을 좌우로 넘겨 확인할 수 있습니다.',
     '요즘 중고차 매물을 볼 때 꼭 확인하는 항목을 정리했습니다. 성능기록부와 보험 이력, 이전비 항목은 계약 전에 다시 확인하세요.'
   ];
-  var videoAssets=['media/car-driving-road-v01.mp4','media/car-sunset-drive-v01.mp4','media/car-desert-drone-v01.mp4'];
+  var videoAssets=['https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-driving-road-v01.mp4','https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-sunset-drive-v01.mp4','https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-desert-drone-v01.mp4'];
   var galleryItems=[];
   var galleryIndex=0;
   var galleryOpener=null;

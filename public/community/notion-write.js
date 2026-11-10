@@ -955,7 +955,7 @@
       id: "demo-video-1",
       kind: "video",
       name: "차량 외관 주행 영상.mp4",
-      src: "./media/car-sunset-drive-v01.mp4",
+      src: "https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-sunset-drive-v01.mp4",
       status: "done",
       progress: 100,
       persisted: false,

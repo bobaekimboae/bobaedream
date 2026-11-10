@@ -66,12 +66,12 @@
   var slash=String.fromCharCode(47);
   var feedAssetRoot=(/github\.io$/i.test(location.hostname)?slash+'bobaedream':'')+slash+'assets'+slash;
   var feedMediaByPost={
-    'domestic-001':{type:'video',src:'media/car-driving-road-v01.mp4',poster:feedAssetRoot+'detail/raw-20.jpeg'},
+    'domestic-001':{type:'video',src:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-driving-road-v01.mp4',poster:feedAssetRoot+'detail/raw-20.jpeg'},
     'import-001':{type:'image',src:feedAssetRoot+'detail/raw-07.jpeg'},
     'ev-001':{type:'gallery',items:[feedAssetRoot+'detail/raw-18.jpeg',feedAssetRoot+'detail/raw-19.jpeg',feedAssetRoot+'detail/raw-20.jpeg']},
     'truck-001':{type:'image',src:feedAssetRoot+'detail/raw-09.jpeg'},
-    'tune-001':{type:'video',src:'media/car-desert-drone-v01.mp4',poster:feedAssetRoot+'detail/raw-04.png'},
-    'blackbox-001':{type:'video',src:'media/car-sunset-drive-v01.mp4',poster:feedAssetRoot+'detail/raw-05.jpeg'},
+    'tune-001':{type:'video',src:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-desert-drone-v01.mp4',poster:feedAssetRoot+'detail/raw-04.png'},
+    'blackbox-001':{type:'video',src:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-sunset-drive-v01.mp4',poster:feedAssetRoot+'detail/raw-05.jpeg'},
     'domestic-002':{type:'gallery',items:[feedAssetRoot+'pc-detail/9573-imgImage.png',feedAssetRoot+'pc-detail/9573-imgImage2.png',feedAssetRoot+'pc-detail/9573-imgImage4.png']},
     'import-002':{type:'image',src:feedAssetRoot+'pc-detail/9573-imgImage7.png'},
     'used-002':{type:'gallery',items:[feedAssetRoot+'detail/raw-04.png',feedAssetRoot+'detail/raw-07.jpeg']},

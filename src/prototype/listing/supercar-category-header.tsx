@@ -26,7 +26,7 @@ const SUPERCAR_HERO_SLIDES: SupercarHeroSlide[] = [
   {
     id: "lamborghini-motion",
     kind: "video",
-    src: asset("supercar-header/lamborghini-official-hero.mp4"),
+    src: asset("https://bobaekimboae.github.io/bobaedream-media-3/supercar-header/lamborghini-official-hero.mp4"),
     poster: asset("supercar-header/lamborghini-official-poster.jpg"),
     position: "50% 50%",
   },
