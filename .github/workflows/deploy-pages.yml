@@ -113,4 +113,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # 2026-11-10: 사이트가 약 630MB라 Pages 파일 반영이 10분(기본)을 넘겨 두 번 취소됨 → 30분까지 기다림
+          timeout: 1800000
 
