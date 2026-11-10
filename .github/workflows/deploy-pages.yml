@@ -89,6 +89,13 @@ jobs:
       - name: Fix lazy-load preload paths
         # 나중에 불러오는 파일(ShootRegister 등)의 미리 불러오기 주소가 사이트 맨 위 /assets/로 잡혀 404가 나던 것(2026-10-25 최종 크로스체크)
         run: find dist/client -type f -name '*.js' -exec sed -i 's|return`/`+|return`/bobaedream/`+|g' {} +
+      - name: Leave out videos served from media repos
+        # 2026-11-10 사이트 1.84GB → 페이지 배포 시간 초과. 영상은 bobaedream-media-1~3 저장소에서 불러오므로 배포 묶음에서 뺀다(원본은 저장소에 남음)
+        run: |
+          if [ -f scripts/media-split/moved.txt ]; then
+            while IFS= read -r f; do [ -n "$f" ] && rm -f "dist/client/$f"; done < scripts/media-split/moved.txt
+          fi
+          du -sh dist/client
       - uses: actions/configure-pages@v5
         with:
           enablement: true
