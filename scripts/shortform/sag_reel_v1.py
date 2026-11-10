@@ -648,9 +648,12 @@ def dump_match(shots):
               open(os.path.join(OUT, 'match.json'), 'w'), ensure_ascii=False, indent=1)
 
 
+SRC_FPS = 30.0  # main()에서 원본 파일의 실제 초당 장면 수로 바꾼다(2026-11-10: 차란차 원본 25fps를 30으로 계산해 장면이 엉뚱한 시각에서 나옴)
+
+
 def src_frame(shot, T, nframes):
     s = shot['src'] + (T - shot['a']) * shot['sp']
-    return int(min(nframes - 1, max(0, round(s * FPS))))
+    return int(min(nframes - 1, max(0, round(s * SRC_FPS))))
 
 
 # ── 4. 번호판 위치표 ──
@@ -1718,7 +1721,9 @@ def main():
     build_sfx(total)
     cap = cv2.VideoCapture(SRC)
     nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    shots = clamp_to_segments(plan_shots(total), nframes / FPS)
+    global SRC_FPS
+    SRC_FPS = float(cap.get(cv2.CAP_PROP_FPS) or 0) or float(FPS)  # 원본 시각(초) → 원본 장면 번호는 원본의 실제 fps로(출력 FPS와 다를 수 있음)
+    shots = clamp_to_segments(plan_shots(total), nframes / SRC_FPS)
     dump_match(shots)
     # 번호판: 기본은 가리지 않음(딜러 매물은 번호판 공개가 원칙, 사용자 지시 2026-11-07). SAG_PLATE_COVER=1 이면 자동 가림
     track = plate_track(shots, total, nframes, os.path.join(OUT, 'plates.json')) if PLATE_COVER else {}

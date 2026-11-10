@@ -41,7 +41,7 @@ def check_render(out, shots, name):
     rows = []
     for c in M['chips']:
         want = want_of.get((c['sec'], c['chip']), [])
-        if want and c['part'] not in want[:1] and not (want[0] not in have and c['part'] in want):
+        if want and c['part'] not in want:  # 구간이 허용하는 부위 목록(parts_for_section·옵션표 parts) 밖이면 어긋남
             rows.append([name, style, c['sec'], f"{c['t']}초", c['chip'], want[0], c['part'], '부위' if want[0] in have else '없음'])
     for sh in M['shots']:
         seen = spans(shots, sh['src'], sh['src'] + (sh['b'] - sh['a']) * sh['sp'])
