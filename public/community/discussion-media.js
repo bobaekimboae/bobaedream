@@ -22,14 +22,14 @@
   };
   var ratio={1:1.4988,2:0.5628,3:0.75,4:1,5:1.3333,6:0.6667,7:0.7507,8:1,9:1.4988,10:0.75,11:0.7507,12:1,13:1.3333,14:0.7507,15:1,16:1.3333,17:0.75,18:0.75,19:1,20:0.75,21:0.75,22:1,23:1.3333,24:1.4988,25:1,26:0.6667,27:0.75,28:1,29:1.3333,30:0.75,31:0.75,32:0.6667,33:0.5628,34:0.5628,35:0.6667,36:0.5628,37:0.5628,38:0.5628,39:0.5628,40:0.6667,41:0.5628,42:0.6667,43:0.6667,44:0.75,45:0.5628,46:0.6667,47:0.5628,48:0.6667,49:0.6667,50:0.75,51:0.5628,52:0.75,53:0.5628,54:0.6667,55:0.5628,56:0.5628,57:0.6667,58:0.6667,59:0.5628,60:0.6667};
   var video={
-    8:'media/car-driving-road-v01.mp4',
-    11:'media/car-sunset-drive-v01.mp4',
-    14:'media/car-driving-road-v01.mp4',
-    20:'media/car-desert-drone-v01.mp4',
-    34:'media/car-driving-road-v01.mp4',
-    37:'media/car-sunset-drive-v01.mp4',
-    53:'media/car-driving-road-v01.mp4',
-    57:'media/car-desert-drone-v01.mp4'
+    8:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-driving-road-v01.mp4',
+    11:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-sunset-drive-v01.mp4',
+    14:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-driving-road-v01.mp4',
+    20:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-desert-drone-v01.mp4',
+    34:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-driving-road-v01.mp4',
+    37:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-sunset-drive-v01.mp4',
+    53:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-driving-road-v01.mp4',
+    57:'https://bobaekimboae.github.io/bobaedream-media-3/community/media/car-desert-drone-v01.mp4'
   };
   function src(id){return root+'post-'+String(id).padStart(2,'0')+'.webp?v='+version;}
   /* 게시글 하나의 사진 목록: [{src, ratio}] (최대 6장) */

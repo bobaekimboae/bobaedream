@@ -87,6 +87,14 @@ def pick(variants, key):
     return variants[h % len(variants)]
 
 
+def line(o, field, key):
+    """2026-11-10 대사 은행(노션 「숏폼 편집 자동화, 발음 대사 설명 자동화」): 옵션마다 같은 설명을 5~10가지로.
+    option_catalog 항목에 `<field>_variants`(목록)가 있으면 매물 번호(key)로 하나를 고르고, 없으면 기존 한 문장(`<field>`)을 쓴다.
+    같은 매물은 늘 같은 문장(다시 만들어도 바뀌지 않음), 매물이 다르면 다른 문장이 나온다"""
+    vs = [v for v in (o.get(field + '_variants') or []) if v]
+    return pick(vs, f'{key}:{o.get("name", "")}:{field}') if vs else o.get(field)
+
+
 # ── 1단계: 대본 ──
 def make_script(F, style, shots=None):
     long = bool(shots) and max(x['t1'] for x in shots) >= RULES['script'].get('long_source_s', 40)
@@ -152,7 +160,7 @@ def make_script(F, style, shots=None):
             if young and o.get('benefit') and not o.get('feature'):
                 # 나사르식(2026-11-10): 옵션 이름 + 그게 뭘 해 주는지 한 문장. 연결은 「~가 있어서」·「~는」을 번갈아
                 last = josa(sw[-1], '이 있어서', '가 있어서') if i % 2 == 0 else josa(sw[-1], '은', '는')
-                ws = [(w, w) for w in sw[:-1]] + [(last.split()[0], last.split()[0])] + [(w, w) for w in last.split()[1:]] + W(o['benefit'])
+                ws = [(w, w) for w in sw[:-1]] + [(last.split()[0], last.split()[0])] + [(w, w) for w in last.split()[1:]] + W(line(o, 'benefit', key))
                 ph.append(ws)
                 st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
                 parts.append(o['parts'])
@@ -250,7 +258,7 @@ def make_script_nasser(F, style, shots=None):
             else:
                 lastw = josa(sw[-1], '이', '가') + ' 있어' if i % 2 == 0 else josa(sw[-1], '은', '는')  # 「~가 있어」·「~는」 번갈아
                 head = [(w, w) for w in sw[:-1]] + [(x, x) for x in lastw.split()]
-                ws = head + W(o['benefit_f'])
+                ws = head + W(line(o, 'benefit_f', F.get('id', name)))
             ph.append(ws)
             st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
             parts.append(o['parts'])
@@ -617,7 +625,8 @@ def write_config(F, blocks, style, path, segs=None):
 exec(open('scripts/shortform/reels/vantage_s3.py', encoding='utf-8').read())  # 공통 STYLE 바탕(글꼴·칠·크기)
 CAR = {json.dumps(car, ensure_ascii=False)}
 HOOK = {json.dumps(hook, ensure_ascii=False)}
-SHOT_FIT = {json.dumps({k: v for k, v in RULES.get('shot_fit', {}).items() if not k.startswith('_') and k in ('clamp_to_part', 'min_speed', 'pull_start_when_short', 'edge_margin_s')})}  # 가변 규칙 shot_fit(auto_edit_rules.json)
+CAP_RULES = {json.dumps({k: v for k, v in RULES.get('captions', {}).items() if not k.startswith('_') and k != 'voice_check'})}  # 가변 규칙 captions(자막 빠짐 방지)
+SHOT_FIT = {json.dumps({k: v for k, v in RULES.get('shot_fit', {}).items() if not k.startswith('_') and k in ('clamp_to_part', 'min_speed', 'pull_start_when_short', 'edge_margin_s', 'swap_same_part', 'hold_at_end')})}  # 가변 규칙 shot_fit(auto_edit_rules.json)
 SEGS = {json.dumps([dict(t0=g['t0'], t1=g['t1'], part=g['part']) for g in (merge_shots(segs) if segs else [])], ensure_ascii=False)}  # 부위 구간: 렌더러가 장면을 이 안에서만 튼다(2026-11-10)
 BLOCKS = {json.dumps(B, ensure_ascii=False, indent=1)}
 SHOW = {json.dumps(show, ensure_ascii=False)}

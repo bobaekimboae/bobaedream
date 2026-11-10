@@ -1,0 +1,10 @@
+{
+ "_rule": "영상 저장소 3개 묶음(2026-11-10). 앞부분(public 기준 경로)으로 나눔. 마지막 묶음은 나머지 전부",
+ "base_url": "https://bobaekimboae.github.io/{repo}/",
+ "groups": [
+  {"repo": "bobaedream-media-1", "title": "딜러 인스타그램 릴스", "prefixes": ["assets/dealer-instagram/"]},
+  {"repo": "bobaedream-media-2", "title": "숏폼 자동편집 샘플", "prefixes": ["shortform-samples/"]},
+  {"repo": "bobaedream-media-3", "title": "매물·기타 영상", "prefixes": [""]}
+ ],
+ "compress": {"_note": "비트레이트가 above_bps보다 높은 mp4만 다시 압축(작아질 때만 씀)", "above_bps": 3000000, "crf": 26, "preset": "veryfast", "maxrate": "2.2M", "bufsize": "4.4M"}
+}
