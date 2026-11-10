@@ -637,6 +637,8 @@ def clamp_to_segments(shots, src_dur):
             sh['sp'] = round(min(sh['sp'], sp), 3)
             if sh['src'] + dur * sh['sp'] > end and SF['pull_start_when_short']:
                 sh['src'] = round(max(seg['t0'], end - dur * sh['sp']), 3)
+            if sh['src'] + dur * sh['sp'] > end and SF.get('hold_at_end', True):
+                sh['hold'] = round(end, 3)  # 같은 부위의 긴 구간도 없으면 구간 끝 장면에서 멈춘다(다음 부위가 비치지 않게, 08 원본 앞모습 1.3초)
     return shots
 
 
@@ -651,7 +653,7 @@ def dump_match(shots):
             t = PHRASES[b['ph0'] + pi][0]
             sh = next((x for x in shots if x['a'] <= t < x['b']), shots[-1])
             rows.append(dict(sec=b.get('sec', ''), chip=txt, t=round(t, 2), part=sh.get('part'), src=round(sh['src'] + (t - sh['a']) * sh['sp'], 2)))
-    json.dump(dict(chips=rows, shots=[{k: sh.get(k) for k in ('a', 'b', 'src', 'sp', 'bi', 'k', 'part')} for sh in shots]),
+    json.dump(dict(chips=rows, shots=[{k: sh.get(k) for k in ('a', 'b', 'src', 'sp', 'bi', 'k', 'part', 'hold')} for sh in shots]),
               open(os.path.join(OUT, 'match.json'), 'w'), ensure_ascii=False, indent=1)
 
 
@@ -660,6 +662,8 @@ SRC_FPS = 30.0  # main()에서 원본 파일의 실제 초당 장면 수로 바�
 
 def src_frame(shot, T, nframes):
     s = shot['src'] + (T - shot['a']) * shot['sp']
+    if shot.get('hold') is not None:
+        s = min(s, shot['hold'])
     return int(min(nframes - 1, max(0, round(s * SRC_FPS))))
 
 

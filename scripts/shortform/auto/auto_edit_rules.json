@@ -1334,6 +1334,7 @@
   "_fit_note": "장면을 고를 때 이 속도까지 천천히 틀어 맞출 수 있으면 그 장면을 쓴다(옵션은 그 부위 장면을 더 우선)",
   "min_speed": 0.4,
   "swap_same_part": true,
+  "hold_at_end": true,
   "_min_note": "부위 구간이 모자랄 때 늦출 수 있는 최저 속도. 그래도 모자라면 pull_start",
   "pull_start_when_short": true,
   "_pull_note": "최저 속도로도 모자라면 같은 부위 구간 안에서 시작을 앞으로 당겨 구간 안에서 끝냄",

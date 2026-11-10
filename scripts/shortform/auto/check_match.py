@@ -68,7 +68,7 @@ def check_render(out, shots, name):
         if want and c['part'] not in want:  # 구간이 허용하는 부위 목록(parts_for_section·옵션표 parts) 밖이면 어긋남
             rows.append([name, style, c['sec'], f"{c['t']}초", c['chip'], want[0], c['part'], '부위' if want[0] in have else '없음'])
     for sh in M['shots']:
-        seen = spans(shots, sh['src'], sh['src'] + (sh['b'] - sh['a']) * sh['sp'])
+        seen = spans(shots, sh['src'], min(sh['src'] + (sh['b'] - sh['a']) * sh['sp'], sh['hold'] if sh.get('hold') is not None else 1e9))
         if len(seen) > 1:
             rows.append([name, style, f"컷{sh['bi']}-{sh['k']}", f"{sh['a']:.2f}초", '', sh.get('part') or '', ' → '.join(seen), '넘침'])
     CRr = RULES.get('captions', {})
