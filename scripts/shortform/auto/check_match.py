@@ -47,6 +47,8 @@ def check_render(out, shots, name):
         seen = spans(shots, sh['src'], sh['src'] + (sh['b'] - sh['a']) * sh['sp'])
         if len(seen) > 1:
             rows.append([name, style, f"컷{sh['bi']}-{sh['k']}", f"{sh['a']:.2f}초", '', sh.get('part') or '', ' → '.join(seen), '넘침'])
+    for part in P.get('required_shots', []):  # 원본에 없는 부위 = 촬영 필요(규칙 shot_fit.required_shots)
+        rows.append([name, style, '촬영', '', '', part, '원본에 없음', '촬영 필요'])
     return rows
 
 
@@ -59,9 +61,11 @@ def main():
         rows = check_render(a.render, sorted(json.load(open(a.shots, encoding='utf-8')), key=lambda s: s['t0']), a.name)
         for r in rows:
             print('\t'.join(r))
+        over = sum(1 for r in rows if r[-1] == '넘침')
+        lim = RULES.get('shot_fit', {}).get('check', {}).get('max_overflow', 0)
         if not a.tsv:
-            print(f'어긋남 {len(rows)}곳')
-        return
+            print(f'어긋남 {len(rows)}곳 · 넘침 {over}곳(허용 {lim})')
+        raise SystemExit(1 if over > lim else 0)
     P = json.load(open(a.plan, encoding='utf-8'))
     shots = sorted(json.load(open(a.shots, encoding='utf-8')), key=lambda s: s['t0'])
     have = {s['part'] for s in shots}

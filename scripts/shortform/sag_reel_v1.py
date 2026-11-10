@@ -616,17 +616,20 @@ def clamp_to_segments(shots, src_dur):
     """2026-11-10 칩·말 ↔ 화면 어긋남 원인 수정: 컷 편집표가 장면을 줄이거나(shot_target_s) 컷을 당기거나(cut_early)
     마지막 장면을 영상 끝까지 늘리면, 원본이 그 부위 구간을 넘어 다음 부위(바퀴·트렁크)나 원본 끝 검은 화면이 비친다.
     장면마다 그 부위 구간(설정 SEGS, 없으면 원본 전체) 안에서 끝나도록 천천히(최저 0.4배) 틀고, 그래도 모자라면 시작을 당긴다"""
+    SF = dict(dict(clamp_to_part=True, min_speed=0.4, pull_start_when_short=True, edge_margin_s=0.04), **globals().get('SHOT_FIT', {}))
     segs = globals().get('SEGS') or [dict(t0=0.0, t1=src_dur, part='all')]
     for sh in shots:
         seg = next((g for g in segs if g['t0'] - 0.05 <= sh['src'] < g['t1']), None) or dict(t0=0.0, t1=src_dur, part='all')
-        end = min(seg['t1'], src_dur) - 0.04
+        sh['part'] = seg['part']
+        if not SF['clamp_to_part']:
+            continue
+        end = min(seg['t1'], src_dur) - SF['edge_margin_s']
         dur = max(0.01, sh['b'] - sh['a'])
         if sh['src'] + dur * sh['sp'] > end:
-            sp = max(0.4, (end - sh['src']) / dur)
+            sp = max(SF['min_speed'], (end - sh['src']) / dur)
             sh['sp'] = round(min(sh['sp'], sp), 3)
-            if sh['src'] + dur * sh['sp'] > end:
+            if sh['src'] + dur * sh['sp'] > end and SF['pull_start_when_short']:
                 sh['src'] = round(max(seg['t0'], end - dur * sh['sp']), 3)
-        sh['part'] = seg['part']
     return shots
 
 
