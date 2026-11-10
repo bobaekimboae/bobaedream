@@ -219,7 +219,7 @@ def gen_name(F):
     if not g or F['make'] in RULES['script'].get('codename_makes', []):
         return g
     g = re.sub(r'\([^)]*\)', '', g)
-    g = ' '.join(w for w in g.split() if not re.fullmatch(r'[A-Za-z]{1,3}\d{2,4}[A-Za-z]?', w))
+    g = ' '.join(w for w in g.split() if not re.fullmatch(r'[A-Za-z]{1,3}\d{1,4}[A-Za-z]?', w))
     return g.strip()
 
 
