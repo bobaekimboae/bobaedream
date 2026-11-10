@@ -73,8 +73,14 @@ def check_render(out, shots, name):
             rows.append([name, style, f"컷{sh['bi']}-{sh['k']}", f"{sh['a']:.2f}초", '', sh.get('part') or '', ' → '.join(seen), '넘침'])
     CRr = RULES.get('captions', {})
     for c in M.get('captions', []):  # 자막 빠짐: 말하는 동안 자막이 보인 비율이 기준보다 낮은 구절
-        if c['visible'] < CRr.get('min_visible_ratio', 0.6):
+        vis = c.get('caption_only', c['visible']) if CRr.get('hide_mode') == 'never' else c['visible']  # never: 칩이 같은 말을 보여 줘도 자막 자체가 보여야 함
+        c = dict(c, visible=vis)
+        if vis < CRr.get('min_visible_ratio', 0.6):
             rows.append([name, style, '자막', f"{c['t0']}초", c['text'], f"보임 {int(c['visible'] * 100)}%", f"기준 {int(CRr.get('min_visible_ratio', 0.6) * 100)}%", '자막 빠짐'])
+    if CRr.get('hide_mode') == 'never':  # 포인트칩이 뜬 동안 그 대사 자막이 보여야 함
+        for c in M['chips']:
+            if c.get('cap_shown', 1) < CRr.get('min_visible_ratio', 0.6):
+                rows.append([name, style, '자막', f"{c['t']}초", c['chip'], f"칩 중 자막 {int(c['cap_shown'] * 100)}%", f"기준 {int(CRr.get('min_visible_ratio', 0.6) * 100)}%", '자막 빠짐'])
     rows += voice_rows(out, name, style, CRr.get('voice_check', {}).get('min_word_db', -9))
     for part in P.get('required_shots', []):  # 원본에 없는 부위 = 촬영 필요(규칙 shot_fit.required_shots)
         rows.append([name, style, '촬영', '', '', part, '원본에 없음', '촬영 필요'])

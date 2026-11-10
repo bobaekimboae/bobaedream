@@ -1,0 +1,2966 @@
+{
+ "_note": "편집 스킬 라이브러리 v2. 스킬 번호 고정, 고치면 version만 올린다. 측정: AS24 네덜란드 200 · 벨기에 197 쇼츠(2026-11-10).",
+ "collision": {
+  "one_overlay_per_zone": true,
+  "zones": {
+   "top": [
+    0.15,
+    0.35
+   ],
+   "middle": [
+    0.35,
+    0.55
+   ],
+   "caption": [
+    0.55,
+    0.7
+   ]
+  },
+  "shorts_safe": {
+   "top_px_ratio": 0.08,
+   "bottom_ratio": 0.8,
+   "right_ratio": 0.88
+  },
+  "caption_clear_px": 70,
+  "max_new_overlays_per_sec": 1
+ },
+ "korean": {
+  "label_max_chars": 12,
+  "bigword_max_chars": 6,
+  "chunk_words": [
+   1,
+   3
+  ]
+ },
+ "timing": {
+  "first_overlay_delay": 0.1,
+  "gap_between_overlays": 2.6,
+  "gap_q25": 1.4,
+  "gap_q75": 4.5,
+  "_note": "원본 400개: 첫 요소가 뜨는 시각 중간값, 요소 사이 간격(0.3초 미만 제외) 중간값"
+ },
+ "sfx": {
+  "_note": "칠·칩 등장 0.3초 안에 효과음이 붙은 비율: 띠 26% · 이름표 24% · 큰 숫자 26% · 삽입 28% · 로고 21% (2kHz 위 소리 급증 기준, 말소리 섞일 수 있음). 모든 등장에 효과음을 붙이지 않는다.",
+  "every_n_overlays": 4,
+  "max_ratio": 0.35
+ },
+ "mode_rules": {
+  "① 내레이션형": "사람 이름표·놀람 선·가리키기·덮개 공개·단색 배경 진행자(S033·S034·S035·S037·S051)와 둘 중 하나(S027)는 쓰지 않는다",
+  "② 사람 등장형": "모두 사용",
+  "③ 손가락 아이콘형": "사람 가리키기·누름(S035·S036)은 손가락 아이콘으로 대체, 동그라미(S020)·화살표 함께"
+ },
+ "auto_check": [
+  "겹침 0(같은 구역 동시 2개 금지)",
+  "쇼츠 UI 금지 구역 침범 0",
+  "옵션 문구가 매물 옵션표에 있음",
+  "숫자는 매물 정보와 같음",
+  "로고 마지막 1.5초 안",
+  "효과음 붙는 요소 35% 이하",
+  "끝 로고 마지막 4초 안"
+ ],
+ "recipes": {
+  "intro": [
+   "S041",
+   "S001",
+   "S046"
+  ],
+  "option": [
+   "S002",
+   "S008",
+   "S045"
+  ],
+  "sound": [
+   "S012",
+   "S032"
+  ],
+  "price": [
+   "S042",
+   "S004",
+   "S011"
+  ],
+  "spec": [
+   "S004",
+   "S007",
+   "S003"
+  ],
+  "compare": [
+   "S018",
+   "S047"
+  ],
+  "app": [
+   "S019",
+   "S020"
+  ],
+  "ending": [
+   "S050",
+   "S030"
+  ],
+  "point_m3": [
+   "S035",
+   "S020"
+  ],
+  "price_tease": [
+   "S042"
+  ],
+  "quiz_hook": [
+   "S025"
+  ],
+  "hint": [
+   "S008",
+   "S002"
+  ],
+  "reveal": [
+   "S037",
+   "S001",
+   "S009"
+  ],
+  "count_reveal": [
+   "S005",
+   "S004"
+  ],
+  "price_reveal": [
+   "S042",
+   "S004"
+  ],
+  "comment": [
+   "S028"
+  ],
+  "budget_hook": [
+   "S025",
+   "S004"
+  ],
+  "listing": [
+   "S021",
+   "S047",
+   "S004"
+  ],
+  "compare_hook": [
+   "S025"
+  ],
+  "choice": [
+   "S027"
+  ],
+  "tip_hook": [
+   "S025",
+   "S013"
+  ],
+  "point": [
+   "S008",
+   "S020",
+   "S036"
+  ],
+  "fact_hook": [
+   "S025",
+   "S040"
+  ],
+  "story": [
+   "S049",
+   "S014",
+   "S015"
+  ],
+  "list_hook": [
+   "S025",
+   "S043"
+  ],
+  "rank": [
+   "S043",
+   "S001"
+  ],
+  "asmr_hook": [
+   "S032"
+  ],
+  "interview_hook": [
+   "S052",
+   "S025",
+   "S033"
+  ],
+  "answer": [
+   "S033",
+   "S053",
+   "S004",
+   "S027"
+  ],
+  "question_hook": [
+   "S025"
+  ],
+  "sold_hook": [
+   "S010",
+   "S001"
+  ],
+  "cta": [
+   "S029",
+   "S046"
+  ],
+  "service_hook": [
+   "S025",
+   "S051"
+  ],
+  "explain": [
+   "S048",
+   "S045"
+  ],
+  "news_hook": [
+   "S025",
+   "S006"
+  ],
+  "why_hook": [
+   "S025",
+   "S014"
+  ]
+ },
+ "pattern_flows": {
+  "P01": [
+   "intro",
+   "spec",
+   "option",
+   "option",
+   "price",
+   "ending"
+  ],
+  "P02": [
+   "intro",
+   "spec",
+   "option",
+   "option",
+   "sound",
+   "price",
+   "ending"
+  ],
+  "P03": [
+   "quiz_hook",
+   "hint",
+   "hint",
+   "reveal",
+   "comment",
+   "ending"
+  ],
+  "P04": [
+   "quiz_hook",
+   "spec",
+   "count_reveal",
+   "comment",
+   "ending"
+  ],
+  "P05": [
+   "quiz_hook",
+   "hint",
+   "price_reveal",
+   "comment",
+   "ending"
+  ],
+  "P06": [
+   "budget_hook",
+   "listing",
+   "listing",
+   "listing",
+   "comment",
+   "ending"
+  ],
+  "P07": [
+   "intro",
+   "spec",
+   "option",
+   "price_tease",
+   "price",
+   "ending"
+  ],
+  "P08": [
+   "compare_hook",
+   "compare",
+   "compare",
+   "choice",
+   "comment",
+   "ending"
+  ],
+  "P09": [
+   "tip_hook",
+   "point",
+   "point",
+   "ending"
+  ],
+  "P10": [
+   "fact_hook",
+   "story",
+   "story",
+   "ending"
+  ],
+  "P11": [
+   "list_hook",
+   "rank",
+   "rank",
+   "rank",
+   "ending"
+  ],
+  "P12": [
+   "asmr_hook",
+   "sound",
+   "sound",
+   "ending"
+  ],
+  "P13": [
+   "interview_hook",
+   "answer",
+   "answer",
+   "comment",
+   "ending"
+  ],
+  "P14": [
+   "question_hook",
+   "answer",
+   "comment",
+   "ending"
+  ],
+  "P15": [
+   "sold_hook",
+   "intro",
+   "spec",
+   "cta",
+   "ending"
+  ],
+  "P16": [
+   "service_hook",
+   "app",
+   "explain",
+   "cta",
+   "ending"
+  ],
+  "P17": [
+   "news_hook",
+   "explain",
+   "explain",
+   "ending"
+  ],
+  "P18": [
+   "why_hook",
+   "point",
+   "point",
+   "spec",
+   "ending"
+  ]
+ },
+ "patterns": {
+  "P00": {
+   "name": "분류 안 됨",
+   "n": 4,
+   "nl": 2,
+   "be": 2,
+   "dur_med": 36.2,
+   "cuts_per_s": 0.39,
+   "overlays_per_10s": 2.95,
+   "sfx_per_s": 0.29,
+   "words_per_s": 2.62,
+   "person_rate": 0.75,
+   "end_logo_rate": 0.5,
+   "top_subs": {
+    "boxlabel": 5.0,
+    "insert": 2.0,
+    "bigtext": 1.25,
+    "logo": 1.0,
+    "tape": 0.25
+   },
+   "first3s": {
+    "boxlabel": 0.75,
+    "insert": 0.5,
+    "logo": 0.25
+   },
+   "last4s": {
+    "logo": 0.5,
+    "boxlabel": 0.5,
+    "insert": 0.25,
+    "bigtext": 0.25
+   },
+   "examples": [
+    "https://youtube.com/shorts/-4Hi5myIm7U",
+    "https://youtube.com/shorts/SZYmCShmuGc",
+    "https://youtube.com/shorts/-k1BMYx2El0",
+    "https://youtube.com/shorts/FvobX9zMAT8"
+   ]
+  },
+  "P01": {
+   "name": "차명 쇼케이스(분위기)",
+   "n": 122,
+   "nl": 91,
+   "be": 31,
+   "dur_med": 40.3,
+   "cuts_per_s": 0.39,
+   "overlays_per_10s": 2.95,
+   "sfx_per_s": 0.3,
+   "words_per_s": 2.99,
+   "person_rate": 0.84,
+   "end_logo_rate": 0.67,
+   "top_subs": {
+    "boxlabel": 6.76,
+    "insert": 1.39,
+    "logo": 1.36,
+    "tape": 1.13,
+    "bigtext": 0.58,
+    "icon": 0.5
+   },
+   "first3s": {
+    "boxlabel": 0.68,
+    "tape": 0.24,
+    "insert": 0.22,
+    "icon": 0.09
+   },
+   "last4s": {
+    "logo": 0.67,
+    "boxlabel": 0.41,
+    "bigtext": 0.14,
+    "insert": 0.1
+   },
+   "examples": [
+    "https://youtube.com/shorts/-SvtKNG-eYA",
+    "https://youtube.com/shorts/1z4u1tgaWqo",
+    "https://youtube.com/shorts/3iI9TBvcvmE",
+    "https://youtube.com/shorts/6WRfVaqGTxw"
+   ]
+  },
+  "P02": {
+   "name": "차 앞 소개(진행자)",
+   "n": 50,
+   "nl": 15,
+   "be": 35,
+   "dur_med": 34.6,
+   "cuts_per_s": 0.44,
+   "overlays_per_10s": 2.98,
+   "sfx_per_s": 0.29,
+   "words_per_s": 2.69,
+   "person_rate": 0.84,
+   "end_logo_rate": 0.78,
+   "top_subs": {
+    "boxlabel": 5.02,
+    "insert": 1.6,
+    "logo": 1.5,
+    "tape": 1.26,
+    "bigtext": 0.64,
+    "icon": 0.36
+   },
+   "first3s": {
+    "boxlabel": 0.4,
+    "tape": 0.36,
+    "insert": 0.34,
+    "logo": 0.18
+   },
+   "last4s": {
+    "logo": 0.78,
+    "bigtext": 0.24,
+    "boxlabel": 0.2,
+    "insert": 0.06
+   },
+   "examples": [
+    "https://youtube.com/shorts/2RcM95bViDM",
+    "https://youtube.com/shorts/2aDUWd4JY_c",
+    "https://youtube.com/shorts/3GsoIo5uuOQ",
+    "https://youtube.com/shorts/3r5O-1-B8AA"
+   ]
+  },
+  "P03": {
+   "name": "퀴즈: 차종·브랜드 맞히기",
+   "n": 62,
+   "nl": 40,
+   "be": 22,
+   "dur_med": 10.1,
+   "cuts_per_s": 0.19,
+   "overlays_per_10s": 3.63,
+   "sfx_per_s": 0.23,
+   "words_per_s": 0.0,
+   "person_rate": 0.98,
+   "end_logo_rate": 0.61,
+   "top_subs": {
+    "boxlabel": 2.68,
+    "logo": 1.08,
+    "insert": 0.92,
+    "tape": 0.48,
+    "bigtext": 0.29,
+    "icon": 0.06
+   },
+   "first3s": {
+    "boxlabel": 0.65,
+    "insert": 0.42,
+    "tape": 0.16,
+    "logo": 0.15
+   },
+   "last4s": {
+    "logo": 0.61,
+    "boxlabel": 0.24,
+    "insert": 0.13,
+    "bigtext": 0.1
+   },
+   "examples": [
+    "https://youtube.com/shorts/-8aY8q63t3g",
+    "https://youtube.com/shorts/2csZ_JTDIhg",
+    "https://youtube.com/shorts/4sBdletteU0",
+    "https://youtube.com/shorts/5G8QQsedJJU"
+   ]
+  },
+  "P04": {
+   "name": "퀴즈: 마력 맞히기",
+   "n": 20,
+   "nl": 13,
+   "be": 7,
+   "dur_med": 34.7,
+   "cuts_per_s": 0.38,
+   "overlays_per_10s": 3.04,
+   "sfx_per_s": 0.29,
+   "words_per_s": 3.01,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.85,
+   "top_subs": {
+    "boxlabel": 6.6,
+    "logo": 1.9,
+    "insert": 1.2,
+    "tape": 1.05,
+    "bigtext": 0.3,
+    "icon": 0.2
+   },
+   "first3s": {
+    "boxlabel": 0.6,
+    "tape": 0.3,
+    "logo": 0.25,
+    "insert": 0.15
+   },
+   "last4s": {
+    "logo": 0.85,
+    "boxlabel": 0.25,
+    "insert": 0.15,
+    "tape": 0.1
+   },
+   "examples": [
+    "https://youtube.com/shorts/1GcPIHOwGT4",
+    "https://youtube.com/shorts/R3nN4UPyjTo",
+    "https://youtube.com/shorts/cT6DDmp7Pc4",
+    "https://youtube.com/shorts/dBpz0MukCM4"
+   ]
+  },
+  "P05": {
+   "name": "퀴즈: 가격·연식 맞히기",
+   "n": 2,
+   "nl": 1,
+   "be": 1,
+   "dur_med": 24.4,
+   "cuts_per_s": 0.36,
+   "overlays_per_10s": 4.55,
+   "sfx_per_s": 0.26,
+   "words_per_s": 2.91,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.0,
+   "top_subs": {
+    "boxlabel": 5.0,
+    "insert": 1.5,
+    "bigtext": 1.5,
+    "tape": 1.0,
+    "icon": 1.0,
+    "capword": 0.5
+   },
+   "first3s": {
+    "boxlabel": 1.0,
+    "tape": 0.5,
+    "insert": 0.5
+   },
+   "last4s": {
+    "icon": 0.5,
+    "insert": 0.5,
+    "boxlabel": 0.5,
+    "bigtext": 0.5
+   },
+   "examples": [
+    "https://youtube.com/shorts/ej0_7zcH3cE",
+    "https://youtube.com/shorts/9Yk6tQf3qtE"
+   ]
+  },
+  "P06": {
+   "name": "예산·조건 맞춤 추천",
+   "n": 20,
+   "nl": 11,
+   "be": 9,
+   "dur_med": 36.2,
+   "cuts_per_s": 0.45,
+   "overlays_per_10s": 3.73,
+   "sfx_per_s": 0.31,
+   "words_per_s": 2.94,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.8,
+   "top_subs": {
+    "boxlabel": 7.6,
+    "tape": 2.8,
+    "logo": 1.9,
+    "insert": 1.25,
+    "icon": 0.85,
+    "bigtext": 0.45
+   },
+   "first3s": {
+    "boxlabel": 0.6,
+    "tape": 0.4,
+    "insert": 0.35,
+    "logo": 0.15
+   },
+   "last4s": {
+    "logo": 0.8,
+    "boxlabel": 0.3,
+    "insert": 0.1,
+    "icon": 0.05
+   },
+   "examples": [
+    "https://youtube.com/shorts/-J3OFwUUfdU",
+    "https://youtube.com/shorts/HiBgnDKDfY4",
+    "https://youtube.com/shorts/NvF-A2FxY9I",
+    "https://youtube.com/shorts/amqfdKrAbXo"
+   ]
+  },
+  "P07": {
+   "name": "가격 공개 매물",
+   "n": 13,
+   "nl": 7,
+   "be": 6,
+   "dur_med": 40.4,
+   "cuts_per_s": 0.36,
+   "overlays_per_10s": 2.95,
+   "sfx_per_s": 0.28,
+   "words_per_s": 2.77,
+   "person_rate": 0.92,
+   "end_logo_rate": 1.0,
+   "top_subs": {
+    "boxlabel": 6.46,
+    "logo": 1.62,
+    "insert": 1.23,
+    "tape": 1.0,
+    "icon": 0.62,
+    "bigtext": 0.46
+   },
+   "first3s": {
+    "boxlabel": 0.46,
+    "tape": 0.23,
+    "logo": 0.15,
+    "insert": 0.08
+   },
+   "last4s": {
+    "logo": 1.0,
+    "bigtext": 0.31,
+    "boxlabel": 0.15,
+    "insert": 0.08
+   },
+   "examples": [
+    "https://youtube.com/shorts/AMxDkYw9bkc",
+    "https://youtube.com/shorts/V2CygduJKD4",
+    "https://youtube.com/shorts/ksZW4HQXg5Q",
+    "https://youtube.com/shorts/rzC-_mU1yoM"
+   ]
+  },
+  "P08": {
+   "name": "비교·선택 질문",
+   "n": 12,
+   "nl": 2,
+   "be": 10,
+   "dur_med": 38.7,
+   "cuts_per_s": 0.42,
+   "overlays_per_10s": 2.8,
+   "sfx_per_s": 0.3,
+   "words_per_s": 2.73,
+   "person_rate": 1.0,
+   "end_logo_rate": 1.0,
+   "top_subs": {
+    "boxlabel": 6.08,
+    "tape": 1.92,
+    "logo": 1.33,
+    "insert": 1.17,
+    "bigtext": 0.75,
+    "icon": 0.42
+   },
+   "first3s": {
+    "boxlabel": 0.5,
+    "tape": 0.33,
+    "bigtext": 0.08,
+    "insert": 0.08
+   },
+   "last4s": {
+    "logo": 1.0,
+    "bigtext": 0.17,
+    "icon": 0.08,
+    "boxlabel": 0.08
+   },
+   "examples": [
+    "https://youtube.com/shorts/-IAZC2JBtTo",
+    "https://youtube.com/shorts/8LQy_9u9j88",
+    "https://youtube.com/shorts/L0Meile86zY",
+    "https://youtube.com/shorts/NyDBGk0EZhU"
+   ]
+  },
+  "P09": {
+   "name": "숨은 기능·팁·핵",
+   "n": 11,
+   "nl": 3,
+   "be": 8,
+   "dur_med": 27.6,
+   "cuts_per_s": 0.35,
+   "overlays_per_10s": 2.9,
+   "sfx_per_s": 0.3,
+   "words_per_s": 2.95,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.64,
+   "top_subs": {
+    "boxlabel": 3.45,
+    "insert": 2.27,
+    "bigtext": 1.27,
+    "tape": 1.09,
+    "logo": 0.73,
+    "icon": 0.73
+   },
+   "first3s": {
+    "boxlabel": 0.64,
+    "insert": 0.45,
+    "tape": 0.18,
+    "bigtext": 0.09
+   },
+   "last4s": {
+    "logo": 0.64,
+    "bigtext": 0.36,
+    "boxlabel": 0.27,
+    "insert": 0.18
+   },
+   "examples": [
+    "https://youtube.com/shorts/8JVIQoP870I",
+    "https://youtube.com/shorts/KsX9jmrVn0o",
+    "https://youtube.com/shorts/MSKmaDWRiSo",
+    "https://youtube.com/shorts/S8XXbkoBS3c"
+   ]
+  },
+  "P10": {
+   "name": "상식·브랜드 이야기",
+   "n": 16,
+   "nl": 2,
+   "be": 14,
+   "dur_med": 34.0,
+   "cuts_per_s": 0.47,
+   "overlays_per_10s": 2.63,
+   "sfx_per_s": 0.26,
+   "words_per_s": 2.49,
+   "person_rate": 0.88,
+   "end_logo_rate": 0.75,
+   "top_subs": {
+    "boxlabel": 3.25,
+    "tape": 1.5,
+    "logo": 1.25,
+    "insert": 1.0,
+    "bigtext": 0.88,
+    "icon": 0.44
+   },
+   "first3s": {
+    "boxlabel": 0.38,
+    "tape": 0.31,
+    "insert": 0.19,
+    "bigtext": 0.12
+   },
+   "last4s": {
+    "logo": 0.75,
+    "boxlabel": 0.12,
+    "insert": 0.12,
+    "tape": 0.12
+   },
+   "examples": [
+    "https://youtube.com/shorts/4fnLZfm6jeY",
+    "https://youtube.com/shorts/8IpELvmGsJk",
+    "https://youtube.com/shorts/AADy6P3GjAk",
+    "https://youtube.com/shorts/DRoPcCcZts8"
+   ]
+  },
+  "P11": {
+   "name": "N가지 리스트",
+   "n": 5,
+   "nl": 2,
+   "be": 3,
+   "dur_med": 31.7,
+   "cuts_per_s": 0.41,
+   "overlays_per_10s": 4.73,
+   "sfx_per_s": 0.28,
+   "words_per_s": 2.92,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.6,
+   "top_subs": {
+    "boxlabel": 6.2,
+    "insert": 2.0,
+    "tape": 1.8,
+    "logo": 1.6,
+    "bigtext": 0.4,
+    "icon": 0.2
+   },
+   "first3s": {
+    "tape": 0.6,
+    "boxlabel": 0.6,
+    "insert": 0.4,
+    "bigtext": 0.2
+   },
+   "last4s": {
+    "logo": 0.6,
+    "boxlabel": 0.4,
+    "insert": 0.2,
+    "bigtext": 0.2
+   },
+   "examples": [
+    "https://youtube.com/shorts/JfmHdoXItFY",
+    "https://youtube.com/shorts/_ZB7seKJ1Kc",
+    "https://youtube.com/shorts/qOqsrNp9168",
+    "https://youtube.com/shorts/36Su4v7Qco4"
+   ]
+  },
+  "P12": {
+   "name": "ASMR·소리",
+   "n": 2,
+   "nl": 0,
+   "be": 2,
+   "dur_med": 30.7,
+   "cuts_per_s": 0.42,
+   "overlays_per_10s": 1.3,
+   "sfx_per_s": 0.15,
+   "words_per_s": 0.0,
+   "person_rate": 0.5,
+   "end_logo_rate": 1.0,
+   "top_subs": {
+    "tape": 1.0,
+    "icon": 1.0,
+    "logo": 1.0,
+    "boxlabel": 0.5,
+    "bigtext": 0.5
+   },
+   "first3s": {
+    "tape": 0.5,
+    "icon": 0.5
+   },
+   "last4s": {
+    "logo": 1.0,
+    "bigtext": 0.5
+   },
+   "examples": [
+    "https://youtube.com/shorts/Mh2BJUYAaHM",
+    "https://youtube.com/shorts/jLP3QHHl6Yg"
+   ]
+  },
+  "P13": {
+   "name": "거리·선수 인터뷰",
+   "n": 13,
+   "nl": 0,
+   "be": 13,
+   "dur_med": 34.8,
+   "cuts_per_s": 0.23,
+   "overlays_per_10s": 2.12,
+   "sfx_per_s": 0.32,
+   "words_per_s": 2.57,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.92,
+   "top_subs": {
+    "boxlabel": 2.08,
+    "logo": 1.54,
+    "insert": 1.46,
+    "bigtext": 1.23,
+    "tape": 0.62,
+    "other": 0.23
+   },
+   "first3s": {
+    "boxlabel": 0.38,
+    "insert": 0.31,
+    "tape": 0.31,
+    "bigtext": 0.23
+   },
+   "last4s": {
+    "logo": 0.92,
+    "boxlabel": 0.23,
+    "insert": 0.23,
+    "icon": 0.15
+   },
+   "examples": [
+    "https://youtube.com/shorts/PHuIyaZ1zmM",
+    "https://youtube.com/shorts/R2TF8IgifbY",
+    "https://youtube.com/shorts/VPrX7UslR2w",
+    "https://youtube.com/shorts/YecFFNxSTeU"
+   ]
+  },
+  "P14": {
+   "name": "시청자 참여 질문",
+   "n": 7,
+   "nl": 1,
+   "be": 6,
+   "dur_med": 19.6,
+   "cuts_per_s": 0.46,
+   "overlays_per_10s": 2.68,
+   "sfx_per_s": 0.31,
+   "words_per_s": 2.53,
+   "person_rate": 0.71,
+   "end_logo_rate": 0.57,
+   "top_subs": {
+    "boxlabel": 1.71,
+    "bigtext": 1.57,
+    "tape": 1.29,
+    "logo": 0.71,
+    "insert": 0.43,
+    "other": 0.14
+   },
+   "first3s": {
+    "tape": 0.43,
+    "boxlabel": 0.29,
+    "insert": 0.14,
+    "bigtext": 0.14
+   },
+   "last4s": {
+    "logo": 0.57,
+    "tape": 0.14,
+    "bigtext": 0.14
+   },
+   "examples": [
+    "https://youtube.com/shorts/62AgRg0KAAQ",
+    "https://youtube.com/shorts/O1eDE8tX3V0",
+    "https://youtube.com/shorts/XRixK1ASrAE",
+    "https://youtube.com/shorts/mAFBFwsXKKc"
+   ]
+  },
+  "P15": {
+   "name": "판매 완료",
+   "n": 5,
+   "nl": 2,
+   "be": 3,
+   "dur_med": 42.1,
+   "cuts_per_s": 0.52,
+   "overlays_per_10s": 1.43,
+   "sfx_per_s": 0.33,
+   "words_per_s": 2.8,
+   "person_rate": 0.8,
+   "end_logo_rate": 0.6,
+   "top_subs": {
+    "boxlabel": 6.0,
+    "logo": 1.6,
+    "insert": 0.8,
+    "bigtext": 0.6,
+    "tape": 0.4,
+    "icon": 0.2
+   },
+   "first3s": {
+    "logo": 0.4,
+    "boxlabel": 0.4,
+    "bigtext": 0.2,
+    "insert": 0.2
+   },
+   "last4s": {
+    "logo": 0.6,
+    "icon": 0.2,
+    "boxlabel": 0.2
+   },
+   "examples": [
+    "https://youtube.com/shorts/BpG9uc2V6QU",
+    "https://youtube.com/shorts/tfuPWZOxCUc",
+    "https://youtube.com/shorts/vOQ7FR_fnr0",
+    "https://youtube.com/shorts/CFouyOG3w6U"
+   ]
+  },
+  "P16": {
+   "name": "서비스·플랫폼 홍보",
+   "n": 8,
+   "nl": 1,
+   "be": 7,
+   "dur_med": 31.1,
+   "cuts_per_s": 0.25,
+   "overlays_per_10s": 3.17,
+   "sfx_per_s": 0.28,
+   "words_per_s": 2.74,
+   "person_rate": 0.88,
+   "end_logo_rate": 0.5,
+   "top_subs": {
+    "boxlabel": 3.38,
+    "logo": 2.25,
+    "tape": 1.5,
+    "insert": 1.25,
+    "bigtext": 1.0,
+    "icon": 0.38
+   },
+   "first3s": {
+    "insert": 0.25,
+    "tape": 0.25,
+    "boxlabel": 0.25,
+    "bigtext": 0.12
+   },
+   "last4s": {
+    "logo": 0.5,
+    "tape": 0.25,
+    "bigtext": 0.25,
+    "other": 0.12
+   },
+   "examples": [
+    "https://youtube.com/shorts/57oZQTsKOis",
+    "https://youtube.com/shorts/6SoXCrjU9y0",
+    "https://youtube.com/shorts/GFYb3CitDOs",
+    "https://youtube.com/shorts/RWTRI1IQxM8"
+   ]
+  },
+  "P17": {
+   "name": "뉴스·제도",
+   "n": 15,
+   "nl": 2,
+   "be": 13,
+   "dur_med": 34.4,
+   "cuts_per_s": 0.4,
+   "overlays_per_10s": 2.04,
+   "sfx_per_s": 0.27,
+   "words_per_s": 2.63,
+   "person_rate": 0.67,
+   "end_logo_rate": 0.47,
+   "top_subs": {
+    "insert": 2.27,
+    "boxlabel": 1.93,
+    "tape": 0.8,
+    "logo": 0.8,
+    "bigtext": 0.73,
+    "icon": 0.27
+   },
+   "first3s": {
+    "insert": 0.47,
+    "tape": 0.27,
+    "icon": 0.13,
+    "boxlabel": 0.13
+   },
+   "last4s": {
+    "logo": 0.47,
+    "insert": 0.27,
+    "bigtext": 0.2,
+    "icon": 0.07
+   },
+   "examples": [
+    "https://youtube.com/shorts/0ry-lZ0EZ4s",
+    "https://youtube.com/shorts/2hTKslU0vHk",
+    "https://youtube.com/shorts/5o-pT9x8Rp0",
+    "https://youtube.com/shorts/79IRD_Sln-E"
+   ]
+  },
+  "P18": {
+   "name": "왜 인기·가치 설명",
+   "n": 10,
+   "nl": 5,
+   "be": 5,
+   "dur_med": 45.6,
+   "cuts_per_s": 0.42,
+   "overlays_per_10s": 2.83,
+   "sfx_per_s": 0.3,
+   "words_per_s": 2.91,
+   "person_rate": 1.0,
+   "end_logo_rate": 0.9,
+   "top_subs": {
+    "boxlabel": 7.1,
+    "logo": 2.1,
+    "insert": 1.6,
+    "tape": 1.2,
+    "bigtext": 1.2,
+    "icon": 0.4
+   },
+   "first3s": {
+    "boxlabel": 0.6,
+    "insert": 0.3,
+    "bigtext": 0.2,
+    "logo": 0.1
+   },
+   "last4s": {
+    "logo": 0.9,
+    "boxlabel": 0.2,
+    "bigtext": 0.1
+   },
+   "examples": [
+    "https://youtube.com/shorts/2C6Esrov2TM",
+    "https://youtube.com/shorts/LURAQRug6xg",
+    "https://youtube.com/shorts/dGqK67RYYYA",
+    "https://youtube.com/shorts/kfpyoq-dU9w"
+   ]
+  }
+ },
+ "substats": {
+  "boxlabel": {
+   "n": 2031,
+   "videos_nl": 200,
+   "videos_be": 141,
+   "share_nl": 1.0,
+   "share_be": 0.716,
+   "per_video": 5.96,
+   "cy_med": 0.545,
+   "cy_q25": 0.294,
+   "cy_q75": 0.653,
+   "h_med": 0.032,
+   "w_med": 0.52,
+   "dur_med": 1.2,
+   "sfx_03": 0.24,
+   "first3s": 0.149,
+   "last4s": 0.057,
+   "pos_med": 0.44
+  },
+  "tape": {
+   "n": 449,
+   "videos_nl": 99,
+   "videos_be": 118,
+   "share_nl": 0.495,
+   "share_be": 0.599,
+   "per_video": 2.07,
+   "cy_med": 0.344,
+   "cy_q25": 0.244,
+   "cy_q75": 0.606,
+   "h_med": 0.057,
+   "w_med": 0.494,
+   "dur_med": 1.3,
+   "sfx_03": 0.265,
+   "first3s": 0.276,
+   "last4s": 0.029,
+   "pos_med": 0.32
+  },
+  "logo": {
+   "n": 548,
+   "videos_nl": 173,
+   "videos_be": 156,
+   "share_nl": 0.865,
+   "share_be": 0.792,
+   "per_video": 1.67,
+   "cy_med": 0.455,
+   "cy_q25": 0.228,
+   "cy_q75": 0.524,
+   "h_med": 0.135,
+   "w_med": 0.453,
+   "dur_med": 1.3,
+   "sfx_03": 0.21,
+   "first3s": 0.099,
+   "last4s": 0.644,
+   "pos_med": 0.94
+  },
+  "insert": {
+   "n": 534,
+   "videos_nl": 135,
+   "videos_be": 120,
+   "share_nl": 0.675,
+   "share_be": 0.609,
+   "per_video": 2.09,
+   "cy_med": 0.476,
+   "cy_q25": 0.373,
+   "cy_q75": 0.556,
+   "h_med": 0.589,
+   "w_med": 0.817,
+   "dur_med": 1.4,
+   "sfx_03": 0.275,
+   "first3s": 0.23,
+   "last4s": 0.086,
+   "pos_med": 0.41
+  },
+  "bigtext": {
+   "n": 251,
+   "videos_nl": 65,
+   "videos_be": 87,
+   "share_nl": 0.325,
+   "share_be": 0.442,
+   "per_video": 1.65,
+   "cy_med": 0.485,
+   "cy_q25": 0.26,
+   "cy_q75": 0.652,
+   "h_med": 0.08,
+   "w_med": 0.274,
+   "dur_med": 1.2,
+   "sfx_03": 0.263,
+   "first3s": 0.112,
+   "last4s": 0.259,
+   "pos_med": 0.57
+  },
+  "icon": {
+   "n": 152,
+   "videos_nl": 58,
+   "videos_be": 42,
+   "share_nl": 0.29,
+   "share_be": 0.213,
+   "per_video": 1.52,
+   "cy_med": 0.511,
+   "cy_q25": 0.428,
+   "cy_q75": 0.591,
+   "h_med": 0.274,
+   "w_med": 0.606,
+   "dur_med": 1.05,
+   "sfx_03": 0.204,
+   "first3s": 0.145,
+   "last4s": 0.138,
+   "pos_med": 0.48
+  },
+  "capword": {
+   "n": 15,
+   "videos_nl": 9,
+   "videos_be": 6,
+   "share_nl": 0.045,
+   "share_be": 0.03,
+   "per_video": 1.0,
+   "cy_med": 0.616,
+   "cy_q25": 0.57,
+   "cy_q75": 0.669,
+   "h_med": 0.021,
+   "w_med": 0.122,
+   "dur_med": 0.7,
+   "sfx_03": 0.267,
+   "first3s": 0.133,
+   "last4s": 0.133,
+   "pos_med": 0.31
+  },
+  "smalltext": {
+   "n": 15,
+   "videos_nl": 12,
+   "videos_be": 2,
+   "share_nl": 0.06,
+   "share_be": 0.01,
+   "per_video": 1.07,
+   "cy_med": 0.309,
+   "cy_q25": 0.223,
+   "cy_q75": 0.446,
+   "h_med": 0.015,
+   "w_med": 0.12,
+   "dur_med": 0.5,
+   "sfx_03": 0.267,
+   "first3s": 0.0,
+   "last4s": 0.133,
+   "pos_med": 0.58
+  },
+  "other": {
+   "n": 19,
+   "videos_nl": 12,
+   "videos_be": 5,
+   "share_nl": 0.06,
+   "share_be": 0.025,
+   "per_video": 1.12,
+   "cy_med": 0.572,
+   "cy_q25": 0.448,
+   "cy_q75": 0.683,
+   "h_med": 0.106,
+   "w_med": 0.461,
+   "dur_med": 0.8,
+   "sfx_03": 0.158,
+   "first3s": 0.053,
+   "last4s": 0.105,
+   "pos_med": 0.6
+  }
+ },
+ "observed_only": [
+  {
+   "name": "대중문화 캐릭터 스티커",
+   "why": "영화·드라마 주인공 일러스트를 붙임(N3#313, N4#798 「Magnum P.I.」). 남의 캐릭터라 쓰지 않는다. 필요하면 보배드림 자체 일러스트로."
+  },
+  {
+   "name": "다른 서비스 로고 띄우기",
+   "why": "차 화면의 넷플릭스 등 다른 회사 로고를 크게 띄움(N4#28, N4#29). 남의 로고라 쓰지 않는다. 기능 이름은 글자 칩(S008)으로."
+  }
+ ],
+ "skills": [
+  {
+   "id": "S001",
+   "version": "v2",
+   "title": "편집 스킬 1 — 명칭 미정",
+   "note": "검정 상자 노랑 이름표",
+   "type": "칠",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "차명·브랜드·가격·연식을 처음 소개할 때(첫 3초, 차 위쪽 빈 하늘·천장 자리)",
+   "pair": "효과음-팝, 끝 로고",
+   "geometry": "세로 중심 0.31~0.62(중간값 0.52), 글자 높이 화면의 3%, 1.1초",
+   "freq": "자동 집계: 네덜란드 200/200개 · 벨기에 141/197개 영상, 영상 하나에 평균 5.96번, 세로 중심 0.294~0.653(중간 0.545), 머무는 시간 1.2초, 효과음 붙는 비율 24%",
+   "video_count": 341,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/4NuVdk0OZ2o?t=0",
+    "https://youtube.com/shorts/4NuVdk0OZ2o?t=0",
+    "https://youtube.com/shorts/-SvtKNG-eYA?t=0"
+   ],
+   "example_ids": [
+    "NL#97",
+    "NL#98",
+    "BE#0"
+   ],
+   "asset": "검정 상자 + 노랑 대문자 칩(_sticker_core boxlabel)",
+   "stats": {
+    "n": 2031,
+    "videos_nl": 200,
+    "videos_be": 141,
+    "share_nl": 1.0,
+    "share_be": 0.716,
+    "per_video": 5.96,
+    "cy_med": 0.545,
+    "cy_q25": 0.294,
+    "cy_q75": 0.653,
+    "h_med": 0.032,
+    "w_med": 0.52,
+    "dur_med": 1.2,
+    "sfx_03": 0.24,
+    "first3s": 0.149,
+    "last4s": 0.057,
+    "pos_med": 0.44
+   },
+   "cy_med": 0.545,
+   "dur_med": 1.2
+  },
+  {
+   "id": "S002",
+   "version": "v2",
+   "title": "편집 스킬 2 — 명칭 미정",
+   "note": "옵션 체크 이름표",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "옵션·기능 부위가 화면에 보일 때(시트 열선, 파노라마, 카메라 등) 부위 바로 옆 아래",
+   "pair": "효과음-팝, 이름표 줄 쌓기",
+   "geometry": "세로 0.55~0.75, 글자 높이 3%, 1.1초, ✓ 앞붙임",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/0zQxFY7NH_8?t=6",
+    "https://youtube.com/shorts/2aDUWd4JY_c?t=7",
+    "https://youtube.com/shorts/h-YY69bL2mU?t=31"
+   ],
+   "example_ids": [
+    "NL#12",
+    "BE#14",
+    "BE#224"
+   ],
+   "asset": "✓ + 흰 대문자 기능명(옵션은 매물 옵션표에서만)"
+  },
+  {
+   "id": "S003",
+   "version": "v2",
+   "title": "편집 스킬 3 — 명칭 미정",
+   "note": "이름표 줄 쌓기",
+   "type": "움직임",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "같은 장면에서 정보 2~3개를 이어 말할 때 위 줄은 남기고 아래 줄 추가",
+   "pair": "검정 상자 노랑 이름표",
+   "geometry": "줄 간격 = 글자 높이 1.4배, 줄마다 0.4~0.8초 간격",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/1OYdLaUcKHc?t=2",
+    "https://youtube.com/shorts/4zrInJjJSd8?t=1",
+    "https://youtube.com/shorts/qOtgNunde6E?t=11"
+   ],
+   "example_ids": [
+    "NL#27",
+    "NL#131",
+    "BE#283"
+   ],
+   "asset": "이름표 줄 쌓기(stack)"
+  },
+  {
+   "id": "S004",
+   "version": "v2",
+   "title": "편집 스킬 4 — 명칭 미정",
+   "note": "바탕 없는 큰 노랑 숫자",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "가격·주행거리·마력·연식 숫자를 말하는 그 낱말 시점",
+   "pair": "효과음-팝, 숫자 세기",
+   "geometry": "세로 0.24~0.66, 글자 높이 7%, 1.1초, 노랑 + 검정 테두리, 바탕 없음",
+   "freq": "자동 집계: 네덜란드 65/200개 · 벨기에 87/197개 영상, 영상 하나에 평균 1.65번, 세로 중심 0.26~0.652(중간 0.485), 머무는 시간 1.2초, 효과음 붙는 비율 26%",
+   "video_count": 152,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/29pTy-B73c8?t=5",
+    "https://youtube.com/shorts/2aDUWd4JY_c?t=28",
+    "https://youtube.com/shorts/owoj_3NM-YM?t=15"
+   ],
+   "example_ids": [
+    "NL#63",
+    "BE#18",
+    "BE#427"
+   ],
+   "asset": "큰 노랑 숫자(테두리 4px)",
+   "stats": {
+    "n": 251,
+    "videos_nl": 65,
+    "videos_be": 87,
+    "share_nl": 0.325,
+    "share_be": 0.442,
+    "per_video": 1.65,
+    "cy_med": 0.485,
+    "cy_q25": 0.26,
+    "cy_q75": 0.652,
+    "h_med": 0.08,
+    "w_med": 0.274,
+    "dur_med": 1.2,
+    "sfx_03": 0.263,
+    "first3s": 0.112,
+    "last4s": 0.259,
+    "pos_med": 0.57
+   },
+   "cy_med": 0.485,
+   "dur_med": 1.2
+  },
+  {
+   "id": "S005",
+   "version": "v2",
+   "title": "편집 스킬 5 — 명칭 미정",
+   "note": "숫자 세기",
+   "type": "움직임",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "가속 시간·출력처럼 숫자가 커지는 걸 보여줄 때 같은 자리에서 숫자가 바뀜",
+   "pair": "바탕 없는 큰 노랑 숫자",
+   "geometry": "같은 자리 1→2→3.5, 단계마다 0.2~0.3초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/36Su4v7Qco4?t=10",
+    "https://youtube.com/shorts/b05e_2Sa9ho?t=40"
+   ],
+   "example_ids": [
+    "NL#79",
+    "NL#829"
+   ],
+   "asset": "숫자 세기 애니메이션"
+  },
+  {
+   "id": "S006",
+   "version": "v2",
+   "title": "편집 스킬 6 — 명칭 미정",
+   "note": "가운데 큰 숫자 상자",
+   "type": "칠",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "비율·순위·점수(26%, 4/10)를 크게 강조할 때 화면 가운데 위",
+   "pair": "효과음-팝",
+   "geometry": "검정 둥근 상자, 글자 높이 6~8%, 1초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/0ry-lZ0EZ4s?t=6",
+    "https://youtube.com/shorts/0ry-lZ0EZ4s?t=39",
+    "https://youtube.com/shorts/0ry-lZ0EZ4s?t=41"
+   ],
+   "example_ids": [
+    "BE#2",
+    "BE#9",
+    "BE#10"
+   ],
+   "asset": "검정 둥근 상자 + 흰/노랑 숫자"
+  },
+  {
+   "id": "S007",
+   "version": "v2",
+   "title": "편집 스킬 7 — 명칭 미정",
+   "note": "수치 칩",
+   "type": "칠",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "계기판·주행가능거리 등 수치가 화면에 보일 때 그 옆",
+   "pair": "효과음-팝",
+   "geometry": "검정 상자 작은 칩, 세로 0.6~0.7",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/rHbcrpnfhvU?t=8",
+    "https://youtube.com/shorts/udvNSl9fKd8?t=8",
+    "https://youtube.com/shorts/udvNSl9fKd8?t=21"
+   ],
+   "example_ids": [
+    "BE#293",
+    "BE#298",
+    "BE#299"
+   ],
+   "asset": "검정 상자 수치 칩"
+  },
+  {
+   "id": "S008",
+   "version": "v2",
+   "title": "편집 스킬 8 — 명칭 미정",
+   "note": "노랑 띠 칩",
+   "type": "칠",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "부위 옆에 색상명·패키지명·짧은 사실을 붙일 때(기울어진 노랑 띠, 검정 글자)",
+   "pair": "효과음-팝",
+   "geometry": "세로 0.24~0.55, 띠 높이 4%, 1.1초, 3~5도 기울기",
+   "freq": "자동 집계: 네덜란드 99/200개 · 벨기에 118/197개 영상, 영상 하나에 평균 2.07번, 세로 중심 0.244~0.606(중간 0.344), 머무는 시간 1.3초, 효과음 붙는 비율 26%",
+   "video_count": 217,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/3r5O-1-B8AA?t=11",
+    "https://youtube.com/shorts/3r5O-1-B8AA?t=21",
+    "https://youtube.com/shorts/5o0FI-TXz2E?t=17"
+   ],
+   "example_ids": [
+    "BE#331",
+    "BE#335",
+    "NL#152"
+   ],
+   "asset": "노랑 띠 칩(_sticker_core tape, 스카우트24 테마 바탕색 칠)",
+   "stats": {
+    "n": 449,
+    "videos_nl": 99,
+    "videos_be": 118,
+    "share_nl": 0.495,
+    "share_be": 0.599,
+    "per_video": 2.07,
+    "cy_med": 0.344,
+    "cy_q25": 0.244,
+    "cy_q75": 0.606,
+    "h_med": 0.057,
+    "w_med": 0.494,
+    "dur_med": 1.3,
+    "sfx_03": 0.265,
+    "first3s": 0.276,
+    "last4s": 0.029,
+    "pos_med": 0.32
+   },
+   "cy_med": 0.344,
+   "dur_med": 1.3
+  },
+  {
+   "id": "S009",
+   "version": "v2",
+   "title": "편집 스킬 9 — 명칭 미정",
+   "note": "감탄 큰 낱말",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "감탄(엄청나다·대박) 말할 때 한 낱말 크게",
+   "pair": "효과음-휙",
+   "geometry": "글자 높이 7~9%, 0.8초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/1OYdLaUcKHc?t=25",
+    "https://youtube.com/shorts/4S6D1y4-BFk?t=17",
+    "https://youtube.com/shorts/uc2QnjoYyRY?t=18"
+   ],
+   "example_ids": [
+    "NL#34",
+    "NL#125",
+    "NL#1115"
+   ],
+   "asset": "큰 노랑 낱말"
+  },
+  {
+   "id": "S010",
+   "version": "v2",
+   "title": "편집 스킬 10 — 명칭 미정",
+   "note": "빨강 X 부정",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "\"아니다·이건 평범한 차가 아니다\" 부정할 때 대상 위 빨강 X",
+   "pair": "효과음-삐",
+   "geometry": "대상 덮는 크기, 0.8초",
+   "freq": "자동 집계(같은 모양 묶음): 네덜란드 33/100개 영상 · 벨기에 14/69개 영상",
+   "video_count": 47,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/0zQxFY7NH_8?t=0",
+    "https://youtube.com/shorts/fQxhWJp4inA?t=4"
+   ],
+   "example_ids": [
+    "NL#9",
+    "BE#174"
+   ],
+   "asset": "빨강 X(우리 SVG)"
+  },
+  {
+   "id": "S011",
+   "version": "v2",
+   "title": "편집 스킬 11 — 명칭 미정",
+   "note": "가격 정정",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "가격이 내려간 걸 보여줄 때 옛 가격에 빨강 X, 아래 새 가격",
+   "pair": "빨강 X 부정, 바탕 없는 큰 노랑 숫자",
+   "geometry": "두 줄, X 0.3초 뒤 새 가격",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/2aDUWd4JY_c?t=32",
+    "https://youtube.com/shorts/owoj_3NM-YM?t=19"
+   ],
+   "example_ids": [
+    "BE#20",
+    "BE#429"
+   ],
+   "asset": "가격 정정 칩"
+  },
+  {
+   "id": "S012",
+   "version": "v2",
+   "title": "편집 스킬 12 — 명칭 미정",
+   "note": "소리 스피커",
+   "type": "효과음",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "배기음·경고음·트렁크 소리 등 실제 소리를 들려줄 때 차 아래 가운데 🔊",
+   "pair": "음악 줄이기(덕킹)",
+   "geometry": "세로 0.7~0.8, 스피커 3개 점선, 소리 길이만큼",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/1OYdLaUcKHc?t=59",
+    "https://youtube.com/shorts/NFTSYICfw6E?t=8",
+    "https://youtube.com/shorts/jLP3QHHl6Yg?t=0"
+   ],
+   "example_ids": [
+    "NL#46",
+    "NL#537",
+    "BE#250"
+   ],
+   "asset": "스피커 아이콘(우리 SVG) + 음악 -12dB"
+  },
+  {
+   "id": "S013",
+   "version": "v2",
+   "title": "편집 스킬 13 — 명칭 미정",
+   "note": "이모지 붙임",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "낱말 감정에 맞는 이모지 1개: 🏁마력 👀퀴즈 🤯놀람 🔥인기 💡팁 📍매장 🚙선택 💵가격",
+   "pair": "효과음-팝",
+   "geometry": "이모지 높이 6~9%, 낱말 옆, 0.8초",
+   "freq": "자동 집계(같은 모양 묶음, 다른 스킬 포함): 네덜란드 58/200개 · 벨기에 42/197개 영상, 영상 하나에 평균 1.52번, 세로 중심 0.428~0.591(중간 0.511), 머무는 시간 1.05초, 효과음 붙는 비율 20%",
+   "video_count": 100,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/36Su4v7Qco4?t=13",
+    "https://youtube.com/shorts/ehWLMfI3rTk?t=30",
+    "https://youtube.com/shorts/NyDBGk0EZhU?t=0"
+   ],
+   "example_ids": [
+    "NL#83",
+    "NL#884",
+    "BE#84"
+   ],
+   "asset": "이모지 세트(트리거 낱말 표)",
+   "stats": {
+    "n": 152,
+    "videos_nl": 58,
+    "videos_be": 42,
+    "share_nl": 0.29,
+    "share_be": 0.213,
+    "per_video": 1.52,
+    "cy_med": 0.511,
+    "cy_q25": 0.428,
+    "cy_q75": 0.591,
+    "h_med": 0.274,
+    "w_med": 0.606,
+    "dur_med": 1.05,
+    "sfx_03": 0.204,
+    "first3s": 0.145,
+    "last4s": 0.138,
+    "pos_med": 0.48
+   },
+   "cy_med": 0.511,
+   "dur_med": 1.05
+  },
+  {
+   "id": "S014",
+   "version": "v2",
+   "title": "편집 스킬 14 — 명칭 미정",
+   "note": "통계 화살표 칩",
+   "type": "칠",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "늘었다·줄었다 통계를 말할 때 ⬇️36% ↗175% 작은 띠",
+   "pair": "효과음-팝",
+   "geometry": "작은 노랑 띠, 0.8초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/5o0FI-TXz2E?t=17",
+    "https://youtube.com/shorts/5o0FI-TXz2E?t=27"
+   ],
+   "example_ids": [
+    "NL#152",
+    "NL#155"
+   ],
+   "asset": "화살표 통계 칩"
+  },
+  {
+   "id": "S015",
+   "version": "v2",
+   "title": "편집 스킬 15 — 명칭 미정",
+   "note": "치수 화살표",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "차 길이·폭 같은 치수를 말할 때 차 옆에 <---> 3M",
+   "pair": null,
+   "geometry": "차 길이만큼 화살표, 1초",
+   "freq": "관찰 예 1건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/sQI8cnDOpNs?t=26"
+   ],
+   "example_ids": [
+    "NL#1064"
+   ],
+   "asset": "치수 화살표"
+  },
+  {
+   "id": "S016",
+   "version": "v2",
+   "title": "편집 스킬 16 — 명칭 미정",
+   "note": "호 글자",
+   "type": "움직임",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "차명을 재미있게 보여줄 때 글자가 둥글게(호) 튀어나옴",
+   "pair": "효과음-휙",
+   "geometry": "0.6초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/d2VwmGgQ5Ho?t=16",
+    "https://youtube.com/shorts/ogbxcFLNoMY?t=3"
+   ],
+   "example_ids": [
+    "NL#843",
+    "NL#1016"
+   ],
+   "asset": "호 글자"
+  },
+  {
+   "id": "S017",
+   "version": "v2",
+   "title": "편집 스킬 17 — 명칭 미정",
+   "note": "타자 효과",
+   "type": "움직임",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "브랜드·모델명을 한 글자씩 칠 때(타자 + 커서)",
+   "pair": "효과음-타자",
+   "geometry": "글자당 0.06초",
+   "freq": "관찰 예 1건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/sQI8cnDOpNs?t=11"
+   ],
+   "example_ids": [
+    "NL#1058"
+   ],
+   "asset": "타자 효과"
+  },
+  {
+   "id": "S018",
+   "version": "v2",
+   "title": "편집 스킬 18 — 명칭 미정",
+   "note": "비교 차 카드",
+   "type": "화면 삽입",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "다른 차와 비교할 때 흰 카드(차 사진·차명·가격)를 노랑 테이프로 붙임",
+   "pair": "효과음-팝",
+   "geometry": "카드 폭 화면 45%, 1.2초",
+   "freq": "자동 집계(같은 모양 묶음, 다른 스킬 포함): 네덜란드 135/200개 · 벨기에 120/197개 영상, 영상 하나에 평균 2.09번, 세로 중심 0.373~0.556(중간 0.476), 머무는 시간 1.4초, 효과음 붙는 비율 28%",
+   "video_count": 255,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/PHuIyaZ1zmM?t=5",
+    "https://youtube.com/shorts/YecFFNxSTeU?t=2",
+    "https://youtube.com/shorts/8kr8ZLrlXP8?t=10"
+   ],
+   "example_ids": [
+    "BE#111",
+    "BE#150",
+    "NL#194"
+   ],
+   "asset": "비교 매물 카드(보배드림 매물 사진·가격)",
+   "stats": {
+    "n": 534,
+    "videos_nl": 135,
+    "videos_be": 120,
+    "share_nl": 0.675,
+    "share_be": 0.609,
+    "per_video": 2.09,
+    "cy_med": 0.476,
+    "cy_q25": 0.373,
+    "cy_q75": 0.556,
+    "h_med": 0.589,
+    "w_med": 0.817,
+    "dur_med": 1.4,
+    "sfx_03": 0.275,
+    "first3s": 0.23,
+    "last4s": 0.086,
+    "pos_med": 0.41
+   },
+   "cy_med": 0.476,
+   "dur_med": 1.4
+  },
+  {
+   "id": "S019",
+   "version": "v2",
+   "title": "편집 스킬 19 — 명칭 미정",
+   "note": "폰 앱 화면",
+   "type": "화면 삽입",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "앱 사용법·시세 조회를 말할 때 폰 화면 삽입(손에 든 폰 위)",
+   "pair": "앱 동그라미 강조",
+   "geometry": "화면 높이 58%, 1.2초 이상",
+   "freq": "자동 집계(같은 모양 묶음): 네덜란드 61/100개 영상 · 벨기에 48/69개 영상",
+   "video_count": 109,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/RWTRI1IQxM8?t=5",
+    "https://youtube.com/shorts/gfU82u6LfOY?t=11",
+    "https://youtube.com/shorts/fbqIM7Vs4AQ?t=24"
+   ],
+   "example_ids": [
+    "BE#127",
+    "BE#205",
+    "NL#904"
+   ],
+   "asset": "보배드림 앱 화면 목업"
+  },
+  {
+   "id": "S020",
+   "version": "v2",
+   "title": "편집 스킬 20 — 명칭 미정",
+   "note": "동그라미 강조",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "앱·화면 속 눌러야 할 버튼을 노랑 동그라미 + 커서로 표시 → ③에서는 손가락 탭 아이콘",
+   "pair": "폰 앱 화면",
+   "geometry": "동그라미 그려짐 0.3초, 0.8초 유지",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/RWTRI1IQxM8?t=7",
+    "https://youtube.com/shorts/RWTRI1IQxM8?t=31",
+    "https://youtube.com/shorts/gfU82u6LfOY?t=12"
+   ],
+   "example_ids": [
+    "BE#128",
+    "BE#133",
+    "BE#206"
+   ],
+   "asset": "노랑 붓 동그라미 + 손가락 아이콘"
+  },
+  {
+   "id": "S021",
+   "version": "v2",
+   "title": "편집 스킬 21 — 명칭 미정",
+   "note": "매물 카드",
+   "type": "화면 삽입",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "매물 하나를 소개할 때 매물 카드(사진·가격)",
+   "pair": null,
+   "geometry": "1.2초",
+   "freq": "관찰 예 1건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/X_q6N_cfeoI?t=0"
+   ],
+   "example_ids": [
+    "NL#684"
+   ],
+   "asset": "보배드림 매물 카드"
+  },
+  {
+   "id": "S022",
+   "version": "v2",
+   "title": "편집 스킬 22 — 명칭 미정",
+   "note": "웹 창",
+   "type": "화면 삽입",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "사이트 화면을 보여줄 때 웹 창 삽입",
+   "pair": null,
+   "geometry": "1.2초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/Sci6-idq6W0?t=6",
+    "https://youtube.com/shorts/oOsforcVrhY?t=5"
+   ],
+   "example_ids": [
+    "NL#601",
+    "NL#1008"
+   ],
+   "asset": "보배드림 웹 창"
+  },
+  {
+   "id": "S023",
+   "version": "v2",
+   "title": "편집 스킬 23 — 명칭 미정",
+   "note": "세로 3분할",
+   "type": "화면 전환",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "외관·실내·뒤를 한 번에 보여줄 때 화면 세로 3분할 + 가운데 칩",
+   "pair": "노랑 띠 칩",
+   "geometry": "3분할 1.5~2초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/NyDBGk0EZhU?t=13",
+    "https://youtube.com/shorts/fQxhWJp4inA?t=9",
+    "https://youtube.com/shorts/mJGJkSQltJw?t=11"
+   ],
+   "example_ids": [
+    "BE#91",
+    "BE#176",
+    "BE#261"
+   ],
+   "asset": "3분할 레이아웃"
+  },
+  {
+   "id": "S024",
+   "version": "v2",
+   "title": "편집 스킬 24 — 명칭 미정",
+   "note": "칩 교체",
+   "type": "움직임",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "주행모드·옵션 모드가 바뀔 때마다 ✓ 칩을 같은 자리에서 교체",
+   "pair": "옵션 체크 이름표",
+   "geometry": "모드마다 0.5~0.8초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/h-YY69bL2mU?t=5",
+    "https://youtube.com/shorts/h-YY69bL2mU?t=11"
+   ],
+   "example_ids": [
+    "BE#217",
+    "BE#220"
+   ],
+   "asset": "칩 교체"
+  },
+  {
+   "id": "S025",
+   "version": "v2",
+   "title": "편집 스킬 25 — 명칭 미정",
+   "note": "퀴즈 첫 화면",
+   "type": "첫 화면",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "첫 화면 퀴즈: 이 차 맞혀 보세요 / 마력 맞혀 보세요 / 10초 안에",
+   "pair": "차 덮개 공개",
+   "geometry": "첫 1~2초, 큰 노랑 대문자",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/0J04wFIwOts?t=0",
+    "https://youtube.com/shorts/4sBdletteU0?t=0",
+    "https://youtube.com/shorts/olp_8F7x6RY?t=0"
+   ],
+   "example_ids": [
+    "NL#0",
+    "BE#38",
+    "BE#271"
+   ],
+   "asset": "퀴즈 첫 화면 문구"
+  },
+  {
+   "id": "S026",
+   "version": "v2",
+   "title": "편집 스킬 26 — 명칭 미정",
+   "note": "판매 중 정보 목록",
+   "type": "첫 화면",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "매물 첫 화면: 판매 중 + 차명 + 가격 이름표 + 아래 빈칸 정보 목록(연식·주행·출력·변속기) → 말하며 채움",
+   "pair": "퀴즈 항목 나열",
+   "geometry": "첫 2초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/-SvtKNG-eYA?t=0",
+    "https://youtube.com/shorts/fuBvJmAIMKY?t=0",
+    "https://youtube.com/shorts/Cfyvz_Urxpo?t=26"
+   ],
+   "example_ids": [
+    "BE#0",
+    "BE#199",
+    "NL#258"
+   ],
+   "asset": "정보 목록 칩"
+  },
+  {
+   "id": "S027",
+   "version": "v2",
+   "title": "편집 스킬 27 — 명칭 미정",
+   "note": "둘 중 하나",
+   "type": "첫 화면",
+   "modes": [
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "둘 중 하나 질문(이것 or 저것) 두 선택지 위아래, 고른 쪽 노랑",
+   "pair": null,
+   "geometry": "질문마다 1.5초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/GFYb3CitDOs?t=0",
+    "https://youtube.com/shorts/fVo1bynrBKs?t=4",
+    "https://youtube.com/shorts/vvRsy6pNv4w?t=0"
+   ],
+   "example_ids": [
+    "BE#62",
+    "BE#193",
+    "BE#301"
+   ],
+   "asset": "둘 중 하나 칩"
+  },
+  {
+   "id": "S028",
+   "version": "v2",
+   "title": "편집 스킬 28 — 명칭 미정",
+   "note": "댓글 유도",
+   "type": "마무리",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "마지막: 댓글로 알려 주세요(큰 노랑 낱말)",
+   "pair": "끝 로고",
+   "geometry": "마지막 2초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/7jJH5B06RT0?t=3",
+    "https://youtube.com/shorts/NyDBGk0EZhU?t=27",
+    "https://youtube.com/shorts/ej0_7zcH3cE?t=25"
+   ],
+   "example_ids": [
+    "NL#172",
+    "BE#95",
+    "BE#406"
+   ],
+   "asset": "댓글 유도 문구"
+  },
+  {
+   "id": "S029",
+   "version": "v2",
+   "title": "편집 스킬 29 — 명칭 미정",
+   "note": "팔로우 유도",
+   "type": "마무리",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "마지막: 팔로우 유도",
+   "pair": "끝 로고",
+   "geometry": "마지막 2초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/4Dq0ZCs-zeg?t=4",
+    "https://youtube.com/shorts/ej0_7zcH3cE?t=27"
+   ],
+   "example_ids": [
+    "NL#94",
+    "BE#407"
+   ],
+   "asset": "팔로우 유도 문구"
+  },
+  {
+   "id": "S030",
+   "version": "v2",
+   "title": "편집 스킬 30 — 명칭 미정",
+   "note": "끝 로고",
+   "type": "마무리",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "영상 끝·중간 로고(작게 → 크게 2단)",
+   "pair": "효과음-휙",
+   "geometry": "세로 0.22~0.50, 1.4초",
+   "freq": "자동 집계: 네덜란드 173/200개 · 벨기에 156/197개 영상, 영상 하나에 평균 1.67번, 세로 중심 0.228~0.524(중간 0.455), 머무는 시간 1.3초, 효과음 붙는 비율 21%",
+   "video_count": 329,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/2aDUWd4JY_c?t=35",
+    "https://youtube.com/shorts/2aDUWd4JY_c?t=36",
+    "https://youtube.com/shorts/JTgTxGbGVoQ?t=40"
+   ],
+   "example_ids": [
+    "BE#21",
+    "BE#22",
+    "NL#386"
+   ],
+   "asset": "보배드림 로고(작게→크게)",
+   "stats": {
+    "n": 548,
+    "videos_nl": 173,
+    "videos_be": 156,
+    "share_nl": 0.865,
+    "share_be": 0.792,
+    "per_video": 1.67,
+    "cy_med": 0.455,
+    "cy_q25": 0.228,
+    "cy_q75": 0.524,
+    "h_med": 0.135,
+    "w_med": 0.453,
+    "dur_med": 1.3,
+    "sfx_03": 0.21,
+    "first3s": 0.099,
+    "last4s": 0.644,
+    "pos_med": 0.94
+   },
+   "cy_med": 0.455,
+   "dur_med": 1.3
+  },
+  {
+   "id": "S031",
+   "version": "v2",
+   "title": "편집 스킬 31 — 명칭 미정",
+   "note": "반짝이",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "멋있다·새 차·빛나는 부위에 반짝이 ✨",
+   "pair": null,
+   "geometry": "0.6초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/JTgTxGbGVoQ?t=40",
+    "https://youtube.com/shorts/lnpb3FTi3PI?t=45"
+   ],
+   "example_ids": [
+    "NL#386",
+    "NL#969"
+   ],
+   "asset": "반짝이"
+  },
+  {
+   "id": "S032",
+   "version": "v2",
+   "title": "편집 스킬 32 — 명칭 미정",
+   "note": "ASMR 표기",
+   "type": "첫 화면",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "소리만 들려주는 영상: 차명 + ASMR",
+   "pair": "소리 스피커",
+   "geometry": "첫 1.5초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/Mh2BJUYAaHM?t=0",
+    "https://youtube.com/shorts/UeyjsVDwc4c?t=0",
+    "https://youtube.com/shorts/jLP3QHHl6Yg?t=5"
+   ],
+   "example_ids": [
+    "BE#81",
+    "BE#147",
+    "BE#251"
+   ],
+   "asset": "ASMR 표기"
+  },
+  {
+   "id": "S033",
+   "version": "v2",
+   "title": "편집 스킬 33 — 명칭 미정",
+   "note": "사람 이름표",
+   "type": "자막",
+   "modes": [
+    "② 사람 등장형"
+   ],
+   "when": "사람(딜러·인터뷰 대상) 이름을 가슴 높이에 노랑으로",
+   "pair": null,
+   "geometry": "1.5초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/R2TF8IgifbY?t=22",
+    "https://youtube.com/shorts/kXdx7O5pLdQ?t=3",
+    "https://youtube.com/shorts/VPrX7UslR2w?t=19"
+   ],
+   "example_ids": [
+    "BE#121",
+    "BE#256",
+    "BE#371"
+   ],
+   "asset": "사람 이름표"
+  },
+  {
+   "id": "S034",
+   "version": "v2",
+   "title": "편집 스킬 34 — 명칭 미정",
+   "note": "놀람 선",
+   "type": "아이콘·기호",
+   "modes": [
+    "② 사람 등장형"
+   ],
+   "when": "놀라는 순간 머리 위 빨강 놀람 선",
+   "pair": "효과음-띵",
+   "geometry": "0.6초",
+   "freq": "관찰 예 1건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/R2TF8IgifbY?t=22"
+   ],
+   "example_ids": [
+    "BE#121"
+   ],
+   "asset": "놀람 선"
+  },
+  {
+   "id": "S035",
+   "version": "v2",
+   "title": "편집 스킬 35 — 명칭 미정",
+   "note": "가리키기",
+   "type": "사람 연출",
+   "modes": [
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "사람이 손가락으로 부위를 가리킴 → ③에서는 손가락 아이콘이 같은 자리로 날아와 톡 누름",
+   "pair": "옵션 체크 이름표",
+   "geometry": "아이콘 0.3초 이동 + 0.2초 누름",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/K4zz0yXh770?t=12",
+    "https://youtube.com/shorts/m1_E1CvVzpQ?t=24",
+    "https://youtube.com/shorts/ijd98cMUjU8?t=15"
+   ],
+   "example_ids": [
+    "NL#413",
+    "NL#975",
+    "BE#247"
+   ],
+   "asset": "손가락 아이콘(탭·화살표·동그라미 3동작)"
+  },
+  {
+   "id": "S036",
+   "version": "v2",
+   "title": "편집 스킬 36 — 명칭 미정",
+   "note": "버튼 누름 클로즈업",
+   "type": "사람 연출",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "버튼 누르는 손 클로즈업 + ✓ 기능명",
+   "pair": "옵션 체크 이름표",
+   "geometry": "1초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/2aDUWd4JY_c?t=11",
+    "https://youtube.com/shorts/rzC-_mU1yoM?t=17",
+    "https://youtube.com/shorts/rzC-_mU1yoM?t=19"
+   ],
+   "example_ids": [
+    "BE#15",
+    "BE#465",
+    "BE#466"
+   ],
+   "asset": "손 클로즈업 컷"
+  },
+  {
+   "id": "S037",
+   "version": "v2",
+   "title": "편집 스킬 37 — 명칭 미정",
+   "note": "덮개 공개",
+   "type": "사람 연출",
+   "modes": [
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "덮개 벗기며 차 공개(퀴즈 정답)",
+   "pair": "퀴즈 첫 화면",
+   "geometry": "1~2초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/rxVoJMK93qE?t=14",
+    "https://youtube.com/shorts/2csZ_JTDIhg?t=0",
+    "https://youtube.com/shorts/2csZ_JTDIhg?t=14"
+   ],
+   "example_ids": [
+    "NL#1050",
+    "BE#319",
+    "BE#324"
+   ],
+   "asset": "공개 컷"
+  },
+  {
+   "id": "S038",
+   "version": "v2",
+   "title": "편집 스킬 38 — 명칭 미정",
+   "note": "말 자막 대문자형",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "말 자막: 흰 대문자 + 검정 테두리, 말하는 낱말만 노랑, 1~3낱말씩",
+   "pair": null,
+   "geometry": "세로 0.55~0.63, 덩어리 0.4~0.8초",
+   "freq": "자동 집계: 네덜란드 9/200개 · 벨기에 6/197개 영상, 영상 하나에 평균 1.0번, 세로 중심 0.57~0.669(중간 0.616), 머무는 시간 0.7초, 효과음 붙는 비율 27%",
+   "video_count": 15,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/0J04wFIwOts?t=0",
+    "https://youtube.com/shorts/2aDUWd4JY_c?t=7"
+   ],
+   "example_ids": [
+    "NL#0",
+    "BE#14"
+   ],
+   "asset": "말 자막(CAP_RULES)",
+   "stats": {
+    "n": 15,
+    "videos_nl": 9,
+    "videos_be": 6,
+    "share_nl": 0.045,
+    "share_be": 0.03,
+    "per_video": 1.0,
+    "cy_med": 0.616,
+    "cy_q25": 0.57,
+    "cy_q75": 0.669,
+    "h_med": 0.021,
+    "w_med": 0.122,
+    "dur_med": 0.7,
+    "sfx_03": 0.267,
+    "first3s": 0.133,
+    "last4s": 0.133,
+    "pos_med": 0.31
+   },
+   "cy_med": 0.616,
+   "dur_med": 0.7
+  },
+  {
+   "id": "S039",
+   "version": "v2",
+   "title": "편집 스킬 39 — 명칭 미정",
+   "note": "말 자막 문장형",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "말 자막 둘째 형: 문장형 흰 소문자, 핵심 낱말만 노랑, 가끔 낱말에 노랑 상자",
+   "pair": null,
+   "geometry": "세로 0.6~0.7",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/j7eqQu5CaBk?t=6",
+    "https://youtube.com/shorts/rsX_GPWHirQ?t=0",
+    "https://youtube.com/shorts/vXJiA11bQlk?t=4"
+   ],
+   "example_ids": [
+    "BE#409",
+    "BE#448",
+    "BE#476"
+   ],
+   "asset": "말 자막 문장형"
+  },
+  {
+   "id": "S040",
+   "version": "v2",
+   "title": "편집 스킬 40 — 명칭 미정",
+   "note": "국기",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "원산지 말할 때 국기 아이콘(🇰🇷 🇩🇪)",
+   "pair": null,
+   "geometry": "0.8초",
+   "freq": "관찰 예 1건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/2csZ_JTDIhg?t=4"
+   ],
+   "example_ids": [
+    "BE#320"
+   ],
+   "asset": "국기 이모지"
+  },
+  {
+   "id": "S041",
+   "version": "v2",
+   "title": "편집 스킬 41 — 명칭 미정",
+   "note": "첫 화면 차명 묶음(공식 차명 타이틀)",
+   "type": "첫 화면",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "첫 1~2초 차를 소개할 때: 작은 노랑 상자 첫 말(「이건」·「제 뒤에」·「신형」) + 흰 큰 차명, 필요하면 아래 가격 줄",
+   "pair": null,
+   "geometry": "1.5초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/3r5O-1-B8AA?t=0",
+    "https://youtube.com/shorts/3r5O-1-B8AA?t=5"
+   ],
+   "example_ids": [
+    "BE#327",
+    "BE#329",
+    "N3#25",
+    "N3#54",
+    "N3#64",
+    "N3#185"
+   ],
+   "asset": "차명 타이틀"
+  },
+  {
+   "id": "S042",
+   "version": "v2",
+   "title": "편집 스킬 42 — 명칭 미정",
+   "note": "가격 예고",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "가격 공개 직전 € 기호만 크게 띄워 예고(우리는 ₩ 대신 \"가격은?\")",
+   "pair": "바탕 없는 큰 노랑 숫자",
+   "geometry": "0.6초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/ej0_7zcH3cE?t=0",
+    "https://youtube.com/shorts/rzC-_mU1yoM?t=5"
+   ],
+   "example_ids": [
+    "BE#397",
+    "BE#460"
+   ],
+   "asset": "가격 예고"
+  },
+  {
+   "id": "S043",
+   "version": "v2",
+   "title": "편집 스킬 43 — 명칭 미정",
+   "note": "순번 숫자",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "목록·순위 소개 때 큰 순번 숫자(5, 이번엔 5)",
+   "pair": null,
+   "geometry": "0.8초",
+   "freq": "관찰 예 2건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/JfmHdoXItFY?t=0",
+    "https://youtube.com/shorts/_ZB7seKJ1Kc?t=0"
+   ],
+   "example_ids": [
+    "BE#360",
+    "BE#377"
+   ],
+   "asset": "큰 순번 숫자"
+  },
+  {
+   "id": "S044",
+   "version": "v2",
+   "title": "편집 스킬 44 — 명칭 미정",
+   "note": "붓 원 와이프",
+   "type": "화면 전환",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "광고·다른 장면 끼울 때 흰 화면 + 노랑 붓 원 와이프",
+   "pair": "효과음-휙",
+   "geometry": "0.4초",
+   "freq": "관찰 예 1건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/j7eqQu5CaBk?t=12"
+   ],
+   "example_ids": [
+    "BE#412"
+   ],
+   "asset": "붓 와이프"
+  },
+  {
+   "id": "S045",
+   "version": "v2",
+   "title": "편집 스킬 45 — 명칭 미정",
+   "note": "초록 체크 칩",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "✅ 초록 체크 이모지 + 검정 상자 기능명(옵션 체크 이름표의 변형)",
+   "pair": "옵션 체크 이름표",
+   "geometry": "세로 0.6, 1초",
+   "freq": "관찰 예 3건 이상(사람이 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "벨기에"
+   ],
+   "examples": [
+    "https://youtube.com/shorts/_ZB7seKJ1Kc?t=5",
+    "https://youtube.com/shorts/rzC-_mU1yoM?t=11",
+    "https://youtube.com/shorts/rzC-_mU1yoM?t=32"
+   ],
+   "example_ids": [
+    "BE#379",
+    "BE#462",
+    "BE#470"
+   ],
+   "asset": "✅ 칩"
+  },
+  {
+   "id": "S046",
+   "version": "v2",
+   "title": "편집 스킬 46 — 명칭 미정",
+   "note": "판매점 표시",
+   "type": "칠",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "매장·상사를 소개할 때: 📍 + 상사명 칩, 또는 상사 로고를 화면 위·가운데 잠깐(보배드림 상사 정보만)",
+   "pair": "끝 로고",
+   "geometry": "📍칩 세로 0.62~0.75 / 로고 세로 0.2~0.35, 1.2초",
+   "freq": "관찰 예 4건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N3#15",
+    "N3#86",
+    "N3#375",
+    "N3#432"
+   ],
+   "asset": "📍 + 상사명(매물 상사 정보) · 상사 로고(상사가 올린 것만)"
+  },
+  {
+   "id": "S047",
+   "version": "v2",
+   "title": "편집 스킬 47 — 명칭 미정",
+   "note": "화면 2분할",
+   "type": "화면 전환",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "두 대를 견주거나 같은 차의 앞·뒤를 한 번에 보여줄 때 위아래 두 장면 + 가운데 가격 칩",
+   "pair": "바탕 없는 큰 노랑 숫자",
+   "geometry": "2분할 1.5~2초",
+   "freq": "관찰 예 2건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N3#26",
+    "N3#79"
+   ],
+   "asset": "2분할 레이아웃"
+  },
+  {
+   "id": "S048",
+   "version": "v2",
+   "title": "편집 스킬 48 — 명칭 미정",
+   "note": "설명용 그림 컷",
+   "type": "화면 삽입",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "서비스·제도(안전 거래·서류·이전 등)를 설명할 때 그림 컷 + 초록 체크가 그려지며 나타남",
+   "pair": "초록 체크 칩",
+   "geometry": "컷 1~2초, 체크 그려짐 0.4초",
+   "freq": "관찰 예 4건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N3#43",
+    "N3#44",
+    "N3#45",
+    "N3#46"
+   ],
+   "asset": "보배드림이 그린 설명 일러스트(남의 스톡 영상 쓰지 않음)"
+  },
+  {
+   "id": "S049",
+   "version": "v2",
+   "title": "편집 스킬 49 — 명칭 미정",
+   "note": "차 브랜드 로고 배지",
+   "type": "아이콘·기호",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "브랜드 이야기(같은 그룹·원산지)를 할 때 브랜드 로고를 작게 띄움",
+   "pair": "국기",
+   "geometry": "로고 높이 화면 6%, 세로 0.6~0.75, 1.2초",
+   "freq": "관찰 예 3건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N3#381",
+    "N3#382",
+    "N3#383"
+   ],
+   "asset": "보배드림 퀵필터 브랜드 로고(public/assets/brand)"
+  },
+  {
+   "id": "S050",
+   "version": "v2",
+   "title": "편집 스킬 50 — 명칭 미정",
+   "note": "캠페인 끝 문구 카드",
+   "type": "마무리",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "영상 맨 끝 로고 바로 앞에 한 줄 캠페인 문구(「내 차 찾기는 보배드림」)",
+   "pair": "끝 로고",
+   "geometry": "마지막 2~3초, 가운데",
+   "freq": "관찰 예 3건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N3#177",
+    "N3#178",
+    "N3#179"
+   ],
+   "asset": "보배드림 캠페인 문구 + 로고"
+  },
+  {
+   "id": "S051",
+   "version": "v2",
+   "title": "편집 스킬 51 — 명칭 미정",
+   "note": "단색 배경 진행자",
+   "type": "사람 연출",
+   "modes": [
+    "② 사람 등장형"
+   ],
+   "when": "서비스 설명·공지처럼 차가 없는 영상: 단색(브랜드색) 배경 앞 진행자",
+   "pair": "설명용 그림 컷",
+   "geometry": "전체 화면",
+   "freq": "관찰 예 2건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N3#41",
+    "N3#42"
+   ],
+   "asset": "보배드림 파랑 배경 스튜디오 촬영"
+  },
+  {
+   "id": "S052",
+   "version": "v2",
+   "title": "편집 스킬 52 — 명칭 미정",
+   "note": "시리즈 타이틀 카드",
+   "type": "첫 화면",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "정기 코너(대담·연재)의 첫 화면: 진한 둥근 판 + 원 아이콘 + 코너 이름 + 로고, 1~2초",
+   "pair": "인용 문장 카드",
+   "geometry": "가운데, 화면 폭 60%, 2초",
+   "freq": "관찰 예 3건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N4#42",
+    "N4#246",
+    "N4#302"
+   ],
+   "asset": "보배드림 코너 이름 + 보배드림 로고(원본 코너명·로고 쓰지 않음)"
+  },
+  {
+   "id": "S053",
+   "version": "v2",
+   "title": "편집 스킬 53 — 명칭 미정",
+   "note": "인용 문장 카드",
+   "type": "자막",
+   "modes": [
+    "① 내레이션형",
+    "② 사람 등장형",
+    "③ 손가락 아이콘형"
+   ],
+   "when": "대담·인터뷰에서 핵심 한 문장을 노랑 판에 크게 띄울 때(말한 그대로, 지어내지 않음)",
+   "pair": "사람 이름표",
+   "geometry": "가운데, 화면 폭 85%, 2~3초",
+   "freq": "관찰 예 3건 이상(400개 확대 조사에서 새로 본 장면, 자동 집계 아님)",
+   "video_count": null,
+   "sources": [
+    "네덜란드",
+    "벨기에"
+   ],
+   "examples": [],
+   "example_ids": [
+    "N4#241",
+    "N4#242",
+    "N4#243"
+   ],
+   "asset": "말한 문장 그대로 + 말한 사람 이름"
+  }
+ ]
+}

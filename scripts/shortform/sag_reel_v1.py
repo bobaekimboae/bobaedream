@@ -1539,7 +1539,8 @@ def overlay(T, total, shots, shot, blk):
             if chk.get('band') == 'above_cap':  # 2026-11-10: 말 자막 바로 위에서 위로 쌓고 자막은 그대로 둔다(옵션 블록 10초 동안 자막이 사라지던 문제)
                 y0 = STYLE.get('cap_cy', 1129) - chk.get('cap_gap', 120) - tot
             elif chk.get('band') in ('cap', 'cap_hold'):  # 말 자막 자리(아래 줄 = 자막 높이)에서 위로 쌓고, 그동안 자막을 숨긴다(NL 원본 66%)
-                rel = cur_ph is None or CR.get('hide_mode', 'related') != 'related' or any(chip_related(cur_ph[2], blk['stickers'][i][0]) for i, _ in rows)
+                _hm = CR.get('hide_mode', 'related')  # always=원본처럼 자막 대신 칩 / related=같은 말일 때만 / never=자막은 늘 보이고 칩은 자막 위로(2026-11-10 사용자 「포인트칩 있는 대사가 자막에 안 나온다」)
+                rel = _hm == 'always' or (_hm == 'related' and (cur_ph is None or any(chip_related(cur_ph[2], blk['stickers'][i][0]) for i, _ in rows)))
                 if rel:
                     y0 = STYLE.get('cap_cy', 1129) + ims[-1].height / 2 - tot
                     big_on = True
@@ -1602,6 +1603,11 @@ def overlay(T, total, shots, shot, blk):
             y = STYLE['feat_y'] - ady
             if band and STYLE.get('band_y'):
                 y = STYLE['band_y'][band] - im.height / 2 - ady  # 부위별 자리(자동 편집기): 그 부위를 가리지 않는 높이
+                _CR = globals().get('CAP_RULES') or {}
+                if _CR.get('hide_mode') == 'never':  # 자막을 숨기지 않으니 칩이 자막 줄과 겹치면 자막 위로 올린다(2026-11-10 BE 아래 칩 1290 ↔ 자막 1283 겹침)
+                    cc, ch = STYLE.get('cap_cy', 1190), _CR.get('cap_clear_px', 70)
+                    if y + im.height > cc - ch and y < cc + ch:
+                        y = cc - ch - im.height - ady
         sc = max(.05, e)
         px_ = x + im.width * (1 - sc) / 2
         if STYLE.get('feat_pos') == 'as24':
@@ -1620,7 +1626,9 @@ def overlay(T, total, shots, shot, blk):
         if CR.get('hide_mode', 'related') == 'always' or (CR.get('hide_mode', 'related') == 'related' and any(chip_related(cur[2], t_) for t_ in hide_txts)):
             _chip_cover = any(chip_related(cur[2], t_) for t_ in hide_txts)  # 같은 말이 칩으로 보임 = 말이 화면에서 빠진 게 아님
             cur = None
-    if cur and STYLE.get('cap_cut_gap') and (cur[1] - cur[0]) >= CR.get('cut_gap_min_phrase_s', 1.2):
+    _chip_ph = {b['ph0'] + st_[1] for b in BLOCKS for st_ in b.get('stickers', [])}  # 포인트칩이 걸린 구절
+    if cur and STYLE.get('cap_cut_gap') and (cur[1] - cur[0]) >= CR.get('cut_gap_min_phrase_s', 1.2) \
+            and not (CR.get('cut_gap_skip_chip', True) and PHRASES.index(cur) in _chip_ph):  # 칩 대사는 컷 뒤에도 바로 자막(2026-11-10 BE 칩 순간 0.3초 빈 자막)
         g = STYLE['cap_cut_gap']  # 짧은 구절에는 컷 뒤 비우기를 하지 않는다(짧은 말이 통째로 안 보이던 문제)
         if any(sh['a'] > 0.5 and sh['a'] <= T < sh['a'] + g for sh in shots):
             cur = None  # 벨기에판: 컷이 바뀐 뒤 0.3초는 자막을 비운다
@@ -1838,6 +1846,9 @@ def main():
                              visible=round(sum(1 for c in fr if c[2] or c[4]) / max(1, len(fr)), 2),
                              caption_only=round(sum(1 for c in fr if c[2]) / max(1, len(fr)), 2)))
         M['captions'] = caps
+        for ch in M.get('chips', []):  # 칩이 뜬 순간(말 시작 ~ +chip_check_s) 자막이 실제로 보였나(2026-11-10 「포인트칩 있는 대사가 자막에 안 나온다」 전수조사)
+            w = [c for c in CAPLOG if ch['t'] <= c[0] < ch['t'] + (globals().get('CAP_RULES') or {}).get('chip_check_s', 1.3) and c[1]]
+            ch['cap_shown'] = round(sum(1 for c in w if c[2]) / max(1, len(w)), 2)
         json.dump(M, open(os.path.join(OUT, 'match.json'), 'w'), ensure_ascii=False, indent=1)
     except Exception as e_:
         print('match.json 자막 기록 실패', e_)

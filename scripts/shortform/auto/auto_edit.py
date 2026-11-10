@@ -238,10 +238,26 @@ def make_script_nasser(F, style, shots=None):
     ph = []
     if angle:
         ph.append(W(angle + '…'))
-    ph.append(W(f"{color} {name}!" if color else f"{name}!"))
+    LUX = os.environ.get('SAG_TONE', RULES['script'].get('tone_override', '')) == 'luxury'
+    if LUX:
+        # 2026-11-10 사용자 지시 「고급스럽게, 오토스카우트 영상 보는 것처럼」: 첫 줄은 차종 질문 대신 차 이름을 또박또박
+        # (세대·트림은 매물 정보 그대로, 읽기만 rules luxury.trim_say로 풀어 읽음)
+        lx = RULES['script'].get('luxury', {})
+        ph = [W(f"{color} {name}." if color else f"{name}.")]
+        tr = ' '.join(x for x in (F.get('gen'), F.get('trim')) if x)
+        if tr:
+            say = ' '.join(lx.get('trim_say', {}).get(w, w) for w in tr.split())
+            ph.append(list(zip((say + '.').split(), (tr + '.').split())))  # 말은 풀어 읽고, 자막은 매물 표기 그대로(P530 AB LWB)
+    else:
+        ph.append(W(f"{color} {name}!" if color else f"{name}!"))
     blk('hook', ph, hook=True)
     # 주행거리
     if F.get('km') is not None:
+        km = int(F['km'])
+        if LUX and km < RULES['script'].get('luxury', {}).get('new_km', 1000):
+            blk('exterior', [[('주행거리', '주행거리'), (f'{km:,}km.', f'{km:,}km.')], W('사실상 새 차입니다.')], [(f'주행 {km_show(km)}', 0, {})])
+            km = None
+    if F.get('km') is not None and not (LUX and int(F['km']) < RULES['script'].get('luxury', {}).get('new_km', 1000)):
         km = int(F['km'])
         tail = 'km밖에 안 됩니다.' if km < 30000 else 'km입니다.'
         blk('exterior', [[('주행거리는', '주행거리는')] + [(f'{km:,}' + tail.split()[0], f'{km:,}' + tail.split()[0])] + W(' '.join(tail.split()[1:]))] if len(tail.split()) > 1 else [[('주행거리는', '주행거리는'), (f'{km:,}{tail}', f'{km:,}{tail}')]],
@@ -252,7 +268,10 @@ def make_script_nasser(F, style, shots=None):
         ph, st, parts = [], [], []
         for i, o in enumerate(opts):
             sw = o['say'].split()
-            if o.get('feature') or not o.get('benefit_f'):
+            if o.get('line'):
+                # 2026-11-10 사용자 지시 「기능 옵션 설명 자연스럽게」: 영상에 보이는 특징은 facts features[].line 문장 그대로 말한다
+                ws = W(o['line'])
+            elif o.get('feature') or not o.get('benefit_f'):
                 ws = [(w, w) for w in sw] + W('도 갖췄습니다.' if not has_final(sw[-1]) else '도 갖췄습니다.')
                 ws = [(w, w) for w in sw[:-1]] + [(sw[-1] + '도', sw[-1] + '도'), ('갖췄습니다.', '갖췄습니다.')]
             else:
@@ -309,6 +328,8 @@ def make_script_nasser(F, style, shots=None):
 def select_options(F, style, shots, long=False):
     ex = RULES['option_exposure']
     cap = ex['max_per_video'][style] + (ex.get('long_extra', {}).get(style, 0) if long else 0)
+    if os.environ.get('SAG_TONE', RULES['script'].get('tone_override', '')) == 'luxury' and long:
+        cap = max(cap, RULES['script'].get('luxury', {}).get('max_options_long', cap))  # 긴 원본(66초)을 기능 설명으로 채운다
     have = set(s['part'] for s in (shots or []))
     cand = []
     for nm in F.get('options', []):
@@ -324,7 +345,7 @@ def select_options(F, style, shots, long=False):
     for f in F.get('features', []):  # 영상에 보이는 특징(옵션표 밖): 그 부위 장면이 있을 때만
         if shots is not None and f['part'] not in have:
             continue
-        cand.append(dict(name=f['chip'], chip=f['chip'], say=f['say'], parts=[f['part']], tier=1, visible=True, feature=True))
+        cand.append(dict(name=f['chip'], chip=f['chip'], say=f.get('say', f['chip']), line=f.get('line'), parts=[f['part']], tier=1, visible=True, feature=True))
     cand.sort(key=lambda o: (o['tier'], not o['visible']))
     out, used, rest = [], set(), []
     for o in cand:  # 같은 부위만 몰리지 않게: 원본에 있는 부위 중 아직 안 쓴 부위를 그 옵션의 장면으로
@@ -354,7 +375,11 @@ def pron(tok):
     for k in sorted(P.get('words', {}), key=len, reverse=True):
         if k in core:
             core = core.replace(k, P['words'][k])
-    core = re.sub(r'(\d)\.(\d)', lambda x: DIG[int(x.group(1))] + '점' + ('영' if x.group(2) == '0' else DIG[int(x.group(2))]), core)
+    def dec(x):  # 2026-11-10: 13.7인치가 「1삼점칠」로 읽히던 문제 → 정수부는 십삼, 소수부는 한 자리씩
+        n = int(x.group(1))
+        ip = DIG[n] if n < 10 else ('' if n // 10 == 1 else DIG[n // 10]) + '십' + (DIG[n % 10] if n % 10 else '')
+        return ip + '점' + ''.join('영' if d == '0' else DIG[int(d)] for d in x.group(2))
+    core = re.sub(r'(?<![\d,])(\d{1,2})\.(\d+)', dec, core)
     def model(x):
         return ''.join(P['letters'].get(c, c) for c in x.group(1)) + ''.join(DIG[int(d)] for d in x.group(2))
     core = re.sub(r'\b([A-Z]{1,3})(\d{2,3})\b', model, core)
