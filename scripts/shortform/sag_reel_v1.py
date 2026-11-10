@@ -1562,12 +1562,10 @@ def overlay(T, total, shots, shot, blk):
             hide_txts.append(txt)
         big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)
         big = big and STYLE.get('big_numbers', True)  # 벨기에판: 숫자도 칩 안에(크게 튀어나오지 않음)
-        if big:
+        if big:  # 큰 숫자·숫자 칩은 자막 자리와 겹치지 않으므로 related 모드에서는 자막을 숨기지 않는다(자막 빠짐 방지)
             big_on = True
-            hide_txts.append(txt)
         elif STYLE.get('numchip_hides_cap') and re.search(r'\d', txt):
-            big_on = True
-            hide_txts.append(txt)  # 벨기에판: 숫자 칩(가격·km·연식)이 떠 있는 동안 말 자막을 숨김(BE 9/50)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
+            big_on = True  # 벨기에판: 숫자 칩(가격·km·연식)이 떠 있는 동안 말 자막을 숨김(BE 9/50)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
         tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6] * STYLE.get('tilt_k', 1.0)
         if STYLE.get('tilt_fixed') is not None:
             tilt = STYLE['tilt_fixed'] + (-0.8, 0.6, 0.0)[(bi + si) % 3] * (STYLE['tilt_fixed'] != 0)  # 벨기에판: 늘 반시계(1~4도)
@@ -1606,7 +1604,8 @@ def overlay(T, total, shots, shot, blk):
     _speech = cur is not None
     if cur and (cap_slot or (big_on and (STYLE.get('big_hides_cap') or STYLE.get('numchip_hides_cap')))):
         # 네덜란드판: 큰 숫자가 떠 있는 동안 말 자막을 숨긴다(NL 39/50). 2026-11-10: 칩이 말과 같은 내용일 때만(규칙 captions.hide_mode)
-        if CR.get('hide_mode', 'related') != 'related' or any(chip_related(cur[2], t_) for t_ in hide_txts):
+        # related: 칩이 자막 자리를 차지하고(자막 자리·아래 띠) 말과 같은 내용일 때만 숨김. 겹치지 않는 큰 숫자 칩은 숨기지 않음
+        if CR.get('hide_mode', 'related') == 'always' or (CR.get('hide_mode', 'related') == 'related' and any(chip_related(cur[2], t_) for t_ in hide_txts)):
             cur = None
     if cur and STYLE.get('cap_cut_gap') and (cur[1] - cur[0]) >= CR.get('cut_gap_min_phrase_s', 1.2):
         g = STYLE['cap_cut_gap']  # 짧은 구절에는 컷 뒤 비우기를 하지 않는다(짧은 말이 통째로 안 보이던 문제)
