@@ -979,6 +979,12 @@
         "SV": "에스브이",
         "P530": "피오백삼십",
         "P250": "피이백오십"
+      },
+      "max_options_long": 8,
+      "_note_options": "2026-11-10 사용자 지시 「원본에 맞게 대사, 여성, 기능 옵션 설명, 옵션 설명할 때 칩」: 긴 원본(40초 이상) + 고급 톤이면 영상에 보이는 특징을 최대 8개까지 한 문장씩 설명",
+      "voice_female": {
+        "voice_id": "raTcx22daiyhuIriH0Vf",
+        "name": "Yuna - Natural Korean female, Calm, Warm (luxury branding)"
       }
     }
   },

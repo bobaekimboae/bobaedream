@@ -247,7 +247,7 @@ def make_script_nasser(F, style, shots=None):
         tr = ' '.join(x for x in (F.get('gen'), F.get('trim')) if x)
         if tr:
             say = ' '.join(lx.get('trim_say', {}).get(w, w) for w in tr.split())
-            ph.append([(a, b) for a, b in zip((say + '.').split(), (say + '.').split())])
+            ph.append(list(zip((say + '.').split(), (tr + '.').split())))  # 말은 풀어 읽고, 자막은 매물 표기 그대로(P530 AB LWB)
     else:
         ph.append(W(f"{color} {name}!" if color else f"{name}!"))
     blk('hook', ph, hook=True)
@@ -268,7 +268,10 @@ def make_script_nasser(F, style, shots=None):
         ph, st, parts = [], [], []
         for i, o in enumerate(opts):
             sw = o['say'].split()
-            if o.get('feature') or not o.get('benefit_f'):
+            if o.get('line'):
+                # 2026-11-10 사용자 지시 「기능 옵션 설명 자연스럽게」: 영상에 보이는 특징은 facts features[].line 문장 그대로 말한다
+                ws = W(o['line'])
+            elif o.get('feature') or not o.get('benefit_f'):
                 ws = [(w, w) for w in sw] + W('도 갖췄습니다.' if not has_final(sw[-1]) else '도 갖췄습니다.')
                 ws = [(w, w) for w in sw[:-1]] + [(sw[-1] + '도', sw[-1] + '도'), ('갖췄습니다.', '갖췄습니다.')]
             else:
@@ -325,6 +328,8 @@ def make_script_nasser(F, style, shots=None):
 def select_options(F, style, shots, long=False):
     ex = RULES['option_exposure']
     cap = ex['max_per_video'][style] + (ex.get('long_extra', {}).get(style, 0) if long else 0)
+    if os.environ.get('SAG_TONE', RULES['script'].get('tone_override', '')) == 'luxury' and long:
+        cap = max(cap, RULES['script'].get('luxury', {}).get('max_options_long', cap))  # 긴 원본(66초)을 기능 설명으로 채운다
     have = set(s['part'] for s in (shots or []))
     cand = []
     for nm in F.get('options', []):
@@ -340,7 +345,7 @@ def select_options(F, style, shots, long=False):
     for f in F.get('features', []):  # 영상에 보이는 특징(옵션표 밖): 그 부위 장면이 있을 때만
         if shots is not None and f['part'] not in have:
             continue
-        cand.append(dict(name=f['chip'], chip=f['chip'], say=f['say'], parts=[f['part']], tier=1, visible=True, feature=True))
+        cand.append(dict(name=f['chip'], chip=f['chip'], say=f.get('say', f['chip']), line=f.get('line'), parts=[f['part']], tier=1, visible=True, feature=True))
     cand.sort(key=lambda o: (o['tier'], not o['visible']))
     out, used, rest = [], set(), []
     for o in cand:  # 같은 부위만 몰리지 않게: 원본에 있는 부위 중 아직 안 쓴 부위를 그 옵션의 장면으로
