@@ -20,18 +20,40 @@ def _bg_photos(photos, total, track=None):
     if not track:
         per = total / len(photos)
         track = [(i * per, per, p) for i, p in enumerate(photos)]
-    ims = [Image.open(p).convert('RGB') for _, _, p in track]
-    cache = [D._cover(im, int(D.W * 1.12), int(D.H * 1.12)) for im in ims]
+    from PIL import ImageFilter, ImageEnhance
+    ZOOM = .06                            # 천천히 당겨 보이기(6%)
+    cache = []
+    for _, _, p in track:
+        im = Image.open(p).convert('RGB')
+        if im.width / im.height > D.W / D.H * 1.15:
+            # 가로 사진(매물 사진 1120x840 등): 세로 화면에 꽉 채우려고 늘리면 2.5배 확대돼 깨진다.
+            # → 사진은 화면 폭에 맞춰 원래 선명도로 가운데 두고, 위아래는 같은 사진을 흐리게 깐다(사진 자체는 고치지 않음)
+            fw = int(D.W * (1 + ZOOM))
+            fg = im.resize((fw, round(im.height * fw / im.width)), Image.LANCZOS)
+            bg = D._cover(im, D.W, D.H).filter(ImageFilter.GaussianBlur(40))
+            bg = ImageEnhance.Brightness(bg).enhance(.55)
+            cache.append(('wide', bg, fg))
+        else:
+            cache.append(('cover', D._cover(im, int(D.W * (1 + ZOOM)), int(D.H * (1 + ZOOM))), None))
 
     def frame(t):
         i = max([k for k, (s0, _, _) in enumerate(track) if s0 <= t + 1e-6] or [0])
         per = track[i][1]
         x = min(1, (t - track[i][0]) / per)
-        im = cache[i]
-        s = 1.12 - .08 * x               # 천천히 당겨 보이기
+        kind, a, b = cache[i]
+        s = 1 + ZOOM * x
+        if kind == 'wide':
+            w = int(D.W * s)
+            fg = b.resize((w, round(b.height * w / b.width)), Image.BICUBIC) if w != b.width else b
+            ox = (fg.width - D.W) // 2
+            fg = fg.crop((ox, 0, ox + D.W, fg.height))
+            out = a.copy()
+            out.paste(fg, (0, (D.H - fg.height) // 2))
+            return out
         w, h = int(D.W * s), int(D.H * s)
-        ox, oy = (im.width - w) // 2, (im.height - h) // 2
-        return im.crop((ox, oy, ox + w, oy + h)).resize((D.W, D.H), Image.BILINEAR)
+        im = a.resize((w, h), Image.BICUBIC) if w != a.width else a
+        ox, oy = (im.width - D.W) // 2, (im.height - D.H) // 2
+        return im.crop((ox, oy, ox + D.W, oy + D.H))
     return frame
 
 
@@ -73,7 +95,7 @@ def render(plan, out, photos=None, video=None, voice=None, track=None):
     bg = _bg_video(video) if video else _bg_photos(photos, total, track)
     tmp_v = out + '.v.mp4'
     enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{D.W}x{D.H}', '-r', str(FPS), '-i', '-',
-                            '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', tmp_v], stdin=subprocess.PIPE)
+                            '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', tmp_v], stdin=subprocess.PIPE)
     static = {}
     for fi in range(int(total * FPS)):
         t = fi / FPS
