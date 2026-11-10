@@ -255,7 +255,8 @@ def make_script_nasser(F, style, shots=None):
     if F.get('km') is not None:
         km = int(F['km'])
         if LUX and km < RULES['script'].get('luxury', {}).get('new_km', 1000):
-            blk('exterior', [[('주행거리', '주행거리'), (f'{km:,}km.', f'{km:,}km.')], W('사실상 새 차입니다.')], [(f'주행 {km_show(km)}', 0, {})])
+            nl_ = os.environ.get('SAG_NEW_LINE', RULES['script'].get('luxury', {}).get('new_line', '사실상 새 차입니다.'))  # 60초판은 빈 값(SAG_NEW_LINE=)
+            blk('exterior', [[('주행거리', '주행거리'), (f'{km:,}km.', f'{km:,}km.')]] + ([W(nl_)] if nl_ else []), [(f'주행 {km_show(km)}', 0, {})])
             km = None
     if F.get('km') is not None and not (LUX and int(F['km']) < RULES['script'].get('luxury', {}).get('new_km', 1000)):
         km = int(F['km'])
