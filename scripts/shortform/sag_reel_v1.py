@@ -1621,7 +1621,9 @@ def overlay(T, total, shots, shot, blk):
         if CR.get('hide_mode', 'related') == 'always' or (CR.get('hide_mode', 'related') == 'related' and any(chip_related(cur[2], t_) for t_ in hide_txts)):
             _chip_cover = any(chip_related(cur[2], t_) for t_ in hide_txts)  # 같은 말이 칩으로 보임 = 말이 화면에서 빠진 게 아님
             cur = None
-    if cur and STYLE.get('cap_cut_gap') and (cur[1] - cur[0]) >= CR.get('cut_gap_min_phrase_s', 1.2):
+    _chip_ph = {b['ph0'] + st_[1] for b in BLOCKS for st_ in b.get('stickers', [])}  # 포인트칩이 걸린 구절
+    if cur and STYLE.get('cap_cut_gap') and (cur[1] - cur[0]) >= CR.get('cut_gap_min_phrase_s', 1.2) \
+            and not (CR.get('cut_gap_skip_chip', True) and PHRASES.index(cur) in _chip_ph):  # 칩 대사는 컷 뒤에도 바로 자막(2026-11-10 BE 칩 순간 0.3초 빈 자막)
         g = STYLE['cap_cut_gap']  # 짧은 구절에는 컷 뒤 비우기를 하지 않는다(짧은 말이 통째로 안 보이던 문제)
         if any(sh['a'] > 0.5 and sh['a'] <= T < sh['a'] + g for sh in shots):
             cur = None  # 벨기에판: 컷이 바뀐 뒤 0.3초는 자막을 비운다
