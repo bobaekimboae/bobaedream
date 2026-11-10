@@ -612,9 +612,48 @@ def plan_shots(total):
     return shots
 
 
+def clamp_to_segments(shots, src_dur):
+    """2026-11-10 칩·말 ↔ 화면 어긋남 원인 수정: 컷 편집표가 장면을 줄이거나(shot_target_s) 컷을 당기거나(cut_early)
+    마지막 장면을 영상 끝까지 늘리면, 원본이 그 부위 구간을 넘어 다음 부위(바퀴·트렁크)나 원본 끝 검은 화면이 비친다.
+    장면마다 그 부위 구간(설정 SEGS, 없으면 원본 전체) 안에서 끝나도록 천천히(최저 0.4배) 틀고, 그래도 모자라면 시작을 당긴다"""
+    SF = dict(dict(clamp_to_part=True, min_speed=0.4, pull_start_when_short=True, edge_margin_s=0.04), **globals().get('SHOT_FIT', {}))
+    segs = globals().get('SEGS') or [dict(t0=0.0, t1=src_dur, part='all')]
+    for sh in shots:
+        seg = next((g for g in segs if g['t0'] - 0.05 <= sh['src'] < g['t1']), None) or dict(t0=0.0, t1=src_dur, part='all')
+        sh['part'] = seg['part']
+        if not SF['clamp_to_part']:
+            continue
+        end = min(seg['t1'], src_dur) - SF['edge_margin_s']
+        dur = max(0.01, sh['b'] - sh['a'])
+        if sh['src'] + dur * sh['sp'] > end:
+            sp = max(SF['min_speed'], (end - sh['src']) / dur)
+            sh['sp'] = round(min(sh['sp'], sp), 3)
+            if sh['src'] + dur * sh['sp'] > end and SF['pull_start_when_short']:
+                sh['src'] = round(max(seg['t0'], end - dur * sh['sp']), 3)
+    return shots
+
+
+def dump_match(shots):
+    """칩마다 실제로 그 순간 화면에 비친 부위를 적는다(OUT/match.json, check_match.py가 읽음)"""
+    rows = []
+    for bi, b in enumerate(BLOCKS):
+        for st in b.get('stickers', []):
+            txt, pi = st[0], st[1]
+            if b['ph0'] + pi >= len(PHRASES):
+                continue
+            t = PHRASES[b['ph0'] + pi][0]
+            sh = next((x for x in shots if x['a'] <= t < x['b']), shots[-1])
+            rows.append(dict(sec=b.get('sec', ''), chip=txt, t=round(t, 2), part=sh.get('part'), src=round(sh['src'] + (t - sh['a']) * sh['sp'], 2)))
+    json.dump(dict(chips=rows, shots=[{k: sh.get(k) for k in ('a', 'b', 'src', 'sp', 'bi', 'k', 'part')} for sh in shots]),
+              open(os.path.join(OUT, 'match.json'), 'w'), ensure_ascii=False, indent=1)
+
+
+SRC_FPS = 30.0  # main()에서 원본 파일의 실제 초당 장면 수로 바꾼다(2026-11-10: 차란차 원본 25fps를 30으로 계산해 장면이 엉뚱한 시각에서 나옴)
+
+
 def src_frame(shot, T, nframes):
     s = shot['src'] + (T - shot['a']) * shot['sp']
-    return int(min(nframes - 1, max(0, round(s * FPS))))
+    return int(min(nframes - 1, max(0, round(s * SRC_FPS))))
 
 
 # ── 4. 번호판 위치표 ──
@@ -1682,7 +1721,10 @@ def main():
     build_sfx(total)
     cap = cv2.VideoCapture(SRC)
     nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    shots = plan_shots(total)
+    global SRC_FPS
+    SRC_FPS = float(cap.get(cv2.CAP_PROP_FPS) or 0) or float(FPS)  # 원본 시각(초) → 원본 장면 번호는 원본의 실제 fps로(출력 FPS와 다를 수 있음)
+    shots = clamp_to_segments(plan_shots(total), nframes / SRC_FPS)
+    dump_match(shots)
     # 번호판: 기본은 가리지 않음(딜러 매물은 번호판 공개가 원칙, 사용자 지시 2026-11-07). SAG_PLATE_COVER=1 이면 자동 가림
     track = plate_track(shots, total, nframes, os.path.join(OUT, 'plates.json')) if PLATE_COVER else {}
     # 필요한 원본 장면만 읽어 둔다

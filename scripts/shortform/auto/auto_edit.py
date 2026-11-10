@@ -466,8 +466,58 @@ def style_of(blocks):
     return blocks[0].get('_style', 'bobae_nl')
 
 
+def merge_shots(shots):
+    """붙어 있는 같은 부위 장면을 하나로 합친다(트렁크 2.6초 + 2.7초 → 5.3초). 장면이 짧게 쪼개져 있으면
+    구절이 장면 끝을 넘어 다음 부위(바퀴·트렁크)가 비쳐 칩·말과 화면이 어긋난다(2026-11-10 차란차 02 「2.5 가솔린」이 바퀴 위)"""
+    SF = RULES.get('shot_fit', {})
+    out = []
+    for s in sorted(shots, key=lambda x: x['t0']):
+        if SF.get('merge_same_part', True) and out and out[-1]['part'] == s['part'] and abs(out[-1]['t1'] - s['t0']) < SF.get('merge_gap_s', 0.05):
+            out[-1] = dict(out[-1], t1=s['t1'], score=max(out[-1].get('score', 0.5), s.get('score', 0.5)))
+        else:
+            out.append(dict(s))
+    return out
+
+
+def fit_in_shot(s, start, need, fit):
+    """장면 끝을 넘지 않게 (시작, 속도)를 정한다. 남은 길이가 모자라면 천천히(최저 MIN_SPEED) 틀고,
+    그래도 모자라면 같은 장면 안에서 시작을 앞으로 당긴다. 장면 밖(다음 부위·영상 끝 검은 화면)으로 넘치지 않음"""
+    SF = RULES.get('shot_fit', {})
+    left = s['t1'] - start
+    sp = min(1.0, max(fit, left / need))
+    if not SF.get('clamp_to_part', True):
+        return round(start, 2), round(sp, 2)
+    m = SF.get('edge_margin_s', 0.04)
+    if need * sp > left - m:
+        sp = max(SF.get('min_speed', 0.4), min(1.0, (left - m) / need))
+        if need * sp > left - m and SF.get('pull_start_when_short', True):  # 시작을 당겨 장면 안에서 끝나게
+            start = max(s['t0'], s['t1'] - m - need * sp)
+    return round(start, 2), round(sp, 2)
+
+
+def apply_missing(blocks, shots):
+    """원하는 첫 부위가 원본 영상에 없을 때의 처리(규칙 shot_fit.missing_part)와 촬영 필요 부위 목록(shot_fit.required_shots).
+    drop_phrase(그 문장 빼기)는 대본을 만들 때 옵션 문장에 이미 적용된다(보이지 않는 옵션은 말하지 않음). 그 밖 구간에서는 drop_chip으로 처리"""
+    if not shots:
+        return []
+    SF = RULES.get('shot_fit', {})
+    have = {s['part'] for s in shots}
+    for b in blocks:
+        pol = SF.get('missing_part', {}).get(b['sec'], 'fallback')
+        for pi, want in enumerate(b.get('parts', [])):
+            if want and want[0] not in have:
+                b.setdefault('missing', []).append(want[0])
+                if pol in ('drop_chip', 'drop_phrase'):
+                    b['stickers'] = [x for x in b['stickers'] if x[1] != pi]
+    return [p for p in SF.get('required_shots', {}).get('list', []) if p not in have]
+
+
 def assign_shots(blocks, shots, times):
-    """구절마다 원하는 부위 장면을 고른다(규칙 script.shot_cost). 말보다 짧으면 천천히(최소 0.6배) 튼다"""
+    """구절마다 원하는 부위 장면을 고른다(규칙 script.shot_cost). 말보다 짧으면 천천히(최소 0.6배) 튼다.
+    2026-11-10: 장면은 절대 그 부위 구간 밖으로 넘치지 않는다(넘치면 칩·말과 화면이 어긋남)"""
+    shots = merge_shots(shots)
+    global FIT
+    FIT = dict({'option': 0.5, 'default': 0.6}, **RULES.get('shot_fit', {}).get('fit_speed', {}))
     used = {}   # 장면 번호 → 다음에 쓸 수 있는 원본 시각
     prev = None
     run = 0.0   # 지금 장면이 이어진 길이(블록을 넘어 이어짐)
@@ -488,9 +538,9 @@ def assign_shots(blocks, shots, times):
             if prev is not None and (pi or bi) and ((pi not in optp and not prev_opt) or opt_same) and (run < STYLE_TARGET[style_of(blocks)] or first_hold or opt_same):
                 s = shots[prev]
                 start = used[prev]
-                if s['t1'] - start >= need * 0.6:
-                    sp = round(min(1.0, max(0.6, (s['t1'] - start) / need)), 2)
-                    b['shot_tuples'].append((round(start, 2), sp, 0)); b['shot_parts'].append(s['part'])
+                if s['t1'] - start >= need * FIT['default']:
+                    start, sp = fit_in_shot(s, start, need, FIT['default'])
+                    b['shot_tuples'].append((start, sp, 0)); b['shot_parts'].append(s['part'])
                     used[prev] = start + need * sp; run += need
                     b.setdefault('cont', []).append(pi)
                     continue
@@ -510,7 +560,7 @@ def assign_shots(blocks, shots, times):
                 start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))  # 영상 맨 앞 장면은 앞 여유가 필요 없다
                 left = s['t1'] - start
                 reuse = 0 if si not in used else (0.5 if si == prev and left >= need * 0.6 else 5)
-                fit = 0.5 if pi in optp else 0.6  # 옵션 구절은 그 부위 장면을 조금 더 천천히(0.5배까지) 틀어서라도 쓴다
+                fit = FIT['option'] if pi in optp else FIT['default']  # 옵션 구절은 그 부위 장면을 조금 더 천천히(0.5배까지) 틀어서라도 쓴다
                 cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * fit else 14)  # 다 쓴 장면은 거의 마지막 수단
                 if pi in optp and s['part'] not in want:
                     cost += 30  # 2026-11-10: 나사르식 긴 옵션 문장에서 「통풍 시트」 칩이 그릴 장면에 뜸 → 옵션 칩은 반드시 그 부위 장면 위에
@@ -520,18 +570,18 @@ def assign_shots(blocks, shots, times):
             si = best[1]
             s = shots[si]
             start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))
-            fit = 0.5 if pi in optp else 0.6
+            fit = FIT['option'] if pi in optp else FIT['default']
             if s['t1'] - start < need * fit:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
                 start = s['t0'] + 0.15
-            sp = round(min(1.0, max(fit, (s['t1'] - start) / need)), 2)
-            b['shot_tuples'].append((round(start, 2), sp, 0))
+            start, sp = fit_in_shot(s, start, need, fit)
+            b['shot_tuples'].append((start, sp, 0))
             b['shot_parts'].append(s['part'])
             used[si] = start + need * sp
             prev = si
     return blocks
 
 
-def write_config(F, blocks, style, path):
+def write_config(F, blocks, style, path, segs=None):
     show, caps_out, B = {}, [], []
     for b in blocks:
         caps = []
@@ -567,6 +617,8 @@ def write_config(F, blocks, style, path):
 exec(open('scripts/shortform/reels/vantage_s3.py', encoding='utf-8').read())  # 공통 STYLE 바탕(글꼴·칠·크기)
 CAR = {json.dumps(car, ensure_ascii=False)}
 HOOK = {json.dumps(hook, ensure_ascii=False)}
+SHOT_FIT = {json.dumps({k: v for k, v in RULES.get('shot_fit', {}).items() if not k.startswith('_') and k in ('clamp_to_part', 'min_speed', 'pull_start_when_short', 'edge_margin_s')})}  # 가변 규칙 shot_fit(auto_edit_rules.json)
+SEGS = {json.dumps([dict(t0=g['t0'], t1=g['t1'], part=g['part']) for g in (merge_shots(segs) if segs else [])], ensure_ascii=False)}  # 부위 구간: 렌더러가 장면을 이 안에서만 튼다(2026-11-10)
 BLOCKS = {json.dumps(B, ensure_ascii=False, indent=1)}
 SHOW = {json.dumps(show, ensure_ascii=False)}
 MARKS = {json.dumps(marks, ensure_ascii=False)}
@@ -621,10 +673,11 @@ def main():
     for b in blocks:
         b['_style'] = a.style
     apply_pron(blocks)  # 2026-11-10 한국어 발음 교정(G80 → 지팔공), 화면 글자는 그대로
+    required = apply_missing(blocks, shots)  # 2026-11-10 원본에 없는 부위 처리(가변 규칙 shot_fit)
     if a.cmd == 'script':
         open(os.path.join(a.out, 'tts.txt'), 'w', encoding='utf-8').write(tts_text(blocks))
         json.dump(RULES['voice']['settings'], open(os.path.join(a.out, 'voice_settings.json'), 'w'))
-        json.dump(dict(style=a.style, blocks=blocks), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
+        json.dump(dict(style=a.style, blocks=blocks, required_shots=required), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
         print(tts_text(blocks))
         return
     raw = os.path.join(a.out, 'voice.mp3')
@@ -654,8 +707,8 @@ def main():
                 acc += d
     json.dump(flat, open(os.path.join(a.out, 'words_flat.json'), 'w'), ensure_ascii=False)
     assign_shots(blocks, shots, times)
-    json.dump(dict(style=a.style, blocks=blocks, times={f'{k[0]}:{k[1]}': v for k, v in times.items()}), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
-    write_config(F, blocks, a.style, os.path.join(a.out, 'config.py'))
+    json.dump(dict(style=a.style, blocks=blocks, required_shots=required, times={f'{k[0]}:{k[1]}': v for k, v in times.items()}), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
+    write_config(F, blocks, a.style, os.path.join(a.out, 'config.py'), shots)
     print('config', os.path.join(a.out, 'config.py'))
 
 

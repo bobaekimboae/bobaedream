@@ -1317,5 +1317,53 @@
    "Z": "지"
   },
   "_rule": "사전에 없는 「영문+숫자」 모델명(P250 등)은 글자 이름 + 숫자 한 자리씩(0=공). 소수점 배기량 2.5 = 이점오. 쉼표 들어간 큰 수(26,690)는 그대로 둠(일레븐랩스가 읽음)"
+ },
+ "shot_fit": {
+  "_rule": "장면 ↔ 칩·말 맞춤 가변 규칙(2026-11-10). 코드는 이 값만 읽는다. 매물·원본 영상마다 달라지는 것은 여기서 바꾼다",
+  "source_fps": "auto",
+  "_fps_note": "원본 시각 → 원본 장면 번호는 원본 파일의 실제 fps로 계산(auto). 25·24·60fps 원본도 그대로 씀(2026-11-10 차란차 25fps를 30으로 계산해 엔진 칩이 바퀴 위·끝이 검은 화면이던 원인)",
+  "merge_same_part": true,
+  "merge_gap_s": 0.05,
+  "_merge_note": "붙어 있는 같은 부위 장면을 하나로 합침(짧게 쪼개진 장면 때문에 넘치는 것 방지)",
+  "clamp_to_part": true,
+  "_clamp_note": "장면은 그 부위 구간 밖(다음 부위·원본 끝 검은 화면)으로 넘치지 않는다. 자동편집 계획과 렌더러 둘 다 적용",
+  "fit_speed": {
+   "option": 0.5,
+   "default": 0.6
+  },
+  "_fit_note": "장면을 고를 때 이 속도까지 천천히 틀어 맞출 수 있으면 그 장면을 쓴다(옵션은 그 부위 장면을 더 우선)",
+  "min_speed": 0.4,
+  "_min_note": "부위 구간이 모자랄 때 늦출 수 있는 최저 속도. 그래도 모자라면 pull_start",
+  "pull_start_when_short": true,
+  "_pull_note": "최저 속도로도 모자라면 같은 부위 구간 안에서 시작을 앞으로 당겨 구간 안에서 끝냄",
+  "edge_margin_s": 0.04,
+  "missing_part": {
+   "_note": "원하는 첫 부위가 원본 영상에 아예 없을 때. fallback = parts_for_section 다음 부위로 대신 · drop_chip = 말은 하고 칩은 뺌 · drop_phrase = 그 문장을 뺌",
+   "hook": "fallback",
+   "exterior": "fallback",
+   "options": "drop_phrase",
+   "power": "fallback",
+   "condition": "fallback",
+   "cta": "fallback"
+  },
+  "required_shots": {
+   "_note": "이 부위가 원본에 없으면 plan.json required_shots와 검사표에 「촬영 필요」로 적는다(촬영키트 안내에 연결)",
+   "list": [
+    "exterior_3_4",
+    "exterior_front",
+    "exterior_side",
+    "exterior_rear",
+    "engine_bay",
+    "interior_dash",
+    "steering_wheel",
+    "seats_front",
+    "trunk"
+   ]
+  },
+  "check": {
+   "on": true,
+   "max_overflow": 0,
+   "_note": "렌더 뒤 check_match.py --render 결과. 넘침이 max_overflow를 넘으면 배포 전 다시 만든다"
+  }
  }
 }
