@@ -36,6 +36,8 @@ jobs:
           mkdir -p reports/shortform
           for f in scripts/shortform/as24-jobs/*.channels; do
             [ -e "$f" ] || continue
+            o=scripts/shortform/as24-jobs/ONLY; b=$(basename "$f" .channels)
+            if [ -s "$o" ] && ! grep -qx "$b" "$o"; then continue; fi
             out="${f%.channels}.txt"; [ -s "$out" ] && continue
             : > "$out.tmp"
             while read -r c h n; do
@@ -53,8 +55,11 @@ jobs:
           MODEL: ${{ inputs.model || 'gemini-3.8-flash' }}
           LIMIT: ${{ inputs.limit || '300' }}
         run: |
+          only=scripts/shortform/as24-jobs/ONLY
           for f in scripts/shortform/as24-jobs/*.txt; do
             name=$(basename "$f" .txt)
+            # ONLY 파일이 있으면 거기 적힌 목록만 돈다(다른 목록을 다시 분석해 돈이 드는 것을 막음)
+            if [ -s "$only" ] && ! grep -qx "$name" "$only"; then echo "skip $name"; continue; fi
             python3 scripts/shortform/as24_analyze.py "$f" "reports/shortform/as24-$name" "$MODEL" "$LIMIT"
           done
       - name: save results

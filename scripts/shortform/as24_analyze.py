@@ -65,7 +65,13 @@ EXTRA = {
  "hook": {"first_3s": "처음 3초에 보이고 들리는 것(한국어)","type": "가격|질문|숫자·성능|희귀차|감탄·리액션|행동|경품·이벤트|기타","text": "원문","ko": "한국어 뜻"},
  "narration_points": [{"t","point": "말로 설명한 차량 포인트(한국어 한 줄)","category": "디자인|성능|편의|안전|공간|가격·조건|희소성|상태|기타"}],
  "cta": {"t","text","ko","method": "댓글|구독|링크|전화|매장 방문|없음|기타"},
- "shooting": {"location": "전시장|실외|도로 주행|스튜디오|기타","person_role": "리뷰어|딜러|없음","part_order": ["찍은 부위 순서(한국어)"]}""",
+ "shooting": {"location": "전시장|실외|도로 주행|스튜디오|기타","person_role": "리뷰어|딜러|없음","part_order": ["찍은 부위 순서(한국어)"]},
+ "speech_style": {"speed": "빠름|보통|느림","words_per_sec": 숫자,"pause_pattern": "문장 사이 쉼 길이와 쉬는 자리 한 줄","tone": "흥분|차분|유머|진지|친근|기타",
+     "pitch_moves": "강조할 때 목소리 높낮이·크기 변화 한 줄","emphasis_how": "숫자·기능을 어떻게 힘줘 말하나 한 줄","speaks_to_camera": 참/거짓,
+     "sentence_patterns": ["자주 쓰는 문장 틀을 한국어로(예: 「이 차에서 제일 좋은 건 …예요」)"],"filler_words": ["원문 추임새·말버릇"],
+     "opening_line": {"text","ko"},"closing_line": {"text","ko"},"caption_vs_speech": "자막이 말과 똑같음|요약|키워드만|자막 없음"},
+ "script_beats": [{"t","beat": "훅|질문 던지기|부위 소개|기능 설명|수치|비교|농담·리액션|가격|정리|행동 유도","line_ko": "그 순간 대사 한국어"}]
+transcript 는 SRT 자막으로 그대로 쓸 것이다: 말한 문장을 하나도 빠뜨리지 말고 한 줄 = 한 문장(최대 2초~5초), 시작·끝은 실제 발화에 맞춰 0.1초 정밀하게, text 는 들린 그대로 원문, ko 는 자연스러운 한국어.""",
     "dealer": """
 아래 키도 같은 JSON 안에 반드시 넣어라(한국 딜러가 직접 만든 매물 영상의 패턴을 뽑는 것이 핵심이다).
  "option_highlights": [{"start","end","feature": "기능·옵션 이름(한국어)","shown_how": "3D 아이콘|2D 아이콘|글자 카드|화살표·원 표시|확대|화면 분할|실제 작동 시연|말로만|기타",
@@ -120,6 +126,21 @@ def save(msg):
             print(f"saved: {msg}", flush=True)
             return
         time.sleep(5)
+def _ts(x):
+    x = max(0.0, float(x or 0)); h, r = divmod(int(round(x * 1000)), 3600000); m, r = divmod(r, 60000); sec, ms = divmod(r, 1000)
+    return f"{h:02}:{m:02}:{sec:02},{ms:03}"
+
+
+def write_srt(path, a):
+    """대사(transcript)를 원문·한국어 SRT 두 벌로 저장한다(음성 학습·자막 정렬용)"""
+    rows = [r for r in (a.get("transcript") or []) if isinstance(r, dict)]
+    for key, ext in (("text", "orig"), ("ko", "ko")):
+        lines = [f"{i}\n{_ts(r.get('start'))} --> {_ts(r.get('end'))}\n{(r.get(key) or '').strip()}\n"
+                 for i, r in enumerate(rows, 1) if (r.get(key) or "").strip()]
+        if lines:
+            open(path[:-5] + f".{ext}.srt", "w", encoding="utf-8").write("\n".join(lines))
+
+
 jobs = [l.split() for l in open(LIST, encoding="utf-8") if l.strip() and not l.startswith("#")]
 done = fail = 0
 tokens = 0
@@ -138,6 +159,7 @@ for country, vid in jobs:
             json.dump({"country": country, "kind": KIND, "url": f"https://youtu.be/{vid}", "model": MODEL,
                        "usage": usage, "analysis": json.loads(text)},
                       open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+            write_srt(path, json.load(open(path, encoding="utf-8"))["analysis"])
             done += 1
             print(f"ok {country} {vid} tokens={usage.get('totalTokenCount')}", flush=True)
             if done % SAVE_EVERY == 0:
