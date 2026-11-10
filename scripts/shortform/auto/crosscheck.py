@@ -29,7 +29,7 @@ import check_match  # noqa: E402
 
 RULES = json.load(open(os.path.join(HERE, 'auto_edit_rules.json'), encoding='utf-8'))
 CC = dict(dict(black_luma=12, black_max_s=0.3, lufs=-14, lufs_tol=1.5, tp_max=-1.0, end_min_s=1.5, end_max_s=3.5,
-               mint_px=40, blue_chip_px=400), **RULES.get('crosscheck', {}))
+               mint_px=40, mint_rgb=[0, 255, 208], mint_tol=18, blue_chip_px=400),**RULES.get('crosscheck', {}))
 
 
 def probe(f):
@@ -85,7 +85,10 @@ def check_one(out, shots_path, name):
     col = []
     for i, fr in enumerate(F):
         r, g, b = fr[..., 0].astype(int), fr[..., 1].astype(int), fr[..., 2].astype(int)
-        mint = int(((r < 70) & (g > 220) & (b > 170)).sum())
+        # 예전 민트 칩은 평평한 #00FFD0. 실내 앰비언트 조명·파란 전시장 화면의 청록 번짐은 색이 퍼져 있어 엄격한 범위로 가른다
+        mr, mg, mb = CC['mint_rgb']
+        tol = CC['mint_tol']
+        mint = int(((abs(r - mr) <= tol) & (abs(g - mg) <= tol) & (abs(b - mb) <= tol)).sum())
         if mint > CC['mint_px']:
             col.append([name, style, '칩 색', f'{i / fps:.2f}초', '', '', f'민트 화소 {mint}', '칩 색'])
     res['6 칩 색'] = col[:3]

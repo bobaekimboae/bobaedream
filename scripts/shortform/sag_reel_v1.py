@@ -625,6 +625,13 @@ def clamp_to_segments(shots, src_dur):
             continue
         end = min(seg['t1'], src_dur) - SF['edge_margin_s']
         dur = max(0.01, sh['b'] - sh['a'])
+        if SF.get('swap_same_part', True) and seg['part'] != 'all' and (end - seg['t0']) < dur * SF['min_speed']:
+            # 그 부위 구간이 최저 속도로 틀어도 짧으면, 같은 부위의 더 긴 구간으로 옮긴다(08 원본: 뒷모습 1.4초 구간 → 3.8초 구간)
+            alt = [g for g in segs if g['part'] == seg['part'] and (min(g['t1'], src_dur) - SF['edge_margin_s'] - g['t0']) >= dur * SF['min_speed']]
+            if alt:
+                g = min(alt, key=lambda g: abs(g['t0'] - sh['src']))
+                seg, sh['src'] = g, round(g['t0'], 3)
+                end = min(g['t1'], src_dur) - SF['edge_margin_s']
         if sh['src'] + dur * sh['sp'] > end:
             sp = max(SF['min_speed'], (end - sh['src']) / dur)
             sh['sp'] = round(min(sh['sp'], sp), 3)
@@ -1602,16 +1609,18 @@ def overlay(T, total, shots, shot, blk):
         if ph[0] <= T < ph[1]:
             cur = ph
     _speech = cur is not None
+    _chip_cover = False
     if cur and (cap_slot or (big_on and (STYLE.get('big_hides_cap') or STYLE.get('numchip_hides_cap')))):
         # 네덜란드판: 큰 숫자가 떠 있는 동안 말 자막을 숨긴다(NL 39/50). 2026-11-10: 칩이 말과 같은 내용일 때만(규칙 captions.hide_mode)
         # related: 칩이 자막 자리를 차지하고(자막 자리·아래 띠) 말과 같은 내용일 때만 숨김. 겹치지 않는 큰 숫자 칩은 숨기지 않음
         if CR.get('hide_mode', 'related') == 'always' or (CR.get('hide_mode', 'related') == 'related' and any(chip_related(cur[2], t_) for t_ in hide_txts)):
+            _chip_cover = any(chip_related(cur[2], t_) for t_ in hide_txts)  # 같은 말이 칩으로 보임 = 말이 화면에서 빠진 게 아님
             cur = None
     if cur and STYLE.get('cap_cut_gap') and (cur[1] - cur[0]) >= CR.get('cut_gap_min_phrase_s', 1.2):
         g = STYLE['cap_cut_gap']  # 짧은 구절에는 컷 뒤 비우기를 하지 않는다(짧은 말이 통째로 안 보이던 문제)
         if any(sh['a'] > 0.5 and sh['a'] <= T < sh['a'] + g for sh in shots):
             cur = None  # 벨기에판: 컷이 바뀐 뒤 0.3초는 자막을 비운다
-    CAPLOG.append((round(T, 3), _speech, cur is not None, PHRASES.index(cur_ph) if cur_ph else -1))  # 검수: 말하는데 자막이 빈 프레임 수(meta.cap_gap_s)
+    CAPLOG.append((round(T, 3), _speech, cur is not None, PHRASES.index(cur_ph) if cur_ph else -1, _chip_cover))  # 검수: 말하는데 자막이 빈 프레임 수(meta.cap_gap_s)
     if cur:
         k = min(1.0, (T - cur[0]) / 0.12)
         if STYLE.get('cap_style') == 'as24':  # 오토스카우트24: 칠 자막 + 톡 튀어나옴(스티커와 같은 움직임)
@@ -1820,13 +1829,16 @@ def main():
         caps = []
         for pi, ph in enumerate(PHRASES):
             fr = [c for c in CAPLOG if c[3] == pi and c[1]]
-            caps.append(dict(i=pi, text=ph[2], t0=round(ph[0], 2), t1=round(ph[1], 2), visible=round(sum(1 for c in fr if c[2]) / max(1, len(fr)), 2)))
+            # visible = 자막이 보였거나 같은 말의 칩이 자막 자리에 떠 있던 비율(원본 NL: 칩이 그 낱말을 대신 보여 줌). caption_only = 자막만
+            caps.append(dict(i=pi, text=ph[2], t0=round(ph[0], 2), t1=round(ph[1], 2),
+                             visible=round(sum(1 for c in fr if c[2] or c[4]) / max(1, len(fr)), 2),
+                             caption_only=round(sum(1 for c in fr if c[2]) / max(1, len(fr)), 2)))
         M['captions'] = caps
         json.dump(M, open(os.path.join(OUT, 'match.json'), 'w'), ensure_ascii=False, indent=1)
     except Exception as e_:
         print('match.json 자막 기록 실패', e_)
     meta = dict(total=round(total, 2), shots=len(shots), sec_per_cut=round(total / len(shots), 2),
-                plate_frames=sum(1 for v in track.values() if v), cap_gap_s=round(sum(1 for _, sp, sh, _p in CAPLOG if sp and not sh) / max(1, FPS if 'FPS' in globals() else 30), 2), render_sec=round(time.time() - t_start, 1),
+                plate_frames=sum(1 for v in track.values() if v), cap_gap_s=round(sum(1 for _, sp, sh, _p, cv in CAPLOG if sp and not sh and not cv) / max(1, FPS if 'FPS' in globals() else 30), 2), render_sec=round(time.time() - t_start, 1),
                 blocks=[dict(t=round(b['t0'], 2), sec=b['sec'], text=b['tts']) for b in BLOCKS])
     json.dump(meta, open(os.path.join(OUT, 'meta.json'), 'w'), ensure_ascii=False, indent=1)
     print(meta)
