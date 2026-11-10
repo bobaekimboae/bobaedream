@@ -168,6 +168,9 @@ for country, vid in jobs:
         except urllib.error.HTTPError as e:
             msg = e.read().decode(errors="replace")[:300]
             print(f"http {e.code} {vid}: {msg}", flush=True)
+            if e.code in (401, 402, 403):
+                save(f"as24 분석 멈춤(API 결제·키 문제 {e.code}) {os.path.basename(OUT)} {done}편")
+                sys.exit(f"제미나이 API {e.code}: 결제 한도·키를 확인해 주세요. 지금까지 {done}편 저장")
             if e.code in (429, 500, 503):
                 time.sleep(20 * (attempt + 1))
                 continue
