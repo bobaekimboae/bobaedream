@@ -238,10 +238,26 @@ def make_script_nasser(F, style, shots=None):
     ph = []
     if angle:
         ph.append(W(angle + '…'))
-    ph.append(W(f"{color} {name}!" if color else f"{name}!"))
+    LUX = os.environ.get('SAG_TONE', RULES['script'].get('tone_override', '')) == 'luxury'
+    if LUX:
+        # 2026-11-10 사용자 지시 「고급스럽게, 오토스카우트 영상 보는 것처럼」: 첫 줄은 차종 질문 대신 차 이름을 또박또박
+        # (세대·트림은 매물 정보 그대로, 읽기만 rules luxury.trim_say로 풀어 읽음)
+        lx = RULES['script'].get('luxury', {})
+        ph = [W(f"{color} {name}." if color else f"{name}.")]
+        tr = ' '.join(x for x in (F.get('gen'), F.get('trim')) if x)
+        if tr:
+            say = ' '.join(lx.get('trim_say', {}).get(w, w) for w in tr.split())
+            ph.append([(a, b) for a, b in zip((say + '.').split(), (say + '.').split())])
+    else:
+        ph.append(W(f"{color} {name}!" if color else f"{name}!"))
     blk('hook', ph, hook=True)
     # 주행거리
     if F.get('km') is not None:
+        km = int(F['km'])
+        if LUX and km < RULES['script'].get('luxury', {}).get('new_km', 1000):
+            blk('exterior', [[('주행거리', '주행거리'), (f'{km:,}km.', f'{km:,}km.')], W('사실상 새 차입니다.')], [(f'주행 {km_show(km)}', 0, {})])
+            km = None
+    if F.get('km') is not None and not (LUX and int(F['km']) < RULES['script'].get('luxury', {}).get('new_km', 1000)):
         km = int(F['km'])
         tail = 'km밖에 안 됩니다.' if km < 30000 else 'km입니다.'
         blk('exterior', [[('주행거리는', '주행거리는')] + [(f'{km:,}' + tail.split()[0], f'{km:,}' + tail.split()[0])] + W(' '.join(tail.split()[1:]))] if len(tail.split()) > 1 else [[('주행거리는', '주행거리는'), (f'{km:,}{tail}', f'{km:,}{tail}')]],
