@@ -586,6 +586,10 @@ def plan_shots(total):
             bshots = [bshots[j] for j in keep]
             if len(kept_ph) == len(bshots) - 1:
                 tgt_edges = kept_ph  # 남긴 장면은 그 구절이 시작될 때 바뀐다
+        if tgt_edges is None and len(bshots) > 1 and len(b.get('caps') or []) == len(bshots):
+            # 2026-11-10 크로스체크(레인지로버 벨기에 긴 판): 자동 편집 계획은 장면 k = 구절 k인데, 고른 간격으로 컷을 나누면
+            # 길이가 다른 구절에서 컷이 최대 3.8초 늦어 칩이 앞 장면 위에 떴다 → 구절 시작에서 바꾼다
+            tgt_edges = [PHRASES[b['ph0'] + j][0] for j in range(1, len(bshots))]
         n = len(bshots)
         cand = [ph[0] for ph in PHRASES if t0 + 0.6 < ph[0] < t1 - 0.6]  # 이 블록 안 자막 시작점
         even = list(np.linspace(t0, t1, n + 1)[1:-1])
