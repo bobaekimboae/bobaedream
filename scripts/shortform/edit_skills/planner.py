@@ -178,6 +178,9 @@ def plan(script):
             st_ = t if not stack else (tl[-1]['start'] if tl and tl[-1]['start'] >= b['start'] else t)
             d = min(LIB['by_id'][sid].get('dur_med') or s['dur'], b_end - st_)
             d = max(d, min(s['dur'], b_end - st_)) if s['motion'] in ('count', 'type') or sid in ('S041', 'S025', 'S050', 'S029', 'S046') else d
+            if n_new == 1 and not stack:
+                # 장면에 요소가 하나뿐이면(정답·힌트·숫자) 원본처럼 장면이 끝날 때까지 둔다(최대 3.5초)
+                d = max(d, min(3.5, b_end - st_ - .2))
             if d < .5:
                 continue
             cx, cy = _place(sid, b, prm)
