@@ -6,11 +6,15 @@ segs.json = {유튜브ID: [[시작초, 끝초, 문장], ...]} (시트 「나사�
 rows.json = 시트 행(id·제목·등록일·조회수·제조사·모델)
 숫자는 한국어 더빙 대본 기준이다. 원래 아랍어 말보다 길이·속도가 조금 다를 수 있다.
 """
-import collections, json, re, statistics as st, sys
+import collections, json, os, re, statistics as st, sys
 
 V = json.load(open(sys.argv[1], encoding="utf-8"))
 R = {r["id"]: r for r in json.load(open(sys.argv[2], encoding="utf-8"))}
 OUT = sys.argv[3]
+# 다른 채널에도 쓰도록: HOST = 진행자 이름 정규식, TITLE = 문서 제목, SOURCE = 출처 한 줄
+HOST = os.environ.get("HOST", "나세르|나사르|나수르")
+TITLE = os.environ.get("TITLE", f"나세르 한국어 SRT {len(V)}편 — 대사·말투 구조")
+SOURCE = os.environ.get("SOURCE", "시트 「SNS 숏폼 레퍼런스 › 나사르헤시엔_유튜브」의 한국어 SRT 링크(HeyGen 한국어 더빙 대본) 전부. 한국어로 옮긴 말이라 원래 아랍어보다 조금 길거나 짧을 수 있다.")
 C = collections.Counter
 L = []
 w = L.append
@@ -38,8 +42,8 @@ gaps = [y[0] - x[1] for s in V.values() for x, y in zip(s, s[1:]) if 0 <= y[0] -
 talk = [sum(b - a for a, b, _ in s) / dur[k] * 100 for k, s in V.items() if dur[k]]
 cps = [len(t.replace(" ", "")) / (b - a) for a, b, t in segs if b - a > 0.8]
 
-w(f"# 나세르 한국어 SRT {N}편 — 대사·말투 구조\n")
-w("- 출처: 시트 「SNS 숏폼 레퍼런스 › 나사르헤시엔_유튜브」의 한국어 SRT 링크(HeyGen 한국어 더빙 대본) 전부. 한국어로 옮긴 말이라 원래 아랍어보다 조금 길거나 짧을 수 있다.")
+w(f"# {TITLE}\n")
+w(f"- 출처: {SOURCE}")
 w(f"- 대사 줄 {len(segs)}개 · 영상 길이(마지막 대사 끝) 중앙값 {med(list(dur.values()))}초 · 영상당 줄 {med([len(s) for s in V.values()])}개")
 w(f"- 한 줄 길이 중앙값 {med(seglen)}초 · 줄 사이 쉼 중앙값 {med(gaps)}초(쉼 0.3초 이하 {sum(1 for g in gaps if g <= .3) / max(1, len(gaps)) * 100:.0f}%) · 말하는 시간 비율 {med(talk)}%")
 w(f"- 말 속도(공백 뺀 글자/초) 중앙값 {med(cps)} · 빠른 25% {med(sorted(cps)[-len(cps) // 4:])} · 느린 25% {med(sorted(cps)[:len(cps) // 4])}\n")
@@ -56,7 +60,7 @@ w("\n## 2. 첫 줄(훅) 유형\n")
 first = {k: s[0][2] for k, s in V.items()}
 first2 = {k: " ".join(x[2] for x in s[:2]) for k, s in V.items()}
 HOOK = [
-    ("자기 이름(나세르입니다)", r"나세르|나사르|나수르"),
+    ("자기 이름·인사(안녕하세요)", HOST + r"|안녕하세요"),
     ("조건 질문(~원하신다면·~찾으신다면)", r"(원하|찾|있다|좋아하|사랑하|필요하|고민|싶)[^.?!]{0,6}(다면|면)"),
     ("가격·돈", r"파운드|가격|만\s*원|EGP|할인|무이자|가성비|저렴"),
     ("숫자·성능", r"\d+\s*(마력|km|초|인치|가지|대|년|%)"),
@@ -73,14 +77,17 @@ for n, _ in HOOK:
     w(f"| {n} | {hc[n]} | {hc[n] / N * 100:.0f}% |")
 name_then = C()
 for k, s in V.items():
-    if re.search(r"나세르|나사르", s[0][2]):
-        rest = re.sub(r".*?(나세르|나사르)(입니다|이고|고|예요)?[.,!]?\s*", "", s[0][2], count=1).strip()
+    if re.search(HOST, s[0][2]):
+        rest = re.sub(r".*?(" + HOST + r")(입니다|이고|고|예요)?[.,!]?\s*", "", s[0][2], count=1).strip()
         name_then["이름 뒤 같은 줄에 바로 본론" if rest else "이름만 말하고 다음 줄에 본론"] += 1
 w("\n" + ", ".join(f"{a} {b}편" for a, b in name_then.most_common()))
-w("\n첫 줄 예시(조회수 높은 순 15편)\n")
-ranked = sorted(V, key=lambda k: -(views(R.get(k, {}).get("views")) or 0))
+HAS_VIEWS = sum(1 for k in V if views(R.get(k, {}).get("views"))) >= 8
+w("\n첫 줄 예시(" + ("조회수 높은 순" if HAS_VIEWS else "시트 순서") + " 15편)\n")
+ranked = sorted(V, key=lambda k: -(views(R.get(k, {}).get("views")) or 0)) if HAS_VIEWS else list(V)
 for k in ranked[:15]:
-    w(f"- 「{first[k]}」 — {R.get(k, {}).get('views', '')} · {R.get(k, {}).get('title_ko', '')[:30]}")
+    meta = R.get(k, {})
+    tail = f"{meta.get('views')} · {meta.get('title_ko', '')[:30]}" if HAS_VIEWS else str(meta.get("title", ""))[:30]
+    w(f"- 「{first[k]}」 — {tail}")
 
 # 위치별 내용
 w("\n## 3. 영상 안 위치별로 나오는 말\n")
@@ -177,6 +184,10 @@ for x, c in tc.most_common():
     w(f"| {x} | {c} | {c / N * 100:.0f}% |")
 
 # 조회수
+if sum(1 for k in V if views(R.get(k, {}).get("views"))) < 8:
+    open(OUT, "w", encoding="utf-8").write("\n".join(L) + "\n")
+    print(N, "→", OUT, "(조회수 없음: 8장 생략)")
+    sys.exit()
 w("\n## 8. 조회수 상위 25% vs 하위 25%\n")
 vv = [(k, views(R.get(k, {}).get("views"))) for k in V if views(R.get(k, {}).get("views"))]
 vv.sort(key=lambda x: -x[1])
@@ -189,7 +200,7 @@ def prof(ks):
         "길이": med([dur[k] for k in ks]),
         "줄 수": med([len(V[k]) for k in ks]),
         "글자/초": med([len("".join(t for _, _, t in V[k]).replace(" ", "")) / max(1, dur[k]) for k in ks]),
-        "이름 훅": f"{sum(1 for k in ks if re.search(r'나세르|나사르', V[k][0][2])) / len(ks) * 100:.0f}%",
+        "이름 훅": f"{sum(1 for k in ks if re.search(HOST, V[k][0][2])) / len(ks) * 100:.0f}%",
         "조건 질문 훅": f"{sum(1 for k in ks if re.search(HOOK[1][1], first2[k])) / len(ks) * 100:.0f}%",
         "가격 언급": f"{sum(1 for k in ks if any(re.search(TOP[0][1], t) for _, _, t in V[k])) / len(ks) * 100:.0f}%",
         "숫자 줄 비율": f"{med([sum(1 for _, _, t in V[k] if re.search(chr(92) + 'd', t)) / len(V[k]) * 100 for k in ks])}%",

@@ -59,7 +59,7 @@ dur = [num((v.get("basic") or {}).get("duration_sec")) for v in vids]
 shots = [v.get("shots") or [] for v in vids]
 shot_len = [num(s.get("end")) - num(s.get("start")) for ss in shots for s in ss
             if num(s.get("end")) is not None and num(s.get("start")) is not None and num(s.get("end")) > num(s.get("start"))]
-w(f"# 나세르 쇼츠 {N}편 — 영상 제작 구조 인사이트\n")
+w(f"# {os.environ.get('TITLE', '나세르 쇼츠')} {N}편 — 영상 제작 구조 인사이트\n")
 w(f"- 길이 중앙값 {med(dur)}초 (짧은 25% {med(sorted(x for x in dur if x)[:max(1, N // 4)])}초 · 긴 25% {med(sorted(x for x in dur if x)[-max(1, N // 4):])}초)")
 w(f"- 컷 수 중앙값 {med([len(s) for s in shots])}개, 컷 길이 중앙값 {med(shot_len)}초")
 w(f"- 사람 출연 {pct(sum(1 for v in vids if (v.get('basic') or {}).get('person_on_screen')))}, "
