@@ -1410,6 +1410,21 @@ def phrase_img(text, act=-1):
 CAPLOG = []
 
 
+def _norm_txt(x):
+    return re.sub(r'[^0-9A-Za-z가-힣]', '', x.replace('✓', ''))
+
+
+def chip_related(phrase, chip):
+    """칩이 지금 말 자막과 같은 내용인지(같은 숫자 또는 같은 낱말). 같은 내용일 때만 자막을 칩으로 대신할 수 있다(2026-11-10 자막 빠짐 방지)"""
+    p, c = _norm_txt(phrase), _norm_txt(chip)
+    pd, cd = ''.join(re.findall(r'\d', phrase)), ''.join(re.findall(r'\d', chip))
+    if cd and cd in pd:
+        return True
+    if len(c) >= 2 and c in p:
+        return True
+    return any(len(_norm_txt(w)) >= 2 and _norm_txt(w) in p for w in chip.split())
+
+
 def cap_chunk(cur, act):
     """2026-11-10 원본 NL·BE 눈 대조: 말 자막은 한 줄 1~3낱말(BE 2~5), 말 따라 덩어리째 바뀐다. 긴 구절을 두 줄로 한꺼번에 띄우지 않는다.
     돌려주는 것: (보일 글자, 덩어리가 뜬 시각, 덩어리 안 말하는 낱말 번호)"""
@@ -1485,6 +1500,9 @@ def overlay(T, total, shots, shot, blk):
     bi = BLOCKS.index(blk)
     big_on = False
     cap_slot = False  # 칩이 말 자막 자리를 쓰는 중(그동안 자막은 숨김 — 원본 NL)
+    hide_txts = []  # 자막을 숨기게 한 칩 글자(규칙 captions.hide_mode='related'면 말과 같은 내용일 때만 숨김)
+    CR = globals().get('CAP_RULES') or {}
+    cur_ph = next((ph for ph in PHRASES if ph[0] <= T < ph[1]), None)
     smeta = blk.get('_smeta') or [{}] * len(blk.get('stickers', []))
     chk = STYLE.get('checklist') or {}
     lst = [i for i, m in enumerate(smeta) if m.get('list')]
@@ -1510,9 +1528,14 @@ def overlay(T, total, shots, shot, blk):
             if chk.get('band') == 'above_cap':  # 2026-11-10: 말 자막 바로 위에서 위로 쌓고 자막은 그대로 둔다(옵션 블록 10초 동안 자막이 사라지던 문제)
                 y0 = STYLE.get('cap_cy', 1129) - chk.get('cap_gap', 120) - tot
             elif chk.get('band') in ('cap', 'cap_hold'):  # 말 자막 자리(아래 줄 = 자막 높이)에서 위로 쌓고, 그동안 자막을 숨긴다(NL 원본 66%)
-                y0 = STYLE.get('cap_cy', 1129) + ims[-1].height / 2 - tot
-                big_on = True
-                cap_slot = True
+                rel = cur_ph is None or CR.get('hide_mode', 'related') != 'related' or any(chip_related(cur_ph[2], blk['stickers'][i][0]) for i, _ in rows)
+                if rel:
+                    y0 = STYLE.get('cap_cy', 1129) + ims[-1].height / 2 - tot
+                    big_on = True
+                    cap_slot = True
+                    hide_txts += [blk['stickers'][i][0] for i, _ in rows]
+                else:  # 칩이 말과 다른 내용이면 자막을 지우지 않고 칩을 자막 위로 올린다(말이 화면에서 빠지지 않게)
+                    y0 = STYLE.get('cap_cy', 1129) - chk.get('cap_gap', 120) - tot
             else:
                 y0 = STYLE.get('band_y', {}).get(chk.get('band', 'mid'), STYLE['feat_y']) - tot / 2
             for (i, st_i), im in zip(rows, ims):
@@ -1536,12 +1559,15 @@ def overlay(T, total, shots, shot, blk):
         band = smeta[si].get('band')
         if band == 'low':
             big_on = True  # 아래쪽 칩은 말 자막 자리와 겹치므로 그동안 자막을 숨긴다
+            hide_txts.append(txt)
         big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)
         big = big and STYLE.get('big_numbers', True)  # 벨기에판: 숫자도 칩 안에(크게 튀어나오지 않음)
         if big:
             big_on = True
+            hide_txts.append(txt)
         elif STYLE.get('numchip_hides_cap') and re.search(r'\d', txt):
-            big_on = True  # 벨기에판: 숫자 칩(가격·km·연식)이 떠 있는 동안 말 자막을 숨김(BE 9/50)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
+            big_on = True
+            hide_txts.append(txt)  # 벨기에판: 숫자 칩(가격·km·연식)이 떠 있는 동안 말 자막을 숨김(BE 9/50)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
         tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6] * STYLE.get('tilt_k', 1.0)
         if STYLE.get('tilt_fixed') is not None:
             tilt = STYLE['tilt_fixed'] + (-0.8, 0.6, 0.0)[(bi + si) % 3] * (STYLE['tilt_fixed'] != 0)  # 벨기에판: 늘 반시계(1~4도)
@@ -1579,12 +1605,14 @@ def overlay(T, total, shots, shot, blk):
             cur = ph
     _speech = cur is not None
     if cur and (cap_slot or (big_on and (STYLE.get('big_hides_cap') or STYLE.get('numchip_hides_cap')))):
-        cur = None  # 네덜란드판: 큰 숫자가 떠 있는 동안 말 자막을 숨긴다(NL 39/50)
-    if cur and STYLE.get('cap_cut_gap'):
-        g = STYLE['cap_cut_gap']
+        # 네덜란드판: 큰 숫자가 떠 있는 동안 말 자막을 숨긴다(NL 39/50). 2026-11-10: 칩이 말과 같은 내용일 때만(규칙 captions.hide_mode)
+        if CR.get('hide_mode', 'related') != 'related' or any(chip_related(cur[2], t_) for t_ in hide_txts):
+            cur = None
+    if cur and STYLE.get('cap_cut_gap') and (cur[1] - cur[0]) >= CR.get('cut_gap_min_phrase_s', 1.2):
+        g = STYLE['cap_cut_gap']  # 짧은 구절에는 컷 뒤 비우기를 하지 않는다(짧은 말이 통째로 안 보이던 문제)
         if any(sh['a'] > 0.5 and sh['a'] <= T < sh['a'] + g for sh in shots):
             cur = None  # 벨기에판: 컷이 바뀐 뒤 0.3초는 자막을 비운다
-    CAPLOG.append((round(T, 3), _speech, cur is not None))  # 검수: 말하는데 자막이 빈 프레임 수(meta.cap_gap_s)
+    CAPLOG.append((round(T, 3), _speech, cur is not None, PHRASES.index(cur_ph) if cur_ph else -1))  # 검수: 말하는데 자막이 빈 프레임 수(meta.cap_gap_s)
     if cur:
         k = min(1.0, (T - cur[0]) / 0.12)
         if STYLE.get('cap_style') == 'as24':  # 오토스카우트24: 칠 자막 + 톡 튀어나옴(스티커와 같은 움직임)
@@ -1787,8 +1815,19 @@ def main():
                     '[v2][md][fx]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
                     '-movflags', '+faststart', final], check=True)
+    # 구절마다 말하는 동안 자막이 보인 비율(check_match.py가 읽음, 규칙 captions.min_visible_ratio)
+    try:
+        M = json.load(open(os.path.join(OUT, 'match.json'), encoding='utf-8'))
+        caps = []
+        for pi, ph in enumerate(PHRASES):
+            fr = [c for c in CAPLOG if c[3] == pi and c[1]]
+            caps.append(dict(i=pi, text=ph[2], t0=round(ph[0], 2), t1=round(ph[1], 2), visible=round(sum(1 for c in fr if c[2]) / max(1, len(fr)), 2)))
+        M['captions'] = caps
+        json.dump(M, open(os.path.join(OUT, 'match.json'), 'w'), ensure_ascii=False, indent=1)
+    except Exception as e_:
+        print('match.json 자막 기록 실패', e_)
     meta = dict(total=round(total, 2), shots=len(shots), sec_per_cut=round(total / len(shots), 2),
-                plate_frames=sum(1 for v in track.values() if v), cap_gap_s=round(sum(1 for _, sp, sh in CAPLOG if sp and not sh) / max(1, FPS if 'FPS' in globals() else 30), 2), render_sec=round(time.time() - t_start, 1),
+                plate_frames=sum(1 for v in track.values() if v), cap_gap_s=round(sum(1 for _, sp, sh, _p in CAPLOG if sp and not sh) / max(1, FPS if 'FPS' in globals() else 30), 2), render_sec=round(time.time() - t_start, 1),
                 blocks=[dict(t=round(b['t0'], 2), sec=b['sec'], text=b['tts']) for b in BLOCKS])
     json.dump(meta, open(os.path.join(OUT, 'meta.json'), 'w'), ensure_ascii=False, indent=1)
     print(meta)

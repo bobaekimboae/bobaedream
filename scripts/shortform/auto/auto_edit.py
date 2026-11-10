@@ -617,6 +617,7 @@ def write_config(F, blocks, style, path, segs=None):
 exec(open('scripts/shortform/reels/vantage_s3.py', encoding='utf-8').read())  # 공통 STYLE 바탕(글꼴·칠·크기)
 CAR = {json.dumps(car, ensure_ascii=False)}
 HOOK = {json.dumps(hook, ensure_ascii=False)}
+CAP_RULES = {json.dumps({k: v for k, v in RULES.get('captions', {}).items() if not k.startswith('_') and k != 'voice_check'})}  # 가변 규칙 captions(자막 빠짐 방지)
 SHOT_FIT = {json.dumps({k: v for k, v in RULES.get('shot_fit', {}).items() if not k.startswith('_') and k in ('clamp_to_part', 'min_speed', 'pull_start_when_short', 'edge_margin_s')})}  # 가변 규칙 shot_fit(auto_edit_rules.json)
 SEGS = {json.dumps([dict(t0=g['t0'], t1=g['t1'], part=g['part']) for g in (merge_shots(segs) if segs else [])], ensure_ascii=False)}  # 부위 구간: 렌더러가 장면을 이 안에서만 튼다(2026-11-10)
 BLOCKS = {json.dumps(B, ensure_ascii=False, indent=1)}

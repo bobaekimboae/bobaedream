@@ -28,6 +28,30 @@ def spans(shots, a, b):
     return out
 
 
+def voice_rows(out, name, style, min_db):
+    """음성 빠짐: 완성 영상 소리에서 낱말마다 원래 목소리(voice_n.wav)보다 min_db 이상 작거나 영상 끝에서 잘린 곳"""
+    import subprocess
+    import numpy as np
+
+    def pcm(f):
+        raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout
+        return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+    mp4, vw, wf = os.path.join(out, 'render', 'sag_reel_v1.mp4'), os.path.join(out, 'voice_n.wav'), os.path.join(out, 'words_flat.json')
+    if not (os.path.exists(mp4) and os.path.exists(vw) and os.path.exists(wf)):
+        return []
+    a, v = pcm(mp4), pcm(vw)
+    rows = []
+    for w in json.load(open(wf, encoding='utf-8')):
+        s0, s1 = int(w['start'] * 16000), int(w['end'] * 16000)
+        if s1 > len(a):
+            rows.append([name, style, '음성', f"{w['start']:.2f}초", w['text'], '', '영상 끝에서 잘림', '음성 빠짐'])
+            continue
+        rv = float(np.sqrt((v[s0:s1] ** 2).mean() + 1e-9)); ra = float(np.sqrt((a[s0:s1] ** 2).mean() + 1e-9))
+        if rv > 0.01 and 20 * np.log10(ra / rv) < min_db:
+            rows.append([name, style, '음성', f"{w['start']:.2f}초", w['text'], '', f'{20 * np.log10(ra / rv):.0f}dB', '음성 빠짐'])
+    return rows
+
+
 def check_render(out, shots, name):
     """렌더 뒤(OUT/render/match.json): 칩이 뜬 순간 실제 화면 부위, 장면 넘침(실제 컷 기준)"""
     P = json.load(open(os.path.join(out, 'plan.json'), encoding='utf-8'))
@@ -47,6 +71,11 @@ def check_render(out, shots, name):
         seen = spans(shots, sh['src'], sh['src'] + (sh['b'] - sh['a']) * sh['sp'])
         if len(seen) > 1:
             rows.append([name, style, f"컷{sh['bi']}-{sh['k']}", f"{sh['a']:.2f}초", '', sh.get('part') or '', ' → '.join(seen), '넘침'])
+    CRr = RULES.get('captions', {})
+    for c in M.get('captions', []):  # 자막 빠짐: 말하는 동안 자막이 보인 비율이 기준보다 낮은 구절
+        if c['visible'] < CRr.get('min_visible_ratio', 0.6):
+            rows.append([name, style, '자막', f"{c['t0']}초", c['text'], f"보임 {int(c['visible'] * 100)}%", f"기준 {int(CRr.get('min_visible_ratio', 0.6) * 100)}%", '자막 빠짐'])
+    rows += voice_rows(out, name, style, CRr.get('voice_check', {}).get('min_word_db', -9))
     for part in P.get('required_shots', []):  # 원본에 없는 부위 = 촬영 필요(규칙 shot_fit.required_shots)
         rows.append([name, style, '촬영', '', '', part, '원본에 없음', '촬영 필요'])
     return rows
@@ -62,10 +91,11 @@ def main():
         for r in rows:
             print('\t'.join(r))
         over = sum(1 for r in rows if r[-1] == '넘침')
+        lost = sum(1 for r in rows if r[-1] in ('자막 빠짐', '음성 빠짐'))
         lim = RULES.get('shot_fit', {}).get('check', {}).get('max_overflow', 0)
         if not a.tsv:
-            print(f'어긋남 {len(rows)}곳 · 넘침 {over}곳(허용 {lim})')
-        raise SystemExit(1 if over > lim else 0)
+            print(f'어긋남 {len(rows)}곳 · 넘침 {over}곳(허용 {lim}) · 자막·음성 빠짐 {lost}곳(허용 0)')
+        raise SystemExit(1 if (over > lim or lost) else 0)
     P = json.load(open(a.plan, encoding='utf-8'))
     shots = sorted(json.load(open(a.shots, encoding='utf-8')), key=lambda s: s['t0'])
     have = {s['part'] for s in shots}

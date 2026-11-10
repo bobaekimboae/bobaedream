@@ -1365,5 +1365,18 @@
    "max_overflow": 0,
    "_note": "렌더 뒤 check_match.py --render 결과. 넘침이 max_overflow를 넘으면 배포 전 다시 만든다"
   }
+ },
+ "captions": {
+  "_rule": "말 자막 빠짐 방지 가변 규칙(2026-11-10). 렌더러는 이 값만 읽는다",
+  "hide_mode": "related",
+  "_hide_note": "related = 칩이 지금 말과 같은 내용(같은 숫자·낱말)일 때만 자막을 칩으로 대신. 다른 내용이면 자막은 그대로 두고 칩을 자막 위로 올림 · always = 원본처럼 칩이 뜨면 숨김(자막 빠짐 생김) · never = 숨기지 않음",
+  "cut_gap_min_phrase_s": 1.2,
+  "_cut_note": "벨기에판 컷 뒤 0.3초 비우기는 이 길이 이상 구절에만(짧은 구절이 통째로 안 보이던 문제)",
+  "min_visible_ratio": 0.6,
+  "_visible_note": "구절마다 말하는 시간 중 자막이 보인 비율의 최소값. check_match.py가 이보다 낮은 구절을 「자막 빠짐」으로 실패 처리",
+  "voice_check": {
+   "min_word_db": -9,
+   "_note": "완성 영상 소리에서 낱말마다 원래 목소리보다 이 dB 이상 작아지면 「음성 빠짐」(배경음·덕킹·잘림 검사)"
+  }
  }
 }
