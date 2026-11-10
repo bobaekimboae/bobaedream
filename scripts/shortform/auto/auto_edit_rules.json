@@ -1,1399 +1,1405 @@
 {
- "version": "auto-1.0 (2026-11-09)",
- "purpose": "사람 없이 NL·BE 편집을 만드는 자동 편집 규칙. 근거 문서 docs/shortform/as24-nl-be-edit-manual-v4.md · as24-edit-skeleton-v3.md. 수치 중 'init'은 초기값이며 calibrate.py로 원본과 맞춰 고친다",
- "parts": [
-  "exterior_front",
-  "exterior_rear",
-  "exterior_side",
-  "exterior_3_4",
-  "wheel",
-  "headlight",
-  "taillight",
-  "grille",
-  "mirror",
-  "roof",
-  "door",
-  "interior_dash",
-  "steering_wheel",
-  "screen",
-  "console",
-  "gear",
-  "seats_front",
-  "seats_rear",
-  "interior_ceiling",
-  "speaker",
-  "trunk",
-  "engine_bay",
-  "charging_port",
-  "key",
-  "person",
-  "other"
- ],
- "part_band": {
-  "_src": "as24-edit-skeleton-v3 §3 (판정 440곳): 부위를 가리지 않고 반대쪽 띠. top≈26% · mid≈52% · low≈68%. low 띠 칩이 뜨면 말 자막을 숨긴다(NL 이름표가 자막 자리에 대신 뜸)",
-  "seats_front": "low",
-  "seats_rear": "low",
-  "speaker": "low",
-  "screen": "low",
-  "console": "top",
-  "gear": "top",
-  "trunk": "low",
-  "wheel": "top",
-  "headlight": "low",
-  "taillight": "top",
-  "grille": "mid",
-  "exterior_rear": "top",
-  "mirror": "top",
-  "exterior_front": "top",
-  "exterior_3_4": "top",
-  "exterior_side": "top",
-  "roof": "low",
-  "interior_ceiling": "low",
-  "steering_wheel": "top",
-  "interior_dash": "low",
-  "door": "mid",
-  "engine_bay": "top",
-  "charging_port": "top",
-  "key": "mid",
-  "person": "mid",
-  "other": "mid"
- },
- "band_y": {
-  "top": 480,
-  "mid": 820,
-  "low": 1420,
-  "_note": "1920 기준 칩 가운데 높이. 말 자막은 NL 1190·BE 1229라 mid는 그 위 370px. low는 자막과 겹치므로 low 칩이 떠 있는 동안 자막을 숨긴다(2026-11-09 시험 렌더에서 1000은 자막에 붙어 보여 820으로 고침)",
-  "cap": "STYLE.cap_cy"
- },
- "option_catalog": [
-  {
-   "name": "선루프",
-   "chip": "선루프",
-   "say": "선루프",
-   "parts": [
-    "roof",
-    "interior_ceiling"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "지붕 열고 바람 맞으면서 달릴 수 있어요.",
-   "benefit_f": "지붕을 열고 바람을 맞으며 달릴 수 있습니다."
-  },
-  {
-   "name": "파노라마선루프",
-   "chip": "파노라마 선루프",
-   "say": "파노라마 선루프",
-   "parts": [
-    "roof",
-    "interior_ceiling"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "뒷좌석까지 하늘이 쫙 보여서 실내가 진짜 넓어 보여요.",
-   "benefit_f": "뒷좌석까지 하늘이 열려 실내가 훨씬 넓게 느껴지죠."
-  },
-  {
-   "name": "알루미늄휠",
-   "chip": "알루미늄 휠",
-   "say": "알루미늄 휠",
-   "parts": [
-    "wheel"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "휠이 가볍고 디자인도 살아요.",
-   "benefit_f": "가볍고 디자인도 살아납니다."
-  },
-  {
-   "name": "전동사이드미러",
-   "chip": "전동 사이드미러",
-   "say": "전동 사이드미러",
-   "parts": [
-    "mirror"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "시동 끄면 알아서 접혀요.",
-   "benefit_f": "시동을 끄면 알아서 접힙니다."
-  },
-  {
-   "name": "HID램프",
-   "chip": "HID 램프",
-   "say": "HID 램프",
-   "parts": [
-    "headlight"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "밤길이 하얗고 환하게 보여요.",
-   "benefit_f": "밤길을 하얗게 밝혀 줍니다."
-  },
-  {
-   "name": "LED헤드램프",
-   "chip": "LED 헤드램프",
-   "say": "LED 헤드램프",
-   "parts": [
-    "headlight",
-    "exterior_front"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "밤에 앞이 훨씬 밝게 보이고요.",
-   "benefit_f": "밤에도 앞이 또렷하게 보이죠."
-  },
-  {
-   "name": "어댑티드헤드램프",
-   "chip": "어댑티브 헤드램프",
-   "say": "어댑티브 헤드램프",
-   "parts": [
-    "headlight",
-    "exterior_front"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "핸들 꺾는 쪽으로 불빛이 같이 돌아가요.",
-   "benefit_f": "핸들을 꺾는 방향으로 불빛이 같이 돌아갑니다."
-  },
-  {
-   "name": "LED리어램프",
-   "chip": "LED 리어램프",
-   "say": "LED 리어램프",
-   "parts": [
-    "taillight",
-    "exterior_rear"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "뒤에서 봐도 불빛이 또렷하고요.",
-   "benefit_f": "뒤에서 봐도 불빛이 선명하죠."
-  },
-  {
-   "name": "데이라이트",
-   "chip": "데이라이트",
-   "say": "데이라이트",
-   "parts": [
-    "headlight"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "낮에도 불이 들어와서 눈에 잘 띄어요.",
-   "benefit_f": "낮에도 불이 들어와 눈에 잘 띕니다."
-  },
-  {
-   "name": "하이빔어시스트",
-   "chip": "하이빔 어시스트",
-   "say": "하이빔 어시스트",
-   "parts": [
-    "headlight",
-    "interior_dash"
-   ],
-   "tier": 2,
-   "visible": false,
-   "benefit": "맞은편 차 오면 상향등을 알아서 내려 줘요.",
-   "benefit_f": "맞은편에 차가 오면 상향등을 스스로 내려 줍니다."
-  },
-  {
-   "name": "압축도어",
-   "chip": "고스트 도어",
-   "say": "고스트 도어",
-   "parts": [
-    "door"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "문을 살짝만 닫아도 끝까지 스르륵 당겨 닫혀요.",
-   "benefit_f": "문을 살짝만 닫아도 끝까지 당겨서 닫힙니다."
-  },
-  {
-   "name": "자동슬라이딩도어",
-   "chip": "전동 슬라이딩 도어",
-   "say": "전동 슬라이딩 도어",
-   "parts": [
-    "door"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "버튼 하나로 뒷문이 알아서 열리고 닫혀요.",
-   "benefit_f": "버튼 하나로 뒷문이 열리고 닫히죠."
-  },
-  {
-   "name": "전동사이드스탭",
-   "chip": "전동 사이드스텝",
-   "say": "전동 사이드스텝",
-   "parts": [
+  "version": "auto-1.0 (2026-11-09)",
+  "purpose": "사람 없이 NL·BE 편집을 만드는 자동 편집 규칙. 근거 문서 docs/shortform/as24-nl-be-edit-manual-v4.md · as24-edit-skeleton-v3.md. 수치 중 'init'은 초기값이며 calibrate.py로 원본과 맞춰 고친다",
+  "parts": [
+    "exterior_front",
+    "exterior_rear",
     "exterior_side",
-    "door"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "문 열면 발판이 내려와서 타고 내리기 편해요.",
-   "benefit_f": "문을 열면 발판이 내려와 타고 내리기 편합니다."
-  },
-  {
-   "name": "루프랙",
-   "chip": "루프랙",
-   "say": "루프랙",
-   "parts": [
+    "exterior_3_4",
+    "wheel",
+    "headlight",
+    "taillight",
+    "grille",
+    "mirror",
     "roof",
-    "exterior_side"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "캠핑 짐이나 자전거도 지붕에 실을 수 있어요.",
-   "benefit_f": "캠핑 짐이나 자전거까지 지붕에 실을 수 있습니다."
-  },
-  {
-   "name": "가죽시트",
-   "chip": "가죽 시트",
-   "say": "가죽 시트",
-   "parts": [
+    "door",
+    "interior_dash",
+    "steering_wheel",
+    "screen",
+    "console",
+    "gear",
     "seats_front",
-    "seats_rear"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "촉감 좋고 관리도 편하고요.",
-   "benefit_f": "촉감이 좋고 관리도 쉽죠."
-  },
-  {
-   "name": "전동시트(운전석)",
-   "chip": "전동 시트",
-   "say": "전동 시트",
-   "parts": [
-    "seats_front"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "버튼으로 시트 위치를 딱 맞출 수 있어요.",
-   "benefit_f": "버튼으로 시트 위치를 맞출 수 있습니다."
-  },
-  {
-   "name": "전동시트(동승석)",
-   "chip": "동승석 전동 시트",
-   "say": "동승석 전동 시트",
-   "parts": [
-    "seats_front"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "옆자리도 버튼으로 편하게 맞춰요.",
-   "benefit_f": "옆자리도 버튼으로 맞춥니다."
-  },
-  {
-   "name": "열선시트(앞좌석)",
-   "chip": "열선 시트",
-   "say": "열선 시트",
-   "parts": [
-    "seats_front",
-    "console"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "겨울에 앉자마자 따뜻하고요.",
-   "benefit_f": "겨울에도 앉자마자 따뜻하고,"
-  },
-  {
-   "name": "열선시트(뒷좌석)",
-   "chip": "뒷좌석 열선",
-   "say": "뒷좌석 열선",
-   "parts": [
-    "seats_rear"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "뒷자리 가족도 겨울에 따뜻해요.",
-   "benefit_f": "뒷자리 가족도 겨울에 따뜻하죠."
-  },
-  {
-   "name": "통풍시트",
-   "chip": "통풍 시트",
-   "say": "통풍 시트",
-   "parts": [
-    "seats_front",
-    "console"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "여름에 등이 안 끈적이게 바람이 나와요.",
-   "benefit_f": "여름엔 등 뒤로 바람이 나와 시원합니다."
-  },
-  {
-   "name": "메모리시트",
-   "chip": "메모리 시트",
-   "say": "메모리 시트",
-   "parts": [
-    "seats_front",
-    "door"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "버튼 하나면 내 운전 자세로 딱 돌아와요.",
-   "benefit_f": "버튼 하나면 내 운전 자세로 돌아오죠."
-  },
-  {
-   "name": "폴딩시트",
-   "chip": "폴딩 시트",
-   "say": "폴딩 시트",
-   "parts": [
     "seats_rear",
-    "trunk"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "접으면 큰 짐도 거뜬히 들어가요.",
-   "benefit_f": "접으면 큰 짐도 들어갑니다."
-  },
-  {
-   "name": "마사지시트",
-   "chip": "마사지 시트",
-   "say": "마사지 시트",
-   "parts": [
-    "seats_front"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "달리면서 등이랑 허리를 주물러 줘요.",
-   "benefit_f": "달리는 동안 등과 허리를 풀어 줍니다."
-  },
-  {
-   "name": "워크인시트",
-   "chip": "워크인 시트",
-   "say": "워크인 시트",
-   "parts": [
-    "seats_front"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "앞좌석이 밀려서 뒷자리 타기 편해요.",
-   "benefit_f": "앞좌석이 밀려 뒷자리에 타기 쉽습니다."
-  },
-  {
-   "name": "요추받침",
-   "chip": "요추 받침",
-   "say": "요추 받침",
-   "parts": [
-    "seats_front"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "허리를 받쳐 줘서 장거리도 덜 피곤해요.",
-   "benefit_f": "허리를 받쳐 줘 장거리도 덜 피곤하죠."
-  },
-  {
-   "name": "하이패스룸미러",
-   "chip": "하이패스 룸미러",
-   "say": "하이패스 룸미러",
-   "parts": [
     "interior_ceiling",
-    "interior_dash"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "톨게이트를 그냥 지나가면 돼요.",
-   "benefit_f": "톨게이트를 그대로 지나갈 수 있습니다."
-  },
-  {
-   "name": "ECM룸미러",
-   "chip": "ECM 룸미러",
-   "say": "ECM 룸미러",
-   "parts": [
-    "interior_ceiling"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "뒤차 불빛이 눈부시면 거울이 알아서 어두워져요.",
-   "benefit_f": "뒤차 불빛이 눈부시면 거울이 스스로 어두워집니다."
-  },
-  {
-   "name": "뒷좌석에어벤트",
-   "chip": "뒷좌석 송풍구",
-   "say": "뒷좌석 송풍구",
-   "parts": [
-    "seats_rear",
-    "console"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "뒷자리에도 바람이 바로 나와요.",
-   "benefit_f": "뒷자리에도 바람이 바로 나오죠."
-  },
-  {
-   "name": "패들쉬프트",
-   "chip": "패들 시프트",
-   "say": "패들 시프트",
-   "parts": [
-    "steering_wheel"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "핸들 뒤에서 손가락으로 기어를 바꿔요.",
-   "benefit_f": "핸들 뒤에서 손가락으로 기어를 바꿉니다."
-  },
-  {
-   "name": "전동햇빛가리개",
-   "chip": "전동 햇빛가리개",
-   "say": "전동 햇빛가리개",
-   "parts": [
-    "seats_rear",
-    "door"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "뒷유리 햇빛을 버튼 하나로 가려요.",
-   "benefit_f": "뒷유리 햇빛을 버튼 하나로 가립니다."
-  },
-  {
-   "name": "엠비언트라이트",
-   "chip": "엠비언트 라이트",
-   "say": "엠비언트 라이트",
-   "parts": [
-    "interior_dash",
-    "door"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "밤에 실내 조명 색을 내 맘대로 바꿀 수 있어요.",
-   "benefit_f": "밤에는 실내 조명 색을 원하는 대로 바꿀 수 있죠."
-  },
-  {
-   "name": "후방센서",
-   "chip": "후방 센서",
-   "say": "후방 센서",
-   "parts": [
-    "exterior_rear"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "뒤에 뭐가 가까우면 소리로 알려 줘요.",
-   "benefit_f": "뒤에 장애물이 가까우면 소리로 알려 줍니다."
-  },
-  {
-   "name": "전방센서",
-   "chip": "전방 센서",
-   "say": "전방 센서",
-   "parts": [
-    "exterior_front"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "앞에 장애물이 가까우면 알려 줘요.",
-   "benefit_f": "앞에 장애물이 가까우면 알려 줍니다."
-  },
-  {
-   "name": "후방카메라",
-   "chip": "후방 카메라",
-   "say": "후방 카메라",
-   "parts": [
-    "screen",
-    "exterior_rear"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "후진할 때 뒤가 화면에 다 보여요.",
-   "benefit_f": "후진할 때 뒤가 화면에 그대로 보이죠."
-  },
-  {
-   "name": "전방카메라",
-   "chip": "전방 카메라",
-   "say": "전방 카메라",
-   "parts": [
-    "screen",
-    "exterior_front"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "앞쪽 사각지대도 화면으로 보여요.",
-   "benefit_f": "앞쪽 사각지대까지 화면으로 보입니다."
-  },
-  {
-   "name": "어라운드뷰",
-   "chip": "어라운드뷰",
-   "say": "어라운드뷰",
-   "parts": [
-    "screen"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "위에서 내려다보듯 차 주변이 다 보여서 주차가 편해요.",
-   "benefit_f": "위에서 내려다보듯 차 주변이 다 보여 주차가 편하죠."
-  },
-  {
-   "name": "차선이탈경보(LDWS)",
-   "chip": "차선이탈 경보",
-   "say": "차선이탈 경보",
-   "parts": [
-    "interior_dash",
-    "steering_wheel"
-   ],
-   "tier": 2,
-   "visible": false,
-   "benefit": "차선 넘어가려고 하면 바로 알려 줘요.",
-   "benefit_f": "차선을 넘으려 하면 바로 알려 줍니다."
-  },
-  {
-   "name": "자동긴급제동",
-   "chip": "자동 긴급제동",
-   "say": "자동 긴급제동",
-   "parts": [
-    "exterior_front",
-    "interior_dash"
-   ],
-   "tier": 2,
-   "visible": false,
-   "benefit": "앞차랑 부딪힐 것 같으면 차가 알아서 서요.",
-   "benefit_f": "앞차와 부딪힐 것 같으면 차가 스스로 멈춥니다."
-  },
-  {
-   "name": "전자제어서스펜션(ECS)",
-   "chip": "전자제어 서스펜션",
-   "say": "전자제어 서스펜션",
-   "parts": [
-    "wheel",
-    "console"
-   ],
-   "tier": 1,
-   "visible": false,
-   "benefit": "길 상태에 맞춰 승차감을 알아서 바꿔 줘요.",
-   "benefit_f": "노면에 맞춰 승차감을 스스로 바꿔 줍니다."
-  },
-  {
-   "name": "후측방경보",
-   "chip": "후측방 경보",
-   "say": "후측방 경보",
-   "parts": [
-    "mirror"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "차선 바꿀 때 옆 뒤에 차 있으면 알려 줘요.",
-   "benefit_f": "차선을 바꿀 때 옆 뒤에 차가 있으면 알려 주죠."
-  },
-  {
-   "name": "스마트키",
-   "chip": "스마트키",
-   "say": "스마트키",
-   "parts": [
-    "key",
-    "door"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "키를 주머니에 넣고 그냥 타면 돼요.",
-   "benefit_f": "키를 주머니에 넣은 채 그대로 타면 됩니다."
-  },
-  {
-   "name": "열선핸들",
-   "chip": "열선 핸들",
-   "say": "열선 핸들",
-   "parts": [
-    "steering_wheel"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "겨울에 핸들 잡아도 손이 안 시려요.",
-   "benefit_f": "겨울에도 핸들을 잡는 손이 따뜻하죠."
-  },
-  {
-   "name": "자동에어컨",
-   "chip": "자동 에어컨",
-   "say": "자동 에어컨",
-   "parts": [
-    "console",
-    "interior_dash"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "온도만 맞춰 두면 알아서 조절해요.",
-   "benefit_f": "온도만 정해 두면 알아서 맞춥니다."
-  },
-  {
-   "name": "좌우독립에어컨",
-   "chip": "듀얼 에어컨",
-   "say": "듀얼 에어컨",
-   "parts": [
-    "console"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "운전석이랑 조수석 온도를 따로 맞춰요.",
-   "benefit_f": "운전석과 조수석 온도를 따로 맞춥니다."
-  },
-  {
-   "name": "크루즈컨트롤",
-   "chip": "크루즈 컨트롤",
-   "say": "크루즈 컨트롤",
-   "parts": [
-    "steering_wheel"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "고속도로에서 발 떼고 속도를 유지해요.",
-   "benefit_f": "고속도로에서 발을 떼도 속도를 유지합니다."
-  },
-  {
-   "name": "스마트크루즈컨트롤",
-   "chip": "스마트 크루즈",
-   "say": "스마트 크루즈",
-   "parts": [
-    "steering_wheel",
-    "interior_dash"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "앞차 따라 속도랑 거리를 알아서 맞춰요.",
-   "benefit_f": "앞차를 따라 속도와 거리를 스스로 맞추죠."
-  },
-  {
-   "name": "전동트렁크",
-   "chip": "전동 트렁크",
-   "say": "전동 트렁크",
-   "parts": [
-    "trunk",
-    "exterior_rear"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "버튼 하나로 트렁크가 열리고 닫혀요.",
-   "benefit_f": "버튼 하나로 트렁크가 열리고 닫힙니다."
-  },
-  {
-   "name": "스마트트렁크",
-   "chip": "스마트 트렁크",
-   "say": "스마트 트렁크",
-   "parts": [
-    "trunk",
-    "exterior_rear"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "키 갖고 뒤에 서 있으면 트렁크가 알아서 열려요.",
-   "benefit_f": "키를 갖고 뒤에 서 있으면 트렁크가 열립니다."
-  },
-  {
-   "name": "전자주차브레이크(EPB)",
-   "chip": "전자식 파킹",
-   "say": "전자식 파킹",
-   "parts": [
-    "console",
-    "gear"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "버튼 하나로 주차 브레이크가 걸려요.",
-   "benefit_f": "버튼 하나로 주차 브레이크가 걸립니다."
-  },
-  {
-   "name": "헤드업디스플레이(HUD)",
-   "chip": "HUD",
-   "say": "헤드업 디스플레이",
-   "parts": [
-    "interior_dash",
-    "steering_wheel"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "속도랑 길 안내가 앞유리에 바로 떠요.",
-   "benefit_f": "속도와 길 안내가 앞유리에 바로 뜹니다."
-  },
-  {
-   "name": "무선충전",
-   "chip": "무선 충전",
-   "say": "무선 충전",
-   "parts": [
-    "console"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "폰을 올려만 두면 충전돼요.",
-   "benefit_f": "휴대폰을 올려 두기만 하면 충전되죠."
-  },
-  {
-   "name": "자동주차",
-   "chip": "자동 주차",
-   "say": "자동 주차",
-   "parts": [
-    "screen",
-    "console"
-   ],
-   "tier": 1,
-   "visible": false,
-   "benefit": "주차를 차가 알아서 해 줘요.",
-   "benefit_f": "주차를 차가 스스로 해 줍니다."
-  },
-  {
-   "name": "냉장고",
-   "chip": "냉장고",
-   "say": "냉장고",
-   "parts": [
-    "console",
-    "seats_rear"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "음료를 시원하게 넣고 다닐 수 있어요.",
-   "benefit_f": "음료를 시원하게 보관할 수 있죠."
-  },
-  {
-   "name": "네비게이션(순정)",
-   "chip": "순정 내비",
-   "say": "순정 내비게이션",
-   "parts": [
-    "screen"
-   ],
-   "tier": 3,
-   "visible": true,
-   "benefit": "순정이라 화면이랑 딱 맞게 들어가 있어요.",
-   "benefit_f": "화면에 꼭 맞게 기본으로 들어가 있습니다."
-  },
-  {
-   "name": "블루투스",
-   "chip": "블루투스",
-   "say": "블루투스",
-   "parts": [
-    "screen",
-    "steering_wheel"
-   ],
-   "tier": 3,
-   "visible": false,
-   "benefit": "폰 연결해서 음악이랑 통화가 바로 돼요.",
-   "benefit_f": "휴대폰을 연결해 음악과 통화가 바로 됩니다."
-  },
-  {
-   "name": "뒷좌석TV",
-   "chip": "뒷좌석 모니터",
-   "say": "뒷좌석 모니터",
-   "parts": [
-    "seats_rear"
-   ],
-   "tier": 1,
-   "visible": true,
-   "benefit": "뒷자리에서도 영상 볼 수 있어요.",
-   "benefit_f": "뒷자리에서도 영상을 볼 수 있죠."
-  },
-  {
-   "name": "스마트폰미러링",
-   "chip": "애플 카플레이",
-   "say": "애플 카플레이",
-   "parts": [
-    "screen"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "폰 화면이 차 화면에 그대로 떠요.",
-   "benefit_f": "휴대폰 화면이 차 화면에 그대로 뜹니다."
-  },
-  {
-   "name": "AV시스템",
-   "chip": "프리미엄 오디오",
-   "say": "프리미엄 오디오",
-   "parts": [
     "speaker",
-    "door"
-   ],
-   "tier": 2,
-   "visible": true,
-   "benefit": "소리가 확실히 다르게 들려요.",
-   "benefit_f": "소리가 확실히 다르죠."
-  }
- ],
- "option_exposure": {
-  "_why": "사용자 지시 2026-11-09: 옵션 기능 칩 노출이 가장 중요",
-  "select": "매물 옵션 중 tier 오름차순, 같은 tier는 visible 먼저. 그 부위 장면(shots)이 있는 옵션만 칩을 띄운다. visible=false 옵션은 screen·interior_dash·steering_wheel 장면이 있을 때만",
-  "max_per_video": {
-   "bobae_nl": 4,
-   "bobae_be": 3,
-   "_note": "init. NL 새 50편 중 ✓ 옵션 칩 20편, 판정표본 옵션 칩 NL 12·BE 19. 재교정 대상"
-  },
-  "say": "옵션 이름을 그대로 말한다(칩 글자 = 말한 낱말). 말하지 않은 옵션은 띄우지 않는다",
-  "phrase": "옵션 하나 = 자막 구절 하나 = 장면 하나. 칩은 그 구절 시작 +0.1초에 뜬다(±0.2초가 원본 범위)",
-  "hold_s": {
-   "bobae_nl": 1.325,
-   "bobae_be": 1.5
-  },
-  "checklist": {
-   "bobae_nl": {
-    "on": true,
-    "min_items": 1,
-    "max_lines": 2,
-    "mark": "✓",
-    "band": "cap_hold",
-    "_src": "2차 조사(2026-11-09): NL 칩 409개 중 66%가 말 자막 자리(자막 대신, ✓ 기능 칩·숫자), 34%가 위쪽(차명·연식·엔진). 두 칩이 겹쳐 보이는 경우 19% → 최대 2줄, 자막 자리에서 위로 쌓음. 칩 사이 간격 중간 1.2초",
-    "hides_caption": true,
-    "cap_gap": 120,
-    "_note": "2026-11-10 원본 NL 눈·픽셀 대조(1YivF6HjLTw): 칩은 자막 자리에서 그 낱말을 말하는 동안만(약 1.3초) 자막 대신, 겹치면 위로 최대 2개(간격 25), 칩 글자 높이 62~75px · 상자 103~113px(1920 기준)"
-   },
-   "bobae_be": {
-    "on": false
-   }
-  },
-  "placement": "part_band 기준, 부위를 가리지 않음, 아래 20% 비움, 가로 가운데",
-  "shot": "구절 장면은 그 옵션 parts 중 점수가 가장 높은 장면. 최소 0.8초. 같은 장면을 두 번 쓰지 않음(어쩔 수 없으면 다른 구간)",
-  "fallback": "맞는 장면이 없으면 그 옵션은 대본에서 빼고 다음 순위 옵션을 쓴다",
-  "long_extra": {
-   "bobae_nl": 1,
-   "bobae_be": 0,
-   "_note_be": "2026-11-10 원본 BE 눈 대조: 벨기에는 옵션보다 숫자 띠(가격·km·연식)가 많다. 긴 원본이어도 옵션을 늘리지 않아 칩 예산에서 가격·km 띠가 빠지지 않게"
-  },
-  "chip_delay": {
-   "bobae_nl": 0.4,
-   "bobae_be": 0.05,
-   "_note": "렌더러 프리셋 chip_delay와 같은 값(200편: NL 구절 뒤 0.42초 · BE 0.04초)"
-  },
-  "chip_hold_max": {
-   "bobae_nl": 1.6,
-   "bobae_be": 1.8,
-   "_note": "숫자 칩이 자막을 가리는 최대 시간(원본 유지 NL 1.33 · BE 1.5초 + 여유)"
-  }
- },
- "script": {
-  "_rule": "매물 정보에 있는 사실만 말한다. 지어내지 않는다. 숫자는 TTS용 한글 읽기 + 화면 표시용 숫자(SHOW)로 짝을 만든다",
-  "sections": {
-   "bobae_nl": [
-    "hook",
-    "exterior",
-    "power",
-    "options",
-    "condition",
-    "cta"
-   ],
-   "bobae_be": [
-    "hook",
-    "exterior",
-    "options",
-    "condition",
-    "cta"
-   ]
-  },
-  "target_s": {
-   "bobae_nl": [
-    28,
-    40
-   ],
-   "bobae_be": [
-    22,
-    32
-   ]
-  },
-  "cap_words": [
-   2,
-   4
-  ],
-  "parts_for_section": {
-   "hook": [
-    "exterior_3_4",
-    "exterior_front",
-    "grille",
-    "exterior_side",
-    "headlight",
-    "exterior_rear",
-    "wheel"
-   ],
-   "exterior": [
-    "exterior_front",
-    "exterior_side",
-    "exterior_rear",
-    "wheel",
-    "headlight",
-    "exterior_3_4"
-   ],
-   "power": [
-    "engine_bay",
-    "exterior_rear",
-    "taillight",
-    "wheel",
-    "gear"
-   ],
-   "condition": [
-    "interior_dash",
-    "exterior_3_4",
-    "grille",
-    "exterior_side",
-    "exterior_front",
-    "taillight"
-   ],
-   "cta": [
-    "exterior_3_4",
-    "exterior_front",
-    "exterior_rear",
     "trunk",
-    "taillight"
-   ]
-  },
-  "shot_cost": "순위*2 + 재사용*5 − 점수, 바로 앞 구절과 같은 장면을 이어 쓰면(한 번에 찍은 카메라 이동) 재사용 벌점 0.5. 다시 쓸 땐 앞에서 쓴 구간 뒤부터",
-  "josa_latin": {
-   "MATIC": true,
-   "AMG": false,
-   "GT": false,
-   "RS": false,
-   "SUV": false,
-   "EV": false,
-   "PHEV": false,
-   "S": false
-  },
-  "long_source_s": 40,
-  "option_sentence_ends": [
-   [
-    "이가",
-    "들어가 있고요."
-   ],
-   [
-    "도",
-    "있어요."
-   ],
-   [
-    "이가",
-    "달려 있고요."
-   ],
-   [
-    "도",
-    "들어가 있어요."
-   ]
-  ],
-  "_long_note": "원본 영상이 40초 이상이면(NL 원본 중간 40.5초) 옵션을 한 문장씩, 구동 방식 구절 추가. 사실만, 지어내지 않는다",
-  "cut_early_pad": {
-   "bobae_nl": 1.0,
-   "bobae_be": 0.6,
-   "_note": "렌더러 cut_early_s와 같은 값. GLE 시험에서 당긴 컷 때문에 휠 장면이 원본 다음 장면(뒷모습)까지 흘러 0.9초 만에 컷이 하나 더 생김"
-  },
-  "_benefit_note": "2026-11-10 사용자 지시: 나사르 헤시엔 쇼츠처럼 옵션마다 「그게 뭘 해 주는지」를 한 문장으로(근거: 시트 「나사르헤시엔_유튜브」 130편 한국어 자막, reports/shortform/as24-reviewer-nasser). benefit은 그 옵션의 일반 기능만 쓰고 이 차의 상태·평가는 쓰지 않는다",
-  "tone": "young",
-  "speech": "formal",
-  "nasser_hook": {
-   "SUV": "넉넉한 SUV를 찾으신다면",
-   "세단": "편안한 세단을 찾으신다면",
-   "쿠페": "달리는 재미를 원하신다면",
-   "컨버터블": "지붕 열고 달리고 싶으시다면",
-   "해치백": "도심에서 타기 좋은 차를 찾으신다면",
-   "왜건": "짐 많이 싣는 차를 찾으신다면",
-   "MPV": "식구 많은 집이라면",
-   "밴": "식구 많은 집이라면",
-   "픽업": "짐도 레저도 다 잡고 싶으시다면"
-  },
-  "_speech_note": "2026-11-10 사용자 「나세르처럼 대사」·「입니다로」·「AI 티 제거」: make_script_nasser 사용. 합니다체 + 끝을 ~죠/~니다로 섞고, 첫 줄 「~를 원하신다면…」, 기능 뒤에 제원, 끝 「~에서 만나보세요」"
- },
- "calibration": {
-  "_how": "calibrate.py가 자동 편집 계획(plan.json)·렌더 결과(meta, sfx_hits)를 재서 원본 측정값과 비교한다. 범위를 벗어나면 규칙을 고친다",
-  "bobae_nl": {
-   "cuts_per_min": [
-    14.65,
-    22.3
-   ],
-   "shot_med_s": [
-    2.075,
-    3.083
-   ],
-   "chips_per_min": [
-    10.1,
-    18.1
-   ],
-   "option_chips": [
-    2,
-    5
-   ],
-   "sfx_per_video": [
-    3,
-    7
-   ],
-   "sfx_gap_min_s": 1.0,
-   "caption_y_pct": [
-    53.5,
-    65.0
-   ],
-   "music": false,
-   "first_cut_s": [
-    2.633,
-    4.783
-   ],
-   "chip_on_new_shot": [
-    0.173,
-    0.5
-   ]
-  },
-  "bobae_be": {
-   "cuts_per_min": [
-    17.625,
-    25.875
-   ],
-   "shot_med_s": [
-    1.633,
-    2.883
-   ],
-   "chips_per_min": [
-    3.4,
-    14.9
-   ],
-   "option_chips": [
-    1,
-    4
-   ],
-   "sfx_per_video": [
-    0,
-    3
-   ],
-   "sfx_gap_min_s": 1.0,
-   "caption_y_pct": [
-    62.0,
-    67.0
-   ],
-   "music": true,
-   "first_cut_s": [
-    1.754,
-    3.833
-   ],
-   "chip_on_new_shot": [
-    0.27,
-    0.67
-   ]
-  },
-  "_range": "p25~p75, 200편(말하는 영상 159편) 합계. 2026-11-09 2차 조사로 교체"
- },
- "voice": {
-  "_why": "사용자 지시 2026-11-09: 일레븐랩스도 AI 티 벗겨내기. 일레븐랩스 v4 공식 안내(숫자는 글로 쓴 그대로, 태그는 분위기가 바뀌는 곳에만, 안정도 낮추면 억양이 다양) + 원본 NL·BE 말투",
-  "model": "eleven_v4",
-  "voice_id": "VwlplMyq7s8eoNKYEgcd",
-  "voice_name": "Dduksang Dragon (20대 남성, 숏츠·릴스용 생동감 있는 목소리)",
-  "numbers": "digits",
-  "settings": {
-   "stability": 0.35,
-   "similarity": 0.85,
-   "_note": "0.5(기본)은 문장마다 억양이 같아 낭독처럼 들림. 0.3 아래는 발음이 흔들림"
-  },
-  "tags": {
-   "hook": "",
-   "options": "",
-   "cta": ""
-  },
-  "script_rules": [
-   "같은 끝말을 두 문장 연달아 쓰지 않는다(-예요 / -거든요 / -고요 / -어요 / -이에요 / -보세요)",
-   "나열(23년 6월 등록, 1억…)은 문장으로 잇는다: 23년 6월에 등록됐고, 가격은 … 원이에요",
-   "감탄사·웃음 태그를 넣지 않는다(과장되면 오히려 AI 티)",
-   "문장은 짧게, 쉼표로 숨 쉴 자리"
-  ],
-  "post": {
-   "on": true,
-   "highpass_hz": 70,
-   "deess": 0.3,
-   "comp_threshold": -18,
-   "comp_ratio": 2.5,
-   "lufs": -16,
-   "room_tone_amp": 0.0018,
-   "_note": "방 소리는 약 −55dB. 말 사이가 완전 무음이면 합성 티가 난다"
-  },
-  "candidates_older": {
-   "A": {
-    "voice_id": "M0glFuuemBDoLghG62l7",
-    "name": "Jubal — Confident Korean Male, Sales",
-    "age": "middle_aged"
-   },
-   "B": {
-    "voice_id": "5LbhUNiU0e2s8EafwnT5",
-    "name": "Rowan - Warm and Gentle",
-    "age": "middle_aged"
-   },
-   "_note": "2026-11-10 사용자 「목소리 조금 나이 올리자」 — 사용자가 고르면 voice_id 교체",
-   "C": {
-    "voice_id": "q5opP0zJPCcJBRD3F5Ay",
-    "name": "jake korean (30대 중후반 리뷰 톤)"
-   },
-   "D": {
-    "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
-    "name": "Minho (30대 SNS 톤) — 채택"
-   }
-  },
-  "_voice_note": "2026-11-10 사용자 지시 「20대 청년 생동감 있게」. 이전 기본 Minho(30대)는 previous에",
-  "previous": {
-   "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
-   "voice_name": "Minho - Seoul Creative Clear Voice (30대 서울 남성)"
-  },
-  "_tags_note": "2026-11-10 「AI 티 제거」: 감정 태그를 모두 뺌(태그가 과장된 억양을 만들어 낭독·광고 티). 말투는 문장 자체로",
-  "characters": {
-   "_why": "2026-11-10 사용자 지시 「음성을 남녀 지역 사투리 등 캐릭터 10개」. 일레븐랩스 한국어 목소리 목록에서 고름. 기본은 voice.voice_id(뚝상 드래곤) 그대로",
-   "_missing": "전라 사투리 목소리는 일레븐랩스 목록에 없음(2026-11-10 검색 0건). 새로 만들려면 목소리 설명·시험 문장을 사용자가 줘야 함",
-   "list": [
-    {
-     "key": "m_seoul_creator",
-     "name": "서울 30대 남자 · 리뷰 크리에이터",
-     "voice_id": "HvCQYI15cbdFVC9pSBfb",
-     "src": "Mr.J"
-    },
-    {
-     "key": "m_sales",
-     "name": "중년 남자 · 신뢰감 있는 영업",
-     "voice_id": "M0glFuuemBDoLghG62l7",
-     "src": "Jubal"
-    },
-    {
-     "key": "m_variety",
-     "name": "중년 남자 · 예능 내레이션 활기",
-     "voice_id": "wisKdlUQEBMjkKqNAa3c",
-     "src": "Deok"
-    },
-    {
-     "key": "m_busan",
-     "name": "부산 30대 남자 · 따뜻한 억양",
-     "voice_id": "OCfudTneq7lOKko7D2t6",
-     "src": "REX SEO"
-    },
-    {
-     "key": "m_daegu",
-     "name": "대구·경상 20대 남자 · 밝음",
-     "voice_id": "XIBeHrnXIVdoqMMadmog",
-     "src": "NUHA"
-    },
-    {
-     "key": "m_chungcheong",
-     "name": "충청 중년 남자 · 차분 중후",
-     "voice_id": "o6ysv6lgYXDufA73aJUX",
-     "src": "sanghyun"
-    },
-    {
-     "key": "f_ad",
-     "name": "20대 여자 · 밝은 광고 톤",
-     "voice_id": "Cm89zxZzEGaMu7ajYw2K",
-     "src": "Yoojin Kim"
-    },
-    {
-     "key": "f_shorts",
-     "name": "20대 여자 · 숏폼 발랄",
-     "voice_id": "vhhJX7dyal9WlYW2UAsj",
-     "src": "Yeonhee"
-    },
-    {
-     "key": "f_busan",
-     "name": "부산 여자 · 차분한 억양",
-     "voice_id": "j3SYRikKBpDmPJsvd1rf",
-     "src": "Busan SS"
-    },
-    {
-     "key": "f_senior",
-     "name": "60대 여자 · 우아하고 또렷",
-     "voice_id": "l8LvKdZAWSv8LAgdmF9j",
-     "src": "joy"
-    }
-   ]
-  }
- },
- "chip_priority": {
-  "_note": "숫자가 작을수록 먼저 뺀다. 옵션 칩은 가장 나중",
-  "app": 1,
-  "other": 2,
-  "reg": 3,
-  "power": 4,
-  "km": 5,
-  "price": 6,
-  "option": 9
- },
- "learned_l1": {
-  "_src": "2026-11-09 1차 재학습: 원본 NL 50·BE 50 중 말하는 영상 NL 43·BE 34. 컷은 우리 렌더와 같은 자(learn_l1.cuts_ff). 전체 수치 scripts/shortform/auto/learned_l1_summary.json",
-  "bobae_nl": {
-   "first_cut_s": 3.3,
-   "cut_lead_s": 0.093,
-   "cut_on_phrase": 0.4,
-   "caption_cy_pct": 58.8,
-   "tail_after_speech_s": 0.12
-  },
-  "bobae_be": {
-   "first_cut_s": 2.375,
-   "cut_lead_s": 0.053,
-   "cut_on_phrase": 0.38,
-   "caption_cy_pct": 66.85,
-   "chip_delay_s": 0.21,
-   "chip_hold_s": 1.5,
-   "chip_tilt_deg": -5.6,
-   "chip_ccw_share": 0.98,
-   "chip_band_share": {
-    "top": 0.44,
-    "mid": 0.15,
-    "low": 0.42
-   },
-   "chip_on_new_shot": 0.5,
-   "chips_per_min": 5.5,
-   "tail_after_speech_s": 0.27
-  },
-  "_not_trusted": "효과음 검출 수(NL 영상당 9)는 칩 밖 가짜 검출이 섞여 쓰지 않음. NL 칩은 검정·파랑 상자라 노랑 트랙으로 못 셈(따로 세야 함)"
- },
- "band_y_be": {
-  "top": 480,
-  "low": 1290,
-  "_note": "BE 칩 높이: 위(0~33%) 44% · 아래(60%~) 42% · 가운데 15%뿐. 아래 칩이 뜨면 말 자막을 숨긴다"
- },
- "learned_200": {
-  "_src": "2026-11-09 1차(NL 43·BE 34) + 2차(NL 44·BE 38) = 말하는 영상 159편. 두 조사 방향 일치. 전체 수치 auto/learned_200_summary.json(l1·l2·all)",
-  "bobae_nl": {
-   "first_cut_s": 3.3,
-   "caption_cy_pct": 60.0,
-   "chip_delay_s": 0.415,
-   "chip_hold_s": 1.325,
-   "chip_after_cut_s": 1.0,
-   "cut_on_phrase": 0.31,
-   "chips_with_sfx": 0.38,
-   "chip_band_share": {
-    "top": 0.32,
-    "mid": 0.37,
-    "low": 0.32
-   },
-   "sfx_hook_rate": 0.38
-  },
-  "bobae_be": {
-   "first_cut_s": 2.375,
-   "caption_cy_pct": 66.8,
-   "chip_delay_s": 0.04,
-   "chip_hold_s": 1.5,
-   "chip_after_cut_s": 0.517,
-   "cut_on_phrase": 0.355,
-   "chip_tilt_deg": -5.7,
-   "chip_band_share": {
-    "top": 0.39,
-    "mid": 0.26,
-    "low": 0.36
-   },
-   "sfx_hook_rate": 0.08
-  }
- },
- "pronounce": {
-  "_why": "2026-11-10 사용자 「한국어 발음 교정, 지팔공이라고 칭한다」: 화면 글자는 그대로(G80), 목소리만 한국에서 부르는 대로 읽는다",
-  "words": {
-   "G80": "지팔공",
-   "GV80": "지브이팔공",
-   "GV70": "지브이칠공",
-   "G90": "지구공",
-   "G70": "지칠공",
-   "GLE": "지엘이",
-   "GLC": "지엘씨",
-   "GLS": "지엘에스",
-   "4MATIC": "포매틱",
-   "BMW": "비엠더블유",
-   "BYD": "비와이디",
-   "X5": "엑스파이브",
-   "X4": "엑스포",
-   "X3": "엑스쓰리",
-   "X6": "엑스식스",
-   "X7": "엑스세븐",
-   "S60": "에스식스티",
-   "S90": "에스나인티",
-   "XC60": "엑스씨식스티",
-   "XC90": "엑스씨나인티",
-   "IG": "아이지",
-   "SUV": "에스유브이",
-   "AWD": "에이더블유디",
-   "4륜": "사륜",
-   "2륜": "이륜",
-   "V8": "브이에잇",
-   "LWB": "엘더블유비",
-   "AMG": "에이엠지",
-   "km": "킬로",
-   "kWh": "킬로와트시"
-  },
-  "bigrams": {
-   "씨라이언 7": "씨라이언 세븐",
-   "GLE 450": "지엘이 사오공"
-  },
-  "letters": {
-   "A": "에이",
-   "B": "비",
-   "C": "씨",
-   "D": "디",
-   "E": "이",
-   "F": "에프",
-   "G": "지",
-   "H": "에이치",
-   "I": "아이",
-   "J": "제이",
-   "K": "케이",
-   "L": "엘",
-   "M": "엠",
-   "N": "엔",
-   "O": "오",
-   "P": "피",
-   "Q": "큐",
-   "R": "알",
-   "S": "에스",
-   "T": "티",
-   "U": "유",
-   "V": "브이",
-   "W": "더블유",
-   "X": "엑스",
-   "Y": "와이",
-   "Z": "지"
-  },
-  "_rule": "사전에 없는 「영문+숫자」 모델명(P250 등)은 글자 이름 + 숫자 한 자리씩(0=공). 소수점 배기량 2.5 = 이점오. 쉼표 들어간 큰 수(26,690)는 그대로 둠(일레븐랩스가 읽음)"
- },
- "shot_fit": {
-  "_rule": "장면 ↔ 칩·말 맞춤 가변 규칙(2026-11-10). 코드는 이 값만 읽는다. 매물·원본 영상마다 달라지는 것은 여기서 바꾼다",
-  "source_fps": "auto",
-  "_fps_note": "원본 시각 → 원본 장면 번호는 원본 파일의 실제 fps로 계산(auto). 25·24·60fps 원본도 그대로 씀(2026-11-10 차란차 25fps를 30으로 계산해 엔진 칩이 바퀴 위·끝이 검은 화면이던 원인)",
-  "merge_same_part": true,
-  "merge_gap_s": 0.05,
-  "_merge_note": "붙어 있는 같은 부위 장면을 하나로 합침(짧게 쪼개진 장면 때문에 넘치는 것 방지)",
-  "clamp_to_part": true,
-  "_clamp_note": "장면은 그 부위 구간 밖(다음 부위·원본 끝 검은 화면)으로 넘치지 않는다. 자동편집 계획과 렌더러 둘 다 적용",
-  "fit_speed": {
-   "option": 0.5,
-   "default": 0.6
-  },
-  "_fit_note": "장면을 고를 때 이 속도까지 천천히 틀어 맞출 수 있으면 그 장면을 쓴다(옵션은 그 부위 장면을 더 우선)",
-  "min_speed": 0.4,
-  "swap_same_part": true,
-  "hold_at_end": true,
-  "_min_note": "부위 구간이 모자랄 때 늦출 수 있는 최저 속도. 그래도 모자라면 pull_start",
-  "pull_start_when_short": true,
-  "_pull_note": "최저 속도로도 모자라면 같은 부위 구간 안에서 시작을 앞으로 당겨 구간 안에서 끝냄",
-  "edge_margin_s": 0.04,
-  "missing_part": {
-   "_note": "원하는 첫 부위가 원본 영상에 아예 없을 때. fallback = parts_for_section 다음 부위로 대신 · drop_chip = 말은 하고 칩은 뺌 · drop_phrase = 그 문장을 뺌",
-   "hook": "fallback",
-   "exterior": "fallback",
-   "options": "drop_phrase",
-   "power": "fallback",
-   "condition": "fallback",
-   "cta": "fallback"
-  },
-  "required_shots": {
-   "_note": "이 부위가 원본에 없으면 plan.json required_shots와 검사표에 「촬영 필요」로 적는다(촬영키트 안내에 연결)",
-   "list": [
-    "exterior_3_4",
-    "exterior_front",
-    "exterior_side",
-    "exterior_rear",
     "engine_bay",
-    "interior_dash",
-    "steering_wheel",
-    "seats_front",
-    "trunk"
-   ]
+    "charging_port",
+    "key",
+    "person",
+    "other"
+  ],
+  "part_band": {
+    "_src": "as24-edit-skeleton-v3 §3 (판정 440곳): 부위를 가리지 않고 반대쪽 띠. top≈26% · mid≈52% · low≈68%. low 띠 칩이 뜨면 말 자막을 숨긴다(NL 이름표가 자막 자리에 대신 뜸)",
+    "seats_front": "low",
+    "seats_rear": "low",
+    "speaker": "low",
+    "screen": "low",
+    "console": "top",
+    "gear": "top",
+    "trunk": "low",
+    "wheel": "top",
+    "headlight": "low",
+    "taillight": "top",
+    "grille": "mid",
+    "exterior_rear": "top",
+    "mirror": "top",
+    "exterior_front": "top",
+    "exterior_3_4": "top",
+    "exterior_side": "top",
+    "roof": "low",
+    "interior_ceiling": "low",
+    "steering_wheel": "top",
+    "interior_dash": "low",
+    "door": "mid",
+    "engine_bay": "top",
+    "charging_port": "top",
+    "key": "mid",
+    "person": "mid",
+    "other": "mid"
   },
-  "check": {
-   "on": true,
-   "max_overflow": 0,
-   "_note": "렌더 뒤 check_match.py --render 결과. 넘침이 max_overflow를 넘으면 배포 전 다시 만든다"
+  "band_y": {
+    "top": 480,
+    "mid": 820,
+    "low": 1420,
+    "_note": "1920 기준 칩 가운데 높이. 말 자막은 NL 1190·BE 1229라 mid는 그 위 370px. low는 자막과 겹치므로 low 칩이 떠 있는 동안 자막을 숨긴다(2026-11-09 시험 렌더에서 1000은 자막에 붙어 보여 820으로 고침)",
+    "cap": "STYLE.cap_cy"
+  },
+  "option_catalog": [
+    {
+      "name": "선루프",
+      "chip": "선루프",
+      "say": "선루프",
+      "parts": [
+        "roof",
+        "interior_ceiling"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "지붕 열고 바람 맞으면서 달릴 수 있어요.",
+      "benefit_f": "지붕을 열고 바람을 맞으며 달릴 수 있습니다."
+    },
+    {
+      "name": "파노라마선루프",
+      "chip": "파노라마 선루프",
+      "say": "파노라마 선루프",
+      "parts": [
+        "roof",
+        "interior_ceiling"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "뒷좌석까지 하늘이 쫙 보여서 실내가 진짜 넓어 보여요.",
+      "benefit_f": "뒷좌석까지 하늘이 열려 실내가 훨씬 넓게 느껴지죠."
+    },
+    {
+      "name": "알루미늄휠",
+      "chip": "알루미늄 휠",
+      "say": "알루미늄 휠",
+      "parts": [
+        "wheel"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "휠이 가볍고 디자인도 살아요.",
+      "benefit_f": "가볍고 디자인도 살아납니다."
+    },
+    {
+      "name": "전동사이드미러",
+      "chip": "전동 사이드미러",
+      "say": "전동 사이드미러",
+      "parts": [
+        "mirror"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "시동 끄면 알아서 접혀요.",
+      "benefit_f": "시동을 끄면 알아서 접힙니다."
+    },
+    {
+      "name": "HID램프",
+      "chip": "HID 램프",
+      "say": "HID 램프",
+      "parts": [
+        "headlight"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "밤길이 하얗고 환하게 보여요.",
+      "benefit_f": "밤길을 하얗게 밝혀 줍니다."
+    },
+    {
+      "name": "LED헤드램프",
+      "chip": "LED 헤드램프",
+      "say": "LED 헤드램프",
+      "parts": [
+        "headlight",
+        "exterior_front"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "밤에 앞이 훨씬 밝게 보이고요.",
+      "benefit_f": "밤에도 앞이 또렷하게 보이죠."
+    },
+    {
+      "name": "어댑티드헤드램프",
+      "chip": "어댑티브 헤드램프",
+      "say": "어댑티브 헤드램프",
+      "parts": [
+        "headlight",
+        "exterior_front"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "핸들 꺾는 쪽으로 불빛이 같이 돌아가요.",
+      "benefit_f": "핸들을 꺾는 방향으로 불빛이 같이 돌아갑니다."
+    },
+    {
+      "name": "LED리어램프",
+      "chip": "LED 리어램프",
+      "say": "LED 리어램프",
+      "parts": [
+        "taillight",
+        "exterior_rear"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "뒤에서 봐도 불빛이 또렷하고요.",
+      "benefit_f": "뒤에서 봐도 불빛이 선명하죠."
+    },
+    {
+      "name": "데이라이트",
+      "chip": "데이라이트",
+      "say": "데이라이트",
+      "parts": [
+        "headlight"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "낮에도 불이 들어와서 눈에 잘 띄어요.",
+      "benefit_f": "낮에도 불이 들어와 눈에 잘 띕니다."
+    },
+    {
+      "name": "하이빔어시스트",
+      "chip": "하이빔 어시스트",
+      "say": "하이빔 어시스트",
+      "parts": [
+        "headlight",
+        "interior_dash"
+      ],
+      "tier": 2,
+      "visible": false,
+      "benefit": "맞은편 차 오면 상향등을 알아서 내려 줘요.",
+      "benefit_f": "맞은편에 차가 오면 상향등을 스스로 내려 줍니다."
+    },
+    {
+      "name": "압축도어",
+      "chip": "고스트 도어",
+      "say": "고스트 도어",
+      "parts": [
+        "door"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "문을 살짝만 닫아도 끝까지 스르륵 당겨 닫혀요.",
+      "benefit_f": "문을 살짝만 닫아도 끝까지 당겨서 닫힙니다."
+    },
+    {
+      "name": "자동슬라이딩도어",
+      "chip": "전동 슬라이딩 도어",
+      "say": "전동 슬라이딩 도어",
+      "parts": [
+        "door"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "버튼 하나로 뒷문이 알아서 열리고 닫혀요.",
+      "benefit_f": "버튼 하나로 뒷문이 열리고 닫히죠."
+    },
+    {
+      "name": "전동사이드스탭",
+      "chip": "전동 사이드스텝",
+      "say": "전동 사이드스텝",
+      "parts": [
+        "exterior_side",
+        "door"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "문 열면 발판이 내려와서 타고 내리기 편해요.",
+      "benefit_f": "문을 열면 발판이 내려와 타고 내리기 편합니다."
+    },
+    {
+      "name": "루프랙",
+      "chip": "루프랙",
+      "say": "루프랙",
+      "parts": [
+        "roof",
+        "exterior_side"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "캠핑 짐이나 자전거도 지붕에 실을 수 있어요.",
+      "benefit_f": "캠핑 짐이나 자전거까지 지붕에 실을 수 있습니다."
+    },
+    {
+      "name": "가죽시트",
+      "chip": "가죽 시트",
+      "say": "가죽 시트",
+      "parts": [
+        "seats_front",
+        "seats_rear"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "촉감 좋고 관리도 편하고요.",
+      "benefit_f": "촉감이 좋고 관리도 쉽죠."
+    },
+    {
+      "name": "전동시트(운전석)",
+      "chip": "전동 시트",
+      "say": "전동 시트",
+      "parts": [
+        "seats_front"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "버튼으로 시트 위치를 딱 맞출 수 있어요.",
+      "benefit_f": "버튼으로 시트 위치를 맞출 수 있습니다."
+    },
+    {
+      "name": "전동시트(동승석)",
+      "chip": "동승석 전동 시트",
+      "say": "동승석 전동 시트",
+      "parts": [
+        "seats_front"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "옆자리도 버튼으로 편하게 맞춰요.",
+      "benefit_f": "옆자리도 버튼으로 맞춥니다."
+    },
+    {
+      "name": "열선시트(앞좌석)",
+      "chip": "열선 시트",
+      "say": "열선 시트",
+      "parts": [
+        "seats_front",
+        "console"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "겨울에 앉자마자 따뜻하고요.",
+      "benefit_f": "겨울에도 앉자마자 따뜻하고,"
+    },
+    {
+      "name": "열선시트(뒷좌석)",
+      "chip": "뒷좌석 열선",
+      "say": "뒷좌석 열선",
+      "parts": [
+        "seats_rear"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "뒷자리 가족도 겨울에 따뜻해요.",
+      "benefit_f": "뒷자리 가족도 겨울에 따뜻하죠."
+    },
+    {
+      "name": "통풍시트",
+      "chip": "통풍 시트",
+      "say": "통풍 시트",
+      "parts": [
+        "seats_front",
+        "console"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "여름에 등이 안 끈적이게 바람이 나와요.",
+      "benefit_f": "여름엔 등 뒤로 바람이 나와 시원합니다."
+    },
+    {
+      "name": "메모리시트",
+      "chip": "메모리 시트",
+      "say": "메모리 시트",
+      "parts": [
+        "seats_front",
+        "door"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "버튼 하나면 내 운전 자세로 딱 돌아와요.",
+      "benefit_f": "버튼 하나면 내 운전 자세로 돌아오죠."
+    },
+    {
+      "name": "폴딩시트",
+      "chip": "폴딩 시트",
+      "say": "폴딩 시트",
+      "parts": [
+        "seats_rear",
+        "trunk"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "접으면 큰 짐도 거뜬히 들어가요.",
+      "benefit_f": "접으면 큰 짐도 들어갑니다."
+    },
+    {
+      "name": "마사지시트",
+      "chip": "마사지 시트",
+      "say": "마사지 시트",
+      "parts": [
+        "seats_front"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "달리면서 등이랑 허리를 주물러 줘요.",
+      "benefit_f": "달리는 동안 등과 허리를 풀어 줍니다."
+    },
+    {
+      "name": "워크인시트",
+      "chip": "워크인 시트",
+      "say": "워크인 시트",
+      "parts": [
+        "seats_front"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "앞좌석이 밀려서 뒷자리 타기 편해요.",
+      "benefit_f": "앞좌석이 밀려 뒷자리에 타기 쉽습니다."
+    },
+    {
+      "name": "요추받침",
+      "chip": "요추 받침",
+      "say": "요추 받침",
+      "parts": [
+        "seats_front"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "허리를 받쳐 줘서 장거리도 덜 피곤해요.",
+      "benefit_f": "허리를 받쳐 줘 장거리도 덜 피곤하죠."
+    },
+    {
+      "name": "하이패스룸미러",
+      "chip": "하이패스 룸미러",
+      "say": "하이패스 룸미러",
+      "parts": [
+        "interior_ceiling",
+        "interior_dash"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "톨게이트를 그냥 지나가면 돼요.",
+      "benefit_f": "톨게이트를 그대로 지나갈 수 있습니다."
+    },
+    {
+      "name": "ECM룸미러",
+      "chip": "ECM 룸미러",
+      "say": "ECM 룸미러",
+      "parts": [
+        "interior_ceiling"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "뒤차 불빛이 눈부시면 거울이 알아서 어두워져요.",
+      "benefit_f": "뒤차 불빛이 눈부시면 거울이 스스로 어두워집니다."
+    },
+    {
+      "name": "뒷좌석에어벤트",
+      "chip": "뒷좌석 송풍구",
+      "say": "뒷좌석 송풍구",
+      "parts": [
+        "seats_rear",
+        "console"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "뒷자리에도 바람이 바로 나와요.",
+      "benefit_f": "뒷자리에도 바람이 바로 나오죠."
+    },
+    {
+      "name": "패들쉬프트",
+      "chip": "패들 시프트",
+      "say": "패들 시프트",
+      "parts": [
+        "steering_wheel"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "핸들 뒤에서 손가락으로 기어를 바꿔요.",
+      "benefit_f": "핸들 뒤에서 손가락으로 기어를 바꿉니다."
+    },
+    {
+      "name": "전동햇빛가리개",
+      "chip": "전동 햇빛가리개",
+      "say": "전동 햇빛가리개",
+      "parts": [
+        "seats_rear",
+        "door"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "뒷유리 햇빛을 버튼 하나로 가려요.",
+      "benefit_f": "뒷유리 햇빛을 버튼 하나로 가립니다."
+    },
+    {
+      "name": "엠비언트라이트",
+      "chip": "엠비언트 라이트",
+      "say": "엠비언트 라이트",
+      "parts": [
+        "interior_dash",
+        "door"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "밤에 실내 조명 색을 내 맘대로 바꿀 수 있어요.",
+      "benefit_f": "밤에는 실내 조명 색을 원하는 대로 바꿀 수 있죠."
+    },
+    {
+      "name": "후방센서",
+      "chip": "후방 센서",
+      "say": "후방 센서",
+      "parts": [
+        "exterior_rear"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "뒤에 뭐가 가까우면 소리로 알려 줘요.",
+      "benefit_f": "뒤에 장애물이 가까우면 소리로 알려 줍니다."
+    },
+    {
+      "name": "전방센서",
+      "chip": "전방 센서",
+      "say": "전방 센서",
+      "parts": [
+        "exterior_front"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "앞에 장애물이 가까우면 알려 줘요.",
+      "benefit_f": "앞에 장애물이 가까우면 알려 줍니다."
+    },
+    {
+      "name": "후방카메라",
+      "chip": "후방 카메라",
+      "say": "후방 카메라",
+      "parts": [
+        "screen",
+        "exterior_rear"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "후진할 때 뒤가 화면에 다 보여요.",
+      "benefit_f": "후진할 때 뒤가 화면에 그대로 보이죠."
+    },
+    {
+      "name": "전방카메라",
+      "chip": "전방 카메라",
+      "say": "전방 카메라",
+      "parts": [
+        "screen",
+        "exterior_front"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "앞쪽 사각지대도 화면으로 보여요.",
+      "benefit_f": "앞쪽 사각지대까지 화면으로 보입니다."
+    },
+    {
+      "name": "어라운드뷰",
+      "chip": "어라운드뷰",
+      "say": "어라운드뷰",
+      "parts": [
+        "screen"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "위에서 내려다보듯 차 주변이 다 보여서 주차가 편해요.",
+      "benefit_f": "위에서 내려다보듯 차 주변이 다 보여 주차가 편하죠."
+    },
+    {
+      "name": "차선이탈경보(LDWS)",
+      "chip": "차선이탈 경보",
+      "say": "차선이탈 경보",
+      "parts": [
+        "interior_dash",
+        "steering_wheel"
+      ],
+      "tier": 2,
+      "visible": false,
+      "benefit": "차선 넘어가려고 하면 바로 알려 줘요.",
+      "benefit_f": "차선을 넘으려 하면 바로 알려 줍니다."
+    },
+    {
+      "name": "자동긴급제동",
+      "chip": "자동 긴급제동",
+      "say": "자동 긴급제동",
+      "parts": [
+        "exterior_front",
+        "interior_dash"
+      ],
+      "tier": 2,
+      "visible": false,
+      "benefit": "앞차랑 부딪힐 것 같으면 차가 알아서 서요.",
+      "benefit_f": "앞차와 부딪힐 것 같으면 차가 스스로 멈춥니다."
+    },
+    {
+      "name": "전자제어서스펜션(ECS)",
+      "chip": "전자제어 서스펜션",
+      "say": "전자제어 서스펜션",
+      "parts": [
+        "wheel",
+        "console"
+      ],
+      "tier": 1,
+      "visible": false,
+      "benefit": "길 상태에 맞춰 승차감을 알아서 바꿔 줘요.",
+      "benefit_f": "노면에 맞춰 승차감을 스스로 바꿔 줍니다."
+    },
+    {
+      "name": "후측방경보",
+      "chip": "후측방 경보",
+      "say": "후측방 경보",
+      "parts": [
+        "mirror"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "차선 바꿀 때 옆 뒤에 차 있으면 알려 줘요.",
+      "benefit_f": "차선을 바꿀 때 옆 뒤에 차가 있으면 알려 주죠."
+    },
+    {
+      "name": "스마트키",
+      "chip": "스마트키",
+      "say": "스마트키",
+      "parts": [
+        "key",
+        "door"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "키를 주머니에 넣고 그냥 타면 돼요.",
+      "benefit_f": "키를 주머니에 넣은 채 그대로 타면 됩니다."
+    },
+    {
+      "name": "열선핸들",
+      "chip": "열선 핸들",
+      "say": "열선 핸들",
+      "parts": [
+        "steering_wheel"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "겨울에 핸들 잡아도 손이 안 시려요.",
+      "benefit_f": "겨울에도 핸들을 잡는 손이 따뜻하죠."
+    },
+    {
+      "name": "자동에어컨",
+      "chip": "자동 에어컨",
+      "say": "자동 에어컨",
+      "parts": [
+        "console",
+        "interior_dash"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "온도만 맞춰 두면 알아서 조절해요.",
+      "benefit_f": "온도만 정해 두면 알아서 맞춥니다."
+    },
+    {
+      "name": "좌우독립에어컨",
+      "chip": "듀얼 에어컨",
+      "say": "듀얼 에어컨",
+      "parts": [
+        "console"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "운전석이랑 조수석 온도를 따로 맞춰요.",
+      "benefit_f": "운전석과 조수석 온도를 따로 맞춥니다."
+    },
+    {
+      "name": "크루즈컨트롤",
+      "chip": "크루즈 컨트롤",
+      "say": "크루즈 컨트롤",
+      "parts": [
+        "steering_wheel"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "고속도로에서 발 떼고 속도를 유지해요.",
+      "benefit_f": "고속도로에서 발을 떼도 속도를 유지합니다."
+    },
+    {
+      "name": "스마트크루즈컨트롤",
+      "chip": "스마트 크루즈",
+      "say": "스마트 크루즈",
+      "parts": [
+        "steering_wheel",
+        "interior_dash"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "앞차 따라 속도랑 거리를 알아서 맞춰요.",
+      "benefit_f": "앞차를 따라 속도와 거리를 스스로 맞추죠."
+    },
+    {
+      "name": "전동트렁크",
+      "chip": "전동 트렁크",
+      "say": "전동 트렁크",
+      "parts": [
+        "trunk",
+        "exterior_rear"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "버튼 하나로 트렁크가 열리고 닫혀요.",
+      "benefit_f": "버튼 하나로 트렁크가 열리고 닫힙니다."
+    },
+    {
+      "name": "스마트트렁크",
+      "chip": "스마트 트렁크",
+      "say": "스마트 트렁크",
+      "parts": [
+        "trunk",
+        "exterior_rear"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "키 갖고 뒤에 서 있으면 트렁크가 알아서 열려요.",
+      "benefit_f": "키를 갖고 뒤에 서 있으면 트렁크가 열립니다."
+    },
+    {
+      "name": "전자주차브레이크(EPB)",
+      "chip": "전자식 파킹",
+      "say": "전자식 파킹",
+      "parts": [
+        "console",
+        "gear"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "버튼 하나로 주차 브레이크가 걸려요.",
+      "benefit_f": "버튼 하나로 주차 브레이크가 걸립니다."
+    },
+    {
+      "name": "헤드업디스플레이(HUD)",
+      "chip": "HUD",
+      "say": "헤드업 디스플레이",
+      "parts": [
+        "interior_dash",
+        "steering_wheel"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "속도랑 길 안내가 앞유리에 바로 떠요.",
+      "benefit_f": "속도와 길 안내가 앞유리에 바로 뜹니다."
+    },
+    {
+      "name": "무선충전",
+      "chip": "무선 충전",
+      "say": "무선 충전",
+      "parts": [
+        "console"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "폰을 올려만 두면 충전돼요.",
+      "benefit_f": "휴대폰을 올려 두기만 하면 충전되죠."
+    },
+    {
+      "name": "자동주차",
+      "chip": "자동 주차",
+      "say": "자동 주차",
+      "parts": [
+        "screen",
+        "console"
+      ],
+      "tier": 1,
+      "visible": false,
+      "benefit": "주차를 차가 알아서 해 줘요.",
+      "benefit_f": "주차를 차가 스스로 해 줍니다."
+    },
+    {
+      "name": "냉장고",
+      "chip": "냉장고",
+      "say": "냉장고",
+      "parts": [
+        "console",
+        "seats_rear"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "음료를 시원하게 넣고 다닐 수 있어요.",
+      "benefit_f": "음료를 시원하게 보관할 수 있죠."
+    },
+    {
+      "name": "네비게이션(순정)",
+      "chip": "순정 내비",
+      "say": "순정 내비게이션",
+      "parts": [
+        "screen"
+      ],
+      "tier": 3,
+      "visible": true,
+      "benefit": "순정이라 화면이랑 딱 맞게 들어가 있어요.",
+      "benefit_f": "화면에 꼭 맞게 기본으로 들어가 있습니다."
+    },
+    {
+      "name": "블루투스",
+      "chip": "블루투스",
+      "say": "블루투스",
+      "parts": [
+        "screen",
+        "steering_wheel"
+      ],
+      "tier": 3,
+      "visible": false,
+      "benefit": "폰 연결해서 음악이랑 통화가 바로 돼요.",
+      "benefit_f": "휴대폰을 연결해 음악과 통화가 바로 됩니다."
+    },
+    {
+      "name": "뒷좌석TV",
+      "chip": "뒷좌석 모니터",
+      "say": "뒷좌석 모니터",
+      "parts": [
+        "seats_rear"
+      ],
+      "tier": 1,
+      "visible": true,
+      "benefit": "뒷자리에서도 영상 볼 수 있어요.",
+      "benefit_f": "뒷자리에서도 영상을 볼 수 있죠."
+    },
+    {
+      "name": "스마트폰미러링",
+      "chip": "애플 카플레이",
+      "say": "애플 카플레이",
+      "parts": [
+        "screen"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "폰 화면이 차 화면에 그대로 떠요.",
+      "benefit_f": "휴대폰 화면이 차 화면에 그대로 뜹니다."
+    },
+    {
+      "name": "AV시스템",
+      "chip": "프리미엄 오디오",
+      "say": "프리미엄 오디오",
+      "parts": [
+        "speaker",
+        "door"
+      ],
+      "tier": 2,
+      "visible": true,
+      "benefit": "소리가 확실히 다르게 들려요.",
+      "benefit_f": "소리가 확실히 다르죠."
+    }
+  ],
+  "option_exposure": {
+    "_why": "사용자 지시 2026-11-09: 옵션 기능 칩 노출이 가장 중요",
+    "select": "매물 옵션 중 tier 오름차순, 같은 tier는 visible 먼저. 그 부위 장면(shots)이 있는 옵션만 칩을 띄운다. visible=false 옵션은 screen·interior_dash·steering_wheel 장면이 있을 때만",
+    "max_per_video": {
+      "bobae_nl": 4,
+      "bobae_be": 3,
+      "_note": "init. NL 새 50편 중 ✓ 옵션 칩 20편, 판정표본 옵션 칩 NL 12·BE 19. 재교정 대상"
+    },
+    "say": "옵션 이름을 그대로 말한다(칩 글자 = 말한 낱말). 말하지 않은 옵션은 띄우지 않는다",
+    "phrase": "옵션 하나 = 자막 구절 하나 = 장면 하나. 칩은 그 구절 시작 +0.1초에 뜬다(±0.2초가 원본 범위)",
+    "hold_s": {
+      "bobae_nl": 1.325,
+      "bobae_be": 1.5
+    },
+    "checklist": {
+      "bobae_nl": {
+        "on": true,
+        "min_items": 1,
+        "max_lines": 2,
+        "mark": "✓",
+        "band": "cap_hold",
+        "_src": "2차 조사(2026-11-09): NL 칩 409개 중 66%가 말 자막 자리(자막 대신, ✓ 기능 칩·숫자), 34%가 위쪽(차명·연식·엔진). 두 칩이 겹쳐 보이는 경우 19% → 최대 2줄, 자막 자리에서 위로 쌓음. 칩 사이 간격 중간 1.2초",
+        "hides_caption": true,
+        "cap_gap": 120,
+        "_note": "2026-11-10 원본 NL 눈·픽셀 대조(1YivF6HjLTw): 칩은 자막 자리에서 그 낱말을 말하는 동안만(약 1.3초) 자막 대신, 겹치면 위로 최대 2개(간격 25), 칩 글자 높이 62~75px · 상자 103~113px(1920 기준)"
+      },
+      "bobae_be": {
+        "on": false
+      }
+    },
+    "placement": "part_band 기준, 부위를 가리지 않음, 아래 20% 비움, 가로 가운데",
+    "shot": "구절 장면은 그 옵션 parts 중 점수가 가장 높은 장면. 최소 0.8초. 같은 장면을 두 번 쓰지 않음(어쩔 수 없으면 다른 구간)",
+    "fallback": "맞는 장면이 없으면 그 옵션은 대본에서 빼고 다음 순위 옵션을 쓴다",
+    "long_extra": {
+      "bobae_nl": 1,
+      "bobae_be": 0,
+      "_note_be": "2026-11-10 원본 BE 눈 대조: 벨기에는 옵션보다 숫자 띠(가격·km·연식)가 많다. 긴 원본이어도 옵션을 늘리지 않아 칩 예산에서 가격·km 띠가 빠지지 않게"
+    },
+    "chip_delay": {
+      "bobae_nl": 0.4,
+      "bobae_be": 0.05,
+      "_note": "렌더러 프리셋 chip_delay와 같은 값(200편: NL 구절 뒤 0.42초 · BE 0.04초)"
+    },
+    "chip_hold_max": {
+      "bobae_nl": 1.6,
+      "bobae_be": 1.8,
+      "_note": "숫자 칩이 자막을 가리는 최대 시간(원본 유지 NL 1.33 · BE 1.5초 + 여유)"
+    }
+  },
+  "script": {
+    "_rule": "매물 정보에 있는 사실만 말한다. 지어내지 않는다. 숫자는 TTS용 한글 읽기 + 화면 표시용 숫자(SHOW)로 짝을 만든다",
+    "sections": {
+      "bobae_nl": [
+        "hook",
+        "exterior",
+        "power",
+        "options",
+        "condition",
+        "cta"
+      ],
+      "bobae_be": [
+        "hook",
+        "exterior",
+        "options",
+        "condition",
+        "cta"
+      ]
+    },
+    "target_s": {
+      "bobae_nl": [
+        28,
+        40
+      ],
+      "bobae_be": [
+        22,
+        32
+      ]
+    },
+    "cap_words": [
+      2,
+      4
+    ],
+    "parts_for_section": {
+      "hook": [
+        "exterior_3_4",
+        "exterior_front",
+        "grille",
+        "exterior_side",
+        "headlight",
+        "exterior_rear",
+        "wheel"
+      ],
+      "exterior": [
+        "exterior_front",
+        "exterior_side",
+        "exterior_rear",
+        "wheel",
+        "headlight",
+        "exterior_3_4"
+      ],
+      "power": [
+        "engine_bay",
+        "exterior_rear",
+        "taillight",
+        "wheel",
+        "gear"
+      ],
+      "condition": [
+        "interior_dash",
+        "exterior_3_4",
+        "grille",
+        "exterior_side",
+        "exterior_front",
+        "taillight"
+      ],
+      "cta": [
+        "exterior_3_4",
+        "exterior_front",
+        "exterior_rear",
+        "trunk",
+        "taillight"
+      ]
+    },
+    "shot_cost": "순위*2 + 재사용*5 − 점수, 바로 앞 구절과 같은 장면을 이어 쓰면(한 번에 찍은 카메라 이동) 재사용 벌점 0.5. 다시 쓸 땐 앞에서 쓴 구간 뒤부터",
+    "josa_latin": {
+      "MATIC": true,
+      "AMG": false,
+      "GT": false,
+      "RS": false,
+      "SUV": false,
+      "EV": false,
+      "PHEV": false,
+      "S": false
+    },
+    "long_source_s": 40,
+    "option_sentence_ends": [
+      [
+        "이가",
+        "들어가 있고요."
+      ],
+      [
+        "도",
+        "있어요."
+      ],
+      [
+        "이가",
+        "달려 있고요."
+      ],
+      [
+        "도",
+        "들어가 있어요."
+      ]
+    ],
+    "_long_note": "원본 영상이 40초 이상이면(NL 원본 중간 40.5초) 옵션을 한 문장씩, 구동 방식 구절 추가. 사실만, 지어내지 않는다",
+    "cut_early_pad": {
+      "bobae_nl": 1.0,
+      "bobae_be": 0.6,
+      "_note": "렌더러 cut_early_s와 같은 값. GLE 시험에서 당긴 컷 때문에 휠 장면이 원본 다음 장면(뒷모습)까지 흘러 0.9초 만에 컷이 하나 더 생김"
+    },
+    "_benefit_note": "2026-11-10 사용자 지시: 나사르 헤시엔 쇼츠처럼 옵션마다 「그게 뭘 해 주는지」를 한 문장으로(근거: 시트 「나사르헤시엔_유튜브」 130편 한국어 자막, reports/shortform/as24-reviewer-nasser). benefit은 그 옵션의 일반 기능만 쓰고 이 차의 상태·평가는 쓰지 않는다",
+    "tone": "young",
+    "speech": "formal",
+    "nasser_hook": {
+      "SUV": "넉넉한 SUV를 찾으신다면",
+      "세단": "편안한 세단을 찾으신다면",
+      "쿠페": "달리는 재미를 원하신다면",
+      "컨버터블": "지붕 열고 달리고 싶으시다면",
+      "해치백": "도심에서 타기 좋은 차를 찾으신다면",
+      "왜건": "짐 많이 싣는 차를 찾으신다면",
+      "MPV": "식구 많은 집이라면",
+      "밴": "식구 많은 집이라면",
+      "픽업": "짐도 레저도 다 잡고 싶으시다면"
+    },
+    "_speech_note": "2026-11-10 사용자 「나세르처럼 대사」·「입니다로」·「AI 티 제거」: make_script_nasser 사용. 합니다체 + 끝을 ~죠/~니다로 섞고, 첫 줄 「~를 원하신다면…」, 기능 뒤에 제원, 끝 「~에서 만나보세요」"
+  },
+  "calibration": {
+    "_how": "calibrate.py가 자동 편집 계획(plan.json)·렌더 결과(meta, sfx_hits)를 재서 원본 측정값과 비교한다. 범위를 벗어나면 규칙을 고친다",
+    "bobae_nl": {
+      "cuts_per_min": [
+        14.65,
+        22.3
+      ],
+      "shot_med_s": [
+        2.075,
+        3.083
+      ],
+      "chips_per_min": [
+        10.1,
+        18.1
+      ],
+      "option_chips": [
+        2,
+        5
+      ],
+      "sfx_per_video": [
+        3,
+        7
+      ],
+      "sfx_gap_min_s": 1.0,
+      "caption_y_pct": [
+        53.5,
+        65.0
+      ],
+      "music": false,
+      "first_cut_s": [
+        2.633,
+        4.783
+      ],
+      "chip_on_new_shot": [
+        0.173,
+        0.5
+      ]
+    },
+    "bobae_be": {
+      "cuts_per_min": [
+        17.625,
+        25.875
+      ],
+      "shot_med_s": [
+        1.633,
+        2.883
+      ],
+      "chips_per_min": [
+        3.4,
+        14.9
+      ],
+      "option_chips": [
+        1,
+        4
+      ],
+      "sfx_per_video": [
+        0,
+        3
+      ],
+      "sfx_gap_min_s": 1.0,
+      "caption_y_pct": [
+        62.0,
+        67.0
+      ],
+      "music": true,
+      "first_cut_s": [
+        1.754,
+        3.833
+      ],
+      "chip_on_new_shot": [
+        0.27,
+        0.67
+      ]
+    },
+    "_range": "p25~p75, 200편(말하는 영상 159편) 합계. 2026-11-09 2차 조사로 교체"
+  },
+  "voice": {
+    "_why": "사용자 지시 2026-11-09: 일레븐랩스도 AI 티 벗겨내기. 일레븐랩스 v4 공식 안내(숫자는 글로 쓴 그대로, 태그는 분위기가 바뀌는 곳에만, 안정도 낮추면 억양이 다양) + 원본 NL·BE 말투",
+    "model": "eleven_v4",
+    "voice_id": "VwlplMyq7s8eoNKYEgcd",
+    "voice_name": "Dduksang Dragon (20대 남성, 숏츠·릴스용 생동감 있는 목소리)",
+    "numbers": "digits",
+    "settings": {
+      "stability": 0.35,
+      "similarity": 0.85,
+      "_note": "0.5(기본)은 문장마다 억양이 같아 낭독처럼 들림. 0.3 아래는 발음이 흔들림"
+    },
+    "tags": {
+      "hook": "",
+      "options": "",
+      "cta": ""
+    },
+    "script_rules": [
+      "같은 끝말을 두 문장 연달아 쓰지 않는다(-예요 / -거든요 / -고요 / -어요 / -이에요 / -보세요)",
+      "나열(23년 6월 등록, 1억…)은 문장으로 잇는다: 23년 6월에 등록됐고, 가격은 … 원이에요",
+      "감탄사·웃음 태그를 넣지 않는다(과장되면 오히려 AI 티)",
+      "문장은 짧게, 쉼표로 숨 쉴 자리"
+    ],
+    "post": {
+      "on": true,
+      "highpass_hz": 70,
+      "deess": 0.3,
+      "comp_threshold": -18,
+      "comp_ratio": 2.5,
+      "lufs": -16,
+      "room_tone_amp": 0.0018,
+      "_note": "방 소리는 약 −55dB. 말 사이가 완전 무음이면 합성 티가 난다"
+    },
+    "candidates_older": {
+      "A": {
+        "voice_id": "M0glFuuemBDoLghG62l7",
+        "name": "Jubal — Confident Korean Male, Sales",
+        "age": "middle_aged"
+      },
+      "B": {
+        "voice_id": "5LbhUNiU0e2s8EafwnT5",
+        "name": "Rowan - Warm and Gentle",
+        "age": "middle_aged"
+      },
+      "_note": "2026-11-10 사용자 「목소리 조금 나이 올리자」 — 사용자가 고르면 voice_id 교체",
+      "C": {
+        "voice_id": "q5opP0zJPCcJBRD3F5Ay",
+        "name": "jake korean (30대 중후반 리뷰 톤)"
+      },
+      "D": {
+        "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
+        "name": "Minho (30대 SNS 톤) — 채택"
+      }
+    },
+    "_voice_note": "2026-11-10 사용자 지시 「20대 청년 생동감 있게」. 이전 기본 Minho(30대)는 previous에",
+    "previous": {
+      "voice_id": "ySf4IWnUI8NPQfkoH9Pq",
+      "voice_name": "Minho - Seoul Creative Clear Voice (30대 서울 남성)"
+    },
+    "_tags_note": "2026-11-10 「AI 티 제거」: 감정 태그를 모두 뺌(태그가 과장된 억양을 만들어 낭독·광고 티). 말투는 문장 자체로",
+    "characters": {
+      "_why": "2026-11-10 사용자 지시 「음성을 남녀 지역 사투리 등 캐릭터 10개」. 일레븐랩스 한국어 목소리 목록에서 고름. 기본은 voice.voice_id(뚝상 드래곤) 그대로",
+      "_missing": "전라 사투리 목소리는 일레븐랩스 목록에 없음(2026-11-10 검색 0건). 새로 만들려면 목소리 설명·시험 문장을 사용자가 줘야 함",
+      "list": [
+        {
+          "key": "m_seoul_creator",
+          "name": "서울 30대 남자 · 리뷰 크리에이터",
+          "voice_id": "HvCQYI15cbdFVC9pSBfb",
+          "src": "Mr.J"
+        },
+        {
+          "key": "m_sales",
+          "name": "중년 남자 · 신뢰감 있는 영업",
+          "voice_id": "M0glFuuemBDoLghG62l7",
+          "src": "Jubal"
+        },
+        {
+          "key": "m_variety",
+          "name": "중년 남자 · 예능 내레이션 활기",
+          "voice_id": "wisKdlUQEBMjkKqNAa3c",
+          "src": "Deok"
+        },
+        {
+          "key": "m_busan",
+          "name": "부산 30대 남자 · 따뜻한 억양",
+          "voice_id": "OCfudTneq7lOKko7D2t6",
+          "src": "REX SEO"
+        },
+        {
+          "key": "m_daegu",
+          "name": "대구·경상 20대 남자 · 밝음",
+          "voice_id": "XIBeHrnXIVdoqMMadmog",
+          "src": "NUHA"
+        },
+        {
+          "key": "m_chungcheong",
+          "name": "충청 중년 남자 · 차분 중후",
+          "voice_id": "o6ysv6lgYXDufA73aJUX",
+          "src": "sanghyun"
+        },
+        {
+          "key": "f_ad",
+          "name": "20대 여자 · 밝은 광고 톤",
+          "voice_id": "Cm89zxZzEGaMu7ajYw2K",
+          "src": "Yoojin Kim"
+        },
+        {
+          "key": "f_shorts",
+          "name": "20대 여자 · 숏폼 발랄",
+          "voice_id": "vhhJX7dyal9WlYW2UAsj",
+          "src": "Yeonhee"
+        },
+        {
+          "key": "f_busan",
+          "name": "부산 여자 · 차분한 억양",
+          "voice_id": "j3SYRikKBpDmPJsvd1rf",
+          "src": "Busan SS"
+        },
+        {
+          "key": "f_senior",
+          "name": "60대 여자 · 우아하고 또렷",
+          "voice_id": "l8LvKdZAWSv8LAgdmF9j",
+          "src": "joy"
+        }
+      ]
+    }
+  },
+  "chip_priority": {
+    "_note": "숫자가 작을수록 먼저 뺀다. 옵션 칩은 가장 나중",
+    "app": 1,
+    "other": 2,
+    "reg": 3,
+    "power": 4,
+    "km": 5,
+    "price": 6,
+    "option": 9
+  },
+  "learned_l1": {
+    "_src": "2026-11-09 1차 재학습: 원본 NL 50·BE 50 중 말하는 영상 NL 43·BE 34. 컷은 우리 렌더와 같은 자(learn_l1.cuts_ff). 전체 수치 scripts/shortform/auto/learned_l1_summary.json",
+    "bobae_nl": {
+      "first_cut_s": 3.3,
+      "cut_lead_s": 0.093,
+      "cut_on_phrase": 0.4,
+      "caption_cy_pct": 58.8,
+      "tail_after_speech_s": 0.12
+    },
+    "bobae_be": {
+      "first_cut_s": 2.375,
+      "cut_lead_s": 0.053,
+      "cut_on_phrase": 0.38,
+      "caption_cy_pct": 66.85,
+      "chip_delay_s": 0.21,
+      "chip_hold_s": 1.5,
+      "chip_tilt_deg": -5.6,
+      "chip_ccw_share": 0.98,
+      "chip_band_share": {
+        "top": 0.44,
+        "mid": 0.15,
+        "low": 0.42
+      },
+      "chip_on_new_shot": 0.5,
+      "chips_per_min": 5.5,
+      "tail_after_speech_s": 0.27
+    },
+    "_not_trusted": "효과음 검출 수(NL 영상당 9)는 칩 밖 가짜 검출이 섞여 쓰지 않음. NL 칩은 검정·파랑 상자라 노랑 트랙으로 못 셈(따로 세야 함)"
+  },
+  "band_y_be": {
+    "top": 480,
+    "low": 1290,
+    "_note": "BE 칩 높이: 위(0~33%) 44% · 아래(60%~) 42% · 가운데 15%뿐. 아래 칩이 뜨면 말 자막을 숨긴다"
+  },
+  "learned_200": {
+    "_src": "2026-11-09 1차(NL 43·BE 34) + 2차(NL 44·BE 38) = 말하는 영상 159편. 두 조사 방향 일치. 전체 수치 auto/learned_200_summary.json(l1·l2·all)",
+    "bobae_nl": {
+      "first_cut_s": 3.3,
+      "caption_cy_pct": 60.0,
+      "chip_delay_s": 0.415,
+      "chip_hold_s": 1.325,
+      "chip_after_cut_s": 1.0,
+      "cut_on_phrase": 0.31,
+      "chips_with_sfx": 0.38,
+      "chip_band_share": {
+        "top": 0.32,
+        "mid": 0.37,
+        "low": 0.32
+      },
+      "sfx_hook_rate": 0.38
+    },
+    "bobae_be": {
+      "first_cut_s": 2.375,
+      "caption_cy_pct": 66.8,
+      "chip_delay_s": 0.04,
+      "chip_hold_s": 1.5,
+      "chip_after_cut_s": 0.517,
+      "cut_on_phrase": 0.355,
+      "chip_tilt_deg": -5.7,
+      "chip_band_share": {
+        "top": 0.39,
+        "mid": 0.26,
+        "low": 0.36
+      },
+      "sfx_hook_rate": 0.08
+    }
+  },
+  "pronounce": {
+    "_why": "2026-11-10 사용자 「한국어 발음 교정, 지팔공이라고 칭한다」: 화면 글자는 그대로(G80), 목소리만 한국에서 부르는 대로 읽는다",
+    "words": {
+      "G80": "지팔공",
+      "GV80": "지브이팔공",
+      "GV70": "지브이칠공",
+      "G90": "지구공",
+      "G70": "지칠공",
+      "GLE": "지엘이",
+      "GLC": "지엘씨",
+      "GLS": "지엘에스",
+      "4MATIC": "포매틱",
+      "BMW": "비엠더블유",
+      "BYD": "비와이디",
+      "X5": "엑스파이브",
+      "X4": "엑스포",
+      "X3": "엑스쓰리",
+      "X6": "엑스식스",
+      "X7": "엑스세븐",
+      "S60": "에스식스티",
+      "S90": "에스나인티",
+      "XC60": "엑스씨식스티",
+      "XC90": "엑스씨나인티",
+      "IG": "아이지",
+      "SUV": "에스유브이",
+      "AWD": "에이더블유디",
+      "4륜": "사륜",
+      "2륜": "이륜",
+      "V8": "브이에잇",
+      "LWB": "엘더블유비",
+      "AMG": "에이엠지",
+      "km": "킬로",
+      "kWh": "킬로와트시"
+    },
+    "bigrams": {
+      "씨라이언 7": "씨라이언 세븐",
+      "GLE 450": "지엘이 사오공"
+    },
+    "letters": {
+      "A": "에이",
+      "B": "비",
+      "C": "씨",
+      "D": "디",
+      "E": "이",
+      "F": "에프",
+      "G": "지",
+      "H": "에이치",
+      "I": "아이",
+      "J": "제이",
+      "K": "케이",
+      "L": "엘",
+      "M": "엠",
+      "N": "엔",
+      "O": "오",
+      "P": "피",
+      "Q": "큐",
+      "R": "알",
+      "S": "에스",
+      "T": "티",
+      "U": "유",
+      "V": "브이",
+      "W": "더블유",
+      "X": "엑스",
+      "Y": "와이",
+      "Z": "지"
+    },
+    "_rule": "사전에 없는 「영문+숫자」 모델명(P250 등)은 글자 이름 + 숫자 한 자리씩(0=공). 소수점 배기량 2.5 = 이점오. 쉼표 들어간 큰 수(26,690)는 그대로 둠(일레븐랩스가 읽음)"
+  },
+  "shot_fit": {
+    "_rule": "장면 ↔ 칩·말 맞춤 가변 규칙(2026-11-10). 코드는 이 값만 읽는다. 매물·원본 영상마다 달라지는 것은 여기서 바꾼다",
+    "source_fps": "auto",
+    "_fps_note": "원본 시각 → 원본 장면 번호는 원본 파일의 실제 fps로 계산(auto). 25·24·60fps 원본도 그대로 씀(2026-11-10 차란차 25fps를 30으로 계산해 엔진 칩이 바퀴 위·끝이 검은 화면이던 원인)",
+    "merge_same_part": true,
+    "merge_gap_s": 0.05,
+    "_merge_note": "붙어 있는 같은 부위 장면을 하나로 합침(짧게 쪼개진 장면 때문에 넘치는 것 방지)",
+    "clamp_to_part": true,
+    "_clamp_note": "장면은 그 부위 구간 밖(다음 부위·원본 끝 검은 화면)으로 넘치지 않는다. 자동편집 계획과 렌더러 둘 다 적용",
+    "fit_speed": {
+      "option": 0.5,
+      "default": 0.6
+    },
+    "_fit_note": "장면을 고를 때 이 속도까지 천천히 틀어 맞출 수 있으면 그 장면을 쓴다(옵션은 그 부위 장면을 더 우선)",
+    "min_speed": 0.4,
+    "swap_same_part": true,
+    "hold_at_end": true,
+    "_min_note": "부위 구간이 모자랄 때 늦출 수 있는 최저 속도. 그래도 모자라면 pull_start",
+    "pull_start_when_short": true,
+    "_pull_note": "최저 속도로도 모자라면 같은 부위 구간 안에서 시작을 앞으로 당겨 구간 안에서 끝냄",
+    "edge_margin_s": 0.04,
+    "missing_part": {
+      "_note": "원하는 첫 부위가 원본 영상에 아예 없을 때. fallback = parts_for_section 다음 부위로 대신 · drop_chip = 말은 하고 칩은 뺌 · drop_phrase = 그 문장을 뺌",
+      "hook": "fallback",
+      "exterior": "fallback",
+      "options": "drop_phrase",
+      "power": "fallback",
+      "condition": "fallback",
+      "cta": "fallback"
+    },
+    "required_shots": {
+      "_note": "이 부위가 원본에 없으면 plan.json required_shots와 검사표에 「촬영 필요」로 적는다(촬영키트 안내에 연결)",
+      "list": [
+        "exterior_3_4",
+        "exterior_front",
+        "exterior_side",
+        "exterior_rear",
+        "engine_bay",
+        "interior_dash",
+        "steering_wheel",
+        "seats_front",
+        "trunk"
+      ]
+    },
+    "check": {
+      "on": true,
+      "max_overflow": 0,
+      "_note": "렌더 뒤 check_match.py --render 결과. 넘침이 max_overflow를 넘으면 배포 전 다시 만든다"
+    }
+  },
+  "captions": {
+    "_rule": "말 자막 빠짐 방지 가변 규칙(2026-11-10). 렌더러는 이 값만 읽는다",
+    "hide_mode": "never",
+    "cut_gap_skip_chip": true,
+    "chip_check_s": 1.3,
+    "_hide_note": "related = 칩이 자막 자리를 차지하고(옵션 ✓ 자막 자리·아래 띠) 지금 말과 같은 내용일 때만 자막을 칩으로 대신. 자막 자리와 겹치지 않는 큰 숫자·가격 칩은 자막을 숨기지 않음. 다른 내용이면 칩을 자막 위로 올림 · always = 원본처럼 칩이 뜨면 숨김(자막 빠짐 생김) · never = 숨기지 않음",
+    "cut_gap_min_phrase_s": 1.2,
+    "_cut_note": "벨기에판 컷 뒤 0.3초 비우기는 이 길이 이상 구절에만(짧은 구절이 통째로 안 보이던 문제)",
+    "min_visible_ratio": 0.6,
+    "_visible_note": "구절마다 말하는 시간 중 자막이 보인 비율의 최소값. check_match.py가 이보다 낮은 구절을 「자막 빠짐」으로 실패 처리",
+    "voice_check": {
+      "min_word_db": -9,
+      "_note": "완성 영상 소리에서 낱말마다 원래 목소리보다 이 dB 이상 작아지면 「음성 빠짐」(배경음·덕킹·잘림 검사)"
+    },
+    "cap_clear_px": 70,
+    "_note_cap_clear": "hide_mode never일 때 칩이 자막 줄(cap_cy±px)과 겹치면 칩을 자막 위로 올린다(BE 아래 칩 1290↔자막 1283)"
+  },
+  "crosscheck": {
+    "_rule": "완성본 크로스체크 기준(crosscheck.py). 2~9번 항목 실패가 1건이라도 있으면 배포 전 다시 만든다",
+    "black_luma": 12,
+    "black_max_s": 0.3,
+    "lufs": -14,
+    "lufs_tol": 1.5,
+    "tp_max": -1.0,
+    "end_min_s": 1.5,
+    "end_max_s": 3.5,
+    "mint_px": 40,
+    "mint_rgb": [
+      0,
+      255,
+      208
+    ],
+    "mint_tol": 18
   }
- },
- "captions": {
-  "_rule": "말 자막 빠짐 방지 가변 규칙(2026-11-10). 렌더러는 이 값만 읽는다",
-  "hide_mode": "never",
-  "cut_gap_skip_chip": true,
-  "chip_check_s": 1.3,
-  "_hide_note": "related = 칩이 자막 자리를 차지하고(옵션 ✓ 자막 자리·아래 띠) 지금 말과 같은 내용일 때만 자막을 칩으로 대신. 자막 자리와 겹치지 않는 큰 숫자·가격 칩은 자막을 숨기지 않음. 다른 내용이면 칩을 자막 위로 올림 · always = 원본처럼 칩이 뜨면 숨김(자막 빠짐 생김) · never = 숨기지 않음",
-  "cut_gap_min_phrase_s": 1.2,
-  "_cut_note": "벨기에판 컷 뒤 0.3초 비우기는 이 길이 이상 구절에만(짧은 구절이 통째로 안 보이던 문제)",
-  "min_visible_ratio": 0.6,
-  "_visible_note": "구절마다 말하는 시간 중 자막이 보인 비율의 최소값. check_match.py가 이보다 낮은 구절을 「자막 빠짐」으로 실패 처리",
-  "voice_check": {
-   "min_word_db": -9,
-   "_note": "완성 영상 소리에서 낱말마다 원래 목소리보다 이 dB 이상 작아지면 「음성 빠짐」(배경음·덕킹·잘림 검사)"
-  }
- },
- "crosscheck": {
-  "_rule": "완성본 크로스체크 기준(crosscheck.py). 2~9번 항목 실패가 1건이라도 있으면 배포 전 다시 만든다",
-  "black_luma": 12,
-  "black_max_s": 0.3,
-  "lufs": -14,
-  "lufs_tol": 1.5,
-  "tp_max": -1.0,
-  "end_min_s": 1.5,
-  "end_max_s": 3.5,
-  "mint_px": 40,
-  "mint_rgb": [0, 255, 208],
-  "mint_tol": 18
- }
 }

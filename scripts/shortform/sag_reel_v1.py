@@ -1603,6 +1603,11 @@ def overlay(T, total, shots, shot, blk):
             y = STYLE['feat_y'] - ady
             if band and STYLE.get('band_y'):
                 y = STYLE['band_y'][band] - im.height / 2 - ady  # 부위별 자리(자동 편집기): 그 부위를 가리지 않는 높이
+                _CR = globals().get('CAP_RULES') or {}
+                if _CR.get('hide_mode') == 'never':  # 자막을 숨기지 않으니 칩이 자막 줄과 겹치면 자막 위로 올린다(2026-11-10 BE 아래 칩 1290 ↔ 자막 1283 겹침)
+                    cc, ch = STYLE.get('cap_cy', 1190), _CR.get('cap_clear_px', 70)
+                    if y + im.height > cc - ch and y < cc + ch:
+                        y = cc - ch - im.height - ady
         sc = max(.05, e)
         px_ = x + im.width * (1 - sc) / 2
         if STYLE.get('feat_pos') == 'as24':
