@@ -13,7 +13,7 @@
   5) python3 calibrate.py OUT  → 원본 측정값과 비교
 
 facts.json: {"id","make","model","gen","trim","color","reg":"23년06월","year":2023,"km":1480,"fuel":"가솔린",
-             "engine":"4.0 V8 트윈터보","power_ps":510,"price_manwon":17390,"options":["통풍시트",...],"region":"경기"}
+             "engine":"4.0 V8 트윈터보","power_ps":510,"price_manwon":17390,"price_public":false,"options":["통풍시트",...],"region":"경기"}
 shots.json: [{"t0":0.0,"t1":1.6,"part":"exterior_3_4","score":0.9}, ...]  (원본 영상 장면 + 부위, shot_tagger.py가 만듦)
 """
 import json, os, re, sys, argparse, hashlib, difflib
@@ -82,6 +82,9 @@ def price_parts(manwon):
         say.append(num_ko(man) + '만'); show.append(f'{man:,}만')
     return say, show
 
+def public_price(facts):
+    return facts.get('price_manwon') if facts.get('price_public') is True else None
+
 def pick(variants, key):
     h = int(hashlib.md5(key.encode()).hexdigest(), 16)
     return variants[h % len(variants)]
@@ -96,7 +99,7 @@ def line(o, field, key):
 
 
 # ── 1단계: 대본 ──
-def make_script(F, style, shots=None):
+def make_script(F, style, shots=None, formal=None):
     long = bool(shots) and max(x['t1'] for x in shots) >= RULES['script'].get('long_source_s', 40)
     """블록 목록: dict(sec, words=[(tts어절, 화면어절)], caps=[어절수...], stickers=[(칩, 구절번호, {band,part,list})], parts=[구절별 원하는 부위 목록])"""
     name = f"{F['make']} {F['model']}"
@@ -114,7 +117,7 @@ def make_script(F, style, shots=None):
     N = lambda ko, d: d if digits else ko
     # 첫 화면
     color = F.get('color')
-    FM = RULES['script'].get('speech') == 'formal'  # 2026-11-10 사용자 지시 「입니다로」: 합니다체(나사르 한국어 자막 말투)
+    FM = RULES['script'].get('speech') == 'formal' if formal is None else formal
     hook_end = (F['model'] + '입니다!') if FM else josa(F['model'], '이에요!', '예요!')
     first = (W('자,') if RULES['script'].get('tone') == 'young' else W('보배드림 여러분,')) if style == 'bobae_nl' else []
     phrases = ([first] if first else []) + [W(f"오늘은 {color}" if color else '오늘은'), W(f"{F['make']} {hook_end}")]
@@ -155,12 +158,13 @@ def make_script(F, style, shots=None):
         n = len(opts)
         ends = RULES['script'].get('option_sentence_ends', ['들어가 있고요.', '있어요.'])
         young = RULES['script'].get('tone') == 'young'
+        benefit_field = 'benefit_f' if FM else 'benefit'
         for i, o in enumerate(opts):
             sw = o['say'].split()
-            if young and o.get('benefit') and not o.get('feature'):
+            if young and o.get(benefit_field) and not o.get('feature'):
                 # 나사르식(2026-11-10): 옵션 이름 + 그게 뭘 해 주는지 한 문장. 연결은 「~가 있어서」·「~는」을 번갈아
                 last = josa(sw[-1], '이 있어서', '가 있어서') if i % 2 == 0 else josa(sw[-1], '은', '는')
-                ws = [(w, w) for w in sw[:-1]] + [(last.split()[0], last.split()[0])] + [(w, w) for w in last.split()[1:]] + W(line(o, 'benefit', key))
+                ws = [(w, w) for w in sw[:-1]] + [(last.split()[0], last.split()[0])] + [(w, w) for w in last.split()[1:]] + W(line(o, benefit_field, key))
                 ph.append(ws)
                 st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
                 parts.append(o['parts'])
@@ -183,10 +187,10 @@ def make_script(F, style, shots=None):
             st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
             parts.append(o['parts'])
         only_feat = all(o.get('feature') for o in opts)
-        if not (long and n > 1) and not (young and all(o.get('benefit') and not o.get('feature') for o in opts)):
+        if not (long and n > 1) and not (young and all(o.get(benefit_field) and not o.get('feature') for o in opts)):
           ph.append(W('갖췄어요.' if only_feat else ('다 들어가 있어요.' if n > 1 else '들어가 있어요.')))
           parts.append(['interior_dash', 'seats_front', 'console'])
-        blk('options', ph, st, parts=parts)
+        blk('options', ph, st, parts=parts, option_phrases=list(range(len(opts))))
     # 판매 조건
     ph, st = [], []
     if F.get('reg'):
@@ -195,8 +199,9 @@ def make_script(F, style, shots=None):
             y, mo = int(m.group(1)), int(m.group(2))
             ph.append([(N(num_ko(y), str(y)) + '년', f'{y}년'), (N(num_ko(mo), str(mo)) + '월에', f'{mo}월에'), ('등록됐고,', '등록됐고,')])
             st.append((f'{int(m.group(1))}년 {int(m.group(2))}월 등록', 0, {}))
-    if F.get('price_manwon'):
-        say, show = price_parts(F['price_manwon'])
+    price = public_price(F)
+    if price:
+        say, show = price_parts(price)
         if digits:
             say = show
         ws = [('가격은', '가격은')] + list(zip(say, show)) + ([('원입니다.', '원입니다')] if FM else [('원이에요.', '원이에요')])
@@ -262,7 +267,7 @@ def make_script_nasser(F, style, shots=None):
             ph.append(ws)
             st.append((o['chip'], i, {'part': o['parts'][0], 'list': True, 'option': o['name']}))
             parts.append(o['parts'])
-        blk('options', ph, st, parts=parts)
+        blk('options', ph, st, parts=parts, option_phrases=list(range(len(opts))))
     # ④ 제원(기능 뒤에)
     if style == 'bobae_nl' and (F.get('engine') or F.get('power_ps')):
         ph, st = [], []
@@ -295,8 +300,9 @@ def make_script_nasser(F, style, shots=None):
             y, mo = int(m.group(1)), int(m.group(2))
             ph.append([(f'{y}년', f'{y}년'), (f'{mo}월', f'{mo}월'), ('등록이고,', '등록이고,')])
             st.append((f'{y}년 {mo}월 등록', 0, {}))
-    if F.get('price_manwon'):
-        say, show = price_parts(F['price_manwon'])
+    price = public_price(F)
+    if price:
+        say, show = price_parts(price)
         ph.append([('가격은', '가격은')] + list(zip(show, show)) + [('원입니다.', '원입니다.')])
         st.append((' '.join(show) + '원', len(ph) - 1, {}))
     if ph:
@@ -503,6 +509,14 @@ def fit_in_shot(s, start, need, fit):
     return round(start, 2), round(sp, 2)
 
 
+def fit_option_in_shot(shot, start, duration, min_speed):
+    """Reserve an unused range without crossing the shot or moving back over used material."""
+    margin = RULES.get('shot_fit', {}).get('edge_margin_s', 0.04)
+    available_speed = (shot['t1'] - start - margin) / duration
+    speed = min(100, int(available_speed * 100 + 1e-8)) / 100
+    return (start, speed) if speed >= min_speed else None
+
+
 def apply_missing(blocks, shots):
     """원하는 첫 부위가 원본 영상에 없을 때의 처리(규칙 shot_fit.missing_part)와 촬영 필요 부위 목록(shot_fit.required_shots).
     drop_phrase(그 문장 빼기)는 대본을 만들 때 옵션 문장에 이미 적용된다(보이지 않는 옵션은 말하지 않음). 그 밖 구간에서는 drop_chip으로 처리"""
@@ -528,11 +542,16 @@ def assign_shots(blocks, shots, times):
     FIT = dict({'option': 0.5, 'default': 0.6}, **RULES.get('shot_fit', {}).get('fit_speed', {}))
     used = {}   # 장면 번호 → 다음에 쓸 수 있는 원본 시각
     prev = None
+    previous_option = False
     run = 0.0   # 지금 장면이 이어진 길이(블록을 넘어 이어짐)
     for bi, b in enumerate(blocks):
         b['shot_tuples'], b['shot_parts'] = [], []
-        optp = {x[1] for x in b['stickers'] if len(x) > 2 and x[2].get('option')}
+        optp = set(b.get('option_phrases', ()))
+        optp.update(x[1] for x in b['stickers'] if len(x) > 2 and x[2].get('option'))
         for pi, want in enumerate(b['parts']):
+            option = pi in optp
+            if option and (bi, pi) not in times:
+                raise ValueError(f'옵션 구절 {bi + 1}-{pi + 1}의 음성 시각이 없습니다.')
             s0, s1 = times.get((bi, pi), (0, 1.5))
             # 렌더러가 컷을 앞 낱말로 당기면(cut_early) 이 장면이 그만큼 일찍 시작해 길어진다 → 원본 장면을 넘쳐 다음 장면이 비치지 않게 여유를 잡는다
             need = max(0.6, s1 - s0)
@@ -540,14 +559,18 @@ def assign_shots(blocks, shots, times):
             # 장면 최소 길이(원본 중간값 아래로 자르지 않음): 짧은 구절은 앞 장면을 이어 쓴다. 옵션 구절은 예외(옵션 = 장면 하나)
             first_hold = bi == 0 and s0 < RULES['learned_l1'][style_of(blocks)]['first_cut_s'] - 0.3  # 원본: 첫 컷은 3.4~3.7초
             # 블록 경계에서도(앞 블록 끝 장면이 아직 짧으면) 이어 쓴다: 원본 컷의 60%는 구절 중간이고 블록마다 자르지 않는다
-            prev_opt = (pi - 1) in optp if pi else bool(bi and any(x[1] == len(blocks[bi - 1]['parts']) - 1 and len(x) > 2 and x[2].get('option') for x in blocks[bi - 1]['stickers']))
             # 옵션 구절도 앞 장면이 그 옵션 부위를 이미 보여 주고 있으면 이어 쓴다(칩이 장면 중간에 뜸 — 원본 칩의 2/3는 장면 시작이 아닌 곳)
-            opt_same = pi in optp and prev is not None and shots[prev]['part'] in want and run < STYLE_TARGET[style_of(blocks)] * 1.3
-            if prev is not None and (pi or bi) and ((pi not in optp and not prev_opt) or opt_same) and (run < STYLE_TARGET[style_of(blocks)] or first_hold or opt_same):
+            opt_same = option and prev is not None and shots[prev]['part'] in want and run < STYLE_TARGET[style_of(blocks)] * 1.3
+            can_continue = not option and not previous_option or opt_same
+            previous_option = option
+            if prev is not None and can_continue and (run < STYLE_TARGET[style_of(blocks)] or first_hold or opt_same):
                 s = shots[prev]
                 start = used[prev]
-                if s['t1'] - start >= need * FIT['default']:
-                    start, sp = fit_in_shot(s, start, need, FIT['default'])
+                fit_result = fit_option_in_shot(s, start, need, FIT['option']) if option else (
+                    fit_in_shot(s, start, need, FIT['default']) if s['t1'] - start >= need * FIT['default'] else None
+                )
+                if fit_result:
+                    start, sp = fit_result
                     b['shot_tuples'].append((start, sp, 0)); b['shot_parts'].append(s['part'])
                     used[prev] = start + need * sp; run += need
                     b.setdefault('cont', []).append(pi)
@@ -567,21 +590,23 @@ def assign_shots(blocks, shots, times):
                 rank = want.index(s['part']) if s['part'] in want else (len(want) + 2)
                 start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))  # 영상 맨 앞 장면은 앞 여유가 필요 없다
                 left = s['t1'] - start
+                if option and (s['part'] not in want or not fit_option_in_shot(s, start, need, FIT['option'])):
+                    continue
                 reuse = 0 if si not in used else (0.5 if si == prev and left >= need * 0.6 else 5)
                 fit = FIT['option'] if pi in optp else FIT['default']  # 옵션 구절은 그 부위 장면을 조금 더 천천히(0.5배까지) 틀어서라도 쓴다
                 cost = rank * 2 + reuse - s.get('score', 0.5) + (0 if left >= need * fit else 14)  # 다 쓴 장면은 거의 마지막 수단
-                if pi in optp and s['part'] not in want:
-                    cost += 30  # 2026-11-10: 나사르식 긴 옵션 문장에서 「통풍 시트」 칩이 그릴 장면에 뜸 → 옵션 칩은 반드시 그 부위 장면 위에
                 cost += 0 if left >= ahead * 0.6 else 3  # 다음 짧은 구절까지 못 덮으면 조금 불리
                 if best is None or cost < best[0]:
                     best = (cost, si)
+            if best is None:
+                raise ValueError(f'구절 {bi + 1}-{pi + 1}의 발화 {need:.2f}초를 담을 미사용 컷이 없습니다 ({", ".join(want)}).')
             si = best[1]
             s = shots[si]
             start = used.get(si, s['t0'] + (0 if s['t0'] == 0 else 0.15))
             fit = FIT['option'] if pi in optp else FIT['default']
-            if s['t1'] - start < need * fit:  # 다 써 버린 장면: 처음부터 다시(어쩔 수 없을 때)
+            if not option and s['t1'] - start < need * fit:  # 일반 구절의 기존 대체 동작
                 start = s['t0'] + 0.15
-            start, sp = fit_in_shot(s, start, need, fit)
+            start, sp = fit_option_in_shot(s, start, need, fit) if option else fit_in_shot(s, start, need, fit)
             b['shot_tuples'].append((start, sp, 0))
             b['shot_parts'].append(s['part'])
             used[si] = start + need * sp
@@ -613,7 +638,8 @@ def write_config(F, blocks, style, path, segs=None):
         if b.get('end'): d['end'] = True
         B.append(d)
     name = f"{F['make']} {F['model']}"
-    price = ' '.join(price_parts(F['price_manwon'])[1]) + '원' if F.get('price_manwon') else ''
+    price_value = public_price(F)
+    price = ' '.join(price_parts(price_value)[1]) + '원' if price_value else ''
     line2 = ' · '.join(x for x in [f"주행 {km_show(int(F['km']))}" if F.get('km') is not None else '', price] if x)
     # 원본 NL: 첫 화면 칩은 브랜드·모델 한 낱말(「LEXUS」)
     hook = dict(title=f"{F['make']} {F['model'].split()[0]}" if style == 'bobae_nl' else name, line1=' · '.join(x for x in [F.get('gen', ''), F.get('engine', '')] if x) or (F.get('reg') or ''), line2=line2, size=100)
@@ -635,7 +661,8 @@ STYLE.update(edit_style={style!r}, band_y={json.dumps(RULES['band_y_be'] if styl
              checklist={json.dumps(RULES['option_exposure']['checklist'][style])})
 """
     src = src.replace('true', 'True').replace('false', 'False')
-    open(path, 'w', encoding='utf-8').write(src)
+    with open(path, 'w', encoding='utf-8') as file:
+        file.write(src)
 
 
 def post_voice(src, dst):
@@ -673,12 +700,14 @@ def main():
     ap.add_argument('cmd', choices=['script', 'build'])
     ap.add_argument('facts'); ap.add_argument('shots', nargs='?')
     ap.add_argument('--style', default='bobae_nl', choices=['bobae_nl', 'bobae_be'])
+    ap.add_argument('--speech-style', choices=['formal', 'casual'], help='기존 기본값을 바꾸지 않고 검수용 말투를 선택')
     ap.add_argument('--out', required=True)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     F = json.load(open(a.facts, encoding='utf-8'))
     shots = json.load(open(a.shots, encoding='utf-8')) if a.shots else None
-    blocks = (make_script_nasser if RULES['script'].get('speech') == 'formal' else make_script)(F, a.style, shots)
+    speech = a.speech_style or RULES['script'].get('speech')
+    blocks = make_script_nasser(F, a.style, shots) if speech == 'formal' else make_script(F, a.style, shots, formal=False)
     for b in blocks:
         b['_style'] = a.style
     apply_pron(blocks)  # 2026-11-10 한국어 발음 교정(G80 → 지팔공), 화면 글자는 그대로
@@ -697,7 +726,13 @@ def main():
     if not os.path.exists(wp):
         words_local(os.path.join(a.out, 'voice.mp3'), wp)
     words = load_words(wp)
+    if not words:
+        ap.exit(1, '편집 보류: 검증할 음성 타임코드가 없습니다.\n')
     times = phrase_times(blocks, words)
+    try:
+        assign_shots(blocks, shots or [], times)
+    except ValueError as error:
+        ap.exit(1, f'편집 보류: {error}\n')
     dropped = chip_budget(blocks, a.style, words[-1][1] + 2.4)
     if dropped:
         print('칩 예산 때문에 뺀 칩:', dropped)
@@ -715,7 +750,6 @@ def main():
                 flat.append(dict(text=say, start=round(acc, 3), end=round(acc + d, 3)))
                 acc += d
     json.dump(flat, open(os.path.join(a.out, 'words_flat.json'), 'w'), ensure_ascii=False)
-    assign_shots(blocks, shots, times)
     json.dump(dict(style=a.style, blocks=blocks, required_shots=required, times={f'{k[0]}:{k[1]}': v for k, v in times.items()}), open(os.path.join(a.out, 'plan.json'), 'w'), ensure_ascii=False, indent=1)
     write_config(F, blocks, a.style, os.path.join(a.out, 'config.py'), shots)
     print('config', os.path.join(a.out, 'config.py'))
