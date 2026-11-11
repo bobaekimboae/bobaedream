@@ -24,7 +24,7 @@ def text_w(t, size):  # 캡컷 글자 폭 어림(크기 8 ≈ 한글 36px, v2 �
     return sum(size * 4.5 * (1.0 if ord(c) > 0x3000 else 0.62) for c in t)
 
 items = []
-def pointer(t0, t1, kf, label, sub=""):
+def pointer(t0, t1, kf, label, sub="", force_fy=None):
     """kf = [[t, 점x, 점y]] (콜아웃 시작 기준). 라벨 폭에 맞춰 선 길이, 화면 밖으로 나가면 좌우 뒤집기, 위쪽이 좁으면 아래로"""
     lw = max(text_w(label, 10), text_w(sub, 7)) + 50
     k = max(0.45, min(0.9, lw / (1.5 * 337)))
@@ -36,7 +36,7 @@ def pointer(t0, t1, kf, label, sub=""):
     fx = min((1, -1), key=lambda f: (over(f, k), (f == 1) == (mx > 540)))
     while over(fx, k) > 0.15 and k > 0.5: k = round(k - 0.02, 3)  # 15%가 넘는 프레임에서 넘치면 선을 줄인다(카메라가 크게 움직여 점이 가장자리로 가는 잠깐은 허용)
     rise = 1.5 * k * (DOT[1] - END_[1]) + (100 if sub else 60)
-    fy = -1 if min(ys) - rise < 120 else 1
+    fy = force_fy or (-1 if min(ys) - rise < 120 else 1)
     out = []
     for t, x, y in kf:
         cx, cy = x - 1.5 * k * DOT[0] * fx, y - 1.5 * k * DOT[1] * fy
@@ -44,9 +44,9 @@ def pointer(t0, t1, kf, label, sub=""):
         lx = cx + 1.5 * k * (CORNER[0] + END_[0]) / 2 * fx
         lx = max(lw / 2 + 16, min(1064 - lw / 2, lx))
         if fy == 1:
-            lab_y, sub_y = (ly - 92, ly - 42) if sub else (ly - 42, None)
+            lab_y, sub_y = (ly - 110, ly - 46) if sub else (ly - 46, None)  # 라벨 상자(약 70px)와 보조 글이 겹치지 않게
         else:
-            lab_y, sub_y = ly + 42, (ly + 92 if sub else None)
+            lab_y, sub_y = ly + 48, (ly + 112 if sub else None)
         out.append([t, round(cx, 1), round(cy, 1), round(lx, 1), round(lab_y, 1), None if sub_y is None else round(sub_y, 1),
                     round(min(x, cx + 1.5 * k * END_[0] * fx), 1), round(max(x, cx + 1.5 * k * END_[0] * fx), 1)])
     items.append({"kind": "ptr", "t0": t0, "t1": t1, "k": round(k, 3), "fx": fx, "fy": fy, "label": label, "sub": sub, "lw": lw, "kf": out})
@@ -67,7 +67,7 @@ led = [extra["led"][0]]  # 3.3초 장면 바뀜(크게 밀어 들어감)에서 �
 for p in extra["led"][1:]:
     if abs(p[1] - led[-1][1]) + abs(p[2] - led[-1][2]) > 60: break
     led.append(p)
-pointer(1.8, 1.8 + led[-1][0] + 0.04, led, "LED 헤드라이트")
+pointer(1.8, 1.8 + led[-1][0] + 0.04, led, "LED 헤드라이트", force_fy=-1)  # 위는 타이틀 칩 자리라 라벨을 아래로
 # 휠: 허브 추적 → 원호(림 테두리) + 20인치 포인터(림 위쪽 점)
 wt = [p for p in extra["wheel"] if 6.4 <= p[0] <= 9.0]
 R = lambda t: 550 + (600 - 550) * min(1, max(0, (t - 6.5) / 2.1))  # 림 반지름(레퍼런스 화면 실측 6.5초 550 → 8.6초 600)
@@ -163,7 +163,7 @@ def rects_at(t):
         if it["kind"] == "ptr":
             kf = it["kf"]; rt = t - it["t0"]; q = min(kf, key=lambda p: abs(p[0] - rt))
             lx, lab_y, sub_y, x0, x1 = q[3], q[4], q[5], q[6], q[7]
-            ys = [lab_y - 30, lab_y + 30] + ([sub_y - 22, sub_y + 22] if sub_y else [])
+            ys = [lab_y - 38, lab_y + 38] + ([sub_y - 26, sub_y + 26] if sub_y else [])
             dot_y = q[2] - 1.5 * it["k"] * DOT[1] * -it["fy"]
             out.append((min(x0, lx - it["lw"] / 2), min(ys + [dot_y]), max(x1, lx + it["lw"] / 2), max(ys + [dot_y])))
         elif it["kind"] == "chip":
@@ -171,14 +171,16 @@ def rects_at(t):
             if bb: out.append(bb)
     return out
 CAND_Y = [CAP_Y, 1180, 1420, 1560, 1700]
-def pick_y(t0, t1, w):
+def pick_y(t0, t1, w):  # 겹치는 시간이 가장 적은 높이(같으면 기본 높이 우선). 카메라가 크게 움직이면 0이 안 될 수 있다
+    best = None
     for cy in CAND_Y:
         box = (540 - w / 2, cy - 70, 540 + w / 2, cy + 70)
-        t, hit = t0, False
-        while t <= t1 and not hit:
-            hit = any(r[0] < box[2] and box[0] < r[2] and r[1] < box[3] and box[1] < r[3] for r in rects_at(t)); t += 0.04
-        if not hit: return cy
-    return CAP_Y
+        t, hits = t0, 0
+        while t <= t1:
+            hits += any(r[0] < box[2] and box[0] < r[2] and r[1] < box[3] and box[1] < r[3] for r in rects_at(t)); t += 0.04
+        if best is None or hits < best[0]: best = (hits, cy)
+        if hits == 0: break
+    return best[1]
 moved = 0
 # 4) 말 자막(벨기에판): 표시 자막을 말 구간에 글자 비례로 나눠 4어절/13자 묶음, 말하는 어절만 노랑
 n_sub = 0

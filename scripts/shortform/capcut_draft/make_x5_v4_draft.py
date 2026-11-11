@@ -58,8 +58,8 @@ def pointer(it):
     lab.add_animation(TextIntro.模糊, us(0.3)); lab.add_animation(TextOutro.渐隐, us(0.2))
     put(lab, "lab", a, b, cc.TrackType.text)
     if it.get("sub"):
-        sb = cc.TextSegment(it["sub"], tr(a, b), style=cc.TextStyle(size=7, color=(1, 1, 1), align=1),
-                            shadow=cc.TextShadow(alpha=0.6, diffuse=20.0, distance=3.0),
+        sb = cc.TextSegment(it["sub"], tr(a, b), style=cc.TextStyle(size=8, bold=True, color=(1, 1, 1), align=1),
+                            shadow=cc.TextShadow(alpha=0.85, diffuse=25.0, distance=3.0),
                             clip_settings=cc.ClipSettings(transform_x=X(q0[3]), transform_y=Y(q0[5])))
         for q in kf:
             sb.add_keyframe(KP.position_x, us(q[0]), X(q[3])); sb.add_keyframe(KP.position_y, us(q[0]), Y(q[5]))
@@ -89,7 +89,7 @@ for it in sorted(m["items"], key=lambda i: (order[i["kind"]], i["t0"])):
         for (t, x, y), (_, r) in zip(it["kf"], it["sc"]):
             if 0 <= t <= b - a:
                 seg.add_keyframe(KP.position_x, us(t), X(x)); seg.add_keyframe(KP.position_y, us(t), Y(y))
-                seg.add_keyframe(KP.uniform_scale, us(t), sc * r)
+                seg.add_keyframe(KP.scale_x, us(t), sc * r); seg.add_keyframe(KP.scale_y, us(t), sc * r)  # uniform_scale 키프레임만 쓰면 캡컷에서 원호가 안 보였다(4차 1회)
         seg.add_animation(IntroType.模糊渐显, us(0.3)); seg.add_animation(OutroType.渐隐, us(0.25))
         put(seg, "ring", a, b, cc.TrackType.video); continue
     st = cc.TextStyle(size=it["size"], bold=it.get("bold", False), color=(1, 1, 1), align=1, letter_spacing=it.get("spacing", 0))
