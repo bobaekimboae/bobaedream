@@ -72,29 +72,61 @@ idx, j = [], 0
 for _, w0, _ in SENT:
     while W[j][2] != w0: j += 1
     idx.append(j); j += 1
-TEMPO = 1.08
+# 문장마다 속도: 다음 장면 전에 끝나도록 1.05~1.22배(그래도 넘치면 뒤로 밀림). 첫 문장은 0초부터
 clips, prev_end = [], 0.0
+END_T = 63.6
 for n, (scene, _, disp) in enumerate(SENT):
     a = W[idx[n]][0] - 0.04
     b = (W[idx[n + 1]][0] - 0.04) if n + 1 < len(SENT) else W[-1][1] + 0.25
-    dur = (b - a) / TEMPO
-    start = max(scene, prev_end + 0.08)
-    clips.append((round(a, 3), round(b, 3), round(start, 3), round(start + dur, 3), disp))
+    start = max(0.05 if n == 0 else scene, prev_end + 0.06)
+    nxt = SENT[n + 1][0] if n + 1 < len(SENT) else END_T
+    tempo = max(1.05, min(1.22, (b - a) / max(0.3, nxt - start - 0.06)))
+    dur = (b - a) / tempo
+    clips.append((round(a, 3), round(b, 3), round(start, 3), round(start + dur, 3), disp, round(tempo, 3)))
     prev_end = start + dur
 END = 63.6
 assert clips[-1][3] <= END + 0.05, clips[-1]
+for c in clips:
+    if c[3] > (SENT[clips.index(c) + 1][0] if clips.index(c) + 1 < len(SENT) else END) + 0.05: print('늦음', c)
 # 음성 트랙 한 파일(63.6초): 문장 조각을 1.08배로 바꿔 제자리에
 parts, flt = [], []
-for n, (a, b, st0, _, _) in enumerate(clips):
-    flt.append(f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS,atempo={TEMPO},adelay={int(st0 * 1000)}|{int(st0 * 1000)}[s{n}]")
+for n, (a, b, st0, _, _, tp) in enumerate(clips):
+    flt.append(f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS,atempo={tp},adelay={int(st0 * 1000)}|{int(st0 * 1000)}[s{n}]")
     parts.append(f"[s{n}]")
 flt.append("".join(parts) + f"amix=inputs={len(parts)}:normalize=0,apad,atrim=0:{END},loudnorm=I=-16:TP=-1.5:LRA=11[out]")
 subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", VOICE, "-filter_complex", ";".join(flt), "-map", "[out]", "-ar", "48000", "-ac", "2",
                 os.path.join(OUT, "voice.wav")], check=True)
 
+# 자막이 콜아웃·스티커와 겹치지 않게: 그 시간 동안 비어 있는 높이를 고른다
+def rects_at(t):
+    out = []
+    for it in items:
+        if it["kind"] in ("callout",) and it["t0"] <= t <= it["t1"]:
+            kf = it["kf"]; rt = t - it["t0"]
+            x, y = kf[0][1], kf[0][2]
+            for q in range(len(kf) - 1):
+                if kf[q][0] <= rt <= kf[q + 1][0]:
+                    f = (rt - kf[q][0]) / max(1e-6, kf[q + 1][0] - kf[q][0])
+                    x = kf[q][1] + f * (kf[q + 1][1] - kf[q][1]); y = kf[q][2] + f * (kf[q + 1][2] - kf[q][2]); break
+                if rt > kf[q + 1][0]: x, y = kf[q + 1][1], kf[q + 1][2]
+            out.append((x - it["w"] / 2, y - it["h"] / 2, x + it["w"] / 2, y + it["h"] / 2))
+        elif it["kind"] == "chip" and it["t0"] <= t <= it["t1"]:
+            bb = Image.open(os.path.join(OUT, it["file"])).getbbox()
+            if bb: out.append(bb)
+    return out
+CAND_Y = [CAP_Y, 1560, 1700, 1180]
+def pick_y(t0, t1, w):
+    for cy in CAND_Y:
+        box = (540 - w / 2, cy - 70, 540 + w / 2, cy + 70)
+        t, hit = t0, False
+        while t <= t1 and not hit:
+            hit = any(r[0] < box[2] and box[0] < r[2] and r[1] < box[3] and box[1] < r[3] for r in rects_at(t)); t += 0.04
+        if not hit: return cy
+    return CAP_Y
+moved = 0
 # 4) 말 자막(벨기에판): 표시 자막을 말 구간에 글자 비례로 나눠 4어절/13자 묶음, 말하는 어절만 노랑
 n_sub = 0
-for k, (a, b, st0, st1, disp) in enumerate(clips):
+for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
     words = disp.split(); tot = sum(len(w) for w in words); acc, wt = 0, []
     sp1 = st1 - 0.1
     for w in words:
@@ -108,12 +140,15 @@ for k, (a, b, st0, st1, disp) in enumerate(clips):
     nxt = clips[k + 1][2] if k + 1 < len(clips) else END
     for gi, g in enumerate(groups):
         txt = " ".join(x[1] for x in g)
+        gs = g[0][0]; ge = groups[gi + 1][0][0] if gi + 1 < len(groups) else min(nxt, st1 + 0.25)
+        cy = pick_y(gs, ge, s.phrase_img_be3(txt, -1).width)
+        moved += cy != CAP_Y
         g_end = groups[gi + 1][0][0] if gi + 1 < len(groups) else min(nxt, st1 + 0.25)
         for i, (wt0, w) in enumerate(g):
             t1 = g[i + 1][0] if i + 1 < len(g) else g_end
             if t1 - wt0 < 0.05: continue
-            fn = place(s.phrase_img_be3(txt, i), 540, CAP_Y, f"sub{n_sub:03d}.png"); n_sub += 1
+            fn = place(s.phrase_img_be3(txt, i), 540, cy, f"sub{n_sub:03d}.png"); n_sub += 1
             items.append({"kind": "sub", "file": fn, "t0": round(wt0, 2), "t1": round(t1, 2)})
 json.dump({"items": items, "voice": "voice.wav", "end": END, "clips": clips}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
-print("items", len(items), "subs", n_sub, "voice end", clips[-1][3])
-for c in clips: print(c[2], "→", c[3], c[4])
+print("items", len(items), "subs", n_sub, "moved groups", moved, "voice end", clips[-1][3])
+for c in clips: print(c[2], "→", c[3], "x", c[5], c[4])
