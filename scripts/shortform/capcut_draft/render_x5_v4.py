@@ -44,9 +44,9 @@ def pointer(t0, t1, kf, label, sub="", force_fy=None):
         lx = cx + 1.5 * k * (CORNER[0] + END_[0]) / 2 * fx
         lx = max(lw / 2 + 16, min(1064 - lw / 2, lx))
         if fy == 1:
-            lab_y, sub_y = (ly - 110, ly - 46) if sub else (ly - 46, None)  # 라벨 상자(약 70px)와 보조 글이 겹치지 않게
+            lab_y, sub_y = ly - 58, (ly + 36 if sub else None)  # 6차: 노랑 칠 칩은 선 위, 보조 글은 선 아래(겹침 없음)
         else:
-            lab_y, sub_y = ly + 48, (ly + 112 if sub else None)
+            lab_y, sub_y = ly + 58, (ly - 36 if sub else None)
         out.append([t, round(cx, 1), round(cy, 1), round(lx, 1), round(lab_y, 1), None if sub_y is None else round(sub_y, 1),
                     round(min(x, cx + 1.5 * k * END_[0] * fx), 1), round(max(x, cx + 1.5 * k * END_[0] * fx), 1)])
     items.append({"kind": "ptr", "t0": t0, "t1": t1, "k": round(k, 3), "fx": fx, "fy": fy, "label": label, "sub": sub, "lw": lw, "kf": out})
@@ -98,14 +98,14 @@ def chip(txt, t0, t1, cy, fn, size, tilt=0.0):
     return im.size
 BIG, SMALL = 104, 56
 chip("BMW X5", 0.3, 3.4, 440, "t_title1.png", BIG)
-chip("xDrive30d M 스포츠", 0.6, 3.4, 565, "t_title2.png", SMALL, -0.8)
-chip("2021년식", 0.9, 3.4, 660, "t_title3.png", SMALL, 0.6)
+chip("xDrive30d M 스포츠", 0.6, 3.4, 585, "t_title2.png", SMALL, -0.8)
+chip("2021년식", 0.9, 3.4, 705, "t_title3.png", SMALL, 0.6)
 chip("직렬 6기통", 3.8, 5.0, 470, "t_engine1.png", BIG)
-chip("3.0L 디젤 터보", 4.0, 5.0, 595, "t_engine2.png", SMALL, -0.8)
+chip("3.0L 디젤 터보", 4.0, 5.0, 615, "t_engine2.png", SMALL, -0.8)
 chip("xDrive", 5.0, 6.2, 470, "t_awd1.png", BIG)
-chip("상시 사륜구동", 5.2, 6.2, 595, "t_awd2.png", SMALL, -0.8)
+chip("상시 사륜구동", 5.2, 6.2, 615, "t_awd2.png", SMALL, -0.8)
 chip("BMW X5", 61.0, 63.6, 440, "t_end1.png", BIG)
-chip("xDrive30d M 스포츠", 61.3, 63.6, 565, "t_end2.png", SMALL, -0.8)
+chip("xDrive30d M 스포츠", 61.3, 63.6, 585, "t_end2.png", SMALL, -0.8)
 
 # 3) 음성: 문장 경계(받아쓰기 낱말 시각) → 장면 시작에 배치
 W = json.load(open(WORDS))
@@ -164,7 +164,7 @@ def rects_at(t):
         if it["kind"] == "ptr":
             kf = it["kf"]; rt = t - it["t0"]; q = min(kf, key=lambda p: abs(p[0] - rt))
             lx, lab_y, sub_y, x0, x1 = q[3], q[4], q[5], q[6], q[7]
-            ys = [lab_y - 38, lab_y + 38] + ([sub_y - 26, sub_y + 26] if sub_y else [])
+            ys = [lab_y - 42, lab_y + 42] + ([sub_y - 26, sub_y + 26] if sub_y else [])
             dot_y = q[2] - 1.5 * it["k"] * DOT[1] * -it["fy"]
             out.append((min(x0, lx - it["lw"] / 2), min(ys + [dot_y]), max(x1, lx + it["lw"] / 2), max(ys + [dot_y])))
         elif it["kind"] == "chip":
