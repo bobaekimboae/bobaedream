@@ -1,0 +1,19 @@
+[
+ {"part":"front","shot":[0.0,2.5],"disp":"BMW 5시리즈 520i M 스포츠입니다","voice":"비엠더블유 오시리즈, 오이공아이 엠 스포츠입니다.","chip":"520i M 스포츠","kind":"hook"},
+ {"part":"headlight","shot":[2.5,5.3],"disp":"LED 헤드램프 켜진 거 보이시죠?","voice":"엘이디 헤드램프 켜진 거 보이시죠?","chip":"✓ LED 헤드램프","kind":"option"},
+ {"part":"side","shot":[5.4,8.6],"disp":"외장 색상은 파란색이고요","voice":"외장 색상은 파란색이고요.","chip":null},
+ {"part":"rear","shot":[8.8,11.3],"disp":"뒤쪽은 LED 테일램프에 듀얼 머플러","voice":"뒤쪽은 엘이디 테일램프에 듀얼 머플러.","chip":"✓ 듀얼 머플러","kind":"option"},
+ {"part":"wheel","shot":[11.4,13.9],"disp":"M 스포츠 휠 안쪽으로 파란 브레이크 캘리퍼","voice":"엠 스포츠 휠 안쪽으로 파란 브레이크 캘리퍼가 보입니다.","chip":"✓ M 스포츠 휠","kind":"option"},
+ {"part":"trunk","shot":[14.0,16.9],"disp":"트렁크도 열어서 확인해 보시고요","voice":"트렁크도 열어서 확인해 보시고요.","chip":null},
+ {"part":"rear_seat","shot":[17.0,19.9],"disp":"실내는 브라운 가죽 시트예요","voice":"실내는 브라운 가죽 시트예요.","chip":"✓ 브라운 가죽 시트","kind":"option"},
+ {"part":"front_seat","shot":[23.0,25.2],"disp":"앞좌석은 전동 시트라 버튼으로 조절하시면 되고","voice":"앞좌석은 전동 시트라 버튼으로 조절하시면 되고,","chip":"✓ 전동 시트","kind":"option"},
+ {"part":"rear_vent","shot":[25.3,26.5],"disp":"뒷좌석 송풍구도 따로 있습니다","voice":"뒷좌석 송풍구도 따로 있습니다.","chip":"✓ 뒷좌석 송풍구","kind":"option"},
+ {"part":"dash","shot":[30.0,33.4],"disp":"대시보드는 우드 트림으로 마감돼 있고요","voice":"대시보드는 우드 트림으로 마감돼 있고요.","chip":"✓ 우드 트림","kind":"option"},
+ {"part":"cluster","shot":[36.0,38.4],"disp":"계기판은 디지털, 주행거리는 5만 8천 km입니다","voice":"계기판은 디지털, 주행거리는 오만 팔천 킬로입니다.","chip":"5.8만km","kind":"number"},
+ {"part":"gear","shot":[38.5,41.0],"disp":"변속기는 자동, iDrive 컨트롤러로 조작하시면 되고요","voice":"변속기는 자동, 아이드라이브 컨트롤러로 조작하시면 되고요.","chip":"✓ iDrive 컨트롤러","kind":"option"},
+ {"part":"nav","shot":[41.0,44.4],"disp":"가운데에 넓은 내비게이션 화면","voice":"가운데에 넓은 내비게이션 화면,","chip":"✓ 내비게이션","kind":"option"},
+ {"part":"rear_cam","shot":[44.5,48.8],"disp":"후진하면 후방 카메라가 바로 뜹니다","voice":"후진하면 후방 카메라가 바로 뜹니다.","chip":"✓ 후방 카메라","kind":"option"},
+ {"part":"dash_wide","shot":[26.6,28.3],"disp":"2020년 9월 등록, 2리터 가솔린이고","voice":"이천이십년 구월 등록, 이 리터 가솔린이고,","chip":"20년09월 등록","kind":"number"},
+ {"part":"rear_ext","shot":[50.5,53.0],"disp":"가격은 3,340만 원입니다","voice":"가격은 삼천삼백사십만 원입니다.","chip":"3,340만원","kind":"number"},
+ {"part":"end","shot":[49.0,50.4],"disp":"보배드림 앱에서 자세한 정보를 보시거나, 구글·애플 스토어에서 다운받으세요!","voice":"보배드림 앱에서 자세한 정보를 보시거나, 구글 애플 스토어에서 다운받으세요!","chip":null}
+]
