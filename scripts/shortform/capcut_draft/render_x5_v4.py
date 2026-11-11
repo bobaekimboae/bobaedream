@@ -6,6 +6,7 @@
 """
 import json, os, shutil, subprocess, sys
 V2, TRACK, VOICE, WORDS, SAG, OUT, EXTRA = sys.argv[1:8]
+REPL = sys.argv[8] if len(sys.argv) > 8 else None  # 6번째 문장 교체 음성('두 단' → '이단', 같은 목소리로 한 번 생성, 앞뒤 무음 잘라냄)
 sys.path.insert(0, SAG); sys.argv = ["x", "/tmp/none.mp4", os.path.join(OUT, "_sag_tmp")]
 import sag_reel_v1 as s
 from PIL import Image
@@ -61,7 +62,8 @@ CALL = [(9.8, 11.4, "LED 테일램프", ""), (11.6, 13.2, "M 스포츠 패키지
         (48.8, 51.0, "에어 서스펜션", "차고 조절 가능"), (52.6, 54.8, "서라운드 뷰", "360° 카메라"),
         (55.2, 57.2, "후진 어시스턴트", "주차 보조 시스템"), (57.2, 58.8, "40:20:40 폴딩", "2열 시트 분할 폴딩")]
 for k, (t0, t1, lab, sub) in enumerate(CALL):
-    if str(k) in trk: pointer(t0, t1, trk[str(k)]["kf"], lab, sub)
+    if str(k) in trk:  # 라벨 방향은 레퍼런스와 같게(위/아래) — 헤드업 디스플레이는 대시보드 위 점, 라벨은 아래
+        pointer(t0, t1, trk[str(k)]["kf"], lab, sub, force_fy=1 if trk[str(k)]["up"] else -1)
 # LED 헤드라이트(타이틀 화면) — 원본에서 추적
 led = [extra["led"][0]]  # 3.3초 장면 바뀜(크게 밀어 들어감)에서 추적이 튀므로 그 뒤는 버림(레퍼런스 점 2.2·2.8초 ≈ (198, 802)와 일치)
 for p in extra["led"][1:]:
@@ -115,7 +117,7 @@ SENT = [  # (장면 시작, 첫 낱말 위치, 표시 자막)
     (6.6, "휴는", "휠은 20인치 M 스타 스포크"),
     (9.8, "뒤쪽엔", "뒤쪽엔 LED 테일램프 범퍼와 디퓨저는 M 스포츠 패키지입니다"),
     (14.0, "트렁크는", "트렁크는 전동으로 열리고 2열을 접으면 공간이 더 넓어져요"),
-    (20.4, "테일게이트는", "테일게이트는 위아래 두 단으로 나뉘어 열리고"),
+    (20.4, "테일게이트는", "테일게이트는 위아래 이단으로 나뉘어 열리고"),
     (22.4, "천장엔", "천장엔 파노라마 선루프 공조는 4존입니다"),
     (26.8, "헤드업", "헤드업 디스플레이에 12.3인치 디지털 계기판 기어 노브는 크리스탈이에요"),
     (33.2, "가운데에도", "가운데에도 12.3인치 터치 디스플레이가 들어가고"),
@@ -137,6 +139,9 @@ END_T = 63.6
 for n, (scene, _, disp) in enumerate(SENT):
     a = W[idx[n]][0] - 0.04
     b = (W[idx[n + 1]][0] - 0.04) if n + 1 < len(SENT) else W[-1][1] + 0.25
+    if REPL and n == 5:
+        a, b = 0.0, float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", REPL],
+                                         capture_output=True, text=True).stdout) + 0.05
     start = max(0.05 if n == 0 else scene, prev_end + 0.06)
     nxt = SENT[n + 1][0] if n + 1 < len(SENT) else END_T
     tempo = max(1.05, min(1.22, (b - a) / max(0.3, nxt - start - 0.06)))
@@ -150,10 +155,11 @@ for c in clips:
 # 음성 트랙 한 파일(63.6초): 문장 조각을 1.08배로 바꿔 제자리에
 parts, flt = [], []
 for n, (a, b, st0, _, _, tp) in enumerate(clips):
-    flt.append(f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS,atempo={tp},adelay={int(st0 * 1000)}|{int(st0 * 1000)}[s{n}]")
+    src_in = "[1:a]" if REPL and n == 5 else "[0:a]"
+    flt.append(f"{src_in}atrim={a}:{b},asetpts=PTS-STARTPTS,atempo={tp},adelay={int(st0 * 1000)}|{int(st0 * 1000)}[s{n}]")
     parts.append(f"[s{n}]")
 flt.append("".join(parts) + f"amix=inputs={len(parts)}:normalize=0,apad,atrim=0:{END},loudnorm=I=-16:TP=-1.5:LRA=11[out]")
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", VOICE, "-filter_complex", ";".join(flt), "-map", "[out]", "-ar", "48000", "-ac", "2",
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", VOICE] + (["-i", REPL] if REPL else []) + ["-filter_complex", ";".join(flt), "-map", "[out]", "-ar", "48000", "-ac", "2",
                 os.path.join(OUT, "voice.wav")], check=True)
 
 # 자막이 콜아웃·스티커와 겹치지 않게: 그 시간 동안 비어 있는 높이를 고른다
