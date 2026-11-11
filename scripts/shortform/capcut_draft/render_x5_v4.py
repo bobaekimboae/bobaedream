@@ -43,7 +43,7 @@ def pointer(t0, t1, kf, label, sub="", force_fy=None):
         cx, cy = x - 1.5 * k * DOT[0] * fx, y - 1.5 * k * DOT[1] * fy
         ly = cy + 1.5 * k * END_[1] * fy
         lx = cx + 1.5 * k * (CORNER[0] + END_[0]) / 2 * fx
-        lx = max(lw / 2 + 16, min(1064 - lw / 2, lx))
+        lx = max(lw / 2 + 40, min(1040 - lw / 2, lx))  # 노랑 칩 여백·기울기만큼 화면 안쪽으로
         if fy == 1:
             lab_y, sub_y = ly - 58, (ly + 36 if sub else None)  # 6차: 노랑 칠 칩은 선 위, 보조 글은 선 아래(겹침 없음)
         else:
