@@ -93,7 +93,8 @@ def chip(txt, t0, t1, cy, fn, size, tilt=0.0):
     im = s.sticker(txt, sz, TILT + tilt, True)
     while im.width > MAXW and sz > 30:
         sz -= 4; im = s.sticker(txt, sz, TILT + tilt, True)
-    items.append({"kind": "chip", "file": place(im, 540, cy, fn), "t0": t0, "t1": t1})
+    items.append({"kind": "chip", "file": place(im, 540, cy, fn), "t0": t0, "t1": t1, "text": txt, "big": size == BIG, "cy": cy,
+                  "tilt": TILT + tilt, "w": im.width, "h": im.height})
     return im.size
 BIG, SMALL = 104, 56
 chip("BMW X5", 0.3, 3.4, 440, "t_title1.png", BIG)
@@ -206,7 +207,7 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
             t1 = g[i + 1][0] if i + 1 < len(g) else g_end
             if t1 - wt0 < 0.05: continue
             fn = place(s.phrase_img_be3(txt, i), 540, cy, f"sub{n_sub:03d}.png"); n_sub += 1
-            items.append({"kind": "sub", "file": fn, "t0": round(wt0, 2), "t1": round(t1, 2)})
+            items.append({"kind": "sub", "file": fn, "t0": round(wt0, 2), "t1": round(t1, 2), "text": txt, "hi": i, "cy": cy})
 json.dump({"items": items, "voice": "voice.wav", "end": END, "clips": clips}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
 print("items", len(items), "subs", n_sub, "moved groups", moved, "voice end", clips[-1][3])
 for c in clips: print(c[2], "→", c[3], "x", c[5], c[4])
