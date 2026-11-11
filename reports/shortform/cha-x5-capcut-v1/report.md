@@ -135,4 +135,4 @@
 - **타이틀 칩 3줄** 간격을 넓혔다(440 / 585 / 705).
 - 결과: ![6차](v6_sheet.jpg) · 잘림 보정 뒤 확인: ![6차 보정](v6b_check.jpg)
 - 캡컷 메모: 프로젝트가 열려 있던 상태에서 같은 이름으로 다시 쓰면 캡컷에서 열리지 않았다. 그래서 새 이름 `CHA_X5_capcut_v6b`로 만들었다.
-- 6차 mp4: 노트북 `review-v7\CHA_X5_capcut_v6b.mp4`, 드라이브 `bobae_shortform_auto_1112` 폴더(동기화 중)
+- 6차 mp4: https://drive.google.com/file/d/1H6a6G4mbaeq5ggnj9AWWKqKoNVGtvZ22/view
