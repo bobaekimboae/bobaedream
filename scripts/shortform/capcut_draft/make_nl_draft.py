@@ -23,7 +23,12 @@ s.add_segment(cc.VideoSegment(vm, trange(0, total), volume=0.0), "main")
 
 s.add_track(cc.TrackType.video, "subs", relative_index=1)
 s.add_track(cc.TrackType.video, "chips", relative_index=2)
-for it in m["items"]:
+items = sorted(m["items"], key=lambda i: i["t0"])
+for kind in ("sub", "ov"):  # 같은 트랙 안에서 겹치면 앞 조각을 다음 시작에서 끊는다
+    L = [i for i in items if (i["kind"] == "sub") == (kind == "sub")]
+    for a, b in zip(L, L[1:]):
+        a["t1"] = min(a["t1"], b["t0"])
+for it in [i for i in items if i["t1"] - i["t0"] >= 0.05]:
     seg = cc.VideoSegment(os.path.join(A, it["file"]), tr(it["t0"], it["t1"]))
     if it["kind"] == "label":
         seg.add_animation(cc.IntroType.放大, duration=us(0.25))
