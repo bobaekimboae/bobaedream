@@ -15,8 +15,9 @@ import bpy
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "/tmp/icons"
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-SIZE = 900
-SAMPLES = 64
+import os
+SIZE = int(os.environ.get("ICON_SIZE", 900))
+SAMPLES = int(os.environ.get("ICON_SAMPLES", 64))
 
 
 def hexc(h, a=1.0):
@@ -186,6 +187,7 @@ def frame():
 
 
 def render(name):
+    frame()
     bpy.context.scene.render.filepath = f"{OUT}/{name}.png"
     bpy.ops.render.render(write_still=True)
     trim(f"{OUT}/{name}.png")
@@ -216,6 +218,9 @@ def mats():
         light=mat("light", "#F4F209", 0.2, emit=6.0),
         white_e=mat("white_e", "#EAF2FF", 0.2, emit=5.0),
         red=mat("red", "#E5484D", 0.3, emit=1.5, coat=0.4),
+        brown=mat("brown", "#8A5233", 0.45, coat=0.3),
+        wood=mat("wood", "#6E4325", 0.3, coat=0.7),
+        chrome=mat("chrome", "#B7BDC2", 0.15, coat=0.8),
     )
 
 
@@ -285,6 +290,117 @@ def icon_fuel():
     arc(0.45, 0.07, -90, 90, (0.65, 0, 1.0), M["dark"], rot=UP)
     box(0.22, 0.3, 0.45, (1.1, 0, 1.45), M["blue_s"], 0.06)
     render("icon_fuel")
+
+
+# --- 2026-11-12 나세르식 3D 스티커 v3: 520i 옵션 9개 추가 ---
+def icon_muffler():
+    reset(); M = mats()
+    box(3.0, 1.0, 1.3, (0, 0, 0.75), M["clay"], 0.3)  # 차 뒷부분
+    for x in (-1.0, 1.0):
+        box(0.8, 0.12, 0.22, (x, -0.5, 1.15), M["red"], 0.06)  # 후미등
+    box(2.4, 0.2, 0.35, (0, -0.48, 0.32), M["dark"], 0.1)  # 디퓨저
+    for x in (-0.75, 0.75):
+        cyl(0.24, 0.9, (x, -0.55, 0.32), M["chrome"], rot=UP, bev=0.04)  # 머플러 팁
+        cyl(0.16, 0.92, (x, -0.56, 0.32), M["dark"], rot=UP, bev=0.02)
+        torus(0.25, 0.03, (x, -1.0, 0.32), M["blue"], rot=UP)
+    render("icon_dual_muffler")
+
+
+def icon_wheel():
+    reset(); M = mats()
+    torus(1.05, 0.24, (0, 0, 1.2), M["dark"], rot=UP)  # 타이어
+    cyl(0.84, 0.2, (0, 0.05, 1.2), M["dark"], rot=UP, bev=0.03)  # 휠 안쪽(어둡게)
+    arc(0.58, 0.14, 15, 85, (0, -0.02, 1.2), M["blue_s"], rot=UP)  # 파란 캘리퍼
+    torus(0.84, 0.07, (0, -0.12, 1.2), M["chrome"], rot=UP)  # 림 테두리
+    for i in range(5):  # 스포크
+        ang = math.radians(90 + i * 72)
+        box(0.17, 0.1, 0.72, (0.42 * math.cos(ang), -0.16, 1.2 + 0.42 * math.sin(ang)), M["chrome"], 0.04,
+            rot=(0, math.radians(90) - ang, 0))
+    cyl(0.2, 0.3, (0, -0.18, 1.2), M["chrome"], rot=UP)
+    cyl(0.09, 0.32, (0, -0.2, 1.2), M["blue"], rot=UP, bev=0.02)
+    render("icon_m_wheel")
+
+
+def icon_leather_seat():
+    reset(); M = mats()
+    box(1.5, 1.4, 0.45, (0, -0.1, 0.45), M["brown"], 0.22)  # 방석
+    box(1.5, 0.4, 1.9, (0, 0.55, 1.35), M["brown"], 0.22, rot=(math.radians(-12), 0, 0))  # 등받이
+    box(0.8, 0.32, 0.45, (0, 0.82, 2.55), M["brown"], 0.15, rot=(math.radians(-12), 0, 0))  # 머리받이
+    for x in (-0.35, 0.35):  # 스티치 줄
+        box(0.05, 0.05, 1.5, (x, 0.32, 1.4), M["clay"], 0.02, rot=(math.radians(-12), 0, 0))
+    box(1.1, 0.25, 0.35, (0, -0.1, 0.12), M["dark"], 0.08)
+    render("icon_brown_leather_seat")
+
+
+def icon_power_seat():
+    reset(); M = mats()
+    box(2.2, 1.2, 0.35, (0, 0, 0.18), M["clay"], 0.16)  # 문 쪽 스위치 판
+    box(0.9, 0.35, 0.18, (-0.25, -0.1, 0.42), M["dark"], 0.08)  # 방석 모양 스위치
+    box(0.25, 0.3, 0.75, (0.3, 0.05, 0.72), M["dark"], 0.08, rot=(0, math.radians(-15), 0))  # 등받이 스위치
+    for x, rz in ((-1.05, 90), (0.55, -90)):  # 앞뒤 화살표
+        bpy.ops.mesh.primitive_cone_add(radius1=0.18, depth=0.3, location=(x, -0.1, 0.42),
+                                        rotation=(0, math.radians(rz), 0))
+        bpy.context.object.data.materials.append(M["blue"])
+    render("icon_power_seat")
+
+
+def icon_rear_vent():
+    reset(); M = mats()
+    box(2.4, 0.6, 1.5, (0, 0, 0.75), M["clay"], 0.25)
+    for x in (-0.55, 0.55):
+        box(0.85, 0.15, 0.85, (x, -0.28, 0.95), M["dark"], 0.18)
+        for z in (0.75, 0.95, 1.15):
+            box(0.7, 0.08, 0.05, (x, -0.38, z), M["shade"], 0.02)
+        arc(0.35, 0.04, 200, 340, (x, -0.75, 0.95), M["blue"], rot=(0, 0, 0))
+    box(1.6, 0.1, 0.18, (0, -0.32, 0.3), M["blue_s"], 0.05)  # 온도 버튼 줄
+    render("icon_rear_vent")
+
+
+def icon_wood_trim():
+    reset(); M = mats()
+    box(3.0, 0.9, 1.0, (0, 0, 0.5), M["clay"], 0.3)  # 대시보드
+    box(2.8, 0.15, 0.4, (0, -0.42, 0.55), M["wood"], 0.12)  # 우드 띠
+    for z in (0.47, 0.6):
+        box(2.7, 0.03, 0.015, (0, -0.5, z), M["brown"], 0.005)  # 나뭇결
+    box(2.8, 0.1, 0.06, (0, -0.44, 0.8), M["chrome"], 0.02)
+    render("icon_wood_trim")
+
+
+def icon_idrive():
+    reset(); M = mats()
+    box(2.0, 2.0, 0.3, (0, 0, 0.15), M["clay"], 0.2)
+    cyl(0.62, 0.35, (0, 0, 0.45), M["chrome"], bev=0.06)
+    cyl(0.5, 0.25, (0, 0, 0.7), M["dark"], bev=0.08)
+    torus(0.64, 0.04, (0, 0, 0.32), M["blue"])
+    for a in (0, 90, 180, 270):  # 둘레 버튼
+        r = math.radians(a + 45)
+        box(0.3, 0.3, 0.12, (0.85 * math.cos(r), 0.85 * math.sin(r), 0.35), M["dark"], 0.06)
+    render("icon_idrive")
+
+
+def icon_nav():
+    reset(); M = mats()
+    box(2.6, 0.3, 1.7, (0, 0, 0.85), M["clay"], 0.2)
+    box(2.3, 0.1, 1.4, (0, -0.15, 0.85), M["dark"], 0.1)
+    arc(0.6, 0.04, 200, 340, (-0.2, -0.22, 0.75), M["blue"], rot=UP)  # 경로선
+    bpy.ops.mesh.primitive_cone_add(radius1=0.22, depth=0.5, location=(0.55, -0.5, 1.15),
+                                    rotation=(math.radians(180), 0, 0))
+    bpy.context.object.data.materials.append(M["blue_s"])
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=0.25, location=(0.55, -0.5, 1.45))
+    bpy.ops.object.shade_smooth()
+    bpy.context.object.data.materials.append(M["blue_s"])
+    cyl(0.1, 0.1, (0.55, -0.73, 1.47), M["clay"], rot=UP)
+    render("icon_navigation")
+
+
+def icon_rear_camera():
+    reset(); M = mats()
+    box(1.8, 1.2, 1.0, (0, 0, 0.6), M["clay"], 0.3)
+    cyl(0.42, 0.4, (0, -0.65, 0.62), M["dark"], rot=UP, bev=0.06)
+    cyl(0.26, 0.42, (0, -0.68, 0.62), M["blue"], rot=UP, bev=0.04)
+    cyl(0.1, 0.44, (0, -0.7, 0.62), M["dark"], rot=UP, bev=0.02)
+    box(0.25, 0.1, 0.12, (0.6, -0.62, 0.95), M["red"], 0.03)
+    render("icon_rear_camera")
 
 
 if __name__ == "__main__":
