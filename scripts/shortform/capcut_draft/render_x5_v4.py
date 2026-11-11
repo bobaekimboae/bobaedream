@@ -25,9 +25,18 @@ def text_w(t, size):  # 캡컷 글자 폭 어림(크기 8 ≈ 한글 36px, v2 �
     return sum(size * 4.5 * (1.0 if ord(c) > 0x3000 else 0.62) for c in t)
 
 items = []
+LBL_SIZE, LBL_MAXW = 54, 640  # 7차: 포인터 라벨 = 벨기에 원본 노랑 칠(sag_reel_v1.sticker) PNG, 투명 여백 잘라 원본 해상도 그대로
+def label_png(label, n):
+    sz = LBL_SIZE
+    while True:
+        im = s.sticker(label, sz, TILT, True); im = im.crop(im.getbbox())
+        if im.width <= LBL_MAXW or sz <= 36: break
+        sz -= 2
+    fn = f"lbl{n:02d}.png"; im.save(os.path.join(OUT, fn)); return fn, im.width, im.height
 def pointer(t0, t1, kf, label, sub="", force_fy=None):
     """kf = [[t, 점x, 점y]] (콜아웃 시작 기준). 라벨 폭에 맞춰 선 길이, 화면 밖으로 나가면 좌우 뒤집기, 위쪽이 좁으면 아래로"""
-    lw = max(text_w(label, 10), text_w(sub, 7)) + 50
+    lfile, lwid, lh = label_png(label, len([i for i in items if i["kind"] == "ptr"]))
+    lw = max(lwid - 30, text_w(sub, 7.5) + 40)
     k = max(0.45, min(0.9, lw / (1.5 * 337)))
     xs = [p[1] for p in kf]; ys = [p[2] for p in kf]
     mx = sum(xs) / len(xs)
@@ -43,14 +52,14 @@ def pointer(t0, t1, kf, label, sub="", force_fy=None):
         cx, cy = x - 1.5 * k * DOT[0] * fx, y - 1.5 * k * DOT[1] * fy
         ly = cy + 1.5 * k * END_[1] * fy
         lx = cx + 1.5 * k * (CORNER[0] + END_[0]) / 2 * fx
-        lx = max(lw / 2 + 40, min(1040 - lw / 2, lx))  # 노랑 칩 여백·기울기만큼 화면 안쪽으로
-        if fy == 1:
-            lab_y, sub_y = ly - 58, (ly + 36 if sub else None)  # 6차: 노랑 칠 칩은 선 위, 보조 글은 선 아래(겹침 없음)
+        lx = max(lwid / 2 + 8, min(1072 - lwid / 2, lx))  # 노랑 칠 PNG가 화면 안에 들어오게
+        if fy == 1:  # 노랑 칠은 선 끝 위에 살짝 걸치게(선과 붙어 보임), 보조 글은 선 아래
+            lab_y, sub_y = ly - (lh / 2 - 10), (ly + 36 if sub else None)
         else:
-            lab_y, sub_y = ly + 58, (ly - 36 if sub else None)
+            lab_y, sub_y = ly + (lh / 2 - 10), (ly - 36 if sub else None)
         out.append([t, round(cx, 1), round(cy, 1), round(lx, 1), round(lab_y, 1), None if sub_y is None else round(sub_y, 1),
                     round(min(x, cx + 1.5 * k * END_[0] * fx), 1), round(max(x, cx + 1.5 * k * END_[0] * fx), 1)])
-    items.append({"kind": "ptr", "t0": t0, "t1": t1, "k": round(k, 3), "fx": fx, "fy": fy, "label": label, "sub": sub, "lw": lw, "kf": out})
+    items.append({"kind": "ptr", "t0": t0, "t1": t1, "k": round(k, 3), "fx": fx, "fy": fy, "label": label, "sub": sub, "lw": lw, "file": lfile, "w": lwid, "h": lh, "kf": out})
 
 CALL = [(9.8, 11.4, "LED 테일램프", ""), (11.6, 13.2, "M 스포츠 패키지", "전후 범퍼 · 디퓨저"),
         (14.0, 15.8, "전동 트렁크", ""), (20.4, 21.8, "분할 테일게이트", "상·하 2단 오픈"),
@@ -170,7 +179,7 @@ def rects_at(t):
         if it["kind"] == "ptr":
             kf = it["kf"]; rt = t - it["t0"]; q = min(kf, key=lambda p: abs(p[0] - rt))
             lx, lab_y, sub_y, x0, x1 = q[3], q[4], q[5], q[6], q[7]
-            ys = [lab_y - 42, lab_y + 42] + ([sub_y - 26, sub_y + 26] if sub_y else [])
+            ys = [lab_y - it["h"] / 2, lab_y + it["h"] / 2] + ([sub_y - 26, sub_y + 26] if sub_y else [])
             dot_y = q[2] - 1.5 * it["k"] * DOT[1] * -it["fy"]
             out.append((min(x0, lx - it["lw"] / 2), min(ys + [dot_y]), max(x1, lx + it["lw"] / 2), max(ys + [dot_y])))
         elif it["kind"] == "chip":
