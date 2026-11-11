@@ -40,9 +40,9 @@ NAVY = (21, 35, 63)
 
 def sprite(text, sub, length, up, path):
     """라벨(흰 둥근사각 + 남색 안쪽 링) + 점선 + 맥동 점. up=True면 라벨이 위, 점이 아래."""
-    f1, f2 = F("Bold", 34), F("SemiBold", 22)
+    f1, f2 = F("Bold", 46), F("SemiBold", 30)  # 1차 대조: 레퍼런스 라벨이 1.35배 컸음
     tw = max(f1.getlength(text), f2.getlength(sub) if sub else 0)
-    lw, lh = int(tw + 56), (96 if sub else 64)
+    lw, lh = int(tw + 72), (128 if sub else 86)
     w, h = max(lw, 60) + 40, lh + length + 40
     im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     cx = w // 2
@@ -60,8 +60,8 @@ def sprite(text, sub, length, up, path):
     im = Image.alpha_composite(im, sh.filter(ImageFilter.GaussianBlur(6))); d = ImageDraw.Draw(im)
     d.rounded_rectangle([cx - lw // 2, ly, cx + lw // 2, ly + lh], 14, fill=(255, 255, 255, 255))
     d.rounded_rectangle([cx - lw // 2 + 5, ly + 5, cx + lw // 2 - 5, ly + lh - 5], 10, outline=NAVY, width=3)
-    d.text((cx, ly + (30 if sub else lh / 2)), text, font=f1, fill=NAVY, anchor="mm")
-    if sub: d.text((cx, ly + 68), sub, font=f2, fill=(90, 98, 112), anchor="mm")
+    d.text((cx, ly + (42 if sub else lh / 2)), text, font=f1, fill=NAVY, anchor="mm")
+    if sub: d.text((cx, ly + 92), sub, font=f2, fill=(90, 98, 112), anchor="mm")
     im.save(path)
     return w, h, (ly + lh / 2) - h / 2  # 라벨 중심이 스프라이트 중심에서 얼마나 떨어졌나
 
@@ -108,7 +108,7 @@ for a, b in ((0.3, 6.2), (16.0, 19.0), (61.0, 63.6)):
 # 캡컷 글자(제목·스탯·카운트업)
 T = lambda t0, t1, s, y, size, **k: items.append(dict(kind="text", t0=t0, t1=t1, text=s, y=y, size=size, **k))
 for a, b in ((0.3, 3.4), (61.0, 63.6)):
-    T(a + 0.6, b, "B M W", 300, 7, spacing=6)
+    T(a + 0.6, b, "B M W", 300, 10, spacing=6)
     T(a, b, "X5", 400, 40, bold=True)
     T(a + 0.6, b, "xDrive 30d M Sport", 520, 11, bold=True)
     T(a + 0.9, b, "2021년식", 600, 8, pill=True)
