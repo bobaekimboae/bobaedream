@@ -22,7 +22,9 @@ def text_w(t, size):  # 캡컷 글자 폭 어림(크기 8 ≈ 한글 36px, v2 �
     return sum(size * 4.5 * (1.0 if ord(c) > 0x3000 else 0.62) for c in t)
 
 items = []
-LBL_SIZE, LBL_MAXW, LBL_TILT = 64, 660, -1.5  # 8차: AS24.be 릴스 칩처럼 — 원본 AS24 붓 칠, 거의 수평, 위아래 넉넉, 중간 굵기 글자
+V2 = SP.get("style") == "as24v2"  # 2026-11-12: 오토스카우트 글자 크기 · 선과 칠을 한 장으로 그린 포인터 · 뜻 묶음 자막(Pretendard PNG)
+if V2: ST["cap_size_be"] = SP.get("cap_size", 72)  # 벨기에 말 자막 글자 높이 3~3.5%(as24-caption-rules-v2) → Pretendard 72 = 한글 높이 약 62px(3.2%)
+LBL_SIZE, LBL_MAXW, LBL_TILT = (84 if V2 else 64), (760 if V2 else 660), -1.5  # 8차: AS24.be 릴스 칩처럼 — 원본 AS24 붓 칠, 거의 수평, 위아래 넉넉, 중간 굵기 글자
 LBL_STYLE = dict(stk_shape="as24", stk_weight="semi", pad=(0.6, 2.7), stk_minw=0, chip_theme=False)
 def label_png(label, n):
     sz = LBL_SIZE
@@ -36,7 +38,42 @@ def label_png(label, n):
     finally:
         ST.update(keep); getattr(s, "_cache", {}).clear()
     fn = f"lbl{n:02d}.png"; im.save(os.path.join(OUT, fn)); return fn, im.width, im.height
+def pointer_baked(t0, t1, kf, label, force_fy=None):
+    """점 → 사선 → 칠을 한 장의 PNG로 그린다(선 끝이 칠 안으로 들어가 있어 떨어져 보이지 않음). 위치 키프레임은 이 한 장에만 건다."""
+    from PIL import ImageDraw
+    n = len([i for i in items if i["kind"] == "ptr"])
+    _, w, h = label_png(label, n); lab = Image.open(os.path.join(OUT, f"lbl{n:02d}.png")).convert("RGBA"); os.remove(os.path.join(OUT, f"lbl{n:02d}.png"))
+    xs = [p[1] for p in kf]; ys = [p[2] for p in kf]; DX, DY, IN = 64, 96, 46
+    fy = force_fy or (1 if min(ys) - DY - h > 150 else -1)  # 칠을 점 위에(위가 좁으면 아래에)
+    def fit(fx):  # 칠 아랫변에서 선이 붙는 자리 a(왼쪽 끝에서 px). 모든 프레임에서 칠이 화면 안(12~1068)에 들어오게 고른다
+        lo, hi = max(xs) + fx * DX + w - 1068, min(xs) + fx * DX - 12
+        pref = IN if fx == 1 else w - IN
+        a = max(IN, min(w - IN, max(lo, min(hi, pref))))
+        bad = sum((x + fx * DX - a < 12) or (x + fx * DX - a + w > 1068) for x in xs) / len(xs)
+        return bad, abs(a - pref), a
+    mx = sum(xs) / len(xs)
+    fx = min((1, -1), key=lambda f: (fit(f)[0], fit(f)[1], (f == 1) == (mx > 540)))
+    a = fit(fx)[2]
+    S2 = 2; C = Image.new("RGBA", (2400 * S2, 1000 * S2), (0, 0, 0, 0)); d = ImageDraw.Draw(C)
+    dot = (1200, 500); tip = (dot[0] + fx * DX, dot[1] - fy * DY)            # 선 끝 = 칠 아랫변(또는 윗변)
+    end = (tip[0], tip[1] - fy * h * 0.42)                                    # 칠 가운데 가까이까지 들어가 숨는다(칠 가장자리가 거칠어도 틈이 없음)
+    P = lambda q: (q[0] * S2, q[1] * S2)
+    d.line([P(dot), P(end)], fill=(0, 0, 0, 110), width=10 * S2); d.line([P(dot), P(end)], fill=(255, 255, 255, 255), width=5 * S2)
+    r0, r1 = 13, 8
+    d.ellipse([P((dot[0] - r0 - 2, dot[1] - r0 - 2)), P((dot[0] + r0 + 2, dot[1] + r0 + 2))], fill=(0, 0, 0, 110))
+    d.ellipse([P((dot[0] - r0, dot[1] - r0)), P((dot[0] + r0, dot[1] + r0))], fill=(255, 255, 255, 255))
+    d.ellipse([P((dot[0] - r1, dot[1] - r1)), P((dot[0] + r1, dot[1] + r1))], fill=(247, 236, 56, 255))
+    C = C.resize((2400, 1000), Image.LANCZOS)
+    lx0 = int(round(tip[0] - a)); ly0 = int(round(tip[1] - h if fy == 1 else tip[1]))
+    C.alpha_composite(lab, (lx0, ly0))
+    bb = C.getbbox(); im = C.crop(bb); fn = f"ptr{n:02d}.png"; im.save(os.path.join(OUT, fn))
+    ox, oy = (bb[0] + bb[2]) / 2 - dot[0], (bb[1] + bb[3]) / 2 - dot[1]     # 그림 가운데 − 점
+    out = [[t, round(x + ox, 1), round(y + oy, 1)] for t, x, y in kf]
+    items.append({"kind": "ptr", "baked": True, "t0": t0, "t1": t1, "fx": fx, "fy": fy, "label": label, "file": fn, "w": im.width, "h": im.height,
+                  "dot": [round(-ox, 1), round(-oy, 1)], "kf": out})
+
 def pointer(t0, t1, kf, label, sub="", force_fy=None):
+    if V2: return pointer_baked(t0, t1, kf, label, force_fy)
     """kf = [[t, 점x, 점y]] (콜아웃 시작 기준). 라벨 폭에 맞춰 선 길이, 화면 밖으로 나가면 좌우 뒤집기, 위쪽이 좁으면 아래로"""
     lfile, lwid, lh = label_png(label, len([i for i in items if i["kind"] == "ptr"]))
     lw = max(lwid - 30, text_w(sub, 7.5) + 40)
@@ -79,7 +116,7 @@ def chip(txt, t0, t1, cy, fn, size, tilt=0.0):
     items.append({"kind": "chip", "file": place(im, 540, cy, fn), "t0": t0, "t1": t1, "text": txt, "big": size == BIG, "cy": cy,
                   "tilt": TILT + tilt, "w": im.width, "h": im.height})
     return im.size
-BIG, SMALL = 104, 56
+BIG, SMALL = (118, 68) if V2 else (104, 56)  # 오토스카우트 제목 글자 높이 5~10% · 작은 줄 약 3%
 for n, c in enumerate(SP["chips"]):
     chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", BIG if c.get("big") else SMALL, c.get("tilt", 0.0))
 
@@ -111,7 +148,10 @@ def rects_at(t):
     out = []
     for it in items:
         if not (it["t0"] <= t <= it["t1"]): continue
-        if it["kind"] == "ptr":
+        if it["kind"] == "ptr" and it.get("baked"):
+            q = min(it["kf"], key=lambda p: abs(p[0] - (t - it["t0"])))
+            out.append((q[1] - it["w"] / 2, q[2] - it["h"] / 2, q[1] + it["w"] / 2, q[2] + it["h"] / 2))
+        elif it["kind"] == "ptr":
             kf = it["kf"]; rt = t - it["t0"]; q = min(kf, key=lambda p: abs(p[0] - rt))
             lx, lab_y, sub_y, x0, x1 = q[3], q[4], q[5], q[6], q[7]
             ys = [lab_y - it["h"] / 2, lab_y + it["h"] / 2] + ([sub_y - 26, sub_y + 26] if sub_y else [])
@@ -136,6 +176,18 @@ moved = 0
 # 4) 말 자막(벨기에판): 표시 자막을 말 구간에 글자 비례로 나눠 4어절/13자 묶음, 말하는 어절만 노랑
 n_sub = 0
 for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
+    brk = set()                       # " / " 로 나눈 뜻 묶음의 시작 어절 번호
+    if "/" in disp:
+        n_ = 0
+        for part in disp.split("/"):
+            brk.add(n_); n_ += len(part.replace("|", " ").split())
+        disp = " ".join(disp.replace("/", " ").split())
+    lbrk = set()                      # " | " = 한 묶음 안에서 줄을 나눌 자리(그 뒤 어절 번호)
+    if "|" in disp:
+        n_ = 0
+        for part in disp.split("|")[:-1]:
+            n_ += len(part.split()); lbrk.add(n_)
+        disp = " ".join(disp.replace("|", " ").split())
     words = disp.split(); tot = sum(len(w) for w in words); acc, wt = 0, []
     sp1 = st1 - 0.1
     wsrc = S[k].get("w")  # 받아쓰기에서 얻은 어절별 시작 시각(음성 파일 기준 초). 있으면 글자 비례 대신 이 값을 쓴다
@@ -144,14 +196,18 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
         else: wt.append([st0 + (sp1 - st0) * acc / tot, w])
         acc += len(w)
     groups, cur = [], []
-    for w in wt:
+    for wi_, w in enumerate(wt):
+        if brk:
+            if cur and wi_ in brk: groups.append(cur); cur = []
+            cur.append(w); continue
         if cur and (len(cur) >= ST.get("cap_chunk_words", 4) or len("".join(x[1] for x in cur)) + len(w[1]) > ST.get("cap_chunk_chars", 13)):
             groups.append(cur); cur = []
         cur.append(w)
     if cur: groups.append(cur)
     nxt = clips[k + 1][2] if k + 1 < len(clips) else END
     for gi, g in enumerate(groups):
-        txt = " ".join(x[1] for x in g)
+        g0 = sum(len(q) for q in groups[:gi])
+        txt = "".join(("" if j == 0 else ("|" if g0 + j in lbrk else " ")) + x[1] for j, x in enumerate(g))
         gs = g[0][0]; ge = groups[gi + 1][0][0] if gi + 1 < len(groups) else min(nxt, st1 + 0.25)
         cy = pick_y(gs, ge, s.phrase_img_be3(txt, -1).width)
         moved += cy != CAP_Y
@@ -161,6 +217,6 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
             if t1 - wt0 < 0.05: continue
             fn = place(s.phrase_img_be3(txt, i), 540, cy, f"sub{n_sub:03d}.png"); n_sub += 1
             items.append({"kind": "sub", "file": fn, "t0": round(wt0, 2), "t1": round(t1, 2), "text": txt, "hi": i, "cy": cy})
-json.dump({"items": items, "voice": "voice.wav", "end": END, "clips": clips, "fx": SP.get("flash", []), "car": SP.get("car", "")}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
+json.dump({"items": items, "voice": "voice.wav", "end": END, "clips": clips, "fx": SP.get("flash", []), "car": SP.get("car", ""), "sub_png": V2}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
 print("items", len(items), "subs", n_sub, "moved groups", moved, "voice end", clips[-1][3])
 for c in clips: print(c[2], "→", c[3], "x", c[5], c[4])

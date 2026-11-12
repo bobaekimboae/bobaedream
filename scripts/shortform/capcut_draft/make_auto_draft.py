@@ -64,6 +64,12 @@ def fade(seg, d):  # 투명도 0 → 1(0.2초) … 1 → 0(마지막 0.2초)
 
 def pointer(it):
     a, b = it["t0"], it["t1"]; d = b - a; kf = [q for q in it["kf"] if 0 <= q[0] <= d]
+    if it.get("baked"):  # 점·선·칠이 한 장인 PNG: 위치 키프레임을 한 번만 건다(선과 칠이 따로 놀지 않음)
+        sc = 1 / min(1080 / it["w"], 1920 / it["h"]); q0 = kf[0]
+        seg = cc.VideoSegment(os.path.join(A, it["file"]), tr(a, b), clip_settings=cc.ClipSettings(scale_x=sc, scale_y=sc, transform_x=X(q0[1]), transform_y=Y(q0[2])))
+        for q in kf:
+            seg.add_keyframe(KP.position_x, us(q[0]), X(q[1])); seg.add_keyframe(KP.position_y, us(q[0]), Y(q[2]))
+        fade(seg, d); put(seg, "labimg", a, b, cc.TrackType.video); return
     k = it["k"]; q0 = kf[0]
     st = cc.StickerSegment(it.get("resource_id", "7600764310603730184"), tr(a, b), clip_settings=cc.ClipSettings(
         scale_x=k, scale_y=k, transform_x=X(q0[1]), transform_y=Y(q0[2]),
@@ -102,6 +108,8 @@ for it in sorted(m["items"], key=lambda i: (order[i["kind"]], i["t0"])):
     if kind == "chip":  # 벨기에판 원본 칠 칩(PNG, 원본 해상도)
         seg = cc.VideoSegment(os.path.join(A, it["file"]), tr(a, b)); seg.add_animation(IntroType.放大, us(0.2))
         put(seg, "chip", a, b, cc.TrackType.video); continue
+    if kind == "sub" and m.get("sub_png"):  # 말 자막 = Pretendard로 그린 PNG(화면 크기 그대로)
+        put(cc.VideoSegment(os.path.join(A, it["file"]), tr(a, b)), "subimg", a, b, cc.TrackType.video); continue
     if kind == "sub":  # 말 자막 → 캡컷 글자, 말하는 어절만 노랑
         words = it["text"].split(); st0 = sum(len(w) + 1 for w in words[:it["hi"]]); hi = (st0, st0 + len(words[it["hi"]]))
         seg = HiText(it["text"], tr(a, b), style=cc.TextStyle(size=12, bold=True, color=(1, 1, 1), align=1),

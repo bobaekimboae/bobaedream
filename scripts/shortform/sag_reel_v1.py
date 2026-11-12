@@ -1332,18 +1332,21 @@ def phrase_img_be2(text):
 def phrase_img_be3(text, act=-1):
     """벨기에판(2026-11-09): 그림자 흰 글자(외곽선 없음) · 말하는 어절만 노랑 #EEEF05 · 높이 67% 고정 · 바로 등장(벨기에 34/39편 방식)"""
     col_k = tuple(STYLE.get('cap_kw_col', (238, 239, 5)))
-    k = ('be3', text, act, col_k)
+    csz = STYLE.get('cap_size_be', 60)  # 2026-11-12 오토스카우트 벨기에 자막 글자 높이(3~3.5%)에 맞출 때 72
+    k = ('be3', text, act, col_k, csz)
     if k in _cache:
         return _cache[k]
     from PIL import ImageFilter
-    fnt = ImageFont.truetype(BLACK, 60)
+    fnt = ImageFont.truetype(BLACK, csz)
     text = text.strip(' ,.')
     lines = [text]
-    if fnt.getlength(text) > SAFE_W - 60 and ' ' in text:
+    if '|' in text:  # 대본에서 줄 나눌 자리를 직접 정한 경우(뜻이 끊기지 않게)
+        lines = [l.strip() for l in text.split('|')]
+    elif fnt.getlength(text) > SAFE_W - 60 and ' ' in text:
         sp = [i for i, c in enumerate(text) if c == ' ']
         cut = min(sp, key=lambda i: abs(i - len(text) / 2))
         lines = [text[:cut], text[cut + 1:]]
-    lh, gap = 80, fnt.getlength(' ')
+    lh, gap = int(round(80 * csz / 60)), fnt.getlength(' ')
     tw = max(fnt.getlength(l) for l in lines)
     im = Image.new('RGBA', (int(tw + 80), lh * len(lines) + 40), (0, 0, 0, 0))
     sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
