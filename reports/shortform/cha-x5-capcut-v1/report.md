@@ -136,3 +136,19 @@
 - 결과: ![6차](v6_sheet.jpg) · 잘림 보정 뒤 확인: ![6차 보정](v6b_check.jpg)
 - 캡컷 메모: 프로젝트가 열려 있던 상태에서 같은 이름으로 다시 쓰면 캡컷에서 열리지 않았다. 그래서 새 이름 `CHA_X5_capcut_v6b`로 만들었다.
 - 6차 mp4: https://drive.google.com/file/d/1H6a6G4mbaeq5ggnj9AWWKqKoNVGtvZ22/view
+
+## 8차 (2026-11-12) — 포인터 칠 칩을 AS24.be 릴스처럼
+
+- 기준: 사용자가 보낸 AutoScout24.be 릴스 칩("2.9-liter v6 biturbo") — 거의 수평, 위아래 여백 넉넉, 중간 굵기 글자, 오른쪽 끝 거친 붓 자국
+- 바꾼 것(`render_x5_v4.py` `label_png`): 원본 AS24 붓 칠 모양(`stk_shape=as24`), 중간 굵기(`semi`), 높이 여백 2.7배(`pad 0.6/2.7`), 기울기 −5.7° → −1.5°, 크기 54 → 64(라벨 높이 약 107 → 140px, 폭 최대 660)
+- 타이틀 칩(BMW X5 등)·자막·트래킹(3차)·이단 음성은 7차 그대로
+- 캡컷 빌드: `make_x5_v7_draft.py` + 커밋 c2ebb5388 에셋 → 프로젝트 `CHA_X5_capcut_v8`, 내보내기 1080p 25fps 약 74MB
+- 드라이브: https://drive.google.com/file/d/1jYfyFpmVKqi-WbLNvEeNSLpOJ8dBha5T/view
+- 확인: v8_sheet.jpg(16장면), v8_chip_prev.jpg
+
+| 단계 | 시간 |
+|---|---|
+| 칩 비교·값 정하기 | 약 4분 |
+| 에셋 다시 만들기 | 약 1분 |
+| 드래프트 생성(노트북) | 2.6초 |
+| 캡컷 열기·내보내기 | 약 1분 30초 |
