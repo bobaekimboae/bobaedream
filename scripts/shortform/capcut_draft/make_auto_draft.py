@@ -111,7 +111,7 @@ for it in sorted(m["items"], key=lambda i: (order[i["kind"]], i["t0"])):
     if kind == "sub" and m.get("sub_png"):  # 말 자막 = Pretendard로 그린 PNG(화면 크기 그대로)
         put(cc.VideoSegment(os.path.join(A, it["file"]), tr(a, b)), "subimg", a, b, cc.TrackType.video); continue
     if kind == "sub":  # 말 자막 → 캡컷 글자, 말하는 어절만 노랑
-        words = it["text"].split(); st0 = sum(len(w) + 1 for w in words[:it["hi"]]); hi = (st0, st0 + len(words[it["hi"]]))
+        words = it["text"].replace("|", " ").split(); st0 = sum(len(w) + 1 for w in words[:it["hi"]]); hi = (st0, st0 + len(words[it["hi"]]))
         seg = HiText(it["text"], tr(a, b), style=cc.TextStyle(size=12, bold=True, color=(1, 1, 1), align=1),
                      border=cc.TextBorder(color=(0, 0, 0), width=35.0, alpha=1.0),
                      shadow=cc.TextShadow(alpha=0.5, diffuse=20.0, distance=4.0),
