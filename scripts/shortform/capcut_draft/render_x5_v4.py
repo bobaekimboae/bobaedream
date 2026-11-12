@@ -25,13 +25,19 @@ def text_w(t, size):  # 캡컷 글자 폭 어림(크기 8 ≈ 한글 36px, v2 �
     return sum(size * 4.5 * (1.0 if ord(c) > 0x3000 else 0.62) for c in t)
 
 items = []
-LBL_SIZE, LBL_MAXW = 54, 640  # 7차: 포인터 라벨 = 벨기에 원본 노랑 칠(sag_reel_v1.sticker) PNG, 투명 여백 잘라 원본 해상도 그대로
+LBL_SIZE, LBL_MAXW, LBL_TILT = 64, 660, -1.5  # 8차: AS24.be 릴스 칩처럼 — 원본 AS24 붓 칠, 거의 수평, 위아래 넉넉, 중간 굵기 글자
+LBL_STYLE = dict(stk_shape="as24", stk_weight="semi", pad=(0.6, 2.7), stk_minw=0, chip_theme=False)
 def label_png(label, n):
     sz = LBL_SIZE
-    while True:
-        im = s.sticker(label, sz, TILT, True); im = im.crop(im.getbbox())
-        if im.width <= LBL_MAXW or sz <= 36: break
-        sz -= 2
+    keep = {k: ST.get(k) for k in LBL_STYLE}; ST.update(LBL_STYLE)
+    try:
+        while True:
+            getattr(s, "_cache", {}).clear()
+            im = s.sticker(label, sz, LBL_TILT, False); im = im.crop(im.getbbox())
+            if im.width <= LBL_MAXW or sz <= 40: break
+            sz -= 2
+    finally:
+        ST.update(keep); getattr(s, "_cache", {}).clear()
     fn = f"lbl{n:02d}.png"; im.save(os.path.join(OUT, fn)); return fn, im.width, im.height
 def pointer(t0, t1, kf, label, sub="", force_fy=None):
     """kf = [[t, 점x, 점y]] (콜아웃 시작 기준). 라벨 폭에 맞춰 선 길이, 화면 밖으로 나가면 좌우 뒤집기, 위쪽이 좁으면 아래로"""
