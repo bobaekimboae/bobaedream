@@ -25,6 +25,10 @@ items = []
 V2 = SP.get("style") == "as24v2"  # 2026-11-12: 오토스카우트 글자 크기 · 선과 칠을 한 장으로 그린 포인터 · 뜻 묶음 자막(Pretendard PNG)
 if V2: ST["cap_size_be"] = SP.get("cap_size", 72)  # 벨기에 말 자막 글자 높이 3~3.5%(as24-caption-rules-v2) → Pretendard 72 = 한글 높이 약 62px(3.2%)
 LBL_SIZE, LBL_MAXW, LBL_TILT = (84 if V2 else 64), (760 if V2 else 660), -1.5  # 8차: AS24.be 릴스 칩처럼 — 원본 AS24 붓 칠, 거의 수평, 위아래 넉넉, 중간 굵기 글자
+TIDY = bool(SP.get("tidy"))  # 2026-11-12 정돈판: 칩·이름표 기울기 0, 크기 두 단계, 자막 한 자리 고정, 자막·이름표 크기 균형
+if TIDY:
+    TILT = 0.0; ST["tilt_fixed"] = 0.0; LBL_TILT = 0.0; LBL_SIZE = SP.get("lbl_size", 72)
+    ST["cap_size_be"] = SP.get("cap_size", 64)
 LBL_STYLE = dict(stk_shape="as24", stk_weight="semi", pad=(0.6, 2.7), stk_minw=0, chip_theme=False)
 def label_png(label, n):
     sz = LBL_SIZE
@@ -116,9 +120,10 @@ def chip(txt, t0, t1, cy, fn, size, tilt=0.0):
     items.append({"kind": "chip", "file": place(im, 540, cy, fn), "t0": t0, "t1": t1, "text": txt, "big": size == BIG, "cy": cy,
                   "tilt": TILT + tilt, "w": im.width, "h": im.height})
     return im.size
-BIG, SMALL = (118, 68) if V2 else (104, 56)  # 오토스카우트 제목 글자 높이 5~10% · 작은 줄 약 3%
+BIG, SMALL = (118, 68) if V2 else (104, 56)
+if TIDY: BIG, SMALL = SP.get("chip_big", 96), SP.get("chip_small", 64)  # 오토스카우트 제목 글자 높이 5~10% · 작은 줄 약 3%
 for n, c in enumerate(SP["chips"]):
-    chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", BIG if c.get("big") else SMALL, c.get("tilt", 0.0))
+    chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", BIG if c.get("big") else SMALL, 0.0 if TIDY else c.get("tilt", 0.0))
 
 # 3) 음성: 문장 조각(a~b초)을 장면 시작에, 다음 장면 전에 끝나게 1.0~1.22배
 clips, prev_end = [], 0.0
@@ -161,7 +166,7 @@ def rects_at(t):
             bb = Image.open(os.path.join(OUT, it["file"])).getbbox()
             if bb: out.append(bb)
     return out
-CAND_Y = [CAP_Y, 1180, 1420, 1560, 1700]
+CAND_Y = [CAP_Y] if TIDY else [CAP_Y, 1180, 1420, 1560, 1700]
 def pick_y(t0, t1, w):  # 겹치는 시간이 가장 적은 높이(같으면 기본 높이 우선). 카메라가 크게 움직이면 0이 안 될 수 있다
     best = None
     for cy in CAND_Y:
