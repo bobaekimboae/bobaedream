@@ -96,11 +96,14 @@ for n, c in enumerate(S):
     prev_end = start + dur
 for n, c in enumerate(clips):
     if c[3] > (clips[n + 1][2] if n + 1 < len(clips) else END) + 0.05: print("늦음", c)
+# 문장별로 다른 음성 파일을 쓸 수 있다(sentences[n].file — 대사를 고쳐 그 문장만 같은 목소리로 다시 만든 경우)
+files = [VOICE] + sorted({c["file"] for c in S if c.get("file")})
+src = [files.index(c.get("file", VOICE)) for c in S]
 parts, flt = [], []
 for n, (a, b, st0, _, _, tp) in enumerate(clips):
-    flt.append(f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS,atempo={tp},adelay={int(st0 * 1000)}|{int(st0 * 1000)}[s{n}]"); parts.append(f"[s{n}]")
+    flt.append(f"[{src[n]}:a]atrim={a}:{b},asetpts=PTS-STARTPTS,atempo={tp},adelay={int(st0 * 1000)}|{int(st0 * 1000)}[s{n}]"); parts.append(f"[s{n}]")
 flt.append("".join(parts) + f"amix=inputs={len(parts)}:normalize=0,apad,atrim=0:{END},loudnorm=I=-16:TP=-1.5:LRA=11[out]")
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", VOICE, "-filter_complex", ";".join(flt), "-map", "[out]", "-ar", "48000", "-ac", "2",
+subprocess.run(["ffmpeg", "-y", "-v", "error"] + sum([["-i", f] for f in files], []) + ["-filter_complex", ";".join(flt), "-map", "[out]", "-ar", "48000", "-ac", "2",
                 os.path.join(OUT, "voice.wav")], check=True)
 
 # 자막이 콜아웃·스티커와 겹치지 않게: 그 시간 동안 비어 있는 높이를 고른다

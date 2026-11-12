@@ -14,7 +14,7 @@ for k, c in enumerate(SP["callouts"]):
     a, b = c["t0"], c["t1"]; i0 = int(round(a * FPS)); n = int(round(b * FPS)) - i0 + 1
     F_ = seg(SRC, i0, n); n = len(F_)
     G = [cv2.cvtColor(f, cv2.COLOR_RGB2GRAY) for f in F_]
-    at, ax, ay = c["anchor"]; a0 = min(n - 1, max(0, int(round(at * FPS)) - i0))
+    at, ax, ay = c["anchor"]; a0 = min(n - 1, max(0, int(round(at * FPS))))  # anchor[0]은 콜아웃 시작 기준 초
     F = flow_chain(G, a0, (ax, ay))
     idx = sorted(F); P = np.array([F[i] for i in idx])
     if len(P) > 2:
