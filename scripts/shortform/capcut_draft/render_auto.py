@@ -138,8 +138,11 @@ n_sub = 0
 for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
     words = disp.split(); tot = sum(len(w) for w in words); acc, wt = 0, []
     sp1 = st1 - 0.1
-    for w in words:
-        wt.append([st0 + (sp1 - st0) * acc / tot, w]); acc += len(w)
+    wsrc = S[k].get("w")  # 받아쓰기에서 얻은 어절별 시작 시각(음성 파일 기준 초). 있으면 글자 비례 대신 이 값을 쓴다
+    for i, w in enumerate(words):
+        if wsrc and len(wsrc) == len(words): wt.append([st0 + max(0.0, wsrc[i] - a) / _tp, w])
+        else: wt.append([st0 + (sp1 - st0) * acc / tot, w])
+        acc += len(w)
     groups, cur = [], []
     for w in wt:
         if cur and (len(cur) >= ST.get("cap_chunk_words", 4) or len("".join(x[1] for x in cur)) + len(w[1]) > ST.get("cap_chunk_chars", 13)):
