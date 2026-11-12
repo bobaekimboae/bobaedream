@@ -29,6 +29,10 @@ TIDY = bool(SP.get("tidy"))  # 2026-11-12 정돈판: 칩·이름표 기울기 0,
 if TIDY:
     TILT = 0.0; ST["tilt_fixed"] = 0.0; LBL_TILT = 0.0; LBL_SIZE = SP.get("lbl_size", 72)
     ST["cap_size_be"] = SP.get("cap_size", 64)
+BE_CLEAN = bool(SP.get("be_clean"))  # 2026-11-12 벨기에 정리판: 포인터 없음, 모든 칩 같은 기울기의 노랑 칠, 글꼴은 원본처럼 중간 굵기(Pretendard SemiBold)
+if BE_CLEAN:
+    s.BLACK = s.SEMI; s.BOLD = s.SEMI
+    TILT = SP.get("be_tilt", 2.7); ST["tilt_fixed"] = TILT
 LBL_STYLE = dict(stk_shape="as24", stk_weight="semi", pad=(0.6, 2.7), stk_minw=0, chip_theme=False)
 def label_png(label, n):
     sz = LBL_SIZE
@@ -123,7 +127,7 @@ def chip(txt, t0, t1, cy, fn, size, tilt=0.0):
 BIG, SMALL = (118, 68) if V2 else (104, 56)
 if TIDY: BIG, SMALL = SP.get("chip_big", 96), SP.get("chip_small", 64)  # 오토스카우트 제목 글자 높이 5~10% · 작은 줄 약 3%
 for n, c in enumerate(SP["chips"]):
-    chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", BIG if c.get("big") else SMALL, 0.0 if TIDY else c.get("tilt", 0.0))
+    chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", c.get("size") or (BIG if c.get("big") else SMALL), 0.0 if TIDY else c.get("tilt", 0.0))
 
 # 3) 음성: 문장 조각(a~b초)을 장면 시작에, 다음 장면 전에 끝나게 1.0~1.22배
 clips, prev_end = [], 0.0
