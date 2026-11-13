@@ -1,0 +1,489 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Sci6-idq6W0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4828,
+  "candidatesTokenCount": 5016,
+  "totalTokenCount": 11078,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4086
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1234,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.5,
+   "aspect": "9:16",
+   "car": "Audi A3 Cabriolet Quattro",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 10.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 22.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 27.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 37.2,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.2,
+    "end": 39.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.2,
+    "end": 44.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "HUH?! 🤯",
+    "ko": "어?! 🤯",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HUH?!",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "QUATTRO OP EEN CABRIO",
+    "ko": "컨버터블에 콰트로라니",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "QUATTRO",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "DAT VERWACHT BIJNA NIEMAND",
+    "ko": "그건 아무도 예상 못 했죠",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "DAT VERWACHT",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.5,
+    "text": "JE VINDT ZO'N 10.000 CABRIO'S OP",
+    "ko": "약 1만 대의 오픈카를 찾을 수 있어요",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "10.000 CABRIO'S",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.5,
+    "text": "WWW.AUTOSCOUT24.NL",
+    "ko": "WWW.AUTOSCOUT24.NL 에서",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTOSCOUT24",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.9,
+    "text": "DUS GA GENIETEN VAN DE ZOMER EN ZOEK JOUW CABRIO",
+    "ko": "그러니 여름을 즐기고 당신만의 오픈카를 찾아보세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ZOMER",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "text": "VIERWIELAANDRIJVING ✔️",
+    "ko": "사륜구동(4WD) ✔️",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VIERWIELAANDRIJVING",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "text": "COMPACTE PREMIUM CABRIO'S",
+    "ko": "소형 프리미엄 오픈카",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "COMPACTE PREMIUM",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.3,
+    "text": "A3 CABRIO",
+    "ko": "A3 카브리오",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "A3 CABRIO",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "text": "AIRSCARF OPTIE DAT IS ECHT UNDERRATED",
+    "ko": "에어스카프 옵션은 진짜 과소평가됐어요",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AIRSCARF",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.2,
+    "text": "STOELVERWARMING ✔️",
+    "ko": "시트 열선 ✔️",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOELVERWARMING",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 키워드 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.0,
+    "type": "띵",
+    "event": "웹사이트 검색 필터 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "딸깍",
+    "event": "사륜구동 체크 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.5,
+    "type": "톡",
+    "event": "A3 CABRIO 노란 상자 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.5,
+    "type": "딸깍",
+    "event": "시트열선 체크 스티커 표시",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 일렉트로팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.0,
+    "end": 7.5,
+    "what": "AutoScout24 차종 필터 UI 팝업 (Cabrio 체크)",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "검색 기능 시연",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Huh, quattro op een cabrio? Dat verwacht bijna niemand.",
+    "ko": "어, 컨버터블에 콰트로? 그건 거의 아무도 예상 못 하죠."
+   },
+   {
+    "start": 3.7,
+    "end": 10.9,
+    "text": "Je vindt zo'n 10.000 cabrio's op autoscout24.nl. Dus ga genieten van de zomer en zoek jouw cabrio.",
+    "ko": "오토스카우트24에는 약 1만 대의 오픈카가 등록되어 있어요. 그러니 여름을 즐기며 나만의 오픈카를 찾아보세요."
+   },
+   {
+    "start": 10.9,
+    "end": 15.6,
+    "text": "Maar het is echt zo. Deze auto heeft niet alleen voorwielaandrijving, maar vierwielaandrijving.",
+    "ko": "하지만 사실이에요. 이 차는 전륜구동뿐 아니라 사륜구동도 탑재되어 있습니다."
+   },
+   {
+    "start": 15.6,
+    "end": 24.3,
+    "text": "Dit is één van de laatste compacte premium cabrio's. Audi is namelijk gestopt met het maken van de A3 Cabrio, waardoor je ze steeds minder ziet.",
+    "ko": "이 차는 마지막 소형 프리미엄 오픈카 중 하나입니다. 아우디가 A3 카브리오 생산을 중단해서 점점 보기 드물어지고 있거든요."
+   },
+   {
+    "start": 24.3,
+    "end": 34.5,
+    "text": "En die Airscarf optie, dat is echt underrated. Want je kunt gewoon buiten rijden terwijl het koud is. Je krijgt gewoon warme lucht om je nek heen geblazen als een warme sjaal.",
+    "ko": "그리고 에어스카프 옵션은 진짜 과소평가되어 있어요. 날씨가 추워도 밖에서 달릴 수 있거든요. 따뜻한 목도리처럼 목 주위로 따뜻한 바람을 불어줍니다."
+   },
+   {
+    "start": 34.5,
+    "end": 39.2,
+    "text": "En niet te vergeten, hij heeft ook nog stoelverwarming. Koud krijg je het dus zeker niet in deze cabrio.",
+    "ko": "게다가 열선 시트까지 빼놓을 수 없죠. 그러니 이 오픈카에선 절대 추울 일이 없습니다."
+   },
+   {
+    "start": 39.2,
+    "end": 44.5,
+    "text": "Het bouwjaar, de kilometerstand en de prijs vind je in de omschrijving. Vergeet ons niet te volgen.",
+    "ko": "연식, 주행거리, 가격은 본문 설명란에서 확인하세요. 팔로우도 잊지 마세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "컨버터블에 사륜구동(콰트로)이 적용되었다는 의외의 반전으로 시선 집중"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 3.7,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "오토스카우트24 플랫폼에 등록된 오픈카 매물 검색 유도"
+   },
+   {
+    "stage": "사양",
+    "start": 10.9,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "단종되어 희소성이 높아진 아우디 A3 카브리오 콰트로의 특장점 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 24.3,
+    "end": 39.2,
+    "speed": "보통",
+    "summary": "추운 날씨에도 오픈 에어링이 가능한 에어스카프와 열선 시트 옵션 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.2,
+    "end": 44.5,
+    "speed": "빠름",
+    "summary": "상세 스펙(연식/주행거리/가격) 확인 안내 및 팔로우 CTA"
+   }
+  ],
+  "rules": [
+   "진행자의 제스처나 반전 멘트에 맞춰 팝업 효과음과 옐로우 강조 자막을 즉각 띄운다.",
+   "핵심 키워드는 노란색 박스/글씨를 일관되게 사용하여 브랜드 컬러와 가독성을 동시에 유지한다.",
+   "차량의 희소성(단종)과 계절적 극복 기능(에어스카프/열선)을 명확한 셀링 포인트로 짚어준다.",
+   "중간과 말미에 서비스 플랫폼 유입과 본문 확인 CTA를 자연스럽게 배치한다."
+  ]
+ }
+}

@@ -1,0 +1,642 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/RWTRI1IQxM8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3748,
+  "candidatesTokenCount": 6512,
+  "totalTokenCount": 11633,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3006
+   }
+  ],
+  "thoughtsTokenCount": 1373,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.7,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTE",
+   "format": "앱 안내",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 10.9,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 18.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 22.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 26.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.7,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "AUTO GEMAKKELIJK EN SNEL VERKOPEN?",
+    "ko": "차를 쉽고 빠르게 팔고 싶나요?",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 92.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "VERKOPEN",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "text": "DAT KAN VIA DE",
+    "ko": "그건 바로 여기서 가능해요",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.5,
+    "text": "OPEN DE AUTOSCOUT24 APP",
+    "ko": "오토스카우트24 앱을 열고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 8.4,
+    "text": "KLIK OP VERKOPEN",
+    "ko": "'판매하기'를 클릭하고",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERKOPEN",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.8,
+    "text": "VERKOOP JE AUTO OP AUTOSCOUT24.BE",
+    "ko": "오토스카우트24에 내 차 판매하기",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24.BE",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.8,
+    "text": "TYP JE IN HET MODEL",
+    "ko": "차량 모델명을 입력하고",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MODEL",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.6,
+    "text": "HET BOUWJAAR",
+    "ko": "제작 연월을 넣으면",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BOUWJAAR",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.7,
+    "text": "EN DAN VULT DIE DE REST AUTOMATISCH IN",
+    "ko": "나머지는 자동으로 채워집니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOMATISCH",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.8,
+    "text": "VOEG TOT 20 GEDETAILLEERDE FOTO'S TOE VAN JOUW AUTO",
+    "ko": "내 차의 상세 사진을 최대 20장 추가하세요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "JOUW",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 22.9,
+    "text": "ZOALS DEZE",
+    "ko": "이런 식으로요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DEZE",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.5,
+    "text": "VERDER NATUURLIJK NIET VERGETEN",
+    "ko": "그리고 빼놓을 수 없는 것",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERGETEN",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 25.6,
+    "text": "VERKOOPPRIJS 💰",
+    "ko": "판매 가격 💰",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERKOOPPRIJS",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 26.6,
+    "text": "KILOMETERSTAND 📍",
+    "ko": "주행거리 📍",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KILOMETERSTAND",
+    "sure": true
+   },
+   {
+    "start": 26.7,
+    "end": 28.5,
+    "text": "EN NATUURLIJK NIET TE VERGETEN ALLE OPTIES",
+    "ko": "모든 추가 옵션도 잊지 마세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ALLE OPTIES",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 29.8,
+    "text": "EN PUBLICEREN MAAR",
+    "ko": "그리고 등록하기만 하면 끝!",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PUBLICEREN",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "ZO SNEL ZET JIJ JOUW AUTO ONLINE",
+    "ko": "이렇게 빠르게 내 차를 온라인에 올리세요",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "JIJ",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.7,
+    "text": "MET DE AUTOSCOUT24 APP",
+    "ko": "오토스카우트24 앱으로",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.4,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "딸깍",
+    "event": "앱 하단 verkopen 탭 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "딸깍",
+    "event": "Verkopen 메뉴 선택",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "쿵",
+    "event": "숫자 '20' 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "딸깍",
+    "event": "차량 사진 플래시 효과/카메라 셔터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.4,
+    "type": "띵",
+    "event": "Verkoopprijs 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.4,
+    "type": "띵",
+    "event": "Kilometerstand 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "자동차 뒷문 여는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "휙",
+    "event": "엔딩 AutoScout24 로고 배너 확대 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 댄스",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.2,
+    "end": 4.6,
+    "what": "AutoScout24 노란색 로고 사각 스티커",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 앱 강조",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.1,
+    "what": "하단 메뉴 원형 하이라이트 표시",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 69.0,
+    "y_pct": 89.0,
+    "entrance": "바로",
+    "purpose": "터치 위치 가이드",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.9,
+    "what": "판매 옵션 가리키는 노란색 화살표",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 38.0,
+    "y_pct": 43.0,
+    "entrance": "바로",
+    "purpose": "터치 위치 가이드",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 20.8,
+    "what": "노란색 숫자 '20' 텍스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최대 업로드 가능 사진 수 강조",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 22.9,
+    "what": "차량 사진 콜라주 레이어",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 45.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사진 예시 제시",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.7,
+    "what": "AutoScout24 사각 로고 엔딩 카드",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "앱 로고 강조 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Wil jij jouw auto ook gemakkelijk en snel verkopen?",
+    "ko": "차를 쉽고 빠르게 팔고 싶으신가요?"
+   },
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "text": "Dat kan via de AutoScout24 app.",
+    "ko": "오토스카우트24 앱에서 가능합니다."
+   },
+   {
+    "start": 4.6,
+    "end": 10.9,
+    "text": "Open de AutoScout24 app. Klik op verkopen. Verkoop je auto op autoscout24.be.",
+    "ko": "오토스카우트24 앱을 열고, 판매를 누른 후 autoscout24.be에서 내 차 판매하기를 선택하세요."
+   },
+   {
+    "start": 11.0,
+    "end": 18.8,
+    "text": "Typ je in het model, Golf GTE, het bouwjaar, 2020 december, en dan vult die de rest automatisch in.",
+    "ko": "모델명 골프 GTE, 연식 2020년 12월을 입력하면 나머지는 자동으로 입력됩니다."
+   },
+   {
+    "start": 18.8,
+    "end": 23.0,
+    "text": "Voeg tot 20 gedetailleerde foto's toe van jouw auto, zoals deze.",
+    "ko": "이런 식으로 최대 20장의 상세한 차량 사진을 추가하세요."
+   },
+   {
+    "start": 23.0,
+    "end": 28.7,
+    "text": "Verder natuurlijk niet vergeten de verkoopprijs en de kilometerstand, en natuurlijk niet te vergeten alle opties.",
+    "ko": "그리고 판매 가격과 주행거리, 모든 옵션 사항도 잊지 마시고요."
+   },
+   {
+    "start": 28.7,
+    "end": 33.7,
+    "text": "En publiceren maar. Zo snel zet jij jouw auto online met de AutoScout24 app.",
+    "ko": "이제 등록만 누르면 끝. 오토스카우트24 앱으로 이렇게 빠르게 내 차를 등록해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "창문을 내리며 쉽고 빠른 차량 판매 질문으로 시청자 후킹"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 2.8,
+    "end": 18.8,
+    "speed": "빠름",
+    "summary": "앱 실행 후 차량 모델과 연식 입력 및 자동완성 기능 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 18.8,
+    "end": 28.7,
+    "speed": "보통",
+    "summary": "최대 20장의 사진 업로드 및 가격, 주행거리, 옵션 기재 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 28.7,
+    "end": 33.7,
+    "speed": "빠름",
+    "summary": "등록 완료 화면 확인 및 AutoScout24 로고와 함께 마무리"
+   }
+  ],
+  "rules": [
+   "도입부에 상단 고정 바 형태로 핵심 질문/후킹 타이틀을 배치하여 스크롤 이탈을 방지함",
+   "호스트가 차에서 내리는 역동적인 행동과 함께 브랜드 로고 그래픽과 팝 사운드를 결합해 솔루션을 즉각 제시함",
+   "스마트폰 화면 녹화 화면에 노란색 펜 드로잉 원형과 화살표를 얹어 사용자의 터치 흐름을 명확하게 유도함",
+   "주요 판매 요소(사진 20장, 가격, 주행거리)를 언급할 때마다 효과음과 함께 텍스트 배지 스티커를 동기화하여 시각적 리듬감을 부여함"
+  ]
+ }
+}

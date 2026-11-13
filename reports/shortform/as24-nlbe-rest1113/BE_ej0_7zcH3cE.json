@@ -1,0 +1,656 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/ej0_7zcH3cE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3299,
+  "candidatesTokenCount": 6368,
+  "totalTokenCount": 10963,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2557
+   }
+  ],
+  "thoughtsTokenCount": 1296,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 28.3,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 6.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 10.7,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.5,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 19.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 28.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "text": "RAAD DE",
+    "ko": "맞혀보세요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 2.7,
+    "text": "VOLKSWAGEN GOLF GTI",
+    "ko": "폭스바겐 골프 GTI",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.1,
+    "text": "2019",
+    "ko": "2019년식",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 10.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 4.8,
+    "text": "HIJ HEEFT",
+    "ko": "주행거리는",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.4,
+    "text": "65.000 KM",
+    "ko": "65,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.5,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.3,
+    "text": "245 PK",
+    "ko": "245 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.1,
+    "text": "OPTIES ZOALS ONDER ANDERE",
+    "ko": "주요 옵션으로는",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 10.8,
+    "text": "ADAPTIVE CRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 11.5,
+    "text": "APPLE CARPLAY",
+    "ko": "애플 카플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.4,
+    "text": "MULTIFUNCTIONEEL STUUR MET SCHAKELFLIPPERS",
+    "ko": "패들시프트가 포함된 다기능 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.4,
+    "end": 16.5,
+    "text": "DSG AUTOMAAT",
+    "ko": "DSG 자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.6,
+    "text": "DODEHOEK DETECTIE",
+    "ko": "사각지대 감지 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.7,
+    "text": "20 INCH VELGEN",
+    "ko": "20인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 19.9,
+    "text": "GETINTE RAMEN",
+    "ko": "틴팅 유리",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.0,
+    "text": "EN EEN KOFFERRUIMTE VOOR",
+    "ko": "그리고 트렁크 공간은",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "VIER VOLLE BOODSCHAPPENTASSEN",
+    "ko": "가득 찬 쇼핑백 4개 수납 가능",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 88.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "WEET JIJ DE PRIJS VAN",
+    "ko": "이 차의 가격을 아시나요?",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.8,
+    "text": "DEZE VOLKSWAGEN GOLF GTI",
+    "ko": "이 폭스바겐 골프 GTI의",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 26.8,
+    "text": "LAAT HET WETEN IN EEN REACTIE",
+    "ko": "댓글로 알려주세요",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.3,
+    "text": "EN VERGEET ONS NIET TE VOLGEN",
+    "ko": "팔로우도 잊지 마세요",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전석 문 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "딸깍",
+    "event": "DSG 기어 노브 조작 클릭음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.1,
+    "type": "딸깍",
+    "event": "뒷좌석 도어 핸들 작동음",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Hip-Hop / Electronic Beat",
+   "bpm_est": 110,
+   "mood": "리드미컬하고 캐주얼함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Raad de prijs van deze Volkswagen Golf GTI.",
+    "ko": "이 폭스바겐 골프 GTI의 가격을 맞혀보세요."
+   },
+   {
+    "start": 2.7,
+    "end": 4.1,
+    "text": "Hij komt uit 2019,",
+    "ko": "2019년식이며,"
+   },
+   {
+    "start": 4.1,
+    "end": 6.4,
+    "text": "heeft 65.000 km gereden,",
+    "ko": "주행거리는 65,000 km입니다."
+   },
+   {
+    "start": 6.4,
+    "end": 8.3,
+    "text": "en heeft 245 pk.",
+    "ko": "그리고 245마력입니다."
+   },
+   {
+    "start": 8.3,
+    "end": 11.5,
+    "text": "Opties zoals onder andere Adaptive Cruise Control, Apple CarPlay,",
+    "ko": "어댑티브 크루즈 컨트롤, 애플 카플레이 등의 옵션과,"
+   },
+   {
+    "start": 11.5,
+    "end": 14.4,
+    "text": "en zo de auto een multifunctioneel stuur met schakelflippers.",
+    "ko": "패들시프트가 장착된 다기능 스티어링 휠이 적용되었습니다."
+   },
+   {
+    "start": 14.4,
+    "end": 16.5,
+    "text": "Het is een DSG automaat,",
+    "ko": "DSG 자동변속기,"
+   },
+   {
+    "start": 16.5,
+    "end": 17.6,
+    "text": "dodehoekdetectie,",
+    "ko": "사각지대 감지 기능,"
+   },
+   {
+    "start": 17.6,
+    "end": 18.7,
+    "text": "20 inch velgen,",
+    "ko": "20인치 휠,"
+   },
+   {
+    "start": 18.7,
+    "end": 19.9,
+    "text": "getinte ramen,",
+    "ko": "틴팅 유리,"
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "text": "en een kofferruimte voor vier volle boodschappentassen.",
+    "ko": "쇼핑백 4개가 넉넉히 들어가는 트렁크 공간도 갖췄습니다."
+   },
+   {
+    "start": 22.8,
+    "end": 25.8,
+    "text": "Weet jij de prijs van deze Volkswagen Golf GTI?",
+    "ko": "이 폭스바겐 골프 GTI의 가격을 아시나요?"
+   },
+   {
+    "start": 25.8,
+    "end": 28.3,
+    "text": "Laat het weten in een reactie en vergeet ons niet te volgen.",
+    "ko": "댓글로 맞춰보시고 팔로우도 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "보통",
+    "summary": "차량 전면에서 가격 맞히기 챌린지 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 2.7,
+    "end": 8.3,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 마력 정보 전달"
+   },
+   {
+    "stage": "기능",
+    "start": 8.3,
+    "end": 22.8,
+    "speed": "빠름",
+    "summary": "주요 내외관 옵션 퀵 컷 연속 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 22.8,
+    "end": 26.8,
+    "speed": "보통",
+    "summary": "시청자에게 가격 댓글 유도 (CTA)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 26.8,
+    "end": 28.3,
+    "speed": "보통",
+    "summary": "채널 팔로우 권유 마무리"
+   }
+  ],
+  "rules": [
+   "호스트가 차량을 둘러보며 핵심 스펙을 1~2초 단위로 빠르게 짚어주는 템포 유지",
+   "스펙 및 옵션 명칭을 노란색 고대비 볼드 텍스트 박스로 화면에 즉시 강조 표시",
+   "실제 차 문 닫히는 소리와 기어 조작음을 살려 현장감 부여",
+   "영상의 처음과 끝을 '가격 맞히기' 참여 유도로 수미상관 구성하여 댓글 반응 극대화"
+  ]
+ }
+}

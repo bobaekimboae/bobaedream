@@ -1,0 +1,336 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/j7eqQu5CaBk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2112,
+  "candidatesTokenCount": 2949,
+  "totalTokenCount": 6099,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1370
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1038,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.1,
+   "aspect": "9:16",
+   "car": "Peugeot 308 / 푸조 왜건 외 다수",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 1.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 8.3,
+    "part": "기타",
+    "camera": "드론",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.1,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.8,
+    "end": 4.0,
+    "text": "Van je salon,",
+    "ko": "당신의 거실에서,",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "salon,",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.4,
+    "text": "direct in je nieuwe auto.",
+    "ko": "바로 당신의 새 차 안으로.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "direct",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "text": "Het grootste aanbod",
+    "ko": "가장 많은 매물",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.8,
+    "text": "nieuw én tweedehands,",
+    "ko": "신차 및 중고차 모두,",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "nieuw én twee",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "text": "altijd scherp geprijsd.",
+    "ko": "언제나 합리적인 가격.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "scherp",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "딸깍",
+    "event": "스마트폰 화면 탭 동작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "휙",
+    "event": "거실에서 차 안으로 순간이동 효과 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "쿵",
+    "event": "차량 보관소 드론 부감 장면 전환 임팩트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.3,
+    "type": "휙",
+    "event": "전시장 쇼룸 장면으로 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "휙",
+    "event": "화이트 엔드스크린 및 로고 애니메이션 브러시 효과음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 훵크 / 커머셜 BGM",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기차며 자신감 있는",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 3.4,
+     "what": "순간이동과 함께 브라스 리프 및 비트 시작"
+    },
+    {
+     "t": 12.3,
+     "what": "엔딩 로고 전환과 함께 음악 페이드아웃 및 징글"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 12.3,
+    "end": 15.1,
+    "what": "AutoScout24 로고 및 웹사이트 주소(www.autoscout24.be)",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "밀기",
+    "purpose": "브랜드 인지 및 웹사이트 유입 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 2.5,
+    "end": 5.4,
+    "text": "Van je salon, direct in je nieuwe auto.",
+    "ko": "당신의 거실에서 곧바로 새로운 차 안으로."
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "text": "Het grootste aanbod nieuw én tweedehands,",
+    "ko": "신차부터 중고차까지 가장 다양한 매물,"
+   },
+   {
+    "start": 8.8,
+    "end": 10.7,
+    "text": "altijd scherp geprijsd.",
+    "ko": "언제나 가장 매력적인 가격으로."
+   },
+   {
+    "start": 11.2,
+    "end": 14.8,
+    "text": "www.autoscout24.be",
+    "ko": "www.autoscout24.be"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "보통",
+    "summary": "거실에서 가족들이 모여 휴대폰으로 오토스카우트24 앱 탐색"
+   },
+   {
+    "stage": "기능",
+    "start": 3.4,
+    "end": 5.5,
+    "speed": "빠름",
+    "summary": "스마트폰 탭 한 번으로 실제 차 안으로 순간이동하는 연출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.5,
+    "end": 8.3,
+    "speed": "빠름",
+    "summary": "방대한 차량 물량을 보여주는 대형 주차장 드론 뷰로 스케일 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 8.3,
+    "end": 12.3,
+    "speed": "보통",
+    "summary": "쇼룸에서 가족의 만족스러운 모습과 합리적 가격 혜택 전달"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.3,
+    "end": 15.1,
+    "speed": "보통",
+    "summary": "오토스카우트24 브랜드 로고 및 공식 웹사이트 URL 제시"
+   }
+  ],
+  "rules": [
+   "앱 탐색 화면에서 실제 차 안으로 컷 점프를 매치시켜 시각적 반전을 준다.",
+   "핵심 키워드에는 브랜드 컬러인 노란색 하이라이트 박스를 적용해 가독성을 높인다.",
+   "대규모 야외 차량 보관소 드론 부감 샷을 삽입해 매물 규모를 직관적으로 증명한다.",
+   "짧은 15초 러닝타임에 훅-반전-증명-CTA 구조를 군더더기 없이 배치한다."
+  ]
+ }
+}

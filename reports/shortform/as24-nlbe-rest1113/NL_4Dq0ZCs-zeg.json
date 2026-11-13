@@ -1,0 +1,163 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/4Dq0ZCs-zeg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2196,
+  "candidatesTokenCount": 1382,
+  "totalTokenCount": 3578,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1454
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.5,
+   "aspect": "9:16",
+   "car": "Mazda CX-60",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 15.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "HET GEHEIM VAN... 😱\nMAZDA",
+    "ko": "마쓰다의 비밀... 😱",
+    "kind": "제목",
+    "y_pct": 51.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "HET GEHEIM VAN...",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 15.5,
+    "text": "VOLG AUTOSCOUT24.NL\nOP SOCIAL MEDIA",
+    "ko": "소셜 미디어에서 AutoScout24.nl을 팔로우하세요",
+    "kind": "키워드 스티커",
+    "y_pct": 87.5,
+    "x_center_pct": 62.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AUTOSCOUT24.NL",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "펑크/디스코 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 흥겨움",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "what": "AutoScout24 로고 그래픽 엔딩 오버레이",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 아웃트로",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "진행자가 마쓰다 차량으로 걸어가 문을 열고 탑승함"
+   },
+   {
+    "stage": "기능",
+    "start": 4.8,
+    "end": 6.7,
+    "speed": "보통",
+    "summary": "인포테인먼트 화면에서 운전자 키(신장) 설정 메뉴 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 6.7,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "키 입력 후 시트와 스티어링 휠이 자동으로 체형에 맞게 조절되는 모습 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 13.5,
+    "end": 15.5,
+    "speed": "보통",
+    "summary": "만족스러운 제스처와 함께 브랜드 로고 애니메이션 표시"
+   }
+  ],
+  "rules": [
+   "대사 없이 비트감 있는 음악과 실제 시연 동작만으로 스마트 편의 기능(자동 운전 자세 세팅) 전달",
+   "도입부에 호기심을 유발하는 굵은 박스 형태의 타이틀 캡션 배치",
+   "엔딩에 브랜드 로고 그래픽 스티커를 역동적으로 오버레이하여 각인 효과 부여"
+  ]
+ }
+}

@@ -1,0 +1,573 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/N0CTtshNgC8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6107,
+  "candidatesTokenCount": 4760,
+  "totalTokenCount": 11644,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5365
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 777,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.2,
+   "aspect": "9:16",
+   "car": "Jaecoo 7 Exclusive",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.3,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 14.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 17.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 25.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 33.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 35.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.8,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 50.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 55.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 59.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "NAAST MIJ STAAT DE JAECOO 7",
+    "ko": "제 옆에는 제이쿠 7이 있습니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "JAECOO",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.3,
+    "text": "JAECOO 7 EN DE JAECOO 7 EXCLUSIVE",
+    "ko": "제이쿠 7과 제이쿠 7 익스클루시브",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EXCLUSIVE",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.3,
+    "text": "VANAFPRIJS VERTEL IK JE",
+    "ko": "시작 가격은 뒤에서 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VANAFPRIJS",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 14.1,
+    "text": "STANDAARD OPTIES DIE JE VERWACHT",
+    "ko": "예상치 못한 기본 옵션들",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STANDAARD OPTIES",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.3,
+    "text": "NERGENS EEN START-EN STOPKNOP",
+    "ko": "어디에도 시동 버튼이 없습니다",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "START-EN STOPKNOP",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "DE REM INDRUKKEN",
+    "ko": "브레이크만 밟으면",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DE REM INDRUKKEN",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.5,
+    "text": "✔ PANORAMADAK\n✔ HEAD-UP DISPLAY",
+    "ko": "✔ 파노라마 선루프\n✔ 헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 44.5,
+    "text": "✔ SONY BOXEN",
+    "ko": "✔ 소니 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.6,
+    "end": 48.5,
+    "text": "✔ ELEKTRISCHE ACHTERKLEP\n✔ STOELKOELING & VERWARMING",
+    "ko": "✔ 전동식 트렁크\n✔ 통풍 & 열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 50.2,
+    "text": "SLECHTS €2.000 MEER",
+    "ko": "단 2,000유로만 추가",
+    "kind": "가격",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€2.000",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.4,
+    "text": "€39.900",
+    "ko": "39,900 유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€39.900",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "딸깍",
+    "event": "손뼉 치며 시동 걸림 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.1,
+    "type": "띵",
+    "event": "옵션 체크리스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 43.6,
+    "type": "띵",
+    "event": "소니 오디오 옵션 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 44.7,
+    "type": "띵",
+    "event": "전동 트렁크 옵션 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 53.1,
+    "type": "돈 소리",
+    "event": "가격 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.6,
+    "type": "휙",
+    "event": "엔딩 로고 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 일렉트로닉 팝",
+   "bpm_est": 118,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 4.2,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55,
+    "x_pct": 50,
+    "y_pct": 45,
+    "entrance": "확대 전환",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 58.8,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55,
+    "x_pct": 50,
+    "y_pct": 45,
+    "entrance": "확대 전환",
+    "purpose": "CTA 및 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Naast mij staat de Jaecoo 7 Exclusive.",
+    "ko": "제 옆에는 제이쿠 7 익스클루시브가 있습니다."
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "text": "En je vindt hem op autoscout24.nl.",
+    "ko": "오토스카우트24 웹사이트에서 찾으실 수 있어요."
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "Je hebt dus de Jaecoo 7 en de Jaecoo 7 Exclusive.",
+    "ko": "제이쿠 7과 제이쿠 7 익스클루시브 두 가지가 있습니다."
+   },
+   {
+    "start": 7.4,
+    "end": 10.3,
+    "text": "En de vanafprijs vertel ik je op het eind.",
+    "ko": "시작 가격은 영상 마지막에 알려드릴게요."
+   },
+   {
+    "start": 10.3,
+    "end": 14.2,
+    "text": "En de Jaecoo 7 Exclusive heeft standaard opties die je echt niet verwacht.",
+    "ko": "그리고 제이쿠 7 익스클루시브에는 예상치 못한 기본 옵션들이 들어가 있습니다."
+   },
+   {
+    "start": 14.2,
+    "end": 17.1,
+    "text": "Ik heb hier dus de sleutels, die leg ik hier neer.",
+    "ko": "여기 차 키가 있는데요, 여기에 두겠습니다."
+   },
+   {
+    "start": 17.1,
+    "end": 25.1,
+    "text": "Maar als je hier goed naar het interieur kijkt, dan zie je dus nergens een start-en stopknop. Of ik kon hem niet vinden, maar dat komt dus omdat hij er dus ook niet is.",
+    "ko": "하지만 실내를 자세히 보시면 어디에도 시동 버튼이 없습니다. 제가 못 찾은 건가 싶겠지만, 실제로 버튼이 없기 때문입니다."
+   },
+   {
+    "start": 25.1,
+    "end": 33.6,
+    "text": "Als je dus de auto wilt starten, hoef je alleen maar in te stappen met de sleutels en let op, ik ga nu de rem indrukken en dan start hij. Top, hè?",
+    "ko": "시동을 걸고 싶다면 키를 가지고 탑승한 채 브레이크만 밟으시면 바로 시동이 걸립니다. 멋지죠?"
+   },
+   {
+    "start": 33.6,
+    "end": 37.8,
+    "text": "En als ik uitstap gaat hij vanzelf uit. Dat is service, hè, van Jaecoo.",
+    "ko": "그리고 내리면 알아서 꺼집니다. 제이쿠만의 배려죠."
+   },
+   {
+    "start": 37.8,
+    "end": 50.8,
+    "text": "Bij de Jaecoo 7 Exclusive krijg je dus een panoramadak, een head-up display, Sony boxen, een elektrische achterklep en stoelkoeling en verwarming. En dat kost slechts €2.000 meer. Dat is echt een koopje.",
+    "ko": "제이쿠 7 익스클루시브에서는 파노라마 루프, HUD, 소니 스피커, 전동식 테일게이트, 통풍/열선 시트가 제공됩니다. 이 모든 게 겨우 2,000유로만 더 내면 됩니다. 정말 거저죠."
+   },
+   {
+    "start": 50.8,
+    "end": 55.4,
+    "text": "En de vanafprijs van de Jaecoo 7 Exclusive is €39.900.",
+    "ko": "제이쿠 7 익스클루시브의 시작 가격은 39,900유로입니다."
+   },
+   {
+    "start": 55.4,
+    "end": 59.2,
+    "text": "Wist je dat er meer dan 100 Jaecoo's op autoscout24 staan?",
+    "ko": "오토스카우트24에 이미 100대 이상의 제이쿠 매물이 등록되어 있다는 사실을 알고 계셨나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "차량 모델 및 플랫폼 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 14.2,
+    "speed": "보통",
+    "summary": "기본형과 익스클루시브 트림 비교 예고 및 가격 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 14.2,
+    "end": 37.8,
+    "speed": "보통",
+    "summary": "시동 버튼 없는 독특한 스마트 시동/정지 시스템 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 37.8,
+    "end": 50.8,
+    "speed": "빠름",
+    "summary": "익스클루시브 트림의 핵심 옵션 목록 및 가성비 차액 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 50.8,
+    "end": 55.4,
+    "speed": "보통",
+    "summary": "시작 가격 39,900유로 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 55.4,
+    "end": 59.2,
+    "speed": "보통",
+    "summary": "AutoScout24 매물 보유 안내 및 클로징"
+   }
+  ],
+  "rules": [
+   "호기심 유발을 위해 핵심 정보인 '가격'을 영상 후반부로 배치하고 초반에 예고함",
+   "버튼이 없는 독특한 인터페이스 기능을 실제 동작(브레이크 밟기)과 손뼉 소리로 직관적으로 시연",
+   "옵션 나열 시 텍스트 체크리스트 박스를 팝업 효과음과 함께 띄워 시각적 정리 극대화",
+   "화면 중앙에 노란색 키워드 강조가 들어간 볼드 자막을 지속 배치하여 가독성 유지",
+   "초반과 말미에 브랜드 로고 그래픽을 일관되게 노출하여 플랫폼 인지도 확보"
+  ]
+ }
+}

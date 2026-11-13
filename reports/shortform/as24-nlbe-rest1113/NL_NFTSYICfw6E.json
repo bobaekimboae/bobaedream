@@ -1,0 +1,947 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/NFTSYICfw6E",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6035,
+  "candidatesTokenCount": 7501,
+  "totalTokenCount": 13536,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5293
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.7,
+   "aspect": "9:16",
+   "car": "Ford F-150 Raptor R (1000 PK)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 28.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 33.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 34.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 38.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 48.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 50.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.7,
+    "end": 53.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 58.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "ACHTER MIJ STAAT",
+    "ko": "내 뒤에 서 있는 것은",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ACHTER",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.1,
+    "text": "FORD RAPTOR R",
+    "ko": "포드 랩터 R",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 2.5,
+    "text": "MET",
+    "ko": "무려",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "text": "1000 PK",
+    "ko": "1000마력",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 4.8,
+    "text": "EN DIE KLINKT",
+    "ko": "소리는 어떠냐면",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.4,
+    "text": "ZO LET OP",
+    "ko": "이렇습니다, 집중",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "text": "EEN GROTE",
+    "ko": "거대한",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 10.8,
+    "text": "LIGHT BAR",
+    "ko": "라이트 바",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "text": "KAN JE IN HET",
+    "ko": "켜둘 수 있죠",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "ORANJE",
+    "ko": "주황색으로",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "WIT",
+    "ko": "흰색으로",
+    "kind": "말 자막",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "EEN EXTREEM GROTE",
+    "ko": "정말 거대한",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "text": "LUXE STOELEN",
+    "ko": "고급 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.3,
+    "text": "WAT COOLS",
+    "ko": "멋진 기능",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 23.0,
+    "text": "KNOPJE EN DAN",
+    "ko": "버튼을 누르면",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.8,
+    "text": "GAAT DIE POOK",
+    "ko": "기어봉이 내려가고",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.8,
+    "text": "EEN TAFELTJE",
+    "ko": "작은 테이블",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "text": "GEWOON DE PERFECTE",
+    "ko": "완벽한",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 31.7,
+    "text": "ROMANTISCHE DATE",
+    "ko": "로맨틱한 데이트",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 32.8,
+    "text": "NOU MANNEN",
+    "ko": "자 남성분들",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 33.6,
+    "text": "IK ZEG DOEN",
+    "ko": "지르세요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 34.6,
+    "text": "BANDEN",
+    "ko": "타이어",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "text": "ALLES SUPERMOOI",
+    "ko": "완벽한 마감",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "text": "WINDOW VISORS",
+    "ko": "윈도우 바이저",
+    "kind": "키워드 스티커",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 45.0,
+    "text": "SPORTIEVE LOOK",
+    "ko": "스포티한 룩",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 48.7,
+    "text": "WINDGERUIS",
+    "ko": "풍절음 감소",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 49.2,
+    "end": 50.7,
+    "text": "EEN TREKHAAK",
+    "ko": "견인고리",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 50.7,
+    "end": 53.6,
+    "text": "€ 189.950",
+    "ko": "€ 189.950",
+    "kind": "가격",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 56.5,
+    "text": "TERP AUTOS",
+    "ko": "터프 오토스",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "휙",
+    "event": "FORD RAPTOR R 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "1000 PK 강조 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 배기음 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "딸깍",
+    "event": "루프 라이트바 주황색 점등",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "딸깍",
+    "event": "루프 라이트바 흰색 점등",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "띵",
+    "event": "체크 표시 LUXE STOELEN 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "기어봉 모터 하강 작동음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "띵",
+    "event": "체크 표시 EEN TAFELTJE 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.3,
+    "type": "쿵",
+    "event": "진행자 차에서 점프 착지",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.6,
+    "type": "띵",
+    "event": "체크 표시 BANDEN 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "띵",
+    "event": "체크 표시 WINDOW VISORS 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 49.3,
+    "type": "띵",
+    "event": "체크 표시 EEN TREKHAAK 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 50.8,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 5.4,
+     "what": "엔진 사운드 구간에서 음악 음량 페이드다운"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "what": "스피커 3개 이모티콘 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "entrance": "페이드",
+    "purpose": "배기음 볼륨 유도",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 58.7,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Achter mij staat een Ford Raptor R met 1000 pk.",
+    "ko": "내 뒤에 서 있는 차는 1000마력짜리 포드 랩터 R입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "En die klinkt zo, let op.",
+    "ko": "그리고 배기음은 이렇습니다, 들어보세요."
+   },
+   {
+    "start": 8.7,
+    "end": 14.8,
+    "text": "Hij heeft hier een grote lightbar en kijk, die kan je in het oranje of in het wit aanzetten.",
+    "ko": "여기 커다란 라이트 바가 있는데 주황색이나 흰색으로 켤 수 있어요."
+   },
+   {
+    "start": 14.8,
+    "end": 19.3,
+    "text": "Dit is echt een extreem grote auto. Luxe stoelen...",
+    "ko": "이 차는 정말 거대해요. 고급 시트에..."
+   },
+   {
+    "start": 19.3,
+    "end": 28.8,
+    "text": "En kijk, hier heb ik wat cools. Hier zit een knopje en dan gaat die pook omlaag. En dan heb ik hier een tafeltje.",
+    "ko": "그리고 여기 신기한 게 있어요. 버튼을 누르면 기어 노브가 내려가고 접이식 테이블이 펼쳐집니다."
+   },
+   {
+    "start": 28.8,
+    "end": 33.6,
+    "text": "Gewoon de perfecte auto voor een romantische date. Nou mannen, ik zeg doen.",
+    "ko": "로맨틱한 데이트에 완벽한 차죠. 자 남성분들, 당장 지르세요."
+   },
+   {
+    "start": 33.6,
+    "end": 40.5,
+    "text": "En kijk die bandjes, alles supermooi afgewerkt. Hier gespoten in de kleur, ook de bumper is gespoten in de kleur.",
+    "ko": "타이어를 보세요, 모든 게 깔끔하게 마감되었고 범퍼까지 바디 컬러로 도색되어 있어요."
+   },
+   {
+    "start": 40.5,
+    "end": 48.7,
+    "text": "Hier heb je nog de window visors. Geeft hem een sportieve look. Als je hem een beetje open zet komt er geen regen binnen en het vermindert windgeruis.",
+    "ko": "윈도우 바이저도 장착되어 스포티해 보이고, 창문을 열어도 비가 들이치지 않으며 풍절음을 줄여줍니다."
+   },
+   {
+    "start": 48.7,
+    "end": 53.6,
+    "text": "En natuurlijk heeft hij ook een trekhaak. En hij kost €189.950.",
+    "ko": "물론 견인고리도 있죠. 가격은 18만 9,950유로입니다."
+   },
+   {
+    "start": 53.6,
+    "end": 58.7,
+    "text": "En je vindt hem in de showroom van Terp Autos en natuurlijk op autoscout24.nl.",
+    "ko": "터프 오토스 매장과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "1000마력 포드 랩터 R 소개 및 웅장한 배기음 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 8.7,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "루프 듀얼 컬러 라이트바 조명 기능 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 14.8,
+    "end": 33.6,
+    "speed": "보통",
+    "summary": "실내 가도식 기어봉 및 센터콘솔 테이블 작동 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 33.6,
+    "end": 50.7,
+    "speed": "빠름",
+    "summary": "외관 타이어, 도색 범퍼, 윈도우 바이저, 견인고리 사양 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 50.7,
+    "end": 53.6,
+    "speed": "빠름",
+    "summary": "판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 53.6,
+    "end": 58.7,
+    "speed": "보통",
+    "summary": "딜러샵 위치 안내 및 오토스카우트24 구매 유도"
+   }
+  ],
+  "rules": [
+   "말의 핵심 명사와 스펙 수치는 노란색 굵은 볼드 폰트로 화면 중앙에 크게 팝업",
+   "옵션이나 주요 특징을 언급할 때마다 체크마크(✔)가 붙은 자막과 '띵' 효과음 동기화",
+   "배기음을 들려줄 때는 배경 음악을 즉시 낮추고 스피커 그래픽을 띄워 청각 집중 유도",
+   "실내 전동 기어봉 및 접이식 테이블과 같은 시각적 작동 기믹을 클로즈업으로 상세 연출",
+   "엔딩에 쇼룸 깃발을 가리키며 브랜드 로고 스티커를 띄우는 일관된 CTA 마무리"
+  ]
+ }
+}

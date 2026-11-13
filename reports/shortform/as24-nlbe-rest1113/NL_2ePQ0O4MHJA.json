@@ -1,0 +1,439 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/2ePQ0O4MHJA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4391,
+  "candidatesTokenCount": 3670,
+  "totalTokenCount": 8061,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3649
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.5,
+   "aspect": "9:16",
+   "car": "Mazda CX-60",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 14.1,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 21.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 34.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.4,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.5,
+    "text": "MAZDA HEEFT EEN OPTIE DIE ME ECHT VERBAASDE 😳",
+    "ko": "마쓰다에 저를 정말 놀라게 한 옵션이 있어요 😳",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MAZDA",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "text": "IK LAAT HEM JE EVEN ZIEN. KOM MEE!",
+    "ko": "보여드릴게요. 따라오세요!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "KOM MEE",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "text": "ALLEREERST GA IK EVEN DE STOEL NIET GOED ZETTEN",
+    "ko": "우선 시트를 일부러 안 맞게 조절해둘게요",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "NIET GOED ZETTEN",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.0,
+    "text": "KAN ZIEN WAT HIJ DOET",
+    "ko": "어떻게 작동하는지 볼 수 있게요",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "EN DAN GA IK NAAR ✓ INSTELLINGEN",
+    "ko": "그리고 설정으로 들어갑니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "INSTELLINGEN",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "KIES IK ✓ DRIVER PERSONALIZATION SYSTEM",
+    "ko": "드라이버 개인화 시스템을 선택하고",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DRIVER PERSONALIZATION SYSTEM",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "text": "EN DAN KIES IK ✓ NIEUWE BESTUURDER TOEVOEGEN",
+    "ko": "새 운전자 추가를 누른 뒤",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "NIEUWE BESTUURDER TOEVOEGEN",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.8,
+    "text": "IK DUS HIER MIJN LENGTE INGEVEN",
+    "ko": "여기에 제 키를 입력하면",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MIJN LENGTE INGEVEN",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.8,
+    "text": "HIJ DUS ZELF DE STOEL EN HET STUUR HELEMAAL GOED ZETTEN. LET OP!",
+    "ko": "차가 알아서 시트와 스티어링 휠을 완벽하게 맞춰줍니다. 보세요!",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "LET OP",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.5,
+    "text": "EN IK ZIT INDERDAAD HELEMAAL PERFECT",
+    "ko": "정말 완벽하게 딱 맞게 앉았어요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "HELEMAAL PERFECT",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.0,
+    "text": "WAT EEN TOP OPTIE!",
+    "ko": "정말 훌륭한 옵션이네요!",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "text": "EN JE VINDT HEM IN DE SHOWROOM VAN AUTOBEDRIJF DE WINTER",
+    "ko": "Auto De Winter 쇼룸에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AUTOBEDRIJF DE WINTER",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 12.0,
+    "type": "딸깍",
+    "event": "설정 단계 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.0,
+    "type": "딸깍",
+    "event": "드라이버 개인화 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "딸깍",
+    "event": "새 운전자 추가 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 시트 및 핸들 모터 작동 소음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 26.0,
+     "what": "시트 자동 조정 동작 시 비트 강조"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 37.5,
+    "end": 40.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Deze Mazda heeft een optie die me echt verbaasde. Ik laat hem je even zien. Kom mee!",
+    "ko": "이 마쓰다에는 저를 정말 놀라게 한 옵션이 있어요. 보여드릴게요, 따라오세요!"
+   },
+   {
+    "start": 6.8,
+    "end": 12.0,
+    "text": "Allereerst ga ik even de stoel niet goed zetten, zodat je goed kan zien wat hij doet.",
+    "ko": "우선 어떻게 움직이는지 잘 보이도록 시트를 일부러 흐트러뜨려 놓을게요."
+   },
+   {
+    "start": 12.0,
+    "end": 18.5,
+    "text": "En dan ga ik naar instellingen, en dan kies ik Driver Personalization System. En dan kies ik nieuwe bestuurder toevoegen.",
+    "ko": "그리고 설정에 들어가서 드라이버 개인화 시스템을 선택하고 새 운전자 추가를 누릅니다."
+   },
+   {
+    "start": 18.5,
+    "end": 25.8,
+    "text": "En dan kan ik dus hier mijn lengte ingeven, en dan gaat hij dus zelf de stoel en het stuur helemaal goed zetten. Let op!",
+    "ko": "여기서 제 키를 입력하면 차가 알아서 시트와 스티어링 휠을 완벽하게 조절해 줍니다. 보세요!"
+   },
+   {
+    "start": 30.0,
+    "end": 35.0,
+    "text": "En ik zit inderdaad helemaal perfect. Wat een topoptie!",
+    "ko": "그리고 정말 완벽하게 딱 맞게 앉게 되었어요. 대박 옵션이네요!"
+   },
+   {
+    "start": 35.0,
+    "end": 40.5,
+    "text": "En je vindt hem in de showroom van Autobedrijf De Winter en natuurlijk op AutoScout24.nl.",
+    "ko": "이 차는 De Winter 쇼룸과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "마쓰다의 놀라운 기능 소개 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 25.8,
+    "speed": "보통",
+    "summary": "차량 탑승 후 드라이버 개인화 시스템 키 입력 설정"
+   },
+   {
+    "stage": "기능",
+    "start": 25.8,
+    "end": 34.4,
+    "speed": "보통",
+    "summary": "입력된 신장에 맞춰 자동으로 움직이는 시트와 핸들 시연"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 34.4,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "전시장 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "호기심을 유발하는 멘트와 함께 차량으로 이동하는 인트로 구성",
+   "화면 조작 단계마다 핵심 메뉴명을 체크마크 텍스트와 강조 효과음으로 안내",
+   "기능 작동 구간(자동 시트 이동)에서는 말없이 시각적 효과와 작동음에 집중",
+   "마지막에는 제휴 전시장 및 앱/웹사이트 로고를 띄우며 마무리"
+  ]
+ }
+}

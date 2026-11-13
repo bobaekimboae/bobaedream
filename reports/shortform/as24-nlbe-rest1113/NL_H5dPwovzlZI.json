@@ -1,0 +1,149 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/H5dPwovzlZI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1479,
+  "candidatesTokenCount": 1225,
+  "totalTokenCount": 3929,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 737
+   }
+  ],
+  "thoughtsTokenCount": 1225,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 8.8,
+   "aspect": "9:16",
+   "car": "닛산 캐시카이 (추정)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 8.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.8,
+    "text": "LAAT HET WETEN IN EEN REACTIE!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.6,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": false
+   }
+  ],
+  "music": {
+   "genre": "업비트 일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 6.6,
+    "end": 8.8,
+    "what": "AutoScout24 노란색 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.5,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "출연자가 운전대 로고를 손으로 가린 채 카메라를 보며 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 6.5,
+    "speed": "보통",
+    "summary": "실내 대시보드와 클러스터 디자인 힌트 노출 및 댓글 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 6.5,
+    "end": 8.8,
+    "speed": "보통",
+    "summary": "브랜드 로고 노출 및 댓글 참여 콜투액션 유지"
+   }
+  ],
+  "rules": [
+   "말소리 없이 짧은 제스처와 자막만으로 시청자 참여(퀴즈)를 즉각 유도한다.",
+   "핸들 엠블럼을 가리고 실내 디테일(디지털 계기판, 기어노브)을 보여줘 댓글 토론을 활성화한다.",
+   "브랜드 아이덴티티 색상(노란색)의 자막과 로고를 일관되게 사용한다."
+  ]
+ }
+}

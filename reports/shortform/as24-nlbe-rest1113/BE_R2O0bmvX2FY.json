@@ -1,0 +1,716 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/R2O0bmvX2FY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3396,
+  "candidatesTokenCount": 6965,
+  "totalTokenCount": 12310,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2654
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1949,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.5,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 17.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.2,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Waar staat",
+    "ko": "무엇을 뜻할까요",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": -5.0,
+    "entrance": "바로",
+    "highlight_word": "Waar",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 3.2,
+    "text": "T",
+    "ko": "T",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 18.0,
+    "tilt_deg": 2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "T",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 3.2,
+    "text": "S",
+    "ko": "S",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 77.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 18.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "S",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.2,
+    "text": "I",
+    "ko": "I",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "I",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.8,
+    "text": "Volkswagen Golf",
+    "ko": "폭스바겐 골프",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Golf",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.0,
+    "text": "Turbocharged",
+    "ko": "터보차저",
+    "kind": "키워드 스티커",
+    "y_pct": 17.0,
+    "x_center_pct": 56.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE57F",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Turbocharged",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 7.0,
+    "text": "Stratified",
+    "ko": "성층",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE57F",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Stratified",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.0,
+    "text": "Injection",
+    "ko": "직분사",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE57F",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Injection",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 9.4,
+    "text": "Een benzinemotor die zuinig is",
+    "ko": "연비가 좋으면서도",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "die",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.8,
+    "text": "maar toch lekker rijdt",
+    "ko": "경쾌하게 달리는 가솔린 엔진",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "rijdt",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "text": "dankzij de turbo in deze motor",
+    "ko": "이 엔진의 터보 덕분에",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "turbo",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.3,
+    "text": "meer vermogen",
+    "ko": "더 강력한 출력",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "meer",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 15.6,
+    "text": "minder verbruik",
+    "ko": "더 적은 연료 소모",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "minder",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "en soepel rijden ook bij lage toeren",
+    "ko": "낮은 회전수에서도 부드러운 주행감",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "rijden",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.5,
+    "text": "Deze golf komt",
+    "ko": "이 골프는",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "golf",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.8,
+    "text": "2024",
+    "ko": "2024년식",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.0,
+    "text": "131 pk",
+    "ko": "131마력",
+    "kind": "키워드 스티커",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "131",
+    "sure": true
+   },
+   {
+    "start": 21.1,
+    "end": 22.2,
+    "text": "Handgeschakeld",
+    "ko": "수동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 56.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Handgeschakeld",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.8,
+    "text": "17.990 KM",
+    "ko": "17,990 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 54.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "17.990",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 29.5,
+    "text": "Je vindt deze auto bij",
+    "ko": "이 차량은 여기서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "deze",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "노란색 T 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.4,
+    "type": "톡",
+    "event": "노란색 S 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.0,
+    "type": "톡",
+    "event": "노란색 I 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.3,
+    "type": "휙",
+    "event": "3분할 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "톡",
+    "event": "Turbocharged 텍스트 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.6,
+    "type": "톡",
+    "event": "Stratified 텍스트 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.3,
+    "type": "톡",
+    "event": "Injection 텍스트 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "meer vermogen 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "톡",
+    "event": "minder verbruik 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "2024 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "톡",
+    "event": "131 pk 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.1,
+    "type": "톡",
+    "event": "Handgeschakeld 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.3,
+    "type": "톡",
+    "event": "17.990 KM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.8,
+    "type": "휙",
+    "event": "딜러 GTSC 로고 슬라이드 다운",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 슬라이드 다운",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 전자 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 역동적인",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 25.8,
+    "end": 29.5,
+    "what": "GTSC 딜러 로고 및 텍스트",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 42.0,
+    "entrance": "밀려옴",
+    "purpose": "판매 딜러 정보 안내",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.5,
+    "what": "AutoScout24 노란색 로고 박스 그래픽",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "밀려옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "Waar staat T-S-I voor bij deze Volkswagen Golf?",
+    "ko": "이 폭스바겐 골프의 TSI는 무슨 뜻일까요?"
+   },
+   {
+    "start": 4.8,
+    "end": 7.0,
+    "text": "Turbocharged Stratified Injection.",
+    "ko": "터보차저 성층 직분사(Turbocharged Stratified Injection)입니다."
+   },
+   {
+    "start": 7.1,
+    "end": 10.8,
+    "text": "Een benzinemotor die zuinig is maar toch lekker rijdt.",
+    "ko": "연비가 좋으면서도 경쾌하게 달리는 가솔린 엔진이죠."
+   },
+   {
+    "start": 10.9,
+    "end": 16.7,
+    "text": "Dankzij de turbo in deze motor krijg je meer vermogen, minder verbruik en soepel rijden ook bij lage toeren.",
+    "ko": "이 엔진의 터보 덕분에 더 높은 출력, 적은 연비, 그리고 낮은 회전수에서도 부드러운 주행을 얻을 수 있습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 24.8,
+    "text": "Deze Golf komt uit 2024, heeft 131 pk, is handgeschakeld en heeft 17.990 km gereden.",
+    "ko": "이 골프는 2024년식에 131마력, 수동 변속기이며 주행거리는 17,990km입니다."
+   },
+   {
+    "start": 25.0,
+    "end": 29.5,
+    "text": "Je vindt deze auto bij GTSC en op AutoScout24.be.",
+    "ko": "이 차량은 GTSC 매장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.3,
+    "speed": "빠름",
+    "summary": "TSI 약어 질문을 던지며 시청자 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.3,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "폭스바겐 골프 3분할 샷으로 대상 차량 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 4.8,
+    "end": 16.7,
+    "speed": "보통",
+    "summary": "TSI 명칭 풀이 및 터보 엔진의 연비/출력 장점 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 16.7,
+    "end": 24.8,
+    "speed": "빠름",
+    "summary": "연식, 출력, 변속기, 주행거리 등 주요 스펙 나열"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 24.8,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "딜러사 및 오토스카우트24 플랫폼 링크 안내와 엔딩"
+   }
+  ],
+  "rules": [
+   "시작 1초 안에 질문형 훅과 글자 스티커를 띄워 호기심을 유발한다.",
+   "키워드나 스펙이 언급될 때마다 눈에 띄는 노란색 상자 스티커와 함께 톡/팝 효과음을 일치시킨다.",
+   "긴 문장 자막은 화자의 음성 흐름에 맞춰 단어 단위로 하이라이트한다.",
+   "기술 설명 후 곧바로 해당 중고 매물의 핵심 스펙(연식, 출력, 미션, 킬로수)을 1초 간격으로 빠르게 나열한다.",
+   "영상 마지막에 딜러 정보와 AutoScout24 브랜딩 로고를 드롭 애니메이션으로 노출하며 마무리한다."
+  ]
+ }
+}

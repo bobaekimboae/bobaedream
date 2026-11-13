@@ -1,0 +1,140 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/7kI3HeacuxE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1282,
+  "candidatesTokenCount": 1125,
+  "totalTokenCount": 2407,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 540
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 5.9,
+   "aspect": "9:16",
+   "car": "Lamborghini Huracan",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "제목",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "text": "LAAT HET WETEN\nIN EEN REACTIE!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.1,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-fi / R&B Beat",
+   "bpm_est": 85,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 4.1,
+    "end": 5.9,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 50.0,
+    "y_pct": 46.5,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "진행자가 엠블럼을 가린 채 차 브랜드를 맞춰보라는 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 2.2,
+    "end": 4.1,
+    "speed": "보통",
+    "summary": "클랙슨과 스티어링 휠 주변 디테일을 클로즈업하며 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 4.1,
+    "end": 5.9,
+    "speed": "보통",
+    "summary": "댓글 유도 자막 및 AutoScout24 로고 노출로 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 말하지 않고 음악과 텍스트 자막만으로 시청자 참여형 퀴즈를 유도한다.",
+   "핸들의 브랜드 로고를 손으로 가려 호기심을 유발하고 댓글 참여를 유도한다.",
+   "마지막에 브랜드 로고가 튀어나오는 시점에 맞춰 효과음(톡)을 동기화한다."
+  ]
+ }
+}

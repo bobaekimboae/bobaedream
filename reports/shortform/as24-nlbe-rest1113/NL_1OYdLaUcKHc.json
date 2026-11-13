@@ -1,0 +1,633 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/1OYdLaUcKHc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6398,
+  "candidatesTokenCount": 5044,
+  "totalTokenCount": 11442,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5656
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 63.6,
+   "aspect": "9:16",
+   "car": "Ford F-150 Raptor R Whipple Supercharged",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 13.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.3,
+    "end": 15.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 25.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.2,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 36.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 43.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 45.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.9,
+    "end": 49.9,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.9,
+    "end": 51.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.4,
+    "end": 56.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.7,
+    "end": 63.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "JE HEBT DE FORD RAPTOR",
+    "ko": "포드 랩터가 있고",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FORD RAPTOR",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "text": "EN DAN HEB JE DE FORD RAPTOR R",
+    "ko": "그리고 포드 랩터 R이 있고",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "text": "FORD RAPTOR R WIPPLE SUPERCHARGER",
+    "ko": "포드 랩터 R 위플 슈퍼차저",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "text": "1000 PK",
+    "ko": "1000 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.9,
+    "text": "LEVELING KIT",
+    "ko": "레벨링 키트",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 25.8,
+    "text": "HUGE",
+    "ko": "거대함",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "13 POLIGE STEKKER",
+    "ko": "13핀 커넥터",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "text": "WINDOW VISOR",
+    "ko": "윈도우 바이저",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.0,
+    "text": "LIGHTBAR",
+    "ko": "라이트바",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.0,
+    "text": "BACKFLIP 3 DELEN OPKLAPPEN",
+    "ko": "백플립 3단 폴딩 커버",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.4,
+    "text": "€ 189.950",
+    "ko": "189,950 유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "Raptor R 자막 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "휙",
+    "event": "Whipple 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "쿵",
+    "event": "1000 PK 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "딸깍",
+    "event": "견인 단자 캡 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "딸깍",
+    "event": "루프 라이트 켜짐 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "적재함 백플립 커버 접히는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문 닫히는 쿵 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 57.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "V8 슈퍼차저 시동 및 배기음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 묵직함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 56.5,
+     "what": "엔진 사운드 들려주기 위해 음악 페이드아웃"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 57.0,
+    "end": 60.5,
+    "what": "스피커 이모티콘 3개 아이콘 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 90.0,
+    "entrance": "페이드",
+    "purpose": "배기 사운드 강조",
+    "sure": true
+   },
+   {
+    "start": 61.0,
+    "end": 63.6,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 72.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Je hebt de Ford Raptor, en dan heb je de Ford Raptor R.",
+    "ko": "포드 랩터가 있고, 그리고 포드 랩터 R이 있죠."
+   },
+   {
+    "start": 2.8,
+    "end": 9.0,
+    "text": "En dan heb je deze. Dit is ook een Raptor R, maar dan een Whipple supercharge en hij is helemaal aangepast.",
+    "ko": "그리고 바로 이게 있습니다. 이것도 랩터 R이지만 위플 슈퍼차저가 장착되어 완전히 튜닝된 차입니다."
+   },
+   {
+    "start": 9.0,
+    "end": 15.0,
+    "text": "En op het einde van deze video vertel ik je hoeveel die kost en ik laat je even het geluid horen. En dat gaat je verbazen.",
+    "ko": "영상 마지막에 가격을 알려드리고 사운드도 들려드릴게요. 깜짝 놀라실 겁니다."
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "Allereerst heeft hij 1000 pk.",
+    "ko": "우선 무려 1000마력을 냅니다."
+   },
+   {
+    "start": 17.5,
+    "end": 26.5,
+    "text": "En ook is er een leveling kit gemonteerd en alle kunststofdelen en bumpers zijn in het zwart gespoten. En kijk deze banden, die zijn huge, niet?",
+    "ko": "레벨링 키트도 장착되어 있고 모든 플라스틱 부품과 범퍼는 블랙으로 도색되었습니다. 그리고 이 타이어를 보세요, 정말 거대하죠?"
+   },
+   {
+    "start": 26.5,
+    "end": 37.0,
+    "text": "Ook heeft hij een trekhaak met 13-polige stekker. En deze window visors, dit geeft hem een stoere look. Je kunt het raampje een beetje open doen zonder dat er regen naar binnen komt en het vermindert windgeruis.",
+    "ko": "13핀 소켓이 있는 견인 바도 있습니다. 그리고 이 윈도우 바이저는 강렬한 룩을 줄 뿐 아니라 비가 들이치지 않게 창문을 살짝 열 수 있고 풍절음을 줄여줍니다."
+   },
+   {
+    "start": 37.0,
+    "end": 45.5,
+    "text": "En kijk deze lightbar. Je kunt hem in gele verlichting of in witte verlichting aanzetten. Cool hè? Je hoeft dus niet meer bang te zijn dat je niet genoeg ziet op de weg.",
+    "ko": "그리고 이 라이트바를 보세요. 노란 조명이나 하얀 조명으로 켤 수 있습니다. 멋지죠? 도로에서 시야가 부족할까 봐 걱정할 필요가 없어요."
+   },
+   {
+    "start": 45.5,
+    "end": 50.0,
+    "text": "En deze bakflip, en die kun je dus in drie delen opklappen. Super handig.",
+    "ko": "그리고 이 백플립 커버는 3단으로 접어 올릴 수 있어 매우 실용적입니다."
+   },
+   {
+    "start": 50.0,
+    "end": 54.5,
+    "text": "En de prijs van deze auto is € 189.950.",
+    "ko": "그리고 이 차의 가격은 189,950유로입니다."
+   },
+   {
+    "start": 54.5,
+    "end": 60.5,
+    "text": "En let op, hij klinkt zo.",
+    "ko": "자, 소리는 이렇습니다."
+   },
+   {
+    "start": 60.5,
+    "end": 63.6,
+    "text": "Dat is wel kicken hè?",
+    "ko": "정말 짜릿하죠?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 15.0,
+    "speed": "빠름",
+    "summary": "랩터 R 튜닝 버전 소개 및 영상 후반부 가격·배기음 예고"
+   },
+   {
+    "stage": "사양",
+    "start": 15.0,
+    "end": 26.5,
+    "speed": "빠름",
+    "summary": "1000마력 출력, 레벨링 킷, 블랙 도색 부품 및 거대한 타이어 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 26.5,
+    "end": 50.0,
+    "speed": "보통",
+    "summary": "견인고리, 윈도우 바이저, 듀얼 컬러 루프 라이트바, 적재함 커버 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 50.0,
+    "end": 54.5,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 54.5,
+    "end": 63.6,
+    "speed": "빠름",
+    "summary": "실제 배기 사운드 시연 및 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 픽업트럭 주변을 걸으며 주요 파츠를 손으로 가리킬 때마다 해당 부품명이 노란색 텍스트 박스로 정중앙에 팝업",
+   "스펙 정보와 가격은 임팩트 있는 사운드 효과와 함께 굵은 폰트로 크게 강조",
+   "배기음을 들려줄 때는 BGM을 완전히 끄고 현장 오디오에 집중시키며 스피커 그래픽 이모티콘 추가"
+  ]
+ }
+}

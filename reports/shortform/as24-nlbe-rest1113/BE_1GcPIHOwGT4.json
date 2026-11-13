@@ -1,0 +1,661 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/1GcPIHOwGT4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3663,
+  "candidatesTokenCount": 6394,
+  "totalTokenCount": 10744,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2921
+   }
+  ],
+  "thoughtsTokenCount": 687,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 32.8,
+   "aspect": "9:16",
+   "car": "Audi e-tron",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 9.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 17.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.3,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 32.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Raad het aantal PK's",
+    "ko": "마력 수를 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "Kun jij raden",
+    "ko": "맞힐 수 있나요",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "raden",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "hoeveel pk deze",
+    "ko": "이 차가 몇 마력인지",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "hoeveel",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 2.8,
+    "text": "Audi e-tron",
+    "ko": "아우디 e-트론이",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Audi",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.8,
+    "text": "gewone Audi.",
+    "ko": "일반적인 아우디가 아닙니다.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Audi",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 4.9,
+    "text": "Deze Audi is",
+    "ko": "이 아우디는",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Audi",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.6,
+    "text": "volledig elektrisch.",
+    "ko": "완전 전기차입니다.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "volledig",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "Black edition",
+    "ko": "블랙 에디션",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "text": "21 inch velgen",
+    "ko": "21인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.5,
+    "text": "Digitale cockpit",
+    "ko": "디지털 콕핏",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 56.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "text": "infotainment-systeem",
+    "ko": "인포테인먼트 시스템",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.0,
+    "text": "360 graden camera",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "met 3D functie.",
+    "ko": "3D 기능 포함.",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "3D",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "text": "1 maar 2",
+    "ko": "하나가 아닌 둘",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "2",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.3,
+    "text": "elektromotoren.",
+    "ko": "전기 모터.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.8,
+    "text": "Hij komt uit 2022",
+    "ko": "2022년식 모델이며",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "text": "38.650 km",
+    "ko": "38,650 km",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.1,
+    "text": "€48.500",
+    "ko": "€48,500",
+    "kind": "가격",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "충전구 덮개 전동 개폐음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "휙",
+    "event": "Black edition 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "휙",
+    "event": "21 inch velgen 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.9,
+    "type": "휙",
+    "event": "Digitale cockpit 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "휙",
+    "event": "360 graden camera 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "휙",
+    "event": "2022 연식 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "휙",
+    "event": "주행거리 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.3,
+    "type": "쿵",
+    "event": "가격 스티커 확대 노출",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.0,
+    "type": "톡",
+    "event": "GTSC 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 28.5,
+    "end": 30.2,
+    "what": "GTSC 딜러 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 38.0,
+    "y_pct": 39.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 판매처 안내",
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 32.8,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Kun jij raden hoeveel pk deze Audi e-tron heeft?",
+    "ko": "이 아우디 e-트론이 몇 마력인지 맞힐 수 있나요?"
+   },
+   {
+    "start": 2.8,
+    "end": 6.6,
+    "text": "Dit is geen gewone Audi. Deze Audi is volledig elektrisch.",
+    "ko": "평범한 아우디가 아닙니다. 이 아우디는 완전 전기차입니다."
+   },
+   {
+    "start": 6.6,
+    "end": 9.8,
+    "text": "Het is een Black edition met 21 inch velgen.",
+    "ko": "21인치 휠이 장착된 블랙 에디션입니다."
+   },
+   {
+    "start": 9.8,
+    "end": 13.0,
+    "text": "Hij heeft een digitale cockpit met een groot infotainment-systeem.",
+    "ko": "대형 인포테인먼트 시스템과 디지털 콕핏을 갖추고 있습니다."
+   },
+   {
+    "start": 13.0,
+    "end": 17.5,
+    "text": "Hij heeft een 360 graden camera met 3D functie.",
+    "ko": "3D 기능이 지원되는 360도 어라운드 뷰 카메라가 있습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 20.3,
+    "text": "Hij heeft niet 1 maar 2 elektromotoren.",
+    "ko": "모터가 1개가 아니라 2개의 전기 모터가 들어있습니다."
+   },
+   {
+    "start": 20.3,
+    "end": 24.8,
+    "text": "Hij komt uit 2022, heeft 38.650 km gereden.",
+    "ko": "2022년식이고 38,650km를 주행했습니다."
+   },
+   {
+    "start": 24.8,
+    "end": 28.1,
+    "text": "En hij kost €48.500.",
+    "ko": "가격은 48,500유로입니다."
+   },
+   {
+    "start": 28.1,
+    "end": 32.8,
+    "text": "En je vindt hem bij GTSC en op AutoScout24.be.",
+    "ko": "GTSC 딜러 및 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "마력 수 퀴즈 질문으로 시청자 흥미 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 6.6,
+    "speed": "보통",
+    "summary": "순수 전기차 및 전동 충전구 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 6.6,
+    "end": 9.8,
+    "speed": "보통",
+    "summary": "블랙 에디션 외관 및 21인치 휠 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 9.8,
+    "end": 20.3,
+    "speed": "보통",
+    "summary": "실내 디스플레이, 3D 360 카메라, 듀얼 모터 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 20.3,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "연식 및 주행거리 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 24.8,
+    "end": 28.1,
+    "speed": "빠름",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.1,
+    "end": 32.8,
+    "speed": "보통",
+    "summary": "판매 딜러사 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "도입부에 질문형 퀴즈 자막(노란색 상자)을 상단에 고정해 시청 지속을 유도한다",
+   "스펙이나 주요 옵션이 언급될 때마다 시그니처 컬러인 노란색 붓터치/상자 스티커와 효과음을 동기화한다",
+   "인포테인먼트의 3D 뷰처럼 직관적인 첨단 기능을 손으로 직접 터치해 시각적 매력을 강조한다",
+   "연식, 주행거리, 가격을 영상 후반부에 순차적으로 임팩트 있게 공개한다",
+   "마지막 컷에서는 판매 딜러와 플랫폼 로고를 스티커 효과음과 함께 띄워 구매 경로를 명확히 제시한다"
+  ]
+ }
+}

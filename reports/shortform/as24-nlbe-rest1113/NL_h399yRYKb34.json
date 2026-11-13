@@ -1,0 +1,655 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/h399yRYKb34",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4666,
+  "candidatesTokenCount": 5416,
+  "totalTokenCount": 10082,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3924
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.0,
+   "aspect": "9:16",
+   "car": "Audi A5 Sportback (2019)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 18.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 22.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 26.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 36.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 44.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "TYPE AUDI\nMINST SNEL\nOUD OOGT 👀",
+    "ko": "가장 덜 늙어 보이는 아우디 모델 👀",
+    "kind": "제목",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUDI",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.6,
+    "text": "HET DESIGN\nVAN DE",
+    "ko": "디자인이",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "HET",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.4,
+    "text": "IS HEEL\n✔ TIJDLOOS",
+    "ko": "매우 타임리스합니다",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TIJDLOOS",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.4,
+    "text": "ZELFS OUDERE MODELLEN\nNOG TIJDLOOS\nEN STRAK UIT",
+    "ko": "구형 모델조차도 여전히 세련되고 깔끔합니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TIJDLOOS",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 13.4,
+    "text": "TERWIJL ALS\nJE DAT VERGELIJKT MET\nANDERE AUTO'S\nUIT DEZELFDE JAREN\nDAN ZIJN DIE\nVAAK WAT GEDATEERDER",
+    "ko": "동시대의 다른 차들과 비교하면 훨씬 덜 구식으로 보입니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ANDERE",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 15.5,
+    "text": "✔ EERSTE REDEN\nWAAROM JE\nZOU KIEZEN VOOR",
+    "ko": "아우디 A5를 선택해야 하는 첫 번째 이유",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EERSTE",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.8,
+    "text": "EEN AUDI\nA5",
+    "ko": "아우디 A5",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUDI",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.7,
+    "text": "OP HET\nEINDE VERTEL IK\nJE WAT HIJ KOST",
+    "ko": "마지막에 가격을 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KOST",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 20.8,
+    "text": "✔ 2019",
+    "ko": "2019년식",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2019",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.4,
+    "text": "✔ S LINE\nMET EEN SCHUIFDAK",
+    "ko": "S라인, 선루프 탑재",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "S LINE",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "✔ 150 PK\nHET IS EEN AUTOMAAT",
+    "ko": "150마력 오토매틱",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "150 PK",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.6,
+    "text": "VAN 0\nNAAR 100 GA JE\n✔ 9 SECONDEN",
+    "ko": "제로백 9초",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "9 SECONDEN",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "text": "EN KIJK\nHOE RUIM\nDEZE KOFFERRUIMTE IS",
+    "ko": "트렁크 공간이 얼마나 넓은지 보세요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RUIM",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 32.8,
+    "text": "✔ 18-INCH VELGEN",
+    "ko": "18인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "18-INCH",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.7,
+    "text": "€ 26.995",
+    "ko": "26,995유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "26.995",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "text": "📍 CARBON EXCLUSIVES",
+    "ko": "카본 익스클루시브 전시장",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CARBON",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "제목 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "띵",
+    "event": "체크 아이콘 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.7,
+    "type": "띵",
+    "event": "첫 번째 이유 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "연식 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 20.9,
+    "type": "톡",
+    "event": "S라인 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "출력 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 25.1,
+    "type": "톡",
+    "event": "가속도 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "톡",
+    "event": "휠 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 34.5,
+    "type": "돈 소리",
+    "event": "가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.6,
+    "type": "톡",
+    "event": "위치 핀 스티커 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 인스트루멘탈",
+   "bpm_est": 120,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 40.5,
+    "end": 43.5,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Dit is het type Audi die het minst snel oud oogt.",
+    "ko": "가장 덜 구형으로 느껴지는 아우디 모델입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 5.4,
+    "text": "Het design van de Audi A5 is heel tijdloos.",
+    "ko": "아우디 A5의 디자인은 매우 유행을 타지 않습니다."
+   },
+   {
+    "start": 5.5,
+    "end": 8.4,
+    "text": "Zelfs oudere modellen zien er nog tijdloos en strak uit.",
+    "ko": "구형 모델조차도 여전히 세련되고 깔끔합니다."
+   },
+   {
+    "start": 8.5,
+    "end": 13.4,
+    "text": "Terwijl als je dat vergelijkt met andere auto's uit dezelfde jaren dan zijn die vaak wat gedateerder.",
+    "ko": "동시대의 다른 차량들과 비교해보면 그쪽이 훨씬 낡아 보이죠."
+   },
+   {
+    "start": 13.5,
+    "end": 16.8,
+    "text": "Dat was de eerste reden waarom je zou kiezen voor een Audi A5.",
+    "ko": "이것이 아우디 A5를 선택할 첫 번째 이유였습니다."
+   },
+   {
+    "start": 16.9,
+    "end": 19.7,
+    "text": "Op het einde vertel ik je wat hij kost, maar eerst:",
+    "ko": "마지막에 가격을 알려드릴 텐데요, 그 전에 먼저:"
+   },
+   {
+    "start": 19.8,
+    "end": 22.6,
+    "text": "Hij komt uit 2019 en het is een S Line met een schuifdak.",
+    "ko": "2019년식이며 선루프가 있는 S라인 모델입니다."
+   },
+   {
+    "start": 22.7,
+    "end": 26.7,
+    "text": "150 pk, het is een automaat en van 0 naar 100 ga je in 9 seconden.",
+    "ko": "150마력의 오토매틱이며 제로백은 9초입니다."
+   },
+   {
+    "start": 26.8,
+    "end": 29.8,
+    "text": "En kijk hoe ruim deze kofferruimte is.",
+    "ko": "그리고 트렁크 공간이 얼마나 넓은지 보세요."
+   },
+   {
+    "start": 29.9,
+    "end": 32.8,
+    "text": "Ook heeft hij frameless deuren en 18-inch velgen.",
+    "ko": "프레임리스 도어와 18인치 휠도 장착되어 있습니다."
+   },
+   {
+    "start": 32.9,
+    "end": 36.7,
+    "text": "Hij is origineel Nederlands en hij kost € 26.995.",
+    "ko": "네덜란드 정식 출고 차량이며 가격은 26,995유로입니다."
+   },
+   {
+    "start": 36.8,
+    "end": 44.0,
+    "text": "En je vindt hem in de showroom van Carbon Exclusives en natuurlijk op autoscout24.nl.",
+    "ko": "카본 익스클루시브 전시장과 autoscout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "질문/주제 제시: 가장 구형 티 안 나는 아우디"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.7,
+    "end": 16.8,
+    "speed": "보통",
+    "summary": "타임리스한 아우디 A5의 디자인 강점 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 16.8,
+    "end": 26.7,
+    "speed": "빠름",
+    "summary": "연식, 트림, 마력, 변속기, 제로백 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 26.7,
+    "end": 32.8,
+    "speed": "빠름",
+    "summary": "트렁크 용량, 프레임리스 도어, 18인치 휠 확인"
+   },
+   {
+    "stage": "가격",
+    "start": 32.8,
+    "end": 36.7,
+    "speed": "보통",
+    "summary": "실제 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 36.7,
+    "end": 44.0,
+    "speed": "보통",
+    "summary": "전시장 위치 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "호기심을 자극하는 타이틀을 초반 상단에 굵은 노란색 텍스트로 노출",
+   "스펙이나 주요 옵션이 언급될 때 체크마크(✔)와 함께 팝업 스티커 자막 사용",
+   "사양 정보가 나타날 때마다 경쾌한 짧은 팝 효과음 매칭",
+   "가격 공개 시점을 영상 후반부로 유도하여 시청 지속 시간 확보",
+   "브랜드 로고 애니메이션과 함께 플랫폼 방문 유도로 영상 마무리"
+  ]
+ }
+}

@@ -1,0 +1,174 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/ImNQ6Ta4lIU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1569,
+  "candidatesTokenCount": 1466,
+  "totalTokenCount": 3967,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 827
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 932,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.8,
+   "aspect": "9:16",
+   "car": "알핀 A110 (Alpine A110)",
+   "format": "기타",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 6.2,
+    "text": "HERKEN JIJ DE AUTO IN 10 SECONDEN? 🔎🔎🔎",
+    "ko": "10초 안에 이 차를 알아맞힐 수 있나요? 🔎🔎🔎",
+    "kind": "제목",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 9.8,
+    "text": "LAAT HET WETEN IN EEN REACTIE!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 68.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트 힙합/로파이",
+   "bpm_est": 125,
+   "mood": "리드미컬하고 궁금증을 유발하는 분위기",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 6.2,
+    "end": 9.8,
+    "what": "AutoScout24 로고 스티커 (노란색 찢어진 테이프 스타일)",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩 및 채널 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.2,
+    "speed": "빠름",
+    "summary": "10초 퀴즈 텍스트와 함께 주요 디테일 컷 연속 노출"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 6.2,
+    "end": 9.8,
+    "speed": "보통",
+    "summary": "브랜드 로고와 함께 댓글 정답 참여 유도"
+   }
+  ],
+  "rules": [
+   "음성 해설 없이 비트감 있는 음악과 클로즈업 컷만으로 몰입도를 높이는 숏폼 퀴즈 포맷",
+   "화면 중앙에 굵은 노란색 텍스트와 돋보기 이모지를 고정 배치하여 시청자의 챌린지 참여 유도",
+   "후반부에 브랜드 로고와 명확한 CTA('댓글로 알려주세요')를 제시하여 인터랙션 극대화"
+  ]
+ }
+}

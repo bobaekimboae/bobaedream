@@ -1,0 +1,679 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/PzpCf9FDDUo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3119,
+  "candidatesTokenCount": 5464,
+  "totalTokenCount": 9465,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2377
+   }
+  ],
+  "thoughtsTokenCount": 882,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.6,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "VOLKSWAGEN GOLF GTI",
+    "ko": "폭스바겐 골프 GTI",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GOLF GTI",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "€15.888",
+    "ko": "15,888 유로",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€15.888",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.5,
+    "text": "HIJ KOMT UIT 2015",
+    "ko": "2015년식이며",
+    "kind": "말 자막",
+    "y_pct": 17.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2015",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.4,
+    "text": "EN HIJ HEEFT",
+    "ko": "주행거리는",
+    "kind": "말 자막",
+    "y_pct": 17.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "184.000 KM",
+    "ko": "184,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 33.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "184.000 KM",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.3,
+    "text": "GELOPEN",
+    "ko": "주행했습니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.7,
+    "text": "221 PK",
+    "ko": "221 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "221 PK",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.4,
+    "text": "EN",
+    "ko": "그리고",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "text": "DSG-AUTOMAAT",
+    "ko": "DSG 자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 34.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DSG-AUTOMAAT",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.8,
+    "text": "MAAR EEN",
+    "ko": "하지만",
+    "kind": "말 자막",
+    "y_pct": 40.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 12.8,
+    "text": "DSG-AUTOMAAT",
+    "ko": "DSG 변속기가",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 13.5,
+    "text": "DAT NU ZEGGEN",
+    "ko": "무슨 뜻일까요?",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.5,
+    "text": "BETEKENT",
+    "ko": "뜻은",
+    "kind": "말 자막",
+    "y_pct": 46.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.6,
+    "text": "DIRECT SHIFT GEARBOX",
+    "ko": "다이렉트 시프트 기어박스",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DIRECT SHIFT GEARBOX",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.7,
+    "text": "DE ENE VERSNELLING",
+    "ko": "한 기어로",
+    "kind": "말 자막",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 17.5,
+    "text": "RIJDT",
+    "ko": "주행할 때",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.5,
+    "text": "ANDERE AL KLAAR",
+    "ko": "다음 단이 이미 준비됩니다",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AL",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.6,
+    "text": "ZEGGEN RAZENDSNEL",
+    "ko": "즉 초고속으로",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RAZENDSNEL",
+    "sure": true
+   },
+   {
+    "start": 19.6,
+    "end": 20.8,
+    "text": "SCHAKELEN",
+    "ko": "변속된다는 뜻이죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SCHAKELEN",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 21.8,
+    "text": "HIJ STAAT IN",
+    "ko": "이 차량은",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.0,
+    "text": "AUTOHUIS MULDER",
+    "ko": "Autohuis Mulder 전시장에",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOHUIS MULDER",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.0,
+    "text": "EN NATUURLIJK OP",
+    "ko": "그리고 당연히",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "차량명 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "주행거리 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "톡",
+    "event": "마력 수치 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "톡",
+    "event": "DSG 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "톡",
+    "event": "DIRECT SHIFT GEARBOX 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 28.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Deze Volkswagen Golf GTI kost €15.888.",
+    "ko": "이 폭스바겐 골프 GTI의 가격은 15,888 유로입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 7.3,
+    "text": "Hij komt uit 2015 en hij heeft 184.000 km gelopen.",
+    "ko": "2015년식이고 184,000 km를 달렸습니다."
+   },
+   {
+    "start": 7.3,
+    "end": 9.4,
+    "text": "Hij heeft 221 pk en...",
+    "ko": "221마력에다가..."
+   },
+   {
+    "start": 9.4,
+    "end": 13.5,
+    "text": "Hij heeft een DSG-automaat. Maar een DSG-automaat, wat wil dat nu zeggen?",
+    "ko": "DSG 자동변속기가 탑재되어 있죠. 그런데 DSG 변속기란 무슨 뜻일까요?"
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "text": "DSG betekent Direct Shift Gearbox.",
+    "ko": "DSG는 Direct Shift Gearbox(다이렉트 시프트 기어박스)를 의미합니다."
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "text": "Als je in de ene versnelling rijdt, dan staat die andere al klaar.",
+    "ko": "한 단으로 달리고 있으면 다음 단이 이미 물려 대기하고 있죠."
+   },
+   {
+    "start": 18.5,
+    "end": 20.8,
+    "text": "En dat wil zeggen: razendsnel schakelen.",
+    "ko": "그 말은 즉 번개처럼 빠른 변속이 가능하다는 뜻입니다."
+   },
+   {
+    "start": 20.8,
+    "end": 23.3,
+    "text": "Hij staat in de showroom van Autohuis Mulder...",
+    "ko": "이 차량은 Autohuis Mulder 매장에 있으며..."
+   },
+   {
+    "start": 23.3,
+    "end": 26.6,
+    "text": "En natuurlijk op autoscout24.nl.",
+    "ko": "물론 autoscout24.nl에서도 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "차명과 가격 제시로 시청자 시선 집중"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 9.4,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 출력 스펙 전달"
+   },
+   {
+    "stage": "기능",
+    "start": 9.4,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "DSG 미션 개념과 장점 쉬운 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 20.8,
+    "end": 26.6,
+    "speed": "빠름",
+    "summary": "차량 위치 및 오토스카우트24 플랫폼 유도"
+   }
+  ],
+  "rules": [
+   "자막은 시인성 높은 노란색 볼드 폰트에 굵은 검은색 외곽선 형식을 통일하여 사용함",
+   "화자가 핵심 단어를 말하는 타이밍에 팝업 효과음과 함께 굵은 텍스트가 튀어나옴",
+   "스펙(가격, 연식, 마력 등) 수치는 화면 중앙에 큼직하게 띄워 직관적 인식 유도",
+   "2초 안팎의 빠른 컷 전환과 진행자의 생동감 있는 리액션으로 몰입도 유지",
+   "마지막 컷에서 손동작과 어우러지는 브랜드 로고 그래픽 팝업으로 자연스러운 CTA 유도"
+  ]
+ }
+}

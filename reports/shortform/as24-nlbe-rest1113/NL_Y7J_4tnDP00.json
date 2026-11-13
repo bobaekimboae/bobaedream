@@ -1,0 +1,819 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Y7J_4tnDP00",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7104,
+  "candidatesTokenCount": 6598,
+  "totalTokenCount": 15303,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6362
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1601,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 69.8,
+   "aspect": "9:16",
+   "car": "Cupra Leon VZ Copper Edition",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 19.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 35.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 46.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 49.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 52.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 54.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 56.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.8,
+    "end": 58.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.2,
+    "end": 10.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 65.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 65.5,
+    "end": 66.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 69.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "RAAD HOEVEEL",
+    "ko": "맞혀보세요 몇",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RAAD",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "PK",
+    "ko": "마력인지",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "text": "CUPRA LEON VZ",
+    "ko": "쿠프라 레온 VZ",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.2,
+    "text": "DE NORMALE",
+    "ko": "일반 모델은",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "text": "204 PK",
+    "ko": "204 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "204 PK",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "text": "VELOZ",
+    "ko": "벨로즈 (스페인어)",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VELOZ",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "text": "SNEL",
+    "ko": "빠름",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SNEL",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 22.0,
+    "text": "✔ COPPER EDITION",
+    "ko": "✔ 코퍼 에디션",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COPPER EDITION",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.8,
+    "text": "✔ KOPERKLEURIGE ACCENTEN",
+    "ko": "✔ 구리색 포인트",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "text": "✔ HET LOGO",
+    "ko": "✔ 로고",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.0,
+    "text": "✔ IN DE STIKSELS VAN DE STOELEN",
+    "ko": "✔ 시트 스티치",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.0,
+    "text": "✔ EEN SPECIALE KNOP",
+    "ko": "✔ 전용 버튼",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.5,
+    "text": "✔ VERSCHILLENDE RIJMODUSSEN",
+    "ko": "✔ 다양한 주행 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.2,
+    "text": "✔ DE NORMALE MODUS",
+    "ko": "✔ 일반 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 41.5,
+    "text": "✔ DE SPORTMODUS",
+    "ko": "✔ 스포츠 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 42.8,
+    "text": "✔ DE CUPRA MODUS",
+    "ko": "✔ 쿠프라 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.5,
+    "text": "✔ IN DE VELGEN",
+    "ko": "✔ 휠 디자인에",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 61.5,
+    "text": "2023",
+    "ko": "2023년식",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 63.5,
+    "end": 65.5,
+    "text": "€34.995",
+    "ko": "€34,995 (약 5,000만원)",
+    "kind": "가격",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€34.995",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "띵",
+    "event": "COPPER EDITION 체크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "띵",
+    "event": "KOPERKLEURIGE ACCENTEN 체크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "띵",
+    "event": "HET LOGO 체크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "띵",
+    "event": "IN DE STIKSELS VAN DE STOELEN 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "띵",
+    "event": "EEN SPECIALE KNOP 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "띵",
+    "event": "VERSCHILLENDE RIJMODUSSEN 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.2,
+    "type": "띵",
+    "event": "DE NORMALE MODUS 체크 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "띵",
+    "event": "DE SPORTMODUS 체크 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 41.8,
+    "type": "띵",
+    "event": "DE CUPRA MODUS 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.0,
+    "type": "띵",
+    "event": "IN DE VELGEN 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.1,
+    "type": "톡",
+    "event": "2023 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 63.6,
+    "type": "돈 소리",
+    "event": "€34.995 가격 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 66.9,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/전자음악",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.5,
+    "end": 5.8,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 38.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 69.5,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 38.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Kan jij raden hoeveel pk deze Cupra Leon VZ heeft?",
+    "ko": "이 쿠프라 레온 VZ가 몇 마력인지 맞히실 수 있나요?"
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "text": "Je vindt hem op AutoScout24.nl",
+    "ko": "AutoScout24.nl에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 6.0,
+    "end": 10.0,
+    "text": "Ik geef je alvast een tip: de normale Leon heeft 204 pk,",
+    "ko": "힌트를 하나 드리자면, 일반 레온은 204마력입니다."
+   },
+   {
+    "start": 10.0,
+    "end": 14.0,
+    "text": "maar dit is dus de Cupra Leon VZ en die heeft meer pk.",
+    "ko": "하지만 이건 쿠프라 레온 VZ이고 더 높은 출력을 냅니다."
+   },
+   {
+    "start": 14.0,
+    "end": 19.5,
+    "text": "En VZ, dat staat in het Spaans voor 'veloz', en dat betekent 'snel'. Deze uitvoering is dus extra snel.",
+    "ko": "그리고 VZ는 스페인어로 'veloz'를 뜻하며, '빠르다'는 의미입니다. 이 에디션은 더욱 빠릅니다."
+   },
+   {
+    "start": 19.5,
+    "end": 26.5,
+    "text": "Maar hij heeft ook de Copper Edition. En dat zijn die koperkleurige accenten die je overal terugziet in de auto.",
+    "ko": "또한 코퍼 에디션이라 차량 곳곳에서 구리색 포인트를 볼 수 있습니다."
+   },
+   {
+    "start": 26.5,
+    "end": 33.0,
+    "text": "En je ziet het dus hier in het interieur al terugkomen bij het stuur, hier bij het logo, maar ook bijvoorbeeld in de stiksels van de stoelen.",
+    "ko": "실내에서도 스티어링 휠 로고뿐만 아니라 시트 스티치에서도 찾아볼 수 있죠."
+   },
+   {
+    "start": 33.0,
+    "end": 38.5,
+    "text": "En hier op het stuur heb je dus ook een speciale knop en dan kun je dus switchen naar allemaal verschillende rijmodussen.",
+    "ko": "스티어링 휠의 전용 버튼으로 다양한 주행 모드를 전환할 수 있습니다."
+   },
+   {
+    "start": 38.5,
+    "end": 46.0,
+    "text": "Je hebt dus de normale modus, je hebt de sportmodus, maar je hebt ook de Cupra-modus. En ik zal je zeggen: als je hem daarin zet, dan vlieg je weg.",
+    "ko": "일반 모드, 스포츠 모드, 그리고 쿠프라 모드가 있습니다. 이 모드로 두면 정말 날아가는 느낌입니다."
+   },
+   {
+    "start": 46.0,
+    "end": 52.8,
+    "text": "Maar we gaan eerst nog even verder met die Copper Edition, die koperkleurige accenten, want kijk hier in de velgen komen ze ook terug.",
+    "ko": "코퍼 에디션 포인트를 더 살펴보면, 휠에서도 이 컬러를 확인할 수 있습니다."
+   },
+   {
+    "start": 52.8,
+    "end": 58.0,
+    "text": "Kijk ook hier in het logo. En kijk hoe mooi dat dat matcht met die kleur. Ik vind het echt top.",
+    "ko": "전면 로고도 마찬가지죠. 외장 컬러와 완벽하게 어울립니다."
+   },
+   {
+    "start": 58.0,
+    "end": 65.5,
+    "text": "Maar hoeveel kost deze auto nu? Hij komt uit 2023 en zit echt bomvol luxe opties. Hij kost €34.995.",
+    "ko": "그렇다면 이 차의 가격은 얼마일까요? 2023년식에 풀옵션 수준으로 갖춰져 있으며, 34,995유로입니다."
+   },
+   {
+    "start": 65.5,
+    "end": 69.8,
+    "text": "En je vindt hem op AutoScout24.nl.",
+    "ko": "AutoScout24.nl에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "보통",
+    "summary": "마력 맞히기 퀴즈 질문으로 시청자 흥미 유도"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 3.0,
+    "end": 6.0,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼 언급"
+   },
+   {
+    "stage": "사양",
+    "start": 6.0,
+    "end": 19.8,
+    "speed": "보통",
+    "summary": "일반 모델 대비 VZ(Veloz: 빠른) 성능 특징 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 19.8,
+    "end": 58.0,
+    "speed": "보통",
+    "summary": "코퍼 에디션 디테일 및 주행 모드(쿠프라 모드) 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 58.0,
+    "end": 65.5,
+    "speed": "보통",
+    "summary": "연식 및 차량 판매 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 65.5,
+    "end": 69.8,
+    "speed": "보통",
+    "summary": "AutoScout24 최종 구매 안내 CTA"
+   }
+  ],
+  "rules": [
+   "호스트가 질문(퀴즈 형식)을 던지며 시청자의 댓글/참여를 유도하는 훅으로 시작",
+   "체크마크(✔) 키워드 스티커를 중요한 옵션이나 명칭이 언급될 때 '띵' 효과음과 함께 팝업 노출",
+   "플랫폼 로고(AutoScout24)를 도입부와 말미에 일관되게 브랜딩 요소로 노출",
+   "외관 전체 샷과 주요 디테일(스티칭, 휠, 버튼 등) 클로즈업을 적절히 교차 편집"
+  ]
+ }
+}

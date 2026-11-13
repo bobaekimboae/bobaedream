@@ -1,0 +1,126 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/h2teyFiClXk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1661,
+  "candidatesTokenCount": 999,
+  "totalTokenCount": 3407,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 919
+   }
+  ],
+  "thoughtsTokenCount": 747,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.4,
+   "aspect": "9:16",
+   "car": "Skoda Enyaq iV",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "RAAD HET MERK",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.4,
+    "text": "LAAT HET WETEN IN EEN REACTIE",
+    "ko": "댓글로 알려주세요",
+    "kind": "제목",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/트랩 비트",
+   "bpm_est": 130,
+   "mood": "경쾌하고 리듬감 있음",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 8.6,
+    "end": 10.4,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 54.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "출연자가 스티어링 휠 로고를 손으로 가리며 브랜드 맞히기 퀴즈 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 4.5,
+    "end": 10.4,
+    "speed": "보통",
+    "summary": "실내 디테일을 보여주며 댓글 참여 유도 및 브랜드 로고 노출"
+   }
+  ],
+  "rules": [
+   "원테이크 숏폼으로 로고를 손으로 가려 시청자의 댓글 참여(인게이지먼트)를 유도한다",
+   "선명한 노란색 굵은 폰트와 블랙 외곽선을 적용하여 어떤 배경에서도 가독성을 확보한다",
+   "영상 말미에 브랜드 로고를 중앙에 배치하여 채널 인지도를 높인다"
+  ]
+ }
+}

@@ -1,0 +1,424 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/1YivF6HjLTw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5023,
+  "candidatesTokenCount": 4266,
+  "totalTokenCount": 10534,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4281
+   }
+  ],
+  "thoughtsTokenCount": 1245,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.9,
+   "aspect": "9:16",
+   "car": "Lexus LS 600h",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 17.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 26.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 30.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 35.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 38.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 47.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "LEXUS",
+    "ko": "렉서스",
+    "kind": "키워드 스티커",
+    "y_pct": 17.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LEXUS",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "KOST NIEUW",
+    "ko": "신차 가격은",
+    "kind": "말 자막",
+    "y_pct": 4.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.0,
+    "text": "RUIM BOVEN DE",
+    "ko": "훨씬 웃도는",
+    "kind": "말 자막",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "V8 HYBRIDE",
+    "ko": "V8 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V8 HYBRIDE",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.5,
+    "text": "445 PK\nV8 HYBRIDE",
+    "ko": "445마력 V8 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 44.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "445 PK",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "184.000 KM",
+    "ko": "184,000 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 54.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "184.000 KM",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 33.5,
+    "text": "DISCRETE TOPKLASSE",
+    "ko": "은은하고 고급스러운 클래스",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.5,
+    "text": "€27.900",
+    "ko": "27,900 유로",
+    "kind": "가격",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€27.900",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "LEXUS 자막 상자 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "V8 HYBRIDE 뱃지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.1,
+    "type": "톡",
+    "event": "445 PK 뱃지 추가 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "문 닫히는 효과음/엔진 가속 음향 연출",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "184.000 KM 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.8,
+    "type": "띵",
+    "event": "체크마크와 DISCRETE TOPKLASSE 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "돈 소리",
+    "event": "중고 판매 가격 €27.900 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi Hip-Hop / Upbeat Groove",
+   "bpm_est": 95,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 44.8,
+    "end": 47.9,
+    "what": "AutoScout24 브랜드 로고 상자",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 24.0,
+    "y_pct": 57.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 앱 다운로드 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 7.7,
+    "text": "Deze Lexus kostte nieuw ruim boven de €100.000 en in deze video vertel ik je waarom je voor deze auto moet kiezen en wat hij nu kost.",
+    "ko": "이 렉서스는 신차 가격이 10만 유로를 훌쩍 넘겼는데요, 이번 영상에서 왜 이 차를 선택해야 하는지와 현재 얼마인지 알려드릴게요."
+   },
+   {
+    "start": 7.7,
+    "end": 17.8,
+    "text": "De prijs-kwaliteit van deze auto is bizar goed. Het is een V8 hybride met 445 pk. En ik kan je zeggen: dat is snel!",
+    "ko": "이 차의 가성비는 정말 미쳤습니다. 445마력의 V8 하이브리드 엔진이 탑재되었고, 단언컨대 정말 빠릅니다!"
+   },
+   {
+    "start": 17.8,
+    "end": 26.8,
+    "text": "En Lexus is Japans en dat staat echt bekend om zijn betrouwbaarheid. Deze auto heeft 184.000 km gereden, maar ik kan je zeggen: dat is niks voor deze motor.",
+    "ko": "렉서스는 일본 브랜드라 내구성으로 정말 유명하죠. 이 차는 18만 4천 km를 주행했지만, 이 엔진에게는 아무것도 아닙니다."
+   },
+   {
+    "start": 26.8,
+    "end": 37.9,
+    "text": "Je rijdt dus luxe zonder cliché te zijn. Dus kort gezegd: je kiest deze auto als je discrete topklasse wil, je comfort heel belangrijk vindt en je gewoon heel veel auto voor je geld wil.",
+    "ko": "흔한 클리셰 없이 럭셔리를 누릴 수 있죠. 요약하자면 은은한 품격과 뛰어난 승차감을 원하고 가성비 최고의 대형차를 찾는 분께 딱입니다."
+   },
+   {
+    "start": 37.9,
+    "end": 47.9,
+    "text": "De prijs van deze Lexus is €27.900. Je vindt deze Lexus in de showroom van Louwman Rotterdam en natuurlijk op AutoScout24.nl.",
+    "ko": "이 렉서스의 가격은 27,900유로입니다. 로우만 로테르담 전시장과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.7,
+    "speed": "빠름",
+    "summary": "10만 유로가 넘던 렉서스 플래그십의 현재 가격 예고"
+   },
+   {
+    "stage": "사양",
+    "start": 7.7,
+    "end": 17.8,
+    "speed": "보통",
+    "summary": "445마력 V8 하이브리드 파워트레인의 압도적 성능 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 17.8,
+    "end": 37.9,
+    "speed": "보통",
+    "summary": "내구성과 18만km 주행거리 평가 및 은은한 럭셔리 감성 요약"
+   },
+   {
+    "stage": "가격",
+    "start": 37.9,
+    "end": 41.5,
+    "speed": "빠름",
+    "summary": "현재 중고 판매가 27,900유로 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 41.5,
+    "end": 47.9,
+    "speed": "빠름",
+    "summary": "전시장 위치 안내 및 AutoScout24 로고 안내 마무리"
+   }
+  ],
+  "rules": [
+   "단어 단위로 화면 중앙 및 상단에 노란색 직사각형 박스 스티커 자막을 팝업 효과음과 함께 짧게 노출한다.",
+   "핵심 제원(445 PK, 184.000 KM, €27.900)을 굵은 고딕 폰트로 박스 안에 넣어 즉각적으로 시선을 끈다.",
+   "진행자가 직접 차량 안팎을 이동하며 원테이크 느낌의 동선과 빠른 컷 전환을 혼합하여 지루함을 없앤다.",
+   "마지막 3초에는 브랜드 로고(AutoScout24) 그래픽을 크게 띄우며 플랫폼 유입을 유도한다."
+  ]
+ }
+}

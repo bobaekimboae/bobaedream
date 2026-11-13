@@ -1,0 +1,341 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/29pTy-B73c8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3394,
+  "candidatesTokenCount": 3391,
+  "totalTokenCount": 7927,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2652
+   }
+  ],
+  "thoughtsTokenCount": 1142,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.7,
+   "aspect": "9:16",
+   "car": "BMW M5 (G90)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 9.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 15.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 20.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 29.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "RAAD HET MERK & MODEL VAN DEZE AUTO",
+    "ko": "이 차의 브랜드와 모델을 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 52.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MERK & MODEL",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 3.7,
+    "text": "IK GEEF JE EEN PAAR TIPS",
+    "ko": "힌트를 몇 개 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.0,
+    "text": "250",
+    "ko": "250대",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 8.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "250",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.8,
+    "text": "EXCLUSIEF ✓",
+    "ko": "희소성 있음 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 51.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EXCLUSIEF",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.3,
+    "text": "1000 NEWTONMETER KOPPEL ✓",
+    "ko": "1000Nm 토크 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1000",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 19.0,
+    "text": "2,4 TON ✓",
+    "ko": "2.4톤 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,4 TON",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "HYBRIDE 727 PK",
+    "ko": "하이브리드 727마력",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "727 PK",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 페이퍼 찢어지는 화면 전환 연출",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "띵",
+    "event": "EXCLUSIEF 체크마크 표시 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.5,
+    "type": "톡",
+    "event": "1000 토크 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.3,
+    "type": "띵",
+    "event": "2,4 TON 수치 및 체크마크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "휙",
+    "event": "마무리 페이퍼 찢어지는 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 흥미를 끄는",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "what": "AutoScout24 노란색 브러시/스티커 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 15.0,
+    "y_pct": 35.0,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 노출 및 힌트 제공",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.5,
+    "what": "노란색 페이퍼 찢김 엔드 그래픽",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 10.0,
+    "y_pct": 65.0,
+    "entrance": "밀려옴",
+    "purpose": "엔딩 CTA 전환 효과",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Kan jij raden welk merk en model deze auto is? Ik geef je een paar tips.",
+    "ko": "이 차가 어떤 브랜드와 모델인지 맞출 수 있나요? 힌트를 몇 개 드릴게요."
+   },
+   {
+    "start": 3.8,
+    "end": 9.9,
+    "text": "Je vindt er zo'n 250 op autoscout24.nl. Dat wil dus zeggen dat hij vrij exclusief is.",
+    "ko": "AutoScout24에 약 250대 정도 등록되어 있어서 꽤나 희귀한 편입니다."
+   },
+   {
+    "start": 10.0,
+    "end": 15.6,
+    "text": "Hij heeft 1000 newtonmeter koppel. En dit merk heeft hem begrensd zodat hij niet nog meer kracht heeft.",
+    "ko": "이 차는 무려 1000Nm의 토크를 가지고 있으며, 너무 과하지 않도록 출력을 제한해 두었습니다."
+   },
+   {
+    "start": 15.7,
+    "end": 20.6,
+    "text": "Hij weegt meer dan 2,4 ton, en dat is meer dan sommige SUV's.",
+    "ko": "무게는 2.4톤이 넘으며, 이는 웬만한 SUV보다 무거운 수치입니다."
+   },
+   {
+    "start": 20.7,
+    "end": 24.0,
+    "text": "En het is een hybride met 727 pk.",
+    "ko": "그리고 최고출력 727마력의 하이브리드 차량입니다."
+   },
+   {
+    "start": 24.1,
+    "end": 29.7,
+    "text": "Dus ik ben benieuwd, kan jij raden welk merk en model deze auto is? Laat het weten in de reacties en vergeet ons niet te volgen.",
+    "ko": "과연 어떤 브랜드와 모델일까요? 댓글로 맞춰보시고 팔로우도 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "차종 맞추기 퀴즈 질문으로 시청자 참여 유도"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 23.5,
+    "speed": "보통",
+    "summary": "등록 대수(250대), 토크(1000Nm), 무게(2.4t), 하이브리드 및 727마력 등 힌트 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 23.5,
+    "end": 29.7,
+    "speed": "보통",
+    "summary": "정답 댓글 유도 및 채널 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "차량 엠블럼과 레터링을 화면 프레임 밖이나 손으로 가려 퀴즈의 긴장감을 유지한다.",
+   "핵심 스펙(토크, 마력, 중량)을 노란색 볼드 텍스트로 임팩트 있게 띄워 힌트 전달력을 극대화한다.",
+   "중요 단어나 수치가 화면에 나타날 때 팝 및 체크 효과음을 동기화해 몰입도를 높인다.",
+   "자사 플랫폼(AutoScout24)에 등록된 매물 대수를 첫 번째 힌트로 사용하여 자연스럽게 앱 브랜드를 홍보한다."
+  ]
+ }
+}

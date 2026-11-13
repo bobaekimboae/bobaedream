@@ -1,0 +1,787 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/-J3OFwUUfdU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4832,
+  "candidatesTokenCount": 6274,
+  "totalTokenCount": 11106,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4090
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.5,
+   "aspect": "9:16",
+   "car": "BMW X5 45e",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 22.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 28.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 31.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 32.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Groot Zuinig Veel PK dat is de BMW X5 45e",
+    "ko": "크고, 연비 좋고, 고출력인 BMW X5 45e",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BMW X5",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "text": "Dan is deze",
+    "ko": "그렇다면 이",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "deze",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "text": "BMW X5 45e",
+    "ko": "BMW X5 45e가",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.3,
+    "text": "iets voor jou",
+    "ko": "당신에게 딱입니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.9,
+    "text": "Deze BMW X5 45e is",
+    "ko": "이 BMW X5 45e는",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW X5",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.3,
+    "text": "uitgevoerd met 4x4 aandrijving",
+    "ko": "4륜 구동이 적용되어 있으며",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.5,
+    "text": "en wat die kost vertel ik je op het einde",
+    "ko": "가격은 마지막에 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "vertel ik je",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.9,
+    "text": "Het is een plug-in hybride met benzinemotor",
+    "ko": "가솔린 플러그인 하이브리드 모델이며",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "plug in hybride",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 18.8,
+    "text": "en hij heeft dan een gecombineerd",
+    "ko": "합산 출력은",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "gecombineerd",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.7,
+    "text": "394 pk",
+    "ko": "394마력입니다",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 22.8,
+    "text": "Hij is uitgevoerd met opties zoals",
+    "ko": "다양한 옵션이 탑재되어 있는데",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "opties",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "text": "instelbare luchtvering",
+    "ko": "조절식 에어 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "text": "360 graden camera",
+    "ko": "360도 서라운드 뷰 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "text": "zetelverwarming",
+    "ko": "시트 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "text": "elektrisch verstelbare zetels",
+    "ko": "전동 조절 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.7,
+    "text": "memory functie",
+    "ko": "메모리 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 32.8,
+    "text": "2020",
+    "ko": "2020년식",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 35.8,
+    "text": "92.200 km",
+    "ko": "주행거리 92,200km",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.8,
+    "text": "€43.990",
+    "ko": "가격 43,990유로",
+    "kind": "가격",
+    "y_pct": 41.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.0,
+    "text": "Je vindt hem in de showroom van Falcomotive",
+    "ko": "팔코모티브 쇼룸과",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Falcomotive",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24에서 확인하세요",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.4,
+    "type": "톡",
+    "event": "3분할 차량 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 여는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 15.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "충전구 커버 누르는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "톡",
+    "event": "출력 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "딸깍",
+    "event": "에어 서스펜션 버튼 누르는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "딸깍",
+    "event": "열선 시트 버튼 조작 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "딸깍",
+    "event": "메모리 시트 버튼 누르는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "띵",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 비트",
+   "bpm_est": 120,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.4,
+    "end": 6.8,
+    "what": "3분할 화면 (외관 전면/실내 운전석/외관 후면)",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "차량 내외관 동시 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "Je zoekt groot, zuinig en veel pk? Dan is",
+    "ko": "크고, 연비 좋고, 고출력인 차를 찾으시나요? 그렇다면"
+   },
+   {
+    "start": 3.3,
+    "end": 6.8,
+    "text": "deze BMW X5 45e iets voor jou.",
+    "ko": "이 BMW X5 45e가 딱입니다."
+   },
+   {
+    "start": 6.8,
+    "end": 12.3,
+    "text": "Deze BMW X5 45e is uitgevoerd met 4x4 aandrijving,",
+    "ko": "이 BMW X5 45e는 4륜 구동 모델이며,"
+   },
+   {
+    "start": 12.3,
+    "end": 14.5,
+    "text": "en wat die kost vertel ik je op het einde.",
+    "ko": "가격은 마지막에 알려드릴게요."
+   },
+   {
+    "start": 14.5,
+    "end": 16.9,
+    "text": "Het is een plug-in hybride met benzinemotor,",
+    "ko": "가솔린 플러그인 하이브리드 엔진으로,"
+   },
+   {
+    "start": 16.9,
+    "end": 20.7,
+    "text": "en hij heeft dan een gecombineerd vermogen van 394 pk.",
+    "ko": "합산 출력은 무려 394마력에 달합니다."
+   },
+   {
+    "start": 20.7,
+    "end": 22.8,
+    "text": "Hij is uitgevoerd met opties zoals onder andere:",
+    "ko": "장착된 주요 옵션들을 살펴보면,"
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "text": "instelbare luchtvering,",
+    "ko": "차고 조절식 에어 서스펜션,"
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "text": "een 360 graden camera,",
+    "ko": "360도 서라운드 카메라,"
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "text": "zetelverwarming,",
+    "ko": "열선 시트,"
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "text": "elektrisch verstelbare zetels",
+    "ko": "전동 조절 시트와"
+   },
+   {
+    "start": 29.8,
+    "end": 31.7,
+    "text": "met memory functie.",
+    "ko": "메모리 기능까지 포함되어 있습니다."
+   },
+   {
+    "start": 31.7,
+    "end": 35.8,
+    "text": "Hij komt uit 2020, heeft 92.200 km gereden,",
+    "ko": "2020년식에 주행거리는 92,200km이며,"
+   },
+   {
+    "start": 35.8,
+    "end": 38.8,
+    "text": "en hij kost €43.990.",
+    "ko": "가격은 43,990유로입니다."
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "text": "Je vindt hem in de showroom van Falcomotive en op AutoScout24.be.",
+    "ko": "팔코모티브 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "3가지 주요 특징(크기·연비·마력) 제시하며 시청자 관심 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "차량 모델명 소개 및 3분할 샷 노출"
+   },
+   {
+    "stage": "사양",
+    "start": 6.8,
+    "end": 20.7,
+    "speed": "보통",
+    "summary": "4륜구동, PHEV 파워트레인 및 합산 마력 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 20.7,
+    "end": 31.7,
+    "speed": "빠름",
+    "summary": "서스펜션·카메라·열선·전동시트 등 주요 옵션 빠르게 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 31.7,
+    "end": 38.8,
+    "speed": "보통",
+    "summary": "연식, 주행거리 정보 및 최종 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 38.8,
+    "end": 44.5,
+    "speed": "보통",
+    "summary": "딜러 쇼룸 및 AutoScout24 플랫폼 유도 클로징"
+   }
+  ],
+  "rules": [
+   "핵심 키워드와 옵션 명칭은 브랜드 고유색인 노란색(#FEE600) 배경 상자 자막으로 일관되게 강조",
+   "옵션 기능(에어서스펜션, 카메라, 열선 등)은 1~2초 단위로 손동작과 작동 화면을 짧고 빠르게 전환",
+   "실제 버튼 클릭 및 차량 작동음(Foley)을 자연스럽게 살려 현장감 부여",
+   "가격을 영상 후반부에 배치해 시청 지속 시간(Retention) 확보"
+  ]
+ }
+}

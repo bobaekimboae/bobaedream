@@ -1,0 +1,725 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/R5uFXcLwkjE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4752,
+  "candidatesTokenCount": 5917,
+  "totalTokenCount": 11115,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4010
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 446,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.4,
+   "aspect": "9:16",
+   "car": "Mitsubishi Grandis",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 6.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 15.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 20.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 25.4,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 28.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.4,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 40.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 1.7,
+    "text": "MITSUBISHI\nGRANDIS",
+    "ko": "미쓰비시 그란디스",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 2.7,
+    "text": "VIERCILINDER",
+    "ko": "4기통",
+    "kind": "키워드 스티커",
+    "y_pct": 33.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "text": "HYBRIDE",
+    "ko": "하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 5.4,
+    "text": "ERG ZUINIG",
+    "ko": "매우 경제적",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 6.3,
+    "text": "HIJ MAAKT WEINIG",
+    "ko": "소음이 적음",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.6,
+    "text": "8 JAAR\nFABRIEKSGARANTIE",
+    "ko": "8년 제조사 보증",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "text": "OF TOT 160.000KM",
+    "ko": "또는 최대 160,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.5,
+    "text": "EN DEZE ACHTERBANK\nIS VERSTELBAAR",
+    "ko": "그리고 뒷좌석은 조절 가능",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.6,
+    "text": "✔ GENOEG RUIMTE\nACHTERIN",
+    "ko": "✔ 넉넉한 뒷좌석 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "text": "✔ STUURVERWARMING",
+    "ko": "✔ 스티어링 휠 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.5,
+    "text": "✔ STOELVERWARMING",
+    "ko": "✔ 시트 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.8,
+    "text": "✔ VOORRUITVERWARMING",
+    "ko": "✔ 전면 유리 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 57.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "OOK DE KOFFERRUIMTE\nIS LEKKER RUIM",
+    "ko": "트렁크 공간도 매우 넉넉함",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.4,
+    "text": "GENOEG OM JE\nKOFFERS MEE TE",
+    "ko": "캐리어를 싣기에 충분",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.5,
+    "text": "EEN JAPANS MERK\nEN DAT STAAT BEKEND",
+    "ko": "일본 브랜드, 신뢰성으로 유명",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 32.4,
+    "text": "NIET HELEMAAL\nJAPANS HIJ IS",
+    "ko": "완전한 일본차는 아님",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.5,
+    "text": "DEZE GRANDIS DEELT",
+    "ko": "이 그란디스는 플랫폼을 공유",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "text": "DUS JE KRIJGT\nEEN COMBINATIE",
+    "ko": "그래서 두 가지의 조합",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 38.8,
+    "text": "✔ TECHNIEK",
+    "ko": "✔ 기술력",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.9,
+    "end": 40.5,
+    "text": "✔ ZUINIGHEID",
+    "ko": "✔ 경제성",
+    "kind": "키워드 스티커",
+    "y_pct": 67.5,
+    "x_center_pct": 65.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.6,
+    "end": 42.0,
+    "text": "EN JE VINDT",
+    "ko": "그리고 찾을 수 있습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "MITSUBISHI GRANDIS 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.8,
+    "type": "톡",
+    "event": "VIERCILINDER 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "톡",
+    "event": "8 JAAR 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "톡",
+    "event": "ACHTERBANK 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "딸깍",
+    "event": "체크리스트 스티커 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "첫번째 옵션 체크리스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "두번째 옵션 체크리스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "톡",
+    "event": "세번째 옵션 체크리스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.5,
+    "type": "톡",
+    "event": "TECHNIEK 체크 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.9,
+    "type": "톡",
+    "event": "ZUINIGHEID 체크 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 41.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 41.8,
+    "end": 44.4,
+    "what": "AutoScout24 노란색 브랜딩 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 42.0,
+    "y_pct": 50.0,
+    "entrance": "밀려옴",
+    "purpose": "CTA 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Dit is een Mitsubishi Grandis.",
+    "ko": "이 차는 미쓰비시 그란디스입니다."
+   },
+   {
+    "start": 1.7,
+    "end": 6.3,
+    "text": "Het is een viercilinder, met behulp van het hybridesysteem is hij erg zuinig en hij maakt weinig lawaai.",
+    "ko": "4기통 엔진에 하이브리드 시스템이 더해져 매우 연비가 좋고 정숙합니다."
+   },
+   {
+    "start": 6.3,
+    "end": 10.6,
+    "text": "En hij heeft 8 jaar fabrieksgarantie of tot 160.000 km.",
+    "ko": "그리고 8년 또는 최대 16만 km의 제조사 보증을 제공합니다."
+   },
+   {
+    "start": 10.6,
+    "end": 15.6,
+    "text": "En deze achterbank is verstelbaar, dus je hebt genoeg ruimte achterin.",
+    "ko": "뒷좌석 시트 조절이 가능해서 뒷공간도 넉넉합니다."
+   },
+   {
+    "start": 15.6,
+    "end": 20.9,
+    "text": "En hij heeft stuur-, stoel- en voorruitverwarming. Ideaal dus ook in de winter.",
+    "ko": "핸들, 시트, 전면 유리 열선이 적용되어 겨울철에도 이상적입니다."
+   },
+   {
+    "start": 20.9,
+    "end": 25.4,
+    "text": "Ook de kofferruimte is lekker ruim, genoeg om je koffers mee te nemen.",
+    "ko": "트렁크 공간도 여유로워 짐을 싣기에 충분합니다."
+   },
+   {
+    "start": 25.4,
+    "end": 32.4,
+    "text": "En het is natuurlijk een Japans merk en dat staat bekend om betrouwbaarheid. Maar hij is niet helemaal Japans, hij is ook een beetje Frans.",
+    "ko": "일본 브랜드라 신뢰성으로 잘 알려져 있지만, 완전히 일본차만은 아니고 프랑스의 피도 섞여 있습니다."
+   },
+   {
+    "start": 32.4,
+    "end": 35.0,
+    "text": "Deze Grandis deelt zijn techniek met Renault.",
+    "ko": "이 차는 르노와 기술을 공유합니다."
+   },
+   {
+    "start": 35.0,
+    "end": 40.5,
+    "text": "Dus je krijgt een beetje een combinatie: Japans is de betrouwbaarheid en Frans is de techniek en de zuinigheid.",
+    "ko": "일본의 신뢰성과 프랑스의 기술력 및 연비가 조화를 이룬 셈이죠."
+   },
+   {
+    "start": 40.5,
+    "end": 44.4,
+    "text": "En je vindt hem natuurlijk ook op AutoScout24.nl.",
+    "ko": "물론 AutoScout24.nl에서 찾아보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "차량 모델명 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 1.7,
+    "end": 10.6,
+    "speed": "보통",
+    "summary": "파워트레인 특징 및 보증 기간 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 10.6,
+    "end": 25.4,
+    "speed": "보통",
+    "summary": "실내 공간 및 편의 옵션, 트렁크 공간 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 25.4,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "르노 플랫폼 기반의 일-불 협업 배경 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.5,
+    "end": 44.4,
+    "speed": "빠름",
+    "summary": "오토스카우트24 플랫폼 유도 클로징"
+   }
+  ],
+  "rules": [
+   "호스트가 설명하는 핵심 키워드(사양·보증·옵션)를 브랜드 시그니처 옐로우 박스 자막으로 즉각 강조",
+   "옵션 나열 시 체크마크(✔)를 포함한 3단 불릿 리스트 형태로 화면에 순차 노출",
+   "호스트의 직관적인 동선(외관-뒷좌석-운전석-트렁크)을 통해 실용성을 직접 시연",
+   "엔딩에 브랜드 로고 애니메이션과 웹사이트 호출 멘트로 CTA 유도"
+  ]
+ }
+}

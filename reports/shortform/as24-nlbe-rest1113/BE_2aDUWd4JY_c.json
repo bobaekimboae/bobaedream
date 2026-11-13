@@ -1,0 +1,757 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/2aDUWd4JY_c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4125,
+  "candidatesTokenCount": 6086,
+  "totalTokenCount": 10211,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3383
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "Audi TT RS",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 5.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 18.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 23.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 33.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 38.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "ACHTER MIJ",
+    "ko": "내 뒤에는",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 2.1,
+    "text": "AUDI TT RS",
+    "ko": "아우디 TT RS가 있습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "EN DIE IS UITGEVOERD MET",
+    "ko": "이 차량에는 장착되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.7,
+    "text": "DE VOLLEDIGE",
+    "ko": "풀",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.0,
+    "text": "RS STOELEN",
+    "ko": "RS 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.1,
+    "text": "MET HET GERUITE PATROON",
+    "ko": "다이아몬드 퀼팅 패턴",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 12.0,
+    "text": "SPORTSTOELEN ZIJN UITGERUST MET",
+    "ko": "스포츠 시트에는 장착되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "EN DE SPOILER DOE JE",
+    "ko": "그리고 스포일러는",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.3,
+    "text": "OMHOOG EN OMLAAG MET DIT KNOPJE",
+    "ko": "이 버튼으로 올리고 내립니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.0,
+    "text": "VERDER HEEFT DIE NOG ALLEMAAL OPTIES",
+    "ko": "그 외에도 다양한 옵션이 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.2,
+    "text": "AUDI DRIVER SELECT",
+    "ko": "아우디 드라이브 셀렉트",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.3,
+    "text": "KUN JE KIEZEN",
+    "ko": "선택할 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.9,
+    "text": "COMFORT\nAUTOMATISCH\nDYNAMIC\nINDIVIDUAL",
+    "ko": "컴포트\n오토\n다이내믹\n인디비주얼",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 24.3,
+    "text": "EN WAT OOK EEN SUPERLEUK DETAIL IS",
+    "ko": "또 정말 매력적인 디테일은",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.6,
+    "text": "VERANDER JE HET GELUID\nVAN DE UITLAAT",
+    "ko": "배기음을 바꿀 수 있다는 점입니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.5,
+    "text": "HIJ KOMT UIT",
+    "ko": "이 차량은",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.8,
+    "text": "2022",
+    "ko": "2022년식",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.8,
+    "text": "72.000KM",
+    "ko": "72,000 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 31.9,
+    "text": "EN HIJ KOST",
+    "ko": "그리고 가격은",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 33.6,
+    "text": "€49.500\n€48.500",
+    "ko": "49,500유로 -> 48,500유로",
+    "kind": "가격",
+    "y_pct": 45.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 38.0,
+    "text": "JE VINDT DEZE AUTO BIJ",
+    "ko": "이 차량은 여기서 찾을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "AUDI TT RS 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "후면 라이트 애니메이션 및 배기 시동음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "톡",
+    "event": "RS STOELEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "딸깍",
+    "event": "열선 시트 다이얼 조작음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "딸깍",
+    "event": "스포일러 조작 버튼 누름",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "AUDI DRIVER SELECT 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "톡",
+    "event": "주행 모드 4종 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.0,
+    "type": "딸깍",
+    "event": "배기 플랩 버튼 누름",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "톡",
+    "event": "2022 연식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "72.000KM 주행거리 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "쿵",
+    "event": "기존 가격에 빨간 X 표시 및 인하 가격 표시",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 스포티함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 7.7,
+    "end": 9.0,
+    "what": "체크 아이콘 (RS 시트)",
+    "is_3d": false,
+    "size_w_pct": 5.0,
+    "x_pct": 28.0,
+    "y_pct": 80.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.3,
+    "what": "아래 화살표 아이콘 (버튼 안내)",
+    "is_3d": false,
+    "size_w_pct": 6.0,
+    "x_pct": 46.0,
+    "y_pct": 72.0,
+    "entrance": "바로",
+    "purpose": "조작 부위 지시",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.2,
+    "what": "체크 아이콘 (드라이브 셀렉트)",
+    "is_3d": false,
+    "size_w_pct": 5.0,
+    "x_pct": 18.0,
+    "y_pct": 85.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.6,
+    "what": "빨간 X 표시 및 PRICE DROP 화살표",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 70.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 인하 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Achter mij staat de Audi TT RS.",
+    "ko": "제 뒤에는 아우디 TT RS가 있습니다."
+   },
+   {
+    "start": 5.4,
+    "end": 10.0,
+    "text": "En die is uitgevoerd met de volledige RS-stoelen met het geruite patroon.",
+    "ko": "그리고 이 차는 다이아몬드 퀼팅이 들어간 RS 풀 시트가 적용되어 있습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "Sportstoelen zijn uitgerust met stoelverwarming.",
+    "ko": "스포츠 시트에는 열선 시트가 갖춰져 있고요."
+   },
+   {
+    "start": 12.0,
+    "end": 15.3,
+    "text": "En de spoiler doe je omhoog en omlaag met dit knopje.",
+    "ko": "그리고 스포일러는 이 버튼으로 올리고 내립니다."
+   },
+   {
+    "start": 15.3,
+    "end": 21.9,
+    "text": "Verder heeft hij nog allemaal opties zoals de Audi drive select, kun je kiezen tussen Comfort, Automatisch, Dynamic en Individual.",
+    "ko": "그 외에도 아우디 드라이브 셀렉트 같은 옵션이 있어 컴포트, 오토, 다이내믹, 인디비주얼 중에서 고를 수 있습니다."
+   },
+   {
+    "start": 21.9,
+    "end": 26.6,
+    "text": "En wat ook een superleuk detail is, met dit knopje verander je het geluid van de uitlaat.",
+    "ko": "또 아주 재미있는 디테일로, 이 버튼을 누르면 배기음이 바뀝니다."
+   },
+   {
+    "start": 26.6,
+    "end": 33.6,
+    "text": "Hij komt uit 2022, heeft 72.000 km gereden en hij kost €49.500... €48.500.",
+    "ko": "2022년식이고, 72,000km를 주행했으며 가격은 49,500유로에서 할인된 48,500유로입니다."
+   },
+   {
+    "start": 33.6,
+    "end": 38.0,
+    "text": "Je vindt deze auto bij SB Cars en op AutoScout24.be.",
+    "ko": "이 차는 SB Cars 매장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "차량 소개 시작 및 후면부 라이트·배기음 연출"
+   },
+   {
+    "stage": "기능",
+    "start": 5.4,
+    "end": 26.6,
+    "speed": "빠름",
+    "summary": "RS 시트, 열선, 리어 스포일러 작동, 주행 모드, 가변 배기 버튼 순차 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 26.6,
+    "end": 30.8,
+    "speed": "보통",
+    "summary": "연식 및 주행거리 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 30.8,
+    "end": 33.6,
+    "speed": "보통",
+    "summary": "할인된 가격 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 33.6,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "판매 딜러사 및 AutoScout24 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "진행자의 신체 제스처(손짓, 점프 등)와 자막/그래픽 등장 타이밍을 완벽히 일치시킴",
+   "주요 옵션이나 스펙 키워드는 굵고 선명한 노란색 볼드 폰트로 팝업 효과 적용",
+   "버튼을 직접 누르는 1인칭 시점 클로즈업 샷 뒤에 계기판이나 외관의 반응을 연속으로 교차 편집함",
+   "가격 인하 시 기존 가격에 빨간 X 표시와 할인 화살표 스티커를 부착해 시각적 혜택 강조",
+   "차량 번호판 위치의 플랫폼(AutoScout24) 로고 플레이트를 비추며 마무리 콜투액션 유도"
+  ]
+ }
+}

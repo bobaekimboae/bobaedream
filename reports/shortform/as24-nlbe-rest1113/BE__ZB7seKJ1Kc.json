@@ -1,0 +1,445 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/_ZB7seKJ1Kc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3650,
+  "candidatesTokenCount": 3512,
+  "totalTokenCount": 7162,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2908
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.4,
+   "aspect": "9:16",
+   "car": "Kia PV5",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.3,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 12.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 28.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "DEZE 5 DINGEN",
+    "ko": "이 5가지",
+    "kind": "제목",
+    "y_pct": 7.0,
+    "x_center_pct": 37.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "5",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "PV5",
+    "ko": "PV5",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PV5",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.0,
+    "text": "PRAKTISCHE BESTELWAGEN",
+    "ko": "실용적인 밴",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.3,
+    "text": "PERSONENBUS",
+    "ko": "승합 버스",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.3,
+    "text": "250-VOLT PUNT",
+    "ko": "250볼트 콘센트",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 43.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "text": "3",
+    "ko": "3",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.0,
+    "text": "4",
+    "ko": "4",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 15.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 21.0,
+    "text": "416 KM",
+    "ko": "416 km",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.1,
+    "end": 23.9,
+    "text": "SNELLADEN 10-80% 30 MINUTEN",
+    "ko": "급속충전 10-80% 30분",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.5,
+    "text": "5",
+    "ko": "5",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 15.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "1500 KG TREKKEN",
+    "ko": "1500kg 견인",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.1,
+    "type": "톡",
+    "event": "PV5 로고 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.2,
+    "type": "톡",
+    "event": "체크박스 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "톡",
+    "event": "두번째 체크박스 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.1,
+    "type": "톡",
+    "event": "주행거리 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "충전시간 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "톡",
+    "event": "견인중량 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 29.5,
+    "end": 31.4,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Deze vijf dingen wist jij nog niet over de nieuwe Kia PV5.",
+    "ko": "신형 기아 PV5에 대해 당신이 아직 몰랐던 5가지."
+   },
+   {
+    "start": 3.7,
+    "end": 7.3,
+    "text": "Hij is leverbaar als een praktische bestelwagen, maar ook als een personenbus.",
+    "ko": "실용적인 밴 모델은 물론 승합 버스 모델로도 출시됩니다."
+   },
+   {
+    "start": 7.3,
+    "end": 12.8,
+    "text": "Hij heeft zelfs een 250 volt punt dat je gewoon kunt gebruiken voor je gereedschap op te laden of een zat koffie.",
+    "ko": "공구를 충전하거나 커피를 내릴 수 있는 250V 콘센트도 갖추고 있습니다."
+   },
+   {
+    "start": 12.8,
+    "end": 17.6,
+    "text": "Het systeem draait op Android Automotive, hierdoor heb je een perfecte koppeling met diverse apps.",
+    "ko": "시스템은 안드로이드 오토모티브로 구동되어 다양한 앱과 완벽히 연동됩니다."
+   },
+   {
+    "start": 17.6,
+    "end": 23.9,
+    "text": "Hij heeft een actieradius tot 416 km en snelladen kan hij van 10 tot 80% in 30 minuten.",
+    "ko": "최대 주행거리는 416km이며, 10%에서 80%까지 30분 만에 급속 충전이 가능합니다."
+   },
+   {
+    "start": 23.9,
+    "end": 28.5,
+    "text": "Hij heeft de grootste laadruimte in zijn klasse en hij kan tot 1500 kg trekken.",
+    "ko": "동급 최대 적재 공간을 자랑하며 최대 1500kg까지 견인할 수 있습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 31.4,
+    "text": "En meer autonieuws vind je op AutoScout24.be.",
+    "ko": "더 많은 자동차 뉴스는 AutoScout24.be에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "기아 PV5 5가지 특징 소개 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 17.6,
+    "speed": "보통",
+    "summary": "다양한 버전, 250V V2L 전원, 안드로이드 오토모티브 시스템 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 17.6,
+    "end": 28.5,
+    "speed": "빠름",
+    "summary": "주행거리, 충전 속도, 적재 공간 및 견인력 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.5,
+    "end": 31.4,
+    "speed": "보통",
+    "summary": "AutoScout24 웹사이트 방문 유도 및 클로징"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 직접 설명하며 기능별 위치로 빠르게 이동",
+   "각 핵심 수치나 포인트가 나올 때 노란색/검은색 대비의 볼드 텍스트 스티커 팝업",
+   "텍스트 팝업 타이밍에 맞춰 짧은 효과음(톡)을 동기화하여 강조",
+   "말 자막은 단어 단위로 하이라이트되며 전환",
+   "마지막에 슬라이딩 도어를 닫으며 브랜드 로고와 함께 마무리"
+  ]
+ }
+}

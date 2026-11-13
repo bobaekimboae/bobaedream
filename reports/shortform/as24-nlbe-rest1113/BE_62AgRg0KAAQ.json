@@ -1,0 +1,544 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/62AgRg0KAAQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2108,
+  "candidatesTokenCount": 5071,
+  "totalTokenCount": 8209,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1366
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1030,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.7,
+   "aspect": "9:16",
+   "car": "모터쇼 관람객 첫 차 (Opel Corsa, Mazda, Renault, VW Polo, Datsun)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 12.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "Wij zijn vandaag",
+    "ko": "저희는 오늘",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "text": "op de Brussels Motor Show",
+    "ko": "브뤼셀 모터쇼에 왔습니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Motor Show",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "text": "en wij vroegen aan de mensen",
+    "ko": "그리고 사람들에게 물어봤습니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "text": "wat hun eerste auto was.",
+    "ko": "첫 차가 무엇이었는지요.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "auto was",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "text": "Opel Corsa was",
+    "ko": "오펠 코르사였어요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Opel Corsa",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 5.9,
+    "text": "een Mazda",
+    "ko": "마쓰다요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.2,
+    "text": "een Renault",
+    "ko": "르노요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.2,
+    "text": "Volkswagen Polo",
+    "ko": "폭스바겐 폴로요",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.6,
+    "text": "Een Datsun",
+    "ko": "닷선이요",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.7,
+    "text": "Welk bouwjaar?",
+    "ko": "몇 년식인가요?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.6,
+    "end": 12.7,
+    "text": "1972",
+    "ko": "1972년이요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "text": "Volg AutoScout voor meer autonieuws",
+    "ko": "더 많은 자동차 뉴스는 AutoScout24를 팔로우하세요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.0,
+    "type": "휙",
+    "event": "Opel 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "휙",
+    "event": "Mazda 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "휙",
+    "event": "Renault 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "톡",
+    "event": "VW Polo 중고차 매물 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "톡",
+    "event": "Nissan Datsun 매물 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.5,
+    "type": "기타",
+    "event": "연식을 기억해내려는 코믹 딜레이 사운드",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/전자음악",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 10.2,
+     "what": "관람객이 생각에 잠기는 순간 음악 일시 정지"
+    },
+    {
+     "t": 11.6,
+     "what": "1972 답변 후 다시 경쾌한 비트 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.9,
+    "end": 4.9,
+    "what": "오펠(Opel) 엠블럼 로고",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 5.9,
+    "what": "마쓰다(Mazda) 엠블럼 로고",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.2,
+    "what": "르노(Renault) 엠블럼 로고",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 50.0,
+    "y_pct": 78.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.3,
+    "what": "AutoScout24 폭스바겐 폴로 매물 카드 (€8.450)",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "자사 앱 매물 연계 홍보",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.7,
+    "what": "AutoScout24 닛산 닷선 매물 카드 (€19.500)",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "자사 앱 매물 연계 홍보",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.7,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 브랜딩 및 구독 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Wij zijn vandaag op de Brussels Motor Show en wij vroegen aan de mensen wat hun eerste auto was.",
+    "ko": "저희는 오늘 브뤼셀 모터쇼에 나와서 관람객분들께 첫 차가 무엇이었는지 여쭤봤습니다."
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "text": "Opel Corsa was mijn eerste.",
+    "ko": "제 첫 차는 오펠 코르사였어요."
+   },
+   {
+    "start": 5.0,
+    "end": 5.9,
+    "text": "Toch wel een Mazda.",
+    "ko": "마쓰다였네요."
+   },
+   {
+    "start": 6.0,
+    "end": 7.2,
+    "text": "Een Renault.",
+    "ko": "르노입니다."
+   },
+   {
+    "start": 7.3,
+    "end": 8.2,
+    "text": "Volkswagen Polo.",
+    "ko": "폭스바겐 폴로요."
+   },
+   {
+    "start": 8.3,
+    "end": 9.6,
+    "text": "Een Datsun.",
+    "ko": "닷선이요."
+   },
+   {
+    "start": 9.7,
+    "end": 10.7,
+    "text": "Welk bouwjaar?",
+    "ko": "몇 년식이었나요?"
+   },
+   {
+    "start": 10.8,
+    "end": 12.7,
+    "text": "Uh... 72.",
+    "ko": "어... 72년식이요."
+   },
+   {
+    "start": 12.8,
+    "end": 15.7,
+    "text": "Volg AutoScout voor meer autonieuws.",
+    "ko": "더 많은 자동차 소식은 AutoScout24를 팔로우하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "호스트가 브뤼셀 모터쇼 현장에서 질문 주제(첫 차) 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 9.7,
+    "speed": "빠름",
+    "summary": "관람객들의 빠른 첫 차 릴레이 인터뷰 및 실제 AutoScout24 매물 카드 노출"
+   },
+   {
+    "stage": "기능",
+    "start": 9.7,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "올드카(1972년식 닷선) 연식을 기억해내는 재미있는 상황 인터뷰"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.8,
+    "end": 15.7,
+    "speed": "빠름",
+    "summary": "호스트의 채널 팔로우 유도 및 엔딩 로고 노출"
+   }
+  ],
+  "rules": [
+   "현장 인터뷰 형식으로 빠른 컷 전환(1~1.5초당 1명)을 통해 몰입도를 유지함",
+   "인터뷰이가 언급한 차량 브랜드 로고 또는 실제 AutoScout24 중고차 시세 카드를 매칭하여 시각화",
+   "인터뷰이가 생각에 잠기거나 뜸을 들일 때 음악을 일시 정지시켜 코믹한 긴장감과 리듬감을 부여함",
+   "노란색 하이라이트 자막과 큰 브랜드 로고 스티커를 활용하여 채널 아이덴티티 강조"
+  ]
+ }
+}

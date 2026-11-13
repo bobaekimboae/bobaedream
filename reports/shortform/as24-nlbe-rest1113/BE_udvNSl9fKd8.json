@@ -1,0 +1,708 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/udvNSl9fKd8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3758,
+  "candidatesTokenCount": 5704,
+  "totalTokenCount": 10633,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3016
+   }
+  ],
+  "thoughtsTokenCount": 1171,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.5,
+   "aspect": "9:16",
+   "car": "BMW 118i vs BMW 318i",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.4,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.2,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 17.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.3,
+    "end": 18.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 23.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 26.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "DE BMW 118I",
+    "ko": "BMW 118i",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 49.8,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "VS DE BMW 318I",
+    "ko": "대 BMW 318i",
+    "kind": "말 자막",
+    "y_pct": 66.8,
+    "x_center_pct": 50.1,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "318I",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "DE BMW 318I",
+    "ko": "BMW 318i는",
+    "kind": "말 자막",
+    "y_pct": 68.2,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.4,
+    "text": "2021",
+    "ko": "2021년식",
+    "kind": "키워드 스티커",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "text": "90.800 KM GEREDEN",
+    "ko": "주행거리 90,800km",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "90.800 KM",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "text": "IS EEN BENZINE",
+    "ko": "가솔린 모델이며",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BENZINE",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "EN HEEFT EEN AUTOMATISCHE TRANSMISSIE MET",
+    "ko": "자동변속기를 탑재했고",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TRANSMISSIE",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.2,
+    "text": "156 PK",
+    "ko": "156마력",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 17.3,
+    "text": "€28.318",
+    "ko": "가격은 28,318유로",
+    "kind": "가격",
+    "y_pct": 39.5,
+    "x_center_pct": 36.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.3,
+    "end": 18.7,
+    "text": "DE BMW 118I",
+    "ko": "BMW 118i는",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.0,
+    "text": "2021",
+    "ko": "2021년식",
+    "kind": "키워드 스티커",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "29.000KM",
+    "ko": "주행거리 29,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 23.9,
+    "text": "IS EEN BENZINE",
+    "ko": "가솔린 모델이며",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BENZINE",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.5,
+    "text": "EN HEEFT EEN AUTOMATISCHE TRANSMISSIE MET",
+    "ko": "자동변속기를 갖추고",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TRANSMISSIE",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 26.9,
+    "text": "136 PK",
+    "ko": "136마력",
+    "kind": "키워드 스티커",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 29.8,
+    "text": "€25.500",
+    "ko": "가격은 25,500유로",
+    "kind": "가격",
+    "y_pct": 34.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.5,
+    "text": "JE VINDT ZE OP AUTOSCOUT24.BE EN BIJ BMW MEEUSEN",
+    "ko": "오토스카우트24와 BMW Meeusen에서 만나보세요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.7,
+    "type": "톡",
+    "event": "BMW 118i 누끼 사진 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "BMW 318i 누끼 사진 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.6,
+    "type": "휙",
+    "event": "3분할 화면 전환 및 2021년 배지 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "주행거리 90.800 KM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.9,
+    "type": "톡",
+    "event": "156 PK 출력 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "띵",
+    "event": "가격 배지 28.318 유로 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "휙",
+    "event": "3분할 화면 전환 및 2021년 배지 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.1,
+    "type": "톡",
+    "event": "주행거리 29.000KM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.6,
+    "type": "톡",
+    "event": "136 PK 출력 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "띵",
+    "event": "가격 배지 25.500 유로 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "휙",
+    "event": "오토스카우트24 로고 애니메이션 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 / 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.7,
+    "end": 3.7,
+    "what": "BMW 118i 차량 이미지 컷아웃",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 20.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "what": "BMW 318i 차량 이미지 컷아웃",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 80.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 33.5,
+    "what": "AutoScout24 브랜드 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 / CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "De BMW 118i versus de BMW 318i.",
+    "ko": "BMW 118i 대 BMW 318i 비교."
+   },
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "text": "De BMW 318i komt uit 2021,",
+    "ko": "BMW 318i는 2021년식이고,"
+   },
+   {
+    "start": 7.4,
+    "end": 10.9,
+    "text": "heeft 90.800 km gereden, is een benzine,",
+    "ko": "주행거리는 90,800km, 가솔린 모델이며,"
+   },
+   {
+    "start": 10.9,
+    "end": 14.2,
+    "text": "en heeft een automatische transmissie met 156 pk.",
+    "ko": "자동변속기에 최고출력은 156마력입니다."
+   },
+   {
+    "start": 14.2,
+    "end": 17.3,
+    "text": "En hij kost €28.318.",
+    "ko": "가격은 28,318유로입니다."
+   },
+   {
+    "start": 17.3,
+    "end": 21.0,
+    "text": "De BMW 118i komt uit 2021,",
+    "ko": "BMW 118i는 2021년식이며,"
+   },
+   {
+    "start": 21.0,
+    "end": 23.9,
+    "text": "heeft 29.000 km gereden, is een benzine,",
+    "ko": "주행거리는 29,000km, 가솔린 모델이고,"
+   },
+   {
+    "start": 23.9,
+    "end": 26.9,
+    "text": "en heeft een automatische transmissie met 136 pk.",
+    "ko": "자동변속기에 최고출력은 136마력입니다."
+   },
+   {
+    "start": 26.9,
+    "end": 29.8,
+    "text": "En hij kost €25.500.",
+    "ko": "가격은 25,500유로입니다."
+   },
+   {
+    "start": 29.8,
+    "end": 33.5,
+    "text": "Je vindt ze op autoscout24.be en bij BMW Meeusen.",
+    "ko": "AutoScout24 웹사이트와 BMW Meeusen 딜러십에서 찾아보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "BMW 118i 대 318i 비교 대진 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 14.2,
+    "speed": "빠름",
+    "summary": "첫 번째 차량 BMW 318i 스펙(연식, 키로수, 변속기, 출력) 순차 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 14.2,
+    "end": 17.3,
+    "speed": "보통",
+    "summary": "BMW 318i 가격 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 17.3,
+    "end": 26.9,
+    "speed": "빠름",
+    "summary": "두 번째 차량 BMW 118i 스펙(연식, 키로수, 변속기, 출력) 대칭 구조 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 26.9,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "BMW 118i 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 29.8,
+    "end": 33.5,
+    "speed": "보통",
+    "summary": "구매처 안내(오토스카우트24 플랫폼 및 제휴 딜러십)"
+   }
+  ],
+  "rules": [
+   "비교 영상에 동일한 정보 순서(연식→주행거리→유종/변속기→출력→가격)를 완벽히 대칭으로 배치하여 비교 직관성을 극대화",
+   "스펙 정보가 제시될 때마다 핵심 수치를 담은 노란색/검은색 그래픽 스티커와 팝업 효과음을 1:1로 매칭",
+   "외관 전면·실내·후면을 한 번에 보여주는 3단 분할 그리드 숏을 각 차량 시작점에 브릿지로 활용",
+   "호스트가 걸으며 손짓하는 액션에 맞춰 차량 누끼 그래픽과 가격 스티커를 역동적으로 등장시킴"
+  ]
+ }
+}

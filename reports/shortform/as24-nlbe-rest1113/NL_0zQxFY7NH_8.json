@@ -1,0 +1,651 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/0zQxFY7NH_8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5744,
+  "candidatesTokenCount": 5441,
+  "totalTokenCount": 12754,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5002
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1569,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 54.8,
+   "aspect": "9:16",
+   "car": "Volkswagen Tiguan",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 5.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 18.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 23.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 30.7,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 37.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 42.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 46.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 47.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.3,
+    "end": 48.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 49.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.9,
+    "end": 52.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 54.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "KOOP GEEN VOLKSWAGEN TIGUAN",
+    "ko": "폭스바겐 티구안 사지 마세요",
+    "kind": "제목",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEEN",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 2.9,
+    "text": "VOORDAT JE DIT WEET",
+    "ko": "이걸 알기 전까지는",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WEET",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.3,
+    "text": "JE VINDT HEM NATUURLIJK OP",
+    "ko": "물론 여기서 찾으실 수 있죠",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.9,
+    "text": "R-LINE PAKKET ✔",
+    "ko": "R-라인 패키지 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "R-LINE",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 10.8,
+    "text": "MET EEN COMPLEET ANDERE UITSTRALING",
+    "ko": "완전히 다른 분위기를 선사하죠",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.6,
+    "text": "ZONDER R-LINE OOGT HIJ VAAK EEN STUK BRAVER",
+    "ko": "R-라인이 없으면 훨씬 얌전해 보여요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.0,
+    "text": "4.45M LANG ✔",
+    "ko": "길이 4.45m ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4.45M",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.5,
+    "text": "IDEAAL VOOR GEZINNEN",
+    "ko": "가족에게 이상적입니다",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.8,
+    "text": "KIJK DIE BEENRUIMTE",
+    "ko": "레그룸 좀 보세요",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BEENRUIMTE",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.8,
+    "text": "VERRASSEND RUIM ✔",
+    "ko": "놀라울 정도로 넉넉함 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.1,
+    "text": "WAARDEVAST ✔",
+    "ko": "중고차 감가 방어력 우수 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WAARDEVAST",
+    "sure": true
+   },
+   {
+    "start": 46.4,
+    "end": 47.3,
+    "text": "PANORAMADAK ✔",
+    "ko": "파노라마 선루프 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 48.8,
+    "text": "AUTOMAAT ✔",
+    "ko": "자동변속기 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.2,
+    "end": 51.6,
+    "text": "HEEL COMPLEET ✔",
+    "ko": "매우 풍부한 옵션 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "휙",
+    "event": "빨간 X 표시 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "띵",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.9,
+    "type": "톡",
+    "event": "R-LINE PAKKET 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.9,
+    "type": "띵",
+    "event": "4.45M LANG 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.4,
+    "type": "띵",
+    "event": "VERRASSEND RUIM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "딸깍",
+    "event": "트렁크 내 전동 토우바 버튼 클릭",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 34.2,
+    "type": "딸깍",
+    "event": "견인고리 발로 차서 고정 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.6,
+    "type": "띵",
+    "event": "WAARDEVAST 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "띵",
+    "event": "PANORAMADAK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.6,
+    "type": "띵",
+    "event": "AUTOMAAT 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.3,
+    "type": "띵",
+    "event": "HEEL COMPLEET 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 일렉트로닉",
+   "bpm_est": 124,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "what": "빨간색 큰 X 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 45.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "부정적 훅 강조",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.4,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 55.0,
+    "y_pct": 62.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.8,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 48.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "Koop geen Volkswagen Tiguan voordat je dit weet.",
+    "ko": "이걸 알기 전에는 폭스바겐 티구안을 사지 마세요."
+   },
+   {
+    "start": 3.0,
+    "end": 5.4,
+    "text": "Je vindt hem natuurlijk op AutoScout24.nl.",
+    "ko": "물론 AutoScout24.nl에서 찾으실 수 있죠."
+   },
+   {
+    "start": 5.5,
+    "end": 13.6,
+    "text": "Het R-Line pakket ziet er veel dikker uit. Het is dezelfde auto maar met een compleet andere uitstraling. Zonder R-Line oogt hij vaak een stuk braver.",
+    "ko": "R-라인 패키지는 훨씬 더 빵빵해 보입니다. 같은 차지만 완전히 다른 분위기죠. R-라인이 없으면 훨씬 더 얌전해 보여요."
+   },
+   {
+    "start": 13.7,
+    "end": 23.3,
+    "text": "Het is geen kleine auto. Hij is 4,45m lang, ideaal voor gezinnen. En dat merk je ook achterin. Kijk die beenruimte!",
+    "ko": "결코 작은 차가 아닙니다. 전장 4.45m로 가족용으로 이상적이죠. 그리고 뒷좌석에서도 그걸 체감할 수 있어요. 레그룸 좀 보세요!"
+   },
+   {
+    "start": 23.4,
+    "end": 37.6,
+    "text": "Maar dat niet alleen, ook die kofferruimte is verrassend ruim. En nog iets wat niet onbelangrijk is: je hebt hier in de kofferruimte een knopje, let op. Als je graag op vakantie gaat met de caravan of je hebt misschien wel een paardentrailer, is het ook een ideale auto.",
+    "ko": "그뿐만이 아닙니다. 트렁크 공간도 놀라울 만큼 넉넉합니다. 또 아주 중요한 기능이 있는데, 트렁크 안쪽에 버튼이 있어요. 보세요! 카라반을 끌고 휴가를 가거나 마차 트레일러를 끄실 때도 완벽한 차입니다."
+   },
+   {
+    "start": 37.7,
+    "end": 42.6,
+    "text": "En die hoge zit die je hebt in de Tiguan, als je er eenmaal aan gewend bent wil je nooit meer anders.",
+    "ko": "그리고 티구안의 높은 시트 포지션은 한 번 익숙해지면 다른 차는 못 타게 됩니다."
+   },
+   {
+    "start": 42.7,
+    "end": 54.8,
+    "text": "En een Volkswagen Tiguan is ook heel waardevast. Vooral uitvoeringen zoals deze, met een panoramadak, automaat, trekhaak. Die is gewoon heel compleet, en die verkoop je ook vaak heel snel weer door. Nou, ik ben fan hoor!",
+    "ko": "폭스바겐 티구안은 중고차 감가 방어율도 아주 높아요. 특히 파노라마 선루프, 오토 미션, 견인고리 같은 풀옵션 모델은 정말 완성도가 높아서 되팔 때도 엄청 빨리 팔립니다. 전 완전 강추해요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.9,
+    "speed": "빠름",
+    "summary": "부정적 어조의 훅 문구와 빨간 X 그래픽으로 시선 집중"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 2.9,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "AutoScout24 플랫폼 로고 노출 및 구매처 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 13.7,
+    "speed": "보통",
+    "summary": "R-Line 패키지 적용 여부에 따른 익스테리어 차이점 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 13.7,
+    "end": 25.8,
+    "speed": "보통",
+    "summary": "차량 전장 제원 소개 및 2열 레그룸·트렁크 수납공간 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 25.8,
+    "end": 37.6,
+    "speed": "보통",
+    "summary": "트렁크 버튼으로 작동하는 전동 견인고리 시연"
+   },
+   {
+    "stage": "팁",
+    "start": 37.6,
+    "end": 42.6,
+    "speed": "보통",
+    "summary": "높은 시트 포지션의 주행 시야 및 착좌감 장점 어필"
+   },
+   {
+    "stage": "가격",
+    "start": 42.6,
+    "end": 52.8,
+    "speed": "빠름",
+    "summary": "중고차 감가 방어력 및 선루프·자동변속기 등 핵심 옵션 가치 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 52.8,
+    "end": 54.8,
+    "speed": "빠름",
+    "summary": "트렁크에 앉아 만족스러운 추천 코멘트와 브랜드 로고로 마무리"
+   }
+  ],
+  "rules": [
+   "첫 2초 안에 '사지 마라'는 부정형 훅과 시각적 빨간 X 표시로 이탈률을 방어한다.",
+   "핵심 키워드(R-라인, 길이 제원, 편의 기능 등) 등장 시 흰색 바탕 박스 자막과 체크마크(✔)를 함께 팝업한다.",
+   "핵심 옵션(전동 견인고리 등)은 호스트가 직접 버튼을 누르고 발로 고정하는 실물 인터랙션을 보여준다.",
+   "차량의 장점을 1열, 2열, 트렁크, 외관, 주요 옵션 컷으로 2~3초 간격의 리드미컬한 컷 전환을 유지한다.",
+   "영상 인트로와 아웃트로에 브랜드 로고(AutoScout24)를 호스트의 손동작과 함께 자연스럽게 노출한다."
+  ]
+ }
+}

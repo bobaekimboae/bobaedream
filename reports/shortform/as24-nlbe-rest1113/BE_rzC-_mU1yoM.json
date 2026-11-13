@@ -1,0 +1,939 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/rzC-_mU1yoM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5106,
+  "candidatesTokenCount": 7166,
+  "totalTokenCount": 12272,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4364
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.0,
+   "aspect": "9:16",
+   "car": "Kia Sportage GT Line",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 10.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 11.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 31.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 34.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 37.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 42.9,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.9,
+    "end": 44.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 2.1,
+    "text": "KIA SPORTAGE\nGT LINE",
+    "ko": "기아 스포티지 GT 라인",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "text": "15 KM",
+    "ko": "주행거리 15km",
+    "kind": "키워드 스티커",
+    "y_pct": 20.5,
+    "x_center_pct": 61.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 7.7,
+    "text": "HIJ KOMT\nUIT",
+    "ko": "출시 시기",
+    "kind": "말 자막",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "NOVEMBER",
+    "ko": "11월",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "text": "2023",
+    "ko": "2023년",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 26.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.5,
+    "text": "✅ MEMORY SEATS",
+    "ko": "메모리 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 12.8,
+    "text": "✅ HARMAN KARDON\nGELUIDSSYSTEEM",
+    "ko": "하만카돈 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "TWO TONED INTERIOR",
+    "ko": "투톤 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 15.9,
+    "text": "✅ SPORTSTOELEN",
+    "ko": "스포츠 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 16.7,
+    "text": "ALCANTARA",
+    "ko": "알칸타라 소재",
+    "kind": "키워드 스티커",
+    "y_pct": 76.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.0,
+    "text": "✅ STOELVERWARMING",
+    "ko": "열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 50.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.0,
+    "text": "✅ STOELVENTILATIE",
+    "ko": "통풍 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 64.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.3,
+    "text": "✅ STUURVERWARMING",
+    "ko": "열선 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "✅ 360 GRADEN CAMERA",
+    "ko": "360도 어라운드 뷰",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 86.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 24.8,
+    "text": "✅ VOLLEDIG PANORAMADAK",
+    "ko": "파노라마 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 27.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 92.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.3,
+    "text": "RIJDMODUSSEN",
+    "ko": "주행 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 6.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 27.3,
+    "text": "ECO",
+    "ko": "에코 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 22.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.4,
+    "end": 28.5,
+    "text": "NORMAAL",
+    "ko": "노멀 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 29.5,
+    "text": "SPORT",
+    "ko": "스포츠 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 28.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.5,
+    "text": "✅ ELEKTRISCHE LAADKLEP",
+    "ko": "전동 트렁크",
+    "kind": "키워드 스티커",
+    "y_pct": 6.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.5,
+    "text": "€39.990",
+    "ko": "39,990유로",
+    "kind": "가격",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 88.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "KIA SPORTAGE GT LINE 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "15 KM 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "돈 소리",
+    "event": "유로 화폐 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "출시 시기 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "톡",
+    "event": "MEMORY SEATS 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "GELUIDSSYSTEEM 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "TWO TONED INTERIOR 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "톡",
+    "event": "SPORTSTOELEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "ALCANTARA 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.1,
+    "type": "톡",
+    "event": "STOELVERWARMING 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "STOELVENTILATIE 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.0,
+    "type": "톡",
+    "event": "STUURVERWARMING 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "360 GRADEN CAMERA 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.7,
+    "type": "톡",
+    "event": "VOLLEDIG PANORAMADAK 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.1,
+    "type": "톡",
+    "event": "RIJDMODUSSEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "톡",
+    "event": "ECO 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.4,
+    "type": "톡",
+    "event": "NORMAAL 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.7,
+    "type": "톡",
+    "event": "SPORT 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "톡",
+    "event": "ELEKTRISCHE LAADKLEP 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 열리는 비프음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.4,
+    "type": "딸깍",
+    "event": "시트 폴딩 레버 당기는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 닫힘 버튼 비프음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "톡",
+    "event": "Vermant 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.6,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크",
+   "bpm_est": 125,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.9,
+    "end": 6.0,
+    "what": "유로 동전/기호 스티커",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 65.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 궁금증 유발 훅",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 45.5,
+    "what": "Kia Vermant 딜러사 로고",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 48.0,
+    "y_pct": 23.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "딜러사 홍보",
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 47.8,
+    "what": "AutoScout24 플랫폼 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 42.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Deze Kia Sportage GT Line",
+    "ko": "이 기아 스포티지 GT 라인은"
+   },
+   {
+    "start": 3.4,
+    "end": 4.9,
+    "text": "heeft pas 15 km.",
+    "ko": "주행거리가 겨우 15km입니다."
+   },
+   {
+    "start": 4.9,
+    "end": 6.5,
+    "text": "En wat hij kost vertel ik je zo.",
+    "ko": "가격은 잠시 후에 알려드릴게요."
+   },
+   {
+    "start": 6.5,
+    "end": 8.8,
+    "text": "Hij komt uit november 2023",
+    "ko": "2023년 11월식이며,"
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "text": "en hij is uitgevoerd met verschillende opties.",
+    "ko": "다양한 옵션들이 적용되어 있습니다."
+   },
+   {
+    "start": 10.9,
+    "end": 11.7,
+    "text": "Memory seats,",
+    "ko": "메모리 시트,"
+   },
+   {
+    "start": 11.7,
+    "end": 13.0,
+    "text": "Harman Kardon geluidssysteem,",
+    "ko": "하만카돈 사운드 시스템,"
+   },
+   {
+    "start": 13.0,
+    "end": 16.8,
+    "text": "een two-toned interior met mooie sportstoelen en alcantara,",
+    "ko": "알칸타라 소재의 멋진 스포츠 시트가 들어간 투톤 인테리어,"
+   },
+   {
+    "start": 16.8,
+    "end": 20.3,
+    "text": "stoelverwarming, stoelventilatie en stuurverwarming,",
+    "ko": "열선 시트, 통풍 시트, 그리고 열선 스티어링 휠,"
+   },
+   {
+    "start": 20.3,
+    "end": 21.9,
+    "text": "een 360-graden camera,",
+    "ko": "360도 서라운드 카메라,"
+   },
+   {
+    "start": 21.9,
+    "end": 23.3,
+    "text": "en het is een automaat,",
+    "ko": "자동변속기 차량이며,"
+   },
+   {
+    "start": 23.3,
+    "end": 25.1,
+    "text": "een volledig panoramadak,",
+    "ko": "풀 파노라마 선루프,"
+   },
+   {
+    "start": 25.1,
+    "end": 29.5,
+    "text": "verschillende rijmodussen: Eco, Normaal en Sport,",
+    "ko": "다양한 주행 모드(에코, 노멀, 스포츠),"
+   },
+   {
+    "start": 29.5,
+    "end": 31.9,
+    "text": "en ook stoelverwarming op de achterbank,",
+    "ko": "그리고 뒷좌석 열선 시트,"
+   },
+   {
+    "start": 31.9,
+    "end": 34.6,
+    "text": "een elektrische laadklep,",
+    "ko": "전동식 트렁크,"
+   },
+   {
+    "start": 34.6,
+    "end": 37.8,
+    "text": "en met één hendel leg je de stoelen plat.",
+    "ko": "레버 하나로 시트를 완전히 접을 수 있습니다."
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "text": "En wat hij kost?",
+    "ko": "그렇다면 가격은?"
+   },
+   {
+    "start": 39.8,
+    "end": 42.8,
+    "text": "Hij kost €39.990.",
+    "ko": "가격은 39,990유로입니다."
+   },
+   {
+    "start": 42.8,
+    "end": 45.4,
+    "text": "Je vindt hem in de showroom van Kia Vermant",
+    "ko": "기아 베르망 쇼룸과"
+   },
+   {
+    "start": 45.4,
+    "end": 48.0,
+    "text": "en op AutoScout24.be.",
+    "ko": "AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.5,
+    "speed": "빠름",
+    "summary": "차량명 및 15km 신차급 주행거리 공개 후 가격 궁금증 유발"
+   },
+   {
+    "stage": "기능",
+    "start": 6.5,
+    "end": 37.8,
+    "speed": "빠름",
+    "summary": "내부 옵션 및 편의기능을 시각적 자막과 함께 1~2초 간격으로 빠르게 나열"
+   },
+   {
+    "stage": "가격",
+    "start": 37.8,
+    "end": 43.0,
+    "speed": "보통",
+    "summary": "트렁크 닫히며 39,990유로 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 43.0,
+    "end": 48.0,
+    "speed": "보통",
+    "summary": "딜러사 및 오토스카우트24 플랫폼 구매처 안내"
+   }
+  ],
+  "rules": [
+   "호스트가 옵션을 언급할 때마다 체크박스(✅)가 달린 흰색 라벨 자막과 '톡' 효과음을 1대1 매칭",
+   "핵심 키워드와 브랜드, 가격은 브랜드 컬러인 노란색(#FFFF00) 배경 상자로 시각적 강조",
+   "앞부분에서 가격을 바로 말하지 않고 '얼마인지 곧 알려준다'며 끝까지 시청하도록 리텐션 유지",
+   "실제 차의 물리적 작동음(트렁크 비프음, 시트 레버 소리)을 살려 현장감 부여"
+  ]
+ }
+}

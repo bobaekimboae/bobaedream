@@ -1,0 +1,364 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/IJGkA_Tdfwc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2375,
+  "candidatesTokenCount": 3331,
+  "totalTokenCount": 6392,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1633
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 686,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 17.6,
+   "aspect": "9:16",
+   "car": "Fiat Grande Panda",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 5.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 12.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 13.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "The New\nFiat Panda",
+    "ko": "새로운 피아트 판다",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5,
+    "entrance": "바로",
+    "highlight_word": "The New",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "Acqua Azure",
+    "ko": "아쿠아 애저 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.8,
+    "text": "110 pk",
+    "ko": "110 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -4,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.0,
+    "text": "Digitaal\ndashboard",
+    "ko": "디지털 대시보드",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -3,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "text": "eROUTES",
+    "ko": "eROUTES 내비게이션",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -4,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.8,
+    "text": "Bambox",
+    "ko": "밤박스 대시보드 수납함",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -3,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.6,
+    "text": "Actieradius:\n320 km",
+    "ko": "주행거리: 320km",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -4,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.4,
+    "text": "LED Pixel\nkoplampen",
+    "ko": "LED 픽셀 헤드램프",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -4,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.6,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -6,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "딸깍",
+    "event": "3분할 화면과 Acqua Azure 스티커 전환 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "비트와 함께 110 pk 컷 전환",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Ik neem je mee naar de nieuwe Fiat Panda.",
+    "ko": "새로운 피아트 판다를 소개해 드릴게요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "모터쇼 부스 전경과 새로운 피아트 판다 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "3분할 화면으로 차량 외관 및 실내 한눈에 보기"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 15.5,
+    "speed": "빠름",
+    "summary": "출력, 실내 시트, 디지털 계기판, 내비게이션, 밤박스 대시보드, 주행거리, 픽셀 램프 등 주요 포인트 1초 단위 컷 전환"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 15.5,
+    "end": 17.6,
+    "speed": "보통",
+    "summary": "차량 전면과 AutoScout24 브랜딩 마무리"
+   }
+  ],
+  "rules": [
+   "도입부에 짧은 내레이션 한 문장으로 시선을 끌고 이후에는 경쾌한 음악 비트에 맞춰 컷 전환",
+   "비트에 맞춰 1~1.5초 간격으로 차량의 디테일 포인트(인포테인먼트, 계기판, 소재, 램프 등)를 빠르게 전개",
+   "노란색 테이프/스티커 형태의 기울어진 텍스트 박스로 통일된 브랜드 비주얼 유지",
+   "핵심 제원 및 특징을 1~2개 단어의 짧은 텍스트로 직관적으로 전달"
+  ]
+ }
+}

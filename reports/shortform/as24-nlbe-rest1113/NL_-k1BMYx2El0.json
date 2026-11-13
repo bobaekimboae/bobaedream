@@ -1,0 +1,650 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/-k1BMYx2El0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3758,
+  "candidatesTokenCount": 5295,
+  "totalTokenCount": 9053,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3016
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.6,
+   "aspect": "9:16",
+   "car": "Cupra Formentor",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 7.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 12.6,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 15.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 18.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 25.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "WAAR KOMT\nCUPRA VANDAAN",
+    "ko": "쿠프라는 어디서 왔을까요?",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.2,
+    "text": "CUPRA FORMENTOR",
+    "ko": "쿠프라 포르멘토르",
+    "kind": "말 자막",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.7,
+    "text": "CUPRA IS\nOORSPRONKELIJK VAN",
+    "ko": "쿠프라는 원래",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.0,
+    "text": "DE PRIJS\nVAN DEZE",
+    "ko": "이 차의 가격은",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.7,
+    "text": "EINDE VAN\nDEZE VIDEO",
+    "ko": "이 영상 끝에서",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.4,
+    "text": "HET WAS\nEERST DE SPORTAFDELING",
+    "ko": "원래는 스포츠 부서였습니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "text": "MAAR HET IS NU ECHT",
+    "ko": "하지만 지금은 완전히",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.6,
+    "text": "EEN EIGEN\nMERK GEWORDEN",
+    "ko": "독자 브랜드가 되었습니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.7,
+    "end": 14.9,
+    "text": "SPORTIEF\nPREMIUM\nOPVALLEND DESIGN",
+    "ko": "스포티함, 프리미엄, 눈에 띄는 디자인",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.7,
+    "text": "DE CUPRA\nIS ER DUS",
+    "ko": "따라서 쿠프라는",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.9,
+    "text": "ECHT VOOR\nMENSEN DIE IETS STOERDERS",
+    "ko": "더 터프한 것을 원하는 사람들을 위한 것입니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "HIJ HEEFT\nDIE TYPISCHE",
+    "ko": "쿠프라 특유의",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.1,
+    "end": 22.8,
+    "text": "IN HET\nINTERIEUR ZIE JE OP",
+    "ko": "실내 곳곳에서",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 23.9,
+    "text": "DIE\nKOPEREN KLEUREN",
+    "ko": "이 구리색 포인트를",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.4,
+    "text": "VAN CUPRA",
+    "ko": "쿠프라만의 컬러를",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "text": "€ 25.745",
+    "ko": "25,745유로",
+    "kind": "가격",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 30.0,
+    "text": "JE VINDT\nHEM IN DE",
+    "ko": "이 차는 전시장에서",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 31.3,
+    "text": "VAN DER LINDEN AUTO",
+    "ko": "반 데르 린덴 오토에서 만나실 수 있으며",
+    "kind": "말 자막",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.4,
+    "end": 32.5,
+    "text": "NATUURLIJK OP",
+    "ko": "당연히 사이트에서도",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.8,
+    "type": "톡",
+    "event": "자막 CUPRA FORMENTOR 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.3,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.1,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.7,
+    "type": "톡",
+    "event": "특징 자막 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "띵",
+    "event": "가격 박스 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "휙",
+    "event": "로고 그래픽 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-fi / Pop Beat",
+   "bpm_est": 110,
+   "mood": "경쾌하고 편안함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 31.6,
+    "end": 33.6,
+    "what": "AutoScout24 로고 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 52.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Waar komt Cupra vandaan?",
+    "ko": "쿠프라는 어디서 유래했을까요?"
+   },
+   {
+    "start": 1.8,
+    "end": 4.7,
+    "text": "Dit is de Cupra Formentor. En Cupra is oorspronkelijk van SEAT.",
+    "ko": "이 차는 쿠프라 포르멘토르입니다. 그리고 쿠프라는 원래 세아트에서 시작되었습니다."
+   },
+   {
+    "start": 4.8,
+    "end": 7.7,
+    "text": "En de prijs van deze vertel ik je op het einde van deze video.",
+    "ko": "그리고 이 차의 가격은 영상 마지막에 알려드릴게요."
+   },
+   {
+    "start": 7.8,
+    "end": 12.6,
+    "text": "Het was eerst de sportafdeling van SEAT, maar het is nu echt een eigen merk geworden.",
+    "ko": "원래는 세아트의 스포츠 전담 부서였지만, 이제는 엄연한 독립 브랜드가 되었죠."
+   },
+   {
+    "start": 12.7,
+    "end": 14.9,
+    "text": "Sportief, premium en een opvallend design.",
+    "ko": "스포티하고, 프리미엄하며, 눈길을 사로잡는 디자인입니다."
+   },
+   {
+    "start": 15.0,
+    "end": 18.9,
+    "text": "De Cupra is er dus echt voor mensen die iets stoerders willen dan een normale SEAT.",
+    "ko": "따라서 쿠프라는 일반 세아트보다 조금 더 강렬하고 멋진 차를 원하는 사람들을 위한 모델입니다."
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "Hij heeft die typische boze blik.",
+    "ko": "특유의 날카롭고 강렬한 인상을 갖고 있죠."
+   },
+   {
+    "start": 21.1,
+    "end": 25.4,
+    "text": "En in het interieur zie je op verschillende plekken die koperen kleuren van Cupra terugkomen.",
+    "ko": "그리고 실내 곳곳에는 쿠프라의 시그니처인 코퍼(구리빛) 컬러 디테일을 볼 수 있습니다."
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "text": "En de prijs is € 25.745.",
+    "ko": "그리고 가격은 25,745유로입니다."
+   },
+   {
+    "start": 28.6,
+    "end": 33.6,
+    "text": "En je vindt hem in de showroom van Van der Linden Auto en natuurlijk op AutoScout24.nl.",
+    "ko": "반 데르 린덴 오토 매장과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.8,
+    "speed": "빠름",
+    "summary": "브랜드 기원에 대한 질문 던지기"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.8,
+    "end": 7.8,
+    "speed": "보통",
+    "summary": "모델명 및 세아트 산하 브랜드 배경 소개와 가격 예고"
+   },
+   {
+    "stage": "사양",
+    "start": 7.8,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "브랜드 성격(스포티·프리미엄 디자인) 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 15.0,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "외관의 강렬한 인상 및 실내 코퍼 컬러 디테일 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 25.5,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.5,
+    "end": 33.6,
+    "speed": "빠름",
+    "summary": "딜러 쇼룸 및 AutoScout24 안내와 엔딩"
+   }
+  ],
+  "rules": [
+   "자막은 시그니처 옐로우 박스에 검정색 굵은 폰트를 적용해 강한 대비로 가독성을 극대화한다.",
+   "자막 및 키워드가 등장할 때 '팝' 효과음을 동기화하여 몰입감을 높인다.",
+   "호스트가 차 주위를 자연스럽게 걸어 다니며 원테이크 느낌의 동선과 컷 전환을 교차한다.",
+   "영상 초반에 '가격은 마지막에 공개'라는 훅을 던져 시청 지속 시간을 유도한다."
+  ]
+ }
+}

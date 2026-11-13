@@ -1,0 +1,337 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/rsX_GPWHirQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3205,
+  "candidatesTokenCount": 2798,
+  "totalTokenCount": 6003,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2463
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.8,
+   "aspect": "9:16",
+   "car": "Renault 5 E-Tech",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 12.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 18.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 23.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 27.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Raad het merk en model",
+    "ko": "브랜드와 모델을 맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.7,
+    "text": "Dit nieuwe model zit vol verwijzingen naar zijn retro icoon",
+    "ko": "이 신모델은 레트로 아이콘에 대한 오마주로 가득합니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "nieuwe",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 7.9,
+    "text": "waar vroeger de lucht inlaat zat, zit nu compleet iets anders.",
+    "ko": "예전에 공기 흡입구가 있던 자리에 이제는 완전히 다른 것이 들어갔죠.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "inlaat",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 12.7,
+    "text": "Hij is volledig elektrisch en heeft een actieradius van maar liefst 410 km.",
+    "ko": "완전 전기차이며 주행거리는 무려 410km에 달합니다.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "410 km",
+    "sure": true
+   },
+   {
+    "start": 12.7,
+    "end": 17.9,
+    "text": "Deze auto kan bidirectioneel laden. Dat betekent niet alleen stroom nemen, maar ook teruggeven.",
+    "ko": "이 차는 양방향 충전이 가능합니다. 전기를 받기만 하는 게 아니라 공급할 수도 있죠.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "laden",
+    "sure": true
+   },
+   {
+    "start": 17.9,
+    "end": 23.7,
+    "text": "En dit is misschien wel het leukste, er zijn meer dan 200 combinaties mogelijk om de auto volledig jouw stijl te kunnen geven.",
+    "ko": "그리고 가장 멋진 점은, 내 취향대로 만들 수 있는 조합이 200가지가 넘는다는 것입니다.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "combinaties",
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 27.8,
+    "text": "Weet jij al welke auto dit is? Laat het weten in de reacties.",
+    "ko": "어떤 차인지 아시겠나요? 댓글로 남겨주세요.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "reacties",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 8.1,
+    "type": "딸깍",
+    "event": "충전구 덮개 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "딸깍",
+    "event": "트렁크 테일게이트 개폐 버튼 누름",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/업비트 배경음악",
+   "bpm_est": 120,
+   "mood": "경쾌하고 호기심을 유발함",
+   "ducks_under_voice": "일부",
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Kun jij raden welk merk en model dit is?",
+    "ko": "이게 어떤 브랜드와 모델인지 맞출 수 있나요?"
+   },
+   {
+    "start": 2.1,
+    "end": 4.8,
+    "text": "Dit nieuwe model zit vol verwijzingen naar zijn retro icoon.",
+    "ko": "이 신모델은 레트로 아이콘에 대한 오마주로 가득 차 있습니다."
+   },
+   {
+    "start": 4.8,
+    "end": 8.0,
+    "text": "Waar vroeger de luchtinlaat zat, zit nu compleet iets anders.",
+    "ko": "예전에 공기 흡입구가 있던 자리에는 이제 완전히 다른 것이 들어갔죠."
+   },
+   {
+    "start": 8.0,
+    "end": 12.8,
+    "text": "Hij is volledig elektrisch en heeft een actieradius van maar liefst 410 km.",
+    "ko": "완전 전기차이며 주행거리는 무려 410km에 달합니다."
+   },
+   {
+    "start": 12.8,
+    "end": 18.0,
+    "text": "Deze auto kan bidirectioneel laden. Dat betekent niet alleen stroom nemen, maar ook teruggeven.",
+    "ko": "이 차는 양방향 충전이 가능합니다. 즉 전기를 받기만 하는 게 아니라 다시 돌려줄 수도 있죠."
+   },
+   {
+    "start": 18.0,
+    "end": 23.8,
+    "text": "En dit is misschien wel het leukste: er zijn meer dan 200 combinaties mogelijk om de auto volledig jouw stijl te kunnen geven.",
+    "ko": "그리고 이게 가장 멋진 점일 텐데요, 차를 완전히 내 스타일에 맞출 수 있는 200가지 이상의 조합이 가능합니다."
+   },
+   {
+    "start": 23.8,
+    "end": 27.8,
+    "text": "Weet jij al welke auto dit is? Laat het weten in de reacties.",
+    "ko": "이 차가 무엇인지 이미 아시겠나요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "빠름",
+    "summary": "차명 맞추기 퀴즈 질문 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.1,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "레트로 디자인 요소 및 보닛 인디케이터 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 8.0,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "전기차 사양 및 410km 주행거리 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 12.8,
+    "end": 18.0,
+    "speed": "보통",
+    "summary": "양방향 충전(V2L/V2G) 기능 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 18.0,
+    "end": 23.8,
+    "speed": "보통",
+    "summary": "다양한 커스터마이징 조합과 트렁크 공간 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 23.8,
+    "end": 27.8,
+    "speed": "보통",
+    "summary": "댓글 유도 및 퀴즈 정답 요청"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 차의 주요 특징을 짚어가며 퀴즈 형식으로 주의를 집중시킨다",
+   "자막의 핵심 단어 뒤에 브랜드 시그니처 옐로우 박스를 강조 배경으로 적용한다",
+   "설명하는 파트(충전구, 보닛, 트렁크 등)에 맞춰 직접 만지거나 열며 전환 컷을 매끄럽게 연결한다",
+   "마지막에 '댓글로 맞춰보세요' 질문을 던져 시청자 인게이지먼트를 유도한다"
+  ]
+ }
+}

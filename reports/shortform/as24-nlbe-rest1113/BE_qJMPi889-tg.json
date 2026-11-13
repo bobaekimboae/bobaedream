@@ -1,0 +1,555 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/qJMPi889-tg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3922,
+  "candidatesTokenCount": 5364,
+  "totalTokenCount": 10614,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3180
+   }
+  ],
+  "thoughtsTokenCount": 1328,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.6,
+   "aspect": "9:16",
+   "car": "BMW M3 (F80)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 10.3,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 20.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "NAAST MIJ STAAT DE",
+    "ko": "제 옆에 있는 차는",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFF338",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "NAAST MIJ STAAT DE",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 1.7,
+    "text": "BMW M3",
+    "ko": "BMW M3",
+    "kind": "키워드 스티커",
+    "y_pct": 20.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFF338",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW M3",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "text": "CARBONPACK EXTERIEUR",
+    "ko": "외관 카본 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 10.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFF338",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "CARBONPACK",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.1,
+    "text": "EN HIJ IS UITGEVOERD MET",
+    "ko": "그리고 적용된 옵션은",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.0,
+    "text": "✔ MULTIFUNCTIONEEL STUUR",
+    "ko": "✔ 다기능 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#E5E5E5",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.3,
+    "text": "M1 & M2 BUTTON",
+    "ko": "M1 & M2 버튼",
+    "kind": "키워드 스티커",
+    "y_pct": 7.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFF338",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 20.8,
+    "text": "MOTOR\nONDERSTEL\nSTUURINRICHTING\nTRANSMISSIE",
+    "ko": "엔진\n섀시\n조향계통\n변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#FFF338",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TRANSMISSIE",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "text": "TANZANITE BLUE",
+    "ko": "탄자나이트 블루",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFF338",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TANZANITE BLUE",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.2,
+    "text": "2017",
+    "ko": "2017년식",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFF338",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2017",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.7,
+    "text": "41.500 KM",
+    "ko": "41,500 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFF338",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "41.500 KM",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.6,
+    "text": "€51.500",
+    "ko": "51,500유로",
+    "kind": "가격",
+    "y_pct": 13.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF338",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€51.500",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.1,
+    "type": "톡",
+    "event": "BMW M3 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.3,
+    "type": "톡",
+    "event": "스티어링 휠 체크박스 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.4,
+    "type": "톡",
+    "event": "M1 & M2 버튼 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "MOTOR 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.8,
+    "type": "톡",
+    "event": "ONDERSTEL 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.7,
+    "type": "톡",
+    "event": "STUURINRICHTING 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "TRANSMISSIE 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "TANZANITE BLUE 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "톡",
+    "event": "2017 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "톡",
+    "event": "41.500 KM 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "띵",
+    "event": "€51.500 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "톡",
+    "event": "SB CARS 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Trap / Hip-Hop Beat",
+   "bpm_est": 125,
+   "mood": "리드미컬하고 세련됨",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 31.8,
+    "end": 33.3,
+    "what": "SB CARS 딜러 로고 카드",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "판매 딜러 안내",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 34.6,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Naast mij staat de BMW M3.",
+    "ko": "제 옆에는 BMW M3가 있습니다."
+   },
+   {
+    "start": 1.7,
+    "end": 4.8,
+    "text": "Uitgevoerd met Carbonpack van het exterieur en carbon interieur.",
+    "ko": "외관 카본 패키지와 실내 카본 트림이 적용되어 있습니다."
+   },
+   {
+    "start": 4.8,
+    "end": 8.0,
+    "text": "En hij is uitgevoerd met een multifunctioneel stuur.",
+    "ko": "그리고 다기능 스티어링 휠이 장착되어 있고,"
+   },
+   {
+    "start": 8.0,
+    "end": 12.3,
+    "text": "En omdat het een M3 is, heeft hij de M1 en M2 button.",
+    "ko": "M3이기 때문에 M1 및 M2 버튼이 있습니다."
+   },
+   {
+    "start": 12.3,
+    "end": 16.5,
+    "text": "En wat houden die in? Met de M1 en de M2 button kun je helemaal naar je eigen comfort instellen.",
+    "ko": "이게 무슨 기능일까요? M1과 M2 버튼으로 취향에 맞게 모든 설정을 커스텀할 수 있습니다."
+   },
+   {
+    "start": 16.5,
+    "end": 20.9,
+    "text": "Dus de motor, het onderstel, en de stuurinrichting, en zelfs de transmissie.",
+    "ko": "엔진, 섀시, 조향장치, 그리고 변속기까지 말이죠."
+   },
+   {
+    "start": 20.9,
+    "end": 24.8,
+    "text": "En hij is uitgevoerd in de prachtige kleur Tanzanite Blue.",
+    "ko": "아름다운 탄자나이트 블루 색상이 적용되었습니다."
+   },
+   {
+    "start": 24.8,
+    "end": 27.8,
+    "text": "Hij komt uit 2017, 41.500 km gereden.",
+    "ko": "2017년식이며 주행거리는 41,500km입니다."
+   },
+   {
+    "start": 27.8,
+    "end": 30.6,
+    "text": "En hij kost €51.500.",
+    "ko": "가격은 51,500유로입니다."
+   },
+   {
+    "start": 30.6,
+    "end": 34.6,
+    "text": "Hij staat in de showroom van SB Cars en op AutoScout24.nl.",
+    "ko": "SB Cars 쇼룸 및 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "진행자가 차종(BMW M3)을 소개하며 즉시 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "외관 및 실내의 카본 패키지 디테일 클로즈업"
+   },
+   {
+    "stage": "기능",
+    "start": 4.8,
+    "end": 20.9,
+    "speed": "보통",
+    "summary": "스티어링 휠의 M1/M2 커스텀 드라이브 모드 설정 기능 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 20.9,
+    "end": 27.8,
+    "speed": "빠름",
+    "summary": "외관 색상(탄자나이트 블루), 연식, 주행거리 정보 요약"
+   },
+   {
+    "stage": "가격",
+    "start": 27.8,
+    "end": 30.6,
+    "speed": "보통",
+    "summary": "판매 가격(51,500유로) 명시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 30.6,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "판매 딜러사 및 오토스카우트24 플랫폼 구매처 안내"
+   }
+  ],
+  "rules": [
+   "주요 포인트(차종, 카본팩, 기능, 연식, 주행거리, 가격)마다 팝 사운드와 함께 노란색 볼드 자막을 화면 상단이나 중앙에 배치한다.",
+   "핵심 키워드가 언급될 때마다 단어가 화면에 순차적으로 스택(누적)되는 모션 그래픽을 사용한다.",
+   "디스플레이 세부 설정 화면과 조작 손동작을 밀착 촬영하여 기능 설명의 직관성을 높인다.",
+   "영상 말미에 연식·주행거리·가격을 속도감 있게 연달아 제시한 뒤 판매처와 로고로 마무리한다."
+  ]
+ }
+}

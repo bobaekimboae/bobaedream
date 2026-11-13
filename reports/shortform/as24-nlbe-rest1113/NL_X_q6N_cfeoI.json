@@ -1,0 +1,754 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/X_q6N_cfeoI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9398,
+  "candidatesTokenCount": 5733,
+  "totalTokenCount": 15469,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8656
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 338,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 95.8,
+   "aspect": "9:16",
+   "car": "Microlino",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 26.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 28.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 30.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 37.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 40.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 41.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 43.6,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 45.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 48.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 53.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 55.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.6,
+    "end": 57.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.6,
+    "end": 60.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.3,
+    "end": 64.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.9,
+    "end": 68.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.1,
+    "end": 70.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.9,
+    "end": 73.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 73.1,
+    "end": 78.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 78.4,
+    "end": 83.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 83.5,
+    "end": 89.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 89.9,
+    "end": 92.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 92.9,
+    "end": 95.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.5,
+    "text": "RIJDEN / JULLIE MEE",
+    "ko": "운전 / 함께 가요",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RIJDEN",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.2,
+    "text": "ZENUWACHTIG",
+    "ko": "긴장됨",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZENUWACHTIG",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "40 KM PER UUR",
+    "ko": "시속 40km",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "40 KM",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "HIJ IS SNEL HOOR",
+    "ko": "생각보다 빠르네요",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SNEL",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "text": "TELEFOONHOUDER",
+    "ko": "스마트폰 거치대",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TELEFOONHOUDER",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "text": "LEUK DESIGN",
+    "ko": "귀여운 디자인",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DESIGN",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "text": "EEN BOX",
+    "ko": "블루투스 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BOX",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.0,
+    "text": "TOUCHSCREEN",
+    "ko": "터치스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TOUCHSCREEN",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.5,
+    "text": "3 KRATTEN BIER",
+    "ko": "맥주 3상자",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BIER",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 58.5,
+    "text": "SUPER WENDBAAR",
+    "ko": "초민첩한 핸들링",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WENDBAAR",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 61.5,
+    "text": "90KM PER UUR",
+    "ko": "최고시속 90km",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "90KM",
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 72.8,
+    "text": "NIET APK-PLICHTIG",
+    "ko": "정기검사 면제",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "APK",
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 74.8,
+    "text": "€10 WEGENBELASTING",
+    "ko": "자동차세 약 10유로",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€10",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "오토스카우트 매물 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "40 km/h 텍스트 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "딸깍",
+    "event": "체크 아이콘 및 자막 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "휙",
+    "event": "로켓 이모지 표시 및 가속 감탄",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "딸깍",
+    "event": "체크 아이콘 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "딸깍",
+    "event": "터치스크린 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "딸깍",
+    "event": "기능 체크 자막 표시",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/인스트루멘탈",
+   "bpm_est": 118,
+   "mood": "발랄하고 경쾌함",
+   "ducks_under_voice": "예",
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.3,
+    "end": 2.5,
+    "what": "AutoScout24 매물 카드 오버레이",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 가격 및 정보 안내",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "what": "놀란 얼굴 이모지 3개",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "감정 강조",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.5,
+    "what": "로켓 이모지",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "속도감 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Ik mag in deze Microlino rijden en ik neem jullie mee.",
+    "ko": "제가 이 마이크롤리노를 운전하게 되었는데, 여러분도 함께 가시죠."
+   },
+   {
+    "start": 4.5,
+    "end": 6.5,
+    "text": "Ben een beetje zenuwachtig.",
+    "ko": "조금 긴장되네요."
+   },
+   {
+    "start": 10.5,
+    "end": 14.5,
+    "text": "We gaan nu 40 km/u, dat is echt wel top. Hij is snel hoor!",
+    "ko": "지금 40km/h로 달리고 있는데 정말 좋네요. 꽤 빨라요!"
+   },
+   {
+    "start": 18.5,
+    "end": 21.5,
+    "text": "Kun je dus gewoon het dak opendoen.",
+    "ko": "이렇게 그냥 루프를 열 수도 있어요."
+   },
+   {
+    "start": 24.0,
+    "end": 33.0,
+    "text": "En deze spiegels... dat zijn dus ook de lampen.",
+    "ko": "그리고 이 사이드미러는... 바로 전조등 라이트이기도 해요."
+   },
+   {
+    "start": 33.0,
+    "end": 38.0,
+    "text": "En hier zit dus gewoon een box, die kun je koppelen met je telefoon.",
+    "ko": "여기에 스피커가 있어서 스마트폰과 연결할 수 있어요."
+   },
+   {
+    "start": 48.0,
+    "end": 53.5,
+    "text": "Achterin is er gewoon genoeg plek voor 3 kratten bier.",
+    "ko": "트렁크에는 맥주 3박스를 넣을 만한 넉넉한 공간이 있어요."
+   },
+   {
+    "start": 57.0,
+    "end": 63.0,
+    "text": "Super wendbaar, 90 km per uur, mag gewoon over de snelweg.",
+    "ko": "아주 기동성이 좋고 최고시속 90km라 고속화도로 주행도 가능해요."
+   },
+   {
+    "start": 70.0,
+    "end": 77.0,
+    "text": "Niet APK-plichtig, €10 wegenbelasting, 180km actieradius.",
+    "ko": "정기검사 의무 없고 자동차세 월 10유로, 주행가능거리는 약 180km입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "차량 전면 도어 열린 상태에서 오토스카우트 매물 정보 제시하며 탑승 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 23.5,
+    "speed": "보통",
+    "summary": "주행 출발, 속도감 및 소프트톱 썬루프 개방"
+   },
+   {
+    "stage": "기능",
+    "start": 23.5,
+    "end": 42.0,
+    "speed": "보통",
+    "summary": "사이드미러 겸용 헤드라이트, 블루투스 스피커, 디지털 터치패널 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 42.0,
+    "end": 55.0,
+    "speed": "보통",
+    "summary": "섀시 안전성 및 트렁크 적재용량(맥주 3상자) 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 55.0,
+    "end": 83.0,
+    "speed": "빠름",
+    "summary": "주행 성능, 검사 면제, 세금 혜택 및 배터리 충전 시간 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 83.0,
+    "end": 95.8,
+    "speed": "보통",
+    "summary": "자동차전용도로 진입 주행 소감과 함께 마무리"
+   }
+  ],
+  "rules": [
+   "노란색(#FFCC00) 배경 상자에 검은색 굵은 고딕 텍스트로 핵심 키워드를 전면에 배치한다.",
+   "앞문이 열리는 독특한 승차 방식을 훅으로 사용하여 초반 시선 집중을 유도한다.",
+   "트렁크 공간을 설명할 때 '맥주 상자 3개'와 같은 일상적이고 직관적인 비유를 활용한다.",
+   "중요 스펙(속도, 세금, 충전시간)마다 체크마크 아이콘 스티커를 부착해 가독성을 높인다."
+  ]
+ }
+}

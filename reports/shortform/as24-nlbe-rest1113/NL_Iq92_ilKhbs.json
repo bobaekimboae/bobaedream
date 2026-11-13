@@ -1,0 +1,785 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Iq92_ilKhbs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3842,
+  "candidatesTokenCount": 6167,
+  "totalTokenCount": 10009,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3100
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.9,
+   "aspect": "9:16",
+   "car": "Audi RS 6 Avant, Audi RS Q8, Audi RS 7",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.6,
+    "end": 13.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 22.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 34.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "3 AUDI'S",
+    "ko": "아우디 3대",
+    "kind": "제목",
+    "y_pct": 9.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.5,
+    "text": "3 AUDI'S\n€100K - 150K",
+    "ko": "아우디 3대\n10만-15만 유로",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 3.4,
+    "text": "DIE JE KAN",
+    "ko": "만나볼 수 있는",
+    "kind": "말 자막",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.8,
+    "text": "VINDEN BIJ",
+    "ko": "곳은 바로",
+    "kind": "말 자막",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 5.5,
+    "text": "DEZE",
+    "ko": "이 차량은",
+    "kind": "말 자막",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.3,
+    "text": "AUDI\nRS 6 AVANT",
+    "ko": "아우디\nRS 6 아반트",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.8,
+    "text": "600 PK",
+    "ko": "600 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 11.5,
+    "text": "€146.949",
+    "ko": "146,949유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.5,
+    "text": "AUDI\nRS Q8",
+    "ko": "아우디\nRS Q8",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "600 PK",
+    "ko": "600 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 15.9,
+    "text": "EN DEZE KOST",
+    "ko": "그리고 이 차의 가격은",
+    "kind": "말 자막",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "text": "€169.949",
+    "ko": "169,949유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 19.5,
+    "text": "EN DEZE",
+    "ko": "그리고 이",
+    "kind": "말 자막",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.0,
+    "text": "AUDI\nRS 7",
+    "ko": "아우디\nRS 7",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "600 PK",
+    "ko": "600 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.0,
+    "text": "EN DIE KOST",
+    "ko": "가격은",
+    "kind": "말 자막",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.8,
+    "text": "€109.949",
+    "ko": "109,949유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 25.8,
+    "text": "MEER INFO VIND",
+    "ko": "자세한 정보는",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 26.6,
+    "text": "JE IN DE",
+    "ko": "더보기란에서",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.7,
+    "text": "EN IK BEN",
+    "ko": "그리고 여러분이",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.0,
+    "text": "BENIEUWD VOOR WELKE",
+    "ko": "어떤 차를 선택할지 궁금해요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.0,
+    "text": "LAAT HET EVEN",
+    "ko": "알려주세요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.0,
+    "text": "REACTIE",
+    "ko": "댓글로",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "제목 스티커 '3 AUDI'S' 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "가격 범위 추가 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "톡",
+    "event": "AUDI RS 6 AVANT 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "톡",
+    "event": "600 PK 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "톡",
+    "event": "RS 6 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "톡",
+    "event": "AUDI RS Q8 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "600 PK 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "RS Q8 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.5,
+    "type": "톡",
+    "event": "AUDI RS 7 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "600 PK 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.0,
+    "type": "톡",
+    "event": "RS 7 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.1,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 31.0,
+    "end": 34.9,
+    "what": "AutoScout24 브랜드 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "앱 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "Drie Audi's tussen de 100 en de 150.000 euro die je kan vinden bij Germany Dealer.",
+    "ko": "Germany Dealer에서 찾을 수 있는 10만에서 15만 유로 사이의 아우디 3대입니다."
+   },
+   {
+    "start": 4.9,
+    "end": 8.7,
+    "text": "Deze Audi RS 6 Avant met 600 pk.",
+    "ko": "이 아우디 RS 6 아반트는 600마력이고,"
+   },
+   {
+    "start": 8.7,
+    "end": 11.6,
+    "text": "Hij kost 146.949 euro.",
+    "ko": "가격은 146,949유로입니다."
+   },
+   {
+    "start": 11.6,
+    "end": 14.8,
+    "text": "Deze Audi RS Q8, ook met 600 pk.",
+    "ko": "이 아우디 RS Q8도 역시 600마력이며,"
+   },
+   {
+    "start": 14.8,
+    "end": 18.7,
+    "text": "En deze kost 169.949 euro.",
+    "ko": "가격은 169,949유로입니다."
+   },
+   {
+    "start": 18.7,
+    "end": 22.1,
+    "text": "En deze Audi RS 7, ook met 600 pk.",
+    "ko": "그리고 이 아우디 RS 7 역시 600마력이고,"
+   },
+   {
+    "start": 22.1,
+    "end": 24.8,
+    "text": "En die kost 109.949 euro.",
+    "ko": "가격은 109,949유로입니다."
+   },
+   {
+    "start": 24.8,
+    "end": 30.7,
+    "text": "Meer info vind je in de omschrijving en ik ben benieuwd voor welke jij zou kiezen. Laat het even weten in de reacties.",
+    "ko": "더 자세한 정보는 설명란에서 확인하시고, 여러분은 어떤 차를 고르실지 궁금하네요. 댓글로 남겨주세요."
+   },
+   {
+    "start": 30.7,
+    "end": 34.9,
+    "text": "En vergeet AutoScout24 niet te volgen op social media.",
+    "ko": "소셜 미디어에서 AutoScout24 팔로우하는 것도 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "보통",
+    "summary": "10~15만 유로대 고성능 아우디 3대 큐레이션 인트로"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.9,
+    "end": 11.6,
+    "speed": "보통",
+    "summary": "아우디 RS 6 아반트 스펙 및 가격 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.6,
+    "end": 18.7,
+    "speed": "보통",
+    "summary": "아우디 RS Q8 스펙 및 가격 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 18.7,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "아우디 RS 7 스펙 및 가격 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.8,
+    "end": 34.9,
+    "speed": "빠름",
+    "summary": "댓글 유도 및 AutoScout24 팔로우 CTA"
+   }
+  ],
+  "rules": [
+   "차량 모델명과 주요 스펙(마력), 가격 자막이 나올 때 짧고 명확한 '톡' 효과음으로 시각 집중",
+   "화면 상단 및 중앙에 굵은 노란색/흰색 볼드 고딕 텍스트를 배치하여 가독성 극대화",
+   "진행자가 걸으며 차량 사이를 이동하고, 주요 외관(전면/후면 쿼터뷰)을 컷 전환으로 빠르게 제시",
+   "마지막에는 인터랙션(댓글) 유도 후 브랜드 로고 팝업과 함께 소셜 팔로우 콜투액션으로 마무리"
+  ]
+ }
+}

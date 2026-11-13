@@ -1,0 +1,408 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/oOsforcVrhY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5204,
+  "candidatesTokenCount": 3318,
+  "totalTokenCount": 8522,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4462
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 49.3,
+   "aspect": "9:16",
+   "car": "Yamaha Tricity 300",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 29.1,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.1,
+    "end": 32.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 36.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 49.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "DIT LIJKT MISSCHIEN EEN SCOOTER",
+    "ko": "이것은 스쿠터처럼 보일 수 있지만",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SCOOTER",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 4.3,
+    "text": "HET IS EIGENLIJK EEN MOTOR MET TWEE WIELEN AAN DE VOORKANT",
+    "ko": "사실 앞바퀴가 두 개인 모터사이클입니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MOTOR",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "text": "YAMAHA TRICITY 300",
+    "ko": "야마하 트리시티 300",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 17.0,
+    "text": "300 CC 29 PK EN GEWOON GESCHIKT VOOR DE SNELWEG",
+    "ko": "300cc, 29마력, 고속도로 주행 가능",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "300 CC",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.0,
+    "text": "📍 AUTOBEDRIJF JOS PRIEM",
+    "ko": "📍 오토베드라잎 요스 프림",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "차량 모델명 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.7,
+    "type": "딸깍",
+    "event": "탑박스 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "휙",
+    "event": "오토스카우트 로고 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 5.0,
+    "end": 10.5,
+    "what": "오토스카우트24 웹사이트 UI 검색창 그래픽 오버레이",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "밀려옴",
+    "purpose": "사이트 검색 기능 안내",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.3,
+    "what": "AutoScout24 로고 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "확대 전환",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Dit lijkt misschien een scooter, maar het is eigenlijk een motor met twee wielen aan de voorkant.",
+    "ko": "이건 스쿠터처럼 보일 수 있지만, 사실 앞바퀴가 두 개인 모터사이클입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 10.9,
+    "text": "Wist je dat je op AutoScout24.nl niet alleen auto's, maar ook scooters en motorscooters kan kopen?",
+    "ko": "AutoScout24.nl에서 자동차뿐만 아니라 스쿠터와 모터스쿠터도 살 수 있다는 걸 알고 계셨나요?"
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "Dit is de Yamaha Tricity 300.",
+    "ko": "이 모델은 야마하 트리시티 300입니다."
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "text": "300 cc, 29 pk en gewoon geschikt voor de snelweg.",
+    "ko": "300cc, 29마력으로 고속도로 주행도 충분히 가능합니다."
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "Maar let op, want hier gaat het vaak mis.",
+    "ko": "하지만 주의하세요, 여기서 헷갈리는 경우가 많습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 32.5,
+    "text": "Je mag alleen met een autorijbewijs, dus een B-rijbewijs, op deze motorscooter rijden als je het hebt gehaald vóór 19 januari 2013. Anders heb je een motorrijbewijs nodig voor deze motorscooter.",
+    "ko": "2013년 1월 19일 이전에 취득한 자동차 면허(B면허)가 있어야만 운전할 수 있습니다. 그렇지 않다면 2종 소형(오토바이 면허)이 필요합니다."
+   },
+   {
+    "start": 32.5,
+    "end": 38.6,
+    "text": "Verder krijg je er wel veel comfort voor terug: een topkoffertje, een hoog windscherm en keyless entry.",
+    "ko": "또한 넉넉한 편의성을 제공합니다: 탑박스, 높은 윈드스크린, 키리스 엔트리까지 갖췄죠."
+   },
+   {
+    "start": 38.6,
+    "end": 42.0,
+    "text": "En door die twee voorwielen voelt hij natuurlijk veel stabieler aan.",
+    "ko": "그리고 앞바퀴가 두 개라 훨씬 안정적인 느낌을 줍니다."
+   },
+   {
+    "start": 42.0,
+    "end": 49.3,
+    "text": "Je vindt deze leuke motorscooter in de showroom van Autobedrijf Jos Priem en natuurlijk op AutoScout24.nl.",
+    "ko": "이 멋진 모터스쿠터는 Jos Priem 매장과 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "앞바퀴가 2개인 독특한 삼륜 모터스쿠터 호기심 유발"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 4.5,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "AutoScout24에서 오토바이/스쿠터 검색 가능 홍보"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.9,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "야마하 트리시티 300 모델명 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 13.5,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "300cc 및 29마력 출력 소개"
+   },
+   {
+    "stage": "팁",
+    "start": 17.5,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "취득일자에 따른 자동차 면허 운전 가능 여부 주의점 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 32.5,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "탑박스, 윈드스크린, 키리스 및 두 바퀴의 주행 안정성 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 42.0,
+    "end": 49.3,
+    "speed": "보통",
+    "summary": "판매 딜러 정보 및 AutoScout24 마무리 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 말에 맞춰 핵심 단어를 노란색 굵은 폰트로 하이라이트",
+   "면허 관련 규정 등 주의사항을 상세히 설명해 정보성 가치 확보",
+   "중간에 플랫폼 검색 UI 애니메이션을 삽입해 자연스러운 서비스 홍보 연결",
+   "마지막 컷에 브랜드 로고 애니메이션으로 일관된 아웃트로 유지"
+  ]
+ }
+}

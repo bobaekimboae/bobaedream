@@ -1,0 +1,731 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/fQxhWJp4inA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5672,
+  "candidatesTokenCount": 7503,
+  "totalTokenCount": 15063,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4930
+   }
+  ],
+  "thoughtsTokenCount": 1888,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 54.8,
+   "aspect": "9:16",
+   "car": "Porsche 911 GT3 RS",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 8.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.2,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 25.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 32.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.9,
+    "end": 35.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 38.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.1,
+    "end": 43.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 49.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.7,
+    "end": 54.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.1,
+    "end": 6.2,
+    "text": "DIT IS GEEN GEWONE PORSCHE",
+    "ko": "이것은 평범한 포르쉐가 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "GEEN GEWONE PORSCHE",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "PORSCHE 911 GT3 RS",
+    "ko": "포르쉐 911 GT3 RS",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFDE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.8,
+    "text": "MAAR WAT MAAKT DEZE PORSCHE NU ZO BIJZONDER",
+    "ko": "하지만 무엇이 이 포르쉐를 이토록 특별하게 만들까요?",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ZO BIJZONDER",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.9,
+    "text": "KIJK MAAR EENS EVEN NAAR DEZE SPOILER",
+    "ko": "이 스포일러를 한 번 보세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "DEZE SPOILER",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 15.1,
+    "text": "DIT IS GEEN GEWONE VLEUGEL MAAR DE",
+    "ko": "이건 일반적인 윙이 아니라",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "GEEN GEWONE VLEUGEL",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 16.2,
+    "text": "✔ DRS SPOILER",
+    "ko": "✔ DRS 스포일러",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#00FF66",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "YEP HETZELFDE SYSTEEM WAT ZE GEBRUIKEN IN DE FORMULE 1",
+    "ko": "포뮬러 1에서 사용하는 바로 그 시스템입니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "IN DE FORMULE 1",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 21.0,
+    "text": "MET 1 DRUK OP DE KNOP EN DE SPOILER VERANDERT",
+    "ko": "버튼 한 번만 누르면 스포일러 각도가 바뀝니다",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "1 DRUK OP DE KNOP",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 25.4,
+    "text": "MINDER LUCHTWEERSTAND EN MEER SNELHEID ALSOF DE AUTO DOOR DE LUCHT SNIJDT",
+    "ko": "공기 저항을 줄이고 속도를 높여 차가 공기를 가르는 듯합니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MEER SNELHEID",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 28.5,
+    "text": "EN ZODRA JE WEER DE BOCHT INDUIKT KLAPT HIJ OMHOOG VOOR MAXIMALE GRIP",
+    "ko": "그리고 코너로 접어들면 최대 접지력을 위해 날개가 다시 세워집니다",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MAXIMALE GRIP",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 32.8,
+    "text": "DEZE GT3 RS PAST ZIJN AERODYNAMICA GEWOON LIVE AAN TERWIJL JIJ RIJDT",
+    "ko": "이 GT3 RS는 주행 중에도 실시간으로 공기역학을 조절합니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "LIVE AAN",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 35.5,
+    "text": "PUUR RACE TECHNIEK IN EEN STRAATLEGALE PORSCHE",
+    "ko": "공도 주행 가능한 포르쉐에 담긴 순수 레이스 기술",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PURE RACE TECHNIEK",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "text": "VERDER IS HIJ UITGEVOERD MET AERODYNAMICA STUKKEN OVER DE HELE AUTO",
+    "ko": "차체 전체에 에어로다이내믹 부품들이 장착되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AERODYNAMICA",
+    "sure": true
+   },
+   {
+    "start": 38.9,
+    "end": 39.9,
+    "text": "MOTORKAP",
+    "ko": "보닛",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.0,
+    "text": "SPATBORDEN",
+    "ko": "휀더",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.1,
+    "end": 42.4,
+    "text": "DAK EN ZELFS AAN DE ONDERKANT",
+    "ko": "루프와 하부까지도",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ONDERKANT",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.2,
+    "text": "✔ EERSTE EIGENAAR",
+    "ko": "✔ 1인 신조",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#00FF66",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.3,
+    "end": 46.1,
+    "text": "✔ 3.100 KM",
+    "ko": "✔ 3,100 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#00FF66",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.4,
+    "end": 49.6,
+    "text": "€ 312.000",
+    "ko": "31만 2천 유로",
+    "kind": "가격",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFDE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 54.5,
+    "text": "SHOWROOM VAN AUTO'S FABRE EN OP AUTOSCOUT24.BE",
+    "ko": "오토스 파브르 쇼룸 및 AutoScout24.be에서 만나보세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTOSCOUT24.BE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "포르쉐 시동 및 배기음 가속",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "휙",
+    "event": "빨간색 X 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "띵",
+    "event": "PORSCHE 911 GT3 RS 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.1,
+    "type": "띵",
+    "event": "DRS SPOILER 박스 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "딸깍",
+    "event": "DRS 윙 플랩 각도 조절 기계 작동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.8,
+    "type": "띵",
+    "event": "EERSTE EIGENAAR 체크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.3,
+    "type": "띵",
+    "event": "3.100 KM 주행거리 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.4,
+    "type": "돈 소리",
+    "event": "가격 자막 € 312.000 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 비트 / 힙합 인스트루멘탈",
+   "bpm_est": 120,
+   "mood": "경쾌하고 스포티함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "초반 엔진 소리 후 비트 시작"
+    },
+    {
+     "t": 49.7,
+     "what": "아웃트로 페이드아웃 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.1,
+    "end": 5.5,
+    "what": "화면 중앙 큰 빨간색 X 표시",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "밀려옴",
+    "purpose": "일반 포르쉐가 아님을 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 3.7,
+    "end": 8.5,
+    "text": "Dit is geen gewone Porsche, maar de Porsche 911 GT3 RS.",
+    "ko": "이것은 평범한 포르쉐가 아닌, 포르쉐 911 GT3 RS입니다."
+   },
+   {
+    "start": 8.5,
+    "end": 13.0,
+    "text": "Maar wat maakt deze Porsche nu zo bijzonder? Kijk maar eens even naar deze spoiler.",
+    "ko": "하지만 무엇이 이 차를 특별하게 만들까요? 이 스포일러를 한 번 보세요."
+   },
+   {
+    "start": 13.0,
+    "end": 18.5,
+    "text": "Dit is geen gewone vleugel, maar de DRS spoiler. Yep, hetzelfde systeem wat ze gebruiken in de Formule 1.",
+    "ko": "평범한 윙이 아니라 DRS 스포일러입니다. 맞아요, F1에서 쓰는 것과 같은 시스템이죠."
+   },
+   {
+    "start": 18.5,
+    "end": 28.5,
+    "text": "Met 1 druk op de knop en de spoiler verandert. Minder luchtweerstand en meer snelheid, alsof de auto door de lucht snijdt. En zodra je weer de bocht induikt, klapt hij omhoog voor maximale grip.",
+    "ko": "버튼 한 번 누르면 스포일러가 변합니다. 공기저항을 줄여 칼날처럼 날아가고, 코너에 진입하면 접지력을 위해 즉시 세워집니다."
+   },
+   {
+    "start": 28.5,
+    "end": 35.7,
+    "text": "Deze GT3 RS past zijn aerodynamica gewoon live aan terwijl jij rijdt. Pure racetechniek in een straatlegale Porsche.",
+    "ko": "이 GT3 RS는 달리는 동안 실시간으로 공기역학을 조율합니다. 공도 주행 차량에 구현된 순수 레이싱 기술이죠."
+   },
+   {
+    "start": 35.7,
+    "end": 42.8,
+    "text": "Verder is hij uitgevoerd met aerodynamica stukken over de hele auto: motorkap, spatborden, dak en zelfs aan de onderkant.",
+    "ko": "또한 보닛, 휀더, 루프, 심지어 차체 하부까지 차량 전체에 에어로 파츠가 가득합니다."
+   },
+   {
+    "start": 42.8,
+    "end": 49.7,
+    "text": "Hij is afkomstig van de eerste eigenaar, heeft 3.100 km op de teller, en hij kost € 312.000.",
+    "ko": "1인 신조 차량에 누적 주행거리는 3,100km이며, 가격은 31만 2천 유로입니다."
+   },
+   {
+    "start": 49.7,
+    "end": 54.8,
+    "text": "Je vindt dit collectors item in de showroom van Auto's Fabre en op AutoScout24.be.",
+    "ko": "이 컬렉터스 아이템은 Auto's Fabre 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "우렁찬 GT3 RS 배기음과 점등 라이트로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 8.5,
+    "speed": "보통",
+    "summary": "일반 포르쉐가 아닌 911 GT3 RS 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 8.5,
+    "end": 35.7,
+    "speed": "보통",
+    "summary": "핵심 기술인 F1 스타일 가변 DRS 스포일러 작동 방식 및 다운포스 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 35.7,
+    "end": 46.2,
+    "speed": "보통",
+    "summary": "외관 전체 에어로 파츠 및 1인 신조, 3,100km 스펙 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 46.2,
+    "end": 49.7,
+    "speed": "보통",
+    "summary": "31만 2천 유로 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 49.7,
+    "end": 54.8,
+    "speed": "보통",
+    "summary": "판매처 쇼룸 안내 및 AutoScout24.be 플랫폼 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 동안 배기음 사운드와 함께 후면 윙을 비추어 강렬한 오디오 훅 제공",
+   "단어별 옐로우/화이트 대비 굵은 볼드 폰트와 팝업 효과음을 동기화해 주목도 극대화",
+   "DRS 날개 작동 순간을 1초 내외 타이트한 클로즈업 샷으로 전환해 시각적 증명 제공",
+   "핵심 제원(1인 소유, 주행거리, 가격)은 체크박스 및 전용 사운드(카칭/띵)로 짧고 굵게 전달",
+   "진행자가 쇼룸을 이동하며 차량 외관, 디테일, 실내를 자연스러운 동선으로 안내"
+  ]
+ }
+}

@@ -1,0 +1,405 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/seOqU2IMloo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6303,
+  "candidatesTokenCount": 3423,
+  "totalTokenCount": 10762,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5561
+   }
+  ],
+  "thoughtsTokenCount": 1036,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.2,
+   "aspect": "9:16",
+   "car": "전체(정책 정보 및 AutoScout24 앱 매물)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "드론",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 22.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 25.8,
+    "part": "기타",
+    "camera": "드론",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 30.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 46.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 54.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 61.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "text": "Automobilisten moeten Betalen per Kilometer",
+    "ko": "운전자들은 킬로미터당 요금을 내야 합니다",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Betalen",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "brandstofaccijnzen",
+    "ko": "연료 소비세",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "brandstofaccijnzen",
+    "sure": true
+   },
+   {
+    "start": 18.3,
+    "end": 20.3,
+    "text": "€8 miljard",
+    "ko": "80억 유로",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€8 miljard",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 23.0,
+    "text": "Tijd",
+    "ko": "시간",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -1.5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Tijd",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 51.5,
+    "text": "autoscout24.nl",
+    "ko": "autoscout24.nl",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.8,
+    "end": 61.2,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "brandstofaccijnzen 노란 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.3,
+    "type": "톡",
+    "event": "€8 miljard 노란 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.3,
+    "type": "톡",
+    "event": "Tijd 노란 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.8,
+    "type": "휙",
+    "event": "스마트폰 목업 화면 등장 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi / Corporate Beat",
+   "bpm_est": 110,
+   "mood": "차분하고 정보 전달에 집중된",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 46.8,
+    "end": 54.8,
+    "what": "스마트폰 화면 속 AutoScout24 앱 탐색 모션 그래픽",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "밀려옴",
+    "purpose": "앱 기능 및 매물 탐색 UI 시연",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "text": "Politieke partijen D66 en CDA willen dat automobilisten straks gaan betalen per kilometer.",
+    "ko": "정당 D66과 CDA는 운전자들이 조만간 주행 킬로미터당 비용을 지불하도록 하길 원합니다."
+   },
+   {
+    "start": 6.3,
+    "end": 10.9,
+    "text": "Dus niet meer vooral belasting op autobezit, maar op hoeveel je rijdt.",
+    "ko": "즉 자동차 보유세 위주가 아니라 얼마나 주행하는지에 부과하는 것입니다."
+   },
+   {
+    "start": 10.9,
+    "end": 15.0,
+    "text": "En waarom? Omdat de overheid steeds minder geld binnenkrijgt uit brandstofaccijnzen.",
+    "ko": "이유는요? 정부가 연료 소비세에서 걷는 수입이 점차 줄어들고 있기 때문입니다."
+   },
+   {
+    "start": 15.0,
+    "end": 19.8,
+    "text": "En als straks iedereen elektrisch rijdt, kan dat gat oplopen tot zo'n €8 miljard.",
+    "ko": "앞으로 모두가 전기차를 타게 되면 그 결손액은 약 80억 유로까지 커질 수 있습니다."
+   },
+   {
+    "start": 19.8,
+    "end": 26.2,
+    "text": "Het idee is dat je gaat betalen naar gebruik: tijd en plaats. Dus rijden in de spits of in drukke regio's kan duurder worden.",
+    "ko": "이 구상은 이용 기준에 따라 지불하는 것인데 시간과 장소에 따릅니다. 혼잡 시간대나 번화한 지역 주행은 더 비싸질 수 있습니다."
+   },
+   {
+    "start": 26.2,
+    "end": 33.2,
+    "text": "Maar het systeem wordt waarschijnlijk behoorlijk ingewikkeld. De overheid moet namelijk precies bijhouden waar en wanneer je rijdt.",
+    "ko": "하지만 이 제도는 꽤 복잡해질 가능성이 큽니다. 정부가 어디서 언제 운전하는지 정확히 파악해야 하기 때문입니다."
+   },
+   {
+    "start": 33.2,
+    "end": 41.5,
+    "text": "En dan is er nog een vraag: wie betaalt straks het meest? Volgens plannen van D66 gaan auto's met meer CO2-uitstoot ook meer per kilometer betalen.",
+    "ko": "그리고 또 다른 질문이 있습니다. 과연 누가 가장 많은 비용을 내게 될까요? D66의 계획에 따르면 탄소 배출이 많은 차량이 킬로미터당 더 많은 요금을 내게 됩니다."
+   },
+   {
+    "start": 41.5,
+    "end": 46.8,
+    "text": "En dat betekent dat bestuurders van benzine- en dieselauto's waarschijnlijk het duurste uit zullen zijn.",
+    "ko": "이는 가솔린 및 디젤 차량 운전자가 가장 큰 부담을 질 가능성이 높다는 의미입니다."
+   },
+   {
+    "start": 46.8,
+    "end": 55.4,
+    "text": "Benieuwd welke auto voor jou het voordeligst rijdt? Op autoscout24.nl vind je duizenden benzine-, hybride- en elektrische auto's.",
+    "ko": "어떤 차를 타는 것이 가장 유리할지 궁금하신가요? autoscout24.nl에서 수천 대의 가솔린, 하이브리드, 전기차를 확인해보세요."
+   },
+   {
+    "start": 55.4,
+    "end": 61.2,
+    "text": "En wil je meer autonieuws en ontwikkelingen zoals deze volgen? Volg AutoScout24 dan op social media.",
+    "ko": "이와 같은 자동차 뉴스와 트렌드를 더 알고 싶다면 소셜 미디어에서 AutoScout24를 팔로우하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "킬로미터당 도로세 정책 이슈 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.9,
+    "end": 20.3,
+    "speed": "보통",
+    "summary": "유류세 감소 및 전기차 확대로 인한 세수 결손 배경"
+   },
+   {
+    "stage": "기능",
+    "start": 20.3,
+    "end": 33.2,
+    "speed": "보통",
+    "summary": "주행 시간 및 지역별 차등 부과와 복잡한 추적 시스템"
+   },
+   {
+    "stage": "가격",
+    "start": 33.2,
+    "end": 46.8,
+    "speed": "보통",
+    "summary": "탄소 배출량에 따른 차등 부담 및 내연기관 운전자의 부담 증가"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 46.8,
+    "end": 55.4,
+    "speed": "빠름",
+    "summary": "AutoScout24 앱에서 유리한 유종별 차량 매물 탐색 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 55.4,
+    "end": 61.2,
+    "speed": "보통",
+    "summary": "소셜 미디어 팔로우 요청 CTA 및 로고 노출"
+   }
+  ],
+  "rules": [
+   "호스트가 카메라를 응시하며 명확하고 안정된 톤으로 최신 정책 이슈를 브리핑함",
+   "주제와 관련된 B-roll(고속도로 항공 뷰, 전기차 충전 장면, 정책 토론 등)을 주기적으로 인서트하여 지루함을 방지함",
+   "핵심 키워드(브랜드 컬러인 노란색 하이라이트 박스)가 음성과 일치하는 순간 팝업 효과음과 함께 등장함",
+   "영상 후반부에는 스마트폰 목업 그래픽을 통해 플랫폼 UI 화면을 보여주며 실질적인 앱 유입 전환을 유도함",
+   "마지막에는 브랜드 로고와 함께 소셜 계정 팔로우를 요청하는 간결한 CTA로 마무리함"
+  ]
+ }
+}

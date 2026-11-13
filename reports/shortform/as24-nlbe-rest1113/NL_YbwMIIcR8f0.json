@@ -1,0 +1,591 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/YbwMIIcR8f0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6383,
+  "candidatesTokenCount": 4726,
+  "totalTokenCount": 13587,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5641
+   }
+  ],
+  "thoughtsTokenCount": 2478,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.4,
+   "aspect": "9:16",
+   "car": "Microlino",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 14.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 18.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.7,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 28.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.2,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 36.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 38.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.7,
+    "end": 42.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 46.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.7,
+    "end": 50.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.9,
+    "end": 52.9,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.9,
+    "end": 54.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.8,
+    "end": 61.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "90 KM PER UUR",
+    "ko": "시속 90km",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "90 KM PER UUR",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.6,
+    "text": "50 MICRO CARS",
+    "ko": "50대 이상의 초소형차",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "50",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.0,
+    "text": "SOFT CLOSE",
+    "ko": "소프트 클로징",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SOFT CLOSE",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 18.7,
+    "text": "180 KM",
+    "ko": "180km",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "180 KM",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 23.8,
+    "text": "DRIE KRATTEN BIER",
+    "ko": "맥주 세 박스",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DRIE KRATTEN BIER",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "text": "2 PERSONEN",
+    "ko": "2인승",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2 PERSONEN",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 52.8,
+    "text": "5.200 KM",
+    "ko": "주행거리 5,200km",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5.200 KM",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.2,
+    "text": "2024",
+    "ko": "2024년식",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 56.8,
+    "text": "€12.490",
+    "ko": "12,490유로",
+    "kind": "가격",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€12.490",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 11.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 닫힘 모터 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "딸깍",
+    "event": "충전구 덮개 열릴 때 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "딸깍",
+    "event": "트렁크 도어 개폐 래치 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "딸깍",
+    "event": "소프트탑 루프 걸쇠 잠금",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "딸깍",
+    "event": "슬라이딩 창문 개폐 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.2,
+    "type": "쿵",
+    "event": "실내에서 앞문 당겨 닫을 때 래치 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스티어링 컬럼 옆 경적 누를 때 빵 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 45.3,
+    "type": "딸깍",
+    "event": "터치스크린 뒤 문열림 버튼 눌러 도어 개방",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 / 로파이 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 캐주얼함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 61.4,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "페이드",
+    "purpose": "아웃트로 및 플랫폼 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Deze Microlino kan 90 km per uur.",
+    "ko": "이 마이크롤리노는 시속 90km까지 달릴 수 있습니다."
+   },
+   {
+    "start": 2.8,
+    "end": 6.8,
+    "text": "En je vindt meer dan 50 microcars op Autoscout24.nl.",
+    "ko": "그리고 AutoScout24.nl에서 50대 이상의 초소형차를 만나보실 수 있습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "text": "En dit is een occasion en wat hij kost vertel ik je op het eind.",
+    "ko": "이 차는 중고 매물이며, 가격은 마지막에 알려드릴게요."
+   },
+   {
+    "start": 9.5,
+    "end": 14.6,
+    "text": "En kijk, hij heeft gewoon soft close. Dat hebben sommige premium automerken niet.",
+    "ko": "보세요, 무려 소프트 클로징이 들어있어요. 일부 프리미엄 브랜드에도 없는 기능이죠."
+   },
+   {
+    "start": 14.6,
+    "end": 18.5,
+    "text": "Hij is volledig elektrisch en heeft een actieradius tot 180 km.",
+    "ko": "완전 전기차이며 주행거리는 최대 180km에 달합니다."
+   },
+   {
+    "start": 18.5,
+    "end": 23.7,
+    "text": "En die kofferruimte die is echt verrassend groot. Er is plek voor maar liefst drie kratten bier.",
+    "ko": "트렁크 공간도 놀라울 만큼 넓어서 맥주 세 박스는 거뜬히 들어갑니다."
+   },
+   {
+    "start": 23.7,
+    "end": 28.0,
+    "text": "En je kunt hem thuis gewoon opladen in het stopcontact en binnen vier uur is hij weer opgeladen.",
+    "ko": "집 일반 콘센트로 충전 가능하며, 4시간 만에 완충됩니다."
+   },
+   {
+    "start": 28.0,
+    "end": 29.8,
+    "text": "Er is plek voor twee personen.",
+    "ko": "2인 탑승이 가능합니다."
+   },
+   {
+    "start": 29.8,
+    "end": 34.2,
+    "text": "Bij goed weer doe je het dakje open en bij slecht weer doe je gewoon zo het dakje dicht.",
+    "ko": "날씨가 좋으면 루프를 열고, 궂은 날엔 이렇게 닫으면 됩니다."
+   },
+   {
+    "start": 34.2,
+    "end": 36.4,
+    "text": "En ook deze raampjes kun je makkelijk openen.",
+    "ko": "옆 창문도 간편하게 열 수 있죠."
+   },
+   {
+    "start": 36.4,
+    "end": 38.7,
+    "text": "En via deze hendel doe je de deur dicht.",
+    "ko": "이 손잡이로 문을 닫고,"
+   },
+   {
+    "start": 38.7,
+    "end": 42.5,
+    "text": "En de toeter zit niet hier, maar hier.",
+    "ko": "경적은 핸들 가운데가 아니라 바로 여기에 있습니다."
+   },
+   {
+    "start": 42.5,
+    "end": 46.7,
+    "text": "En kijk hier achter die touchscreen zit een knopje om de deur weer te openen.",
+    "ko": "터치스크린 뒤쪽의 이 버튼을 누르면 문이 다시 열립니다."
+   },
+   {
+    "start": 46.7,
+    "end": 50.9,
+    "text": "En deze Microlino heeft ook echt een carrosserie en dat maakt hem extra veilig.",
+    "ko": "이 마이크롤리노는 견고한 차체 구조를 갖춰 훨씬 안전합니다."
+   },
+   {
+    "start": 50.9,
+    "end": 56.8,
+    "text": "Hij heeft 5.200 km gelopen, komt uit 2024 en hij kost €12.490.",
+    "ko": "주행거리는 5,200km, 2024년식이며 가격은 12,490유로입니다."
+   },
+   {
+    "start": 56.8,
+    "end": 61.4,
+    "text": "Je vindt deze Microlino in de showroom van Garage Pluim en natuurlijk op Autoscout24.nl.",
+    "ko": "이 마이크롤리노는 Garage Pluim 전시장과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "최고속도와 플랫폼 내 초소형차 매물 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "중고 매물 안내, 소프트 클로징 시연 및 주행거리"
+   },
+   {
+    "stage": "기능",
+    "start": 18.5,
+    "end": 28.0,
+    "speed": "보통",
+    "summary": "트렁크 실용성(맥주박스)과 가정용 콘센트 충전"
+   },
+   {
+    "stage": "사양",
+    "start": 28.0,
+    "end": 50.9,
+    "speed": "빠름",
+    "summary": "오픈탑, 창문, 특이한 도어핸들/경적/도어오픈 버튼 및 안전성"
+   },
+   {
+    "stage": "가격",
+    "start": 50.9,
+    "end": 56.8,
+    "speed": "보통",
+    "summary": "주행거리, 연식 및 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 56.8,
+    "end": 61.4,
+    "speed": "보통",
+    "summary": "전시장 위치 및 AutoScout24 검색 안내"
+   }
+  ],
+  "rules": [
+   "핵심 수치(속도, 주행거리, 인승, 가격)는 노란색 볼드 볼륨 텍스트 스티커로 강조",
+   "실제 차량의 독특한 물리적 조작(소프트클로징, 버튼 도어개폐, 루프, 경적) 소리를 현장음으로 생생하게 살림",
+   "가격 공개를 영상 후반부로 유보하여 시청 지속 시간을 극대화하는 구성",
+   "트렁크 용량을 리터 대신 '맥주 3박스'와 같은 직관적 생활 밀착형 비유로 표현"
+  ]
+ }
+}

@@ -1,0 +1,725 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/x0dpaaGs9bs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5209,
+  "candidatesTokenCount": 6055,
+  "totalTokenCount": 11264,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4467
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 49.3,
+   "aspect": "9:16",
+   "car": "Fiat 500 Hybrid Cabrio",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 13.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 22.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 40.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 44.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 49.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "ZOEK JIJ NOG EEN HIPPE",
+    "ko": "당신은 아직 힙한",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ZOEK",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "FIAT 500",
+    "ko": "피아트 500을",
+    "kind": "키워드 스티커",
+    "y_pct": 9.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFF300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FIAT 500",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.3,
+    "text": "LAGER DAN €16.000",
+    "ko": "16,000유로 미만으로",
+    "kind": "가격",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€16.000",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 6.0,
+    "text": "IK GEEF JE EEN PAAR REDENEN",
+    "ko": "몇 가지 이유를 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REDENEN",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.7,
+    "text": "WAAROM IK DEZE FIAT ZOU KOPEN",
+    "ko": "내가 이 피아트를 살 이유",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "WAAROM",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.5,
+    "text": "KIJK DAT INTERIEUR",
+    "ko": "이 인테리어를 보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "INTERIEUR",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "MATCHT SUPERLEUK",
+    "ko": "정말 잘 어울려요",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SUPERLEUK",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "BIJ DE BUITENKANT",
+    "ko": "외관과",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BUITENKANT",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "text": "RUITJESMOTIEF",
+    "ko": "체크 무늬 패턴",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RUITJESMOTIEF",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "text": "EN NUMMER TWEE",
+    "ko": "그리고 두 번째",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NUMMER TWEE",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.2,
+    "text": "HET IS EEN CABRIO DUS",
+    "ko": "카브리올레라서",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "CABRIO",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.0,
+    "text": "IN DE ZOMER ☀️",
+    "ko": "여름에 즐기기 최고",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ZOMER",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "✓ APPLE CARPLAY",
+    "ko": "✓ 애플 카플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF300",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "APPLE CARPLAY",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.0,
+    "text": "✓ ANDROID AUTO",
+    "ko": "✓ 안드로이드 오토",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF300",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ANDROID AUTO",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 26.6,
+    "text": "✓ GOOGLE MAPS",
+    "ko": "✓ 구글 맵스",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF300",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GOOGLE MAPS",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.0,
+    "text": "✓ SPOTIFY",
+    "ko": "✓ 스포티파이",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF300",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPOTIFY",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "text": "2022",
+    "ko": "2022년식",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFF300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2022",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "text": "27.000 KM",
+    "ko": "27,000 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFF300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "27.000 KM",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.5,
+    "text": "HYBRID",
+    "ko": "하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HYBRID",
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 40.5,
+    "text": "✓ JONG\n✓ HIP\n✓ FIJNE OPTIES",
+    "ko": "✓ 신차급\n✓ 힙함\n✓ 좋은 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF300",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.0,
+    "text": "GIRLS RUN!",
+    "ko": "소녀들 달려!",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GIRLS RUN!",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "FIAT 500 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "가격 박스 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "톡",
+    "event": "KIJK DAT INTERIEUR 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "RUITJESMOTIEF 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "APPLE CARPLAY 체크 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "ANDROID AUTO 체크 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.5,
+    "type": "톡",
+    "event": "GOOGLE MAPS 체크 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "톡",
+    "event": "SPOTIFY 체크 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "2022 연식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "27.000 KM 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.0,
+    "type": "톡",
+    "event": "HYBRID 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 댄스",
+   "bpm_est": 124,
+   "mood": "경쾌하고 발랄한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 46.5,
+    "end": 49.3,
+    "what": "AutoScout24 브랜드 로고 및 옐로우 배너 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 광고 및 웹사이트 방문 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "Zoek jij nog een hippe Fiat 500 voor een prijs lager dan €16.000?",
+    "ko": "16,000유로 미만의 힙한 피아트 500을 찾고 계신가요?"
+   },
+   {
+    "start": 4.0,
+    "end": 7.7,
+    "text": "Ik geef je een paar redenen waarom ik deze Fiat zou kopen.",
+    "ko": "제가 이 피아트를 살 만한 몇 가지 이유를 알려드릴게요."
+   },
+   {
+    "start": 7.7,
+    "end": 16.0,
+    "text": "Allereerst, kijk dat interieur. Matcht superleuk bij de buitenkant, leuk met die twee kleuren en dat ruitjesmotief. Ik vind het top.",
+    "ko": "먼저 인테리어를 보세요. 외관과 정말 잘 어울리고 투톤 컬러와 다이아몬드 퀼팅 패턴이 너무 예쁩니다. 정말 마음에 들어요."
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "En nummer twee: het is een cabrio, dus heerlijk genieten in de zomer.",
+    "ko": "두 번째로 카브리올레라서 여름을 마음껏 즐길 수 있어요."
+   },
+   {
+    "start": 20.0,
+    "end": 28.5,
+    "text": "En hij heeft Apple CarPlay en Android Auto, dus alle apps van je telefoon heb je gewoon in je auto, zoals Google Maps, maar ook WhatsApp, Spotify, noem maar op.",
+    "ko": "그리고 애플 카플레이와 안드로이드 오토가 있어서 구글 맵, 왓츠앱, 스포티파이 등 스마트폰 앱을 차 안에서 그대로 쓸 수 있습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 34.6,
+    "text": "Verder komt hij uit 2022 en hij heeft maar 27.000 km gelopen, dus bijna nog nieuw.",
+    "ko": "게다가 2022년식에 주행거리가 27,000km밖에 되지 않아 거의 새 차 같아요."
+   },
+   {
+    "start": 34.6,
+    "end": 38.0,
+    "text": "En niet te vergeten: het is een hybrid, dus hij is ook nog zuinig.",
+    "ko": "그리고 잊지 마세요, 하이브리드라 연비도 아주 좋습니다."
+   },
+   {
+    "start": 38.0,
+    "end": 44.0,
+    "text": "Dus jong, hip, fijne opties, superleuk in de zomer... ik zou het wel weten.",
+    "ko": "신차급에 힙하고, 옵션 좋고, 여름에 딱 맞는 차... 저라면 바로 선택할 거예요."
+   },
+   {
+    "start": 44.0,
+    "end": 49.3,
+    "text": "Girls, run naar Autohuis Mulder en bekijk hem op Autoscout24.nl.",
+    "ko": "여러분, Autohuis Mulder로 달려가서 Autoscout24.nl에서 확인해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.7,
+    "speed": "빠름",
+    "summary": "16,000유로 미만 피아트 500 소개 및 구매 이유 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 7.7,
+    "end": 16.0,
+    "speed": "보통",
+    "summary": "실내 인테리어 및 시트 디자인 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 16.0,
+    "end": 20.0,
+    "speed": "보통",
+    "summary": "카브리올레 오픈탑 기능 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 20.0,
+    "end": 28.5,
+    "speed": "빠름",
+    "summary": "스마트폰 연동(애플 카플레이, 안드로이드 오토) 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 28.5,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "연식, 주행거리 및 하이브리드 연비 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 38.0,
+    "end": 49.3,
+    "speed": "빠름",
+    "summary": "장점 총정리 및 AutoScout24 매물 확인 유도"
+   }
+  ],
+  "rules": [
+   "호스트가 차 옆에 서서 친근하게 어필하는 브이로그/쇼츠 형식 활용",
+   "브랜드 시그니처 컬러인 노란색(#FFF300)과 흰색/검정색 대비를 자막에 일관되게 적용",
+   "옵션이나 장점이 나열될 때 체크마크(✓)와 팝 효과음(톡)을 동기화하여 시각적 전달력 강화",
+   "카브리올레 루프 열기, 시트 클로즈업 등 핵심 셀링 포인트를 직접 만지며 보여줌",
+   "엔딩에 플랫폼 로고 스티커를 팝업하며 해당 사이트/딜러 방문 CTA 명확화"
+  ]
+ }
+}

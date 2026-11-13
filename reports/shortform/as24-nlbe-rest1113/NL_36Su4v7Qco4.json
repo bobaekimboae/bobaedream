@@ -1,0 +1,900 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/36Su4v7Qco4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4302,
+  "candidatesTokenCount": 7179,
+  "totalTokenCount": 11481,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3560
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.1,
+   "aspect": "9:16",
+   "car": "Zeekr 001",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 5.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 12.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 37.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "4 PUNTEN",
+    "ko": "4가지 포인트",
+    "kind": "제목",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 2.2,
+    "text": "DIE JE ECHT",
+    "ko": "당신이 정말",
+    "kind": "제목",
+    "y_pct": 11.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "NIET VERWACHT",
+    "ko": "예상치 못한",
+    "kind": "제목",
+    "y_pct": 17.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "NIET",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "text": "ELEKTRISCHE AUTO",
+    "ko": "전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.7,
+    "text": "EN VOORAL HET LAATSTE PUNT VERBAASDE",
+    "ko": "특히 마지막 포인트는 놀라웠습니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LAATSTE PUNT",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.8,
+    "text": "DIT IS DE",
+    "ko": "이것은 바로",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "ZEEKR 001",
+    "ko": "지커 001",
+    "kind": "키워드 스티커",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "text": "HIJ GAAT VAN 0 NAAR 100",
+    "ko": "제로백은",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "0 NAAR 100",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.3,
+    "text": "1",
+    "ko": "1",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 10.9,
+    "text": "2",
+    "ko": "2",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.4,
+    "text": "3.8 SECONDEN",
+    "ko": "3.8초",
+    "kind": "키워드 스티커",
+    "y_pct": 73.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "545 PK",
+    "ko": "545 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 33.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "HIJ HEEFT EEN ACTIERADIUS VAN",
+    "ko": "주행 가능 거리는",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "text": "590 KM",
+    "ko": "590 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.0,
+    "text": "EN NU HET LAATSTE DAT MIJ HET MEEST VERBAASDE",
+    "ko": "그리고 마지막으로 가장 놀라웠던 것은",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LAATSTE",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 22.8,
+    "text": "HIJ HEEFT EEN TREKGEWICHT VAN",
+    "ko": "견인 하중이 무려",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TREKGEWICHT",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.0,
+    "text": "2000 KG",
+    "ko": "2000 KG",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.1,
+    "text": "GENOEG DUS OM",
+    "ko": "충분합니다",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.0,
+    "text": "CARAVAN",
+    "ko": "카라반",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 26.6,
+    "text": "PAARDENTRAILER",
+    "ko": "마차 트레일러",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.5,
+    "text": "EEN ELEKTRISCHE AUTO DIE VAN",
+    "ko": "모든 방면에서",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCHE AUTO",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "text": "ALLE MARKTEN THUIS IS",
+    "ko": "완벽한 전기차",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ALLE MARKTEN",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 33.7,
+    "text": "EN DE PRIJS HET BOUWJAAR EN DE KILOMETERSTAND VIND JE TERUG IN DE OMSCHRIJVING",
+    "ko": "가격, 연식, 주행거리는 설명란에서 확인하세요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OMSCHRIJVING",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 37.0,
+    "text": "EN JE VINDT HEM IN DE SHOWROOM VAN HET AUTOHUIS",
+    "ko": "Het Autohuis 전시장에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HET AUTOHUIS",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.1,
+    "text": "AutoScout24.nl",
+    "ko": "AutoScout24.nl",
+    "kind": "제목",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "DIE JE ECHT 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.1,
+    "type": "톡",
+    "event": "NIET VERWACHT 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "ELEKTRISCHE AUTO 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.7,
+    "type": "톡",
+    "event": "카운트다운 1 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.3,
+    "type": "톡",
+    "event": "카운트다운 2 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "톡",
+    "event": "3.8 SECONDEN 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "톡",
+    "event": "545 PK 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "590 KM 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "2000 KG 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.1,
+    "type": "톡",
+    "event": "CARAVAN 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "톡",
+    "event": "PAARDENTRAILER 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "돈 소리",
+    "event": "돈 이모지 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 31.4,
+    "type": "톡",
+    "event": "달력 이모지 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.3,
+    "type": "톡",
+    "event": "깃발 이모지 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 락",
+   "bpm_est": 128,
+   "mood": "경쾌하고 활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "what": "배터리 아이콘",
+    "is_3d": false,
+    "size_w_pct": 8.0,
+    "x_pct": 28.0,
+    "y_pct": 21.0,
+    "entrance": "바로",
+    "purpose": "전기차 시각화",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "what": "체커기 플래그 아이콘",
+    "is_3d": false,
+    "size_w_pct": 9.0,
+    "x_pct": 18.0,
+    "y_pct": 14.5,
+    "entrance": "톡 튀어나옴",
+    "purpose": "출력/성능 강조",
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 31.2,
+    "what": "돈 자루 이모지",
+    "is_3d": true,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 64.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 언급 강조",
+    "sure": true
+   },
+   {
+    "start": 31.3,
+    "end": 32.2,
+    "what": "달력 이모지",
+    "is_3d": true,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 64.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "연식 언급 강조",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.5,
+    "what": "체커기 이모지",
+    "is_3d": true,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 64.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "주행거리 언급 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Vier punten die je echt niet verwacht bij een elektrische auto.",
+    "ko": "전기차에서 정말 예상치 못한 4가지 포인트."
+   },
+   {
+    "start": 3.2,
+    "end": 5.8,
+    "text": "En vooral dat laatste punt verbaasde mij echt.",
+    "ko": "특히 마지막 포인트는 저도 정말 놀랐어요."
+   },
+   {
+    "start": 5.8,
+    "end": 7.9,
+    "text": "Dit is de Zeekr 001.",
+    "ko": "이 차는 지커 001입니다."
+   },
+   {
+    "start": 7.9,
+    "end": 12.3,
+    "text": "Hij gaat van 0 naar 100 in 1, 2, 3,8 seconden.",
+    "ko": "제로백이 단 1, 2, 3.8초 만에 도달합니다."
+   },
+   {
+    "start": 12.3,
+    "end": 14.8,
+    "text": "Hij heeft 545 pk.",
+    "ko": "무려 545마력을 자랑하죠."
+   },
+   {
+    "start": 14.8,
+    "end": 19.0,
+    "text": "Hij heeft een actieradius van 590 km. Veel hè?",
+    "ko": "주행 가능 거리는 590km입니다. 엄청나죠?"
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "En nu het laatste dat mij het meest verbaasde.",
+    "ko": "이제 저를 가장 놀라게 했던 마지막 포인트입니다."
+   },
+   {
+    "start": 21.0,
+    "end": 23.9,
+    "text": "Hij heeft een trekgewicht van 2000 kg.",
+    "ko": "견인 하중이 2,000kg에 달합니다."
+   },
+   {
+    "start": 23.9,
+    "end": 27.2,
+    "text": "Genoeg dus om een caravan of een paardentrailer mee te trekken.",
+    "ko": "카라반이나 마차 트레일러를 끌기에 충분하죠."
+   },
+   {
+    "start": 27.2,
+    "end": 30.0,
+    "text": "Een elektrische auto die van alle markten thuis is.",
+    "ko": "모든 방면에서 다재다능한 전기차입니다."
+   },
+   {
+    "start": 30.0,
+    "end": 33.8,
+    "text": "En de prijs, het bouwjaar en de kilometerstand vind je terug in de omschrijving.",
+    "ko": "가격, 연식, 주행거리는 설명란에서 확인하세요."
+   },
+   {
+    "start": 33.8,
+    "end": 40.1,
+    "text": "En je vindt hem in de showroom van Het Autohuis en natuurlijk op AutoScout24.nl.",
+    "ko": "Het Autohuis 전시장과 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.7,
+    "speed": "빠름",
+    "summary": "전기차에서 예상치 못한 4가지 장점 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.7,
+    "end": 8.0,
+    "speed": "빠름",
+    "summary": "차량 키와 후면 레터링으로 지커 001 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 8.0,
+    "end": 18.9,
+    "speed": "빠름",
+    "summary": "가속력(3.8초), 출력(545마력), 주행거리(590km) 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 18.9,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "견인력(2000kg)과 활용성(트레일러/카라반) 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 29.8,
+    "end": 33.7,
+    "speed": "보통",
+    "summary": "가격/연식/주행거리 정보 위치 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 33.7,
+    "end": 40.1,
+    "speed": "보통",
+    "summary": "전시장 및 AutoScout24 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "진행자의 신체 액션(손가락 카운트, 충격받는 모션 등)에 정확히 맞춰 굵은 볼드 텍스트 팝업",
+   "중요 수치(3.8초, 545 PK, 590 KM, 2000 KG)는 노란색 강조 폰트와 블랙 박스 배경 조합 사용",
+   "주요 단어와 키워드 자막 등장 타이밍마다 또렷한 '톡' 효과음 삽입",
+   "2~3초 간격의 빠른 컷 전환으로 지루함 방지 및 시선 집중",
+   "마지막 3초는 브랜드 고유 컬러(옐로우) 배경의 로고 스티커로 마무리"
+  ]
+ }
+}

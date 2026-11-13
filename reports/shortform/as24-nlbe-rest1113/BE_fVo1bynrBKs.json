@@ -1,0 +1,516 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/fVo1bynrBKs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4667,
+  "candidatesTokenCount": 4195,
+  "totalTokenCount": 9555,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3925
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 693,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.5,
+   "aspect": "9:16",
+   "car": "없음 (일반 차량 취향 문답)",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 35.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 36.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 37.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 43.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "THIS OR THAT",
+    "ko": "이것 혹은 저것",
+    "kind": "제목",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "THIS OR THAT MET GLENN VERBAUWHEDE",
+    "ko": "글렌 페르바우헤더와 함께하는 디스 오어 댓",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "THIS OR THAT",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.4,
+    "text": "SUV OF SPORTWAGEN?",
+    "ko": "SUV 아니면 스포츠카?",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.1,
+    "text": "BENZINE OF ELEKTRISCH?",
+    "ko": "가솔린 아니면 전기?",
+    "kind": "키워드 스티커",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 12.0,
+    "text": "PARKEERSENSOREN OF OP GEVOEL?",
+    "ko": "주차 센서 아니면 감각으로?",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 18.5,
+    "text": "AUTOMAAT OF HANDGESCHAKELD?",
+    "ko": "자동변속기 아니면 수동변속기?",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.8,
+    "text": "LUIDE MUZIEK OF STILTE TIJDENS HET RIJDEN?",
+    "ko": "시끄러운 음악 아니면 운전 중 침묵?",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 88.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.8,
+    "text": "ZELF RIJDEN OF OPGEHAALD WORDEN?",
+    "ko": "직접 운전 아니면 픽업받기?",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 30.6,
+    "text": "NIEUWE AUTO OF OLDTIMER?",
+    "ko": "신차 아니면 올드카?",
+    "kind": "키워드 스티커",
+    "y_pct": 40.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 30.9,
+    "end": 34.5,
+    "text": "OPEN DAK OF AIRCO?",
+    "ko": "선루프 오픈 아니면 에어컨?",
+    "kind": "키워드 스티커",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OF",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 42.5,
+    "text": "ZOEK JOUW DROOMWAGEN OP",
+    "ko": "당신의 드림카를 찾으세요",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "쿵",
+    "event": "축구공을 펀칭하며 타이틀 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.1,
+    "type": "딸깍",
+    "event": "AutoScout24 앱 필터에서 'Automatisch' 선택 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "딸깍",
+    "event": "앱 필터에서 'Manueel' 선택 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "딸깍",
+    "event": "앱 필터에서 'Nieuwe' 선택 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "딸깍",
+    "event": "앱 필터에서 'Oldtimer' 선택 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "딸깍",
+    "event": "앱 필터에서 'Open dak' 선택 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.3,
+    "type": "딸깍",
+    "event": "앱 필터에서 'Panoramisch dak' 선택 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 스포티한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "what": "FC De Rebellen België 로고",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "바로",
+    "purpose": "협업 파트너 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.1,
+    "what": "AutoScout24 앱 연료 필터 팝업 그래픽",
+    "is_3d": false,
+    "size_w_pct": 82.0,
+    "x_pct": 50.0,
+    "y_pct": 56.0,
+    "entrance": "밀려옴",
+    "purpose": "앱 기능 및 선택지 시각화",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 18.5,
+    "what": "AutoScout24 앱 변속기 필터 팝업 그래픽",
+    "is_3d": false,
+    "size_w_pct": 82.0,
+    "x_pct": 50.0,
+    "y_pct": 56.0,
+    "entrance": "밀려옴",
+    "purpose": "출연자 답변에 맞춘 필터 체크 애니메이션",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 30.6,
+    "what": "AutoScout24 앱 차량 상태(신차/올드카) 필터 팝업 그래픽",
+    "is_3d": false,
+    "size_w_pct": 82.0,
+    "x_pct": 50.0,
+    "y_pct": 56.0,
+    "entrance": "밀려옴",
+    "purpose": "답변 시각화",
+    "sure": true
+   },
+   {
+    "start": 30.9,
+    "end": 34.5,
+    "what": "AutoScout24 앱 옵션 장비 필터 팝업 그래픽",
+    "is_3d": false,
+    "size_w_pct": 82.0,
+    "x_pct": 50.0,
+    "y_pct": 56.0,
+    "entrance": "밀려옴",
+    "purpose": "답변 시각화",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 43.5,
+    "what": "AutoScout24 노란색 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 64.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 4.1,
+    "end": 7.5,
+    "text": "Allebei, maar als ik echt moet kiezen, sportwagen.",
+    "ko": "둘 다요, 하지만 꼭 골라야 한다면 스포츠카입니다."
+   },
+   {
+    "start": 7.9,
+    "end": 9.0,
+    "text": "Benzine.",
+    "ko": "가솔린이요."
+   },
+   {
+    "start": 9.5,
+    "end": 11.8,
+    "text": "Old school, op gevoel.",
+    "ko": "올드스쿨하게, 감각으로요."
+   },
+   {
+    "start": 14.5,
+    "end": 18.5,
+    "text": "In de week automaat, in het weekend handgeschakeld.",
+    "ko": "평일엔 자동, 주말엔 수동변속기요."
+   },
+   {
+    "start": 19.3,
+    "end": 21.8,
+    "text": "Sound stereo, luide muziek.",
+    "ko": "사운드 스테레오로 빵빵한 음악이요."
+   },
+   {
+    "start": 22.5,
+    "end": 23.5,
+    "text": "Zelf.",
+    "ko": "직접 운전이요."
+   },
+   {
+    "start": 25.5,
+    "end": 30.7,
+    "text": "In de week nieuwe wagen, in het weekend om te paraderen aan de dijk met een oldtimer.",
+    "ko": "평일엔 신차를 타고, 주말엔 해안 제방에서 뽐내기 위해 올드카를 타죠."
+   },
+   {
+    "start": 31.5,
+    "end": 34.5,
+    "text": "Open dak, laat die haren maar waaien, jongen.",
+    "ko": "오픈 루프죠. 바람에 머릿결을 날려야죠, 친구."
+   },
+   {
+    "start": 37.8,
+    "end": 43.5,
+    "text": "Zoek jouw droomwagen op AutoScout24.be.",
+    "ko": "AutoScout24.be에서 당신의 드림카를 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "축구장에서 골키퍼 글렌 페르바우헤더 인트로 및 인터뷰 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 35.1,
+    "speed": "보통",
+    "summary": "AutoScout24 앱 필터 UI를 활용한 취향 밸런스 게임(This or That)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 35.1,
+    "end": 43.5,
+    "speed": "보통",
+    "summary": "AutoScout24 웹/앱에서 드림카를 찾으라는 마무리 CTA"
+   }
+  ],
+  "rules": [
+   "선택지 질문(A OF B)은 화면 중앙에 굵은 고딕 대문자로 배치하고 핵심 단어에 노란색 강조를 적용한다",
+   "출연자가 선택을 언급하는 타이밍에 실제 AutoScout24 앱의 검색 필터 팝업 그래픽을 띄우고 마우스 클릭 효과음과 함께 체크한다",
+   "축구 선수 콘셉트에 맞게 공을 다루는 인트로와 아웃트로를 배치해 친근감과 에너지를 높인다",
+   "영상 엔딩에서 브랜드 로고와 웹사이트 주소를 음성과 동시에 시각적으로 노출해 확실한 행동 유도(CTA)를 유도한다"
+  ]
+ }
+}

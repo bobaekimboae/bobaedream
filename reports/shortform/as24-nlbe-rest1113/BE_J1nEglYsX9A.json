@@ -1,0 +1,328 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/J1nEglYsX9A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3019,
+  "candidatesTokenCount": 2664,
+  "totalTokenCount": 6499,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2277
+   }
+  ],
+  "thoughtsTokenCount": 816,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.4,
+   "aspect": "9:16",
+   "car": "Cupra Tavascan",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.5,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 19.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Cupra Tavascan\n€46.500",
+    "ko": "쿠프라 타바스칸 / €46,500",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "쿵",
+    "event": "보닛 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "딸깍",
+    "event": "스티어링 휠 가죽 잡는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "스티어링 휠 중앙 혼 커버 손톱으로 탭핑",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "딸깍",
+    "event": "시동/주행모드 버튼 누르는 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "휙",
+    "event": "센터 터치스크린 하단 쓸어넘기는 마찰음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "톡",
+    "event": "대시보드 상단 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.7,
+    "type": "딸깍",
+    "event": "콘솔 컵홀더 덮개 슬라이딩 오픈 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "딸깍",
+    "event": "스티어링 휠 패들시프트 작동음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "휙",
+    "event": "송풍구 메탈 트림 손가락으로 긁는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.5,
+    "type": "딸깍",
+    "event": "도어 내부 핸들 당기는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "딸깍",
+    "event": "비상등 버튼 누르는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "보닛의 발광 쿠프라 엠블럼 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "조용함 / ASMR",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 23.9,
+    "end": 25.4,
+    "what": "AutoScout24 로고 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "바로",
+    "purpose": "앱 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "보통",
+    "summary": "차량 전면과 가격 공개 및 후드 터치"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 19.0,
+    "speed": "빠름",
+    "summary": "실내 주요 소재와 버튼 조작부 ASMR 터치 및 사운드 체험"
+   },
+   {
+    "stage": "기능",
+    "start": 19.0,
+    "end": 23.9,
+    "speed": "보통",
+    "summary": "외관 라이팅과 발광 로고 디테일 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 23.9,
+    "end": 25.4,
+    "speed": "보통",
+    "summary": "후면 라이트바와 오토스카우트24 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "배경음악과 말소리를 완전히 배제하고 부품 조작 및 탭핑 사운드(ASMR)만으로 몰입도를 높인다.",
+   "1~2초 간격의 매우 빠른 컷 전환으로 다양한 인테리어 재질과 조작감을 연속적으로 보여준다.",
+   "초반 1초에 차명과 유로화 기준 가격을 굵은 텍스트로 즉각 명시한다.",
+   "마지막 컷에 브랜드 시그니처 옐로우 로고 스티커를 띄워 브랜드 인지도를 남긴다."
+  ]
+ }
+}

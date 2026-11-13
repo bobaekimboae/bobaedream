@@ -1,0 +1,562 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/RpZNc3B2xig",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2760,
+  "candidatesTokenCount": 4461,
+  "totalTokenCount": 8372,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2018
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1151,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 22.4,
+   "aspect": "9:16",
+   "car": "BMW M2 Competition (F87)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 8.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.2,
+    "end": 14.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 15.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 16.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 19.8,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "text": "RAAD HET MERK & MODEL",
+    "ko": "브랜드와 모델을 맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RAAD HET",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 4.5,
+    "text": "DIE JE KUNT VINDEN OP",
+    "ko": "여기서 찾을 수 있는",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.7,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#1F2327",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.4,
+    "text": "HIJ IS ERG SPORTIEF EN HEEFT",
+    "ko": "매우 스포티하며",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SPORTIEF",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.8,
+    "text": "411 PK",
+    "ko": "411 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "411 PK",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "text": "HET IS EEN VRIJ RECENT MODEL",
+    "ko": "비교적 최신 모델입니다",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.9,
+    "text": "2015",
+    "ko": "2015년",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2015",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.2,
+    "text": "ROLDE DE EERSTE VAN DE BAND",
+    "ko": "첫 번째 모델이 생산되었고",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.2,
+    "end": 14.6,
+    "text": "EN DEZE UITVOERING",
+    "ko": "그리고 이 트림은",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 15.8,
+    "text": "2018",
+    "ko": "2018년",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2018",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 16.8,
+    "text": "VOOR HET EERST GEPRODUCEERD",
+    "ko": "처음으로 생산되었습니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.5,
+    "text": "EN DE AUTO BESCHIKT OVER DE BEFAAMDE",
+    "ko": "또한 이 차에는 유명한",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.8,
+    "text": "S55 MOTOR",
+    "ko": "S55 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "S55 MOTOR",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 20.9,
+    "text": "WEET JIJ HET ANTWOORD",
+    "ko": "정답을 아시나요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.4,
+    "text": "LAAT HET WETEN IN DE REACTIES",
+    "ko": "댓글로 알려주세요",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "톡",
+    "event": "411 PK 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.5,
+    "type": "톡",
+    "event": "2015 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.9,
+    "type": "딸깍",
+    "event": "주유구 커버 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.6,
+    "type": "톡",
+    "event": "2018 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "S55 MOTOR 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Electronic / Lo-fi pop beat",
+   "bpm_est": 110,
+   "mood": "경쾌하고 흥미로운 퀴즈 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 5.7,
+    "what": "AutoScout24 브랜드 스티커 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.5,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "text": "Kun jij raden welk automerk en model dit is?",
+    "ko": "이 차의 브랜드와 모델이 무엇인지 맞힐 수 있나요?"
+   },
+   {
+    "start": 2.3,
+    "end": 5.6,
+    "text": "die je kunt vinden op autoscout24.be.",
+    "ko": "autoscout24.be에서 찾을 수 있는 차량인데요."
+   },
+   {
+    "start": 5.6,
+    "end": 8.8,
+    "text": "De eerste tip: hij is erg sportief en heeft 411 pk.",
+    "ko": "첫 번째 힌트: 매우 스포티하고 411마력을 냅니다."
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "text": "Het is een vrij recent model.",
+    "ko": "비교적 최신 모델이죠."
+   },
+   {
+    "start": 10.5,
+    "end": 13.2,
+    "text": "Pas in 2015 rolde de eerste van de band,",
+    "ko": "2015년에야 첫 모델이 생산 라인에서 나왔고,"
+   },
+   {
+    "start": 13.2,
+    "end": 16.8,
+    "text": "en deze uitvoering werd pas in 2018 voor het eerst geproduceerd.",
+    "ko": "이 트림은 2018년에 처음으로 생산되었습니다."
+   },
+   {
+    "start": 16.8,
+    "end": 19.8,
+    "text": "En de auto beschikt over de befaamde S55 motor.",
+    "ko": "그리고 이 차는 유명한 S55 엔진을 탑재하고 있습니다."
+   },
+   {
+    "start": 19.8,
+    "end": 22.4,
+    "text": "Weet jij het antwoord? Laat het weten in de reacties.",
+    "ko": "정답을 아시나요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "차종 맞히기 퀴즈 질문 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 2.8,
+    "end": 5.6,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼 언급"
+   },
+   {
+    "stage": "사양",
+    "start": 5.6,
+    "end": 8.8,
+    "speed": "보통",
+    "summary": "힌트 1: 411마력 출력 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.8,
+    "end": 16.8,
+    "speed": "빠름",
+    "summary": "힌트 2: 2015년 출시 및 2018년 트림 생산 외관 디테일 컷"
+   },
+   {
+    "stage": "사양",
+    "start": 16.8,
+    "end": 19.8,
+    "speed": "보통",
+    "summary": "힌트 3: 보닛을 열어 S55 엔진 노출"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 19.8,
+    "end": 22.4,
+    "speed": "보통",
+    "summary": "댓글 참여 유도 CTA"
+   }
+  ],
+  "rules": [
+   "호스트가 질문을 던지며 시청자의 댓글 참여를 유도하는 퀴즈 포맷 쇼츠",
+   "핵심 키워드(출력, 연도, 엔진명)는 노란색 볼드 텍스트로 중앙에 팝업 효과 적용",
+   "말 자막은 흰색 굵은 고딕에 검은 외곽선을 둘러 가독성 확보",
+   "힌트 제시마다 디테일 인서트 컷(휠, 듀얼 머플러, 엔진룸)을 1~2초 단위로 빠르게 교차 편집",
+   "영상 말미에 진행자가 아래쪽을 가리키며 직관적인 댓글 작성 콜투액션(CTA) 수행"
+  ]
+ }
+}

@@ -1,0 +1,634 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/sQI8cnDOpNs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5017,
+  "candidatesTokenCount": 6127,
+  "totalTokenCount": 12174,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4275
+   }
+  ],
+  "thoughtsTokenCount": 1030,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.2,
+   "aspect": "9:16",
+   "car": "Zeekr 001",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 10.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 17.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.2,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 33.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.9,
+    "end": 41.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 46.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "DE ECHTE REDEN",
+    "ko": "진짜 이유",
+    "kind": "말 자막",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DE ECHTE REDEN",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.1,
+    "text": "WAAROM MENSEN",
+    "ko": "사람들이",
+    "kind": "말 자막",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.4,
+    "text": "VOOR DEZE AUTO KIEZEN",
+    "ko": "이 차를 선택하는",
+    "kind": "말 자막",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOOR DEZE AUTO KIEZEN",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "✔ LUXE",
+    "ko": "고급스러움",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUXE",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "✔ VERMOGEN",
+    "ko": "강력한 출력",
+    "kind": "키워드 스티커",
+    "y_pct": 13.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERMOGEN",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.2,
+    "text": "✔ UITSTRALING",
+    "ko": "존재감 넘치는 외관",
+    "kind": "키워드 스티커",
+    "y_pct": 13.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "UITSTRALING",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.0,
+    "text": "€100.000",
+    "ko": "10만 유로",
+    "kind": "가격",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€100.000",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.4,
+    "text": "🏁 545 PK",
+    "ko": "545 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "545 PK",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 23.9,
+    "text": "✔ LUCHTVERING",
+    "ko": "에어 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUCHTVERING",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.0,
+    "text": "✔ MASSAGESTOELEN",
+    "ko": "마사지 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MASSAGESTOELEN",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.2,
+    "text": "22 INCH VELGEN",
+    "ko": "22인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "22 INCH VELGEN",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 33.7,
+    "text": "✔ STOELVERWARMING",
+    "ko": "시트 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOELVERWARMING",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 텍스트 상자 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.1,
+    "type": "휙",
+    "event": "장면 전환 및 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "LUXE 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "VERMOGEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "UITSTRALING 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "돈 소리",
+    "event": "100.000 유로 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "쿵",
+    "event": "545 PK 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.4,
+    "type": "톡",
+    "event": "에어 서스펜션 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.8,
+    "type": "휙",
+    "event": "3미터 휠베이스 화살표 그래픽 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "22 INCH VELGEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 댄스",
+   "bpm_est": 120,
+   "mood": "활기차고 긍정적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 25.8,
+    "end": 27.5,
+    "what": "3M 양방향 노란 화살표",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "휠베이스 길이 강조",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.5,
+    "what": "달력 아이콘 (JUL 17)",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "제작 연식 안내",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.2,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 및 플랫폼 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "De echte reden waarom mensen voor deze auto kiezen",
+    "ko": "사람들이 이 차를 선택하는 진짜 이유는"
+   },
+   {
+    "start": 3.4,
+    "end": 8.8,
+    "text": "is omdat je nergens voor dit geld zoveel luxe, vermogen en uitstraling krijgt.",
+    "ko": "이 가격에 이렇게 많은 고급스러움, 출력, 존재감을 얻을 수 있는 차가 없기 때문입니다."
+   },
+   {
+    "start": 8.8,
+    "end": 12.3,
+    "text": "En eerlijk, dat is momenteel ook echt het unieke aan de Zeekr.",
+    "ko": "솔직히 그게 지금 지커(Zeekr)의 독보적인 매력이에요."
+   },
+   {
+    "start": 12.3,
+    "end": 17.5,
+    "text": "Het voelt als dezelfde luxe als auto's die een ton kosten, maar deze kost maar de helft.",
+    "ko": "10만 유로 상당의 차량과 동일한 고급스러움을 주지만 가격은 절반에 불과합니다."
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "text": "Ik vertel je even snel een paar puntjes, dan begrijp je meteen wat ik bedoel.",
+    "ko": "핵심 포인트 몇 가지만 빠르게 알려드릴게요. 그럼 바로 이해되실 거예요."
+   },
+   {
+    "start": 20.8,
+    "end": 25.0,
+    "text": "545 pk, luchtvering en massagestoelen.",
+    "ko": "545마력, 에어 서스펜션, 마사지 시트."
+   },
+   {
+    "start": 25.0,
+    "end": 30.2,
+    "text": "Hij heeft een lange wielbasis van 3 meter, frameloze lijnen en 22-inch velgen.",
+    "ko": "3미터의 긴 휠베이스, 프레임리스 윈도우 라인, 그리고 22인치 휠까지 갖췄죠."
+   },
+   {
+    "start": 30.2,
+    "end": 33.7,
+    "text": "En niet alleen de voorstoelen, maar ook de achterbank heeft stoelverwarming.",
+    "ko": "앞좌석뿐만 아니라 뒷좌석에도 열선 시트가 들어갑니다."
+   },
+   {
+    "start": 33.7,
+    "end": 36.9,
+    "text": "En kijk dat glazen dak en deze luxe alcantara dakhemel.",
+    "ko": "그리고 이 글라스 루프와 고급 알칸타라 헤드라이닝을 보세요."
+   },
+   {
+    "start": 36.9,
+    "end": 41.5,
+    "text": "En de prijs, het bouwjaar en de kilometerstand vind je terug in de omschrijving.",
+    "ko": "가격, 연식, 주행거리는 영상 설명란에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 41.5,
+    "end": 46.2,
+    "text": "En je vindt hem in de showroom van Het Autohuis en natuurlijk op autoscout24.nl.",
+    "ko": "Het Autohuis 전시장에서, 그리고 물론 autoscout24.nl에서 확인해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "가성비 뛰어난 럭셔리 EV Zeekr 001을 선택하는 이유 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "1억 원대 럭셔리카 느낌을 절반 가격에 주는 장점 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 20.8,
+    "end": 30.2,
+    "speed": "빠름",
+    "summary": "545마력, 에어서스, 3m 휠베이스, 22인치 휠 등 스펙 나열"
+   },
+   {
+    "stage": "기능",
+    "start": 30.2,
+    "end": 36.9,
+    "speed": "보통",
+    "summary": "뒷좌석 열선, 파노라마 글라스 루프, 알칸타라 천장 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 36.9,
+    "end": 46.2,
+    "speed": "보통",
+    "summary": "상세 스펙 설명란 안내 및 AutoScout24 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "진행자의 신속한 모션과 함께 단문 위주의 빠른 템포로 장점 나열",
+   "화면 상단과 하단에 굵은 고딕체의 노란색/검은색 박스 자막으로 핵심 키워드 강조",
+   "스펙 키워드가 등장할 때마다 톡 튀어나오는 효과음과 함께 체크마크 스티커 노출",
+   "가격, 연식 등 구체적인 수치는 설명란 확인을 유도해 플랫폼 유입 및 댓글 인터랙션 증대",
+   "영상 말미에 노란 브랜드 시그니처 배너를 띄우며 플랫폼 도메인 콜투액션(CTA) 진행"
+  ]
+ }
+}

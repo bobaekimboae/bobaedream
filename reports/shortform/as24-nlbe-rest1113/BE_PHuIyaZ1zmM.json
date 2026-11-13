@@ -1,0 +1,519 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/PHuIyaZ1zmM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3103,
+  "candidatesTokenCount": 4162,
+  "totalTokenCount": 7265,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2361
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.2,
+   "aspect": "9:16",
+   "car": "다양한 축구선수들의 차 (BMW 320, Polestar, Mercedes CLS, BMW X5, Porsche Taycan, BMW X2, BYD Atto 3)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 4.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 22.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.6,
+    "text": "MET WELKE AUTO RIJDEN DEZE VOETBALLERS?",
+    "ko": "이 축구선수들은 어떤 차를 탈까요?",
+    "kind": "제목",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "VOETBALLERS",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 4.8,
+    "text": "IK RIJ IN EEN BMW BREAK",
+    "ko": "저는 BMW 왜건을 탑니다",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW BREAK",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 8.7,
+    "text": "EEN VAN MIJN AUTO'S WAAR",
+    "ko": "제가 가장 많이 타는 차 중 하나는",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MIJN AUTO'S",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "text": "IK RIJ IN EEN MERCEDES CLS",
+    "ko": "저는 벤츠 CLS를 탑니다",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MERCEDES CLS",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "text": "EEN BMW X5 HYBRIDE",
+    "ko": "BMW X5 하이브리드요",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW X5",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 16.7,
+    "text": "EEN PORSCHE TAYCAN TURISMO",
+    "ko": "포르쉐 타이칸 투리스모 전기차요",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PORSCHE",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.9,
+    "text": "IK RIJ IN EEN BMW X2",
+    "ko": "저는 BMW X2를 탑니다",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW X2",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 22.0,
+    "text": "IK RIJ IN EEN HELE MOOIE GRIJZE BYD",
+    "ko": "저는 아주 멋진 회색 BYD를 탑니다",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BYD",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.5,
+    "text": "ZOEK JE AUTO OP",
+    "ko": "당신의 차를 검색해보세요",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZOEK",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "차량 매물 카드 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "톡",
+    "event": "차량 매물 카드 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "톡",
+    "event": "차량 매물 카드 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "톡",
+    "event": "차량 매물 카드 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.6,
+    "type": "톡",
+    "event": "차량 매물 카드 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.9,
+    "type": "톡",
+    "event": "차량 매물 카드 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.0,
+    "type": "톡",
+    "event": "차량 매물 카드 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.2,
+    "type": "톡",
+    "event": "최종 AutoScout24 로고 카드 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트/힙합",
+   "bpm_est": 115,
+   "mood": "경쾌하고 리듬감 있음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.7,
+    "end": 4.8,
+    "what": "AutoScout24 BMW 320 Break 매물 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수가 언급한 차종 시세 및 사진 제공",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 8.7,
+    "what": "AutoScout24 Polestar 2 매물 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수가 언급한 차종 시세 및 사진 제공",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "what": "AutoScout24 Mercedes CLS 매물 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수가 언급한 차종 시세 및 사진 제공",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "what": "AutoScout24 BMW X5 매물 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수가 언급한 차종 시세 및 사진 제공",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 16.7,
+    "what": "AutoScout24 Porsche Taycan 매물 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수가 언급한 차종 시세 및 사진 제공",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.9,
+    "what": "AutoScout24 BMW X2 매물 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수가 언급한 차종 시세 및 사진 제공",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 22.0,
+    "what": "AutoScout24 BYD Atto 3 매물 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선수가 언급한 차종 시세 및 사진 제공",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 26.2,
+    "what": "AutoScout24 로고 그래픽 카드",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.6,
+    "text": "Met welke auto rijden deze voetballers?",
+    "ko": "이 축구선수들은 어떤 차를 탈까요?"
+   },
+   {
+    "start": 1.7,
+    "end": 4.8,
+    "text": "Ik rij in een BMW station 320.",
+    "ko": "저는 BMW 320 왜건을 탑니다."
+   },
+   {
+    "start": 4.9,
+    "end": 8.7,
+    "text": "Eén van mijn auto's waar ik het meeste mee rijd, is de Polestar.",
+    "ko": "제가 가장 많이 타는 차 중 하나는 폴스타입니다."
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "text": "Ik rij in een Mercedes CLS.",
+    "ko": "저는 메르세데스 CLS를 탑니다."
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "text": "In een BMW X5 hybride.",
+    "ko": "BMW X5 하이브리드요."
+   },
+   {
+    "start": 13.6,
+    "end": 16.7,
+    "text": "Met een Porsche Taycan Turismo, een elektrische wagen.",
+    "ko": "전기차인 포르쉐 타이칸 투리스모요."
+   },
+   {
+    "start": 16.8,
+    "end": 18.9,
+    "text": "Ik rij in een BMW X2.",
+    "ko": "저는 BMW X2를 탑니다."
+   },
+   {
+    "start": 19.0,
+    "end": 22.0,
+    "text": "Ik rij in een hele mooie grijze BYD.",
+    "ko": "저는 아주 멋진 그레이 색상의 BYD를 탑니다."
+   },
+   {
+    "start": 22.1,
+    "end": 26.2,
+    "text": "Zoek je auto op autoscout24.be.",
+    "ko": "autoscout24.be에서 당신의 차를 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.6,
+    "speed": "빠름",
+    "summary": "축구선수들이 타는 차가 무엇인지 질문하며 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.6,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "선수들이 각자 타는 차를 1명당 2~3초씩 릴레이 인터뷰로 소개하며 시세 카드 노출"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 22.0,
+    "end": 26.2,
+    "speed": "보통",
+    "summary": "AutoScout24 사이트에서 당신의 차를 찾으라는 CTA 마무리"
+   }
+  ],
+  "rules": [
+   "인터뷰이마다 2~3초 단위의 초고속 컷 전환으로 지루할 틈 없는 템포 유지",
+   "인터뷰이가 차명을 말할 때마다 화면 하단에 AutoScout24 실제 매물 UI 카드(차종, 연식, 가격 스펙)를 팝업 사운드와 함께 노출",
+   "말 자막은 가슴 위 상단에 컴팩트하게 검은 상자 박스로 띄워 시선 분산을 최소화",
+   "마지막 출연자가 마이크를 잡고 플랫폼 공식 도메인과 로고를 보여주며 직접 CTA 진행"
+  ]
+ }
+}

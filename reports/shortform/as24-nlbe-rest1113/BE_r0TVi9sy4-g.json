@@ -1,0 +1,391 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/r0TVi9sy4-g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2921,
+  "candidatesTokenCount": 3818,
+  "totalTokenCount": 7580,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2179
+   }
+  ],
+  "thoughtsTokenCount": 841,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.7,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz 300 SL Coupe",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 23.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.1,
+    "text": "THIS OR THAT MET GILLES DE BILDE",
+    "ko": "디스 오어 댓 - 질 드 빌드와 함께",
+    "kind": "제목",
+    "y_pct": 72.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "THIS OR THAT",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.1,
+    "text": "SUV OF SPORTWAGEN? ALS IK NAAR MEZELF KIJK",
+    "ko": "SUV 아니면 스포츠카? 제 자신을 보면 스포츠카요",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SUV OF SPORTWAGEN?",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.9,
+    "text": "BENZINE OF ELEKTRISCH?",
+    "ko": "가솔린 아니면 전기차?",
+    "kind": "말 자막",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCH",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.3,
+    "text": "PARKEERSENSOREN OF OP GEVOEL? WAT GEMAK PARKEERSENSOREN",
+    "ko": "주차 센서 아니면 감으로? 편한 게 좋죠, 주차 센서",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PARKEERSENSOREN",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.0,
+    "text": "AUTOMAAT OF HANDGESCHAKELD? AFHANKELIJK VAN WAAR IK HEEN GA",
+    "ko": "자동 아니면 수동? 어디 가느냐에 따라 달라요",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOMAAT OF HANDGESCHAKELD?",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.8,
+    "text": "ZELF RIJDEN OF OPGEHAALD WORDEN? ZELF RIJDEN",
+    "ko": "직접 운전 아니면 태워주기? 직접 운전이요",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZELF RIJDEN",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 17.5,
+    "text": "NIEUWE AUTO OF OLDTIMER?",
+    "ko": "신차 아니면 올드카?",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OLDTIMER",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.5,
+    "text": "AIRCO OF OPEN DAK?",
+    "ko": "에어컨 아니면 오픈톱?",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OPEN DAK",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "text": "ZOEK JE DROOMAUTO OP",
+    "ko": "당신의 드림카를 찾아보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DROOMAUTO",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.8,
+    "type": "딸깍",
+    "event": "AutoScout24 앱 필터에서 Elektrisch 항목 체크",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.3,
+    "type": "딸깍",
+    "event": "AutoScout24 앱 필터에서 Open dak 항목 체크",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "휙",
+    "event": "AutoScout24 최종 로고 애니메이션 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.1,
+    "end": 7.8,
+    "what": "AutoScout24 연료 필터 팝업 그래픽",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선택지 시각화",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.3,
+    "what": "Mercedes-Benz 300 SL Coupe 차량 매물 카드",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "언급한 올드카 매물 연계",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.3,
+    "what": "AutoScout24 옵션 필터 팝업 그래픽",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "선택지 시각화",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.7,
+    "what": "AutoScout24 공식 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 62.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 3.8,
+    "end": 6.0,
+    "text": "Als ik naar mezelf kijk: sportwagen.",
+    "ko": "제 자신을 보면 스포츠카입니다."
+   },
+   {
+    "start": 6.1,
+    "end": 7.7,
+    "text": "Elektrisch.",
+    "ko": "전기차요."
+   },
+   {
+    "start": 8.0,
+    "end": 10.3,
+    "text": "Ah, wat gemak: parkeersensoren.",
+    "ko": "아, 편한 게 최고죠: 주차 센서요."
+   },
+   {
+    "start": 10.4,
+    "end": 12.0,
+    "text": "Afhankelijk van waar ik heen ga.",
+    "ko": "어디 가느냐에 따라 달라요."
+   },
+   {
+    "start": 12.1,
+    "end": 13.8,
+    "text": "Zelf rijden.",
+    "ko": "직접 운전이요."
+   },
+   {
+    "start": 14.0,
+    "end": 17.4,
+    "text": "Ah, de Mercedes Gullwing, die met die vleugels. Doe die maar dan.",
+    "ko": "아, 메르세데스 걸윙, 날개 달린 차요. 그걸로 할게요."
+   },
+   {
+    "start": 17.6,
+    "end": 19.2,
+    "text": "Open dak.",
+    "ko": "오픈톱이요."
+   },
+   {
+    "start": 19.8,
+    "end": 23.5,
+    "text": "Zoek je droomauto op AutoScout24.be",
+    "ko": "AutoScout24.be에서 당신의 드림카를 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.2,
+    "speed": "빠름",
+    "summary": "축구 경기 영상과 함께 This or That 인트로 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 3.2,
+    "end": 19.5,
+    "speed": "빠름",
+    "summary": "자동차 취향에 대한 밸런스 게임(This or That) 진행 및 앱 UI 오버레이"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 19.5,
+    "end": 23.7,
+    "speed": "보통",
+    "summary": "AutoScout24 웹사이트 방문 유도 및 로고 아웃트로"
+   }
+  ],
+  "rules": [
+   "유명 인물 인터뷰 시 브랜드 로고 마이크와 유니폼을 노출하여 자연스럽게 브랜딩",
+   "밸런스 질문의 선택지 답변에 맞춰 실제 자사 앱 검색 필터 인터페이스 UI를 화면 중앙에 오버레이",
+   "답변이 나올 때 필터 체크 및 클릭 효과음(딸깍)을 동기화하여 앱 사용 경험 전달",
+   "인터뷰이의 시선 높이 아래쪽(가슴~배 영역)에 노란색/흰색 볼드 텍스트로 핵심 질문 자막 배치"
+  ]
+ }
+}

@@ -1,0 +1,585 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/hddEbbS6OFs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4118,
+  "candidatesTokenCount": 4667,
+  "totalTokenCount": 9755,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3376
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 970,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 37.8,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf Variant 1.0 eTSI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.9,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 15.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.7,
+    "end": 27.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 37.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "rond de €20.000",
+    "ko": "약 20,000유로",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 85.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "rond de €20.000",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "Volkswagen Golf Variant 1.0 eTSI",
+    "ko": "폭스바겐 골프 바리안트 1.0 eTSI",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "text": "veel meer kofferruimte",
+    "ko": "훨씬 넓은 트렁크 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "veel meer kofferruimte",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "text": "eTSI",
+    "ko": "eTSI",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "eTSI",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.6,
+    "text": "mild hybride motor",
+    "ko": "마일드 하이브리드 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "mild hybride motor",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.7,
+    "text": "110 pk",
+    "ko": "110마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "110 pk",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "text": "IQ light",
+    "ko": "IQ 라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "IQ light",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.9,
+    "text": "Harman Kardon",
+    "ko": "하만카돈",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Harman Kardon",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.4,
+    "text": "DSG automaat",
+    "ko": "DSG 자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DSG automaat",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.5,
+    "text": "zuinige daily",
+    "ko": "경제적인 데일리카",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "zuinige daily",
+    "sure": true
+   },
+   {
+    "start": 26.7,
+    "end": 27.8,
+    "text": "Gezinswagen",
+    "ko": "패밀리카",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Gezinswagen",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.8,
+    "text": "€20.490",
+    "ko": "20,490유로",
+    "kind": "가격",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€20.490",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 37.8,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 번째 노란색 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "휙",
+    "event": "3분할 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "kofferruimte 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "eTSI 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "mild hybride motor 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "110 pk 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "IQ light 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.5,
+    "type": "톡",
+    "event": "Harman Kardon 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "톡",
+    "event": "DSG automaat 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.0,
+    "type": "톡",
+    "event": "zuinige daily 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.7,
+    "type": "톡",
+    "event": "Gezinswagen 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.0,
+    "type": "돈 소리",
+    "event": "가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "톡",
+    "event": "AutoScout24 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/로파이 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 산뜻함",
+   "ducks_under_voice": "일부",
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "text": "Heb je een budget rond de €20.000? Dan is misschien deze...",
+    "ko": "예산이 약 2만 유로 정도이신가요? 그렇다면 아마도 이 차가..."
+   },
+   {
+    "start": 3.5,
+    "end": 6.8,
+    "text": "Volkswagen Golf Variant 1.0 eTSI iets voor jou.",
+    "ko": "폭스바겐 골프 바리안트 1.0 eTSI가 딱 맞을 수 있습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 11.5,
+    "text": "Dit is de Golf Variant, dus je krijgt veel meer kofferruimte dan bij een normale Golf.",
+    "ko": "이 모델은 골프 바리안트라 일반 골프보다 트렁크 공간이 훨씬 넓습니다."
+   },
+   {
+    "start": 11.5,
+    "end": 16.5,
+    "text": "Het is een eTSI, dus het is een mild hybride motor met een vermogen van 110 pk.",
+    "ko": "eTSI 모델로, 110마력의 출력을 내는 마일드 하이브리드 엔진이 탑재되어 있습니다."
+   },
+   {
+    "start": 16.5,
+    "end": 23.4,
+    "text": "Hij zit bomvol opties zoals de IQ.LIGHT, Harman Kardon soundsysteem, en het is een DSG automaat.",
+    "ko": "IQ 라이트, 하만카돈 사운드 시스템 등 옵션이 가득하며 DSG 자동변속기입니다."
+   },
+   {
+    "start": 23.4,
+    "end": 27.8,
+    "text": "Hij is dus perfect als zuinige daily en ruim genoeg voor gezinswagen.",
+    "ko": "따라서 경제적인 데일리카로 완벽하며 패밀리카로도 충분히 넓습니다."
+   },
+   {
+    "start": 27.8,
+    "end": 31.8,
+    "text": "Zou jij voor €20.490 deze Golf Variant rijden?",
+    "ko": "20,490유로에 이 골프 바리안트를 타시겠습니까?"
+   },
+   {
+    "start": 31.8,
+    "end": 37.8,
+    "text": "Je vindt hem in de showroom van Falcomotive en op AutoScout24.be.",
+    "ko": "Falcomotive 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "예산 2만 유로에 맞는 차량 질문으로 시청자 관심 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "3분할 컷으로 폭스바겐 골프 바리안트 모델명 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 6.8,
+    "end": 11.9,
+    "speed": "보통",
+    "summary": "넓은 왜건형 트렁크 용량 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 11.9,
+    "end": 16.7,
+    "speed": "보통",
+    "summary": "eTSI 마일드 하이브리드 및 110마력 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 16.7,
+    "end": 27.8,
+    "speed": "빠름",
+    "summary": "IQ라이트, 하만카돈, DSG, 2열 거주성 등 장점 나열"
+   },
+   {
+    "stage": "가격",
+    "start": 27.8,
+    "end": 31.8,
+    "speed": "보통",
+    "summary": "최종 가격(€20,490) 공개 및 구매 의향 질문"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 31.8,
+    "end": 37.8,
+    "speed": "보통",
+    "summary": "전시장 및 AutoScout24 플랫폼 유입 유도"
+   }
+  ],
+  "rules": [
+   "진행자의 핵심 멘트에 맞춰 노란색 칠 배경의 키워드 스티커를 팝업 사운드와 함께 노출한다.",
+   "전면, 실내, 후면을 한 번에 보여주는 3분할 컷을 초반 차명 소개 구간에 배치해 효율적으로 정보를 전달한다.",
+   "트렁크 열기, 도어 닫기 등 실용적인 행동을 호스트가 직접 시연하며 설명한다.",
+   "영상 말미에 정확한 매물 가격을 밝히며 구매 질문을 던져 댓글 소통을 유도한다.",
+   "마지막 컷에서는 판매처 로고와 오토스카우트24 플랫폼을 호스트의 제스처와 스티커로 각인시킨다."
+  ]
+ }
+}

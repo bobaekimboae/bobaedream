@@ -1,0 +1,733 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/JTgTxGbGVoQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4566,
+  "candidatesTokenCount": 5816,
+  "totalTokenCount": 10382,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3824
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42.6,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf R",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 7.9,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 19.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 36.9,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.9,
+    "end": 42.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "VOLKSWAGEN GOLF R",
+    "ko": "폭스바겐 골프 R",
+    "kind": "키워드 스티커",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 2.8,
+    "text": "320 PK",
+    "ko": "320 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 64.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.3,
+    "text": "EN HIJ HEEFT EEN",
+    "ko": "그리고 이것은 가지고 있죠",
+    "kind": "말 자막",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "HIJ",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 5.4,
+    "text": "DSG",
+    "ko": "DSG",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "MAAR EEN DSG AUTOMAAT,",
+    "ko": "하지만 DSG 자동변속기란,",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 7.9,
+    "text": "WAT IS DAT NOU PRECIES?",
+    "ko": "그게 정확히 무엇일까요?",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.9,
+    "text": "DIRECT SHIFT GEARBOX",
+    "ko": "다이렉트 시프트 기어박스",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 10.9,
+    "text": "2 KOPPELINGEN.",
+    "ko": "2개의 클러치.",
+    "kind": "말 자막",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.1,
+    "text": "EVEN VERSNELLINGEN EN DIE ANDERE",
+    "ko": "짝수 기어를 담당하고 다른 하나는",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 14.9,
+    "text": "DE ONEVEN.",
+    "ko": "홀수 기어를 담당하죠.",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.5,
+    "text": "IN DE ENE",
+    "ko": "한 기어로",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "text": "STAAT DIE ANDERE AL KLAAR.",
+    "ko": "다른 기어가 이미 대기 상태입니다.",
+    "kind": "말 자막",
+    "y_pct": 46.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.6,
+    "text": "RAZENDSNEL",
+    "ko": "눈부시게 빠른",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.9,
+    "text": "✔ LUXE STOELEN AFGEWERKT MET ALCANTARA",
+    "ko": "알칸타라 마감 고급 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.5,
+    "text": "✔ ELEKTRISCH SCHUIFDAK",
+    "ko": "전동 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "text": "✔ MULTIFUNCTIONEEL STUUR MET STUURVERWARMING",
+    "ko": "열선 포함 다기능 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.7,
+    "text": "EN ADAPTIVE CRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.2,
+    "end": 33.6,
+    "text": "€38.950",
+    "ko": "38,950 유로",
+    "kind": "가격",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 35.5,
+    "text": "EN DE KILOMETERSTAND",
+    "ko": "주행 거리는",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 36.9,
+    "text": "IN DE OMSCHRIJVING.",
+    "ko": "상세 설명에서 확인하세요.",
+    "kind": "말 자막",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.5,
+    "text": "AUTOPARK LIJNDEN",
+    "ko": "오토파크 레인데인",
+    "kind": "말 자막",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 54.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "VOLKSWAGEN GOLF R 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "320 PK 자막 추가",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.3,
+    "type": "톡",
+    "event": "DSG 텍스트 하이라이트",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "DIRECT SHIFT GEARBOX 그래픽 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.9,
+    "type": "톡",
+    "event": "2 KOPPELINGEN 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "휙",
+    "event": "RAZENDSNEL 자막 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.6,
+    "type": "톡",
+    "event": "시트 옵션 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.9,
+    "type": "톡",
+    "event": "선루프 옵션 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.5,
+    "type": "톡",
+    "event": "스티어링 휠 옵션 체크 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.2,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 39.7,
+    "type": "휙",
+    "event": "오토스카우트24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/로파이 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 39.5,
+    "end": 42.6,
+    "what": "AutoScout24 로고 오버레이",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 35.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Deze Volkswagen Golf R heeft 320 pk.",
+    "ko": "이 폭스바겐 골프 R은 320마력입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 5.4,
+    "text": "En hij heeft een DSG automaat.",
+    "ko": "그리고 DSG 자동변속기가 탑재되어 있죠."
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "text": "Maar een DSG automaat, wat is dat nou precies?",
+    "ko": "그런데 DSG 자동변속기란 정확히 무엇일까요?"
+   },
+   {
+    "start": 7.9,
+    "end": 10.9,
+    "text": "Direct Shift Gearbox werkt met twee koppelingen.",
+    "ko": "다이렉트 시프트 기어박스는 2개의 클러치로 작동합니다."
+   },
+   {
+    "start": 10.9,
+    "end": 14.8,
+    "text": "De ene koppeling bedient de even versnellingen en die andere de oneven.",
+    "ko": "한쪽 클러치는 짝수 기어를, 다른 한쪽은 홀수 기어를 담당하죠."
+   },
+   {
+    "start": 14.8,
+    "end": 18.0,
+    "text": "Terwijl je dus in de ene versnelling rijdt, staat die andere al klaar.",
+    "ko": "따라서 한 기어로 달리는 동안 다른 기어가 이미 준비되어 있습니다."
+   },
+   {
+    "start": 18.0,
+    "end": 20.6,
+    "text": "En dat wil zeggen razendsnel schakelen.",
+    "ko": "그 말인즉슨 눈부시게 빠른 변속이 가능하다는 뜻이죠."
+   },
+   {
+    "start": 20.6,
+    "end": 23.9,
+    "text": "Verder heeft hij luxe stoelen afgewerkt met alcantara,",
+    "ko": "또한 알칸타라로 마감된 고급 시트,"
+   },
+   {
+    "start": 23.9,
+    "end": 25.5,
+    "text": "een elektrisch schuifdak,",
+    "ko": "전동식 선루프,"
+   },
+   {
+    "start": 25.5,
+    "end": 29.5,
+    "text": "een multifunctioneel stuur met stuurverwarming en adaptive cruise control,",
+    "ko": "열선 스티어링과 어댑티브 크루즈 컨트롤이 포함된 다기능 스티어링 휠,"
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "text": "en natuurlijk Apple CarPlay.",
+    "ko": "그리고 당연히 애플 카플레이도 들어있습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 33.6,
+    "text": "Hij kost €38.950.",
+    "ko": "가격은 38,950유로입니다."
+   },
+   {
+    "start": 33.6,
+    "end": 36.9,
+    "text": "En het bouwjaar en de kilometerstand lees je in de omschrijving.",
+    "ko": "연식과 주행거리는 설명란에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 36.9,
+    "end": 42.6,
+    "text": "Je vindt hem in de showroom van Autopark Lijnden en natuurlijk op Autoscout24.nl.",
+    "ko": "오토파크 레인데인 전시장과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "차명과 320마력 스펙 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 2.8,
+    "end": 20.6,
+    "speed": "보통",
+    "summary": "DSG 듀얼클러치 변속기 원리 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 20.6,
+    "end": 31.0,
+    "speed": "빠름",
+    "summary": "시트, 선루프, 스티어링 휠 등 주요 옵션 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 31.0,
+    "end": 36.9,
+    "speed": "보통",
+    "summary": "차량 판매 가격 및 상세정보 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 36.9,
+    "end": 42.6,
+    "speed": "보통",
+    "summary": "전시장 위치 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "노란색 형광 배경 상자에 검은색 고딕 텍스트를 넣어 주요 키워드를 강조",
+   "새로운 옵션이나 수치가 나올 때 짧고 경쾌한 효과음을 싱크하여 주의 환기",
+   "진행자가 직접 차량에 타고 내리며 인터랙티브하게 주요 사양 설명",
+   "화면 중앙에 텍스트를 배치하여 세로 쇼츠 시청 집중도 극대화",
+   "영상 말미에 가격 공개 및 로고 팝업으로 구매 문의 유도"
+  ]
+ }
+}

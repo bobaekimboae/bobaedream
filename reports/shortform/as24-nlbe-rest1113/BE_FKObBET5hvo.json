@@ -1,0 +1,378 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/FKObBET5hvo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5389,
+  "candidatesTokenCount": 2595,
+  "totalTokenCount": 8859,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4647
+   }
+  ],
+  "thoughtsTokenCount": 875,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.6,
+   "aspect": "9:16",
+   "car": "Kia EV4 Hatchback",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 11.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 30.2,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 32.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 34.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.3,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.2,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 41.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 48.6,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.6,
+    "end": 51.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "DE NIEUWE\nKIA EV4\nHATCHBACK",
+    "ko": "새로운 기아 EV4 해치백",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.5,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KIA EV4",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "헤드램프 표면 두드리는 ASMR 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.9,
+    "type": "톡",
+    "event": "기아 엠블럼 손가락으로 톡톡 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.4,
+    "type": "딸깍",
+    "event": "팝업 플러시 도어핸들 전개 작동음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "딸깍",
+    "event": "사이드미러 방향지시등 작동 릴레이음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "스티어링 휠 혼 커버 두드리기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.1,
+    "type": "띵",
+    "event": "전동 트렁크 버튼 터치 비프음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 테일게이트 리프트 개방 구동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.4,
+    "type": "딸깍",
+    "event": "센터 콘솔 수납함 및 컵홀더 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "헤드레스트 메쉬 패브릭 마찰 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "대시보드 패브릭 소재 쓸어내리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "파노라마 선루프 전동 블라인드 열리는 모터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "톡",
+    "event": "후면 EV4 레터링 엠블럼 두드리기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.1,
+    "type": "딸깍",
+    "event": "전동 충전 포트 도어 오픈 작동음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "띵",
+    "event": "전동 테일게이트 닫힘 비프음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.9,
+    "type": "쿵",
+    "event": "트렁크 도어 체결 래치 닫히는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 48.7,
+    "type": "휙",
+    "event": "AutoScout24 앱 화면 전환 트랜지션 사운드",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "조용함 / ASMR 현장음 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 48.6,
+    "end": 51.6,
+    "what": "AutoScout24 공식 앱 기아 EV4 매물 검색 화면",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "앱 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 49.0,
+    "end": 51.3,
+    "text": "Je vindt hem op autoscout24.be",
+    "ko": "AutoScout24.be에서 만나보실 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "신형 기아 EV4 해치백 텍스트와 전면 헤드램프 노출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 15.6,
+    "speed": "빠름",
+    "summary": "외관 디자인 및 라이트, 도어핸들 ASMR 디테일"
+   },
+   {
+    "stage": "기능",
+    "start": 15.6,
+    "end": 43.5,
+    "speed": "보통",
+    "summary": "실내 스티어링 휠, 트렁크, 시트 소재, 선루프, 충전구 디테일 작동"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 43.5,
+    "end": 51.6,
+    "speed": "보통",
+    "summary": "트렁크 닫힘 후 AutoScout24 플랫폼 매물 검색 안내"
+   }
+  ],
+  "rules": [
+   "배경음악을 일체 배제하고 차량 터치음과 작동음(ASMR)에만 집중",
+   "클로즈업 터치 컷과 차량 전체 샷을 교차 배치하여 지루함 방지",
+   "마지막 3초에 중고차/신차 플랫폼 앱 구동 화면을 보여주며 구매 유도 CTA 전달"
+  ]
+ }
+}

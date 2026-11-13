@@ -1,0 +1,686 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/HO6Yt9Ya5_A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4284,
+  "candidatesTokenCount": 5417,
+  "totalTokenCount": 9701,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3542
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.6,
+   "aspect": "9:16",
+   "car": "Mitsubishi Lancer Evolution VI RS",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 22.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 27.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 30.6,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 35.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "RALLY AUTO",
+    "ko": "랠리카",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RALLY AUTO",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.1,
+    "text": "VOOR OP DE WEG",
+    "ko": "공도용",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.0,
+    "text": "NIET ZOMAAR EEN",
+    "ko": "평범하지 않은",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.6,
+    "text": "EVO 6",
+    "ko": "에보 6",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EVO 6",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "EN JE VINDT",
+    "ko": "그리고 만나볼 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "BIJ AUTOBEDRIJF",
+    "ko": "자동차 매장에서",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.0,
+    "text": "726",
+    "ko": "726대",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "726",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.6,
+    "text": "✔ EEN LICHTGEWICHT",
+    "ko": "✔ 경량화 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 14.8,
+    "text": "✔ VIERWIELAANDRIJVING",
+    "ko": "✔ 4륜구동",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.9,
+    "text": "TE KNALLEN",
+    "ko": "달리기 위해",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "HIJ RECHTSGESTUURD",
+    "ko": "우핸들 차량",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "text": "ECHTE RALLY AUTO'S",
+    "ko": "진짜 랠리카처럼",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 26.5,
+    "text": "ECHT VOOR DE",
+    "ko": "진정한 랠리용",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.5,
+    "text": "BREMBO",
+    "ko": "브렘보",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BREMBO",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.5,
+    "text": "✔ REMKLAUWEN",
+    "ko": "✔ 브레이크 캘리퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.6,
+    "text": "✔ REMSCHIJVEN",
+    "ko": "✔ 브레이크 디스크",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.6,
+    "text": "SCOTIA WHITE",
+    "ko": "스코샤 화이트",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SCOTIA WHITE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "RALLY AUTO 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "EVO 6 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "726 숫자 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "딸깍",
+    "event": "체크 아이콘/사운드",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "LICHTGEWICHT 체크박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.6,
+    "type": "톡",
+    "event": "VIERWIELAANDRIJVING 체크박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 배기 사운드 삽입",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "톡",
+    "event": "BREMBO 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "캘리퍼 체크 리스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "디스크 체크 리스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.6,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 스포티함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 16.0,
+     "what": "엔진 배기 사운드를 위해 음악 볼륨 감소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 36.5,
+    "end": 38.6,
+    "what": "AutoScout24 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "CTA 브랜드 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Dit is een rally auto voor op de weg.",
+    "ko": "이 차는 공도를 달릴 수 있는 랠리카입니다."
+   },
+   {
+    "start": 2.1,
+    "end": 4.6,
+    "text": "En dit is niet zomaar een EVO 6, dit is een RS.",
+    "ko": "그리고 이건 평범한 에보 6가 아닌, RS 모델입니다."
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "En je vindt dit unieke exemplaar",
+    "ko": "이 특별한 매물은"
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "bij Autobedrijf Jubeega.",
+    "ko": "Jubeega 매장에서 만나보실 수 있습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 12.0,
+    "text": "En hier zijn er maar 726 van gemaakt wereldwijd.",
+    "ko": "전 세계에 단 726대만 생산되었습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "text": "Het is echt een lichtgewicht, een handbak, vierwielaandrijving,",
+    "ko": "진정한 경량화에 수동 변속기, 4륜구동까지 갖췄고,"
+   },
+   {
+    "start": 15.0,
+    "end": 16.9,
+    "text": "en gebouwd om te knallen.",
+    "ko": "폭발적으로 질주하도록 설계되었죠."
+   },
+   {
+    "start": 16.9,
+    "end": 22.0,
+    "text": "Hij is in Japan gebouwd, en zoals je ziet is hij rechtsgestuurd. Echt zoals de echte rally auto's.",
+    "ko": "일본에서 생산되어 보시다시피 우핸들이며, 진짜 랠리카와 같습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 27.2,
+    "text": "En het is ook nog eens een van de laatste EVO's die als basis echt voor de rallysport werden gebruikt.",
+    "ko": "랠리 모터스포츠의 베이스로 쓰인 마지막 세대 에보 중 하나이기도 합니다."
+   },
+   {
+    "start": 27.2,
+    "end": 30.6,
+    "text": "En hij heeft Brembo remmen, remklauwen en remschijven.",
+    "ko": "브렘보 브레이크 캘리퍼와 디스크가 장착되어 있습니다."
+   },
+   {
+    "start": 30.6,
+    "end": 35.8,
+    "text": "Hij is origineel geleverd in de kleur Scotia White, de iconische kleur voor EVO's.",
+    "ko": "에보의 상징적인 컬러인 스코샤 화이트로 원래 출고되었습니다."
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "text": "En je vindt hem natuurlijk op autoscout24.nl.",
+    "ko": "물론 autoscout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "빠름",
+    "summary": "공도용 랠리카 에보 6 RS 모델 소개 및 관심 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.6,
+    "end": 12.0,
+    "speed": "보통",
+    "summary": "전 세계 726대 한정 희소성 및 매물 출처 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 12.0,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "경량화, 수동변속기, 4WD, 우핸들 사양 및 배기음 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 22.0,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "랠리 역사성, 브렘보 브레이크 구성, 시그니처 화이트 컬러 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 35.8,
+    "end": 38.6,
+    "speed": "빠름",
+    "summary": "AutoScout24 플랫폼 로고와 함께 매물 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 앞을 걸으며 차량 주위를 자연스럽게 도는 워킹 투어 방식으로 전개한다.",
+   "핵심 스펙(경량, 4WD, 브렘보 부품 등)은 체크박스(✔) 그래픽 스티커와 함께 통통 튀는 효과음으로 강조한다.",
+   "생산 수량(726대)이나 대표 차명(EVO 6) 등 핵심 정보는 노란색 배경 박스 자막으로 시선을 끈다.",
+   "엔진/배기 관련 설명 시 배경음악을 줄이고 실제 배기음 효과음을 강하게 인서트해 몰입도를 높인다.",
+   "마지막 컷에서는 플랫폼 브랜드 로고(AutoScout24)를 중앙에 띄우며 플랫폼 방문을 유도한다."
+  ]
+ }
+}

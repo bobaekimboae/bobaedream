@@ -1,0 +1,731 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/4NuVdk0OZ2o",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6654,
+  "candidatesTokenCount": 5758,
+  "totalTokenCount": 12412,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5912
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 64.7,
+   "aspect": "9:16",
+   "car": "Volkswagen Tiguan R-Line Hybrid",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 20.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.9,
+    "end": 25.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 26.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 31.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 32.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 39.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.4,
+    "end": 44.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 45.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 46.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.7,
+    "end": 49.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.9,
+    "end": 52.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 54.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 56.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 58.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 60.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.3,
+    "end": 62.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.0,
+    "end": 64.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "VOLKSWAGEN TIGUAN",
+    "ko": "폭스바겐 티구안",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.0,
+    "text": "R-LINE PAKKET",
+    "ko": "R-라인 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFEE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 21.6,
+    "text": "✔ ZWARTE VELGEN",
+    "ko": "✔ 블랙 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.8,
+    "text": "✔ GEBLINDEERDE RAMEN",
+    "ko": "✔ 틴팅 유리",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "✔ ZWARTE SPIEGELS",
+    "ko": "✔ 블랙 사이드미러",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.2,
+    "text": "✔ TREKHAAK",
+    "ko": "✔ 견인고리(토우바)",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 39.0,
+    "text": "✔ R-LINE STOELEN MET MASSAGE FUNCTIE",
+    "ko": "✔ 마사지 기능 탑재 R-라인 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 43.1,
+    "text": "✔ ADAPTIVE CRUISE CONTROL",
+    "ko": "✔ 어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 44.8,
+    "text": "✔ HEAD-UP DISPLAY",
+    "ko": "✔ 헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 46.2,
+    "text": "✔ HARMAN KARDON GELUIDSSYSTEEM",
+    "ko": "✔ 하만카돈 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 50.0,
+    "text": "✔ PANORAMADAK",
+    "ko": "✔ 파노라마 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 51.9,
+    "end": 53.3,
+    "text": "HYBRIDE",
+    "ko": "하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.0,
+    "text": "€51.945",
+    "ko": "51,945 유로",
+    "kind": "가격",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 60.6,
+    "end": 62.0,
+    "text": "📍 DVZ AUTOMOTIVE",
+    "ko": "📍 DVZ 오토모티브",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEE00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 14.8,
+    "type": "톡",
+    "event": "R-Line 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "톡",
+    "event": "블랙 휠 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.6,
+    "type": "톡",
+    "event": "틴팅 유리 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "블랙 미러 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.8,
+    "type": "톡",
+    "event": "견인고리 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.4,
+    "type": "톡",
+    "event": "R라인 시트 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.7,
+    "type": "톡",
+    "event": "어댑티브 크루즈 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "톡",
+    "event": "HUD 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "톡",
+    "event": "하만카돈 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.7,
+    "type": "톡",
+    "event": "파노라마 선루프 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.9,
+    "type": "톡",
+    "event": "하이브리드 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 60.6,
+    "type": "톡",
+    "event": "DVZ Automotive 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 62.2,
+    "end": 64.7,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "De Volkswagen Tiguan is de populairste SUV van Volkswagen.",
+    "ko": "폭스바겐 티구안은 폭스바겐의 가장 인기 있는 SUV입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "Het is een ideale gezinsauto, echt een alleskunner.",
+    "ko": "이상적인 패밀리카이자 진정한 올라운더죠."
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "text": "Hij wordt ook wel de Golf onder de SUV's genoemd.",
+    "ko": "SUV계의 골프라고도 불립니다."
+   },
+   {
+    "start": 9.5,
+    "end": 14.0,
+    "text": "Maar waarom zou ik nu specifiek voor deze Volkswagen Tiguan gaan?",
+    "ko": "하지만 왜 하필 이 폭스바겐 티구안을 선택해야 할까요?"
+   },
+   {
+    "start": 14.0,
+    "end": 20.0,
+    "text": "Punt nummer 1: deze heeft het R-Line pakket en daardoor ziet hij er gewoon een stuk stoerder uit.",
+    "ko": "첫 번째 이유: R-Line 패키지가 적용되어 훨씬 더 강인해 보입니다."
+   },
+   {
+    "start": 20.0,
+    "end": 25.0,
+    "text": "En dat in combinatie met die zwarte afwerking: zwarte velgen, geblindeerde ramen, zwarte spiegels, maakt hem helemaal af.",
+    "ko": "그리고 블랙 휠, 틴팅된 유리, 블랙 사이드미러 등 블랙 포인트 마감이 완벽함을 더해줍니다."
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "text": "En niet onbelangrijk: hij heeft een trekhaak.",
+    "ko": "그리고 중요한 점 하나, 견인고리가 장착되어 있습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 32.0,
+    "text": "Voor mij heel fijn omdat ik een paardentrailer heb, maar als je een caravan wilt trekken is het ook een ideale auto.",
+    "ko": "말 트레일러가 있는 제게 아주 좋고, 카라반을 끌기에도 이상적입니다."
+   },
+   {
+    "start": 32.0,
+    "end": 34.8,
+    "text": "En de prijs van deze auto vertel ik je op het eind.",
+    "ko": "이 차의 가격은 영상 마지막에 알려드릴게요."
+   },
+   {
+    "start": 34.8,
+    "end": 39.5,
+    "text": "Deze Tiguan heeft ook de R-Line stoelen met massagefunctie, en dat wil je.",
+    "ko": "이 티구안에는 마사지 기능이 포함된 R-라인 시트도 들어가 있습니다."
+   },
+   {
+    "start": 39.5,
+    "end": 46.5,
+    "text": "En wat voor mij persoonlijk nog belangrijke opties zijn, dat is de adaptive cruise control, maar ook een head-up display, hij heeft een Harman Kardon geluidssysteem...",
+    "ko": "그리고 개인적으로 중요한 옵션들로는 어댑티브 크루즈 컨트롤, 헤드업 디스플레이, 하만카돈 오디오 시스템..."
+   },
+   {
+    "start": 46.5,
+    "end": 50.0,
+    "text": "...en stuurverwarming voor in de winter en een panoramadak voor in de zomer.",
+    "ko": "...겨울을 위한 스티어링 휠 열선, 여름을 위한 파노라마 선루프까지 갖췄죠."
+   },
+   {
+    "start": 50.0,
+    "end": 56.0,
+    "text": "En ook niet onbelangrijk: het is een hybride, dus je kunt zowel elektrisch als op benzine rijden en ook gecombineerd.",
+    "ko": "또한 중요한 점은 하이브리드 모델이라 전기와 가솔린 모두 주행 가능하며 혼합 주행도 됩니다."
+   },
+   {
+    "start": 56.0,
+    "end": 60.0,
+    "text": "De prijs is €51.945.",
+    "ko": "가격은 51,945 유로입니다."
+   },
+   {
+    "start": 60.0,
+    "end": 64.7,
+    "text": "En je vindt hem in de showroom van DVZ Automotive en natuurlijk op AutoScout24.nl.",
+    "ko": "DVZ Automotive 전시장과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 13.9,
+    "speed": "보통",
+    "summary": "티구안 모델 특징 소개 및 '왜 이 차인가' 질문 던지기"
+   },
+   {
+    "stage": "사양",
+    "start": 13.9,
+    "end": 32.0,
+    "speed": "빠름",
+    "summary": "R-Line 외관 패키지 디테일 및 토우바 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 32.0,
+    "end": 56.1,
+    "speed": "빠름",
+    "summary": "실내 시트 마사지, HUD, 하만카돈 오디오, 선루프, 하이브리드 파워트레인 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 56.1,
+    "end": 59.5,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 59.5,
+    "end": 64.7,
+    "speed": "보통",
+    "summary": "딜러사 및 오토스카우트24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면에 직접 등장하여 설명하고 주요 포인트마다 팝업 자막과 효과음을 동기화함",
+   "옵션 및 사양 언급 시 노란색 배경에 검정 글씨의 체크마크 배지를 우측 또는 하단에 띄움",
+   "중요한 시각적 전환과 스티커 등장 시점마다 명확한 '톡' 효과음 사용",
+   "가격을 영상 후반부로 유도(가격은 끝에 알려준다)하여 시청 지속 시간 확보",
+   "가격 공개 시 카칭(돈 소리) 효과음과 함께 대형 노란색 글씨로 시각적 강조"
+  ]
+ }
+}

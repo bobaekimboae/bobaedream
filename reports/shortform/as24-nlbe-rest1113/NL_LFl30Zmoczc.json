@@ -1,0 +1,625 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/LFl30Zmoczc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3923,
+  "candidatesTokenCount": 5140,
+  "totalTokenCount": 9063,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3181
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.1,
+   "aspect": "9:16",
+   "car": "Audi A3 Cabriolet S Line",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 16.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 35.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "BEN JE OP ZOEK NAAR EEN",
+    "ko": "혹시 찾고 계신가요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.5,
+    "text": "SPORTIEVE CABRIO",
+    "ko": "스포티한 카브리올레",
+    "kind": "말 자막",
+    "y_pct": 5.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPORTIEVE",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.3,
+    "text": "VOOR EEN PRIJS LAGER DAN €20.000",
+    "ko": "20,000유로 미만의 가격으로",
+    "kind": "말 자막",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€20.000",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 6.4,
+    "text": "DAN IS DEZE AUDI A3 IETS VOOR JOU",
+    "ko": "그렇다면 이 아우디 A3가 딱입니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUDI A3",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 7.7,
+    "text": "18-INCH VELGEN",
+    "ko": "18인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "18-INCH",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "EN EEN S LINE EXTERIEUR",
+    "ko": "그리고 S 라인 외관",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "S LINE",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "text": "HIJ HEEFT SENSOREN",
+    "ko": "센서가 장착되어 있고",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SENSOREN",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "text": "ACHTERUITRIJ CAMERA",
+    "ko": "후방 카메라",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ACHTERUITRIJ",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.0,
+    "text": "IS WAT KOUD IN EEN CABRIO",
+    "ko": "컨버터블이라 좀 춥다고요?",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KOUD",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.0,
+    "text": "DAT IS BIJ DEZE NIET HOOR",
+    "ko": "이 차는 전혀 그렇지 않습니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "text": "NIET ALLEEN STOELVERWARMING",
+    "ko": "열선 시트뿐만 아니라",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOELVERWARMING",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.3,
+    "text": "MAAR OOK AIRSCARF",
+    "ko": "에어스카프까지 장착",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AIRSCARF",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.6,
+    "text": "DAAR KAN JE HEM MEE BEDIENEN",
+    "ko": "여기서 직접 조절할 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.5,
+    "text": "WARME LUCHT OM JE NEK HEEN",
+    "ko": "목 주변으로 따뜻한 바람이 나와",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "WARME",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.6,
+    "text": "ALSOF JE EEN WARME SJAAL AAN HEBT",
+    "ko": "마치 따뜻한 목도리를 두른 것 같습니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "WARME SJAAL",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.6,
+    "text": "DAT IS LUXE HE VOOR EEN LEUKE PRIJS",
+    "ko": "착한 가격에 이 정도 고급감이라니",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "LUXE",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 31.8,
+    "text": "AUTOHUIS MULDER",
+    "ko": "오토하우스 뮐더",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.1,
+    "text": "EN NATUURLIJK OP AUTOSCOUT24.NL",
+    "ko": "그리고 당연히 오토스카우트24에서",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.6,
+    "type": "돈 소리",
+    "event": "가격 자막 강조 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 여닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "탑승 시트 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "쿵",
+    "event": "트렁크 닫히는 묵직한 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "톡",
+    "event": "로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 32.2,
+    "end": 35.1,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Ben je op zoek naar een sportieve cabrio voor een prijs lager dan €20.000?",
+    "ko": "2만 유로 미만의 스포티한 컨버터블을 찾고 계신가요?"
+   },
+   {
+    "start": 3.8,
+    "end": 6.5,
+    "text": "Dan is deze Audi A3 iets voor jou.",
+    "ko": "그렇다면 이 아우디 A3가 딱입니다."
+   },
+   {
+    "start": 6.5,
+    "end": 8.8,
+    "text": "Hij heeft 18-inch velgen en een S line exterieur.",
+    "ko": "18인치 휠과 S 라인 익스테리어를 갖추고 있습니다."
+   },
+   {
+    "start": 8.8,
+    "end": 11.5,
+    "text": "Hij heeft sensoren en een achteruitrijcamera.",
+    "ko": "센서와 후방 카메라가 탑재되어 있고요."
+   },
+   {
+    "start": 11.5,
+    "end": 14.6,
+    "text": "En denk je nu, het is wat koud in een cabrio? Dat is bij deze niet hoor.",
+    "ko": "컨버터블은 춥지 않을까 생각하시나요? 이 차는 전혀 그렇지 않습니다."
+   },
+   {
+    "start": 14.6,
+    "end": 18.8,
+    "text": "Deze auto heeft namelijk niet alleen stoelverwarming, maar ook Airscarf.",
+    "ko": "열선 시트뿐만 아니라 에어스카프 기능도 있거든요."
+   },
+   {
+    "start": 18.8,
+    "end": 21.6,
+    "text": "Dat zie je hier, en dan heb je hier een knopje, daar kan je hem mee bedienen.",
+    "ko": "여기를 보시면 버튼이 있어서 조작할 수 있습니다."
+   },
+   {
+    "start": 21.6,
+    "end": 26.6,
+    "text": "Dan blaast hij namelijk warme lucht om je nek heen, alsof je een warme sjaal aan hebt.",
+    "ko": "목 주위로 따뜻한 바람을 불어줘서 마치 따뜻한 목도리를 두른 것 같죠."
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "text": "Dat is luxe hè, voor een leuke prijs.",
+    "ko": "착한 가격에 정말 럭셔리하지 않나요?"
+   },
+   {
+    "start": 28.7,
+    "end": 32.0,
+    "text": "Je vindt deze Audi in de showroom van Autohuis Mulder.",
+    "ko": "이 아우디는 Autohuis Mulder 전시장에서 만나보실 수 있습니다."
+   },
+   {
+    "start": 32.0,
+    "end": 35.1,
+    "text": "En natuurlijk op autoscout24.nl.",
+    "ko": "물론 autoscout24.nl에서도 보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "2만 유로 이하 가성비 오픈카 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.0,
+    "end": 6.4,
+    "speed": "보통",
+    "summary": "아우디 A3 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 6.4,
+    "end": 11.5,
+    "speed": "빠름",
+    "summary": "18인치 휠, S 라인 외관, 후방 카메라 및 센서"
+   },
+   {
+    "stage": "기능",
+    "start": 11.5,
+    "end": 26.6,
+    "speed": "보통",
+    "summary": "오픈카 보온 핵심 옵션인 에어스카프 및 열선 시트 체험"
+   },
+   {
+    "stage": "가격",
+    "start": 26.6,
+    "end": 28.6,
+    "speed": "보통",
+    "summary": "가성비 강조 마무리"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.6,
+    "end": 35.1,
+    "speed": "보통",
+    "summary": "판매처 및 AutoScout24 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "자막 키워드는 노란색 볼드 텍스트로 처리하여 시인성을 높임",
+   "진행자의 신체 액션과 컷 전환을 빠르게 연결해 역동적인 템포 유지",
+   "오픈카의 단점(추위)을 역이용하여 에어스카프 옵션으로 솔루션 제시",
+   "화면 중앙에 대형 로고 팝업으로 브랜드 엔딩 임팩트 부여"
+  ]
+ }
+}

@@ -1,0 +1,830 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/m5hSzSXIG-w",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7935,
+  "candidatesTokenCount": 6880,
+  "totalTokenCount": 15814,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7193
+   }
+  ],
+  "thoughtsTokenCount": 999,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 80.0,
+   "aspect": "9:16",
+   "car": "Audi SQ8 (Q8)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 12.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 22.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 24.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 31.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 36.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.1,
+    "end": 40.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 49.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 51.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.1,
+    "end": 54.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.3,
+    "end": 56.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 100.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.0,
+    "end": 104.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.9,
+    "end": 107.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.5,
+    "end": 109.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 109.8,
+    "end": 116.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 116.5,
+    "end": 80.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "text": "519 PK",
+    "ko": "519 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "519 PK",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.2,
+    "text": "2024",
+    "ko": "2024년식",
+    "kind": "키워드 스티커",
+    "y_pct": 26.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 5.0,
+    "text": "PRACHTIGE KLEUR",
+    "ko": "아름다운 색상",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PRACHTIGE",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.0,
+    "text": "AUDI Q8",
+    "ko": "아우디 Q8",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUDI Q8",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.0,
+    "text": "BOMVOL LUXE OPTIES",
+    "ko": "럭셔리 옵션 가득",
+    "kind": "키워드 스티커",
+    "y_pct": 28.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BOMVOL",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.8,
+    "text": "✔ B&O GELUIDSSYSTEEM",
+    "ko": "✔ B&O 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "✔",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.5,
+    "text": "✔ 3D-EFFECT",
+    "ko": "✔ 3D 입체 효과",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3D-EFFECT",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "text": "✨ LUXE STOELEN",
+    "ko": "✨ 고급 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUXE",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "✔ S-LOGO",
+    "ko": "✔ S 로고",
+    "kind": "키워드 스티커",
+    "y_pct": 49.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "S-LOGO",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.5,
+    "text": "✔ STOELVERWARMING",
+    "ko": "✔ 열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "✔",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "✔ MASSAGESTOELEN",
+    "ko": "✔ 마사지 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 71.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "✔",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "text": "✔ STOELKOELING",
+    "ko": "✔ 통풍 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOELKOELING",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.2,
+    "text": "OAK GREEN PEARL EFFECT",
+    "ko": "오크 그린 펄 이펙트",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OAK GREEN",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.5,
+    "text": "VIERWIELAANDRIJVING",
+    "ko": "4륜 구동",
+    "kind": "키워드 스티커",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VIERWIELAANDRIJVING",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.0,
+    "text": "✔ PARKEERSENSOREN",
+    "ko": "✔ 주차 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "✔",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 57.0,
+    "text": "✔ CAMERA'S RONDOM",
+    "ko": "✔ 서라운드 뷰 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "✔",
+    "sure": true
+   },
+   {
+    "start": 62.5,
+    "end": 65.5,
+    "text": "✔ ELEKTRISCH UITKLAPBARE TREKHAAK",
+    "ko": "✔ 전동식 접이식 견인봉",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "✔",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 74.5,
+    "text": "€ 128.888",
+    "ko": "128,888 유로",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€ 128.888",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "'519 PK' 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.9,
+    "type": "톡",
+    "event": "'2024' 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "톡",
+    "event": "'PRACHTIGE KLEUR' 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "휙",
+    "event": "'AUDI Q8' 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.1,
+    "type": "톡",
+    "event": "'BOMVOL LUXE OPTIES' 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "띵",
+    "event": "'B&O GELUIDSSYSTEEM' 체크 항목 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "띵",
+    "event": "'3D-EFFECT' 체크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "톡",
+    "event": "'LUXE STOELEN' 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "띵",
+    "event": "'S-LOGO' 체크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.8,
+    "type": "띵",
+    "event": "'STOELVERWARMING' 체크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "띵",
+    "event": "'MASSAGESTOELEN' 체크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "띵",
+    "event": "'STOELKOELING' 체크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "'OAK GREEN PEARL EFFECT' 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "톡",
+    "event": "'VIERWIELAANDRIJVING' 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.5,
+    "type": "띵",
+    "event": "'PARKEERSENSOREN' 체크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "띵",
+    "event": "'CAMERA'S RONDOM' 체크 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.5,
+    "type": "띵",
+    "event": "'ELEKTRISCH UITKLAPBARE TREKHAAK' 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 65.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 토우바(견인봉) 전개 모터 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 71.0,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 76.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 댄스",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 76.8,
+    "end": 80.0,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 아웃트로",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "519 pk, uit 2024, een prachtige kleur, dat is deze Audi Q8.",
+    "ko": "519마력, 2024년식, 아름다운 컬러의 이 차는 아우디 Q8입니다."
+   },
+   {
+    "start": 6.8,
+    "end": 12.0,
+    "text": "En hij zit natuurlijk ook bomvol luxe opties, onder andere een B&O geluidssysteem met 3D-effect.",
+    "ko": "그리고 당연히 3D 효과가 있는 B&O 사운드 시스템을 비롯한 고급 옵션들로 가득 차 있습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 21.8,
+    "text": "En hij heeft ook luxe stoelen hier met het S-logo en dat ruitpatroon. En hij heeft niet alleen stoelverwarming, maar het zijn ook massagestoelen. Ja, dit wil je gewoon hè?",
+    "ko": "여기 S 로고와 다이아몬드 패턴이 들어간 고급 시트도 있죠. 열선 시트뿐만 아니라 마사지 기능도 탑재되어 있습니다. 정말 탐나지 않나요?"
+   },
+   {
+    "start": 21.8,
+    "end": 31.0,
+    "text": "Het design van deze auto is ook gewoon supermooi. Je hebt hier twee schermen: dus hier meer voor de media, en hier kun je dus je klimaat instellen.",
+    "ko": "디자인도 정말 멋집니다. 여기 두 개의 스크린이 있어 위는 미디어용, 아래는 공조 장치를 제어할 수 있습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 38.8,
+    "text": "En ik zei net dat die stoelverwarming en massagestoelen had, maar hij heeft ook stoelkoeling. Dus ook in de zomer is het echt een top auto.",
+    "ko": "방금 열선과 마사지 시트를 말씀드렸는데 통풍 시트도 지원합니다. 여름철에도 완벽한 차량이죠."
+   },
+   {
+    "start": 38.8,
+    "end": 49.5,
+    "text": "En de kleur, die is echt supermooi. Die heet dus Oak Green Pearl Effect en die is dus van Exclusive Audi. Ik zag hem staan en dacht meteen: wow!",
+    "ko": "그리고 컬러가 정말 환상적입니다. '오크 그린 펄 이펙트'라는 아우디 익스클루시브 색상인데요, 보자마자 와 소리가 절로 나왔어요!"
+   },
+   {
+    "start": 49.5,
+    "end": 56.5,
+    "text": "Ja en ruim is ie natuurlijk. Hij heeft ook vierwielaandrijving, parkeersensoren, camera's rondom.",
+    "ko": "공간도 매우 넉넉하고 4륜 구동에 주차 센서, 서라운드 뷰 카메라까지 갖추고 있습니다."
+   },
+   {
+    "start": 56.5,
+    "end": 69.8,
+    "text": "En kijk hoeveel ruimte dat je hier achterin hebt. En niet onbelangrijk: hier een knopje voor de elektrisch uitklapbare trekhaak. Daar komt ie! Helemaal compleet.",
+    "ko": "트렁크 공간도 얼마나 넓은지 보세요. 그리고 중요한 전동식 토우바 버튼도 있습니다. 나오네요! 완벽한 풀옵션입니다."
+   },
+   {
+    "start": 69.8,
+    "end": 80.0,
+    "text": "De prijs van deze Audi Q8 is €128.888 en je vindt hem in de showroom van Severs Automotive en natuurlijk op autoscout24.nl.",
+    "ko": "이 아우디 Q8의 가격은 128,888유로이며, Severs Automotive 전시관과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.2,
+    "speed": "빠름",
+    "summary": "차량 스펙(519마력, 2024년식)과 매력적인 외관 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 5.2,
+    "end": 22.1,
+    "speed": "빠름",
+    "summary": "B&O 3D 사운드 및 마사지/열선 시트 옵션 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 22.1,
+    "end": 39.1,
+    "speed": "보통",
+    "summary": "듀얼 터치스크린 조작 및 통풍 시트 기능 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 39.1,
+    "end": 49.8,
+    "speed": "보통",
+    "summary": "아우디 익스클루시브 오크 그린 펄 외장 컬러 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 49.8,
+    "end": 56.5,
+    "speed": "빠름",
+    "summary": "4륜 구동, 휠, 서라운드 카메라 등 주행/편의 스펙"
+   },
+   {
+    "stage": "기능",
+    "start": 56.5,
+    "end": 69.8,
+    "speed": "보통",
+    "summary": "넓은 트렁크 공간 및 전동 견인봉 작동 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 69.8,
+    "end": 76.5,
+    "speed": "보통",
+    "summary": "차량 판매 가격 및 판매처 딜러 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 76.5,
+    "end": 80.0,
+    "speed": "빠름",
+    "summary": "AutoScout24 로고 및 사이트 안내 엔딩"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에 서서 주요 특징을 말할 때마다 노란색/흰색 굵은 텍스트 박스가 톡 튀어나오며 시각적 강조를 준다.",
+   "옵션(B&O, 통풍, 마사지 등)을 열거할 때 체크마크(✔)와 함께 띵 효과음을 연속 배치해 리스트 느낌을 극대화한다.",
+   "새로운 기능이나 스펙 소개로 컷이 전환될 때 경쾌한 음악의 비트에 맞춰 화면을 전환한다.",
+   "전동 접이식 견인봉 등 작동 옵션은 버튼을 누르고 작동하는 실제 모터 소리와 과정을 그대로 보여준다.",
+   "마지막 10초 이내에 명확한 가격 정보(€ 표시 및 볼드체)와 플랫폼 로고 스티커를 활용해 구매 전환을 유도한다."
+  ]
+ }
+}

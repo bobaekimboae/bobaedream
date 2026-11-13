@@ -1,0 +1,644 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/_aRrX2difnA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4848,
+  "candidatesTokenCount": 6239,
+  "totalTokenCount": 12075,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4106
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 988,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 45.3,
+   "aspect": "9:16",
+   "car": "Toyota Corolla GR Sport",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 9.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 20.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 30.1,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 32.1,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 39.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.1,
+    "end": 42.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 4.5,
+    "text": "€37.950",
+    "ko": "37,950유로",
+    "kind": "가격",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "text": "184 PK",
+    "ko": "184마력",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "DECEMBER 2024",
+    "ko": "2024년 12월식",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "12.500 KM",
+    "ko": "12,500 km",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "text": "✔ SPORTIEF",
+    "ko": "스포티함",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.3,
+    "text": "✔ VIJF DEUREN",
+    "ko": "5도어",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 24.9,
+    "text": "✔ 18 INCH VELGEN",
+    "ko": "18인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.5,
+    "text": "✔ VERRASSEND RUIM",
+    "ko": "놀라울 정도로 넓음",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 35.8,
+    "text": "✔ BOMVOL LUXE OPTIES",
+    "ko": "다양한 고급 옵션 탑재",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.0,
+    "text": "✔ EEN AUTOMAAT",
+    "ko": "자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.2,
+    "end": 38.9,
+    "text": "✔ APPLE CARPLAY",
+    "ko": "애플 카플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.1,
+    "text": "✔ STOELVERWARMING",
+    "ko": "열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 41.5,
+    "text": "✔ ADAPTIVE CRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "톡",
+    "event": "184 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "DECEMBER 2024 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "12.500 KM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "톡",
+    "event": "SPORTIEF 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.1,
+    "type": "톡",
+    "event": "VIJF DEUREN 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.8,
+    "type": "톡",
+    "event": "18 INCH VELGEN 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "톡",
+    "event": "VERRASSEND RUIM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.5,
+    "type": "톡",
+    "event": "BOMVOL LUXE OPTIES 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.0,
+    "type": "톡",
+    "event": "EEN AUTOMAAT 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.2,
+    "type": "톡",
+    "event": "APPLE CARPLAY 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "톡",
+    "event": "STOELVERWARMING 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.2,
+    "type": "톡",
+    "event": "ADAPTIVE CRUISE CONTROL 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.2,
+    "type": "휙",
+    "event": "엔딩 AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 / 하우스 비트",
+   "bpm_est": 124,
+   "mood": "경쾌함, 밝음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "what": "AutoScout24 노란색 페인트 배경 로고",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 43.2,
+    "end": 45.3,
+    "what": "AutoScout24 노란색 페인트 배경 로고",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 CTA / 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "text": "Deze Toyota kost €37.950 en ik vertel je in deze video bijna alles wat je moet weten over deze auto.",
+    "ko": "이 토요타는 37,950유로이며, 이번 영상에서 이 차에 대해 알아야 할 거의 모든 것을 알려드립니다."
+   },
+   {
+    "start": 6.3,
+    "end": 9.4,
+    "text": "En je vindt hem natuurlijk op autoscout24.nl.",
+    "ko": "물론 autoscout24.nl에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 9.4,
+    "end": 12.0,
+    "text": "Hij heeft 184 pk, het is een hybride en...",
+    "ko": "184마력의 하이브리드 모델이며..."
+   },
+   {
+    "start": 12.0,
+    "end": 20.3,
+    "text": "...het is een sportuitvoering en hij komt dus uit december 2024. Hij is dus echt nog zo goed als nieuw, met slechts 12.500 km op de teller.",
+    "ko": "스포츠 트림 모델로 2024년 12월식입니다. 주행거리는 단 12,500km로 사실상 신차급 컨디션입니다."
+   },
+   {
+    "start": 20.3,
+    "end": 25.0,
+    "text": "En hij ziet er niet alleen sportief uit, maar hij is ook praktisch met zijn vijf deuren. 18 inch velgen...",
+    "ko": "스포티한 외관뿐만 아니라 5도어로 실용적이기까지 합니다. 18인치 휠과..."
+   },
+   {
+    "start": 25.0,
+    "end": 30.1,
+    "text": "...en die kofferruimte die is echt verrassend ruim. Moet je kijken! Deze auto is echt van alle markten thuis.",
+    "ko": "...트렁크 공간도 놀라울 만큼 넉넉합니다. 한번 보세요! 이 차는 정말 다재다능합니다."
+   },
+   {
+    "start": 30.1,
+    "end": 32.1,
+    "text": "Zelfs een trekhaak zit erop.",
+    "ko": "견인고리까지 장착되어 있습니다."
+   },
+   {
+    "start": 32.1,
+    "end": 35.8,
+    "text": "Hij is niet alleen snel en zuinig, maar hij is ook gewoon bomvol luxe opties.",
+    "ko": "빠르고 연비가 좋을 뿐만 아니라, 고급 옵션도 가득 차 있습니다."
+   },
+   {
+    "start": 35.8,
+    "end": 42.0,
+    "text": "Een automaat, Apple CarPlay, Android Auto, stoelverwarming, adaptive cruise control, en zo kan ik nog wel even doorgaan.",
+    "ko": "자동변속기, 애플 카플레이, 안드로이드 오토, 시트 열선, 어댑티브 크루즈 컨트롤 등 자랑할 옵션이 끝도 없습니다."
+   },
+   {
+    "start": 42.0,
+    "end": 45.3,
+    "text": "En je vindt hem natuurlijk op autoscout24.nl.",
+    "ko": "물론 autoscout24.nl에서 찾아보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.3,
+    "speed": "보통",
+    "summary": "차량 가격 공개 및 영상 주제 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 6.3,
+    "end": 9.4,
+    "speed": "빠름",
+    "summary": "플랫폼 Autoscout24 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 9.4,
+    "end": 20.3,
+    "speed": "빠름",
+    "summary": "출력, 하이브리드, 연식, 주행거리 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 20.3,
+    "end": 32.1,
+    "speed": "빠름",
+    "summary": "외관 디테일, 휠, 트렁크 용량, 견인고리 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 32.1,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "실내 및 편의 사양 나열 (카플레이, 열선, ACC 등)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 42.0,
+    "end": 45.3,
+    "speed": "보통",
+    "summary": "최종 사이트 접속 유도 및 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "첫 1초 이내에 차량 가격을 흰색 상자 볼드 자막과 금전 등록기 효과음(ka-ching)으로 노출하여 시선을 잡는다.",
+   "중요 스펙이나 옵션 이름이 언급될 때마다 체크 표시(✔)가 포함된 흰색 배경 키워드 스티커를 팝업 사운드와 함께 띄운다.",
+   "대화형 자막은 노란색 강조 단어가 포함된 다이내믹 워드별 자막으로 가독성을 높인다.",
+   "초반부와 후반부에 플랫폼 로고(AutoScout24) 그래픽을 휙(whoosh) 사운드와 함께 노출하여 브랜딩을 강화한다."
+  ]
+ }
+}

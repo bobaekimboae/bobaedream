@@ -1,0 +1,113 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/b-r2OME6juo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1663,
+  "candidatesTokenCount": 878,
+  "totalTokenCount": 3206,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 921
+   }
+  ],
+  "thoughtsTokenCount": 665,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.4,
+   "aspect": "9:16",
+   "car": "BMW M3 (G80) / M4",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "text": "Raad het merk & model",
+    "ko": "제조사와 모델을 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 10.4,
+    "text": "AutoScout24 Laat het weten in de reacties!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 88,
+   "mood": "경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.5,
+    "speed": "보통",
+    "summary": "출연자가 스티어링 휠 로고를 손으로 가린 채 차종 퀴즈 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 5.5,
+    "end": 10.4,
+    "speed": "보통",
+    "summary": "실내 디테일을 보여주며 댓글로 정답 참여 유도"
+   }
+  ],
+  "rules": [
+   "스티어링 휠 로고를 손으로 가려 시청자의 댓글 참여를 유도하는 퀴즈형 포맷",
+   "단일 테이크의 핸드헬드 무빙으로 차량 실내 특징을 자연스럽게 노출",
+   "브랜드 시그니처 컬러(노란색) 박스 자막으로 시선 집중 및 CTA 강조"
+  ]
+ }
+}

@@ -1,0 +1,541 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/rm_IRwYoqsM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3564,
+  "candidatesTokenCount": 4210,
+  "totalTokenCount": 8225,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2822
+   }
+  ],
+  "thoughtsTokenCount": 451,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.8,
+   "aspect": "9:16",
+   "car": "BMW M5",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.8,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.2,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 31.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "RAAD HOEVEEL",
+    "ko": "맞혀보세요 얼마나",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RAAD HOEVEEL",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.1,
+    "text": "PK",
+    "ko": "마력",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 2.7,
+    "text": "BMW M5",
+    "ko": "BMW M5",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "text": "ZO'N",
+    "ko": "약",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "text": "250",
+    "ko": "250대",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "250",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "text": "DAT WIL DUS ZEGGEN",
+    "ko": "그 말인즉슨",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "text": "EXCLUSIEF IS",
+    "ko": "독점적/희귀하다는 것",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "text": "AKRAPOVIC\nUITLAATSYSTEEM ✓",
+    "ko": "아크라포빅 배기 시스템 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AKRAPOVIC",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.5,
+    "text": "OP EEN M5",
+    "ko": "M5에서",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "text": "ABSURD LET OP",
+    "ko": "엄청납니다 들어보세요",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "text": "V8 BENZINEMOTOR",
+    "ko": "V8 가솔린 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.5,
+    "text": "V8 BENZINEMOTOR\n& ELEKTROMOTOR ✓",
+    "ko": "V8 가솔린 엔진 & 전기모터 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.0,
+    "text": "€ 129.950",
+    "ko": "129,950 유로",
+    "kind": "가격",
+    "y_pct": 14.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.0,
+    "text": "REACTIE",
+    "ko": "댓글",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "PK 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "250 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "톡",
+    "event": "배기 시스템 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기 가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "엔진 스펙 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.3,
+    "type": "톡",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "휙",
+    "event": "엔딩 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "에너지 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 14.8,
+     "what": "엔진 배기음을 위해 음악 음량 일시 하강"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.0,
+    "end": 6.2,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 48.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "what": "AutoScout24 엔딩 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 48.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Kan jij raden hoeveel pk deze BMW M5 heeft?",
+    "ko": "이 BMW M5가 몇 마력인지 맞힐 수 있나요?"
+   },
+   {
+    "start": 2.7,
+    "end": 6.0,
+    "text": "Je vindt er zo'n 250 op AutoScout24.nl.",
+    "ko": "AutoScout24.nl에 약 250대가 등록되어 있습니다."
+   },
+   {
+    "start": 6.0,
+    "end": 8.7,
+    "text": "Dat wil dus zeggen dat hij vrij exclusief is.",
+    "ko": "그 말은 이 차가 꽤 희귀하다는 뜻이죠."
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "text": "Hij heeft een Akrapovic uitlaatsysteem en dat zie je niet snel op een M5.",
+    "ko": "아크라포빅 배기 시스템이 장착되어 있어 M5에서 보기 드뭅니다."
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "En het geluid dat is echt absurd, let op.",
+    "ko": "그리고 배기음이 정말 엄청납니다, 들어보세요."
+   },
+   {
+    "start": 18.2,
+    "end": 21.5,
+    "text": "Hij heeft een V8 benzinemotor en een elektromotor.",
+    "ko": "V8 가솔린 엔진과 전기 모터가 탑재되어 있습니다."
+   },
+   {
+    "start": 21.5,
+    "end": 25.5,
+    "text": "De prijs van deze auto is € 129.950.",
+    "ko": "이 차의 가격은 129,950유로입니다."
+   },
+   {
+    "start": 25.5,
+    "end": 31.5,
+    "text": "En ik ben benieuwd: kan jij raden hoeveel pk deze auto heeft? Laat het weten in de reacties en vergeet ons niet te volgen.",
+    "ko": "궁금한데요, 이 차가 몇 마력인지 맞힐 수 있나요? 댓글로 남겨주시고 팔로우도 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "BMW M5 마력 맞히기 퀴즈 질문으로 시청자 유도"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 2.7,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "AutoScout24 내 매물 수 소개 및 희소성 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 8.7,
+    "end": 18.2,
+    "speed": "보통",
+    "summary": "아크라포빅 배기음 청음 및 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.2,
+    "end": 21.5,
+    "speed": "보통",
+    "summary": "V8 엔진 및 하이브리드 모터 스펙 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 21.5,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 25.5,
+    "end": 31.8,
+    "speed": "빠름",
+    "summary": "댓글 유도 및 팔로우 CTA와 로고 엔딩"
+   }
+  ],
+  "rules": [
+   "진행자의 핵심 단어 발성에 맞춰 옐로우/블랙 대비의 볼드한 키워드 스티커를 팝업",
+   "배기음 등 실제 차량 사운드를 들려줄 때는 배경음악을 줄여 사운드에 집중",
+   "시작과 끝에 동일한 퀴즈 질문을 배치해 댓글 참여를 극대화하는 수미상관 구조 활용"
+  ]
+ }
+}

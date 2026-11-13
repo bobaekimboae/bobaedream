@@ -1,0 +1,578 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/5HG6oDrdeQ0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2926,
+  "candidatesTokenCount": 4473,
+  "totalTokenCount": 7399,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2184
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24.3,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf R-Line eTSI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 8.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.2,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 17.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "DEZE VOLKSWAGEN GOLF R-LINE ETSI",
+    "ko": "이 폭스바겐 골프 R-라인 eTSI는",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "GOLF R-LINE ETSI",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "DEZE VOLKSWAGEN GOLF R-LINE ETSI",
+    "ko": "이 폭스바겐 골프 R-라인 eTSI는",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "GOLF R-LINE ETSI",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "BOMVOL",
+    "ko": "옵션 가득",
+    "kind": "말 자막",
+    "y_pct": 61.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "SPORTSTOELEN MET VERWARMING",
+    "ko": "열선 스포츠 시트",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SPORTSTOELEN MET",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "STUUR MET SCHAKELFLIPPERS",
+    "ko": "패들 시프트가 달린 스티어링 휠",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SCHAKELFLIPPERS",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.9,
+    "text": "SFEERVERLICHTING",
+    "ko": "앰비언트 라이트",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 8.7,
+    "text": "DRAADLOOS OPLADEN",
+    "ko": "무선 충전",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "text": "PANORAMADAK",
+    "ko": "파노라마 선루프",
+    "kind": "말 자막",
+    "y_pct": 61.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.2,
+    "text": "18 INCH VELGEN",
+    "ko": "18인치 휠",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "EN R-LINE BUMPERS",
+    "ko": "그리고 R-라인 범퍼",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "R-LINE BUMPERS",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "DEZE VOLKSWAGEN GOLF R-LINE ETSI",
+    "ko": "이 폭스바겐 골프 R-라인 eTSI는",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "GOLF R-LINE ETSI",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 15.6,
+    "text": "IS NIEUW",
+    "ko": "신차이며",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.6,
+    "text": "150 PK",
+    "ko": "150마력",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.4,
+    "text": "€36.990",
+    "ko": "36,990유로",
+    "kind": "가격",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.0,
+    "text": "JE VINDT DEZE GOLF OP",
+    "ko": "이 골프는 여기서 찾을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "GOLF",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.5,
+    "text": "EN OP AUTOHANDEL MERTENS",
+    "ko": "그리고 오토한델 메르텐스에서",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AUTOHANDEL MERTENS",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트/팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 53.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Deze Volkswagen Golf R-Line eTSI is echt bomvol.",
+    "ko": "이 폭스바겐 골프 R-라인 eTSI는 옵션이 정말 가득합니다."
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "Sportstoelen met verwarming,",
+    "ko": "열선 스포츠 시트,"
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "stuur met schakelflippers,",
+    "ko": "패들 시프트가 달린 스티어링 휠,"
+   },
+   {
+    "start": 6.8,
+    "end": 7.9,
+    "text": "sfeerverlichting, Apple CarPlay,",
+    "ko": "앰비언트 라이트, 애플 카플레이,"
+   },
+   {
+    "start": 7.9,
+    "end": 8.7,
+    "text": "draadloos opladen,",
+    "ko": "무선 충전,"
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "text": "panoramadak,",
+    "ko": "파노라마 선루프,"
+   },
+   {
+    "start": 9.9,
+    "end": 11.2,
+    "text": "18 inch velgen,",
+    "ko": "18인치 휠,"
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "en R-Line bumpers.",
+    "ko": "그리고 R-라인 범퍼까지."
+   },
+   {
+    "start": 12.8,
+    "end": 16.6,
+    "text": "Deze Volkswagen Golf R-Line eTSI is nieuw, heeft 150 pk",
+    "ko": "이 폭스바겐 골프 R-라인 eTSI는 신차이고, 150마력이며,"
+   },
+   {
+    "start": 16.6,
+    "end": 19.4,
+    "text": "en kost €36.990.",
+    "ko": "가격은 36,990유로입니다."
+   },
+   {
+    "start": 19.4,
+    "end": 24.3,
+    "text": "Je vindt deze Golf op autoscout24.be en op Autohandel Mertens.",
+    "ko": "이 골프는 autoscout24.be와 오토한델 메르텐스에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "차량 전면 및 측면 공개와 함께 옵션 풍부함 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 12.8,
+    "speed": "빠름",
+    "summary": "실내 및 외관 핵심 옵션(시트, 스티어링, 충전, 선루프, 휠 등) 연속 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 12.8,
+    "end": 16.6,
+    "speed": "보통",
+    "summary": "신차 상태 및 150마력 출력 스펙 언급"
+   },
+   {
+    "stage": "가격",
+    "start": 16.6,
+    "end": 19.4,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 19.4,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼 및 딜러사 위치 안내"
+   }
+  ],
+  "rules": [
+   "자막 텍스트 중 핵심 단어는 노란색(#FFEE00)으로 하이라이트 처리",
+   "화면 하단 중앙에 일관된 폰트와 검정 테두리 자막 배치",
+   "옵션 나열 시 1초 내외의 빠른 컷 전환으로 리듬감 유지",
+   "영상 말미에 플랫폼 로고와 판매처 간판을 보여주며 구매 유도"
+  ]
+ }
+}

@@ -1,0 +1,623 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/YBc3V244tck",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5024,
+  "candidatesTokenCount": 6097,
+  "totalTokenCount": 12308,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4282
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1187,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.7,
+   "aspect": "9:16",
+   "car": "Mitsubishi Grandis",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.7,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.3,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 23.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 27.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 32.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 37.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 47.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "COMPACTE GEZINSAUTO",
+    "ko": "컴팩트 패밀리카",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COMPACTE",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 2.8,
+    "text": "LUXE OPTIES",
+    "ko": "고급 옵션들",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUXE",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 4.6,
+    "text": "MITSUBISHI GRANDIS",
+    "ko": "미쓰비시 그란디스",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MITSUBISHI",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "text": "PANORAMADAK",
+    "ko": "파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PANORAMADAK",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.0,
+    "text": "LEREN BEKLEDING",
+    "ko": "가죽 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LEREN",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 14.5,
+    "text": "HARMAN KARDON GELUIDSSYSTEEM",
+    "ko": "하만카돈 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HARMAN KARDON",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "text": "GOOGLE BUILT-IN FUNCTIE",
+    "ko": "구글 내장 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GOOGLE",
+    "sure": true
+   },
+   {
+    "start": 17.3,
+    "end": 18.5,
+    "text": "SPOTIFY",
+    "ko": "스포티파이",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPOTIFY",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.8,
+    "text": "GOOGLE MAPS",
+    "ko": "구글 맵",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GOOGLE MAPS",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.0,
+    "text": "HYBRIDE",
+    "ko": "하이브리드",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HYBRIDE",
+    "sure": true
+   },
+   {
+    "start": 26.1,
+    "end": 27.5,
+    "text": "LICHTGEWICHT",
+    "ko": "가벼운 차체 중량",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LICHTGEWICHT",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.5,
+    "text": "AUTOBEDRIJF JUBBEGA",
+    "ko": "유베하 딜러샵",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOBEDRIJF",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "LUXE COMPACTE GEZINSAUTO",
+    "ko": "고급 컴팩트 패밀리카",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUXE",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.8,
+    "text": "€45.790",
+    "ko": "45,790유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€45.790",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.3,
+    "type": "톡",
+    "event": "첫 키워드 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "띵",
+    "event": "파노라마 루프 체크 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.3,
+    "type": "딸깍",
+    "event": "가죽 시트 옵션 체크 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.1,
+    "type": "띵",
+    "event": "하만카돈 오디오 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "톡",
+    "event": "구글 내장 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.3,
+    "type": "톡",
+    "event": "스포티파이 옵션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "구글 맵 옵션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "돈 소리",
+    "event": "가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 댄스",
+   "bpm_est": 124,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 44.5,
+    "end": 47.7,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 앱 다운로드 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Deze compacte gezinsauto heeft verrassend luxe opties.",
+    "ko": "이 컴팩트 패밀리카는 놀랍도록 고급스러운 옵션들을 갖추고 있습니다."
+   },
+   {
+    "start": 3.0,
+    "end": 6.5,
+    "text": "Dit is de Mitsubishi Grandis, en op het einde van deze video vertel ik je hoeveel die kost.",
+    "ko": "이 차는 미쓰비시 그란디스이며, 영상 마지막에 가격을 알려드릴게요."
+   },
+   {
+    "start": 6.5,
+    "end": 10.2,
+    "text": "Hij heeft een panoramadak dat automatisch donker wordt,",
+    "ko": "자동으로 어두워지는 파노라마 글라스 루프가 장착되어 있고,"
+   },
+   {
+    "start": 10.2,
+    "end": 14.5,
+    "text": "hij heeft leren bekleding en een Harman Kardon geluidssysteem.",
+    "ko": "가죽 시트와 하만카돈 프리미엄 오디오 시스템을 탑재했습니다."
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "text": "En deze auto heeft ook de Google built-in functie.",
+    "ko": "또한 구글 빌트인 기능이 탑재되어 있어서,"
+   },
+   {
+    "start": 17.5,
+    "end": 23.5,
+    "text": "En dat wil dus zeggen dat je gewoon Spotify, Google Maps en allemaal verschillende apps in je auto hebt zonder dat je je telefoon hoeft te koppelen.",
+    "ko": "스마트폰을 연결하지 않아도 차 안에서 바로 스포티파이, 구글 맵 등 다양한 앱을 사용할 수 있습니다."
+   },
+   {
+    "start": 23.5,
+    "end": 27.5,
+    "text": "En het is een hybride, dus je rijdt zuinig, maar ook een lichtgewicht.",
+    "ko": "하이브리드라 연비가 뛰어나고 차체도 가볍습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "De wegenbelasting is dus relatief laag.",
+    "ko": "따라서 자동차세도 비교적 저렴합니다."
+   },
+   {
+    "start": 30.5,
+    "end": 37.0,
+    "text": "En hij staat te koop bij Autobedrijf Jubbega. Dat is een familiebedrijf en ze hebben al dertig jaar ervaring in Mitsubishi.",
+    "ko": "현재 오토베드라이프 유베하에서 판매 중이며, 30년 역사의 미쓰비시 전문 패밀리 기업입니다."
+   },
+   {
+    "start": 37.0,
+    "end": 43.8,
+    "text": "En de prijs van deze luxe compacte gezinsauto is €45.790 all in.",
+    "ko": "이 고급 컴팩트 패밀리카의 가격은 올인 45,790유로입니다."
+   },
+   {
+    "start": 43.8,
+    "end": 47.7,
+    "text": "En je vindt hem natuurlijk ook op AutoScout24.nl.",
+    "ko": "물론 AutoScout24.nl에서도 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "화려한 옵션을 갖춘 패밀리카라는 점을 강조하며 시청자 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 7.0,
+    "speed": "보통",
+    "summary": "차명 공개 및 영상 끝에 가격 공개 예고로 리텐션 유도"
+   },
+   {
+    "stage": "기능",
+    "start": 7.0,
+    "end": 23.5,
+    "speed": "보통",
+    "summary": "파노라마 루프, 가죽시트, 하만카돈, 구글 내장 인포테인먼트 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 23.5,
+    "end": 30.5,
+    "speed": "빠름",
+    "summary": "하이브리드 연비, 가벼운 중량과 낮은 세금 혜택 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 30.5,
+    "end": 43.8,
+    "speed": "보통",
+    "summary": "판매 딜러 소개 및 최종 올인 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 43.8,
+    "end": 47.7,
+    "speed": "빠름",
+    "summary": "AutoScout24 플랫폼 로고와 함께 매물 탐색 CTA 안내"
+   }
+  ],
+  "rules": [
+   "도입부에 호기심을 유발하는 문구와 함께 '끝까지 보면 가격 공개' 멘트를 넣어 이탈 방지",
+   "옵션이 소개될 때마다 체크마크(✔)가 포함된 흰색 배경 텍스트 박스 스티커를 팝업 효과음과 함께 표시",
+   "화면 중앙 상단에 노란색 굵은 볼드 텍스트로 핵심 키워드를 직관적으로 전달",
+   "실내 화면, 루프 작동, 트렁크 등 설명 대상 부위를 정확하게 매칭하는 빠른 컷 편집",
+   "마지막에 브랜드 로고 스티커를 올리며 웹사이트/앱 방문 유도로 마무리"
+  ]
+ }
+}

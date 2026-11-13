@@ -1,0 +1,517 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/FvobX9zMAT8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4294,
+  "candidatesTokenCount": 3862,
+  "totalTokenCount": 8156,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3552
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Polo TSI GTI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 11.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 17.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 20.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 21.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.2,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 32.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.3,
+    "end": 34.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 40.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "RAAD HOEVEEL\nPK",
+    "ko": "몇 마력인지 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "VOLKSWAGEN POLO\nGTI",
+    "ko": "폭스바겐 폴로 GTI",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.9,
+    "text": "VOLKSWAGEN POLO\nTSI GTI",
+    "ko": "폭스바겐 폴로 TSI GTI",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.0,
+    "text": "TURBO MET DIRECTE INJECTIE",
+    "ko": "터보 직분사",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 17.8,
+    "text": "PK",
+    "ko": "마력",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 15.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.1,
+    "end": 27.2,
+    "text": "RODE REMKLAUWEN",
+    "ko": "빨간 브레이크 캘리퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "text": "GTI",
+    "ko": "GTI",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 15.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "TSI",
+    "ko": "TSI",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 15.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.5,
+    "text": "VOLKSWAGEN POLO\nTSI GTI",
+    "ko": "폭스바겐 폴로 TSI GTI",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "휙",
+    "event": "화면 전환 및 차량 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "실내 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전석 탑승 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "톡",
+    "event": "PK 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "톡",
+    "event": "GTI 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "TSI 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/전자음악",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.2,
+    "end": 5.8,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Kan jij raden hoeveel pk deze Volkswagen Polo GTI heeft?",
+    "ko": "이 폭스바겐 폴로 GTI가 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 3.7,
+    "end": 6.0,
+    "text": "Die je vindt op AutoScout24.nl.",
+    "ko": "AutoScout24.nl에서 찾을 수 있습니다."
+   },
+   {
+    "start": 6.0,
+    "end": 8.9,
+    "text": "Naast mij staat de Volkswagen Polo TSI GTI.",
+    "ko": "제 옆에는 폭스바겐 폴로 TSI GTI가 있습니다."
+   },
+   {
+    "start": 8.9,
+    "end": 12.0,
+    "text": "TSI, dat wil zeggen turbo met directe injectie.",
+    "ko": "TSI는 직분사 터보를 의미합니다."
+   },
+   {
+    "start": 12.0,
+    "end": 14.7,
+    "text": "Dat wil zeggen power gecombineerd met zuinigheid.",
+    "ko": "파워와 효율성을 동시에 갖췄다는 뜻이죠."
+   },
+   {
+    "start": 14.7,
+    "end": 17.8,
+    "text": "En GTI wil zeggen sportiever met meer pk.",
+    "ko": "그리고 GTI는 더 많은 마력과 스포티함을 의미합니다."
+   },
+   {
+    "start": 17.8,
+    "end": 21.0,
+    "text": "Zo heeft deze Polo een sportief interieur en exterieur.",
+    "ko": "이 폴로는 스포티한 실내와 외관을 갖추고 있습니다."
+   },
+   {
+    "start": 21.0,
+    "end": 23.6,
+    "text": "Hij is overal afgewerkt met rode accenten,",
+    "ko": "곳곳에 빨간색 포인트 디테일이 적용되어 있고,"
+   },
+   {
+    "start": 23.6,
+    "end": 27.2,
+    "text": "GTI-badges en kijk hier bijvoorbeeld: rode remklauwen.",
+    "ko": "GTI 배지와 여기 보이는 것처럼 레드 브레이크 캘리퍼도 있습니다."
+   },
+   {
+    "start": 27.2,
+    "end": 33.0,
+    "text": "Dus elke GTI is een TSI, maar niet elke TSI is een GTI. Om het even gemakkelijk te maken.",
+    "ko": "즉 모든 GTI는 TSI이지만, 모든 TSI가 GTI는 아닙니다. 쉽게 정리하자면요."
+   },
+   {
+    "start": 33.0,
+    "end": 39.5,
+    "text": "Nu ben ik benieuwd of jij kan raden hoeveel pk deze Volkswagen Polo TSI GTI heeft.",
+    "ko": "이제 여러분이 이 폭스바겐 폴로 TSI GTI가 몇 마력인지 맞출 수 있는지 궁금하네요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "마력 퀴즈 질문으로 시청자 호기심 유발"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 3.7,
+    "end": 6.0,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.0,
+    "end": 8.9,
+    "speed": "보통",
+    "summary": "차량 모델명 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 8.9,
+    "end": 17.8,
+    "speed": "빠름",
+    "summary": "TSI와 GTI 명칭의 기술적 의미 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 17.8,
+    "end": 27.2,
+    "speed": "보통",
+    "summary": "내외관 스포티 디자인 및 레드 포인트 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 27.2,
+    "end": 33.0,
+    "speed": "보통",
+    "summary": "GTI와 TSI 관계 정리"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 33.0,
+    "end": 40.0,
+    "speed": "보통",
+    "summary": "댓글 참여 유도(마력 맞추기 퀴즈)"
+   }
+  ],
+  "rules": [
+   "핵심 키워드는 노란색 배경에 검은 글씨의 볼드 박스 자막으로 화면 상단에 팝업 노출",
+   "말하는 음성의 핵심 단어가 나올 때 톡 소리의 효과음과 함께 타이틀/스티커 팝업",
+   "화자 중심 샷과 차량 디테일 인서트 샷을 1~2초 단위로 빠르게 교차 편집",
+   "영상 시작과 끝에 동일한 퀴즈 질문을 배치해 댓글 참여도를 극대화하는 수미상관 구조"
+  ]
+ }
+}

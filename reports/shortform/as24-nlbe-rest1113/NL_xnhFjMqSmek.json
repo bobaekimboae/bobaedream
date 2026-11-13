@@ -1,0 +1,609 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/xnhFjMqSmek",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4573,
+  "candidatesTokenCount": 4995,
+  "totalTokenCount": 9568,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3831
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42.0,
+   "aspect": "9:16",
+   "car": "Audi Q2",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 37.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 42.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "€23.745",
+    "ko": "23,745유로",
+    "kind": "가격",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "text": "2019",
+    "ko": "2019년식",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.8,
+    "text": "40.000 KM GELOPEN",
+    "ko": "40,000 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.5,
+    "text": "AUDI Q2",
+    "ko": "아우디 Q2",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 10.8,
+    "text": "HET IS DE KLEINSTE SUV GEMAAKT HEEFT",
+    "ko": "가장 작은 SUV입니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "KLEINSTE SUV",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 15.6,
+    "text": "MAAR JE HEBT DUS WEL VIJF DEUREN GENOEG RUIMTE MAAR HIJ IS TOCH COMPACT GENOEG VOOR IN DE STAD",
+    "ko": "하지만 5개 도어와 충분한 공간, 도심에 알맞은 크기",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "VIJF DEUREN",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.6,
+    "text": "ELEKTRISCH SCHUIFDAK",
+    "ko": "전동 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.8,
+    "text": "✔ MULTIFUNCTIONEEL STUUR ✔ STOELVERWARMING",
+    "ko": "✔ 다기능 스티어링 휠 ✔ 열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "text": "✔ NAVIGATIESCHERM",
+    "ko": "✔ 내비게이션 화면",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "149 PK",
+    "ko": "149 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.6,
+    "text": "✔ ELEKTRISCH",
+    "ko": "✔ 전동식",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.8,
+    "text": "✔ SUPERRUIM",
+    "ko": "✔ 초특급 여유 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.8,
+    "text": "18 INCH VELGEN",
+    "ko": "18인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.0,
+    "text": "PRIJS LAGER DAN €25.000",
+    "ko": "25,000유로 미만 가격",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "text": "Autos2GO.nl",
+    "ko": "Autos2GO.nl",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "휙",
+    "event": "인트로 거대 텍스트 트랜지션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "휙",
+    "event": "화면 전환 그래픽 슬라이드",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 0.6,
+    "what": "숫자 텍스트 그래픽 슬라이드 트랜지션",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "밀려옴",
+    "purpose": "장면 전환",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 22.4,
+    "what": "숫자 텍스트 그래픽 슬라이드 트랜지션",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "밀려옴",
+    "purpose": "장면 전환",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.0,
+    "what": "AutoScout24 브랜드 스티커 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "23.745 euro.",
+    "ko": "23,745유로."
+   },
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "text": "Uit 2019,",
+    "ko": "2019년식에,"
+   },
+   {
+    "start": 4.0,
+    "end": 6.8,
+    "text": "met nog geen 40.000 km gelopen.",
+    "ko": "주행거리는 40,000km도 안 탔습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "Dat is deze Audi Q2.",
+    "ko": "바로 이 아우디 Q2입니다."
+   },
+   {
+    "start": 8.5,
+    "end": 11.2,
+    "text": "Het is de kleinste SUV die Audi gemaakt heeft,",
+    "ko": "아우디가 만든 가장 작은 SUV이지만,"
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "text": "maar je hebt dus wel vijf deuren, genoeg ruimte,",
+    "ko": "5개 도어와 넉넉한 공간을 갖췄고,"
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "text": "maar hij is toch compact genoeg voor in de stad.",
+    "ko": "도심 주행에도 충분히 콤팩트합니다."
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "text": "En hij heeft een elektrisch schuifdak,",
+    "ko": "그리고 전동 선루프와,"
+   },
+   {
+    "start": 17.0,
+    "end": 19.8,
+    "text": "multifunctioneel stuur, stoelverwarming,",
+    "ko": "다기능 스티어링 휠, 열선 시트,"
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "text": "navigatiescherm, noem maar op.",
+    "ko": "내비게이션 화면 등등 다 갖췄죠."
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "Hij heeft 149 pk,",
+    "ko": "149마력에,"
+   },
+   {
+    "start": 24.5,
+    "end": 26.6,
+    "text": "en kijk hier die kofferruimte: elektrisch,",
+    "ko": "트렁크를 보세요: 전동식에,"
+   },
+   {
+    "start": 26.6,
+    "end": 28.0,
+    "text": "en echt superruim.",
+    "ko": "정말 널찍합니다."
+   },
+   {
+    "start": 28.0,
+    "end": 30.0,
+    "text": "En mooie 18 inch velgen.",
+    "ko": "그리고 멋진 18인치 휠까지."
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "Dus ben je op zoek naar een luxe en praktische Audi voor een prijs lager dan €25.000,",
+    "ko": "25,000유로 미만으로 고급스럽고 실용적인 아우디를 찾고 있다면,"
+   },
+   {
+    "start": 34.0,
+    "end": 37.0,
+    "text": "dan is deze iets voor jou.",
+    "ko": "이 차가 딱입니다."
+   },
+   {
+    "start": 37.0,
+    "end": 38.0,
+    "text": "En weet je waar je hem vindt?",
+    "ko": "어디서 찾을 수 있는지 아시나요?"
+   },
+   {
+    "start": 38.0,
+    "end": 42.0,
+    "text": "Bij Autos2GO.nl en natuurlijk op AutoScout24.nl.",
+    "ko": "Autos2GO.nl과 당연히 AutoScout24.nl에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.5,
+    "speed": "빠름",
+    "summary": "가격, 연식, 주행거리 제시하며 아우디 Q2 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.5,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "실내 탑승 후 공간감 및 주요 편의 옵션 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 22.0,
+    "end": 30.0,
+    "speed": "빠름",
+    "summary": "마력, 전동 트렁크, 휠 등 외관 및 스펙 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 30.0,
+    "end": 37.0,
+    "speed": "보통",
+    "summary": "25,000유로 미만 추천 요약 및 타깃 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 37.0,
+    "end": 42.0,
+    "speed": "보통",
+    "summary": "판매처 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "노란색 배경의 직사각형 박스 자막과 검은색 텍스트를 일관된 키포인트 강조 스타일로 사용",
+   "장면 전환 시 커다란 옐로우 타이포그래피 슬라이드 트랜지션으로 시각적 훅 제공",
+   "진행자가 직접 차량에 탑승하고 트렁크를 여는 등 역동적인 행동과 함께 옵션 설명",
+   "주요 옵션 텍스트 앞에 체크마크(✔)를 넣어 장점 부각",
+   "마지막에 판매처 사이트 및 공식 앱/웹사이트 로고를 띄우며 명확한 CTA 유도"
+  ]
+ }
+}

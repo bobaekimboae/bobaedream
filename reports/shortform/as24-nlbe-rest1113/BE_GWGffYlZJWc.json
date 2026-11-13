@@ -1,0 +1,232 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/GWGffYlZJWc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3284,
+  "candidatesTokenCount": 1693,
+  "totalTokenCount": 5293,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2542
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 316,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.5,
+   "aspect": "9:16",
+   "car": "Kia PV5",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 24.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "HOEVEEL VAKJES TEL JIJ?\nKIA PV5 VANAF €33.250",
+    "ko": "수납공간 몇 개 셀 수 있나요? 기아 PV5 €33,250부터",
+    "kind": "제목",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 24.8,
+    "text": "LAADRUIMTE 4.420L",
+    "ko": "적재 용량 4,420L",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "딸깍",
+    "event": "시트 하단 수납함 개폐",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "딸깍",
+    "event": "대시보드 상단 수납함 개폐",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "바닥 수납함 덮개 열기",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "딸깍",
+    "event": "센터 콘솔 서랍 열기",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "딸깍",
+    "event": "글로브박스 열기",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Hip Hop / Beat",
+   "bpm_est": 125,
+   "mood": "경쾌하고 리듬감 있음",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 24.8,
+    "end": 27.5,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 45.0,
+    "y_pct": 42.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 노출 및 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "보통",
+    "summary": "차량 전면에서 수납함 개수 질문과 함께 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 2.5,
+    "end": 17.6,
+    "speed": "빠름",
+    "summary": "실내 시트 밑, 대시보드, 바닥, 콘솔 등 다양한 수납공간 차례로 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 17.6,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "슬라이딩 도어를 열고 4,420L의 넓은 적재공간 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.8,
+    "end": 27.5,
+    "speed": "보통",
+    "summary": "AutoScout24 로고와 함께 종료"
+   }
+  ],
+  "rules": [
+   "음성 해설 없이 경쾌한 비트와 실내 수납공간을 직접 열어보는 동작으로 직관적인 정보 전달",
+   "노란색과 검은색 외곽선의 굵은 폰트로 주요 수치 및 질문 자막 강조",
+   "비트에 맞춰 각 수납공간이 열리는 순간들을 리드미컬하게 컷 편집"
+  ]
+ }
+}

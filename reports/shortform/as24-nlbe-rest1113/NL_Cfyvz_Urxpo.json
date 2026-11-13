@@ -1,0 +1,490 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Cfyvz_Urxpo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4015,
+  "candidatesTokenCount": 4828,
+  "totalTokenCount": 9750,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3273
+   }
+  ],
+  "thoughtsTokenCount": 907,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 36.0,
+   "aspect": "9:16",
+   "car": "McLaren 570S",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 8.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 16.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 36.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "DEZE AUTO KOSTTE NIEUW",
+    "ko": "이 차의 신차 가격은",
+    "kind": "제목",
+    "y_pct": 11.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA31",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NIEUW",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "text": "MEER DAN EEN GEMIDDELD HUIS",
+    "ko": "일반 주택 한 채보다 비쌌습니다",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA31",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEMIDDELD HUIS",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.9,
+    "text": "MCLAREN 570S",
+    "ko": "맥라렌 570S",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEA31",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MCLAREN",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "text": "3.8l TWIN TUBRO V8",
+    "ko": "3.8리터 트윈터보 V8",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA31",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V8",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "text": "🏁 570 PK",
+    "ko": "🏁 570 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA31",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "570 PK",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.0,
+    "text": "3 SECONDEN",
+    "ko": "3초",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA31",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3 SECONDEN",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.8,
+    "text": "328 KM/U",
+    "ko": "328 km/h",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA31",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "328 KM/U",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.8,
+    "text": "1.415 KG",
+    "ko": "1,415 kg",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA31",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1.415 KG",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.0,
+    "text": "📍 AUTOBEDRIJF JOS PRIEM",
+    "ko": "📍 오토베드라이프 요스 프림",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA31",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "JOS PRIEM",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "자막 'MEER DAN EEN GEMIDDELD HUIS' 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "차량 주행 컷 전환 및 'MCLAREN 570S' 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "맥라렌 도어 닫히는 묵직한 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "톡",
+    "event": "570 PK 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "3 SECONDEN 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.2,
+    "type": "톡",
+    "event": "328 KM/U 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "1.415 KG 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "돈 소리",
+    "event": "유로(€) 기호 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "딜러샵 핀 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "what": "유로(€) 기호 텍스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 45.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 유도",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 36.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩/CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Deze auto kostte nieuw meer dan een gemiddeld huis.",
+    "ko": "이 차는 신차 가격이 평균적인 집 한 채보다 비쌌습니다."
+   },
+   {
+    "start": 2.8,
+    "end": 5.0,
+    "text": "Dit is de McLaren 570S.",
+    "ko": "이 차는 맥라렌 570S입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 8.8,
+    "text": "Een 3.8 liter twin-turbo V8 met 570 pk.",
+    "ko": "570마력을 내는 3.8리터 트윈터보 V8 엔진이죠."
+   },
+   {
+    "start": 8.8,
+    "end": 13.5,
+    "text": "Van 0 naar 100 in 3 seconden.",
+    "ko": "0에서 100km/h까지 단 3초 만에 주파합니다."
+   },
+   {
+    "start": 13.5,
+    "end": 16.8,
+    "text": "En hij gaat gewoon door tot 328 km/u.",
+    "ko": "그리고 최고 속도는 무려 328km/h에 달하죠."
+   },
+   {
+    "start": 16.8,
+    "end": 19.0,
+    "text": "Nou, zo snel ben ik nog nooit gegaan.",
+    "ko": "글쎄요, 저도 그렇게 빨리 달려본 적은 없네요."
+   },
+   {
+    "start": 19.0,
+    "end": 23.0,
+    "text": "En wat veel mensen niet weten, is dat deze McLaren maar 1.415 kg weegt.",
+    "ko": "그리고 많은 분들이 모르는 사실인데, 이 맥라렌의 무게는 고작 1,415kg입니다."
+   },
+   {
+    "start": 23.0,
+    "end": 25.5,
+    "text": "Daardoor voelt hij absurd snel aan.",
+    "ko": "그래서 체감상 말도 안 되게 빠르게 느껴집니다."
+   },
+   {
+    "start": 25.5,
+    "end": 30.0,
+    "text": "Ben je benieuwd naar de prijs, het bouwjaar en de kilometerstand van deze auto? Lees dan even de omschrijving.",
+    "ko": "이 차의 가격, 연식, 주행거리가 궁금하신가요? 설명란을 확인해보세요."
+   },
+   {
+    "start": 30.0,
+    "end": 36.0,
+    "text": "En je vindt hem in de showroom van Autobedrijf Jos Priem en natuurlijk op autoscout24.nl.",
+    "ko": "오토베드라이프 요스 프림 전시장과 물론 autoscout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "집 한 채보다 비싼 신차 가격으로 시청자 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "맥라렌 570S 모델명 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 5.0,
+    "end": 18.8,
+    "speed": "보통",
+    "summary": "엔진, 마력, 제로백, 최고속도 등 핵심 주행 성능 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 18.8,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "경량 차체(공차중량) 및 가속 체감 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 25.5,
+    "end": 30.0,
+    "speed": "보통",
+    "summary": "가격/주행거리 정보는 본문 캡션 확인 유도"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 30.0,
+    "end": 36.0,
+    "speed": "보통",
+    "summary": "제휴 매매상 안내 및 AutoScout24 플랫폼 유입 CTA"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 충격적인 비교 문구(집값보다 비싼 차)로 스크롤을 멈추게 함",
+   "화면 중앙에 노란색 강조 상자 자막을 써서 브랜드 컬러(AutoScout24 노랑)와 시인성을 동시에 확보함",
+   "핵심 숫자 스펙(570 마력, 3초, 328km/h, 1415kg)마다 짧은 팝 SFX와 함께 스티커 자막을 띄움",
+   "프리젠터가 직접 문을 닫거나 차 주위를 걷는 역동적인 모션을 계속 유지해 지루함을 방지함",
+   "구체적 가격 숫자는 영상에서 감추고 캡션(설명란) 조회를 유도해 참여도를 높임"
+  ]
+ }
+}

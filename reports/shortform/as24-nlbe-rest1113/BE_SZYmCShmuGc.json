@@ -1,0 +1,561 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/SZYmCShmuGc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4930,
+  "candidatesTokenCount": 4484,
+  "totalTokenCount": 9947,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4188
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 533,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.0,
+   "aspect": "9:16",
+   "car": "Alfa Romeo Giulia Quadrifoglio",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.8,
+    "part": "엔진룸",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.3,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 26.6,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "페이드",
+    "sure": true
+   },
+   {
+    "start": 28.3,
+    "end": 30.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 47.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "Raad het aantal PK's",
+    "ko": "마력 수를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.7,
+    "text": "Alfa Romeo Giulia Quadrifoglio",
+    "ko": "알파로메오 줄리아 콰드리폴리오",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Giulia",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.8,
+    "text": "2.9-liter V6 biturbo",
+    "ko": "2.9리터 V6 트윈터보",
+    "kind": "키워드 스티커",
+    "y_pct": 13.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.5,
+    "text": "Alfa Romeo Giulia Quadrifoglio",
+    "ko": "알파로메오 줄리아 콰드리폴리오",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Giulia",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 31.8,
+    "text": "achterwielaandrijving",
+    "ko": "후륜구동",
+    "kind": "키워드 스티커",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.6,
+    "text": "aggressieve uitstraling",
+    "ko": "공격적인 외관",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.1,
+    "text": "Italiaanse klasse",
+    "ko": "이탈리안 클래스",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.0,
+    "text": "Hoeveel PK levert deze auto?",
+    "ko": "이 차는 몇 마력일까요?",
+    "kind": "제목",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Hoeveel",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 44.0,
+    "text": "450 PK",
+    "ko": "450 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.0,
+    "text": "510 PK",
+    "ko": "510 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 27.5,
+    "x_center_pct": 40.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.9,
+    "end": 44.0,
+    "text": "600 PK",
+    "ko": "600 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 가속 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "톡",
+    "event": "키 보여주며 퀴즈 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "톡",
+    "event": "차량명 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.3,
+    "type": "톡",
+    "event": "엔진 스펙 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.6,
+    "type": "톡",
+    "event": "구동방식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.1,
+    "type": "톡",
+    "event": "특징 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.8,
+    "type": "톡",
+    "event": "특징 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.9,
+    "type": "톡",
+    "event": "퀴즈 질문 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.3,
+    "type": "톡",
+    "event": "선택지 1 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.1,
+    "type": "톡",
+    "event": "선택지 2 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "톡",
+    "event": "선택지 3 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 흥미진진함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 2.7,
+     "what": "도입 배기음 후 배경음악 본격 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "what": "스피커 애니메이션 이모지 4개",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "바로",
+    "purpose": "배기 사운드 집중 유도",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 47.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "페이드",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 2.7,
+    "end": 7.7,
+    "text": "Kun jij raden hoeveel pk deze Alfa Romeo Giulia Quadrifoglio heeft?",
+    "ko": "이 알파로메오 줄리아 콰드리폴리오가 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 7.8,
+    "end": 14.0,
+    "text": "Dit is niet zomaar een sportieve berline. Onder de motorkap ligt een 2.9-liter V6 biturbo.",
+    "ko": "이건 평범한 스포츠 세단이 아닙니다. 보닛 아래에는 2.9리터 V6 트윈터보가 자리잡고 있습니다."
+   },
+   {
+    "start": 14.1,
+    "end": 18.9,
+    "text": "Maar wat betekent dit Ferrari plaatje nu precies? Heeft deze Alfa Romeo dan een Ferrari motor?",
+    "ko": "하지만 이 페라리 명판은 정확히 무엇을 의미할까요? 이 알파로메오에 페라리 엔진이 들어갔을까요?"
+   },
+   {
+    "start": 19.0,
+    "end": 26.6,
+    "text": "Niet letterlijk. De 2.9 biturbo V6 is een Alfa Romeo motor, maar hij is met Ferrari technische kennis ontwikkeld.",
+    "ko": "문자 그대로는 아닙니다. 2.9 트윈터보 V6는 알파로메오 엔진이지만 페라리의 기술 지식으로 개발되었습니다."
+   },
+   {
+    "start": 26.7,
+    "end": 37.7,
+    "text": "En dat maakt de Giulia Quadrifoglio zo bijzonder. Met achterwielaandrijving, een agressieve uitstraling en Italiaanse klasse, is deze Quadrifoglio gebouwd voor echte autosportliefhebbers.",
+    "ko": "그리고 그것이 줄리아 콰드리폴리오를 특별하게 만듭니다. 후륜구동, 공격적인 스타일, 이탈리안 감성을 갖춘 이 콰드리폴리오는 진정한 모터스포츠 매니아를 위해 제작되었습니다."
+   },
+   {
+    "start": 37.8,
+    "end": 44.0,
+    "text": "Maar nu de grote vraag: hoeveel pk levert deze auto? 450 pk, 510 pk of 600 pk?",
+    "ko": "이제 가장 중요한 질문입니다. 이 차는 몇 마력을 낼까요? 450마력, 510마력, 아니면 600마력?"
+   },
+   {
+    "start": 44.1,
+    "end": 47.0,
+    "text": "Laat jouw gok achter in de comments.",
+    "ko": "댓글로 당신의 추측을 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "보통",
+    "summary": "배기음 청음으로 시청자 이목 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.7,
+    "end": 11.2,
+    "speed": "보통",
+    "summary": "키를 보여주며 마력 퀴즈 제시 및 차량 외관 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 11.2,
+    "end": 26.6,
+    "speed": "보통",
+    "summary": "엔진룸 오픈 후 2.9 V6 엔진 및 페라리 기술 협업 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 26.6,
+    "end": 37.7,
+    "speed": "빠름",
+    "summary": "차량의 주행 특성, 디자인 포인트, 실내 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 37.7,
+    "end": 47.0,
+    "speed": "보통",
+    "summary": "3지선다 마력 퀴즈 보기 제시 및 댓글 참여 유도"
+   }
+  ],
+  "rules": [
+   "초반 3초 이내에 강렬한 배기 사운드와 사운드 이모티콘을 활용해 즉각적인 청각적 훅을 건다",
+   "브랜드 시그니처 색상(노란색 배경 상자)을 키워드 자막 강조에 일관되게 사용한다",
+   "스펙이나 퀴즈 선택지가 나타날 때마다 경쾌한 팝 효과음을 동기화하여 몰입감을 높인다",
+   "차량의 핵심 호기심 요소(페라리 명판)를 클로즈업하고 질문을 던져 체류 시간을 확보한다",
+   "마지막에는 다지선다 퀴즈 형태로 댓글 참여를 유도하며 브랜드 로고를 노출시킨다"
+  ]
+ }
+}

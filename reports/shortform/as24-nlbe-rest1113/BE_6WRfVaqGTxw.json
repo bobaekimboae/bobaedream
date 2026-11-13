@@ -1,0 +1,337 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/6WRfVaqGTxw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2208,
+  "candidatesTokenCount": 2395,
+  "totalTokenCount": 4603,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1466
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 17.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.4,
+    "end": 2.2,
+    "text": "VOLKSWAGEN\nGOLF GTI",
+    "ko": "폭스바겐 골프 GTI",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "text": "245 PK",
+    "ko": "245 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "2019",
+    "ko": "2019년식",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "65.000 KM",
+    "ko": "65,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "text": "ADAPTIVE\nCRUISECONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.5,
+    "text": "SCHAKELFLIPPERS",
+    "ko": "패들 시프트",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "text": "€23.000",
+    "ko": "23,000유로",
+    "kind": "가격",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.4,
+    "type": "쿵",
+    "event": "제목 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.3,
+    "type": "딸깍",
+    "event": "패들시프트 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.7,
+    "type": "딸깍",
+    "event": "패들시프트 조작음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 리듬감 있음",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Dit is de Volkswagen Golf GTI.",
+    "ko": "이 차는 폭스바겐 골프 GTI입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "발표자가 차를 소개하며 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "3단 분할 화면으로 외관 및 실내 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 5.4,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "연식 및 주행거리 정보 제공"
+   },
+   {
+    "stage": "기능",
+    "start": 8.7,
+    "end": 11.5,
+    "speed": "빠름",
+    "summary": "어댑티브 크루즈 및 패들시프트 기능 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 11.5,
+    "end": 14.8,
+    "speed": "빠름",
+    "summary": "트렁크 및 외관 디테일과 함께 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 14.8,
+    "end": 17.0,
+    "speed": "보통",
+    "summary": "후면 뷰와 로고로 마무리"
+   }
+  ],
+  "rules": [
+   "도입부에서 발표자가 차량명을 말하며 바로 본론으로 진입한다",
+   "노란색 굵은 볼드 텍스트에 검은색 외곽선을 일관되게 사용한다",
+   "비트에 맞추어 빠른 컷 전환과 직관적인 텍스트로 스펙을 전달한다",
+   "중간에 3단 분할 화면을 활용하여 핵심 디자인 요소를 압축해서 보여준다"
+  ]
+ }
+}

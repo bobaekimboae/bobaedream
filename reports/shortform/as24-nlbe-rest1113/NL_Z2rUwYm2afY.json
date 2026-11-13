@@ -1,0 +1,770 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Z2rUwYm2afY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5299,
+  "candidatesTokenCount": 6030,
+  "totalTokenCount": 11329,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4557
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "Skoda Elroq RS",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 24.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.7,
+    "end": 28.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 29.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.4,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.4,
+    "end": 36.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 43.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 44.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 50.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "DIT IS DE",
+    "ko": "이것은 바로",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "text": "SKODA\nELROQ",
+    "ko": "스코다 엘록",
+    "kind": "말 자막",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.5,
+    "text": "RS,",
+    "ko": "RS,",
+    "kind": "말 자막",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "text": "SNELSTE\nSKODA OOIT",
+    "ko": "역대 가장 빠른 스코다",
+    "kind": "말 자막",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.6,
+    "text": "VOOR",
+    "ko": "앞에",
+    "kind": "말 자막",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.6,
+    "text": "EN ACHTER MOTOREN",
+    "ko": "그리고 뒤 모터",
+    "kind": "말 자막",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#CCFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.7,
+    "text": "MAXIMALE GRIP",
+    "ko": "최대 접지력",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.7,
+    "text": "DE REGEN OF",
+    "ko": "비가 오거나",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.9,
+    "text": "MAXIMAAL OPTREKKEN",
+    "ko": "최대 가속",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "text": "✔ RUIME FAMILIEAUTO",
+    "ko": "넓은 패밀리카",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.5,
+    "text": "0 NAAR 100",
+    "ko": "0에서 100까지",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.3,
+    "text": "✔ 5,4 SECONDEN",
+    "ko": "5.4초",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "text": "VOLLEDIG ELEKTRISCH",
+    "ko": "완전 전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.7,
+    "text": "550 KM",
+    "ko": "550 km",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.7,
+    "end": 27.5,
+    "text": "10 NAAR 80%",
+    "ko": "10%에서 80%",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "text": "26 MINUTEN",
+    "ko": "26분",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.8,
+    "text": "LUXE OPTIES",
+    "ko": "고급 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "text": "✔ LUXE AUDIO",
+    "ko": "고급 오디오",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 44.7,
+    "text": "✔ SPORTIEVE\nELEKTRISCHE AUTO",
+    "ko": "스포티한 전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.8,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "SKODA ELROQ 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "톡",
+    "event": "SNELSTE SKODA OOIT 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.7,
+    "type": "톡",
+    "event": "MAXIMALE GRIP 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.7,
+    "type": "톡",
+    "event": "MAXIMAAL OPTREKKEN 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "체크 아이콘 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "5,4 SECONDEN 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "550 KM 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "톡",
+    "event": "26 MINUTEN 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "electronic pop",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 48.0,
+    "end": 50.8,
+    "what": "AutoScout24 노란색 로고 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Dit is de Skoda Elroq RS, de snelste Skoda ooit.",
+    "ko": "이것은 역대 가장 빠른 스코다인 스코다 엘록 RS입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "Je hebt voor en achter motoren en dat zorgt dus voor maximale grip.",
+    "ko": "전륜과 후륜 모터가 장착되어 있어 최상의 접지력을 제공합니다."
+   },
+   {
+    "start": 6.7,
+    "end": 11.9,
+    "text": "Dus ook in de regen of in de sneeuw kan je gewoon maximaal optrekken.",
+    "ko": "따라서 비나 눈이 올 때도 최대 성능으로 가속할 수 있습니다."
+   },
+   {
+    "start": 11.9,
+    "end": 14.8,
+    "text": "En hij is zo praktisch als een ruime familieauto.",
+    "ko": "그리고 넓은 패밀리카처럼 실용적입니다."
+   },
+   {
+    "start": 14.8,
+    "end": 20.3,
+    "text": "Maar hij is ook snel, je gaat van 0 naar 100 in ongeveer 5,4 seconden.",
+    "ko": "하지만 동시에 매우 빠르며, 제로백 약 5.4초를 기록합니다."
+   },
+   {
+    "start": 20.3,
+    "end": 24.7,
+    "text": "Hij is volledig elektrisch maar je hebt dus een rijbereik van 550 km.",
+    "ko": "순수 전기차이지만 550km의 주행거리를 자랑합니다."
+   },
+   {
+    "start": 24.7,
+    "end": 29.8,
+    "text": "En je kunt van 10 naar 80% gaan in 26 minuten.",
+    "ko": "그리고 10%에서 80%까지 충전하는 데 26분이 걸립니다."
+   },
+   {
+    "start": 29.8,
+    "end": 34.0,
+    "text": "Dit RS model is echt het topmodel qua prestaties van Skoda.",
+    "ko": "이 RS 모델은 스코다의 성능 면에서 진정한 최상위 모델입니다."
+   },
+   {
+    "start": 34.0,
+    "end": 40.0,
+    "text": "Je hebt bij deze auto ook echt luxe opties waar je uit kan kiezen, zoals massagestoelen, luxe audio, een groot scherm.",
+    "ko": "마사지 시트, 프리미엄 오디오, 대형 화면 등 고급 옵션도 선택할 수 있습니다."
+   },
+   {
+    "start": 40.0,
+    "end": 44.7,
+    "text": "Kortom, een gezinsauto die presteert als een sportieve elektrische auto.",
+    "ko": "요컨대, 스포티한 전기차처럼 달리는 패밀리카입니다."
+   },
+   {
+    "start": 44.7,
+    "end": 50.8,
+    "text": "En je vindt hem in de showroom van Maas-De Koning Driverhouse en natuurlijk op autoscout24.nl.",
+    "ko": "이 차량은 Maas-De Koning Driverhouse 전시장과 autoscout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "역대 가장 빠른 스코다 엘록 RS 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 11.9,
+    "speed": "보통",
+    "summary": "듀얼 모터 사륜구동 접지력 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 11.9,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "가속력, 주행거리, 충전 속도 등 스펙 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 44.7,
+    "speed": "보통",
+    "summary": "실내 편의 사양 및 RS 모델 특징 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 44.7,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "전시장 방문 및 AutoScout24 확인 유도"
+   }
+  ],
+  "rules": [
+   "진행자가 화면에 직접 등장해 차량의 내·외관을 직접 가리키며 설명",
+   "스펙 숫자(5,4초, 550km, 26분 등)가 나올 때마다 노란색 상자 자막과 효과음을 매칭",
+   "말의 흐름에 맞춰 1~3초 간격으로 빠른 컷 전환을 진행",
+   "영상의 엔딩에 노란색 브랜드 로고를 팝업하며 마무리 안내"
+  ]
+ }
+}

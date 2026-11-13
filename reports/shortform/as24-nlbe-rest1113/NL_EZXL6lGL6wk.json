@@ -1,0 +1,615 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/EZXL6lGL6wk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4029,
+  "candidatesTokenCount": 4971,
+  "totalTokenCount": 9856,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3287
+   }
+  ],
+  "thoughtsTokenCount": 856,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 36.8,
+   "aspect": "9:16",
+   "car": "Audi RS 3 Sportback",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 27.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 36.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "IK BEN BENIEUWD",
+    "ko": "궁금하네요",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BENIEUWD",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.2,
+    "text": "RAAD HOEVEEL PK",
+    "ko": "몇 마력인지 맞춰보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "AUDI RS 3 SPORTBACK",
+    "ko": "아우디 RS 3 스포트백",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "DEZE AUDI OP",
+    "ko": "이 아우디는",
+    "kind": "말 자막",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.3,
+    "text": "EN DEZE AUTO KOST NU",
+    "ko": "그리고 이 차의 현재 가격은",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 10.8,
+    "text": "€116.950",
+    "ko": "116,950 유로",
+    "kind": "가격",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "text": "EN HOOR DAT GELUID",
+    "ko": "그리고 이 사운드를 들어보세요",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "SUPERMOOI AFGEWERKT",
+    "ko": "정말 훌륭한 마감",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "text": "✔ ALCANTARA STUUR",
+    "ko": "알칸타라 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "text": "✔ LUXE KUIPSTOELEN",
+    "ko": "고급 버킷 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 20.9,
+    "text": "✔ 19 INCH VELGEN",
+    "ko": "19인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.0,
+    "text": "KERAMISCHE REMMEN",
+    "ko": "세라믹 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.8,
+    "text": "MEER DAN 15.000 AUDI'S",
+    "ko": "15,000대 이상의 아우디가",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "RAAD HOEVEEL PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.3,
+    "type": "톡",
+    "event": "AUDI RS 3 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.4,
+    "type": "띵",
+    "event": "가격 박스 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 배기 사운드 가속음 재생",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "톡",
+    "event": "알칸타라 스티어링 휠 체크박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "버킷 시트 체크박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "톡",
+    "event": "19인치 휠 체크박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 노란 박스 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 / 하우스 비트",
+   "bpm_est": 124,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 11.5,
+     "what": "엔진 사운드 구간에서 음악 볼륨 급격히 줄어듦"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.2,
+    "end": 6.8,
+    "what": "AutoScout24 노란색 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.0,
+    "what": "스피커 아이콘 3개 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배기음 집중 유도",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "what": "AutoScout24 노란색 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.8,
+    "what": "AutoScout24 노란색 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 로고 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Ik ben benieuwd of jij kan raden hoeveel pk deze Audi RS 3 Sportback heeft.",
+    "ko": "이 아우디 RS 3 스포트백이 몇 마력인지 맞출 수 있는지 궁금하네요."
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "En je vindt deze Audi op AutoScout24.nl.",
+    "ko": "이 아우디는 AutoScout24.nl에서 찾으실 수 있습니다."
+   },
+   {
+    "start": 7.0,
+    "end": 10.9,
+    "text": "En deze auto kost nu €116.950.",
+    "ko": "그리고 이 차의 가격은 현재 116,950유로입니다."
+   },
+   {
+    "start": 10.9,
+    "end": 14.5,
+    "text": "En hoor dat geluid!",
+    "ko": "그리고 이 사운드를 들어보세요!"
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "text": "Hij is ook supermooi afgewerkt vanbinnen, een alcantara stuur,",
+    "ko": "실내도 알칸타라 스티어링 휠로 아주 훌륭하게 마감되어 있고,"
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "text": "en heeft luxe kuipstoelen met carbon.",
+    "ko": "카본이 적용된 고급 버킷 시트가 있습니다."
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "text": "En heeft 19 inch velgen met keramische remmen.",
+    "ko": "그리고 세라믹 브레이크가 달린 19인치 휠이 장착되어 있습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 27.8,
+    "text": "Maar niet alleen vanbinnen is hij perfect afgewerkt, ook aan de buitenkant komt het carbon en die sportieve look terug.",
+    "ko": "실내뿐만 아니라 외관에서도 카본과 스포티한 룩이 완벽하게 돋보입니다."
+   },
+   {
+    "start": 27.8,
+    "end": 31.5,
+    "text": "Wist je dat er meer dan 15.000 Audi's op AutoScout24 staan?",
+    "ko": "AutoScout24에 15,000대 이상의 아우디가 등록되어 있다는 사실을 알고 계셨나요?"
+   },
+   {
+    "start": 31.5,
+    "end": 36.8,
+    "text": "En je vindt hem in de showroom van Borgers en natuurlijk op AutoScout24.nl.",
+    "ko": "Borgers 전시장에서 만나보실 수 있으며, 당연히 AutoScout24.nl에서도 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "차량 전면을 보여주며 마력 퀴즈로 시청자 참여 유도"
+   },
+   {
+    "stage": "가격",
+    "start": 4.5,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "판매 플랫폼 언급 및 차량 가격 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.9,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "배기음/엔진음 청음 구간"
+   },
+   {
+    "stage": "기능",
+    "start": 14.5,
+    "end": 27.8,
+    "speed": "빠름",
+    "summary": "실내 마감, 스티어링 휠, 시트, 브레이크, 외관 카본 디테일 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 27.8,
+    "end": 34.5,
+    "speed": "보통",
+    "summary": "플랫폼 등록 대수 및 판매처 전시장 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 34.5,
+    "end": 36.8,
+    "speed": "보통",
+    "summary": "엔딩 로고 및 플랫폼 재강조"
+   }
+  ],
+  "rules": [
+   "브랜드 시그니처 색상(노란색 배경 상자)을 핵심 키워드 스티커와 가격에 일관되게 적용함",
+   "스펙이나 옵션을 소개할 때는 체크마크(✔)가 포함된 노란색 박스 자막과 '톡' 효과음을 동기화함",
+   "배기음을 들려줄 때는 배경음악을 완전히 줄이고 스피커 아이콘을 띄워 청각적 집중도를 극대화함",
+   "진행자가 화면 중앙에서 트렁크에 앉거나 차 주위를 걷는 등 역동적인 쇼룸 투어 연출을 사용함"
+  ]
+ }
+}

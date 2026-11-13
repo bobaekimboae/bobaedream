@@ -1,0 +1,182 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/xIF9g3B5dCo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1663,
+  "candidatesTokenCount": 1548,
+  "totalTokenCount": 3211,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 921
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.4,
+   "aspect": "9:16",
+   "car": "Audi RS 3 Sportback",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "AUDI RS 3\nSPORTBACK",
+    "ko": "아우디 RS 3 스포트백",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "400 PK",
+    "ko": "400 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 18.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "ALCANTARA STUUR",
+    "ko": "알칸타라 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 105,
+   "mood": "스타일리시하고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 7.3,
+    "end": 10.4,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 15.0,
+    "y_pct": 58.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "아우디 RS 3 스포트백 전면 풀샷 및 타이틀 자막"
+   },
+   {
+    "stage": "사양",
+    "start": 2.2,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "라디에이터 그릴 클로즈업과 400마력 스펙 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "실내 알칸타라 스티어링 휠 클로즈업"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 6.8,
+    "end": 10.4,
+    "speed": "보통",
+    "summary": "차량 측면 샷과 AutoScout24 로고 등장"
+   }
+  ],
+  "rules": [
+   "음악 비트에 맞춰 화면 컷 전환이 정확하게 이루어짐",
+   "화면 중앙에 굵은 고딕 폰트와 검정 외곽선을 적용하여 시인성을 높인 노랑/흰색 텍스트 배치",
+   "핵심 스펙(출력, 주요 인테리어 소재)을 간결한 키워드로 전달",
+   "엔딩에 브랜드 로고 애니메이션을 오버레이하여 플랫폼 각인"
+  ]
+ }
+}

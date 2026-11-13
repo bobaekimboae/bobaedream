@@ -1,0 +1,438 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/FvxvDC531kk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3394,
+  "candidatesTokenCount": 4366,
+  "totalTokenCount": 7760,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2652
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.5,
+   "aspect": "9:16",
+   "car": "Volkswagen Polo GTI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 16.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 22.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "RAAD HET MERK & MODEL VAN DEZE AUTO",
+    "ko": "이 차의 브랜드와 모델을 맞춰보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MERK & MODEL",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.8,
+    "text": "MEER DAN 4000",
+    "ko": "4000대 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4000",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.5,
+    "text": "EEN PAAR TIPS",
+    "ko": "몇 가지 힌트",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 10.9,
+    "text": "DEZE AUTO IS SINDS 1975",
+    "ko": "이 차는 1975년부터 출시되었습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SINDS 1975",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "text": "EN DEZE AUTO B-SEGMENT",
+    "ko": "그리고 이 차는 B-세그먼트입니다",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "B-SEGMENT",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 15.9,
+    "text": "DAT WIL ZEGGEN ✓ COMPACT ✓ VERRASSEND RUIM",
+    "ko": "즉, 컴팩트하지만 놀랍도록 넓은 실내",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COMPACT",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "text": "HIJ IS BESCHIKBAAR MET EEN DIGITALE COCKPIT",
+    "ko": "디지털 콕핏이 탑재되어 있습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DIGITALE COCKPIT",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 22.7,
+    "text": "SPORTIEVE VARIANTEN DEZE HEEFT MAAR LIEFST 200 PK",
+    "ko": "스포티한 모델이며, 무려 200마력입니다",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "200 PK",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.5,
+    "text": "KAN JIJ RADEN WELK MERK & MODEL",
+    "ko": "어떤 브랜드와 모델인지 맞출 수 있나요?",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WELK MERK & MODEL",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.5,
+    "text": "IN EEN REACTIE",
+    "ko": "댓글로 남겨주세요",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "딸깍",
+    "event": "COMPACT 체크포인트 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "딸깍",
+    "event": "VERRASSEND RUIM 체크포인트 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "쿵",
+    "event": "200 PK 강조 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 엔딩 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 / 비트",
+   "bpm_est": 115,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 3.8,
+    "end": 5.9,
+    "what": "AutoScout24 노란색 브러시 로고",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 47.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.5,
+    "what": "AutoScout24 노란색 브러시 로고",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 47.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 CTA / 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "Kan jij raden welk merk en model deze auto is?",
+    "ko": "이 차가 어떤 브랜드의 어떤 모델인지 맞출 수 있나요?"
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "text": "Je vindt er meer dan 4.000 op AutoScout24.nl. Ik geef je een paar tips.",
+    "ko": "AutoScout24.nl에서 4,000대 이상 만나보실 수 있어요. 힌트를 몇 가지 드릴게요."
+   },
+   {
+    "start": 7.5,
+    "end": 10.9,
+    "text": "Deze auto is al op de markt sinds 1975.",
+    "ko": "이 차는 1975년부터 시장에 출시되었습니다."
+   },
+   {
+    "start": 10.9,
+    "end": 15.9,
+    "text": "En deze auto valt in het B-segment. Dat wil zeggen compact, maar verrassend ruim van binnen.",
+    "ko": "그리고 B-세그먼트에 속하죠. 컴팩트하지만 실내는 놀라울 정도로 넓다는 뜻입니다."
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "text": "Hij is beschikbaar met een digitale cockpit.",
+    "ko": "디지털 콕핏 옵션도 지원합니다."
+   },
+   {
+    "start": 18.6,
+    "end": 22.7,
+    "text": "En er zijn sportieve varianten. Deze heeft maar liefst 200 pk.",
+    "ko": "그리고 스포티한 트림도 있는데, 이 모델은 무려 200마력에 달합니다."
+   },
+   {
+    "start": 22.8,
+    "end": 29.5,
+    "text": "Kan jij raden welk merk en model deze auto is? Laat het weten in een reactie en volg AutoScout24 voor meer.",
+    "ko": "이 차가 무슨 브랜드의 어떤 모델인지 맞출 수 있나요? 댓글로 남겨주시고, 더 많은 정보를 위해 AutoScout24를 팔로우하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.9,
+    "speed": "빠름",
+    "summary": "차명 맞추기 퀴즈 질문 제기"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 2.9,
+    "end": 7.5,
+    "speed": "보통",
+    "summary": "플랫폼 등록 대수 언급 및 힌트 시작 예고"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.5,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "힌트 1: 1975년 출시 역사"
+   },
+   {
+    "stage": "기능",
+    "start": 10.9,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "힌트 2 & 3: B-세그먼트 차급 및 디지털 콕핏"
+   },
+   {
+    "stage": "사양",
+    "start": 18.5,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "힌트 4: 고성능 200마력 스펙 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 22.8,
+    "end": 29.5,
+    "speed": "빠름",
+    "summary": "정답 댓글 유도 및 팔로우 CTA"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에 서서 퀴즈 형식으로 호기심을 유발하는 구조",
+   "브랜드 시그니처 색상인 옐로우와 블랙을 활용한 볼드한 자막 박스 디자인",
+   "주요 힌트 키워드(연도, 마력, 세그먼트)마다 팝 효과음과 함께 텍스트 강조",
+   "화면 전환마다 차의 다양한 위치(운전석, 트렁크, 외관)를 빠르게 번갈아 보여주며 지루함 방지",
+   "마지막에 댓글 유도와 계정 팔로우를 촉구하는 명확한 CTA 배치"
+  ]
+ }
+}

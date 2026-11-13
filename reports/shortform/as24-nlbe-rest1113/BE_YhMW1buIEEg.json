@@ -1,0 +1,498 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/YhMW1buIEEg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3388,
+  "candidatesTokenCount": 4767,
+  "totalTokenCount": 9317,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2646
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1162,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.5,
+   "aspect": "9:16",
+   "car": "Alpine A110 R",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 8.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Achter mij staat de Alpine A110 R",
+    "ko": "제 뒤에 알핀 A110 R이 있습니다",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFD200",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Achter mij",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "text": "en de prijs die vertel ik op het einde",
+    "ko": "가격은 마지막에 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "vertel",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.6,
+    "text": "De achterruit is vervangen door carbon.",
+    "ko": "뒷유리는 카본으로 교체되었습니다.",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "vervangen",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.8,
+    "text": "4 cilinder 300 pk",
+    "ko": "4기통 300마력",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFD200",
+    "bg_width_pct": 48.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "text": "Stap je in dan wordt het nog wat serieuzer.",
+    "ko": "탑승해보면 더욱 진지해집니다.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "nog wat serieuzer",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.8,
+    "text": "Carbonstoelen + 6-punts gordel",
+    "ko": "카본 버킷시트 + 6점식 안전벨트",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFD200",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.9,
+    "end": 14.9,
+    "text": "en geen overbodige luxe.",
+    "ko": "불필요한 사치는 없습니다.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "overbodige",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "2.800 Km",
+    "ko": "2,800 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFD200",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.8,
+    "text": "en is klaar voor de volgende liefhebber.",
+    "ko": "다음 매니아를 맞이할 준비가 되었습니다.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "liefhebber",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 22.8,
+    "text": "€109.950",
+    "ko": "109,950 유로",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFD200",
+    "bg_width_pct": 58.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFD200",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 훅 자막 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.7,
+    "type": "톡",
+    "event": "엔진 스펙 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "톡",
+    "event": "시트 스펙 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "주행거리 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 20.2,
+    "type": "돈 소리",
+    "event": "차량 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 25.4,
+    "end": 27.2,
+    "what": "VD MOTORS 딜러십 로고 배너",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 판매 딜러십 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Achter mij staat de Alpine A110 R",
+    "ko": "제 뒤에 알핀 A110 R이 서 있습니다."
+   },
+   {
+    "start": 2.6,
+    "end": 4.8,
+    "text": "en de prijs die vertel ik op het einde.",
+    "ko": "그리고 가격은 맨 마지막에 알려드릴게요."
+   },
+   {
+    "start": 4.9,
+    "end": 6.6,
+    "text": "De achterruit is vervangen door carbon.",
+    "ko": "뒷유리는 카본으로 대체되었습니다."
+   },
+   {
+    "start": 6.7,
+    "end": 8.8,
+    "text": "Onder de kap ligt een viercilinder met 300 pk.",
+    "ko": "보닛 아래에는 300마력의 4기통 엔진이 탑재되어 있습니다."
+   },
+   {
+    "start": 8.9,
+    "end": 10.9,
+    "text": "Stap je in dan wordt het nog wat serieuzer.",
+    "ko": "안에 타보면 훨씬 더 본격적입니다."
+   },
+   {
+    "start": 11.0,
+    "end": 12.8,
+    "text": "Carbonstoelen met een 6-punts gordel",
+    "ko": "카본 버킷시트와 6점식 안전벨트가 있고,"
+   },
+   {
+    "start": 12.9,
+    "end": 14.8,
+    "text": "en geen overbodige luxe.",
+    "ko": "불필요한 사치는 전혀 없습니다."
+   },
+   {
+    "start": 14.9,
+    "end": 17.5,
+    "text": "Deze Alpine heeft slechts 2.800 km op de teller",
+    "ko": "이 알핀의 계기판 주행거리는 단 2,800km에 불과하며"
+   },
+   {
+    "start": 17.6,
+    "end": 19.8,
+    "text": "en is klaar voor de volgende liefhebber.",
+    "ko": "다음 주인을 맞이할 준비가 끝났습니다."
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "text": "En hij kost €109.950.",
+    "ko": "그리고 가격은 109,950유로입니다."
+   },
+   {
+    "start": 22.9,
+    "end": 26.4,
+    "text": "Je vindt deze Alpine A110 R in de showroom van VD Motors",
+    "ko": "이 알핀 A110 R은 VD Motors 쇼룸과"
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "text": "en op autoscout24.be.",
+    "ko": "오토스카우트24 벨기에에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "보통",
+    "summary": "알핀 A110 R 소개 및 가격은 마지막에 공개한다는 시청 지속 훅"
+   },
+   {
+    "stage": "사양",
+    "start": 4.9,
+    "end": 8.8,
+    "speed": "빠름",
+    "summary": "카본 리어 윈도우 루버 및 4기통 300마력 엔진 스펙 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 8.8,
+    "end": 17.6,
+    "speed": "빠름",
+    "summary": "경량 카본 레이싱 시트, 6점식 벨트, 2,800km 주행거리 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 17.6,
+    "end": 22.9,
+    "speed": "보통",
+    "summary": "약속했던 판매 가격 109,950유로 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 22.9,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "해당 매물이 있는 딜러십 및 AutoScout24 플랫폼 안내 CTA"
+   }
+  ],
+  "rules": [
+   "초반 5초 내에 '가격은 영상 끝에 공개한다'는 멘트로 시청 지속률을 유도함",
+   "브랜드 시그니처 컬러(노란색) 바탕의 비스듬한 스티커 배너로 핵심 스펙과 가격을 굵고 직관적으로 강조함",
+   "화자가 직접 운전석에 탑승하고 주요 부품(카본 시트, 벨트)을 가리켜 생동감을 높임",
+   "마지막에 딜러십 명칭과 플랫폼 로고를 손짓과 함께 매칭하여 구매 경로를 명확히 제시함"
+  ]
+ }
+}

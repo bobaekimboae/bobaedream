@@ -1,0 +1,511 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/HG2suItRsuY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3836,
+  "candidatesTokenCount": 5044,
+  "totalTokenCount": 10094,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3094
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1214,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.8,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf R-Line eTSI",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 9.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 14.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 18.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 22.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "DIT IS EEN VOLKSWAGEN GOLF R-LINE ETSI",
+    "ko": "이 차는 폭스바겐 골프 R-라인 eTSI입니다",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFF000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "VOLKSWAGEN",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.7,
+    "text": "MAAR WAT BETEKENT ETSI EIGENLIJK",
+    "ko": "그런데 eTSI는 실제로 무슨 뜻일까요?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ETSI",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 9.7,
+    "text": "DE E STAAT VOOR MILD-HYBRIDE TECHNIEK MET EEN 48V-SYSTEEM",
+    "ko": "e는 48V 시스템을 갖춘 마일드 하이브리드 기술을 뜻합니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "E",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 14.6,
+    "text": "DAARMEE KAN DE AUTO SOEPEL STARTEN OPTREKKEN & BRANDSTOF BESPAREN",
+    "ko": "이를 통해 차는 부드럽게 시동 걸고 가속하며 연료를 절약할 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STARTEN",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 18.6,
+    "text": "TSI BETEKENT TURBO CHARGED STRATIFIED INJECTION",
+    "ko": "TSI는 직분사 터보차저(Turbocharged Stratified Injection)를 의미합니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFF000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TURBO",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 22.7,
+    "text": "KORTOM ETSI STAAT VOOR EFFICIËNTIE EN PERFORMANCE IN EEN PAKKET",
+    "ko": "즉 eTSI는 효율과 성능을 하나의 패키지에 담았다는 뜻입니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ETSI",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.3,
+    "text": "DEZE VOLKSWAGEN GOLF R-LINE ETSI IS NIEUW",
+    "ko": "이 폭스바겐 골프 R-라인 eTSI는 신차이며",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NIEUW",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.5,
+    "text": "150 PK",
+    "ko": "150 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.7,
+    "text": "€36.990",
+    "ko": "36,990 유로",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "JE VINDT DEZE GOLF OP",
+    "ko": "이 골프 모델은 여기서 찾으실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 33.8,
+    "text": "EN BIJ AUTOHANDEL MERTENS",
+    "ko": "그리고 오토한델 메르텐스 매장에서",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MERTENS",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 11.6,
+    "type": "톡",
+    "event": "STARTEN 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.4,
+    "type": "톡",
+    "event": "OPTREKKEN 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.3,
+    "type": "톡",
+    "event": "BRANDSTOF BESPAREN 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.2,
+    "type": "톡",
+    "event": "TURBO CHARGED 단어 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.1,
+    "type": "톡",
+    "event": "STRATIFIED 단어 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.9,
+    "type": "톡",
+    "event": "INJECTION 단어 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.5,
+    "type": "쿵",
+    "event": "150 PK 스펙 강조 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.7,
+    "type": "돈 소리",
+    "event": "가격 36.990 유로 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 30.5,
+    "end": 32.1,
+    "what": "AutoScout24 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 및 플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Dit is een Volkswagen Golf R-Line eTSI.",
+    "ko": "이 차는 폭스바겐 골프 R-라인 eTSI입니다."
+   },
+   {
+    "start": 3.8,
+    "end": 5.8,
+    "text": "Maar wat betekent eTSI eigenlijk?",
+    "ko": "하지만 eTSI는 실제로 어떤 뜻일까요?"
+   },
+   {
+    "start": 5.8,
+    "end": 9.8,
+    "text": "De 'e' staat voor mild-hybride techniek met een 48V-systeem.",
+    "ko": "'e'는 48볼트 시스템을 갖춘 마일드 하이브리드 기술을 뜻합니다."
+   },
+   {
+    "start": 9.8,
+    "end": 14.7,
+    "text": "Daarmee kan de auto soepel starten, optrekken en brandstof besparen.",
+    "ko": "이를 통해 차가 부드럽게 시동 걸고 출발하며 연료도 절약할 수 있죠."
+   },
+   {
+    "start": 14.7,
+    "end": 18.7,
+    "text": "TSI betekent Turbocharged Stratified Injection.",
+    "ko": "TSI는 터보차저 직분사(Turbocharged Stratified Injection)를 의미합니다."
+   },
+   {
+    "start": 18.7,
+    "end": 22.8,
+    "text": "Kortom, eTSI staat voor efficiëntie en performance in één pakket.",
+    "ko": "요컨대 eTSI는 효율과 성능을 한 패키지에 담았다는 뜻입니다."
+   },
+   {
+    "start": 22.8,
+    "end": 29.8,
+    "text": "Deze Volkswagen Golf R-Line eTSI is nieuw, heeft 150 pk en kost €36.990.",
+    "ko": "이 폭스바겐 골프 R-라인 eTSI는 신차로, 150마력에 가격은 36,990유로입니다."
+   },
+   {
+    "start": 29.8,
+    "end": 33.8,
+    "text": "Je vindt deze Golf op AutoScout24.be en bij Autohandel Mertens.",
+    "ko": "이 골프는 AutoScout24.be와 Autohandel Mertens에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "골프 R-Line eTSI 소개 및 'eTSI'의 의미 질문 유도"
+   },
+   {
+    "stage": "기능",
+    "start": 5.8,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "마일드 하이브리드(e)와 TSI 엔진의 기술적 원리 및 장점 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 22.8,
+    "end": 27.6,
+    "speed": "빠름",
+    "summary": "차량 실내외 디테일 컷과 150마력 스펙 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 27.6,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 29.8,
+    "end": 33.8,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼 및 판매 딜러십 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 차량 엠블럼과 부품을 가리키며 질문 던지는 형식으로 호기심을 유발함",
+   "핵심 키워드 및 기술 용어는 단어별 순차적 팝업과 효과음(톡)을 동기화하여 가독성을 높임",
+   "스펙(150 PK)과 가격(€36.990)은 굵은 노란색 볼드 텍스트로 화면 중앙에 임팩트 있게 노출",
+   "영상 후반부에는 플랫폼 로고 스티커를 직관적으로 띄우고 딜러 간판 컷으로 마무리하여 전환 유도"
+  ]
+ }
+}

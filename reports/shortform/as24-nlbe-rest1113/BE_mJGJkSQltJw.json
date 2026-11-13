@@ -1,0 +1,541 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/mJGJkSQltJw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2737,
+  "candidatesTokenCount": 5393,
+  "totalTokenCount": 8996,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1995
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 866,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21.8,
+   "aspect": "9:16",
+   "car": "Volkswagen T-Cross & Volkswagen T-Roc",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 18.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "text": "VOLKSWAGEN",
+    "ko": "폭스바겐",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VOLKSWAGEN",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 1.3,
+    "text": "T-CROSS",
+    "ko": "T-크로스",
+    "kind": "키워드 스티커",
+    "y_pct": 14.2,
+    "x_center_pct": 82.5,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "T-CROSS",
+    "sure": true
+   },
+   {
+    "start": 1.3,
+    "end": 2.2,
+    "text": "T-ROC",
+    "ko": "T-록",
+    "kind": "키워드 스티커",
+    "y_pct": 45.8,
+    "x_center_pct": 36.5,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "T-ROC",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.3,
+    "text": "WELK IS JOUW MATCH?",
+    "ko": "어떤 차가 당신에게 맞을까요?",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MATCH?",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.5,
+    "text": "DE COMPACTE T-CROSS",
+    "ko": "컴팩트한 T-크로스",
+    "kind": "말 자막",
+    "y_pct": 66.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DE COMPACTE",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.4,
+    "text": "MET EEN 1.0",
+    "ko": "1.0",
+    "kind": "말 자막",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "1.0",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.3,
+    "text": "TSI MOTOR",
+    "ko": "TSI 엔진과",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "TSI MOTOR",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "text": "MET 116 PK",
+    "ko": "116마력",
+    "kind": "말 자막",
+    "y_pct": 46.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MET 116 PK",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "text": "DSG AUTOMAAT",
+    "ko": "DSG 자동변속기",
+    "kind": "말 자막",
+    "y_pct": 84.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DSG AUTOMAAT",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "text": "HIJ IS WENDBAAR",
+    "ko": "민첩하고",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "WENDBAAR",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.9,
+    "text": "VOOR DE STAD",
+    "ko": "도심에 완벽합니다",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VOOR DE STAD",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.2,
+    "text": "OF DE STOERE T-ROC",
+    "ko": "아니면 터프한 T-록",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "OF DE STOERE T-ROC",
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 13.7,
+    "text": "1.5 TSI",
+    "ko": "1.5 TSI 엔진과",
+    "kind": "말 자막",
+    "y_pct": 50.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "1.5 TSI",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 14.9,
+    "text": "MET 150 PK",
+    "ko": "150마력",
+    "kind": "말 자막",
+    "y_pct": 53.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MET 150 PK",
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.4,
+    "text": "R-LINE MET EEN",
+    "ko": "R-라인에",
+    "kind": "말 자막",
+    "y_pct": 56.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "R-LINE",
+    "sure": true
+   },
+   {
+    "start": 16.4,
+    "end": 17.5,
+    "text": "KRACHTIG STIJLVOL",
+    "ko": "강력하고 스타일리시하며",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "KRACHTIG STIJLVOL",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "text": "TE IMPONEREN",
+    "ko": "매력을 뽐낼 준비 완료",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "TE IMPONEREN",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 19.8,
+    "text": "VIND JOUW MATCH",
+    "ko": "나만의 차를 찾아보세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VIND JOUW MATCH",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.7,
+    "type": "톡",
+    "event": "T-CROSS 라벨 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.3,
+    "type": "톡",
+    "event": "T-ROC 라벨 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 / 댄스",
+   "bpm_est": 122,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.7,
+    "end": 2.2,
+    "what": "T-CROSS 텍스트 스티커",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 82.5,
+    "y_pct": 14.2,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 라벨링",
+    "sure": true
+   },
+   {
+    "start": 1.3,
+    "end": 2.2,
+    "what": "T-ROC 텍스트 스티커",
+    "is_3d": false,
+    "size_w_pct": 22.0,
+    "x_pct": 36.5,
+    "y_pct": 45.8,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 라벨링",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.8,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 36.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Volkswagen T-Cross of Volkswagen T-Roc, welke is jouw match?",
+    "ko": "폭스바겐 T-크로스 아니면 T-록, 당신의 선택은?"
+   },
+   {
+    "start": 2.8,
+    "end": 10.9,
+    "text": "De compacte T-Cross met een 1.0 TSI motor met 116 pk en een DSG automaat. Hij is wendbaar, zuinig en perfect voor de stad.",
+    "ko": "컴팩트한 T-크로스는 1.0 TSI 116마력 엔진에 DSG 변속기 장착. 민첩하고 연비가 좋아 도심 주행에 딱입니다."
+   },
+   {
+    "start": 10.9,
+    "end": 18.7,
+    "text": "Of de stoere T-Roc met een 1.5 TSI motor met 150 pk, R-Line met een DSG automaat, krachtig, stijlvol en klaar om te imponeren.",
+    "ko": "아니면 터프한 T-록, 1.5 TSI 150마력 엔진과 R-라인 DSG 자동변속기로 파워풀하고 스타일리시하며 시선을 사로잡습니다."
+   },
+   {
+    "start": 18.7,
+    "end": 21.8,
+    "text": "Vind jouw match op autoscout24.be.",
+    "ko": "AutoScout24.be에서 나만의 매칭을 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "진행자가 두 모델 사이에 서서 시청자에게 양자택일 질문 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "폭스바겐 T-Cross의 엔진 스펙, 변속기, 도심형 특징 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.9,
+    "end": 18.7,
+    "speed": "보통",
+    "summary": "폭스바겐 T-Roc 3분할 화면으로 외관·실내·후면을 한눈에 보여주며 고출력/디자인 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 18.7,
+    "end": 21.8,
+    "speed": "빠름",
+    "summary": "플랫폼 웹사이트 안내 및 로고 노출로 마무리"
+   }
+  ],
+  "rules": [
+   "도입부 양자택일 제안 시 좌우 차량에 맞춰 팝 사운드와 함께 노란색 볼드 텍스트 스티커 팝업",
+   "스펙 소개 시 핵심 키워드(배기량, 마력, 변속기, 특성)를 노란색 하이라이트 자막으로 강조",
+   "후반부 비교 차량(T-Roc)은 3분할 그리드(외관 3/4, 실내, 후면)를 동시 배치해 한 컷으로 압축 전달",
+   "마지막 3초는 호스트의 CTA 멘트와 함께 브랜드 로고 및 도메인을 화면 중앙에 띄워 전환 유도"
+  ]
+ }
+}

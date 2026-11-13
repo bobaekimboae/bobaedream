@@ -1,0 +1,883 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/jATthNu8EIk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4923,
+  "candidatesTokenCount": 7004,
+  "totalTokenCount": 13002,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4181
+   }
+  ],
+  "thoughtsTokenCount": 1075,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 45.8,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG GT 63 S E-Performance",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 10.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 15.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 16.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 34.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 38.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 45.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "€239.888",
+    "ko": "€239,888",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 5.2,
+    "text": "MERCEDES-BENZ",
+    "ko": "메르세데스-벤츠",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.8,
+    "text": "AMG GT 63S",
+    "ko": "AMG GT 63S",
+    "kind": "키워드 스티커",
+    "y_pct": 24.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.7,
+    "text": "E-PERFORMANCE",
+    "ko": "E-퍼포먼스",
+    "kind": "키워드 스티커",
+    "y_pct": 29.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 64.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.0,
+    "text": "EN HET IS EEN",
+    "ko": "그리고 이건",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.0,
+    "text": "HYBRIDE",
+    "ko": "하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 10.8,
+    "text": "MAAR DIE",
+    "ko": "하지만 이건",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 11.5,
+    "text": "KLINKT ZO",
+    "ko": "이렇게 소리가 나요",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 15.1,
+    "text": "AAN DE BUITENKANT",
+    "ko": "외관으로 보면",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 16.6,
+    "text": "HELEMAAL AF",
+    "ko": "완벽합니다",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 17.5,
+    "text": "ALPINE GREY KLEUR",
+    "ko": "알파인 그레이 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 64.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.3,
+    "text": "CARBON DETAILS",
+    "ko": "카본 디테일",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.6,
+    "text": "V8 BITURBO",
+    "ko": "V8 바이터보",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 44.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.1,
+    "text": "816 PK",
+    "ko": "816 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 26.6,
+    "text": "LUXE AUTO",
+    "ko": "럭셔리카",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.1,
+    "text": "AMG PERFORMANCE SEATS",
+    "ko": "AMG 퍼포먼스 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 29.8,
+    "text": "ELEKTRISCH PANORAMADAK",
+    "ko": "전동 파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "text": "BURMESTER GELUIDSSYSTEEM",
+    "ko": "부메스터 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.5,
+    "text": "816 PK",
+    "ko": "816 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 34.6,
+    "text": "HYBRIDE V8 GEWELD",
+    "ko": "하이브리드 V8 파워",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "text": "PURE LUXE",
+    "ko": "순수한 럭셔리",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "text": "DEZE AUTO",
+    "ko": "이 차",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.0,
+    "text": "SEVERS AUTOMOTIVE",
+    "ko": "세버스 오토모티브",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "가격 박스 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.5,
+    "type": "톡",
+    "event": "MERCEDES-BENZ 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "톡",
+    "event": "AMG GT 63S 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "E-PERFORMANCE 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "띵",
+    "event": "HYBRIDE 체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "V8 하이브리드 배기음/시동 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 배출",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "띵",
+    "event": "ALPINE GREY 체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "CARBON DETAILS 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.3,
+    "type": "톡",
+    "event": "V8 BITURBO 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.6,
+    "type": "톡",
+    "event": "816 PK 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "띵",
+    "event": "AMG PERFORMANCE SEATS 체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.1,
+    "type": "띵",
+    "event": "ELEKTRISCH PANORAMADAK 체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "띵",
+    "event": "BURMESTER GELUIDSSYSTEEM 체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 10.8,
+     "what": "엔진 배기음을 강조하기 위해 일시적으로 음악 볼륨 감소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 10.7,
+    "end": 14.3,
+    "what": "스피커 이모지 3개",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배기음 감상 유도",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 45.8,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 7.7,
+    "text": "239.888 euro kost deze Mercedes-Benz AMG GT 63S E-Performance.",
+    "ko": "이 메르세데스-벤츠 AMG GT 63S E-퍼포먼스의 가격은 239,888 유로입니다."
+   },
+   {
+    "start": 7.7,
+    "end": 11.0,
+    "text": "En het is een hybride, maar die klinkt zo.",
+    "ko": "하이브리드 모델이지만 소리는 이렇습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 20.3,
+    "text": "Aan de buitenkant is die natuurlijk gewoon helemaal af. Die Alpine Grey kleur in combinatie met al die carbon details.",
+    "ko": "외관은 그야말로 완벽하죠. 알파인 그레이 컬러에 다양한 카본 디테일이 더해졌습니다."
+   },
+   {
+    "start": 20.3,
+    "end": 24.1,
+    "text": "Dit is dus een V8 biturbo met 816 pk.",
+    "ko": "816마력을 발휘하는 V8 바이터보 엔진이 탑재되어 있습니다."
+   },
+   {
+    "start": 24.1,
+    "end": 31.0,
+    "text": "Verder ook gewoon echt een luxe auto natuurlijk met AMG performance seats, een elektrisch panoramadak en een Burmester geluidssysteem.",
+    "ko": "또한 AMG 퍼포먼스 시트, 전동 파노라마 루프, 부메스터 오디오가 장착된 진정한 럭셔리카입니다."
+   },
+   {
+    "start": 31.0,
+    "end": 40.0,
+    "text": "Dus wil jij 816 pk en hybride V8 geweld combineren met pure luxe en dagelijks gebruik? Dan moet je deze auto hebben.",
+    "ko": "816마력의 하이브리드 V8 파워와 순수한 럭셔리, 일상 주행을 함께 원하신다면 바로 이 차입니다."
+   },
+   {
+    "start": 40.0,
+    "end": 45.8,
+    "text": "Je vindt hem in de showroom van Severs Automotive en natuurlijk op autoscout24.nl.",
+    "ko": "세버스 오토모티브 쇼룸과 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.7,
+    "speed": "빠름",
+    "summary": "차량 가격과 모델명 공개로 시선 집중"
+   },
+   {
+    "stage": "사양",
+    "start": 7.7,
+    "end": 14.3,
+    "speed": "빠름",
+    "summary": "하이브리드 모델임에도 강력한 배기음 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 14.3,
+    "end": 24.1,
+    "speed": "빠름",
+    "summary": "외관 색상, 카본 파츠 및 엔진 스펙(816마력) 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 24.1,
+    "end": 31.0,
+    "speed": "보통",
+    "summary": "실내 주요 프리미엄 편의사양 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 31.0,
+    "end": 40.0,
+    "speed": "빠름",
+    "summary": "장점 종합 요약 및 타깃층 추천"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.0,
+    "end": 45.8,
+    "speed": "보통",
+    "summary": "매장 위치 안내 및 AutoScout24 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "자막은 시그니처 옐로우 박스에 블랙 볼드 텍스트를 사용하여 브랜드 정체성을 유지한다",
+   "스펙이나 옵션 나열 시 톡 튀어나오는 팝 사운드 또는 체크 사운드를 동기화한다",
+   "배기음 등 실제 차량 사운드를 들려줄 때는 배경음악을 줄이고 스피커 이모티콘을 활용한다",
+   "쇼츠 특성에 맞춰 1~2초 내외의 빠른 컷 전환으로 지루함을 방지한다",
+   "영상 말미에 딜러 쇼룸 및 자사 웹사이트(AutoScout24) 로고를 노출해 행동을 유도한다"
+  ]
+ }
+}

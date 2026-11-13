@@ -1,0 +1,517 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/S8XXbkoBS3c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3010,
+  "candidatesTokenCount": 5092,
+  "totalTokenCount": 9276,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2268
+   }
+  ],
+  "thoughtsTokenCount": 1174,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.1,
+   "aspect": "9:16",
+   "car": "Porsche 911 GT3 RS",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 12.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.7,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 23.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "PLAATST TRADITIONEEL DE AUTOSLEUTEL AAN DE",
+    "ko": "전통적으로 시동 키를 왼쪽에 배치합니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PLAATST",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.4,
+    "text": "VAN DE AUTO MAAR WAAROM IS",
+    "ko": "차량에, 하지만 그 이유는 무엇일까요?",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WAAROM",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.8,
+    "text": "BIJ DE LEGENDARISCHE LE MANS RACES IN DE JAREN 60",
+    "ko": "60년대 전설적인 르망 레이스에서",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 84.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LE MANS",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 12.7,
+    "text": "MOESTEN DE COUREURS NAAR HUN AUTO RENNEN",
+    "ko": "드라이버들은 차로 달려가야 했습니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RENNEN",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.7,
+    "text": "✓ RENNEN",
+    "ko": "✓ 달리기",
+    "kind": "키워드 스티커",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.7,
+    "text": "✓ INSTAPPEN",
+    "ko": "✓ 탑승하기",
+    "kind": "키워드 스티커",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 12.7,
+    "text": "WEGRIJDEN",
+    "ko": "출발하기",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 18.5,
+    "text": "PORSCHE BEDACHT TOEN ALS JE MET DE LINKERHAND",
+    "ko": "포르쉐는 왼손으로 키를 조작하면",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LINKERHAND",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.5,
+    "text": "DAT SCHEELDE WAARDEVOLLE SECONDES BIJ DE START",
+    "ko": "스타트에서 귀중한 몇 초를 아낄 수 있었습니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 88.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WAARDEVOLLE",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 23.5,
+    "text": "DESIGN SIGNATUUR VAN HET MERK",
+    "ko": "브랜드의 상징적인 디자인 시그니처입니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DESIGN",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "포르쉐 엠블럼 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "포르쉐 시동 스위치 조작 및 알림음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "톡",
+    "event": "물음표(?) 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.1,
+    "type": "휙",
+    "event": "르망 레이스 포스터 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "톡",
+    "event": "체크리스트 첫 번째 항목(RENNEN) 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.4,
+    "type": "톡",
+    "event": "체크리스트 두 번째 항목(INSTAPPEN) 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.4,
+    "type": "톡",
+    "event": "체크리스트 세 번째 항목(WEGRIJDEN) 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "톡",
+    "event": "열쇠 이모지 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "톡",
+    "event": "체커기 이모지 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 리드미컬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "what": "포르쉐 방패 엠블럼 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "what": "물음표 그래픽 기호",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 49.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "의문 제기 강조",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.8,
+    "what": "1960 르망 24시 레이스 빈티지 포스터 이미지",
+    "is_3d": false,
+    "size_w_pct": 46.0,
+    "x_pct": 54.0,
+    "y_pct": 32.0,
+    "entrance": "밀려옴",
+    "purpose": "역사적 배경 자료 제시",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "what": "황금 열쇠 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 47.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "키 조작 설명 보조",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 20.5,
+    "what": "체커기 깃발 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 63.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "레이스 스타트 의미 전달",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.1,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "Porsche plaatst traditioneel de autosleutel aan de linkerkant van de auto. Maar waarom is dat eigenlijk?",
+    "ko": "포르쉐는 전통적으로 시동 키를 차의 왼쪽에 둡니다. 그런데 왜 그럴까요?"
+   },
+   {
+    "start": 5.4,
+    "end": 12.7,
+    "text": "Bij de legendarische Le Mans races in de jaren 50 en de jaren 60 moesten de coureurs naar hun auto rennen, instappen en meteen kunnen wegrijden.",
+    "ko": "50년대와 60년대 전설적인 르망 레이스에서 드라이버들은 차로 달려가 탑승한 뒤 즉시 출발해야 했습니다."
+   },
+   {
+    "start": 12.7,
+    "end": 18.4,
+    "text": "Porsche bedacht toen: als je met de linkerhand de sleutel kunt bedienen, heb je de rechterhand direct bij de versnellingspook.",
+    "ko": "당시 포르쉐는 왼손으로 키를 조작하면 오른손을 즉시 기어 노브에 둘 수 있다고 생각했습니다."
+   },
+   {
+    "start": 18.4,
+    "end": 20.5,
+    "text": "Dat scheelde waardevolle secondes bij de start.",
+    "ko": "그 덕분에 스타트 시 귀중한 몇 초를 아낄 수 있었죠."
+   },
+   {
+    "start": 20.5,
+    "end": 23.5,
+    "text": "Vandaag de dag is het meer een designsignatuur van het merk.",
+    "ko": "오늘날에는 브랜드의 상징적인 디자인 시그니처가 되었습니다."
+   },
+   {
+    "start": 23.5,
+    "end": 25.1,
+    "text": "Volg ons voor meer.",
+    "ko": "더 많은 정보를 원하시면 팔로우하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "포르쉐의 왼편 시동 키 전통과 그 이유 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 12.7,
+    "speed": "보통",
+    "summary": "과거 르망 레이스 스타트 방식(르망식 스타트) 재연 및 역사 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 12.7,
+    "end": 20.5,
+    "speed": "보통",
+    "summary": "왼손 시동과 오른손 기어 조작의 시간 단축 원리 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 20.5,
+    "end": 25.1,
+    "speed": "빠름",
+    "summary": "현재 디자인 헤리티지로서의 의미 정리 및 구독/팔로우 유도"
+   }
+  ],
+  "rules": [
+   "상단과 하단에 검은색 배경 박스형 볼드 텍스트 자막으로 시인성을 확보함",
+   "설명하는 주요 개념마다 0.5초 이내에 직관적인 스티커 그래픽과 팝 효과음을 동기화함",
+   "진행자가 직접 몸으로 행동(달리기, 시동 걸기, 기어 변속)을 재연하여 지루함을 방지함",
+   "질문(훅) - 역사적 배경(스토리) - 원리 시연(해결) - 현대적 가치(결론)의 명확한 4단계 구성"
+  ]
+ }
+}

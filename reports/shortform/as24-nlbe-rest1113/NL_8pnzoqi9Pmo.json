@@ -1,0 +1,532 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/8pnzoqi9Pmo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6292,
+  "candidatesTokenCount": 4228,
+  "totalTokenCount": 10520,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5550
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.7,
+   "aspect": "9:16",
+   "car": "Jaecoo 7",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 5.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 16.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.7,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 44.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 46.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 53.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.7,
+    "end": 55.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 60.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "JAECOO 7",
+    "ko": "제이쿠 7",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "JAECOO",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 5.4,
+    "text": "EN IN DEZE VIDEO VERTEL IK JE WEETJES DIE JE WAARSCHIJNLIK NOG NIET WIST",
+    "ko": "그리고 이 영상에서 아직 모를 만한 사실들을 알려드립니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NOG NIET WIST",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "text": "CHINA GEPRODUCEERD MAAR DAAR ZAL JE HEM NIET OP DE WEG ZIEN RIJDEN",
+    "ko": "중국에서 생산되지만 그곳 도로에서는 볼 수 없습니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "CHINA",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.5,
+    "text": "HIJ IS GEBOUWD VOOR DE VERKOOP IN EUROPA EN INTERNATIONALE MARKTEN",
+    "ko": "유럽 및 글로벌 시장 판매를 위해 제작되었습니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "EUROPA",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 16.0,
+    "text": "EN DE OPTIES DIE OP DEZE AUTO ZITTEN DIE GAAN JE ECHT VERBAZEN",
+    "ko": "그리고 이 차의 옵션들은 당신을 정말 놀라게 할 것입니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "VERBAZEN",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.0,
+    "text": "✨ 540 GRADEN CAMERA",
+    "ko": "540도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.0,
+    "text": "14.8 INCH SCHERM",
+    "ko": "14.8인치 화면",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "text": "90 KM",
+    "ko": "90 km",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.0,
+    "text": "KARAOKE ASSISTENT",
+    "ko": "노래방 어시스턴트",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "운전석 탑승 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "띵",
+    "event": "540도 카메라 키워드 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "띵",
+    "event": "14.8인치 화면 키워드 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "충전구 커버 누르는 딸깍 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "띵",
+    "event": "90 KM 박스 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.7,
+    "type": "띵",
+    "event": "노래방 어시스턴트 박스 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 흥미진진한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 58.5,
+    "end": 60.7,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Achter mij staat de Jaecoo 7.",
+    "ko": "제 뒤에 있는 차는 제이쿠 7입니다."
+   },
+   {
+    "start": 2.5,
+    "end": 5.4,
+    "text": "En in deze video vertel ik je weetjes die je waarschijnlijk nog niet wist.",
+    "ko": "그리고 이번 영상에서는 아마 잘 모르셨을 사실들을 알려드릴게요."
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "text": "Hij wordt in China geproduceerd, maar daar zal je hem niet op de weg zien rijden.",
+    "ko": "중국에서 생산되지만 중국 현지 도로에서는 볼 수 없습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 12.5,
+    "text": "Hij is gebouwd voor de verkoop in Europa en internationale markten.",
+    "ko": "유럽과 글로벌 시장 수출 판매를 위해 만들어졌기 때문이죠."
+   },
+   {
+    "start": 12.5,
+    "end": 16.0,
+    "text": "En de opties die op deze auto zitten, die gaan je echt verbazen.",
+    "ko": "그리고 이 차에 들어간 옵션들은 정말 깜짝 놀라실 겁니다."
+   },
+   {
+    "start": 16.0,
+    "end": 21.0,
+    "text": "Zoals een panoramadak, stoelverwarming en een 540 graden camera.",
+    "ko": "파노라마 선루프, 열선 시트, 그리고 540도 카메라까지요."
+   },
+   {
+    "start": 21.0,
+    "end": 25.0,
+    "text": "En zelfs dit 14,8 inch scherm is standaard.",
+    "ko": "게다가 이 14.8인치 대형 스크린도 기본 사양입니다."
+   },
+   {
+    "start": 25.0,
+    "end": 29.5,
+    "text": "En het is een hybride, en je kunt dus elektrisch tot 90 km rijden.",
+    "ko": "하이브리드 모델이라 순수 전기만으로 최대 90km를 주행할 수 있습니다."
+   },
+   {
+    "start": 29.5,
+    "end": 34.0,
+    "text": "En kijk hoe ruim deze kofferruimte is.",
+    "ko": "트렁크 공간이 얼마나 넓은지도 확인해 보세요."
+   },
+   {
+    "start": 34.0,
+    "end": 39.0,
+    "text": "En het hele interieur is super clean, alles is digitaal.",
+    "ko": "그리고 인테리어 전체가 아주 깔끔하고 완전한 디지털 방식입니다."
+   },
+   {
+    "start": 44.5,
+    "end": 53.5,
+    "text": "Maar deze auto heeft gewoon een karaoke-assistent!",
+    "ko": "그런데 이 차에는 무려 노래방 어시스턴트 기능까지 탑재되어 있습니다!"
+   },
+   {
+    "start": 56.0,
+    "end": 60.7,
+    "text": "Je vindt deze Jaecoo op AutoScout24.nl.",
+    "ko": "이 제이쿠 7을 AutoScout24.nl에서 직접 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "차명 소개 및 몰랐던 흥미로운 사실 예고"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 12.5,
+    "speed": "보통",
+    "summary": "중국 생산 및 유럽/수출 전용 모델 특징 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 12.5,
+    "end": 25.0,
+    "speed": "빠름",
+    "summary": "디스플레이, 540도 카메라, 디테일 옵션 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 25.0,
+    "end": 34.0,
+    "speed": "보통",
+    "summary": "하이브리드 주행거리 및 트렁크 적재용량 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 34.0,
+    "end": 55.4,
+    "speed": "보통",
+    "summary": "실내 디테일 버튼 디자인 및 특이 기능(노래방 어시스턴트)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 55.4,
+    "end": 60.7,
+    "speed": "보통",
+    "summary": "매장 위치 안내 및 AutoScout24 웹사이트 확인 유도"
+   }
+  ],
+  "rules": [
+   "호스트가 화면 중심에서 직접 말하며 중간 단어는 노란색/형광색으로 강조 자막 처리한다.",
+   "핵심 스펙(540도 카메라, 14.8인치, 90km)은 눈에 띄는 노란색 박스 자막 스티커와 '띵' 효과음을 함께 사용한다.",
+   "외관 전면 풀샷으로 시작하여 실내 디테일과 특이 기능(노래방)으로 이어지는 호기심 유발식 구성.",
+   "엔딩에 플랫폼 브랜드 로고(AutoScout24) 그래픽을 띄우며 플랫폼 방문을 유도한다."
+  ]
+ }
+}

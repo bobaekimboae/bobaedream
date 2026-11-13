@@ -1,0 +1,575 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/GFYb3CitDOs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2933,
+  "candidatesTokenCount": 5547,
+  "totalTokenCount": 9183,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2191
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 703,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24.5,
+   "aspect": "9:16",
+   "car": "없음",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.3,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 20.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.3,
+    "end": 3.4,
+    "text": "THIS OR THAT MET GILL SWERTS",
+    "ko": "질 스웨르츠와 함께하는 이것 아니면 저것",
+    "kind": "제목",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "THIS OR THAT",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.4,
+    "text": "SUV OF SPORTWAGEN?",
+    "ko": "SUV 아니면 스포츠카?",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "SUV",
+    "ko": "SUV",
+    "kind": "키워드 스티커",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SUV",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.3,
+    "text": "BENZINE OF ELEKTRISCH?",
+    "ko": "휘발유 아니면 전기차?",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.3,
+    "text": "BENZINE",
+    "ko": "휘발유",
+    "kind": "키워드 스티커",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BENZINE",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.3,
+    "text": "PARKEERSENSOREN OF OP GEVOEL?",
+    "ko": "주차 센서 아니면 감각으로?",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.3,
+    "text": "GEVOEL",
+    "ko": "감각으로",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEVOEL",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.0,
+    "text": "AUTOMAAT OF HANDGESCHAKELD?",
+    "ko": "자동 아니면 수동?",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.0,
+    "text": "AUTOMAAT",
+    "ko": "자동",
+    "kind": "키워드 스티커",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 34.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOMAAT",
+    "sure": true
+   },
+   {
+    "start": 11.1,
+    "end": 13.1,
+    "text": "LUIDE MUZIEK OF STILTE TIJDENS HET RIJDEN",
+    "ko": "운전할 때 시끄러운 음악 아니면 정적?",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.1,
+    "text": "LUIDE MUZIEK",
+    "ko": "시끄러운 음악",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUIDE MUZIEK",
+    "sure": true
+   },
+   {
+    "start": 13.2,
+    "end": 15.4,
+    "text": "ZELF RIJDEN OF OPGEHAALD WORDEN?",
+    "ko": "직접 운전하기 아니면 누가 데리러 오기?",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.4,
+    "text": "ZELF RIJDEN",
+    "ko": "직접 운전",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZELF RIJDEN",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.1,
+    "text": "NIEUWE AUTO OF OLDTIMER?",
+    "ko": "신차 아니면 올드카?",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.1,
+    "text": "NIEUWE AUTO",
+    "ko": "신차",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "NIEUWE AUTO",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 20.0,
+    "text": "AIRCO OF OPEN DAK?",
+    "ko": "에어컨 아니면 오픈톱?",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 20.0,
+    "text": "AIRCO",
+    "ko": "에어컨",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 22.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AIRCO",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.5,
+    "text": "WELKE OPTIE MOET JOUW AUTO ZEKER HEBBEN?",
+    "ko": "당신의 차에 반드시 있어야 할 옵션은 무엇인가요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.6,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.1,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.2,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 15.5,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "톡",
+    "event": "질문 자막 출현",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트 / 인스트루멘털",
+   "bpm_est": 92,
+   "mood": "리드미컬하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "경쾌한 브라스 및 힙합 비트 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 20.0,
+    "what": "FC De Rebellen Belgie 로고",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 50.0,
+    "y_pct": 14.0,
+    "entrance": "바로",
+    "purpose": "콜라보 브랜딩 표시",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "what": "AutoScout24 로고 그래픽 카드",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 3.9,
+    "end": 5.4,
+    "text": "SUV, ik heb drie kinderen.",
+    "ko": "SUV요, 저 아이가 셋이거든요."
+   },
+   {
+    "start": 5.9,
+    "end": 6.8,
+    "text": "Benzine.",
+    "ko": "휘발유요."
+   },
+   {
+    "start": 7.8,
+    "end": 9.2,
+    "text": "Altijd op gevoel parkeren.",
+    "ko": "주차는 항상 감으로 하죠."
+   },
+   {
+    "start": 9.9,
+    "end": 10.9,
+    "text": "Automaat.",
+    "ko": "오토요."
+   },
+   {
+    "start": 11.9,
+    "end": 13.0,
+    "text": "Luide muziek.",
+    "ko": "시끄러운 음악이요."
+   },
+   {
+    "start": 13.6,
+    "end": 15.3,
+    "text": "Zelf rijden, zeker als mijn vrouw rijdt.",
+    "ko": "직접 운전이요, 아내가 운전할 땐 특히요."
+   },
+   {
+    "start": 15.9,
+    "end": 16.9,
+    "text": "Nieuwe auto.",
+    "ko": "새 차요."
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "text": "Airco, ik ben een ginger, ik verbrand snel.",
+    "ko": "에어컨이요, 제가 붉은 머리라 피부가 잘 타거든요."
+   },
+   {
+    "start": 20.8,
+    "end": 24.2,
+    "text": "Welke optie moet jouw auto zeker hebben?",
+    "ko": "당신의 자동차에 꼭 필요한 옵션은 무엇인가요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.6,
+    "speed": "빠름",
+    "summary": "This or That 코너 소개"
+   },
+   {
+    "stage": "기타",
+    "start": 3.6,
+    "end": 20.2,
+    "speed": "빠름",
+    "summary": "축구선수 질 스웨르츠의 자동차 취향 밸런스 게임 문답"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 20.2,
+    "end": 24.5,
+    "speed": "보통",
+    "summary": "AutoScout24 로고와 함께 시청자 댓글 참여 유도"
+   }
+  ],
+  "rules": [
+   "진행자 질문은 화면 상단 흰색 자막으로 제시하고 응답자의 선택은 바로 아래 노란색 볼드 자막으로 강조한다",
+   "응답자의 짧은 이유(아이 수, 피부 타입 등)를 자연스럽게 살려 캐릭터성과 재미를 준다",
+   "밸런스 게임 문답을 1~2초 간격의 빠른 템포로 연속 배치해 이탈을 방지한다",
+   "마지막에는 브랜드 로고를 중앙에 띄우며 동일한 질문을 시청자에게 던져 댓글 참여를 유도한다"
+  ]
+ }
+}

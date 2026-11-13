@@ -1,0 +1,440 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/dBpz0MukCM4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3667,
+  "candidatesTokenCount": 3348,
+  "totalTokenCount": 7015,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2925
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 32.5,
+   "aspect": "9:16",
+   "car": "Lamborghini Urus S",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 22.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 32.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Raad het\naantal PK's",
+    "ko": "마력을 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK's",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "Lamborghini Urus S",
+    "ko": "람보르기니 우루스 S",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "4L Twinturbo V8",
+    "ko": "4.0L 트윈터보 V8",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.0,
+    "text": "0-100\n3,5 seconden",
+    "ko": "0-100km/h 3.5초",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 66.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.2,
+    "text": "duivels snel getal 😈",
+    "ko": "악마같이 빠른 숫자 😈",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.6,
+    "text": "€299.600",
+    "ko": "299,600 유로",
+    "kind": "가격",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 26.8,
+    "text": "2024",
+    "ko": "2024년식",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.5,
+    "text": "Auto\nScout24",
+    "ko": "AutoScout24",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 배출 및 팝콘 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 18.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "두 번째 배기음 팝콘 사운드",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/업비트 배경음악",
+   "bpm_est": 120,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 4.2,
+     "what": "배기음 구간에서 음악 볼륨 감소"
+    },
+    {
+     "t": 6.6,
+     "what": "말소리 시작과 함께 BGM 복귀"
+    },
+    {
+     "t": 18.2,
+     "what": "배기음 구간에서 음악 볼륨 감소"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Kun jij raden hoeveel pk deze",
+    "ko": "이 차가 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "Lamborghini Urus S heeft?",
+    "ko": "람보르기니 우루스 S의 마력은?"
+   },
+   {
+    "start": 6.6,
+    "end": 8.7,
+    "text": "Het is een 4L Twinturbo V8",
+    "ko": "4.0리터 트윈터보 V8 엔진이며,"
+   },
+   {
+    "start": 8.7,
+    "end": 11.8,
+    "text": "en hij gaat van 0 tot 100 in 3,5 seconden.",
+    "ko": "제로백은 3.5초입니다."
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "text": "En dat voor een SUV.",
+    "ko": "그것도 SUV인데 말이죠."
+   },
+   {
+    "start": 13.9,
+    "end": 16.0,
+    "text": "Dus hoeveel pk denk je dat hij heeft?",
+    "ko": "그럼 몇 마력일 것 같나요?"
+   },
+   {
+    "start": 16.0,
+    "end": 18.2,
+    "text": "Het is een duivels snel getal.",
+    "ko": "악마같이 빠른 숫자입니다."
+   },
+   {
+    "start": 22.0,
+    "end": 24.6,
+    "text": "Hij kost €299.600.",
+    "ko": "가격은 299,600유로입니다."
+   },
+   {
+    "start": 24.6,
+    "end": 26.8,
+    "text": "Hij komt uit 2024.",
+    "ko": "2024년식 모델입니다."
+   },
+   {
+    "start": 26.8,
+    "end": 29.8,
+    "text": "Je vindt hem in de showroom van Garage Peeters,",
+    "ko": "Garage Peeters 쇼룸에서 만나보실 수 있으며,"
+   },
+   {
+    "start": 29.8,
+    "end": 32.5,
+    "text": "en op AutoScout24.be.",
+    "ko": "AutoScout24.be에서도 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "마력 퀴즈 질문 및 차량 모델 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.1,
+    "end": 6.6,
+    "speed": "보통",
+    "summary": "우루스 S 실제 배기음 청음"
+   },
+   {
+    "stage": "사양",
+    "start": 6.6,
+    "end": 11.8,
+    "speed": "빠름",
+    "summary": "엔진 스펙(4L V8 트윈터보) 및 제로백 소개"
+   },
+   {
+    "stage": "훅",
+    "start": 11.8,
+    "end": 18.2,
+    "speed": "보통",
+    "summary": "운전석 탑승 후 마력 힌트(악마의 숫자 666) 전달"
+   },
+   {
+    "stage": "기능",
+    "start": 18.2,
+    "end": 22.0,
+    "speed": "보통",
+    "summary": "배기음 리플레이"
+   },
+   {
+    "stage": "가격",
+    "start": 22.0,
+    "end": 26.8,
+    "speed": "빠름",
+    "summary": "차량 가격 및 연식 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 26.8,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "판매 딜러십 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "핵심 키워드와 수치는 브랜드 컬러인 노란색 붓터치 배경 스티커로 강조한다.",
+   "시청자의 댓글 참여를 유도하는 퀴즈 형식으로 시작해 몰입도를 높인다.",
+   "배기음을 들려줄 때는 배경음악을 완전히 줄여 실차 사운드를 부각한다.",
+   "쇼츠 하단에는 발화에 맞춰 단어별 말 자막을 노란색 하이라이트로 실시간 표기한다.",
+   "마지막에는 플랫폼명과 쇼룸 위치를 안내하며 매물 조회 행동을 유도한다."
+  ]
+ }
+}

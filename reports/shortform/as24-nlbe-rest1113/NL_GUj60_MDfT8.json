@@ -1,0 +1,452 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/GUj60_MDfT8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2839,
+  "candidatesTokenCount": 4394,
+  "totalTokenCount": 7233,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2097
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.5,
+   "aspect": "9:16",
+   "car": "McLaren 570S",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 9.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 17.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 23.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.6,
+    "text": "RAAD HET MERK & MODEL",
+    "ko": "브랜드 & 모델을 맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MERK & MODEL",
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 2.7,
+    "text": "VAN DEZE AUTO",
+    "ko": "이 차의",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.8,
+    "text": "IK GEEF JE EEN PAAR TIPS",
+    "ko": "몇 가지 힌트를 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TIPS",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 4.8,
+    "text": "JE VINDT HEM OP",
+    "ko": "이 차는 찾아볼 수 있어요",
+    "kind": "말 자막",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.3,
+    "text": "HEEFT DEUREN DIE OMHOOG GAAN",
+    "ko": "위로 열리는 문을 가지고 있어요",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "OMHOOG GAAN",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.5,
+    "text": "IN PLAATS VAN OPZIJ",
+    "ko": "옆으로 열리는 대신에요",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "OPZIJ",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.2,
+    "text": "3.8 LITER TWIN TURBO V8",
+    "ko": "3.8리터 트윈터보 V8",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TWIN TURBO V8",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.6,
+    "text": "MET 570 PK",
+    "ko": "570마력에 달하죠",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "570 PK",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.6,
+    "text": "EN ONDANKS DAT WEEGT",
+    "ko": "그럼에도 불구하고 무게는",
+    "kind": "말 자막",
+    "y_pct": 61.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "WEEGT",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "1415 KILO",
+    "ko": "1415kg에 불과합니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "1415 KILO",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.0,
+    "text": "DUS NU BEN IK BENIEUWD",
+    "ko": "그래서 이제 궁금하네요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "IK",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.8,
+    "text": "KAN JIJ RADEN WELK MERK",
+    "ko": "어떤 브랜드인지 맞출 수 있나요",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "WELK MERK",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 21.6,
+    "text": "EN MODEL DIT IS",
+    "ko": "그리고 모델은 무엇일까요",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "EN MODEL",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.5,
+    "text": "LAAT HET EVEN WETEN IN EEN REACTIE",
+    "ko": "댓글로 남겨서 알려주세요",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "REACTIE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 115,
+   "mood": "경쾌하고 호기심을 유발함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 6.3,
+    "what": "AutoScout24 브랜드 로고 패널",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 46.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Kan jij raden welk merk en model deze auto is?",
+    "ko": "이 차의 브랜드와 모델명을 맞출 수 있나요?"
+   },
+   {
+    "start": 2.7,
+    "end": 3.8,
+    "text": "Ik geef je een paar tips.",
+    "ko": "힌트를 몇 개 드릴게요."
+   },
+   {
+    "start": 3.8,
+    "end": 6.3,
+    "text": "Je vindt hem natuurlijk op AutoScout24.nl.",
+    "ko": "물론 AutoScout24.nl에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "text": "Deze supercar heeft deuren die omhoog gaan in plaats van opzij.",
+    "ko": "이 슈퍼카는 문이 옆 대신 위로 열립니다."
+   },
+   {
+    "start": 9.9,
+    "end": 13.9,
+    "text": "En hij heeft een 3.8 liter twin turbo V8 met 570 pk.",
+    "ko": "그리고 570마력의 3.8리터 트윈터보 V8 엔진을 탑재했죠."
+   },
+   {
+    "start": 13.9,
+    "end": 17.5,
+    "text": "En ondanks dat weegt hij maar 1415 kilo.",
+    "ko": "그런데도 무게는 1415kg에 불과합니다."
+   },
+   {
+    "start": 17.8,
+    "end": 21.6,
+    "text": "Dus nu ben ik benieuwd: kan jij raden welk merk en model dit is?",
+    "ko": "이제 궁금하네요: 과연 어떤 브랜드의 무슨 모델일까요?"
+   },
+   {
+    "start": 21.6,
+    "end": 23.5,
+    "text": "Laat het even weten in een reactie!",
+    "ko": "댓글로 정답을 알려주세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "자동차 퀴즈 제시 및 힌트 예고"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 3.8,
+    "end": 6.3,
+    "speed": "보통",
+    "summary": "플랫폼 AutoScout24 안내 및 로고 노출"
+   },
+   {
+    "stage": "사양",
+    "start": 6.3,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "도어 형태, 엔진 스펙, 공차중량 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 17.5,
+    "end": 23.5,
+    "speed": "보통",
+    "summary": "댓글 정답 유도 및 마무리"
+   }
+  ],
+  "rules": [
+   "자막의 핵심 키워드는 노란색 강조(#FFEA00)를 적용하여 시선을 집중시킨다",
+   "스폰서 또는 브랜드 로고 등장 시 짧은 효과음(톡)과 함께 그래픽을 크게 노출한다",
+   "질문형 훅과 댓글 유도형 콜투액션(CTA)으로 시청자 참여를 유도한다"
+  ]
+ }
+}

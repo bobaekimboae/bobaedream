@@ -1,0 +1,444 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/zoWgFVh0lmg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3373,
+  "candidatesTokenCount": 4421,
+  "totalTokenCount": 8731,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2631
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 937,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 28.6,
+   "aspect": "9:16",
+   "car": "Volkswagen Tiguan",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 19.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 26.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "PARKEER JE VAAK IN LAGE PARKEERGARAGES?",
+    "ko": "천장이 낮은 주차장에 자주 주차하시나요?",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PARKEER JE VAAK",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "DAN MOET JE DIT ECHT WETEN! 👀",
+    "ko": "그렇다면 이건 꼭 알아두셔야 합니다! 👀",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.2,
+    "text": "JE KUNT NAMELIJK DEZE KLEP",
+    "ko": "이 트렁크 도어를",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "JE KUNT NAMELIJK",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.4,
+    "text": "GEWOON OP DE HOOGTE INSTELLEN",
+    "ko": "원하는 높이로 설정할 수 있거든요",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFEA00",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.4,
+    "text": "DIE JIJ WILT",
+    "ko": "원하시는 만큼요",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 10.1,
+    "text": "EN DAT DOE JE HEEL GEMAKKELIJK ZO:",
+    "ko": "방법은 아주 간단합니다:",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 12.0,
+    "text": "JE ZET HEM EVEN OP DE JUISTE HOOGTE",
+    "ko": "원하는 적당한 높이로 맞추고",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "OP DE JUISTE HOOGTE",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "JE LAAT HEM DAAROP STOPPEN",
+    "ko": "그 위치에서 멈추게 한 뒤",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "STOPPEN",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.3,
+    "text": "EN DAN DRUK JE DE KNOP NOG 3 SECONDEN IN",
+    "ko": "버튼을 3초 동안 꾹 누릅니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 84.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.0,
+    "text": "TOTDAT JE DIT HOORT",
+    "ko": "이 소리가 들릴 때까지요",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.2,
+    "end": 21.0,
+    "text": "EN LET OP DE VOLGENDE KEER",
+    "ko": "그리고 다음번에",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "DE KOFFERKLEP OPENT",
+    "ko": "트렁크를 열 때 보면",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 56.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "DE KOFFERKLEP",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.7,
+    "text": "STOPT HIJ HIER AUTOMATISCH",
+    "ko": "여기서 자동으로 딱 멈춥니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTOMATISCH",
+    "sure": true
+   },
+   {
+    "start": 26.7,
+    "end": 28.0,
+    "text": "HANDIG HÈ",
+    "ko": "유용하죠?",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 17.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 높이 저장 확인 비프음 (삐-삐-삐-)",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크",
+   "bpm_est": 115,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "what": "스피커 이모티콘 3개 애니메이션 (소리 시각화)",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 42.0,
+    "y_pct": 73.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "효과음 강조",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.6,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 58.0,
+    "entrance": "페이드",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Parkeer je nu vaak in lage parkeergarages? Dan is dit iets wat je echt moet weten.",
+    "ko": "천장이 낮은 주차장에 자주 주차하시나요? 그렇다면 이건 꼭 알아두셔야 합니다."
+   },
+   {
+    "start": 3.8,
+    "end": 8.0,
+    "text": "Je kunt namelijk deze klep gewoon op de hoogte instellen die jij wilt.",
+    "ko": "이 트렁크 도어를 원하는 높이로 직접 설정할 수 있거든요."
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "En dat doe je heel gemakkelijk zo.",
+    "ko": "방법은 아주 간단합니다."
+   },
+   {
+    "start": 9.8,
+    "end": 13.0,
+    "text": "Je zet hem even op de juiste hoogte. Je laat hem daarop stoppen.",
+    "ko": "원하는 적당한 높이로 맞추고 멈추게 합니다."
+   },
+   {
+    "start": 13.1,
+    "end": 16.5,
+    "text": "En dan druk je de knop nog drie seconden in totdat je dit hoort.",
+    "ko": "그리고 이 소리가 날 때까지 버튼을 3초간 꾹 누릅니다."
+   },
+   {
+    "start": 18.8,
+    "end": 22.5,
+    "text": "En let op, de volgende keer als jij de kofferklep opent,",
+    "ko": "그리고 다음번에 트렁크를 열 때 확인해보면,"
+   },
+   {
+    "start": 25.0,
+    "end": 28.0,
+    "text": "stopt hij hier automatisch. Handig hè?",
+    "ko": "여기서 자동으로 딱 멈춥니다. 유용하죠?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "낮은 주차장에서 유용한 꿀팁 질문으로 시청자 이목 집중"
+   },
+   {
+    "stage": "기능",
+    "start": 4.1,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "전동 트렁크 높이 조절 및 버튼 3초 눌러 메모리 저장 방법 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 18.5,
+    "end": 26.2,
+    "speed": "보통",
+    "summary": "닫았다가 다시 열었을 때 설정된 높이에서 멈추는지 검증 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 26.2,
+    "end": 28.6,
+    "speed": "빠름",
+    "summary": "마무리 멘트 및 오토스카우트24 로고 오버레이 엔딩"
+   }
+  ],
+  "rules": [
+   "검은색 반투명 라운드 박스 위에 흰색과 노란색 텍스트를 배치하여 가독성을 높인다",
+   "중요 단어나 핵심 행동을 노란색 텍스트로 강조한다",
+   "자동차 비프음이 나는 순간 스피커 모양 이모티콘 그래픽을 띄워 소리에 집중하도록 유도한다",
+   "문제 제기(낮은 주차장) -> 설정 방법 시연 -> 실제 작동 확인의 직관적인 3단계 구성으로 팁을 전달한다"
+  ]
+ }
+}

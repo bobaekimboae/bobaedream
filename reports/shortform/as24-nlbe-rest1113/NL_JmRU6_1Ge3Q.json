@@ -1,0 +1,673 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/JmRU6_1Ge3Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4931,
+  "candidatesTokenCount": 5407,
+  "totalTokenCount": 10338,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4189
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.4,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG GT E Performance",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 9.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 20.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 23.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 29.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.1,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.1,
+    "end": 35.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 46.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "RAAD HOEVEEL PK DEZE AUTO HEEFT",
+    "ko": "이 차가 몇 마력인지 맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "PK",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 9.9,
+    "text": "MERCEDES-BENZ AMG GT AL SINDS 2015 IN DE FORMULE 1",
+    "ko": "메르세데스-벤츠 AMG GT 2015년부터 포뮬러 1에서",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AMG GT",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "text": "V8 BITURBO",
+    "ko": "V8 바이터보",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "V8 BITURBO",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.6,
+    "text": "0 NAAR 100 2.8 SECONDEN",
+    "ko": "0에서 100km/h 2.8초",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2.8 SECONDEN",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 20.6,
+    "text": "EEN HYBRIDE RUSTIG RIJDEN",
+    "ko": "조용히 달릴 수 있는 하이브리드",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "HYBRIDE",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 23.9,
+    "text": "SPORT+ STAND",
+    "ko": "스포츠+ 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPORT+",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 28.1,
+    "text": "ALPINE GREY KLEUR",
+    "ko": "알파인 그레이 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ALPINE GREY",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 29.8,
+    "text": "CARBON DETAILS",
+    "ko": "카본 디테일",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CARBON",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "SPIEGELKAPPEN",
+    "ko": "사이드미러 캡",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPIEGELKAPPEN",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.1,
+    "text": "SIDE SKIRTS",
+    "ko": "사이드 스커트",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SIDE SKIRTS",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.1,
+    "text": "FRONT SPLITTER",
+    "ko": "프론트 스플리터",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FRONT SPLITTER",
+    "sure": true
+   },
+   {
+    "start": 34.1,
+    "end": 35.8,
+    "text": "DIFFUSER",
+    "ko": "디퓨저",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DIFFUSER",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.5,
+    "text": "€ 239.888",
+    "ko": "239,888 유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€ 239.888",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.5,
+    "text": "SEVERS AUTOMOTIVE",
+    "ko": "세버스 오토모티브",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SEVERS",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.4,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#1E3A8A",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 13.8,
+    "type": "띵",
+    "event": "2.8초 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스포츠 모드 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 22.1,
+    "type": "띵",
+    "event": "Sport+ 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "띵",
+    "event": "Alpine Grey 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "띵",
+    "event": "사이드미러 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "띵",
+    "event": "사이드 스커트 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.4,
+    "type": "띵",
+    "event": "프론트 스플리터 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "띵",
+    "event": "디퓨저 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.8,
+    "type": "띵",
+    "event": "딜러사 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.8,
+    "type": "톡",
+    "event": "오토스카우트 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 13.8,
+    "end": 15.6,
+    "what": "체크 아이콘",
+    "is_3d": false,
+    "size_w_pct": 5.0,
+    "x_pct": 27.0,
+    "y_pct": 75.0,
+    "entrance": "톡",
+    "purpose": "스펙 강조",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.9,
+    "what": "체크 아이콘",
+    "is_3d": false,
+    "size_w_pct": 5.0,
+    "x_pct": 30.0,
+    "y_pct": 87.0,
+    "entrance": "톡",
+    "purpose": "모드 강조",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.1,
+    "what": "체크 아이콘",
+    "is_3d": false,
+    "size_w_pct": 5.0,
+    "x_pct": 20.0,
+    "y_pct": 87.0,
+    "entrance": "톡",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.4,
+    "what": "AutoScout24 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 23.0,
+    "entrance": "톡",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Kan jij raden hoeveel pk deze auto heeft?",
+    "ko": "이 차가 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 2.8,
+    "end": 9.9,
+    "text": "Wist je dat de Mercedes-Benz AMG GT al sinds 2015 wordt gebruikt als safety car in de Formule 1?",
+    "ko": "메르세데스-벤츠 AMG GT가 2015년부터 F1 세이프티 카로 쓰였다는 걸 아셨나요?"
+   },
+   {
+    "start": 9.9,
+    "end": 15.6,
+    "text": "Dit is dus een V8 biturbo en je gaat van 0 naar 100 in 2,8 seconden.",
+    "ko": "이 차는 V8 바이터보로, 제로백 2.8초를 자랑합니다."
+   },
+   {
+    "start": 15.6,
+    "end": 23.9,
+    "text": "Het is een hybride, dus als jij rustig wil rijden dan kan dat, maar hou jij van een beetje geluid, dan zet je hem gewoon in de Sport+ stand.",
+    "ko": "하이브리드라 조용히 주행할 수도 있지만, 사운드를 즐기고 싶다면 스포츠+ 모드로 바꾸면 됩니다."
+   },
+   {
+    "start": 23.9,
+    "end": 35.8,
+    "text": "Ook aan de buitenkant is die natuurlijk gewoon helemaal af. Die Alpine Grey kleur in combinatie met al die carbon details: spiegelkappen, side skirts, front splitter en diffuser, allemaal in carbon.",
+    "ko": "외관도 완벽합니다. 알파인 그레이 컬러에 사이드미러, 사이드스커트, 프론트 스플리터, 디퓨저까지 전부 카본 디테일이 적용되었죠."
+   },
+   {
+    "start": 35.8,
+    "end": 40.5,
+    "text": "En voor € 239.888 is die voor jou.",
+    "ko": "그리고 239,888 유로에 당신의 차가 될 수 있습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 46.4,
+    "text": "En je vindt hem in de showroom van Severs Automotive en natuurlijk op AutoScout24.nl.",
+    "ko": "세버스 오토모티브 전시장과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "보통",
+    "summary": "마력 퀴즈로 시청자 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "F1 세이프티카 이력 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 9.9,
+    "end": 15.6,
+    "speed": "빠름",
+    "summary": "V8 바이터보 및 제로백 2.8초 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 15.6,
+    "end": 23.9,
+    "speed": "보통",
+    "summary": "하이브리드 주행 모드 및 스포츠+ 배기음 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 23.9,
+    "end": 35.8,
+    "speed": "빠름",
+    "summary": "외관 알파인 그레이 색상 및 카본 파츠 디테일 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 35.8,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "차량 판매 가격 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.5,
+    "end": 46.4,
+    "speed": "보통",
+    "summary": "쇼룸 위치 및 AutoScout24 플랫폼 구매처 안내"
+   }
+  ],
+  "rules": [
+   "자막은 시그니처 옐로우(#FFEB3B)와 화이트 박스 배경에 검은 볼드 텍스트를 교차 활용",
+   "스펙이나 주요 옵션 자막이 뜰 때마다 깔끔한 '띵' 효과음과 체크마크 그래픽을 함께 삽입",
+   "배기음 등 실제 사운드가 강조되는 구간에서는 음악 볼륨을 순간적으로 줄이고 실제 배기음을 부각",
+   "짧은 컷 전환(1~2초 단위)으로 카본 디테일 등 차량 외관 요소를 리드미컬하게 보여줌",
+   "영상 말미에 판매 가격과 함께 딜러사 및 자사 플랫폼(AutoScout24) 로고를 노출하여 행동 유도"
+  ]
+ }
+}

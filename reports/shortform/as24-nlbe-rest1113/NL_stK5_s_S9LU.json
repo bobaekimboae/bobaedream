@@ -1,0 +1,659 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/stK5_s_S9LU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7380,
+  "candidatesTokenCount": 5276,
+  "totalTokenCount": 12805,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6638
+   }
+  ],
+  "thoughtsTokenCount": 149,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 73.1,
+   "aspect": "9:16",
+   "car": "Volkswagen Tiguan R-Line",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 11.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 29.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 38.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.7,
+    "end": 42.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 43.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.9,
+    "end": 46.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 48.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 49.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 52.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 53.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.9,
+    "end": 57.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 58.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.9,
+    "end": 107.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.8,
+    "end": 113.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "VOLKSWAGEN TIGUAN",
+    "ko": "폭스바겐 티구안",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 3.7,
+    "text": "IS DE MEEST VERKOCHTE SUV VAN VOLKSWAGEN",
+    "ko": "폭스바겐에서 가장 많이 팔린 SUV",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SUV",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "text": "EEN RUIME AUTO",
+    "ko": "넓은 자동차",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 19.0,
+    "text": "AUTOMATISCHE UITKLAPBARE TREKHAAK",
+    "ko": "전동 접이식 견인봉",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.5,
+    "text": "EVEN DRIE SECONDEN IN",
+    "ko": "3초간 길게 누르기",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.5,
+    "text": "ALLEMAAL ZWARTE ACCENTEN",
+    "ko": "올 블랙 포인트 디테일",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.0,
+    "text": "R-LINE PAKKET",
+    "ko": "R-Line 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 47.5,
+    "text": "LUXE STOELEN",
+    "ko": "고급 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.6,
+    "end": 48.7,
+    "text": "EEN GROOT SCHERM",
+    "ko": "대형 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.2,
+    "text": "ELEKTRISCH PANORAMADAK",
+    "ko": "전동 파노라마 썬루프",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 52.5,
+    "text": "STOELVERWARMING",
+    "ko": "시트 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.0,
+    "text": "STUURVERWARMING",
+    "ko": "스티어링 휠 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 105.8,
+    "end": 107.8,
+    "text": "€48.950",
+    "ko": "48,950 유로",
+    "kind": "가격",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "체크박스 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "트레일러 히치 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "견인봉 딸깍 걸리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 세팅 완료 비프음 (삐-)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "톡",
+    "event": "외관 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "톡",
+    "event": "R-Line 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전석 창문 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.2,
+    "type": "톡",
+    "event": "연식 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 101.0,
+    "type": "톡",
+    "event": "주행거리 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 104.0,
+    "type": "톡",
+    "event": "마력 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 106.0,
+    "type": "톡",
+    "event": "가격 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 / 댄스",
+   "bpm_est": 124,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 59.0,
+    "end": 60.5,
+    "what": "2024 (또는 2025) 3D 연식 텍스트 효과",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "연식 강조",
+    "sure": true
+   },
+   {
+    "start": 110.0,
+    "end": 113.1,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "entrance": "페이드",
+    "purpose": "브랜딩/CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "De Volkswagen Tiguan is de meest verkochte SUV van Volkswagen.",
+    "ko": "폭스바겐 티구안은 폭스바겐에서 가장 많이 팔린 SUV입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 7.0,
+    "text": "En in deze video vertel ik je waarom ik voor deze auto zou kiezen.",
+    "ko": "이번 영상에서는 제가 왜 이 차를 선택할지 말씀드릴게요."
+   },
+   {
+    "start": 7.0,
+    "end": 11.8,
+    "text": "Allereerst, het is een ruime auto, een ideale gezinsauto met 5 deuren.",
+    "ko": "우선 넓은 차이고, 5도어로 이상적인 패밀리카입니다."
+   },
+   {
+    "start": 11.8,
+    "end": 19.5,
+    "text": "En heel belangrijk voor mij, want ik heb een paardentrailer die ik moet trekken, en hier heb je een automatische uitklapbare trekhaak.",
+    "ko": "그리고 저에게 아주 중요한 점인데, 말을 싣는 트레일러를 끌어야 하는데 전동식 견인봉이 달려있습니다."
+   },
+   {
+    "start": 19.5,
+    "end": 37.0,
+    "text": "En ik parkeer ook regelmatig in lage parkeergarages en daar heeft deze auto een handig trucje voor...",
+    "ko": "그리고 낮은 천장의 주차장에 자주 주차하는데, 이 차는 트렁크 높이를 조절하는 유용한 기능이 있습니다."
+   },
+   {
+    "start": 37.0,
+    "end": 43.5,
+    "text": "Aan de buitenkant ziet hij er gewoon stoer uit: allemaal zwarte accenten, zwarte velgen.",
+    "ko": "외관은 정말 멋집니다. 올 블랙 액센트에 블랙 휠까지 들어갔죠."
+   },
+   {
+    "start": 43.5,
+    "end": 58.0,
+    "text": "En ook vanbinnen is hij sportief: R-Line pakket, luxe stoelen, groot scherm, panoramadak, stoelverwarming, stuurverwarming en Harman Kardon.",
+    "ko": "실내도 스포티합니다: R-Line 패키지, 고급 시트, 대형 스크린, 파노라마 루프, 시트/스티어링 열선, 하만카돈 오디오까지."
+   },
+   {
+    "start": 58.0,
+    "end": 107.5,
+    "text": "Hij komt uit 2023/2024, heeft 21.000 km gelopen, 150 pk en kost €48.950.",
+    "ko": "최신 연식에 주행거리 21,000km, 150마력이며 가격은 48,950유로입니다."
+   },
+   {
+    "start": 107.5,
+    "end": 113.1,
+    "text": "Je vindt hem in de showroom van Autokuipers en natuurlijk op AutoScout24.nl.",
+    "ko": "Autokuipers 전시장에서, 그리고 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.0,
+    "speed": "빠름",
+    "summary": "베스트셀러 SUV 소개 및 선택 이유 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 7.0,
+    "end": 38.8,
+    "speed": "보통",
+    "summary": "공간감, 전동 견인봉 및 트렁크 열림 높이 조절 팁 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 38.8,
+    "end": 58.0,
+    "speed": "빠름",
+    "summary": "외관 블랙 포인트 및 실내 풍부한 R-line 옵션 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 58.0,
+    "end": 105.0,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 출력 스펙 전달"
+   },
+   {
+    "stage": "가격",
+    "start": 105.0,
+    "end": 107.8,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 107.8,
+    "end": 113.1,
+    "speed": "빠름",
+    "summary": "판매 딜러사 및 오토스카우트24 플랫폼 유도 클로징"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 직접 설명하며 기능 조작을 직접 시연(트렁크 높이 세팅, 견인봉 작동)",
+   "옵션 및 핵심 장점이 언급될 때마다 단어 단위로 흰색 배경 박스형 텍스트 스티커가 팝업",
+   "스펙(연식, 키로수, 마력, 가격)은 트렁크에 걸터앉아 3D/볼드 텍스트 팝업과 효과음으로 리드미컬하게 연출",
+   "배경음악은 말소리가 나올 때 자연스럽게 덕킹되어 대사 명확성을 유지",
+   "마지막 컷에서 창문을 내리고 사이트/앱으로 연결하는 깔끔한 CTA로 종료"
+  ]
+ }
+}

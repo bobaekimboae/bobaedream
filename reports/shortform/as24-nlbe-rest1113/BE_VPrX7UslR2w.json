@@ -1,0 +1,389 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/VPrX7UslR2w",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8484,
+  "candidatesTokenCount": 3198,
+  "totalTokenCount": 12271,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7742
+   }
+  ],
+  "thoughtsTokenCount": 589,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 85.5,
+   "aspect": "9:16",
+   "car": "없음",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 19.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 25.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 38.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 57.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 68.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.8,
+    "end": 81.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 81.0,
+    "end": 85.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "WAT IS JE GEKSTE ERVARING OP DE WEG?",
+    "ko": "도로 위에서 가장 황당했던 경험은 무엇인가요?",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "GEKSTE",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 8.0,
+    "text": "OLIVIER DESCHACHT",
+    "ko": "올리비에 데스하흐트",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.5,
+    "text": "JASON VANDELANNOITE",
+    "ko": "제이슨 판델란노이트",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "text": "BIRGER MAERTENS",
+    "ko": "비르허르 마르턴스",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 35.0,
+    "text": "ROEL VAN HEMERT",
+    "ko": "룰 판 헤메르트",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 45.0,
+    "text": "GILL SWERTS",
+    "ko": "힐 스베르츠",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 64.0,
+    "text": "GLENN VERBAUWHEDE",
+    "ko": "글렌 페르바우헤더",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 69.5,
+    "end": 75.0,
+    "text": "GILLES DE BILDE",
+    "ko": "질 드 빌더",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "딸깍",
+    "event": "축구 경기 슛 순간 타격음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 82.5,
+    "type": "톡",
+    "event": "축구공을 손에 올릴 때 가벼운 터치음",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "퍼커션 / 힙합 비트",
+   "bpm_est": 105,
+   "mood": "유쾌함, 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 85.5,
+    "what": "FC De Rebellen Belgie 및 AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "고정 표시",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 83.0,
+    "end": 85.5,
+    "what": "AutoScout24 로고 그래픽 카드",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "페이드",
+    "purpose": "CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Wat is je gekste ervaring op de weg?",
+    "ko": "도로 위에서 가장 황당했던 경험은 무엇인가요?"
+   },
+   {
+    "start": 2.8,
+    "end": 19.8,
+    "text": "Ja, ik heb al een keer een accident meegemaakt hè... en ik reed er gewoon frontaal op.",
+    "ko": "네, 사고를 겪은 적이 있는데 옆 차가 갑자기 제 앞으로 끼어들어서 정면충돌했죠."
+   },
+   {
+    "start": 19.8,
+    "end": 25.1,
+    "text": "Ik denk het meest gekke dat ik op de weg meegemaakt heb is dat we met de spelersteam een klapband gekregen hadden.",
+    "ko": "가장 황당했던 건 선수단 버스를 타고 가다 타이어 펑크가 났던 일이에요."
+   },
+   {
+    "start": 25.1,
+    "end": 27.8,
+    "text": "Ik zou het echt niet weten. Nee.",
+    "ko": "글쎄요 진짜 잘 모르겠네요. 없어요."
+   },
+   {
+    "start": 27.8,
+    "end": 38.8,
+    "text": "Het meest gekke wat ik op de weg heb meegemaakt is denk ik een ruzie... iemand wilde uitstappen en met mij op de vuist wilde gaan.",
+    "ko": "도로 위 가장 황당한 일은 난폭운전 시비가 붙어 차에서 내려 주먹다짐을 하려던 사람을 만난 거예요."
+   },
+   {
+    "start": 38.8,
+    "end": 57.5,
+    "text": "Het meest gekke was eigenlijk een bijna-doodervaring in Engeland... en ik reed er net zoals in de films erdoorheen.",
+    "ko": "가장 아찔했던 건 영국에서의 사고였는데, 영화 속 한 장면처럼 차선 사이를 간신히 빠져나왔죠."
+   },
+   {
+    "start": 57.5,
+    "end": 68.8,
+    "text": "Dat denk ik dat dat nog moet uitgevonden worden. We hebben in onze jonge jaren al voldoende straffe stoten gedaan.",
+    "ko": "글쎄요 아직 그런 일은 없는 것 같네요. 젊었을 때 별별 짓은 다 해봤지만요."
+   },
+   {
+    "start": 68.8,
+    "end": 81.0,
+    "text": "Ik reed in Nederland op de autosnelweg en ik kwam een roeiboot tegen... Dan moet je de waterpolitie bellen, niet de gewone politie!",
+    "ko": "네덜란드 고속도로를 달리다 보트를 마주쳤어요... 일반 경찰 말고 수상 경찰을 불러야 했죠!"
+   },
+   {
+    "start": 81.0,
+    "end": 85.5,
+    "text": "Zoek je auto op autoscout24.be.",
+    "ko": "autoscout24.be에서 당신의 차를 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "축구 경기 영상과 함께 인터뷰 질문 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 2.8,
+    "end": 81.0,
+    "speed": "보통",
+    "summary": "선수들의 도로 위 황당하고 아찔한 에피소드 릴레이 인터뷰"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 81.0,
+    "end": 85.5,
+    "speed": "보통",
+    "summary": "AutoScout24 사이트 안내 및 마무리"
+   }
+  ],
+  "rules": [
+   "상단에 스폰서십 로고(FC De Rebellen x AutoScout24)를 영상 내내 고정 노출하여 브랜드 인지도 확보",
+   "화자가 바뀔 때마다 하단 좌측/중앙에 이름 명패를 간결하게 띄워 인터뷰이 식별",
+   "중앙부에 큼직한 노란색/흰색 하이라이트 자막을 대사 속도에 맞춰 역동적으로 표시",
+   "각 인터뷰이의 에피소드를 속도감 있게 컷 전환하여 지루함 방지",
+   "마지막에 축구공을 든 선수의 멘트와 공식 웹사이트 로고로 간결하게 CTA 전달"
+  ]
+ }
+}

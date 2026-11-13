@@ -1,0 +1,731 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/mDksj4HJtsc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3741,
+  "candidatesTokenCount": 5804,
+  "totalTokenCount": 10154,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2999
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 609,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 32.8,
+   "aspect": "9:16",
+   "car": "Cupra Terramar vs Cupra Tavascan",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.3,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 32.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "Ga jij voor de",
+    "ko": "당신의 선택은",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "text": "Cupra Terramar",
+    "ko": "쿠프라 테라마",
+    "kind": "키워드 스티커",
+    "y_pct": 9.5,
+    "x_center_pct": 55.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.3,
+    "text": "Cupra Tavascan",
+    "ko": "쿠프라 타바스칸",
+    "kind": "키워드 스티커",
+    "y_pct": 9.5,
+    "x_center_pct": 55.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.8,
+    "text": "De Cupra Terramar",
+    "ko": "쿠프라 테라마는",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Terramar",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.4,
+    "text": "26.125 km",
+    "ko": "26,125 km",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "text": "Automaat",
+    "ko": "자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.3,
+    "text": "Milde hybride benzine motor",
+    "ko": "마일드 하이브리드 가솔린 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.5,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.8,
+    "text": "150 pk",
+    "ko": "150 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "text": "€34.900",
+    "ko": "34,900유로",
+    "kind": "가격",
+    "y_pct": 36.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.2,
+    "text": "De Cupra Tavascan",
+    "ko": "쿠프라 타바스칸은",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Tavascan",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 18.6,
+    "text": "6.500km",
+    "ko": "6,500 km",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.3,
+    "text": "Automaat",
+    "ko": "자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.7,
+    "text": "100% elektrisch 🔋",
+    "ko": "100% 전기차 🔋",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.3,
+    "text": "340 pk",
+    "ko": "340 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.4,
+    "text": "€46.500",
+    "ko": "46,500유로",
+    "kind": "가격",
+    "y_pct": 36.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 26.9,
+    "text": "Beide een Cupra",
+    "ko": "둘 다 쿠프라이지만",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Cupra",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 28.5,
+    "text": "Welke kies jij?",
+    "ko": "어떤 차를 선택하시겠습니까?",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "text": "Je vindt ze",
+    "ko": "두 차량 모두 찾아보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 질문 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 0.9,
+    "type": "휙",
+    "event": "테라마 차량 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "휙",
+    "event": "타바스칸 차량 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "테라마 주행거리 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "톡",
+    "event": "분할 화면 및 변속기 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "엔진 사양 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.3,
+    "type": "톡",
+    "event": "연식 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "출력 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "띵",
+    "event": "가격 배지 등장 및 손가락 가리킴",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "톡",
+    "event": "타바스칸 주행거리 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "톡",
+    "event": "타바스칸 3분할 화면 및 변속기 배지",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.3,
+    "type": "톡",
+    "event": "전기 파워트레인 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.7,
+    "type": "톡",
+    "event": "출력 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "띵",
+    "event": "타바스칸 가격 배지 등장 및 가리킴",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "딜러사 GTSC 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/전자음악",
+   "bpm_est": 124,
+   "mood": "경쾌하고 역동적인",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "what": "딜러사 GTSC 표범 로고 및 텍스트",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "딜러사 홍보",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.8,
+    "what": "AutoScout24 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩 및 유입 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "Ga jij voor de Cupra Terramar of voor de Cupra Tavascan?",
+    "ko": "당신의 선택은 쿠프라 테라마인가요, 아니면 쿠프라 타바스칸인가요?"
+   },
+   {
+    "start": 3.3,
+    "end": 7.4,
+    "text": "De Cupra Terramar heeft 26.125 km gereden.",
+    "ko": "쿠프라 테라마는 26,125km를 주행했습니다."
+   },
+   {
+    "start": 7.4,
+    "end": 12.8,
+    "text": "Het is een automaat met een milde hybride benzinemotor uit 2025 met 150 pk.",
+    "ko": "2025년식 150마력 마일드 하이브리드 가솔린 엔진의 자동변속기 차량입니다."
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "text": "En hij kost €34.900.",
+    "ko": "가격은 34,900유로입니다."
+   },
+   {
+    "start": 15.6,
+    "end": 18.6,
+    "text": "De Cupra Tavascan heeft 6.500 km.",
+    "ko": "쿠프라 타바스칸은 6,500km 주행했습니다."
+   },
+   {
+    "start": 18.6,
+    "end": 23.3,
+    "text": "Het is een automaat en hij is 100% elektrisch met 340 pk,",
+    "ko": "자동변속기이자 340마력의 순수 100% 전기차입니다."
+   },
+   {
+    "start": 23.3,
+    "end": 25.4,
+    "text": "voor €46.500.",
+    "ko": "가격은 46,500유로입니다."
+   },
+   {
+    "start": 25.4,
+    "end": 28.5,
+    "text": "Beide een Cupra, totaal anders. Welke kies jij?",
+    "ko": "둘 다 쿠프라이지만 완전히 다릅니다. 어떤 차를 고르시겠어요?"
+   },
+   {
+    "start": 28.5,
+    "end": 32.8,
+    "text": "Je vindt ze bij GTSC en op AutoScout24.be.",
+    "ko": "GTSC와 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.3,
+    "speed": "빠름",
+    "summary": "두 쿠프라 모델을 번갈아 보여주며 양자택일 질문 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.3,
+    "end": 15.6,
+    "speed": "빠름",
+    "summary": "첫 번째 모델(쿠프라 테라마)의 주행거리, 파워트레인, 출력, 가격 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 15.6,
+    "end": 25.4,
+    "speed": "빠름",
+    "summary": "두 번째 모델(쿠프라 타바스칸)의 전기차 사양, 출력, 가격 비교 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 25.4,
+    "end": 32.8,
+    "speed": "보통",
+    "summary": "선택 질문 던진 후 딜러사 및 오토스카우트24 플랫폼 구매처 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 두 차량 사이를 오가며 동일한 사양 순서(주행거리-변속기-파워트레인-출력-가격)로 대칭 비교한다.",
+   "핵심 스펙과 가격은 브랜드 컬러(노란색 배경 상자) 그래픽 스티커로 강조하고 팝 효과음을 동기화한다.",
+   "외관, 인테리어, 후면부를 한 화면에 보여주는 3단 분할 컷을 활용해 지루함을 줄이고 정보 밀도를 높인다.",
+   "마지막에 시청자 참여를 유도하는 질문(Welke kies jij?)과 함께 플랫폼 검색 CTA를 제시한다."
+  ]
+ }
+}
