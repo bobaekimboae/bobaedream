@@ -9,7 +9,9 @@ sys.path.insert(0, SAG); sys.argv = ["x", "/tmp/none.mp4", os.path.join(OUT, "_s
 import sag_reel_v1 as s
 from PIL import Image
 os.makedirs(OUT, exist_ok=True)
-ST = s.STYLE; CAP_Y = ST["cap_cy"]; TILT = ST["tilt_fixed"]
+ST = s.STYLE
+if SP.get("cap_cy"): ST["cap_cy"] = SP["cap_cy"]  # 2026-11-13 교과서 값(NL 62% · BE 64%)으로 덮어쓰기
+CAP_Y = ST["cap_cy"]; TILT = ST.get("tilt_fixed", 0.0)
 trk = json.load(open(TRACK))
 STICKER = "7600764310603730184"  # 캡컷 무료 스티커 'callout line'(점 → 사선 → 가로선)
 DOT, CORNER, END_ = (-204, 51), (-120, -66), (217, -66)
@@ -116,18 +118,18 @@ for k, c in enumerate(SP["callouts"]):
 
 # 2) 벨기에판 칠 칩: 폭 820px 안, 위계(큰 줄 1 · 작은 줄)를 같은 크기로 맞춘다
 MAXW = 820
-def chip(txt, t0, t1, cy, fn, size, tilt=0.0):
+def chip(txt, t0, t1, cy, fn, size, tilt=0.0, hide_cap=False):
     sz = size
     im = s.sticker(txt, sz, TILT + tilt, True)
     while im.width > MAXW and sz > 30:
         sz -= 4; im = s.sticker(txt, sz, TILT + tilt, True)
     items.append({"kind": "chip", "file": place(im, 540, cy, fn), "t0": t0, "t1": t1, "text": txt, "big": size == BIG, "cy": cy,
-                  "tilt": TILT + tilt, "w": im.width, "h": im.height})
+                  "tilt": TILT + tilt, "w": im.width, "h": im.height, "hide_cap": hide_cap})
     return im.size
 BIG, SMALL = (118, 68) if V2 else (104, 56)
 if TIDY: BIG, SMALL = SP.get("chip_big", 96), SP.get("chip_small", 64)  # 오토스카우트 제목 글자 높이 5~10% · 작은 줄 약 3%
 for n, c in enumerate(SP["chips"]):
-    chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", c.get("size") or (BIG if c.get("big") else SMALL), 0.0 if TIDY else c.get("tilt", 0.0))
+    chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", c.get("size") or (BIG if c.get("big") else SMALL), 0.0 if TIDY else c.get("tilt", 0.0), bool(c.get("hide_cap")))
 
 # 3) 음성: 문장 조각(a~b초)을 장면 시작에, 다음 장면 전에 끝나게 1.0~1.22배
 clips, prev_end = [], 0.0
@@ -226,6 +228,14 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
             if t1 - wt0 < 0.05: continue
             fn = place(s.phrase_img_be3(txt, i), 540, cy, f"sub{n_sub:03d}.png"); n_sub += 1
             items.append({"kind": "sub", "file": fn, "t0": round(wt0, 2), "t1": round(t1, 2), "text": txt, "hi": i, "cy": cy})
-json.dump({"items": items, "voice": "voice.wav", "end": END, "clips": clips, "fx": SP.get("flash", []), "car": SP.get("car", ""), "sub_png": V2}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
+# 2026-11-13 벨기에 교과서: 숫자 칩(가격·주행)이 떠 있는 동안 말 자막을 숨긴다
+for ch in [i for i in items if i["kind"] == "chip" and i.get("hide_cap")]:
+    items = [i for i in items if not (i["kind"] == "sub" and i["t0"] < ch["t1"] and ch["t0"] < i["t1"])]
+for f in [SP.get("bgm")] + [q.get("file") for q in SP.get("sfx", [])]:
+    if f and os.path.exists(f): shutil.copy(f, os.path.join(OUT, os.path.basename(f)))
+extra = {k: SP[k] for k in ("cuts", "src_vol", "hard_cuts", "bgm_vol", "edit") if k in SP}
+if SP.get("bgm"): extra["bgm"] = os.path.basename(SP["bgm"])
+if SP.get("sfx"): extra["sfx"] = [dict(q, file=os.path.basename(q["file"])) for q in SP["sfx"]]
+json.dump({**extra, "items": items, "voice": "voice.wav", "end": END, "clips": clips, "fx": SP.get("flash", []), "car": SP.get("car", ""), "sub_png": V2}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
 print("items", len(items), "subs", n_sub, "moved groups", moved, "voice end", clips[-1][3])
 for c in clips: print(c[2], "→", c[3], "x", c[5], c[4])

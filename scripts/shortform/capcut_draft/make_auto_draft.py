@@ -20,10 +20,23 @@ s = cc.DraftFolder(root).create_draft(name, 1080, 1920, 25, allow_replace=True)
 us = lambda x: int(round(x * SEC)); tr = lambda a, b: trange(us(a), us(b) - us(a))
 vm = cc.VideoMaterial(src)
 s.add_track(cc.TrackType.video, "main")
-s.add_segment(cc.VideoSegment(vm, trange(0, vm.duration), volume=0.25), "main")
+if m.get("cuts"):  # 2026-11-13 오토스카우트 교과서: 원본 롱테이크를 2~3초 컷으로 잘라 이어 붙인다(하드 컷만)
+    pos = 0.0
+    for a_, b_ in m["cuts"]:
+        s.add_segment(cc.VideoSegment(vm, tr(pos, pos + (b_ - a_)), source_timerange=tr(a_, b_), volume=m.get("src_vol", 0.0)), "main"); pos += b_ - a_
+    vdur = us(pos)
+else:
+    s.add_segment(cc.VideoSegment(vm, trange(0, vm.duration), volume=0.25), "main"); vdur = vm.duration
 am = cc.AudioMaterial(os.path.join(A, m["voice"]))
 s.add_track(cc.TrackType.audio, "voice")
-s.add_segment(cc.AudioSegment(am, trange(0, min(am.duration, vm.duration))), "voice")
+s.add_segment(cc.AudioSegment(am, trange(0, min(am.duration, vdur))), "voice")
+if m.get("bgm"):  # 벨기에 71%: 배경 음악
+    bm = cc.AudioMaterial(os.path.join(A, m["bgm"])); s.add_track(cc.TrackType.audio, "bgm")
+    s.add_segment(cc.AudioSegment(bm, trange(0, min(bm.duration, vdur)), volume=m.get("bgm_vol", 0.3)), "bgm")
+for k_, q in enumerate(m.get("sfx", [])):  # 딩 효과음(네덜란드: 훅 + 칩 43%)
+    sm = cc.AudioMaterial(os.path.join(A, q["file"])); tn = f"sfx{k_ % 2}"
+    if tn not in s.tracks: s.add_track(cc.TrackType.audio, tn)
+    s.add_segment(cc.AudioSegment(sm, trange(us(q["t"]), min(sm.duration, us(0.9))), volume=q.get("vol", 0.5)), tn)
 
 tracks = {}
 def put(seg, kind, a, b, ttype):
@@ -112,9 +125,10 @@ for it in sorted(m["items"], key=lambda i: (order[i["kind"]], i["t0"])):
         put(cc.VideoSegment(os.path.join(A, it["file"]), tr(a, b)), "subimg", a, b, cc.TrackType.video); continue
     if kind == "sub":  # 말 자막 → 캡컷 글자, 말하는 어절만 노랑
         words = it["text"].replace("|", " ").split(); st0 = sum(len(w) + 1 for w in words[:it["hi"]]); hi = (st0, st0 + len(words[it["hi"]]))
+        be = m.get("edit") == "be"  # 벨기에: 외곽선 없는 흰 글자 + 그림자 / 네덜란드: 흰 굵은 글자 + 검정 외곽선
         seg = HiText(it["text"], tr(a, b), style=cc.TextStyle(size=12, bold=True, color=(1, 1, 1), align=1),
-                     border=cc.TextBorder(color=(0, 0, 0), width=35.0, alpha=1.0),
-                     shadow=cc.TextShadow(alpha=0.5, diffuse=20.0, distance=4.0),
+                     border=None if be else cc.TextBorder(color=(0, 0, 0), width=35.0, alpha=1.0),
+                     shadow=cc.TextShadow(alpha=0.8 if be else 0.5, diffuse=25.0 if be else 20.0, distance=5.0 if be else 4.0),
                      clip_settings=cc.ClipSettings(transform_y=Y(it["cy"])), hi=hi)
         put(seg, "sub", a, b, cc.TrackType.text); continue
     if kind == "ring":
@@ -135,12 +149,13 @@ for it in sorted(m["items"], key=lambda i: (order[i["kind"]], i["t0"])):
     if not it.get("count") or b >= 18.9: seg.add_animation(TextOutro.渐隐, us(0.3))
     put(seg, "text", a, b, cc.TrackType.text)
 # 캡컷 장면 효과(영상 전체에 짧게): 첫 화면 흐림 열림 · 큰 장면 바뀜 번쩍임 · 끝 흐림
-s.add_track(cc.TrackType.effect, "fx", relative_index=len(s.tracks) + 1)
-def fx(eff, a, b): s.add_effect(eff, tr(a, b), track_name="fx")
-fx(cc.VideoSceneEffectType.模糊开幕, 0.0, 0.8)
-for t in m.get("fx", []):
-    fx(cc.VideoSceneEffectType.闪光灯, t - 0.05, t + 0.25)
-E = m["end"]
-fx(cc.VideoSceneEffectType.模糊, E - 0.7, E)
+if not m.get("hard_cuts"):  # 오토스카우트 NL·BE 교과서는 하드 컷만(장면 효과 없음)
+    s.add_track(cc.TrackType.effect, "fx", relative_index=len(s.tracks) + 1)
+    def fx(eff, a, b): s.add_effect(eff, tr(a, b), track_name="fx")
+    fx(cc.VideoSceneEffectType.模糊开幕, 0.0, 0.8)
+    for t in m.get("fx", []):
+        fx(cc.VideoSceneEffectType.闪光灯, t - 0.05, t + 0.25)
+    E = m["end"]
+    fx(cc.VideoSceneEffectType.模糊, E - 0.7, E)
 s.save()
 print(f"saved auto draft '{name}': {len(m['items'])} items in {time.time() - t0:.2f}s")
