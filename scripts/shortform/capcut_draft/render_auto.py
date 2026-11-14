@@ -295,6 +295,16 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
         if wsrc and len(wsrc) == len(words): wt.append([max(st0, st0 + max(0.0, wsrc[i] - a) / _tp - lead), w])
         else: wt.append([st0 + (sp1 - st0) * acc / tot, w])
         acc += len(w)
+    # 2026-11-14 자막 누락 수정: 받아쓰기가 두 어절에 거의 같은 시각을 주면(0.04초 차이) 앞 어절이 0초가 되어 화면에서 빠졌다.
+    # 어절마다 최소 표시 시간(글자당 0.065초, 0.14~0.32초)을 보장한다. 앞에서 밀고, 문장 끝을 넘으면 뒤에서 당긴다.
+    if SP.get("cap_min_word", True):
+        mind = [min(0.32, max(0.14, 0.065 * len(w))) for _, w in wt]
+        for i in range(1, len(wt)):
+            wt[i][0] = max(wt[i][0], wt[i - 1][0] + mind[i - 1])
+        lim = max(st0, st1 + 0.15 - mind[-1])
+        for i in range(len(wt) - 1, -1, -1):
+            cap_i = lim if i == len(wt) - 1 else wt[i + 1][0] - mind[i]
+            wt[i][0] = max(st0 - 0.1, min(wt[i][0], cap_i))
     groups, cur = [], []
     for wi_, w in enumerate(wt):
         if brk:
@@ -310,6 +320,13 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
         txt = "".join(("" if j == 0 else ("|" if g0 + j in lbrk else " ")) + x[1] for j, x in enumerate(g))
         gs = g[0][0]; ge = groups[gi + 1][0][0] if gi + 1 < len(groups) else min(nxt, st1 + 0.25)
         cy = pick_y(gs, ge, s.phrase_img_be3(txt, -1).width)
+        if SP.get("cap_keep"):  # 2026-11-14: 숫자 칩 동안에도 말 자막을 지우지 않는다. 칩과 겹치면 칩 바로 위로 올린다
+            sh = s.phrase_img_be3(txt, -1).height
+            for ch in items:
+                if ch["kind"] != "chip" or not (ch["t0"] < ge and gs < ch["t1"]): continue
+                bb = Image.open(os.path.join(OUT, ch["file"])).getbbox()
+                if bb and bb[1] < cy + sh / 2 + 6 and cy - sh / 2 - 6 < bb[3]:
+                    cy = int(bb[1] - sh / 2 - 14)
         moved += cy != CAP_Y
         g_end = groups[gi + 1][0][0] if gi + 1 < len(groups) else min(nxt, st1 + 0.25)
         for i, (wt0, w) in enumerate(g):
@@ -318,7 +335,7 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
             fn = place(s.phrase_img_be3(txt, i), 540, cy, f"sub{n_sub:03d}.png"); n_sub += 1
             items.append({"kind": "sub", "file": fn, "t0": round(wt0, 2), "t1": round(t1, 2), "text": txt, "hi": i, "cy": cy})
 # 2026-11-13 벨기에 교과서: 숫자 칩(가격·주행)이 떠 있는 동안 말 자막을 숨긴다
-for ch in [i for i in items if i["kind"] == "chip" and i.get("hide_cap")]:
+for ch in [i for i in items if i["kind"] == "chip" and i.get("hide_cap") and not SP.get("cap_keep")]:
     items = [i for i in items if not (i["kind"] == "sub" and i["t0"] < ch["t1"] and ch["t0"] < i["t1"])]
 for f in [SP.get("bgm")] + [q.get("file") for q in SP.get("sfx", [])]:
     if f and os.path.exists(f): shutil.copy(f, os.path.join(OUT, os.path.basename(f)))
