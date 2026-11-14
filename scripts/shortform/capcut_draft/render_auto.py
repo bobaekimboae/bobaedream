@@ -235,7 +235,10 @@ src = [files.index(c.get("file", VOICE)) for c in S]
 parts, flt = [], []
 for n, (a, b, st0, _, _, tp) in enumerate(clips):
     flt.append(f"[{src[n]}:a]atrim={a}:{b},asetpts=PTS-STARTPTS,atempo={tp},adelay={int(st0 * 1000)}|{int(st0 * 1000)}[s{n}]"); parts.append(f"[s{n}]")
-flt.append("".join(parts) + f"amix=inputs={len(parts)}:normalize=0,apad,atrim=0:{END},loudnorm=I=-16:TP=-1.5:LRA=11[out]")
+# 2026-11-14 싱크 버그 수정: amix 는 입력 중 가장 이른 시각부터 내보내서, 첫 문장 adelay(0.25초)만큼 모든 대사가 앞당겨졌다.
+# 0초부터 시작하는 무음 입력을 맨 앞에 넣어 타임라인을 0초에 고정한다.
+flt.append(f"anullsrc=r=48000:cl=stereo,atrim=0:{END}[z]")
+flt.append("[z]" + "".join(parts) + f"amix=inputs={len(parts) + 1}:normalize=0,apad,atrim=0:{END},loudnorm=I=-16:TP=-1.5:LRA=11[out]")
 subprocess.run(["ffmpeg", "-y", "-v", "error"] + sum([["-i", f] for f in files], []) + ["-filter_complex", ";".join(flt), "-map", "[out]", "-ar", "48000", "-ac", "2",
                 os.path.join(OUT, "voice.wav")], check=True)
 
@@ -287,8 +290,9 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
     words = disp.split(); tot = sum(len(w) for w in words); acc, wt = 0, []
     sp1 = st1 - 0.1
     wsrc = S[k].get("w")  # 받아쓰기에서 얻은 어절별 시작 시각(음성 파일 기준 초). 있으면 글자 비례 대신 이 값을 쓴다
+    lead = float(SP.get("cap_lead", 0.0))  # 2026-11-14 규칙 값: 강조 낱말을 말보다 이만큼 먼저 켠다(첫 어절은 문장 시작보다 앞서지 않음)
     for i, w in enumerate(words):
-        if wsrc and len(wsrc) == len(words): wt.append([st0 + max(0.0, wsrc[i] - a) / _tp, w])
+        if wsrc and len(wsrc) == len(words): wt.append([max(st0, st0 + max(0.0, wsrc[i] - a) / _tp - lead), w])
         else: wt.append([st0 + (sp1 - st0) * acc / tot, w])
         acc += len(w)
     groups, cur = [], []
