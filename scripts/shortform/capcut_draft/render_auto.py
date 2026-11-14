@@ -2,7 +2,7 @@
 사용: SAG_EDIT=bobae_be python render_auto.py <spec.json> <track.json> <scripts/shortform 경로> <출력폴더>
 사양서: car, end, voice, callouts[t0,t1,label,sub,fy], chips[text,t0,t1,cy,big,tilt], sentences[a,b,at,text], flash[]
 """
-import json, math, os, shutil, subprocess, sys
+import json, math, os, re, shutil, subprocess, sys
 FPS = 30
 SPEC, TRACK, SAG, OUT = sys.argv[1:5]
 SP = json.load(open(SPEC, encoding="utf-8")); VOICE = SP["voice"]; END = SP["end"]
@@ -337,6 +337,32 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
             # 2026-11-14 강조 색 재발 방지: 영상 프레임(30fps) 경계에 맞춘다. 경계가 프레임 중간이면 AE·캡컷이 한 프레임 늦게 바꿔 앞 어절이 노랑으로 남았다
             f0, f1 = (math.floor(wt0 * FPS + 1e-6) / FPS, math.floor(t1 * FPS + 1e-6) / FPS) if SP.get("cap_frame_snap", True) else (wt0, t1)
             items.append({"kind": "sub", "file": fn, "t0": round(f0, 4), "t1": round(f1, 4), "text": txt, "hi": i, "cy": cy})
+# 2026-11-14 AS24 원본 20편 시청 규칙: 칩 글자가 지금 말하는 낱말과 같으면 칩이 떠 있는 동안 말 자막을 숨긴다(칩이 자막 역할).
+# 칩이 말과 다른 정보면 자막을 그대로 두고 칩 위로 올린다(cap_keep). 숨긴 자막은 hidden_subs 에 남겨 자막 검사가 대사 순서·시각을 계속 확인한다.
+HIDDEN = []
+def _norm(t): return re.sub(r"[^0-9A-Za-z가-힣]", "", t).lower()
+def _knum(t):
+    """'2만 1천' '5,800만' '8천' '82.5' 같은 말 속 숫자를 값으로 읽는다."""
+    t = t.replace(",", ""); vals = []
+    for m in re.finditer(r"(\d+(?:\.\d+)?)\s*(만|천|백)?(?:\s*(\d+(?:\.\d+)?)\s*(천|백)?)?", t):
+        u = {"만": 1e4, "천": 1e3, "백": 1e2, None: 1}
+        v = float(m.group(1)) * u[m.group(2)]
+        if m.group(3): v += float(m.group(3)) * u[m.group(4)]
+        vals.append(v)
+    return vals
+def _said(chip_txt, spoken):
+    toks = [w for w in re.split(r"[\s·✓()/]+", chip_txt) if len(_norm(w)) >= 2]
+    sp = _norm(spoken)
+    if any(_norm(w) in sp for w in toks if not re.search(r"\d", w)): return True
+    cn = _knum(chip_txt)
+    return any(abs(a - b) <= 0.05 * max(a, b) for a in cn for b in _knum(spoken) if a >= 10 and b >= 10)
+if SP.get("cap_chip_said"):
+    for ch in [i for i in items if i["kind"] == "chip"]:
+        ov = [i for i in items if i["kind"] == "sub" and i["t0"] < ch["t1"] and ch["t0"] < i["t1"]]
+        spoken = " ".join(sorted({i["text"].replace("|", " ") for i in ov}))
+        ch["said"] = bool(ov) and _said(ch["text"], spoken)
+        if ch["said"]:
+            HIDDEN += ov; items = [i for i in items if i not in ov]
 # 2026-11-13 벨기에 교과서: 숫자 칩(가격·주행)이 떠 있는 동안 말 자막을 숨긴다
 for ch in [i for i in items if i["kind"] == "chip" and i.get("hide_cap") and not SP.get("cap_keep")]:
     items = [i for i in items if not (i["kind"] == "sub" and i["t0"] < ch["t1"] and ch["t0"] < i["t1"])]
@@ -345,6 +371,6 @@ for f in [SP.get("bgm")] + [q.get("file") for q in SP.get("sfx", [])]:
 extra = {k: SP[k] for k in ("cuts", "src_vol", "hard_cuts", "bgm_vol", "edit") if k in SP}
 if SP.get("bgm"): extra["bgm"] = os.path.basename(SP["bgm"])
 if SP.get("sfx"): extra["sfx"] = [dict(q, file=os.path.basename(q["file"])) for q in SP["sfx"]]
-json.dump({**extra, "items": items, "voice": "voice.wav", "end": END, "clips": clips, "fx": SP.get("flash", []), "car": SP.get("car", ""), "sub_png": V2}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
+json.dump({**extra, "items": items, "voice": "voice.wav", "end": END, "clips": clips, "fx": SP.get("flash", []), "car": SP.get("car", ""), "sub_png": V2, "hidden_subs": HIDDEN}, open(os.path.join(OUT, "manifest.json"), "w"), ensure_ascii=False, indent=1)
 print("items", len(items), "subs", n_sub, "moved groups", moved, "voice end", clips[-1][3])
 for c in clips: print(c[2], "→", c[3], "x", c[5], c[4])

@@ -6,6 +6,7 @@
  G3 0.12초 미만으로 스치는 강조 어절이 없다.
  G4 자막 바뀌는 시각이 30fps 프레임 경계에 있다(AE·캡컷이 한 프레임 늦게 바꾸지 않게).
  G5 문장 첫 어절의 노랑이 실제 소리 시작보다 0.15초 넘게 늦거나 0.15초 넘게 빠른 문장이 없다(무음으로 시작하는 문장은 소리 시작 기준).
+  (칩이 같은 말을 보여 줘 숨긴 자막은 G1·G2·G5·G6에서 칩이 그 자리를 채운 것으로 본다)
  G6 받아쓰기가 글자까지 똑같이 들은 낱말의 가운데 시각이 그 어절 노랑 구간 안에 드는 비율 95% 이상(asr_r5.json 이 있을 때).
 """
 import json, os, re, sys, subprocess, numpy as np
@@ -20,6 +21,8 @@ for n in NS:
     rms = np.array([np.sqrt((x[i:i+320]**2).mean()) for i in range(0, len(x)-320, 320)])
     loud = lambda a, b: (rms[int(a/0.02):max(int(a/0.02)+1, int(b/0.02))] > 0.02).mean() > 0.3
     subs = sorted([i for i in m["items"] if i["kind"] == "sub"], key=lambda i: i["t0"]); cl = m["clips"]
+    # 2026-11-14: 칩이 같은 말을 보여 줘 숨긴 자막(hidden_subs)도 대사 순서·빈 곳·시각 검사에는 포함한다(칩이 그 자리를 채움)
+    allsubs = sorted(subs + m.get("hidden_subs", []), key=lambda i: i["t0"])
     for s in subs:
         if s["t1"] - s["t0"] < 0.12: fail.append((n, "G3 짧음", s["text"], s["hi"], round(s["t1"]-s["t0"], 3)))
         for v in (s["t0"], s["t1"]):
@@ -27,7 +30,7 @@ for n in NS:
     for k, (a, b, s0, s1, disp, tp) in enumerate(cl):
         nx = cl[k+1][2] if k+1 < len(cl) else 99
         words = disp.replace("|", " ").replace("/", " ").split(); tot["words"] += len(words)
-        ins = [s for s in subs if s0 - 0.25 <= s["t0"] < nx - 0.05]
+        ins = [s for s in allsubs if s0 - 0.25 <= s["t0"] < nx - 0.05]
         shown = [s["text"].replace("|", " ").split()[s["hi"]] for s in ins]
         if shown != words: fail.append((n, "G1 빠짐·순서", disp, " ".join(shown)))
         t = s0
