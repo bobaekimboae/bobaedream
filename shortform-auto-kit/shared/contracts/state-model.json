@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "render": {
+    "states": ["queued", "analyzing", "rendering", "completed", "failed", "cancelled"],
+    "terminal": ["completed", "failed", "cancelled"],
+    "transitions": {
+      "queued": ["analyzing", "cancelled"],
+      "analyzing": ["rendering", "failed", "cancelled"],
+      "rendering": ["completed", "failed", "cancelled"],
+      "completed": [],
+      "failed": ["queued", "cancelled"],
+      "cancelled": ["queued"]
+    }
+  },
+  "approval": {
+    "states": ["draft", "pending", "approved", "changes_requested", "rejected"],
+    "transitions": {
+      "draft": ["pending"],
+      "pending": ["approved", "changes_requested", "rejected"],
+      "approved": ["draft"],
+      "changes_requested": ["draft", "pending"],
+      "rejected": ["draft"]
+    }
+  },
+  "publish": {
+    "states": ["not_requested", "blocked", "scheduled", "publishing", "published", "failed", "cancelled"],
+    "transitions": {
+      "not_requested": ["blocked", "scheduled"],
+      "blocked": ["scheduled", "cancelled"],
+      "scheduled": ["publishing", "blocked", "cancelled"],
+      "publishing": ["published", "failed"],
+      "published": [],
+      "failed": ["scheduled", "publishing", "cancelled"],
+      "cancelled": ["scheduled"]
+    }
+  },
+  "invariants": [
+    "publish requires approval=approved",
+    "sold listing blocks scheduled and publishing",
+    "source version change invalidates approval",
+    "channel publish states are independent",
+    "Fact Lock values come from listing DB only"
+  ],
+  "idempotency": {
+    "header": "Idempotency-Key",
+    "format": "{operation}:{listing_id}:v{source_version}:{client_uuid}",
+    "ttl_hours": 24,
+    "same_key_same_payload": "return original response",
+    "same_key_different_payload": "409 IDEMPOTENCY_CONFLICT"
+  }
+}
+
