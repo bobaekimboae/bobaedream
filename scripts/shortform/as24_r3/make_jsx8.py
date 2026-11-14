@@ -1,12 +1,14 @@
 """8회차 manifest(칩=말이면 자막 숨김)(컷·자막·칩·소리)를 애프터이펙트 스크립트(.jsx)로 바꾼다. 애프터이펙트가 컴포지션을 만들고 H.264로 렌더한다."""
 import json, math, sys, subprocess, os
+# 사용: python make_jsx8.py [번호:이름 …]  (없으면 01·03 샘플)
+JOBS = [tuple(a.split(":")) for a in sys.argv[1:]] or [("03", "AS24BE3_01_Sealion7_AE_v6"), ("01", "AS24NL3_01_BMW630GT_AE_v6")]
 # 2026-11-14 재발 방지: 자막 검사(capgate)를 통과하지 못한 회차는 AE 스크립트를 만들지 않는다
-_g = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "sync", "capgate.py"), "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r8", "01", "03"])
+_g = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "sync", "capgate.py"), "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r8"] + [j[0] for j in JOBS])
 if _g.returncode: sys.exit("자막 검사 실패 — AE 스크립트를 만들지 않음")
 R3 = "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r8/"
 WIN = "C:/Users/Thinkbook/Documents/autostudio_analysis/r8pack/"; SRC = "C:/Users/Thinkbook/Documents/autostudio_analysis/r3/r3pack/src/"
 OUT = "C:/Users/Thinkbook/Documents/autostudio_analysis/ae_out/"
-jobs = [("03", "AS24BE3_01_Sealion7_AE_v6"), ("01", "AS24NL3_01_BMW630GT_AE_v6")]
+jobs = JOBS
 def db(v): return 20 * math.log10(max(v, 1e-4))
 js = ['''var LOG = new File("%sae_log.txt"); LOG.encoding="UTF-8"; LOG.open("w");
 function log(s){ LOG.writeln((new Date()).toTimeString().substr(0,8) + " " + s); }
