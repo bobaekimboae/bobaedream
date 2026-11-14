@@ -128,8 +128,93 @@ def chip(txt, t0, t1, cy, fn, size, tilt=0.0, hide_cap=False):
     return im.size
 BIG, SMALL = (118, 68) if V2 else (104, 56)
 if TIDY: BIG, SMALL = SP.get("chip_big", 96), SP.get("chip_small", 64)  # 오토스카우트 제목 글자 높이 5~10% · 작은 줄 약 3%
+
+# 2026-11-13 3회차: 원본 16편 픽셀 실측 스타일(바탕 칠 없는 글자 칩)
+#  outline     = 노랑 글자 + 검정 외곽선, 바탕 없음(NL 차명·숫자·가격, BE 사양 숫자)
+#  check       = 흰 ✓ + 노랑 글자 + 검정 외곽선(NL 옵션, 두 줄까지)
+#  title_tape  = 첫 낱말만 노랑 붓띠(검정 글자) + 나머지 흰 큰 글자(BE 첫 화면)
+#  tape        = 기존 노랑 붓띠 칠(BE 옵션·기능)
+from PIL import ImageDraw, ImageFont, ImageFilter
+OUT_YEL = tuple(SP.get("chip_yellow", [244, 242, 9]))
+def _wrap(txt, fnt, maxw):
+    if fnt.getlength(txt) <= maxw or " " not in txt: return [txt]
+    sp = [i for i, ch in enumerate(txt) if ch == " "]
+    cut = min(sp, key=lambda i: abs(i - len(txt) / 2))
+    return [txt[:cut], txt[cut + 1:]]
+def outline_png(txt, size, col=OUT_YEL, check=False, maxw=900, stroke=None):
+    while True:
+        fnt = ImageFont.truetype(s.BLACK if os.path.exists(s.BLACK) else s.BOLD, size)
+        lines = _wrap(txt, fnt, maxw)
+        ck = int(size * 0.9) if check else 0
+        tw = max(fnt.getlength(l) for l in lines) + ck
+        if tw <= 980 or size <= 40: break
+        size -= 4
+    sw = stroke or max(4, round(size * 0.1))
+    lh = int(size * 1.12)
+    im = Image.new("RGBA", (int(tw + sw * 4 + 20), lh * len(lines) + sw * 4 + 20), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    y0 = sw * 2 + 10
+    for i, l in enumerate(lines):
+        lw = fnt.getlength(l) + (ck if i == 0 else 0)
+        x = (im.width - lw) / 2
+        y = y0 + lh * i + lh / 2
+        if check and i == 0:  # ✓: 글꼴에 없을 수 있어 선으로 그린다
+            p = [(x + ck * 0.08, y - size * 0.02), (x + ck * 0.36, y + size * 0.26), (x + ck * 0.8, y - size * 0.34)]
+            d.line(p, fill=(0, 0, 0), width=int(size * 0.13) + sw * 2, joint="curve")
+            d.line(p, fill=(255, 255, 255), width=int(size * 0.13), joint="curve")
+            x += ck
+        d.text((x, y), l, font=fnt, fill=col, anchor="lm", stroke_width=sw, stroke_fill=(0, 0, 0))
+    return im.crop(im.getbbox())
+def title_tape_png(txt, size):
+    first, _, rest = txt.partition(" ")  # 첫 낱말(브랜드)만 붓띠
+    tape = s.sticker(first, int(size * 0.92), TILT, True)
+    fnt = ImageFont.truetype(s.BOLD, size)
+    if rest:
+        rw = int(fnt.getlength(rest)) + 40
+        txt_im = Image.new("RGBA", (rw, int(size * 1.6)), (0, 0, 0, 0))
+        sh = Image.new("RGBA", txt_im.size, (0, 0, 0, 0))
+        ImageDraw.Draw(sh).text((22, txt_im.height / 2 + 4), rest, font=fnt, fill=(0, 0, 0, 230), anchor="lm", stroke_width=6, stroke_fill=(0, 0, 0, 230))
+        txt_im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
+        ImageDraw.Draw(txt_im).text((18, txt_im.height / 2), rest, font=fnt, fill=(255, 255, 255), anchor="lm", stroke_width=2, stroke_fill=(40, 40, 40))  # 밝은 천장 위에서도 읽히게 짙은 그림자 + 얇은 테두리
+    else:
+        txt_im = Image.new("RGBA", (1, 1), (0, 0, 0, 0))
+    W = tape.width + txt_im.width; H = max(tape.height, txt_im.height)
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    out.alpha_composite(tape, (0, (H - tape.height) // 2)); out.alpha_composite(txt_im, (tape.width - 6, (H - txt_im.height) // 2))
+    if out.width > 980: out = out.resize((980, int(out.height * 980 / out.width)), Image.LANCZOS)
+    return out
+def styled_chip(c, fn):
+    st, size = c["style"], c.get("size", 80)
+    if st == "outline": im = outline_png(c["text"], size, maxw=c.get("maxw", 900))
+    elif st == "check": im = outline_png(c["text"].lstrip("✓ ").strip(), size, check=True, maxw=c.get("maxw", 620))
+    elif st == "title_tape": im = title_tape_png(c["text"], size)
+    else: im = s.sticker(c["text"], size, TILT, True)
+    items.append({"kind": "chip", "file": place(im, 540, c["cy"], fn), "t0": c["t0"], "t1": c["t1"], "text": c["text"], "big": bool(c.get("big")),
+                  "cy": c["cy"], "tilt": TILT if st in ("tape", "title_tape") else 0.0, "w": im.width, "h": im.height, "hide_cap": bool(c.get("hide_cap")), "style": st})
 for n, c in enumerate(SP["chips"]):
+    if c.get("style"):
+        styled_chip(c, f"t_chip{n:02d}.png"); continue
     chip(c["text"], c["t0"], c["t1"], c["cy"], f"t_chip{n:02d}.png", c.get("size") or (BIG if c.get("big") else SMALL), 0.0 if TIDY else c.get("tilt", 0.0), bool(c.get("hide_cap")))
+
+# 네덜란드 말 자막: 흰 굵은 글자 + 검정 외곽선(그림자 아님), 말하는 어절만 노랑(원본 16편 실측)
+if SP.get("cap_outline"):
+    _csz = SP.get("cap_size", 60); _kw = tuple(SP.get("cap_kw", [244, 242, 9])); _pc = {}
+    def _nl_phrase(text, act=-1):
+        k = (text, act)
+        if k in _pc: return _pc[k]
+        fnt = ImageFont.truetype(s.BLACK, _csz); sw = max(4, round(_csz * 0.11))
+        text = text.strip(" ,.")
+        lines = [l.strip() for l in text.split("|")] if "|" in text else _wrap(text, fnt, 900)
+        lh, gap = int(_csz * 1.25), fnt.getlength(" ")
+        tw = max(fnt.getlength(l) for l in lines)
+        im = Image.new("RGBA", (int(tw + 80), lh * len(lines) + 40), (0, 0, 0, 0)); d = ImageDraw.Draw(im); wi = 0
+        for i, l in enumerate(lines):
+            x = (im.width - fnt.getlength(l)) / 2; y = 20 + lh * i + lh / 2
+            for w in l.split(" "):
+                d.text((x, y), w, font=fnt, fill=_kw if wi == act else (255, 255, 255), anchor="lm", stroke_width=sw, stroke_fill=(0, 0, 0))
+                wi += 1; x += fnt.getlength(w) + gap
+        _pc[k] = im; return im
+    s.phrase_img_be3 = _nl_phrase
 
 # 3) 음성: 문장 조각(a~b초)을 장면 시작에, 다음 장면 전에 끝나게 1.0~1.22배
 clips, prev_end = [], 0.0
