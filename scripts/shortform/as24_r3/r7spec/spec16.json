@@ -1,0 +1,282 @@
+{
+ "car": "bmwx6",
+ "end": 32.22,
+ "voice": "v16.mp3",
+ "flash": [],
+ "sentences": [
+  {
+   "a": -0.03,
+   "b": 4.95,
+   "at": 0.25,
+   "text": "이거 BMW X6 xDrive40i M 스포츠예요",
+   "w": [
+    -0.02,
+    0.22,
+    0.98,
+    2.08,
+    3.8,
+    4.08
+   ]
+  },
+  {
+   "a": 5.46,
+   "b": 9.67,
+   "at": 5.74,
+   "text": "올해 1월에 등록해서 주행은 4,653킬로뿐이에요",
+   "w": [
+    5.47,
+    5.77,
+    6.23,
+    6.75,
+    7.61
+   ]
+  },
+  {
+   "a": 10.23,
+   "b": 13.21,
+   "at": 10.51,
+   "text": "3.0 가솔린에 전기 모터가 힘을 보태고요",
+   "w": [
+    10.28,
+    10.76,
+    11.44,
+    11.9,
+    12.28,
+    12.54
+   ]
+  },
+  {
+   "a": 63.059,
+   "b": 65.568,
+   "at": 13.99,
+   "text": "트렁크는 기본 580리터입니다",
+   "w": [
+    63.109,
+    63.589,
+    63.989
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix2.mp3"
+  },
+  {
+   "a": 63.56,
+   "b": 66.22,
+   "at": 16.92,
+   "text": "가죽시트는 브라운 색으로 꾸며졌어요",
+   "w": [
+    63.873,
+    64.581,
+    65.066,
+    65.39
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix.mp3"
+  },
+  {
+   "a": 66.052,
+   "b": 70.608,
+   "at": 19.61,
+   "text": "14.9인치 내비게이션 화면이 12.3인치 계기판과 이어지고요",
+   "w": [
+    66.113,
+    67.089,
+    67.65,
+    68.114,
+    69.212,
+    69.822
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix2.mp3"
+  },
+  {
+   "a": 70.22,
+   "b": 73.66,
+   "at": 23.34,
+   "text": "주차할 땐 어라운드뷰가 주변을 위에서 보여 줘요",
+   "w": [
+    70.35,
+    70.75,
+    71.15,
+    71.93,
+    72.51,
+    72.95,
+    73.17
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix.mp3"
+  },
+  {
+   "a": 26.71,
+   "b": 28.65,
+   "at": 26.99,
+   "text": "가격은 1억 200만 원이에요",
+   "w": [
+    26.74,
+    27.2,
+    27.6,
+    28.08
+   ]
+  },
+  {
+   "a": 29.02,
+   "b": 30.72,
+   "at": 29.3,
+   "text": "보배드림 앱에서 확인해 보세요",
+   "w": [
+    29.05,
+    29.47,
+    29.81,
+    30.27
+   ]
+  }
+ ],
+ "callouts": [],
+ "chips": [
+  {
+   "text": "BMW X6 40i",
+   "t0": 0.68,
+   "t1": 2.88,
+   "cy": 440,
+   "big": true,
+   "style": "outline",
+   "size": 104
+  },
+  {
+   "text": "4,653km",
+   "t0": 8.32,
+   "t1": 9.92,
+   "cy": 545,
+   "style": "outline",
+   "size": 90,
+   "hide_cap": true
+  },
+  {
+   "text": "3.0 가솔린 · xDrive",
+   "t0": 11.12,
+   "t1": 12.72,
+   "cy": 545,
+   "style": "outline",
+   "size": 90,
+   "hide_cap": true
+  },
+  {
+   "text": "✓ 가죽시트",
+   "t0": 17.4,
+   "t1": 19.0,
+   "cy": 1080,
+   "style": "check",
+   "size": 60
+  },
+  {
+   "text": "✓ 내비게이션",
+   "t0": 20.85,
+   "t1": 22.45,
+   "cy": 1080,
+   "style": "check",
+   "size": 60
+  },
+  {
+   "text": "✓ 어라운드뷰(AVM)",
+   "t0": 24.47,
+   "t1": 26.07,
+   "cy": 1080,
+   "style": "check",
+   "size": 60
+  },
+  {
+   "text": "1억 200만 원",
+   "t0": 27.92,
+   "t1": 29.52,
+   "cy": 545,
+   "style": "outline",
+   "size": 86,
+   "hide_cap": true
+  },
+  {
+   "text": "보배드림",
+   "t0": 30.16,
+   "t1": 32.22,
+   "cy": 440,
+   "big": true,
+   "style": "outline",
+   "size": 104
+  }
+ ],
+ "tidy": true,
+ "cap_size": 54,
+ "lbl_size": 72,
+ "chip_big": 96,
+ "chip_small": 64,
+ "be_clean": false,
+ "cap_cy": 1190,
+ "cuts": [
+  [
+   0.0,
+   5.66
+  ],
+  [
+   6.0,
+   10.77
+  ],
+  [
+   4.0,
+   5.648
+  ],
+  [
+   10.0,
+   11.832
+  ],
+  [
+   12.0,
+   14.93
+  ],
+  [
+   19.6,
+   20.887
+  ],
+  [
+   22.0,
+   23.403
+  ],
+  [
+   26.0,
+   29.73
+  ],
+  [
+   34.0,
+   37.65
+  ],
+  [
+   46.0,
+   48.31
+  ],
+  [
+   46.796,
+   49.796
+  ]
+ ],
+ "src_vol": 0.0,
+ "hard_cuts": true,
+ "edit": "nl",
+ "sfx": [
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 0.68,
+   "vol": 0.5
+  },
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 11.12,
+   "vol": 0.45
+  },
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 20.85,
+   "vol": 0.45
+  },
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 27.92,
+   "vol": 0.45
+  }
+ ],
+ "cap_outline": true,
+ "cap_lead": 0.0,
+ "cap_keep": true
+}

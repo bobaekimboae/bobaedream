@@ -2,7 +2,8 @@
 사용: SAG_EDIT=bobae_be python render_auto.py <spec.json> <track.json> <scripts/shortform 경로> <출력폴더>
 사양서: car, end, voice, callouts[t0,t1,label,sub,fy], chips[text,t0,t1,cy,big,tilt], sentences[a,b,at,text], flash[]
 """
-import json, os, shutil, subprocess, sys
+import json, math, os, shutil, subprocess, sys
+FPS = 30
 SPEC, TRACK, SAG, OUT = sys.argv[1:5]
 SP = json.load(open(SPEC, encoding="utf-8")); VOICE = SP["voice"]; END = SP["end"]
 sys.path.insert(0, SAG); sys.argv = ["x", "/tmp/none.mp4", os.path.join(OUT, "_sag_tmp")]
@@ -333,7 +334,9 @@ for k, (a, b, st0, st1, disp, _tp) in enumerate(clips):
             t1 = g[i + 1][0] if i + 1 < len(g) else g_end
             if t1 - wt0 < 0.05: continue
             fn = place(s.phrase_img_be3(txt, i), 540, cy, f"sub{n_sub:03d}.png"); n_sub += 1
-            items.append({"kind": "sub", "file": fn, "t0": round(wt0, 2), "t1": round(t1, 2), "text": txt, "hi": i, "cy": cy})
+            # 2026-11-14 강조 색 재발 방지: 영상 프레임(30fps) 경계에 맞춘다. 경계가 프레임 중간이면 AE·캡컷이 한 프레임 늦게 바꿔 앞 어절이 노랑으로 남았다
+            f0, f1 = (math.floor(wt0 * FPS + 1e-6) / FPS, math.floor(t1 * FPS + 1e-6) / FPS) if SP.get("cap_frame_snap", True) else (wt0, t1)
+            items.append({"kind": "sub", "file": fn, "t0": round(f0, 4), "t1": round(f1, 4), "text": txt, "hi": i, "cy": cy})
 # 2026-11-13 벨기에 교과서: 숫자 칩(가격·주행)이 떠 있는 동안 말 자막을 숨긴다
 for ch in [i for i in items if i["kind"] == "chip" and i.get("hide_cap") and not SP.get("cap_keep")]:
     items = [i for i in items if not (i["kind"] == "sub" and i["t0"] < ch["t1"] and ch["t0"] < i["t1"])]

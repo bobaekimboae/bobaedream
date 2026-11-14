@@ -1,0 +1,302 @@
+{
+ "car": "bmw630gt",
+ "end": 36.33,
+ "voice": "v01.mp3",
+ "flash": [],
+ "sentences": [
+  {
+   "a": -0.03,
+   "b": 4.58,
+   "at": 0.25,
+   "text": "이거 BMW 630i 그란투리스모 M 스포츠예요",
+   "w": [
+    -0.02,
+    0.2,
+    0.96,
+    2.32,
+    3.18,
+    3.64
+   ]
+  },
+  {
+   "a": 5.03,
+   "b": 9.38,
+   "at": 5.31,
+   "text": "2024년 7월에 등록해서 아직 2만 1천 킬로밖에 안 탔어요",
+   "w": [
+    5.06,
+    5.86,
+    6.3,
+    6.86,
+    7.36,
+    7.84,
+    8.22,
+    8.68,
+    8.82
+   ]
+  },
+  {
+   "a": 9.92,
+   "b": 13.21,
+   "at": 10.2,
+   "text": "3.0 가솔린 엔진에 사륜구동 xDrive고요",
+   "w": [
+    9.97,
+    10.45,
+    10.97,
+    11.41,
+    12.15
+   ]
+  },
+  {
+   "a": 0.0,
+   "b": 3.163,
+   "at": 13.95,
+   "text": "옆모습은 지붕이 뒤로 떨어지는 패스트백이에요",
+   "w": [
+    0.032,
+    0.699,
+    1.203,
+    1.539,
+    2.12
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix2.mp3"
+  },
+  {
+   "a": 3.702,
+   "b": 8.61,
+   "at": 16.95,
+   "text": "트렁크는 기본 600리터고 2열을 접으면 1,800리터까지 늘어나요",
+   "w": [
+    3.763,
+    4.251,
+    4.568,
+    5.569,
+    6.276,
+    6.667,
+    8.009
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix2.mp3"
+  },
+  {
+   "a": 9.196,
+   "b": 12.048,
+   "at": 20.68,
+   "text": "선루프는 뒷좌석 위까지 닿는 파노라마죠",
+   "w": [
+    9.266,
+    9.826,
+    10.466,
+    10.846,
+    11.246
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix2.mp3"
+  },
+  {
+   "a": 0.0,
+   "b": 1.784,
+   "at": 24.6,
+   "text": "가죽시트는 검정이고요",
+   "w": [
+    0.01,
+    0.75
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix3.mp3"
+  },
+  {
+   "a": 7.02,
+   "b": 9.86,
+   "at": 26.77,
+   "text": "주차할 땐 어라운드뷰 화면이 바로 뜹니다",
+   "w": [
+    7.17,
+    7.57,
+    7.99,
+    8.57,
+    9.01,
+    9.31
+   ],
+   "file": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/sk1113/r5/fix.mp3"
+  },
+  {
+   "a": 30.8,
+   "b": 32.73,
+   "at": 31.08,
+   "text": "가격은 5,800만 원이에요",
+   "w": [
+    30.83,
+    31.31,
+    32.17
+   ]
+  },
+  {
+   "a": 33.09,
+   "b": 34.83,
+   "at": 33.37,
+   "text": "보배드림 앱에서 확인해 보세요",
+   "w": [
+    33.14,
+    33.54,
+    33.88,
+    34.36
+   ]
+  }
+ ],
+ "callouts": [],
+ "chips": [
+  {
+   "text": "BMW 630i GT",
+   "t0": 0.68,
+   "t1": 2.88,
+   "cy": 440,
+   "big": true,
+   "style": "outline",
+   "size": 104
+  },
+  {
+   "text": "21,706km",
+   "t0": 8.06,
+   "t1": 9.66,
+   "cy": 545,
+   "style": "outline",
+   "size": 90,
+   "hide_cap": true
+  },
+  {
+   "text": "3.0 가솔린 · xDrive",
+   "t0": 10.6,
+   "t1": 12.2,
+   "cy": 545,
+   "style": "outline",
+   "size": 90,
+   "hide_cap": true
+  },
+  {
+   "text": "✓ 선루프(파노라마)",
+   "t0": 21.43,
+   "t1": 23.03,
+   "cy": 1080,
+   "style": "check",
+   "size": 60
+  },
+  {
+   "text": "✓ 가죽시트",
+   "t0": 25.0,
+   "t1": 26.6,
+   "cy": 1080,
+   "style": "check",
+   "size": 60
+  },
+  {
+   "text": "✓ 어라운드뷰(AVM)",
+   "t0": 27.86,
+   "t1": 29.46,
+   "cy": 1080,
+   "style": "check",
+   "size": 60
+  },
+  {
+   "text": "5,800만 원",
+   "t0": 32.06,
+   "t1": 33.66,
+   "cy": 545,
+   "style": "outline",
+   "size": 86,
+   "hide_cap": true
+  },
+  {
+   "text": "보배드림",
+   "t0": 33.77,
+   "t1": 36.33,
+   "cy": 440,
+   "big": true,
+   "style": "outline",
+   "size": 104
+  }
+ ],
+ "tidy": true,
+ "cap_size": 54,
+ "lbl_size": 72,
+ "chip_big": 96,
+ "chip_small": 64,
+ "be_clean": false,
+ "cap_cy": 1190,
+ "cuts": [
+  [
+   0.0,
+   5.23
+  ],
+  [
+   3.6,
+   8.49
+  ],
+  [
+   8.6,
+   12.35
+  ],
+  [
+   12.0,
+   15.0
+  ],
+  [
+   14.2,
+   17.93
+  ],
+  [
+   18.0,
+   19.773
+  ],
+  [
+   20.1,
+   22.247
+  ],
+  [
+   24.4,
+   26.57
+  ],
+  [
+   40.0,
+   42.155
+  ],
+  [
+   41.845,
+   44.0
+  ],
+  [
+   44.0,
+   46.29
+  ],
+  [
+   45.486,
+   48.526
+  ]
+ ],
+ "src_vol": 0.0,
+ "hard_cuts": true,
+ "edit": "nl",
+ "sfx": [
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 0.68,
+   "vol": 0.5
+  },
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 10.6,
+   "vol": 0.45
+  },
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 25.0,
+   "vol": 0.45
+  },
+  {
+   "file": "/home/claude/bobaedream/public/assets/shortform/sfx/ding.wav",
+   "t": 32.06,
+   "vol": 0.45
+  }
+ ],
+ "cap_outline": true,
+ "cap_lead": 0.0,
+ "cap_keep": true
+}
