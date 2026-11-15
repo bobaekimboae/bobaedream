@@ -75,6 +75,7 @@ for c in CH:
     for c2 in CH[ci+1:]:
         t2=c2['t0'] if 't0' in c2 else ws(c2['anchor'],c2.get('after',0))-0.20
         if t2<t1 and abs(c2['pos'][1]-c['pos'][1])<0.15: t1=t2-0.02
+    if 'maxdur' in c: t1=min(t1,t0+c['maxdur'])
     n0=max(0,int(round(t0*FPS))); n1=min(N-1,int(round(t1*FPS)))
     if n1<n0: continue
     anim=load_anim(c['key'],c['width']); h,w=anim[0].shape[:2]
@@ -205,6 +206,6 @@ for n in range(N):
         comp(fr,im,p['src'],q[:4],al)
     intro.draw(fr,n)
     low=any(p['n0']<=n<=p['n1'] and p.get('y',0)>0.7 for p in plan)
-    captions.draw(fr,CAPS,n,1180 if low else 1290)
+    captions.draw(fr,CAPS,n,1536)
     ff.stdin.write(np.clip(fr,0,255).astype(np.uint8).tobytes())
 ff.stdin.close(); ff.wait(); print('done')

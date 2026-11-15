@@ -41,7 +41,6 @@ def build(words,fps,W=1080):
         out.append(dict(n0=int(round(t0*fps)),n1=int(round(t1*fps)),frames=frames,txt=txt))
     return out
 def draw(fr,caps,n,yc=1229):
-    yc=1229 if yc>=1229 else 1120
     for c in caps:
         if c['n0']<=n<=c['n1']:
             t=n/30.0; cur=c['frames'][0][0]
