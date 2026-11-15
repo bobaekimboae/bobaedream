@@ -24,3 +24,8 @@
 결과: `public/shortform-samples/nasser-style-v7/amg_gt63_nasser_v7.mp4`
 - 칩을 나세르처럼: 화면 폭 40~55%로 작게, 화면 위·아래 고정 자리 대신 그 부위 바로 옆에 붙임, 노출 최대 2.4초(`maxdur`, 마지막 이력판 제외)
 - 말 자막은 칩과 겹치지 않게 화면 80% 높이로 내림
+
+## 다른 차: 벤틀리 컨티넨탈 GT S v2 (2026-11-16)
+결과: `public/shortform-samples/nasser-style-bentley-v2/bentley_gts_nasser_v2.mp4` (24초)
+- 차마다 바뀌는 값은 작업 폴더의 `car.json`(인트로 로고·모델명·시간, 자막 구절·낱말 짝) · `chips.json` · 칩 스펙(`bentley/specs_bgt.json`)에만 둔다. `comp.py`·`captions.py`·`intro.py`는 공용(`ANIM` 환경변수로 칩 폴더 지정, 로고는 `mode: rgb`면 원래 무늬를 살려 은색 처리)
+- 제원(22인치 휠 · 680PS · 930Nm · 제로백 3.5초)은 벤틀리 미디어 공식 발표 기준

@@ -12,6 +12,9 @@ FONT=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc',6
 MAP={0:[0,2,3,4],2:[0,1,3,4,5,6],3:[0,1,2,3],5:[0,2],6:[0,2,4,6],8:[0,1],9:[0,1],10:[0,1,2],11:[0,1,2],12:[0,4],13:[0,2,3,4,5,6],16:[0,1,3,4,5,6],19:[0,1,3]}
 YEL=(0xEE,0xEF,0x05,255)
 from PIL import ImageFilter
+import os as _os, json as _js
+if _os.path.exists('car.json'):
+    _c=_js.load(open('car.json')); CAPS=[tuple(x) for x in _c['caps']]; MAP={int(k):v for k,v in _c.get('map',{}).items()}
 def _render(lines,hi,W=1080):
     """lines: list of token lists; hi: global token index highlighted (-1 none). BE style: white bold + soft shadow, spoken token yellow."""
     im=Image.new('RGBA',(W,260),(0,0,0,0)); sh=Image.new('RGBA',(W,260),(0,0,0,0))

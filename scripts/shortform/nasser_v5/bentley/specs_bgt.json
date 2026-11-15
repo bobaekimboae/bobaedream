@@ -1,0 +1,57 @@
+{
+ "logo": {
+  "kind": "feature",
+  "label": "날개 달린 B 로고",
+  "icon": null
+ },
+ "engine": {
+  "kind": "badge",
+  "lab": "엔진",
+  "num": "4.0L",
+  "unit": "V8"
+ },
+ "phev": {
+  "kind": "feature",
+  "label": "플러그인 하이브리드",
+  "icon": "bolt"
+ },
+ "wheel": {
+  "kind": "badge",
+  "lab": "휠",
+  "num": "22",
+  "unit": "인치"
+ },
+ "headrest": {
+  "kind": "feature",
+  "label": "머리받침 B 로고",
+  "icon": null
+ },
+ "dial": {
+  "kind": "feature",
+  "label": "주행 모드 다이얼",
+  "icon": "wheel"
+ },
+ "screen": {
+  "kind": "feature",
+  "label": "주차 카메라",
+  "icon": "screen"
+ },
+ "spec": {
+  "kind": "glass",
+  "title": "컨티넨탈 GT S",
+  "rows": [
+   [
+    "최고출력",
+    "680PS"
+   ],
+   [
+    "최대토크",
+    "930Nm"
+   ],
+   [
+    "제로백",
+    "3.5초"
+   ]
+  ]
+ }
+}

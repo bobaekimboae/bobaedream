@@ -3,14 +3,21 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import os
 LOGO=os.path.join(os.path.dirname(__file__),'../../../public/assets/brand/rail-v01/mercedes-benz.png')
 T_IN,T_NAME,T_OUT,T_END=0.10,0.75,4.55,4.90
+import json as _js, os as _os
+_c=_js.load(open('car.json'))['intro'] if _os.path.exists('car.json') else {}
+LOGO=_c.get('logo',LOGO); T_IN,T_NAME,T_OUT,T_END=_c.get('times',[T_IN,T_NAME,T_OUT,T_END]); MODE=_c.get('mode','mask')
 EY,NY=640,900
 BIG=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc',104,index=1)
 SM=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc',52,index=1)
-L1,L2='Mercedes-AMG','GT 63 4도어 쿠페'
+L1,L2=_c.get('l1','Mercedes-AMG'),_c.get('l2','GT 63 4도어 쿠페')
 def _emblem(S=380):
-    m=Image.open(LOGO).convert('RGBA').resize((S,S),Image.LANCZOS); a=np.array(m)[...,3].astype(np.float32)/255
+    src=Image.open(LOGO).convert('RGBA'); k=S/max(src.size); src=src.resize((max(1,int(src.size[0]*k)),max(1,int(src.size[1]*k))),Image.LANCZOS)
+    m=Image.new('RGBA',(S,S),(0,0,0,0)); m.paste(src,((S-src.size[0])//2,(S-src.size[1])//2),src)
+    arr=np.array(m).astype(np.float32); a=arr[...,3]/255
     y=np.linspace(0,1,S)[:,None]; base=np.clip(0.55+0.45*np.cos((y-0.28)*5.0),0,1)*np.ones((1,S))
     rgb=np.stack([200+55*base]*3,-1); rgb=np.clip(rgb,0,255)
+    if MODE=='rgb':
+        lum=(arr[...,:3].mean(-1)/255.0)[...,None]; rgb=np.clip(rgb*(0.08+0.92*lum),0,255)
     pad=40; C=S+2*pad; out=np.zeros((C,C,4),np.float32)
     # glow outline + shadow
     ga=cv2.GaussianBlur(np.pad(a,pad),(0,0),10)

@@ -1,7 +1,8 @@
 import cv2, numpy as np, json, subprocess, math, sys
 from scipy.signal import savgol_filter
 W,H,FPS=1080,1920,30
-AN='../bl/anim'
+import os
+AN=os.environ.get('ANIM','../bl/anim')
 words=json.load(open('words.json'))['words']
 def ws(txt,after=0): return next(w['start'] for w in words if txt in w['text'] and w['start']>=after-1e-6)
 def we(txt,after=0): return next(w['end'] for w in words if txt in w['text'] and w['start']>=after-1e-6)
