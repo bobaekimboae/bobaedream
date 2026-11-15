@@ -20,8 +20,8 @@ def _render(lines,hi,W=1080):
     for li,toks in enumerate(lines):
         tw=sum(FONT.getlength(t) for t in toks)+sp*(len(toks)-1); x=(W-tw)/2; y=y0+li*lh
         for t in toks:
-            ds.text((x+4,y+6),t,font=FONT,fill=(0,0,0,230),stroke_width=3,stroke_fill=(0,0,0,230))
-            d.text((x,y),t,font=FONT,fill=YEL if g==hi else (255,255,255,255),stroke_width=2,stroke_fill=(20,20,20,255))
+            ds.text((x+4,y+6),t,font=FONT,fill=(0,0,0,230),stroke_width=8,stroke_fill=(0,0,0,200))
+            d.text((x,y),t,font=FONT,fill=YEL if g==hi else (255,255,255,255),stroke_width=6,stroke_fill=(0,0,0,255))
             x+=FONT.getlength(t)+sp; g+=1
     sh=sh.filter(ImageFilter.GaussianBlur(6)); out=Image.alpha_composite(sh,im)
     a=np.array(out).astype(np.float32); return a[...,2::-1].copy(),a[...,3:]/255.0
