@@ -17,7 +17,7 @@ def _emblem(S=380):
     sh=cv2.GaussianBlur(np.pad(a,pad),(0,0),8); sh=np.roll(sh,10,0)
     out[...,3]=np.clip(sh*0.7,0,1)
     gl=np.clip(ga*1.2,0,1); out[...,:3]=out[...,:3]*(1-gl[...,None])+np.array([255,230,120])*gl[...,None]*0  # keep neutral
-    out[...,:3]=np.where(gl[...,None]>0,np.array([90,170,255]),0); out[...,3]=np.maximum(out[...,3],gl*0.55)
+    out[...,:3]=np.where(gl[...,None]>0,np.array([240,170,80]),0); out[...,3]=np.maximum(out[...,3],gl*0.55)
     ap=np.pad(a,pad); rp=np.zeros((C,C,3)); rp[pad:pad+S,pad:pad+S]=rgb
     out[...,:3]=out[...,:3]*(1-ap[...,None])+rp*ap[...,None]; out[...,3]=np.maximum(out[...,3],ap)
     return out, ap

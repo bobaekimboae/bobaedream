@@ -58,21 +58,22 @@ def cbox(im):
     a=im[...,3]>40; ys,xs=np.where(a); h,w=a.shape
     return (xs.min()/w,ys.min()/h,xs.max()/w,ys.max()/h)
 def load_anim(k,wpx):
-    out=[]; ref=cv2.imread(f'{AN}/{k}/f_0040.png',cv2.IMREAD_UNCHANGED); cb=cbox(ref)
+    an=AN if os.path.exists(f'{AN}/{k}/f_0044.png') else AN+'_lo'
+    out=[]; ref=cv2.imread(f'{an}/{k}/f_0040.png',cv2.IMREAD_UNCHANGED); cb=cbox(ref)
     s=wpx/((cb[2]-cb[0])*ref.shape[1])
     lut=np.clip(np.arange(256)*1.06+4,0,255).astype(np.uint8)
     for i in range(45):
-        im=cv2.imread(f'{AN}/{k}/f_{i:04d}.png',cv2.IMREAD_UNCHANGED)
+        im=cv2.imread(f'{an}/{k}/f_{i:04d}.png',cv2.IMREAD_UNCHANGED)
         im[...,:3]=cv2.LUT(im[...,:3],lut)
         out.append(cv2.resize(im,(int(im.shape[1]*s),int(im.shape[0]*s)),interpolation=cv2.INTER_AREA))
     return out
 plan=[]
 for c in CH:
-    t0=ws(c['anchor'],c.get('after',0))-0.20
+    t0=c['t0'] if 't0' in c else ws(c['anchor'],c.get('after',0))-0.20
     t1=c['out'] if isinstance(c['out'],(int,float)) else we(c['out'],c.get('after',0))+0.18
     ci=CH.index(c)
     for c2 in CH[ci+1:]:
-        t2=ws(c2['anchor'],c2.get('after',0))-0.20
+        t2=c2['t0'] if 't0' in c2 else ws(c2['anchor'],c2.get('after',0))-0.20
         if t2<t1 and abs(c2['pos'][1]-c['pos'][1])<0.15: t1=t2-0.02
     n0=max(0,int(round(t0*FPS))); n1=min(N-1,int(round(t1*FPS)))
     if n1<n0: continue
@@ -114,7 +115,7 @@ def comp(fr,im,src,quad,alpha):
     sh=cv2.GaussianBlur(np.roll(np.roll(a[...,0],14,0),8,1),(0,0),12)[...,None]*0.55
     gl=cv2.GaussianBlur(a[...,0],(0,0),16)[...,None]
     roi[:]=roi*(1-sh)
-    roi[:]=np.clip(roi+gl*np.array([255,200,60],np.float32)*0.5,0,255)
+    roi[:]=np.clip(roi+gl*np.array([80,165,240],np.float32)*0.5,0,255)
     # light wrap: blurred background bleeds onto chip edges
     bgb=cv2.GaussianBlur(roi,(0,0),6); a2=a[...,0]; edge=np.clip(a2-cv2.erode(a2,np.ones((7,7),np.uint8)),0,1)[...,None]
     roi[:]=roi*(1-a)+col*a
@@ -176,7 +177,7 @@ def leader(fr,q,prog,al,i,cb):
         r=14+4*math.sin(i*0.35); cv2.circle(lay,(int(tgt[0]),int(tgt[1])),int(r),1.0,4,cv2.LINE_AA)
         cv2.circle(lay,(int(tgt[0]),int(tgt[1])),7,1.0,-1,cv2.LINE_AA)
     g=cv2.GaussianBlur(lay,(0,0),9)[...,None]
-    fr[:]=np.clip(fr+g*np.array([255,200,60],np.float32)*0.9*al,0,255)
+    fr[:]=np.clip(fr+g*np.array([80,165,240],np.float32)*0.9*al,0,255)
     l=lay[...,None]*al; fr[:]=fr*(1-l)+255*l
 def aidx(i):
     if i<25: return i

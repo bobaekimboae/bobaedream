@@ -1,11 +1,11 @@
 import bpy, math, sys, json, os
 from mathutils import Vector
 FONT=os.path.abspath('kr_black.otf')
-CY=(0.0,0.62,1.0)  # theme cyan (linear-ish)
+CY=(1.0,0.55,0.15)  # theme cyan (linear-ish)
 def reset():
     bpy.ops.wm.read_factory_settings(use_empty=True)
     s=bpy.context.scene; s.render.engine='CYCLES'; s.cycles.device='CPU'
-    s.cycles.samples=10; s.cycles.max_bounces=4; s.cycles.use_adaptive_sampling=True; s.cycles.use_denoising=True; s.render.film_transparent=True
+    s.cycles.samples=16; s.render.filter_size=1.0; s.cycles.max_bounces=4; s.cycles.use_adaptive_sampling=True; s.cycles.use_denoising=True; s.render.film_transparent=True
     s.view_settings.view_transform='Standard'; s.view_settings.look='None'
     try: s.cycles.denoiser='OPENIMAGEDENOISE'
     except: pass
@@ -51,13 +51,13 @@ def cyl(r,d,mat,loc=(0,0,0),rot=(0,0,0)):
     o=bpy.context.object; o.data.materials.append(mat); bpy.ops.object.shade_smooth()
     md=o.modifiers.new('b','BEVEL'); md.width=min(r,d)*0.2; md.segments=4; return o
 def M():
-    return dict(face=mat_grad('face',(0.55,0.92,1.0),(0.0,0.42,1.0),emit=0.4,metal=0.25,rough=0.22),
+    return dict(face=mat_grad('face',(0.95,0.62,0.22),(0.48,0.27,0.05),emit=0.5,metal=0.25,rough=0.22),
         white=mat_flat('white',(1,1,1),emit=0.3,rough=0.3),
-        deep=mat_flat('deep',(0.01,0.06,0.16),rough=0.35,metal=0.3),
-        tile=mat_grad('tile',(0.45,0.88,1.0),(0.0,0.40,0.95),emit=0.22,metal=0.35,rough=0.2),
+        deep=mat_flat('deep',(0.07,0.035,0.006),rough=0.35,metal=0.3),
+        tile=mat_grad('tile',(0.75,0.45,0.13),(0.35,0.19,0.035),emit=0.22,metal=0.35,rough=0.2),
         dark=mat_flat('dark',(0.02,0.025,0.035),rough=0.15,metal=0.2),
         red=mat_flat('red',(1.0,0.05,0.04),emit=4.0),
-        cyanem=mat_flat('cyanem',(0.1,0.8,1.0),emit=3.0),
+        cyanem=mat_flat('cyanem',(1.0,0.55,0.15),emit=3.0),
         glass=mat_flat('glass',(0.008,0.02,0.04),rough=0.12,alpha=0.93))
 def icon(kind,mt,parent,y0):
     objs=[]
@@ -130,7 +130,7 @@ def glass(title,rows,mt,root):
         ftext(u,0.26,[(mt['dark'],0.03,0,0.12)],f,root,(1.45,y,0),zfix=True)
 def easeback(t,c=1.7):
     t=min(max(t,0),1); return 1+(c+1)*(t-1)**3+c*(t-1)**2
-def build(spec,out,res=(720,504),frames=60,still=None):
+def build(spec,out,res=(1200,840),frames=60,still=None):
     s=reset(); mt=M()
     root=bpy.data.objects.new('root',None); s.collection.objects.link(root)
     k=spec['kind']
@@ -158,8 +158,8 @@ def build(spec,out,res=(720,504),frames=60,still=None):
         o=bpy.data.objects.new(name,l); s.collection.objects.link(o); o.location=loc
         o.rotation_euler=(Vector((0,0,0))-Vector(loc)).to_track_quat('-Z','Y').to_euler(); return o
     sc=dist/10
-    area('key',(-4*sc,5*sc,8*sc),6*sc,380*sc*sc); area('fill',(5*sc,-2*sc,6*sc),8*sc,110*sc*sc,(0.7,0.85,1))
-    area('rim',(0,3*sc,-5*sc),6*sc,500*sc*sc,(0.4,0.8,1))
+    area('key',(-4*sc,5*sc,8*sc),6*sc,380*sc*sc); area('fill',(5*sc,-2*sc,6*sc),8*sc,110*sc*sc,(1.0,0.9,0.75))
+    area('rim',(0,3*sc,-5*sc),6*sc,500*sc*sc,(1.0,0.75,0.4))
     sw=area('sweep',(-8*sc,0,3*sc),1.2*sc,0)
     sw.data.shape='RECTANGLE'; sw.data.size=2.2*sc; sw.data.size_y=14*sc
     s.frame_start=0; s.frame_end=frames-1
