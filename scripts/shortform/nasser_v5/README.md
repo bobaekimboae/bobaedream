@@ -29,3 +29,10 @@
 결과: `public/shortform-samples/nasser-style-bentley-v2/bentley_gts_nasser_v2.mp4` (24초)
 - 차마다 바뀌는 값은 작업 폴더의 `car.json`(인트로 로고·모델명·시간, 자막 구절·낱말 짝) · `chips.json` · 칩 스펙(`bentley/specs_bgt.json`)에만 둔다. `comp.py`·`captions.py`·`intro.py`는 공용(`ANIM` 환경변수로 칩 폴더 지정, 로고는 `mode: rgb`면 원래 무늬를 살려 은색 처리)
 - 제원(22인치 휠 · 680PS · 930Nm · 제로백 3.5초)은 벤틀리 미디어 공식 발표 기준
+
+## 벤틀리 v3 (나세르 300편 매뉴얼 반영 대사)
+- 대사: 질문형 훅 → 차명 → 옵션을 '그리고 ~도'로 이어 붙이기 → 수치는 '~마력에 ~Nm'처럼 붙여 말하기 → 이득 한 줄 → 보배드림 앱 안내
+- 음성: ElevenLabs eleven_v4, Jubal(한국어 남성 영업 톤) 2테이크 중 2번째 사용
+- 단어 시간: faster-whisper 받아쓰기 결과를 대본 글자에 맞춤(align.py, 숫자는 한글로 바꿔 맞춤)
+- 설정: bentley_v3/car.json · chips.json · planbase.py (화면 구간 10개)
+- 결과: public/shortform-samples/nasser-style-bentley-v3/bentley_gts_nasser_v3.mp4
