@@ -12,6 +12,7 @@ import {
   PlusIcon,
 } from "@radix-ui/react-icons";
 import "./chotot-parity.css";
+import SnsCrossPost, { type SnsChannelId } from "./SnsCrossPost";
 
 const publicAsset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 const initialPhoto = publicAsset("cars/supercar-sheet-v01/sc-019.jpg");
@@ -140,6 +141,7 @@ export default function ChototParityRegister({ notify }: { notify: (message: str
   const [showDocument, setShowDocument] = useState(false);
   const [documentName, setDocumentName] = useState("");
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [snsChannels, setSnsChannels] = useState<SnsChannelId[]>(["naverBlog", "instagram", "reels"]);
   const fileRef = useRef<HTMLInputElement>(null);
   const documentRef = useRef<HTMLInputElement>(null);
   const objectUrlsRef = useRef<string[]>([]);
@@ -204,7 +206,7 @@ export default function ChototParityRegister({ notify }: { notify: (message: str
       document.querySelector(".ct-field-wrap.is-error")?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
-    notify("등록 전 최종 확인이 완료되었습니다.");
+    notify(snsChannels.length ? `등록 후 SNS ${snsChannels.length}개 채널에 함께 올라갑니다(목업).` : "등록 전 최종 확인이 완료되었습니다.");
   };
 
   return (
@@ -288,6 +290,20 @@ export default function ChototParityRegister({ notify }: { notify: (message: str
             <PillGroup label="검사 유효기간" value={inspection} options={["있음", "없음"]} onChange={setInspection} compact />
           </div>
         </section>
+
+        <SnsCrossPost
+          title={title}
+          price={price}
+          mileage={mileage}
+          year={year}
+          maker={maker}
+          model={model}
+          address={address}
+          cover={media[0]?.src}
+          photoCount={media.length}
+          notify={notify}
+          onChange={setSnsChannels}
+        />
       </main>
 
       <footer className="ct-register-actions">
