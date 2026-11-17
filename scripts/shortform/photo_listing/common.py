@@ -26,12 +26,17 @@ sys.path.insert(0, REPO)
 import sag_reel_v1 as R
 
 W, H, FPS = 1080, 1920, 30
-SPEED = float(os.environ.get('BBM_SPEED', '1.1'))
+SPEED = float(os.environ.get('BBM_SPEED') or getattr(C, 'SPEED', 1.1))  # 2026-11-17: 차 설정(SPEED)이 기준 — 기본값 1.1로 렌더해 1.2배 목소리와 싱크가 틀어진 일 방지
 END_S = 2.0
 TAIL = 0.5
 os.chdir(SC)
 
 # ── 1) 목소리 1.1배 + 어절 시각(받아쓰기) → 실제 소리 시작점으로 보정 ──
+def _dur(f):
+    return float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout or 0)
+if os.path.exists('voice.wav') and abs(_dur('voice.wav') - _dur('voice_a.mp3') / SPEED) > 0.3:  # 다른 배속으로 만든 voice.wav면 다시 만듦
+    print(f'voice.wav 배속이 SPEED={SPEED}와 달라 다시 만듦')
+    os.remove('voice.wav')
 if not os.path.exists('voice.wav'):
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', 'voice_a.mp3', '-af', f'atempo={SPEED}', '-ar', '48000', '-ac', '1', 'voice.wav'], check=True)
 wv = wave.open('voice.wav'); sr = wv.getframerate()
@@ -42,7 +47,7 @@ env = np.array([np.sqrt(np.mean(x[i:i + hop] ** 2)) + 1e-9 for i in range(0, len
 db = 20 * np.log10(env)
 WRD = json.load(open('voice_a_words.json'))
 if not PLAN and not REMIX and os.environ.get('BBM_SKIP_CHECK') != '1':  # 렌더 전 매뉴얼 점검(check_cfg.py) — 걸리면 멈춤
-    _r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'check_cfg.py'), SC, '--speed', os.environ.get('BBM_SPEED', '1.1')])
+    _r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'check_cfg.py'), SC, '--speed', str(SPEED)])
     if _r.returncode:
         raise SystemExit('매뉴얼 점검에서 걸림 → cfg를 고친 뒤 다시 렌더(그래도 렌더하려면 BBM_SKIP_CHECK=1)')
 
@@ -157,6 +162,9 @@ for txt, wi in EXTRA_CHIPS:
     t0 = onset(wi) + 0.05
     ci_ = max(i for i in range(len(CUTS)) if starts[i] <= t0)
     CHIPS.append((txt, t0, ends[ci_] - 0.08))
+if getattr(C, 'DEALER_FOOTER', False):  # 딜러는 아래 띠가 맡으므로 딜러 이름 칩은 겹치지 않게 뺌
+    _dl = getattr(C, 'DEALER_CHIP_LINES', [getattr(C, 'DEALER_CHIP', '')])
+    CHIPS = [c for c in CHIPS if c[0] not in _dl]
 # 같은 컷 두 칩: 앞 칩은 두 번째 칩이 뜨면 내려감
 CHIPS = sorted(CHIPS, key=lambda c: c[1])
 for k in range(len(CHIPS) - 1):
@@ -192,7 +200,10 @@ CHIPS = _ch
 for c in CAPS:  # 문장 마지막 자막도 페이드 시작 전에 내려감
     ci = _cut_of(c['s'])
     if ci + 1 in FW and FW[ci + 1][2] != 'reveal' and c['e'] > FW[ci + 1][0]:  # 같은 카드에서 한 줄 켜질 때는 말이 끝날 때까지 자막 유지
-        c['e'] = max(c['s'] + 0.3, FW[ci + 1][0])
+        a, b, _ = FW[ci + 1]
+        # 문장 사이 쉼이 없어 말이 페이드 안까지 이어지면(쉼 0.15초 미만) 자막을 페이드 끝까지 남김 — 말하는데 자막이 비지 않게
+        tight = b - a <= 0.30
+        c['e'] = max(c['s'] + 0.3, min(c['e'], b - 0.03) if tight else a)
 
 # ── 3) 사진 그리기(켄번스) ──
 PH = {}
@@ -291,7 +302,8 @@ def blur_bg(n, img):
 def _photo_y0(fh):
     """상자 맞춤 사진의 위 y. CAPS_UNDER_PHOTO면 아랫선을 PHOTO_BOTTOM에 맞춰 컷마다 사진–자막 간격이 같다."""
     if getattr(C, 'CAPS_UNDER_PHOTO', False) and fh < H * .70:
-        return max(150, PHOTO_BOTTOM - fh)
+        # 2026-11-17: PHOTO_DOWN만큼 사진·자막을 함께 내려 위 흐린 띠를 키움 → 칩이 사진에 걸치지 않고 띠 안에 들어감
+        return max(150, PHOTO_BOTTOM - fh + getattr(C, 'PHOTO_DOWN', 0))
     return H * .44 - fh / 2
 
 
@@ -540,7 +552,36 @@ def dealer_chip_de(lines, size=34):
     return top
 
 
-if getattr(C, 'DEALER_CHIP', None):  # 딜러 이름 칩: 노션 원본 로고 칠
+def dealer_chip_row(lines, size=34):
+    """2026-11-17 사용자: 딜러 칩을 아래(푸터)에 한 줄로 — 노랑 상자(이름, −2°) + 흰 상자(상사, 0°)를 좌우로 붙임.
+    상자 규격은 독일식 두 줄 칩(dealer_chip_de)과 같음."""
+    fnt = ImageFont.truetype(R.BOLD, size)
+    def box(txt, fill, tilt):
+        bb = fnt.getbbox(txt, anchor='ls'); tw, th = bb[2] - bb[0], bb[3] - bb[1]
+        h = int(round(size * 1.85)); pad = int(h * 0.24); w = tw + pad * 2; r = int(h * 0.17)
+        im = Image.new('RGBA', (w + 24, h + 24), (0, 0, 0, 0))
+        sh = Image.new('L', im.size, 0); ImageDraw.Draw(sh).rounded_rectangle((12, 16, 12 + w, 16 + h), r, fill=70)
+        im.putalpha(sh.filter(ImageFilter.GaussianBlur(5)))
+        im = Image.composite(Image.new('RGBA', im.size, (0, 0, 0, 255)), im, sh.point(lambda v: 0))
+        d = ImageDraw.Draw(im); d.rounded_rectangle((12, 12, 12 + w, 12 + h), r, fill=fill)
+        d.text((12 + (w - tw) / 2 - bb[0], 12 + (h - th) / 2 - bb[1]), txt, font=fnt, fill=(20, 20, 20), anchor='ls')
+        return im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
+    a = box(lines[0], (0xE4, 0xE2, 0x5C, 255), -2.0)
+    if len(lines) < 2:
+        return a
+    b = box(lines[1], (0xF8, 0xF8, 0xF6, 255), 0.0)
+    ov = 30  # 흰 상자가 노랑 상자 끝을 살짝 덮음(그림자 여백 24 포함)
+    im = Image.new('RGBA', (a.width + b.width - ov, max(a.height, b.height)), (0, 0, 0, 0))
+    im.alpha_composite(b, (a.width - ov, (im.height - b.height) // 2))
+    im.alpha_composite(a, (0, (im.height - a.height) // 2))
+    return im
+
+
+FOOTER = None
+if getattr(C, 'DEALER_FOOTER', False) and getattr(C, 'DEALER_CHIP', None):  # 딜러는 아래 한 줄 띠, 위는 포인트 칩 자리
+    FOOTER = dealer_chip_row(getattr(C, 'DEALER_CHIP_LINES', [C.DEALER_CHIP]), getattr(C, 'DEALER_CHIP_SIZE', 34))
+    LOGO = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
+elif getattr(C, 'DEALER_CHIP', None):  # 딜러 이름 칩: 노션 원본 로고 칠
     if getattr(C, 'DEALER_CHIP_STYLE', '') == 'de':
         LOGO = dealer_chip_de(getattr(C, 'DEALER_CHIP_LINES', [C.DEALER_CHIP]), getattr(C, 'DEALER_CHIP_SIZE', 34))
     else:
@@ -672,7 +713,7 @@ def shadow_text(txt, size, font=None):
 
 def photo_band(T):
     """가로 사진을 상자에 맞춘 컷이면 (사진 위 y, 아래 y). 뉴스 릴스처럼 자막은 사진 밑, 칩은 사진 위 띠에 둔다."""
-    if not getattr(C, 'CAPS_UNDER_PHOTO', False) or T < starts[1]:
+    if not getattr(C, 'CAPS_UNDER_PHOTO', False) or (T < starts[1] and not (FADE and getattr(C, 'PHOTO_DOWN', 0))):
         return None
     ci = max(i for i in range(len(CUTS)) if starts[i] <= T) if T < BODY else len(CUTS) - 1
     n = CUTS[ci][0]
@@ -688,9 +729,81 @@ def photo_band(T):
     return y0, y0 + fh
 
 
+def _cut_at(T):
+    return max(i for i in range(len(CUTS)) if starts[i] <= T)
+
+
+def footer_layer(ov, T):
+    """아래 한 줄 딜러 띠: 안전선(아래 240) 바로 위. 카드 구간(사진 번호 20~59)은 카드가 길어 숨김. 마지막 딜러 컷에서 커짐"""
+    if FOOTER is None:
+        return
+    ci = _cut_at(T)
+    def card(i):
+        return 20 <= CUTS[i][0] < 60
+    a = 1.0
+    if card(ci):
+        a = 0.0
+    else:
+        k = T - starts[ci]
+        if ci and card(ci - 1):
+            a = min(1.0, k / .25)          # 카드 구간이 끝나면 다시 나타남
+        nx = ci + 1
+        if nx < len(CUTS) and card(nx):
+            a = min(a, max(0.0, (starts[nx] - T) / .2))
+    if a <= 0:
+        return
+    sc = 1.0
+    if ci == len(CUTS) - 1:  # 마지막 딜러 컷: 0.4초 동안 1.3배로 커짐(문의 안내)
+        sc = 1 + 0.3 * R.ease((T - starts[ci]) / .4)
+    F0 = FOOTER
+    if getattr(C, 'DEALER_FOOTER_STYLE', '') == 'text':  # 2026-11-17: 아래 딜러는 상자 없이 흰 글자만(칩은 위쪽 몫)
+        F0 = shadow_text('  ·  '.join(getattr(C, 'DEALER_CHIP_LINES', [C.DEALER_CHIP])), getattr(C, 'DEALER_FOOTER_TEXT_SIZE', 38))
+    im = F0 if sc == 1.0 else F0.resize((int(F0.width * sc), int(F0.height * sc)), Image.LANCZOS)
+    _unused = FOOTER if False else None
+    if False: im = FOOTER.resize((int(FOOTER.width * sc), int(FOOTER.height * sc)), Image.LANCZOS)
+    yb = getattr(C, 'DEALER_FOOTER_Y', H - 250)  # 띠 아랫선
+    R.paste(ov, im, (W - im.width) / 2, yb - im.height, a)
+
+
+def section_layer(ov, T):
+    """구간 제목 칩(제원 · 성능점검 · 보험 이력): 카드 남색 머리 왼쪽에 노랑 붓띠, 구간 동안 유지. 등장은 키워드 칩과 같은 벨기에 모션"""
+    secs = getattr(C, 'SECTIONS', [])
+    if not secs:
+        return
+    ci = _cut_at(T)
+    p = CUTS[ci][0]
+    for ids, title, y0 in secs:
+        if p not in ids:
+            continue
+        first = ci
+        while first > 0 and CUTS[first - 1][0] in ids:
+            first -= 1
+        st = starts[first]
+        last = ci
+        while last + 1 < len(CUTS) and CUTS[last + 1][0] in ids:
+            last += 1
+        en = starts[last + 1] if last + 1 < len(CUTS) else BODY
+        k = T - st
+        tk = (k - CHIP_TXT_DELAY) / CHIP_TXT_DUR
+        tsc = 0.0 if tk < 0 else (0.2 + 0.8 * (1 - (1 - min(1.0, tk)) ** 3))
+        size = getattr(C, 'SECTION_SIZE', 54)
+        stl = getattr(C, 'CHIP_TILT_WORD', TILT)
+        im = be_chip(title, size, stl, round(tsc * 20) / 20)
+        full = be_chip(title, size, stl)
+        out = R.ease((en - T) / .15)
+        x = 70 + 10
+        y = y0 + 64 - full.height / 2
+        if getattr(C, 'SECTION_TOP', False):  # 2026-11-17: 구간 제목 칩을 카드 위(포인트 칩 자리 쪽)로, 카드와 겹치지 않게
+            x = (W - full.width) / 2
+            y = min(getattr(C, 'CHIP_Y', 285) - full.height / 2, y0 - 20 - full.height)
+        R.paste(ov, im, x + (full.width - im.width) / 2, y + (full.height - im.height) / 2, out)
+
+
 def overlay(T):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     ov.alpha_composite(LOGO, LOGO_XY)
+    footer_layer(ov, T)
+    section_layer(ov, T)
     HD = getattr(C, 'HOOK_DELAY', 0.0)  # 엠블럼 확대 동안 타이틀을 늦게 올림
     HE = FW[1][0] if 1 in FW else starts[1]  # 첫 페이드가 시작되기 전에 제목을 내림
     if HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
@@ -708,7 +821,7 @@ def overlay(T):
                 break
             fs -= 4
         sub = shadow_text(C.HOOK[2], int(fs * .75))
-        cy = H * getattr(C, 'HOOK_CY', .24)
+        cy = H * getattr(C, 'HOOK_CY_FADE' if FADE else 'HOOK_CY', getattr(C, 'HOOK_CY', .24))
         rise = 60 * (1 - R.ease(T / .4)) if HD else 0
         if getattr(C, 'HOOK_DROP', False):  # 처음부터 위에 띄움: 위에서 툭 떨어지듯
             rise = -50 * (1 - R.ease(T / .35))
@@ -737,7 +850,8 @@ def overlay(T):
         if st <= T < en:
             num = any(ch.isdigit() for ch in txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
-            tilt = TILT + (-0.8, 0.6, 0.0)[i % 3]
+            # 2026-11-17 벨기에 원본 실측: 키워드 칩 약 −2°(거의 수평), 숫자 칩 약 −6°
+            tilt = (TILT if num else getattr(C, 'CHIP_TILT_WORD', TILT)) + (-0.8, 0.6, 0.0)[i % 3] * (0.5 if not num and hasattr(C, 'CHIP_TILT_WORD') else 1)
             k = T - st
             # 2026-11-17 벨기에 원본 칩 모션(dl50/be 실측, 30fps): 빈 노랑 띠가 첫 프레임에 제 크기로 바로 뜨고,
             # 다음 프레임부터 글자가 띠 안에서 약 20% → 100%로 커짐(약 0.2초, 끝으로 갈수록 느려짐). 띠는 움직이지 않음
@@ -750,6 +864,10 @@ def overlay(T):
             y = H * .28 - full.height / 2 if num else CAP_CY - 70 - full.height
             if band:  # 가로 사진: 칩은 사진 위 띠(차를 가리지 않음)
                 y = max(170, band[0] - 18 - full.height)
+            if getattr(C, 'CHIP_Y', None):  # 2026-11-17: 포인트 칩은 화면 위 한 자리(9:16·페이드 같은 높이). 사진 위 띠에서는 사진과 36px 이상 띄움
+                y = C.CHIP_Y - full.height / 2
+                if band:
+                    y = min(y, band[0] - 36 - full.height)
             R.paste(ov, im, x + (full.width - im.width) / 2, y + (full.height - im.height) / 2, out)
     for o in getattr(C, 'OVERLAYS', []):  # 오버레이(사진 속 자료 카드): 매물 사진은 그대로, 자료를 카드로 겹침
         st = onset(o['w0']) - 0.05
@@ -808,7 +926,8 @@ def _sfx_plan():
                 out[-1] = e
             continue
         out.append(e)
-    return [(n, max(0.0, t), v) for n, t, v in out]
+    g = float(os.environ.get('BBM_SFX_GAIN') or getattr(C, 'SFX_GAIN', 1.6))  # 2026-11-17 사용자: 효과음(틱·팝) 더 크게 — 기본 1.6배(약 +4dB)
+    return [(n, max(0.0, t), min(1.0, v * g)) for n, t, v in out]
 
 
 def mix_audio():

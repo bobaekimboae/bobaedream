@@ -64,11 +64,15 @@ def panel(base, box, r=28):
     ImageDraw.Draw(base).rounded_rectangle(box, r, fill=PAPER)
 
 
+CHIP_TITLES = False  # cards.json "chip_titles": true → 머리 제목은 영상의 노랑 구간 제목 칩이 대신함(머리에는 출처만)
+
+
 def header(d, box, title, sub):
     x0, y0, x1, _ = box
     d.rounded_rectangle((x0, y0, x1, y0 + 128), 28, fill=NAVY)
     d.rectangle((x0, y0 + 90, x1, y0 + 128), fill=NAVY)
-    d.text((x0 + 44, y0 + 64), title, font=F(R.BLACK, 50), fill=(255, 255, 255), anchor='lm')
+    if not CHIP_TITLES:
+        d.text((x0 + 44, y0 + 64), title, font=F(R.BLACK, 50), fill=(255, 255, 255), anchor='lm')
     d.text((x1 - 44, y0 + 64), sub, font=F(R.SEMI, 30), fill=(196, 206, 228), anchor='rm')
 
 
@@ -95,17 +99,19 @@ def report_steps(car, spec, bg):
     sc_im = None
     if rp.get('scene'):  # 점검 장면 사진(성능지에 붙은 앞·뒤 사진) — 이 차를 실제로 점검했다는 증거
         sd = Image.open(os.path.join(car, rp['scene']['doc'])).convert('RGB').crop(tuple(rp['scene']['box']))
-        sw = 760; sh_ = int(sd.height * sw / sd.width)
+        cp = rp.get('compact')  # 2026-11-17: 카드 아랫선을 플랫폼 아래 가림 구역(1680) 위로 — 사진·그림·줄 간격을 줄임
+        sw = 640 if cp else 760; sh_ = int(sd.height * sw / sd.width)
         sc_im = sd.resize((sw, sh_), Image.LANCZOS)
-    dw = 760 if sc_im else 860; dh = int(dg.height * dw / dg.width)
+    cp = rp.get('compact')
+    dw = (640 if cp else 760) if sc_im else 860; dh = int(dg.height * dw / dg.width)
     dg = dg.resize((dw, dh), Image.LANCZOS)
     rows = rp['rows']
     x0, x1 = 70, 1010
     y0 = 282 if sc_im else 300  # 딜러 칩(왼쪽 위) 아래에서 시작
-    ytop_s = y0 + 128 + 88 + 40
-    ytop_d = (ytop_s + sc_im.height + 70) if sc_im else (y0 + 128 + 96 + 44)
+    ytop_s = y0 + 128 + 88 + (24 if cp else 40)
+    ytop_d = (ytop_s + sc_im.height + (56 if cp else 70)) if sc_im else (y0 + 128 + 96 + 44)
     yrows = ytop_d + dh + 30
-    rh = 84 if sc_im else 96
+    rh = (78 if cp else 84) if sc_im else 96
     y1 = yrows + rh * len(rows) + 80
     outs = []
     for k in range(len(rows) + 1):
@@ -178,7 +184,8 @@ def price_steps(car, spec, bg):
 
 
 def spec_steps(car, spec, bg):
-    """카탈로그 제원 카드: 위 매물 사진 · 엔진 한 줄 · 큰 숫자 칸 2×N(단계마다 한 줄씩 켜짐) · 아래 출처"""
+    """카탈로그 제원 카드: 위 매물 사진 · 엔진 한 줄 · 큰 숫자 칸 2×N · 아래 출처.
+    2026-11-17 사용자: 말하는 숫자 하나에 칸 하나 — 단계마다 한 칸씩 켜짐(머리 1장 + 칸 수만큼). spec.step='row'면 예전처럼 한 줄씩"""
     sp = spec['spec']
     x0, x1, y0 = 70, 1010, 300
     ph = Image.open(os.path.join(car, 'src2', f"p{sp['photo']:02d}.png")).convert('RGB')
@@ -191,7 +198,9 @@ def spec_steps(car, spec, bg):
     ytile = y0 + 128 + 30 + phh + 30 + 84
     y1 = ytile + th * len(rows) + 20 + 70
     outs = []
-    for k in range(len(rows) + 1):
+    per_cell = sp.get('step', 'cell') == 'cell'
+    ncell = sum(len(r) for r in rows)
+    for k in range((ncell if per_cell else len(rows)) + 1):
         im = bg.copy()
         panel(im, (x0, y0, x1, y1))
         d = ImageDraw.Draw(im)
@@ -204,7 +213,7 @@ def spec_steps(car, spec, bg):
                 bx0 = x0 + 30 + c * ((x1 - x0 - 60) // 2) + (10 if c else 0)
                 bx1 = bx0 + (x1 - x0 - 60) // 2 - 10
                 by0 = ytile + th * r; by1 = by0 + th - 16
-                on = r < k
+                on = (sum(len(rr) for rr in rows[:r]) + c < k) if per_cell else (r < k)
                 d.rounded_rectangle((bx0, by0, bx1, by1), 18, fill=(255, 255, 255) if on else (244, 242, 236), outline=LINE, width=2)
                 cx = (bx0 + bx1) // 2
                 fb = F(R.HEAVY, 76); fu = F(R.BOLD, 34)
@@ -268,8 +277,72 @@ def insurance_steps(car, spec, bg):
     return outs, y1
 
 
+def overview_steps(car, spec, bg):
+    """2026-11-17 차량 정보(오버뷰) 독립 컷: 오토스카우트 아이콘 + 항목명 + 값, 2열 칸. 말하는 항목 하나에 칸 하나씩 켜짐.
+    cards.json "overview": {"first": 30, "title": "차량 정보", "sub": "...", "icon_dir": "icons",
+                            "rows": [[["year", "최초등록", "26년01월"], ...], ...]}"""
+    ov = spec['overview']
+    x0, x1, y0 = 70, 1010, ov.get('y0', 300)
+    rows = ov['rows']
+    th = ov.get('tile_h', 214)
+    big = th >= 280  # 사진 없이 칸을 크게 쓰는 판: 아이콘·글자도 키움
+    ph = None; phh = 0; pw = x1 - x0 - 60
+    if ov.get('photo'):  # 제원 카드처럼 위에 매물 사진(카드 높이·톤을 다른 카드와 맞춤)
+        ph = Image.open(os.path.join(car, 'src2', f"p{ov['photo']:02d}.png")).convert('RGB')
+        phh = int(pw * 9 / 16)
+        sc = max(pw / ph.width, phh / ph.height)
+        ph = ph.resize((int(ph.width * sc) + 1, int(ph.height * sc) + 1), Image.LANCZOS)
+        ph = ph.crop(((ph.width - pw) // 2, (ph.height - phh) // 2, (ph.width - pw) // 2 + pw, (ph.height - phh) // 2 + phh))
+    ytile = y0 + 128 + 30 + (phh + 30 if ph else 10)
+    y1 = ytile + th * len(rows) + 30 + (60 if ov.get('foot') else 0)
+    icons = {}
+    for row in rows:
+        for ic, _, _ in row:
+            isz = 92 if th >= 280 else 64
+            icons[ic] = Image.open(os.path.join(car, ov.get('icon_dir', 'icons'), ic + '.png')).convert('RGBA').resize((isz, isz), Image.LANCZOS)
+    ncell = sum(len(r) for r in rows)
+    outs = []
+    for k in range(ncell + 1):
+        im = bg.copy()
+        panel(im, (x0, y0, x1, y1))
+        d = ImageDraw.Draw(im)
+        header(d, (x0, y0, x1, y1), ov.get('title', '차량 정보'), ov.get('sub', ''))
+        if ph:
+            m = Image.new('L', ph.size, 0); ImageDraw.Draw(m).rounded_rectangle((0, 0, pw, phh), 18, fill=255)
+            im.paste(ph, (x0 + 30, y0 + 128 + 30), m)
+        for r, row in enumerate(rows):
+            for c, (ic, name, val) in enumerate(row):
+                bw = (x1 - x0 - 60) // 2
+                bx0 = x0 + 30 + c * bw + (10 if c else 0)
+                bx1 = bx0 + bw - 10
+                by0 = ytile + th * r; by1 = by0 + th - 18
+                on = sum(len(rr) for rr in rows[:r]) + c < k
+                d.rounded_rectangle((bx0, by0, bx1, by1), 18, fill=(255, 255, 255) if on else (244, 242, 236), outline=LINE, width=2)
+                icn = icons[ic]
+                if not on:
+                    icn = icn.copy(); icn.putalpha(icn.getchannel('A').point(lambda v: v * 30 // 100))
+                px = 36 if big else 28
+                im.alpha_composite(icn, (bx0 + px, by0 + (40 if big else 30)))
+                d = ImageDraw.Draw(im)
+                d.text((bx0 + px, by0 + (188 if big else 128)), name, font=F(R.SEMI, 36 if big else 30), fill=GREY if on else (205, 201, 192), anchor='lm')
+                fv = F(R.HEAVY, 58 if big else 46)
+                if d.textlength(val, font=fv) > bw - 70:
+                    fv = F(R.HEAVY, 48 if big else 38)
+                col = INK if on else (205, 201, 192)
+                if on:
+                    bb = d.textbbox((bx0 + px, by1 - (52 if big else 36)), val, font=fv, anchor='lm')
+                    d.rectangle((bb[0] - 6, bb[3] - 20, bb[2] + 6, bb[3] + 4), fill=YEL)
+                d.text((bx0 + px, by1 - (52 if big else 36)), val, font=fv, fill=col, anchor='lm')
+        if ov.get('foot'):
+            d.text((W // 2, y1 - 44), ov['foot'], font=F(R.MED, 26), fill=GREY, anchor='mm')
+        outs.append(im)
+    return outs, y1
+
+
 def main(car):
+    global CHIP_TITLES
     spec = json.load(open(os.path.join(car, 'cards.json')))
+    CHIP_TITLES = bool(spec.get('chip_titles'))
     bg = bg_of(car, spec['bg'])
     info = {}
     if 'report' in spec:
@@ -287,6 +360,11 @@ def main(car):
         for i, im in enumerate(ims):
             im.convert('RGB').save(os.path.join(car, 'src2', f"p{spec['insurance']['first'] + i:02d}.png"))
         info['insurance'] = dict(first=spec['insurance']['first'], n=len(ims), bottom=yb)
+    if 'overview' in spec:
+        ims, yb = overview_steps(car, spec, bg)
+        for i, im in enumerate(ims):
+            im.convert('RGB').save(os.path.join(car, 'src2', f"p{spec['overview']['first'] + i:02d}.png"))
+        info['overview'] = dict(first=spec['overview']['first'], n=len(ims), bottom=yb)
     if 'spec' in spec:
         ims, yb = spec_steps(car, spec, bg)
         for i, im in enumerate(ims):
