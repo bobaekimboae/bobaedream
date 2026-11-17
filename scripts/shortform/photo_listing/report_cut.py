@@ -62,13 +62,24 @@ def panel(base, box, r=28):
     sh = sh.filter(ImageFilter.GaussianBlur(18))
     base.paste(Image.new('RGBA', base.size, (0, 0, 0, 255)), (0, 0), sh)
     ImageDraw.Draw(base).rounded_rectangle(box, r, fill=PAPER)
+    global LAST_BOX
+    LAST_BOX = box
 
 
+STRIPS = False
+TAPE = False  # cards.json "style": "tape" → 흰 머리 + 노랑 테이프 두 장(AS24 BE 매물 카드처럼, 2026-11-17)
+LAST_BOX = None
 CHIP_TITLES = False  # cards.json "chip_titles": true → 머리 제목은 영상의 노랑 구간 제목 칩이 대신함(머리에는 출처만)
 
 
 def header(d, box, title, sub):
     x0, y0, x1, _ = box
+    if TAPE:  # 머리도 종이색 — 색은 노랑 테이프 하나만
+        if not CHIP_TITLES:
+            d.text((x0 + 44, y0 + 66), title, font=F(R.BLACK, 50), fill=INK, anchor='lm')
+        d.text((x1 - (170 if STRIPS else 44), y0 + 66), sub, font=F(R.SEMI, 30), fill=GREY, anchor='rm')
+        d.line([(x0 + 40, y0 + 126), (x1 - 40, y0 + 126)], fill=LINE, width=2)
+        return
     d.rounded_rectangle((x0, y0, x1, y0 + 128), 28, fill=NAVY)
     d.rectangle((x0, y0 + 90, x1, y0 + 128), fill=NAVY)
     if not CHIP_TITLES:
@@ -90,6 +101,26 @@ def stamp(text, s=210):
     d.text((20 + s / 2, 20 + s / 2 - 22), text, font=F(R.BLACK, 38), fill=c, anchor='mm')
     d.text((20 + s / 2, 20 + s / 2 + 30), '사고 부위', font=F(R.BOLD, 30), fill=c, anchor='mm')
     return im.rotate(-12, resample=Image.BICUBIC, expand=True)
+
+
+def tape_strip(w=330, h=76, ang=-38, seed=0):
+    import random
+    rnd = random.Random(seed)
+    im = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    tl = [(0, 0)] + [(rnd.randint(4, 14), y) for y in range(8, h - 4, 9)] + [(0, h)]
+    tr = [(w, h)] + [(w - rnd.randint(4, 14), y) for y in range(h - 8, 4, -9)] + [(w, 0)]
+    poly = [(10, 0), (w - 10, 0)] + tr[::-1][1:-1] + [(w - 10, h), (10, h)] + tl[::-1][1:-1]
+    d.polygon(poly, fill=(236, 226, 64, 232))
+    return im.rotate(ang, resample=Image.BICUBIC, expand=True)
+
+
+def add_tape(im, box):
+    x0, y0, x1, y1 = box
+    a = tape_strip(seed=1); b = tape_strip(seed=2)
+    im.alpha_composite(a, (int(x1 - a.width * .55), int(y0 - a.height * .5)))
+    im.alpha_composite(b, (int(x0 - b.width * .52), int(y1 - b.height * .38)))
+    return im
 
 
 def report_steps(car, spec, bg):
@@ -340,9 +371,21 @@ def overview_steps(car, spec, bg):
 
 
 def main(car):
-    global CHIP_TITLES
+    global CHIP_TITLES, TAPE, STRIPS
     spec = json.load(open(os.path.join(car, 'cards.json')))
     CHIP_TITLES = bool(spec.get('chip_titles'))
+    TAPE = spec.get('style') in ('tape', 'white')  # white: 흰 머리만, 테이프 없음
+    STRIPS = spec.get('style') == 'tape'
+    _steps = {}
+    for _k in ('report_steps', 'price_steps', 'insurance_steps', 'overview_steps', 'spec_steps'):
+        _f = globals()[_k]
+        def _wrap(car, spec, bg, _f=_f):
+            ims, yb = _f(car, spec, bg)
+            if STRIPS and LAST_BOX:
+                ims = [add_tape(im.convert('RGBA'), LAST_BOX) for im in ims]
+            return ims, yb
+        _steps[_k] = _wrap
+    globals().update(_steps)
     bg = bg_of(car, spec['bg'])
     info = {}
     if 'report' in spec:
