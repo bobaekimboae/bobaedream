@@ -6,7 +6,7 @@ v1.3: 딜러 칩 독일식 두 줄 둥근 상자(DEALER_CHIP_STYLE='de') 추가 
 v1.2: 낱말 시작 에너지 골짜기 맞춤 · 페이드 창(FW) · 가로 사진 아래 자막 · SFX_RICH · 노션 원본 칠 딜러 칩
 """
 PIPELINE_VERSION = '1.4'
-import json, os, subprocess, sys, wave
+import json, os, re, subprocess, sys, wave
 import numpy as np
 import cv2
 from PIL import Image, ImageFilter, ImageDraw, ImageFont
@@ -154,12 +154,23 @@ for ci, c in enumerate(CUTS):
         e = (groups[gi + 1][0][1] if gi + 1 < len(groups) else (onset(CUTS[ci + 1][2]) - 0.05 if ci + 1 < len(CUTS) else VOICE_LEN + 0.3))
         CAPS.append(dict(s=s, e=e, t=' '.join(t for t, _ in g), ws=[w for _, w in g]))
 
+def is_num_chip(txt):
+    """숫자 칩(가격·주행거리·마력 등 값 자체)인가. '360도 카메라'처럼 숫자가 든 기능 이름은 키워드 칩."""
+    if not any(ch.isdigit() for ch in txt):
+        return False
+    rest = re.sub(r'[\d,.\s~/·]', '', txt)
+    rest = re.sub(r'(만원|억|원|km/h|km|마력|kg·m|kgm|kg|cc|초|년|월|명|단|%|인승)', '', rest)
+    return rest == ''
+
+
+# 2026-11-17 검수: 칩은 그 낱말 소리보다 먼저 뜸(숫자 0.22초 · 키워드 0.06초 전, as24 교본)
+CHIP_LEAD_NUM, CHIP_LEAD_WORD = 0.22, 0.06
 CHIPS = []
 for ci, c in enumerate(CUTS):
     if c[4]:
-        CHIPS.append((c[4][0], onset(c[4][1]) + 0.05, ends[ci] - 0.08))
+        CHIPS.append((c[4][0], onset(c[4][1]) - (CHIP_LEAD_NUM if is_num_chip(c[4][0]) else CHIP_LEAD_WORD), ends[ci] - 0.08))
 for txt, wi in EXTRA_CHIPS:
-    t0 = onset(wi) + 0.05
+    t0 = onset(wi) - (CHIP_LEAD_NUM if is_num_chip(txt) else CHIP_LEAD_WORD)
     ci_ = max(i for i in range(len(CUTS)) if starts[i] <= t0)
     CHIPS.append((txt, t0, ends[ci_] - 0.08))
 if getattr(C, 'DEALER_FOOTER', False):  # 딜러는 아래 띠가 맡으므로 딜러 이름 칩은 겹치지 않게 뺌
@@ -186,6 +197,7 @@ for _j in range(1, len(CUTS)):
     _d = min(FADES[_tr], max(0.25, _end - _prev + 0.10))
     FW[_j] = (_end - _d, _end, _tr)
 # 칩: 새 컷 칩은 페이드가 끝난 뒤, 앞 컷 칩은 페이드 시작 전에 내려감
+CHIP_MIN = getattr(C, 'CHIP_MIN', 0.9)
 _cut_of = lambda t: max(i for i in range(len(CUTS)) if starts[i] <= t)
 _ch = []
 for txt, st, en in CHIPS:
@@ -194,8 +206,12 @@ for txt, st, en in CHIPS:
         st = max(st, FW[ci][1] + 0.05)
     if ci + 1 in FW:
         en = min(en, FW[ci + 1][0])
-    if en - st > 0.3:
-        _ch.append((txt, st, en))
+    if en - st < CHIP_MIN:  # 2026-11-17 검수: 짧은 컷이라 칩이 잘리거나 빠지지 않게 다음 넘김 위로 이어서 최소 시간 보임
+        en = min(st + CHIP_MIN, BODY - 0.1)
+    _ch.append((txt, st, en))
+for _k in range(len(_ch) - 1):  # 늘린 칩이 다음 칩과 겹치지 않게
+    if _ch[_k][2] > _ch[_k + 1][1] - 0.05:
+        _ch[_k] = (_ch[_k][0], _ch[_k][1], _ch[_k + 1][1] - 0.05)
 CHIPS = _ch
 for c in CAPS:  # 문장 마지막 자막도 페이드 시작 전에 내려감
     ci = _cut_of(c['s'])
@@ -265,12 +281,27 @@ def frame_of(ci, T):
         u = ease(u) * 0.85 + u * 0.15
     hz = getattr(C, 'HOOK_ZOOM', None)  # 첫 컷 엠블럼 확대 → 뒤로 빠지기 (A안)
     if ci == 0 and hz:
-        uu = min(1, max(0, T / hz[1]))
-        u = ease(uu)
+        # 2026-11-17 검수: 확대가 1.6초에 뚝 멈춘 뒤 한 프레임 쉬고 넘김이 시작돼 걸려 보였음 →
+        # 첫 컷이 화면에서 사라질 때까지(다음 넘김 끝) 감속(ease-out)으로 이어서 움직임
+        dur = max(hz[1], FW[1][1] if 1 in FW else ends[0])
+        uu = min(1, max(0, T / dur))
+        u = 1 - (1 - uu) ** 3
     img = photo(n)
     h, w = img.shape[:2]
     z = (z0 + (z1 - z0) * u) * punch(ci, T)
     full = (h, w) == (H, W)  # 미리 만든 9:16 독립 컷(성능지·가격·자료 카드)은 상자 맞춤 없이 그대로
+    # 2026-11-17 검수: 이동 끝점이 사진 밖이면 중간에 가장자리에 걸려 뚝 멈춤(페이드판 마지막 컷 1.5초 정지) →
+    # 시작·끝점을 먼저 사진 안으로 넣고 그 사이를 움직여, 컷 끝까지 같은 곡선으로 부드럽게 멈춤
+    if not full and not isinstance(kb, list):
+        if FADE:
+            spx = lambda zz: 1 / max(1.0, zz)
+        else:
+            spx = lambda zz: min(1.0, W * h / (H * w * max(zz, 1e-3)))
+        cl = lambda f, sp: min(max(f, sp / 2), 1 - sp / 2)
+        fx0, fx1 = cl(fx0, spx(z0)), cl(fx1, spx(z1))
+        if FADE:
+            fya, fyb = cl(fy, 1 / max(1.0, z0)), cl(fy, 1 / max(1.0, z1))
+            fy = fya + (fyb - fya) * u
     if FADE and not full:
         return box_frame(n, img, fx0 + (fx1 - fx0) * u, fy, z)
     if n in FIT and not full:
@@ -843,12 +874,12 @@ def overlay(T):
         cap_top = _cp[_n] - 60 if (_n in _cp and not band) else cap_top  # 상자 사진(페이드판)은 기준선 그대로
     for i, (txt, st, en) in enumerate(CHIPS):
         if ICON3D and st <= T < en:
-            num = any(ch.isdigit() for ch in txt)
+            num = is_num_chip(txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
             icon_chip(ov, txt, st, en, T, i, num)
             continue
         if st <= T < en:
-            num = any(ch.isdigit() for ch in txt)
+            num = is_num_chip(txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
             # 2026-11-17 벨기에 원본 실측: 키워드 칩 약 −2°(거의 수평), 숫자 칩 약 −6°
             tilt = (TILT if num else getattr(C, 'CHIP_TILT_WORD', TILT)) + (-0.8, 0.6, 0.0)[i % 3] * (0.5 if not num and hasattr(C, 'CHIP_TILT_WORD') else 1)
