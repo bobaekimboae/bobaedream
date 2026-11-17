@@ -163,14 +163,21 @@ def is_num_chip(txt):
     return rest == ''
 
 
-# 2026-11-17 검수: 칩은 그 낱말 소리보다 먼저 뜸(숫자 0.22초 · 키워드 0.06초 전, as24 교본)
-CHIP_LEAD_NUM, CHIP_LEAD_WORD = 0.22, 0.06
+# 2026-11-17 매뉴얼 v4 9-3(벨기에판): 칩은 그 낱말이 든 구절(자막 덩어리) 시작 +0.05초에 뜸
+def chip_start(wi):
+    t = onset(wi)
+    for cp in CAPS:
+        if cp['s'] - 0.02 <= t < cp['e']:
+            return cp['s'] + 0.05
+    return t + 0.05
+
+
 CHIPS = []
 for ci, c in enumerate(CUTS):
     if c[4]:
-        CHIPS.append((c[4][0], onset(c[4][1]) - (CHIP_LEAD_NUM if is_num_chip(c[4][0]) else CHIP_LEAD_WORD), ends[ci] - 0.08))
+        CHIPS.append((c[4][0], max(starts[ci] + 0.05, chip_start(c[4][1])), ends[ci] - 0.08))
 for txt, wi in EXTRA_CHIPS:
-    t0 = onset(wi) - (CHIP_LEAD_NUM if is_num_chip(txt) else CHIP_LEAD_WORD)
+    t0 = chip_start(wi)
     ci_ = max(i for i in range(len(CUTS)) if starts[i] <= t0)
     CHIPS.append((txt, t0, ends[ci_] - 0.08))
 if getattr(C, 'DEALER_FOOTER', False):  # 딜러는 아래 띠가 맡으므로 딜러 이름 칩은 겹치지 않게 뺌
@@ -534,6 +541,31 @@ CHIP_TXT_DELAY = getattr(C, 'CHIP_TXT_DELAY', 1 / 30)  # 띠 뒤 글자 시작(�
 CHIP_TXT_DUR = getattr(C, 'CHIP_TXT_DUR', 0.20)
 
 
+FLUENT_DIR = os.path.join(os.path.dirname(os.path.abspath(R.__file__)), 'photo_listing', 'fluent3d')  # 렌더 중 작업 폴더가 바뀌므로 모듈 위치 기준
+
+
+def fluent_emoji(mark, h=112):
+    """이모지 글자(여러 개 가능, 예: '❄️🔥')를 fluent3d/<코드포인트>.png 3D 그림으로. 하나라도 없으면 None"""
+    ims = []
+    for ch in mark:
+        if ord(ch) in (0xFE0F, 0x200D):
+            continue
+        f = os.path.join(FLUENT_DIR, f'{ord(ch):x}.png')
+        if not os.path.exists(f):
+            return None
+        im = Image.open(f).convert('RGBA')
+        im = im.crop(im.getchannel('A').point(lambda v: 255 if v > 40 else 0).getbbox())
+        ims.append(im.resize((max(1, round(im.width * h / im.height)), h), Image.LANCZOS))
+    if not ims:
+        return None
+    gap = 6
+    out = Image.new('RGBA', (sum(i.width for i in ims) + gap * (len(ims) - 1), h), (0, 0, 0, 0))
+    x = 0
+    for i in ims:
+        out.alpha_composite(i, (x, 0)); x += i.width + gap
+    return out
+
+
 def be_chip(txt, size, tilt, tsc=1.0):
     """벨기에 원본 키워드 칩: 노션 원본 로고 칠(430_239) + 검정 굵은 글자.
     2026-11-17 사용자 「아이콘이 장난 같다, 기존 이모지 쓰자」: MARKS 이모지는 기존(sticker) 방식 그대로 칠 안·글자 뒤 흰 원 위에 작게"""
@@ -544,6 +576,8 @@ def be_chip(txt, size, tilt, tsc=1.0):
     mark = getattr(C, 'MARKS', {}).get(txt)
     emo = None
     if mark and mark != '✓':
+        emo = fluent_emoji(mark)  # 2026-11-17 사용자: 마이크로소프트 Fluent 3D 이모지 기본(MIT). 없으면 아래 Noto 글꼴로
+    if mark and mark != '✓' and emo is None:
         try:
             ef = ImageFont.truetype(R.EMOJI_FONT, 109)
             emo = Image.new('RGBA', (160, 160), (0, 0, 0, 0))
@@ -818,7 +852,7 @@ def section_layer(ov, T):
         tk = (k - CHIP_TXT_DELAY) / CHIP_TXT_DUR
         tsc = 0.0 if tk < 0 else (0.2 + 0.8 * (1 - (1 - min(1.0, tk)) ** 3))
         size = getattr(C, 'SECTION_SIZE', 54)
-        stl = getattr(C, 'CHIP_TILT_WORD', TILT)
+        stl = getattr(C, 'CHIP_TILT_ALL', None) if getattr(C, 'CHIP_TILT_ALL', None) is not None else getattr(C, 'CHIP_TILT_WORD', TILT)
         im = be_chip(title, size, stl, round(tsc * 20) / 20)
         full = be_chip(title, size, stl)
         out = R.ease((en - T) / .15)
@@ -830,13 +864,36 @@ def section_layer(ov, T):
         R.paste(ov, im, x + (full.width - im.width) / 2, y + (full.height - im.height) / 2, out)
 
 
+_OFF_TAG = None
+
+
+def official_layer(ov, T):
+    """2026-11-17: 제조사 공식 사진 컷에는 오른쪽 위에 「제조사 공식 이미지」 작은 글자 — 매물 실사진과 구분(구매자 오인 방지)"""
+    global _OFF_TAG
+    offs = getattr(C, 'OFFICIAL_PHOTOS', ())
+    if not offs or T >= BODY:
+        return
+    ci = _cut_at(T)
+    if CUTS[ci][0] not in offs:
+        return
+    if _OFF_TAG is None:
+        _OFF_TAG = shadow_text(getattr(C, 'OFFICIAL_TAG', '제조사 공식 이미지'), 30)
+    k = min(1.0, (T - starts[ci]) / .25)
+    if ci + 1 < len(CUTS):
+        k = min(k, max(0.0, (starts[ci + 1] - T) / .2))
+    R.paste(ov, _OFF_TAG, W - 40 - _OFF_TAG.width, getattr(C, 'OFFICIAL_TAG_Y', 104), k)
+
+
 def overlay(T):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     ov.alpha_composite(LOGO, LOGO_XY)
     footer_layer(ov, T)
+    official_layer(ov, T)
     section_layer(ov, T)
     HD = getattr(C, 'HOOK_DELAY', 0.0)  # 엠블럼 확대 동안 타이틀을 늦게 올림
     HE = FW[1][0] if 1 in FW else starts[1]  # 첫 페이드가 시작되기 전에 제목을 내림
+    if getattr(C, 'HOOK_HOLD', False) and 1 in FW:  # 2026-11-17: 제목을 넘김 끝 직전까지(약 2초) 유지
+        HE = FW[1][1] - 0.08
     if HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
         T0 = T; T = T - HD
         e = R.back(T / .28)
@@ -883,6 +940,8 @@ def overlay(T):
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
             # 2026-11-17 벨기에 원본 실측: 키워드 칩 약 −2°(거의 수평), 숫자 칩 약 −6°
             tilt = (TILT if num else getattr(C, 'CHIP_TILT_WORD', TILT)) + (-0.8, 0.6, 0.0)[i % 3] * (0.5 if not num and hasattr(C, 'CHIP_TILT_WORD') else 1)
+            if getattr(C, 'CHIP_TILT_ALL', None) is not None:  # 2026-11-17 일관성: 모든 칩 같은 기울기, 흔들림 없음
+                tilt = C.CHIP_TILT_ALL
             k = T - st
             # 2026-11-17 벨기에 원본 칩 모션(dl50/be 실측, 30fps): 빈 노랑 띠가 첫 프레임에 제 크기로 바로 뜨고,
             # 다음 프레임부터 글자가 띠 안에서 약 20% → 100%로 커짐(약 0.2초, 끝으로 갈수록 느려짐). 띠는 움직이지 않음
