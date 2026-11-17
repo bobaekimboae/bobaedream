@@ -1,0 +1,31 @@
+videos 330 errors 0
+dur p25/50/75 n=330 50.45 / 59.49 / 69.93
+cuts confirmed per video n=330 10.00 / 11.00 / 13.00
+cuts mine per video n=330 12.00 / 15.00 / 18.00 | old n=330 10.00 / 12.00 / 15.00
+detector agreement mine->old n=329 0.69 / 0.80 / 0.90 old->mine n=329 0.94 / 1.00 / 1.00
+shot length all n=4247 1.43 / 2.57 / 4.13 / 6.04 / 8.58
+shot median per video n=330 3.56 / 4.54 / 5.30
+cuts per minute n=330 9.36 / 11.00 / 14.12
+first shot n=330 3.31 / 4.32 / 5.43 | last shot n=330 3.00 / 4.10 / 5.36
+shots <1s share 5.5% · 1-2s 10.3% · 2-4s 32.2% · 4-6s 26.4% · >6s 25.6%
+cuts in first 3s n=330 0.00 / 0.00 / 0.00 · zero 81%
+face share n=330 0.04 / 0.08 / 0.12 · face in first 1s 32% (n=330)
+face share >=50%% videos 2% (n=330)
+textband top n=330 0.00 / 0.00 / 0.00
+textband mid n=330 0.00 / 0.00 / 0.00
+textband low n=330 0.00 / 0.00 / 0.04
+textband yellow n=330 0.02 / 0.09 / 0.19
+LUFS n=330 -15.71 / -12.30 / -10.90 / -10.10 / -9.60 | TP n=330 3.50 / 3.90 / 4.20 | LRA n=330 2.60 / 3.30 / 4.60
+first sound n=330 0.09 / 0.16 / 0.21
+transients per video n=330 15.00 / 20.00 / 24.00 | cut-synced transient n=329 0.00 / 0.00 / 0.09
+srt matched 327
+srt first line start n=327 0.12 / 0.20 / 0.32
+srt last end - video dur n=327 -0.93 / 4.95 / 10.10 · srt longer than video by >3s: 57%
+srt lines per video n=327 16.00 / 20.00 / 25.00 | line dur n=6887 1.79 / 2.80 / 3.94
+srt gap n=6560 0.00 / 0.13 / 0.37 · gap<=0.3 87%
+ko chars/sec (incl spaces, per line) n=6887 9.25 / 10.22 / 11.24
+cuts landing within 0.3s of a line start (srt fits video, n=136 videos) 42%
+shots per srt line n=136 0.54 / 0.67 / 0.92
+arabic words/sec n=84 2.77 / 2.89 / 3.06 first word n=84 0.00 / 0.00 / 0.00
+opt caps 3378 in 306 videos · per video n=306 7.00 / 11.00 / 15.00 · duration n=3378 0.68 / 1.66 / 3.46
+opt cap position in video n=3378 0.15 / 0.27 / 0.48 / 0.69 / 0.85

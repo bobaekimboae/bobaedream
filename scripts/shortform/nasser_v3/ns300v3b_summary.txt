@@ -1,0 +1,11 @@
+videos 330
+presenter face share (score>=0.8, any size) n=330 0.28 / 0.35 / 0.43 / 0.54 / 0.69
+face share >=50% of frames: 30% videos · >=30%: 88%
+close face (h>=12%% of frame) share n=330 0.07 / 0.11 / 0.15
+2+ faces share (skit/dialogue) n=330 0.00 / 0.00 / 0.01 · videos with 2+ faces in >=20% frames 2%
+face vertical center n=329 0.40 / 0.42 / 0.44
+face in first 1s 85%
+outlined white text present in frames n=330 0.10 / 0.28 / 0.62
+text in low band 55-75%% n=330 0.01 / 0.06 / 0.32 | upper 15-55%% n=330 0.02 / 0.07 / 0.16
+text y median n=323 0.33 / 0.40 / 0.53 / 0.68 / 0.73
+format: word-caption low band (>=40% frames) 23% · upper stickers dominant 16% · little text 41%
