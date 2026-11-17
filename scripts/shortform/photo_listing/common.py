@@ -437,7 +437,7 @@ if _lgp and os.path.exists(_lgp):
 else:  # 딜러 로고 없음
     LOGO = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
 LOGO_XY = (40, 96)
-def dealer_chip(txt, size=40, tilt=-1.5, font=None, hr=2.8):
+def dealer_chip(txt, size=40, tilt=-1.5, font=None, hr=2.8, emo=None, tsc=1.0):
     """딜러 칩 = 노션 「스카우트24 테마별」 원본 로고 칠(테마 바탕색_430_239) 그대로, 가로로만 늘림. 색 #F5F200, 글자 검정.
     벨기에판 실측(tags_zoom: €56.490·€180·Auto): 칠 높이 ≈ 대문자 높이 2.8배, 글자 좌우 여백 ≈ 칠 높이 0.2배, 글자는 칠 세로 가운데.
     칠 가장자리가 들쭉날쭉하므로 글자 칸의 모든 세로줄이 칠 안(불투명)에 들 때까지 칠 폭을 넓힘 → 글자 잘림 없음."""
@@ -449,47 +449,66 @@ def dealer_chip(txt, size=40, tilt=-1.5, font=None, hr=2.8):
     bb = fnt.getbbox(txt, anchor='ls'); tw = bb[2] - bb[0]; th = bb[3] - bb[1]
     cap = size * 0.74
     h = int(round(cap * hr)); m = 12
-    w = int(tw + h * 0.2 * 2)
+    badge = int(cap * 1.42) if emo is not None else 0  # 기존 방식: 칠 안, 글자 뒤 흰 원 + 이모지
+    gap = int(cap * 0.38) if badge else 0
+    cw = tw + gap + badge
+    w = int(cw + h * 0.2 * 2)
     for _ in range(30):
         mask = theme_mask(w, h, '430_239', margin=m)
         A = _np.asarray(mask)
-        x0 = m + (w - tw) / 2; y0 = m + (h - th) / 2
-        sub = A[int(y0) - 3:int(y0 + th) + 4, int(x0) - 4:int(x0 + tw) + 5]
+        x0 = m + (w - cw) / 2; y0 = m + (h - th) / 2
+        by = m + h / 2 - badge / 2
+        sub = A[int(min(y0, by)) - 3:int(max(y0 + th, by + badge)) + 4, int(x0) - 4:int(x0 + cw) + 5]
         if sub.size and sub.min() > 200:
             break
         w = int(w * 1.04) + 2
     im = Image.new('RGBA', mask.size, (0xF5, 0xF2, 0x00, 0)); im.putalpha(mask)
-    ImageDraw.Draw(im).text((x0 - bb[0], y0 - bb[1]), txt, font=fnt, fill=(0, 0, 0), anchor='ls')
+    if tsc <= 0:  # 벨기에 원본 등장: 빈 노랑 띠가 먼저(글자 없음)
+        return im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
+    tl = Image.new('RGBA', mask.size, (0, 0, 0, 0))  # 글자(+흰 원 이모지) 층: 원본처럼 띠 안에서 작게→크게
+    d = ImageDraw.Draw(tl)
+    d.text((x0 - bb[0], y0 - bb[1]), txt, font=fnt, fill=(0, 0, 0), anchor='ls')
+    if badge:
+        bx = x0 + tw + gap
+        d.ellipse((bx, by, bx + badge, by + badge), fill=(255, 255, 255, 255))
+        eh = int(badge * 0.74)
+        e = emo.resize((max(1, int(emo.width * eh / emo.height)), eh), Image.LANCZOS)
+        if e.width > badge * 0.8:
+            e = e.resize((int(badge * 0.8), max(1, int(e.height * badge * 0.8 / e.width))), Image.LANCZOS)
+        tl.alpha_composite(e, (int(bx + (badge - e.width) / 2), int(by + (badge - e.height) / 2)))
+    if tsc < 1:
+        cx, cy = x0 + cw / 2, m + h / 2
+        sw, sh = max(1, int(tl.width * tsc)), max(1, int(tl.height * tsc))
+        sm = tl.resize((sw, sh), Image.LANCZOS)
+        tl = Image.new('RGBA', mask.size, (0, 0, 0, 0))
+        tl.alpha_composite(sm, (int(round(cx - cx * tsc)), int(round(cy - cy * tsc))))
+    im.alpha_composite(tl)
     return im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
 
 
 _BEC = {}
+CHIP_TXT_DELAY = getattr(C, 'CHIP_TXT_DELAY', 1 / 30)  # 띠 뒤 글자 시작(원본 1프레임)
+CHIP_TXT_DUR = getattr(C, 'CHIP_TXT_DUR', 0.20)
 
 
-def be_chip(txt, size, tilt):
-    """벨기에 원본 키워드 칩: 노션 원본 로고 칠(430_239) + 검정 굵은 글자. MARKS 이모지는 칠 오른쪽 끝에 반쯤 걸침"""
-    k = (txt, size, tilt)
+def be_chip(txt, size, tilt, tsc=1.0):
+    """벨기에 원본 키워드 칩: 노션 원본 로고 칠(430_239) + 검정 굵은 글자.
+    2026-11-17 사용자 「아이콘이 장난 같다, 기존 이모지 쓰자」: MARKS 이모지는 기존(sticker) 방식 그대로 칠 안·글자 뒤 흰 원 위에 작게"""
+    tsc = round(max(0.0, min(1.0, tsc)), 2)
+    k = (txt, size, tilt, tsc)
     if k in _BEC:
         return _BEC[k]
-    base = dealer_chip(txt, size, tilt, font=R.HEAVY, hr=2.8)
     mark = getattr(C, 'MARKS', {}).get(txt)
-    if not mark:
-        _BEC[k] = base
-        return base
-    try:
-        ef = ImageFont.truetype(R.EMOJI_FONT, 109)
-        eim = Image.new('RGBA', (160, 160), (0, 0, 0, 0))
-        ImageDraw.Draw(eim).text((80, 80), mark, font=ef, embedded_color=True, anchor='mm')
-        eim = eim.crop(eim.getbbox())
-        eh = int(base.height * .62)
-        eim = eim.resize((int(eim.width * eh / eim.height), eh), Image.LANCZOS)
-    except Exception:
-        _BEC[k] = base
-        return base
-    ox = base.width - int(eim.width * .30) - 10
-    out = Image.new('RGBA', (ox + eim.width, base.height), (0, 0, 0, 0))
-    out.alpha_composite(base, (0, 0))
-    out.alpha_composite(eim, (ox, (base.height - eh) // 2))
+    emo = None
+    if mark and mark != '✓':
+        try:
+            ef = ImageFont.truetype(R.EMOJI_FONT, 109)
+            emo = Image.new('RGBA', (160, 160), (0, 0, 0, 0))
+            ImageDraw.Draw(emo).text((80, 80), mark, font=ef, embedded_color=True, anchor='mm')
+            emo = emo.crop(emo.getbbox())
+        except Exception:
+            emo = None
+    out = dealer_chip(txt, size, tilt, font=R.HEAVY, hr=2.8, emo=emo, tsc=tsc)
     _BEC[k] = out
     return out
 
@@ -719,16 +738,19 @@ def overlay(T):
             num = any(ch.isdigit() for ch in txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
             tilt = TILT + (-0.8, 0.6, 0.0)[i % 3]
-            im = be_chip(txt, 84 if num else 72, tilt)  # 2026-11-17: 키워드 칩도 노션 원본 로고 칠 430_239(벨기에 원본과 같은 칠)
             k = T - st
-            e = R.back(k / .28)
+            # 2026-11-17 벨기에 원본 칩 모션(dl50/be 실측, 30fps): 빈 노랑 띠가 첫 프레임에 제 크기로 바로 뜨고,
+            # 다음 프레임부터 글자가 띠 안에서 약 20% → 100%로 커짐(약 0.2초, 끝으로 갈수록 느려짐). 띠는 움직이지 않음
+            tk = (k - CHIP_TXT_DELAY) / CHIP_TXT_DUR
+            tsc = 0.0 if tk < 0 else (0.2 + 0.8 * (1 - (1 - min(1.0, tk)) ** 3))
+            im = be_chip(txt, 84 if num else 72, tilt, round(tsc * 20) / 20)  # 2026-11-17: 키워드 칩도 노션 원본 로고 칠 430_239
+            full = be_chip(txt, 84 if num else 72, tilt)
             out = R.ease((en - T) / .12)
-            x = (W - im.width) / 2
-            y = H * .28 - im.height / 2 if num else CAP_CY - 70 - im.height
+            x = (W - full.width) / 2
+            y = H * .28 - full.height / 2 if num else CAP_CY - 70 - full.height
             if band:  # 가로 사진: 칩은 사진 위 띠(차를 가리지 않음)
-                y = max(170, band[0] - 18 - im.height)
-            sc = max(.05, e)
-            R.paste(ov, im, x + im.width * (1 - sc) / 2, y + im.height * (1 - e) / 2, min(1, k / .1) * out, sc)
+                y = max(170, band[0] - 18 - full.height)
+            R.paste(ov, im, x + (full.width - im.width) / 2, y + (full.height - im.height) / 2, out)
     for o in getattr(C, 'OVERLAYS', []):  # 오버레이(사진 속 자료 카드): 매물 사진은 그대로, 자료를 카드로 겹침
         st = onset(o['w0']) - 0.05
         en = (onset(o['w1']) - 0.08) if o.get('w1') is not None else ends[[c[2] for c in CUTS].index(max(c[2] for c in CUTS if c[2] <= o['w0']))]
