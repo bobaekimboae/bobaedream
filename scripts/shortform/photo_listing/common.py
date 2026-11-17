@@ -935,19 +935,24 @@ def text3d(txt, h=200):
     ub = d0.textbbox((0, 0), unit, font=fu, anchor='ls') if unit else (0, 0, 0, 0)
     gap = int(fs * 0.06) if unit else 0
     depth = max(3, int(h * 0.07))
-    Wt = (nb[2] - nb[0]) + gap + (ub[2] - ub[0]) + depth + 8
+    sw = max(2, int(h * 0.015))   # 2026-11-18 크로스체크: 흰 배경(트렁크 벽)에서 흐려 보여 얇은 검은 외곽선
+    pad = 4 + sw
+    Wt = (nb[2] - nb[0]) + gap + (ub[2] - ub[0]) + depth + pad * 2
     top = min(nb[1], ub[1])
-    Ht = -top + depth + 8
-    def draw_text(d, dx, dy, fill):
-        x = 4 + dx - nb[0]; y = 4 + dy - top
-        d.text((x, y), num, font=fn, fill=fill, anchor='ls')
+    Ht = -top + depth + pad * 2
+    def draw_text(d, dx, dy, fill, stroke=0):
+        x = pad + dx - nb[0]; y = pad + dy - top
+        kw = dict(stroke_width=stroke, stroke_fill=fill) if stroke else {}
+        d.text((x, y), num, font=fn, fill=fill, anchor='ls', **kw)
         if unit:
-            d.text((x + nb[2] + gap - ub[0], y), unit, font=fu, fill=fill, anchor='ls')
+            d.text((x + nb[2] + gap - ub[0], y), unit, font=fu, fill=fill, anchor='ls', **kw)
     out = Image.new('RGBA', (Wt, Ht), (0, 0, 0, 0))
     d = ImageDraw.Draw(out)
+    draw_text(d, depth * 0.5, depth, (25, 27, 30, 230), stroke=sw)   # 외곽선(두께 끝)
     for k in range(depth, 0, -1):   # 두께: 뒤쪽일수록 어두운 회색
         c = int(120 + 60 * (1 - k / depth))
         draw_text(d, k * 0.5, k, (c, c + 4, c + 10, 255))
+    draw_text(d, 0, 0, (25, 27, 30, 230), stroke=sw)                 # 외곽선(앞면): 두께 위에
     face = Image.new('L', out.size, 0)
     draw_text(ImageDraw.Draw(face), 0, 0, 255)
     grad = Image.new('RGBA', out.size)
@@ -1036,12 +1041,124 @@ def sticker_layer(ov, T):
 STICKERS_R = _resolve_stickers()
 
 
+_DIM = {}
+
+
+def dim_layer(ov, T):
+    """2026-11-18 나세르식 치수선(비교형): 사진 속 두 점(a → b, 사진 비율 좌표)을 잇는 흰 치수선 + b 쪽 끝 'ext' 비율만큼 노란 구간
+    (= 비교 대상보다 늘어난 부분) + 3D 숫자 + 작은 비교 대상 글자. 길이는 강조용이며 실제 축척이 아니다.
+    DIM_LINES = [{'w': 어절, 'photo': n, 'a': (u, v), 'b': (u, v), 'ext': .35, 'label': '+72mm', 'sub': '…대비', 'side': -1}]
+    side = 숫자를 둘 쪽(선의 법선 방향, -1 위 / 1 아래)"""
+    for i, dl in enumerate(getattr(C, 'DIM_LINES', [])):
+        t0 = onset(dl['w']) - 0.2
+        ci = _cut_at(max(t0, 0))
+        t1 = ends[ci] - 0.12
+        if not (t0 <= T < t1):
+            continue
+        n = CUTS[ci][0]
+        if n != dl['photo'] or n not in AFF:
+            continue
+        ax, ay, ox, oy, pw, ph = AFF[n]
+        A = np.array([dl['a'][0] * pw * ax + ox, dl['a'][1] * ph * ay + oy])
+        B = np.array([dl['b'][0] * pw * ax + ox, dl['b'][1] * ph * ay + oy])
+        L = float(np.linalg.norm(B - A))
+        if L < 40:
+            continue
+        d = (B - A) / L
+        nrm = np.array([-d[1], d[0]])
+        if nrm[1] > 0:
+            nrm = -nrm          # 기본은 위쪽
+        nrm = nrm * dl.get('side', 1)
+        fade = min(1.0, max(0.0, (t1 - T) / .15))
+        k1 = R.ease(min(1.0, (T - t0) / .30))                      # 흰 선: 가운데에서 양끝으로
+        k2 = R.ease(min(1.0, max(0.0, (T - t0 - .30) / .30)))      # 노란 구간: 이어서 늘어남
+        P = A + (B - A) * (1 - dl.get('ext', .35))                 # 흰 선과 노란 구간의 경계
+        lay = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        g = ImageDraw.Draw(lay)
+        M = (A + P) / 2
+        wa, wb = M + (A - M) * k1, M + (P - M) * k1
+        tk = 26
+        def seg(p, q, col, w):
+            g.line([tuple(p), tuple(q)], fill=(18, 20, 24, 210), width=w + 6)
+            g.line([tuple(p), tuple(q)], fill=col, width=w)
+        def tick(p, col):
+            seg(p - nrm * tk, p + nrm * tk, col, 6)
+        if dl.get('single'):
+            # 2026-11-18 사용자: 「선은 하나만, 나세르처럼」 — 흰 선 하나 + 양끝 화살촉(끝점을 가리킴), 구간 나눔·눈금 없음
+            k2 = R.ease(min(1.0, max(0.0, (T - t0 - .25) / .30)))   # 숫자는 선이 다 그려진 뒤
+            M = (A + B) / 2
+            hl = 26                                    # 화살촉 길이
+            pa, pb = M + (A - M) * k1, M + (B - M) * k1
+            ia, ib = pa + d * hl * .8, pb - d * hl * .8  # 선은 화살촉 밑에서 멈춤
+            seg(ia if k1 >= 1 else pa, ib if k1 >= 1 else pb, (255, 255, 255, 255), 9)
+            if k1 >= 1:
+                for tip, s_ in ((A, -1), (B, 1)):
+                    back = tip - d * s_ * hl
+                    pts = [tuple(tip), tuple(back + nrm * 16), tuple(back - nrm * 16)]
+                    g.polygon(pts, fill=(255, 255, 255, 255), outline=(18, 20, 24, 210))
+            P = A
+        else:
+            seg(wa, wb, (255, 255, 255, 255), 9)
+        if dl.get('single'):
+            pass
+        elif k1 >= 1:
+            tick(A, (255, 255, 255, 255))
+        if k2 > 0 and not dl.get('single'):
+            Q = P + (B - P) * k2
+            seg(P, Q, (238, 239, 5, 255), 11)
+            tick(P, (255, 255, 255, 255))
+            if k2 >= 1:
+                tick(B, (238, 239, 5, 255))
+                for e_, s_ in ((B, 1), (A, -1)):           # 양끝 바깥 화살촉
+                    tip = e_ + d * s_ * 30
+                    col = (238, 239, 5, 255) if s_ == 1 else (255, 255, 255, 255)
+                    pts = [tuple(tip), tuple(e_ + nrm * 14 + d * s_ * 6), tuple(e_ - nrm * 14 + d * s_ * 6)]
+                    g.polygon(pts, fill=col, outline=(18, 20, 24, 210))
+        sh = lay.filter(ImageFilter.GaussianBlur(5))
+        sha = sh.getchannel('A').point(lambda v: int(v * .5))
+        base = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        base.paste(Image.new('RGBA', (W, H), (0, 0, 0, 255)), (0, 4), sha)
+        base.alpha_composite(lay)
+        if fade < 1:
+            base.putalpha(base.getchannel('A').point(lambda v: int(v * fade)))
+        ov.alpha_composite(base)
+        if k2 <= 0:
+            continue
+        key = ('dim', i)
+        if key not in _DIM:
+            num = text3d(dl['label'], dl.get('h', 120))
+            sub = shadow_text(dl['sub'], 30) if dl.get('sub') else None
+            pill = None
+            if sub:
+                pill = Image.new('RGBA', (sub.width + 28, sub.height + 12), (0, 0, 0, 0))
+                ImageDraw.Draw(pill).rounded_rectangle((0, 0, pill.width - 1, pill.height - 1), pill.height // 2, fill=(0, 0, 0, 140))
+                pill.alpha_composite(sub, (14, 6))
+            wv = max(num.width, pill.width if pill else 0)
+            hv = num.height + (pill.height + 8 if pill else 0)
+            box = Image.new('RGBA', (wv + 60, hv + 60), (0, 0, 0, 0))
+            a = num.getchannel('A').point(lambda v: int(v * .45))
+            box.paste(Image.new('RGBA', num.size, (0, 0, 0, 255)), (30 + (wv - num.width) // 2, 42), a)
+            box = box.filter(ImageFilter.GaussianBlur(12))
+            box.alpha_composite(num, (30 + (wv - num.width) // 2, 30))
+            if pill:
+                box.alpha_composite(pill, (30 + (wv - pill.width) // 2, 30 + num.height + 8))
+            _DIM[key] = box
+        im = _DIM[key]
+        mid = (P + B) / 2 + nrm * (abs(nrm[0]) * (im.width / 2 - 20) + abs(nrm[1]) * (im.height / 2 - 20) + 14)
+        x = min(max(mid[0], im.width / 2 + 20), W - im.width / 2 - 20)
+        y = min(max(mid[1], im.height / 2 + 200), CAP_TOP - 30 - im.height / 2)
+        sc = max(0.01, R.back(min(1.0, k2)))
+        w2, h2 = max(1, int(im.width * sc)), max(1, int(im.height * sc))
+        R.paste(ov, im.resize((w2, h2), Image.LANCZOS), x - w2 / 2, y - h2 / 2, fade * min(1.0, k2 * 3))
+
+
 def overlay(T):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     ov.alpha_composite(LOGO, LOGO_XY)
     footer_layer(ov, T)
     official_layer(ov, T)
     sticker_layer(ov, T)
+    dim_layer(ov, T)
     section_layer(ov, T)
     HD = getattr(C, 'HOOK_DELAY', 0.0)  # 엠블럼 확대 동안 타이틀을 늦게 올림
     HE = FW[1][0] if 1 in FW else starts[1]  # 첫 페이드가 시작되기 전에 제목을 내림
@@ -1091,6 +1208,7 @@ def overlay(T):
         if st <= T < en:
             num = is_num_chip(txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
+            hide = hide or txt in getattr(C, 'HIDE_CAP_CHIPS', ())  # 2026-11-18: 숫자가 든 키워드 칩(11.9인치 등)도 자막과 숫자 겹치면 자막 숨김
             # 2026-11-17 벨기에 원본 실측: 키워드 칩 약 −2°(거의 수평), 숫자 칩 약 −6°
             tilt = (TILT if num else getattr(C, 'CHIP_TILT_WORD', TILT)) + (-0.8, 0.6, 0.0)[i % 3] * (0.5 if not num and hasattr(C, 'CHIP_TILT_WORD') else 1)
             if getattr(C, 'CHIP_TILT_ALL', None) is not None:  # 2026-11-17 일관성: 모든 칩 같은 기울기, 흔들림 없음
@@ -1121,6 +1239,11 @@ def overlay(T):
             x = W * o.get('cx', .5) - im.width / 2; y = H * o.get('cy', .3) - im.height / 2
             sc = max(.05, e)
             R.paste(ov, im, x + im.width * (1 - sc) / 2, y + im.height * (1 - sc) / 2, min(1, k / .1) * out, sc)
+    for dl in getattr(C, 'DIM_LINES', []):  # 2026-11-18: 치수선이 자막 띠를 지나면(9:16판) 그동안 말 자막 숨김 — 큰 숫자 규칙과 같음
+        if dl.get('hide_caps') and not FADE and T < BODY:
+            _t0 = onset(dl['w']) - 0.2
+            if _t0 <= T < ends[_cut_at(max(_t0, 0))] - 0.12:
+                hide = True
     if not hide:
         for c in CAPS:
             if c['s'] <= T < c['e']:
