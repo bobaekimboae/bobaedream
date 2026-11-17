@@ -13,10 +13,10 @@
     "@huggingface/transformers": "3.8.1",
     "@vercel/blob": "^1.1.1",
     "mediabunny": "1.61.3",
-    "nuxt": "4.6.2",
+    "nuxt": "4.6.4",
     "onnxruntime-web": "1.22.0-dev.20250409-89f8206ba4",
     "qrcode-generator": "2.0.4",
-    "vue": "3.5.33"
+    "vue": "3.5.45"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",
@@ -30,13 +30,13 @@
   },
   "pnpm": {
     "overrides": {
-      "vue": "3.5.33",
-      "@vue/compiler-core": "3.5.33",
-      "@vue/compiler-dom": "3.5.33",
-      "@vue/compiler-sfc": "3.5.33",
-      "@vue/compiler-ssr": "3.5.33",
-      "@vue/shared": "3.5.33",
-      "@vue/server-renderer": "3.5.33"
+      "vue": "3.5.45",
+      "@vue/compiler-core": "3.5.45",
+      "@vue/compiler-dom": "3.5.45",
+      "@vue/compiler-sfc": "3.5.45",
+      "@vue/compiler-ssr": "3.5.45",
+      "@vue/shared": "3.5.45",
+      "@vue/server-renderer": "3.5.45"
     },
     "onlyBuiltDependencies": [
       "esbuild",
