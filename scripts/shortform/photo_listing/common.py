@@ -318,10 +318,12 @@ def frame_of(ci, T):
     cx = min(max((fx0 + (fx1 - fx0) * u) * w, vw / 2), w - vw / 2)
     cy = min(max(fy * h, vh / 2), h - vh / 2)
     M = np.float32([[sc, 0, W / 2 - cx * sc], [0, sc, H / 2 - cy * sc]])
+    AFF[n] = (sc, sc, W / 2 - cx * sc, H / 2 - cy * sc, w, h)  # 스티커가 사진 부위를 따라가도록 이번 프레임 변환 기록
     return cv2.warpAffine(img, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
 
 
 FIT = set(getattr(C, 'FIT', []))
+AFF = {}  # 사진 번호 → (가로 배율, 세로 배율, x 이동, y 이동, 사진 폭, 사진 높이) 이번 프레임
 BG = {}
 FADE = os.environ.get('BBM_FADE') == '1'
 
@@ -359,6 +361,7 @@ def box_frame(n, img, fx, fy, z):
     fg = cv2.warpAffine(img, M, (int(fw), int(fh)), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
     x0 = int((W - fw) / 2); y0 = int(_photo_y0(fh))
     out[y0:y0 + fg.shape[0], x0:x0 + fg.shape[1]] = fg
+    AFF[n] = (fw / sw, fh / sh, x0 - (cx - sw / 2) * fw / sw, y0 - (cy - sh / 2) * fh / sh, w, h)
     return out
 
 
@@ -876,29 +879,104 @@ def official_layer(ov, T):
     ci = _cut_at(T)
     if CUTS[ci][0] not in offs:
         return
+    # 2026-11-18: 사진마다 다른 출처 글자(OFFICIAL_TAGS = {사진번호: 글자}) — 예: 트렁크 「오토블로그 실측」
     if _OFF_TAG is None:
-        _OFF_TAG = shadow_text(getattr(C, 'OFFICIAL_TAG', '제조사 공식 이미지'), 30)
+        _OFF_TAG = {}
+    txt = getattr(C, 'OFFICIAL_TAGS', {}).get(CUTS[ci][0], getattr(C, 'OFFICIAL_TAG', '제조사 공식 이미지'))
+    if txt not in _OFF_TAG:
+        _t = shadow_text(txt, 30)   # 밝은 배경(흰 벽)에서도 읽히게 반투명 검정 알약 위에
+        _pill = Image.new('RGBA', (_t.width + 28, _t.height + 12), (0, 0, 0, 0))
+        ImageDraw.Draw(_pill).rounded_rectangle((0, 0, _pill.width - 1, _pill.height - 1), _pill.height // 2, fill=(0, 0, 0, 120))
+        _pill.alpha_composite(_t, (14, 6))
+        _OFF_TAG[txt] = _pill
+    tag = _OFF_TAG[txt]
     k = min(1.0, (T - starts[ci]) / .25)
     if ci + 1 < len(CUTS):
         k = min(k, max(0.0, (starts[ci + 1] - T) / .2))
-    R.paste(ov, _OFF_TAG, W - 40 - _OFF_TAG.width, getattr(C, 'OFFICIAL_TAG_Y', 104), k)
+    R.paste(ov, tag, W - 40 - tag.width, getattr(C, 'OFFICIAL_TAG_Y', 104), k)
 
 
 _STK = {}
 
 
+def _resolve_stickers():
+    """STICKERS 항목에 'part'(backrest·cushion·headrest·steering·screen·wheel)만 적으면 part_anchor.py가 사진에서 부위를 찾아
+    u·v·size·box를 채움. 결과는 src2/pNN.anchors.json에 저장해 다음 렌더부터는 모델을 다시 돌리지 않음"""
+    out = []
+    for sk in getattr(C, 'STICKERS', []):
+        if 'part' in sk and 'u' not in sk:
+            n = sk['photo']
+            f = f'src2/p{n:02d}.anchors.json'
+            data = json.load(open(f)) if os.path.exists(f) else {}
+            if sk['part'] not in data:
+                sys.path.insert(0, os.path.dirname(os.path.abspath(R.__file__)) + '/photo_listing')
+                import part_anchor
+                data.update(part_anchor.anchors(f'src2/p{n:02d}.png', tuple(set(list(data) + [sk['part']]))))
+                json.dump(data, open(f, 'w'), ensure_ascii=False)
+            if sk['part'] not in data:
+                print(f'⚠ 스티커 부위를 못 찾음: 사진 {n} {sk["part"]} — 이 스티커는 빼고 렌더')
+                continue
+            sk = {**sk, **data[sk['part']]}
+        out.append(sk)
+    return out
+STK_MIN, STK_MAX = 150, 280  # 스티커 화면 높이 한계(px): 너무 작으면 안 보이고 너무 크면 부위를 가림
+
+
+def text3d(txt, h=200):
+    """2026-11-18 나세르식 입체 숫자(「396 LITER」처럼): 흰 굵은 숫자 + 아래쪽 두께 + 작은 단위. 이모지로는 L 같은 글자가 없어 직접 그림.
+    h = 전체 높이(px). 숫자는 Pretendard Black, 단위는 숫자 크기의 0.5배로 숫자 밑줄에 맞춤."""
+    m = re.match(r'^([\d.,+]+)\s*(.*)$', txt)
+    num, unit = (m.group(1), m.group(2)) if m else (txt, '')
+    fs = int(h / 0.78)
+    fn = ImageFont.truetype(R.HEAVY, fs)
+    fu = ImageFont.truetype(R.HEAVY, int(fs * 0.5))
+    d0 = ImageDraw.Draw(Image.new('L', (1, 1)))
+    nb = d0.textbbox((0, 0), num, font=fn, anchor='ls')
+    ub = d0.textbbox((0, 0), unit, font=fu, anchor='ls') if unit else (0, 0, 0, 0)
+    gap = int(fs * 0.06) if unit else 0
+    depth = max(3, int(h * 0.07))
+    Wt = (nb[2] - nb[0]) + gap + (ub[2] - ub[0]) + depth + 8
+    top = min(nb[1], ub[1])
+    Ht = -top + depth + 8
+    def draw_text(d, dx, dy, fill):
+        x = 4 + dx - nb[0]; y = 4 + dy - top
+        d.text((x, y), num, font=fn, fill=fill, anchor='ls')
+        if unit:
+            d.text((x + nb[2] + gap - ub[0], y), unit, font=fu, fill=fill, anchor='ls')
+    out = Image.new('RGBA', (Wt, Ht), (0, 0, 0, 0))
+    d = ImageDraw.Draw(out)
+    for k in range(depth, 0, -1):   # 두께: 뒤쪽일수록 어두운 회색
+        c = int(120 + 60 * (1 - k / depth))
+        draw_text(d, k * 0.5, k, (c, c + 4, c + 10, 255))
+    face = Image.new('L', out.size, 0)
+    draw_text(ImageDraw.Draw(face), 0, 0, 255)
+    grad = Image.new('RGBA', out.size)
+    gd = ImageDraw.Draw(grad)
+    for yy in range(out.height):   # 앞면: 위 흰색 → 아래 아주 옅은 회색
+        v = int(255 - 22 * yy / max(1, out.height))
+        gd.line([(0, yy), (out.width, yy)], fill=(v, v, min(255, v + 3), 255))
+    out.paste(grad, (0, 0), face)
+    return out
+
+
+def sticker_img(sk, h):
+    if sk.get('text3d'):
+        return text3d(sk['text3d'], h)
+    return fluent_emoji(sk['emo'], h)
+
+
 def sticker_layer(ov, T):
     """2026-11-17 나세르식: 실제 사진의 해당 부위 옆에 3D 이모지가 말에 맞춰 톡 튀어나와 떠 있음.
     STICKERS = [{'w': 어절 번호, 'emo': '❄️', 'x': 중심x, 'y': 중심y, 'h': 높이, 'tilt': 각도}] — 그 어절이 든 컷이 끝날 때까지 유지"""
-    for i, sk in enumerate(getattr(C, 'STICKERS', [])):
+    for i, sk in enumerate(STICKERS_R):
         t0 = onset(sk['w']) - 0.05
         ci = _cut_at(max(t0, 0))
         t1 = ends[ci] - 0.12
         if not (t0 <= T < t1):
             continue
-        key = (sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
+        key = (sk.get('text3d') or sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
         if key not in _STK:
-            im = fluent_emoji(sk['emo'], sk.get('h', 200))
+            im = sticker_img(sk, sk.get('h', 200))
             if im is None:
                 continue
             if sk.get('tilt'):
@@ -910,6 +988,41 @@ def sticker_layer(ov, T):
             sh.alpha_composite(im, (30, 30))
             _STK[key] = sh
         im = _STK[key]
+        x, y = sk.get('x'), sk.get('y')
+        if 'u' in sk:  # 2026-11-18: 사진 안 좌표(part_anchor.py 결과) → 이번 프레임 사진 변환을 그대로 따라감
+            n = CUTS[ci][0]
+            if n not in AFF:
+                continue
+            ax, ay, ox, oy, pw, ph = AFF[n]
+            x, y = sk['u'] * pw * ax + ox, sk['v'] * ph * ay + oy
+            hh = min(sk.get('hmax', STK_MAX), max(STK_MIN, sk['size'] * pw * ax))
+            if abs(hh - im.height + 60) > 4:
+                key2 = key + (int(hh),)
+                if key2 not in _STK:
+                    base = sticker_img(sk, int(hh))
+                    if sk.get('tilt'):
+                        base = base.rotate(sk['tilt'], resample=Image.BICUBIC, expand=True)
+                    sh = Image.new('RGBA', (base.width + 60, base.height + 60), (0, 0, 0, 0))
+                    a = base.getchannel('A').point(lambda v: int(v * .45))
+                    sh.paste(Image.new('RGBA', base.size, (0, 0, 0, 255)), (30, 42), a)
+                    sh = sh.filter(ImageFilter.GaussianBlur(12)); sh.alpha_composite(base, (30, 30))
+                    _STK[key2] = sh
+                im = _STK[key2]
+            # 화면 밖(세로 자르기로 잘린 쪽)이면 부위 상자의 보이는 부분 안으로 옮김
+            half_w = im.width / 2 - 30
+            if sk.get('box'):
+                bx0, bx1 = sk['box'][0] * pw * ax + ox, sk['box'][2] * pw * ax + ox
+                lo_x, hi_x = max(bx0, 60) + half_w, min(bx1, W - 60) - half_w
+                if lo_x <= hi_x:
+                    x = min(max(x, lo_x), hi_x)
+                else:
+                    continue  # 부위가 화면에 거의 안 보이면 스티커를 띄우지 않음
+            # 자막 띠·아래 딜러 띠와 겹치면 부위 상자 안에서 위로 올림(부위 밖으로는 안 나감)
+            half = im.height / 2 - 30
+            for lo, hi in ((CAP_TOP - 20, CAP_TOP + 150), (H - 340, H)):
+                if y + half > lo and y - half < hi:
+                    top_box = sk['box'][1] * ph * ay + oy if sk.get('box') else 0
+                    y = max(top_box + half, lo - half - 8)
         k = (T - t0) / .32
         sc = R.back(min(1.0, k)) if k < 1 else 1.0
         sc = max(0.01, sc)
@@ -917,7 +1030,10 @@ def sticker_layer(ov, T):
         fy = 8 * math.sin((T - t0) * 2.4 + i)
         w2 = max(1, int(im.width * sc)); h2 = max(1, int(im.height * sc))
         im2 = im.resize((w2, h2), Image.LANCZOS)
-        R.paste(ov, im2, sk['x'] - w2 / 2, sk['y'] - h2 / 2 + fy, min(1.0, k * 3) * fade)
+        R.paste(ov, im2, x - w2 / 2, y - h2 / 2 + fy, min(1.0, k * 3) * fade)
+
+
+STICKERS_R = _resolve_stickers()
 
 
 def overlay(T):
