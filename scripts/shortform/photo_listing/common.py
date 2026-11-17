@@ -100,6 +100,10 @@ WHOOSH_AT = set() if os.environ.get('BBM_FADE') == '1' else set(C.WHOOSH_AT)
 R.MARKS = getattr(C,'MARKS',{})
 TILT = R.STYLE['tilt_fixed']
 CAP_CY = R.STYLE['cap_cy']
+# 2026-11-17 사진–자막 간격 통일: 자막은 윗선 기준(한 줄 자막 가운데 = CAP_CY), 가로 사진 상자는 아랫선을 한 줄로 고정
+CAP_TOP = CAP_CY - 60          # 자막 글줄 윗선(이미지 위 여백 20 제외)
+CAP_GAP = getattr(C, 'CAP_GAP', 30)
+PHOTO_BOTTOM = CAP_TOP - CAP_GAP   # 가로 사진(상자 맞춤) 아랫선 — 모든 컷 같은 높이
 
 # 컷 시작 = 첫 어절 소리 시작 0.12초 전(첫 컷은 0)
 starts = [0.0] + [onset(c[2]) - 0.12 for c in CUTS[1:]]
@@ -201,21 +205,60 @@ def photo(n):
 
 
 ease = lambda u: u * u * (3 - 2 * u)
+MOTION_GAIN = getattr(C, 'MOTION_GAIN', 1.0)
+PUNCH = getattr(C, 'PUNCH', 0.0)  # 칩이 뜰 때 사진을 톡 당기는 세기(0.05 = 5%)
+
+
+def _kf(kb, u):
+    """사진 키프레임: 지금 시점 u를 감싼 두 키 사이를 부드럽게(ease) 이어 (가로, 가로, 확대, 확대, 세로)로 돌려줌"""
+    kb = sorted(kb)
+    if u <= kb[0][0]:
+        a = b = kb[0]; t = 0.0
+    elif u >= kb[-1][0]:
+        a = b = kb[-1]; t = 0.0
+    else:
+        j = max(i for i in range(len(kb)) if kb[i][0] <= u)
+        a, b = kb[j], kb[j + 1]; t = ease((u - a[0]) / max(1e-3, b[0] - a[0]))
+    x = a[1] + (b[1] - a[1]) * t; z = a[2] + (b[2] - a[2]) * t; y = a[3] + (b[3] - a[3]) * t
+    return x, x, z, z, y
+
+
+def punch(ci, T):
+    """칩(핵심어) 순간 펀치인: 말 0.1초 전 시작 · 0.4초 감속 · 유지 (2026-11-17 키프레임 글 기준)"""
+    if not PUNCH:
+        return 1.0
+    s0, e0 = starts[ci], ends[ci]
+    k = 0.0
+    for txt, st, en in CHIPS:
+        t0 = st - 0.10  # 말보다 0.1초 먼저 시작해 그 말에 도착(CapCut 키프레임 글: 3~8프레임 전)
+        if s0 <= st < e0 and T >= t0:
+            d = min(1.0, (T - t0) / .40)  # 0.4초 감속(ease-out)으로 들어가서 컷 끝까지 유지 — 되돌아오는 출렁임 없음
+            k = max(k, 1 - (1 - d) ** 3)
+    return 1.0 + PUNCH * k
 
 
 def frame_of(ci, T):
     n = CUTS[ci][0]
-    fx0, fx1, z0, z1, fy = CUTS[ci][6]
+    kb = CUTS[ci][6]
     s0, e0 = starts[ci], ends[ci]
     u = min(1, max(0, (T - s0) / max(0.01, e0 - s0)))
-    u = ease(u) * 0.85 + u * 0.15
+    if isinstance(kb, list):  # 키프레임 [(시점 0~1, 가로, 확대, 세로), ...] — 구간마다 부드럽게
+        fx0, fx1, z0, z1, fy = _kf(kb, u)
+        u = 0.0
+    else:
+        fx0, fx1, z0, z1, fy = kb
+        g = MOTION_GAIN if not (ci == 0 and getattr(C, 'HOOK_ZOOM', None)) else 1.0
+        if g != 1.0:  # 움직임 강조: 확대·이동 폭을 늘림(1배 아래로는 안 내려감)
+            zm = (z0 + z1) / 2; z0, z1 = max(1.0, zm + (z0 - zm) * g), max(1.0, zm + (z1 - zm) * g)
+            xm = (fx0 + fx1) / 2; fx0, fx1 = xm + (fx0 - xm) * g, xm + (fx1 - xm) * g
+        u = ease(u) * 0.85 + u * 0.15
     hz = getattr(C, 'HOOK_ZOOM', None)  # 첫 컷 엠블럼 확대 → 뒤로 빠지기 (A안)
     if ci == 0 and hz:
         uu = min(1, max(0, T / hz[1]))
         u = ease(uu)
     img = photo(n)
     h, w = img.shape[:2]
-    z = z0 + (z1 - z0) * u
+    z = (z0 + (z1 - z0) * u) * punch(ci, T)
     full = (h, w) == (H, W)  # 미리 만든 9:16 독립 컷(성능지·가격·자료 카드)은 상자 맞춤 없이 그대로
     if FADE and not full:
         return box_frame(n, img, fx0 + (fx1 - fx0) * u, fy, z)
@@ -245,6 +288,13 @@ def blur_bg(n, img):
     return BG[n].copy()
 
 
+def _photo_y0(fh):
+    """상자 맞춤 사진의 위 y. CAPS_UNDER_PHOTO면 아랫선을 PHOTO_BOTTOM에 맞춰 컷마다 사진–자막 간격이 같다."""
+    if getattr(C, 'CAPS_UNDER_PHOTO', False) and fh < H * .70:
+        return max(150, PHOTO_BOTTOM - fh)
+    return H * .44 - fh / 2
+
+
 def box_frame(n, img, fx, fy, z):
     """사진 원래 비율 그대로(9:16로 자르지 않음): 가로 꽉 찬 상자 + 위아래 흐린 채움, 켄번스는 상자 안에서만"""
     h, w = img.shape[:2]
@@ -257,7 +307,7 @@ def box_frame(n, img, fx, fy, z):
     cx = min(max(fx * w, sw / 2), w - sw / 2); cy = min(max(fy * h, sh / 2), h - sh / 2)
     M = np.float32([[fw / sw, 0, -(cx - sw / 2) * fw / sw], [0, fh / sh, -(cy - sh / 2) * fh / sh]])
     fg = cv2.warpAffine(img, M, (int(fw), int(fh)), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
-    x0 = int((W - fw) / 2); y0 = int(H * .44 - fh / 2)
+    x0 = int((W - fw) / 2); y0 = int(_photo_y0(fh))
     out[y0:y0 + fg.shape[0], x0:x0 + fg.shape[1]] = fg
     return out
 
@@ -277,7 +327,7 @@ def fit_frame(n, img, fx, z):
         fh = H * .78; fw = fh * w / h
     fg = cv2.resize(img, (int(fw), int(fh)), interpolation=cv2.INTER_CUBIC)
     cx = W / 2 + (0.5 - fx) * (fw - W) if fw > W else W / 2
-    x0 = int(cx - fw / 2); y0 = int(H * .44 - fh / 2)
+    x0 = int(cx - fw / 2); y0 = int(_photo_y0(fh))
     sx0, sy0 = max(0, -x0), max(0, -y0)
     dx0, dy0 = max(0, x0), max(0, y0)
     ww = min(fg.shape[1] - sx0, W - dx0); hh = min(fg.shape[0] - sy0, H - dy0)
@@ -387,7 +437,7 @@ if _lgp and os.path.exists(_lgp):
 else:  # 딜러 로고 없음
     LOGO = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
 LOGO_XY = (40, 96)
-def dealer_chip(txt, size=40, tilt=-1.5):
+def dealer_chip(txt, size=40, tilt=-1.5, font=None, hr=2.8):
     """딜러 칩 = 노션 「스카우트24 테마별」 원본 로고 칠(테마 바탕색_430_239) 그대로, 가로로만 늘림. 색 #F5F200, 글자 검정.
     벨기에판 실측(tags_zoom: €56.490·€180·Auto): 칠 높이 ≈ 대문자 높이 2.8배, 글자 좌우 여백 ≈ 칠 높이 0.2배, 글자는 칠 세로 가운데.
     칠 가장자리가 들쭉날쭉하므로 글자 칸의 모든 세로줄이 칠 안(불투명)에 들 때까지 칠 폭을 넓힘 → 글자 잘림 없음."""
@@ -395,10 +445,10 @@ def dealer_chip(txt, size=40, tilt=-1.5):
     import numpy as _np
     _s.path.insert(0, REPO)
     from brushfill import theme_mask
-    fnt = ImageFont.truetype(R.BOLD, size)
+    fnt = ImageFont.truetype(font or R.BOLD, size)
     bb = fnt.getbbox(txt, anchor='ls'); tw = bb[2] - bb[0]; th = bb[3] - bb[1]
     cap = size * 0.74
-    h = int(round(cap * 2.8)); m = 12
+    h = int(round(cap * hr)); m = 12
     w = int(tw + h * 0.2 * 2)
     for _ in range(30):
         mask = theme_mask(w, h, '430_239', margin=m)
@@ -411,6 +461,37 @@ def dealer_chip(txt, size=40, tilt=-1.5):
     im = Image.new('RGBA', mask.size, (0xF5, 0xF2, 0x00, 0)); im.putalpha(mask)
     ImageDraw.Draw(im).text((x0 - bb[0], y0 - bb[1]), txt, font=fnt, fill=(0, 0, 0), anchor='ls')
     return im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
+
+
+_BEC = {}
+
+
+def be_chip(txt, size, tilt):
+    """벨기에 원본 키워드 칩: 노션 원본 로고 칠(430_239) + 검정 굵은 글자. MARKS 이모지는 칠 오른쪽 끝에 반쯤 걸침"""
+    k = (txt, size, tilt)
+    if k in _BEC:
+        return _BEC[k]
+    base = dealer_chip(txt, size, tilt, font=R.HEAVY, hr=2.8)
+    mark = getattr(C, 'MARKS', {}).get(txt)
+    if not mark:
+        _BEC[k] = base
+        return base
+    try:
+        ef = ImageFont.truetype(R.EMOJI_FONT, 109)
+        eim = Image.new('RGBA', (160, 160), (0, 0, 0, 0))
+        ImageDraw.Draw(eim).text((80, 80), mark, font=ef, embedded_color=True, anchor='mm')
+        eim = eim.crop(eim.getbbox())
+        eh = int(base.height * .62)
+        eim = eim.resize((int(eim.width * eh / eim.height), eh), Image.LANCZOS)
+    except Exception:
+        _BEC[k] = base
+        return base
+    ox = base.width - int(eim.width * .30) - 10
+    out = Image.new('RGBA', (ox + eim.width, base.height), (0, 0, 0, 0))
+    out.alpha_composite(base, (0, 0))
+    out.alpha_composite(eim, (ox, (base.height - eh) // 2))
+    _BEC[k] = out
+    return out
 
 
 def dealer_chip_de(lines, size=34):
@@ -549,6 +630,27 @@ def icon_chip(ov, txt, st, en, T, i, num):
 
 
 
+_SH = {}
+
+
+def shadow_text(txt, size, font=None):
+    """흰 글자 + 부드러운 검정 그림자(원본 BE 첫 화면 'Model Y' 방식, 외곽선 없음)"""
+    k = (txt, size)
+    if k in _SH:
+        return _SH[k]
+    from PIL import ImageFilter, ImageFont, ImageDraw
+    fnt = ImageFont.truetype(font or R.HEAVY, size)
+    bb = fnt.getbbox(txt)
+    pad = 24
+    im = Image.new('RGBA', (bb[2] - bb[0] + pad * 2, bb[3] - bb[1] + pad * 2), (0, 0, 0, 0))
+    sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).text((pad - bb[0] + 3, pad - bb[1] + 5), txt, font=fnt, fill=(0, 0, 0, 200), stroke_width=3, stroke_fill=(0, 0, 0, 200))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
+    ImageDraw.Draw(im).text((pad - bb[0], pad - bb[1]), txt, font=fnt, fill=(255, 255, 255, 255))
+    _SH[k] = im
+    return im
+
+
 def photo_band(T):
     """가로 사진을 상자에 맞춘 컷이면 (사진 위 y, 아래 y). 뉴스 릴스처럼 자막은 사진 밑, 칩은 사진 위 띠에 둔다."""
     if not getattr(C, 'CAPS_UNDER_PHOTO', False) or T < starts[1]:
@@ -563,7 +665,7 @@ def photo_band(T):
     fh = W * h / w
     if fh > H * .78:
         fh = H * .78
-    y0 = int(H * .44 - fh / 2)
+    y0 = int(_photo_y0(fh))
     return y0, y0 + fh
 
 
@@ -575,27 +677,38 @@ def overlay(T):
     if HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
         T0 = T; T = T - HD
         e = R.back(T / .28)
-        b = R.sticker(C.HOOK[0], 84, TILT, True)
-        m = R.text_img(C.HOOK[1], 84 if len(C.HOOK[1])<=9 else 70, R.HEAVY, stroke=4)
-        sub = R.text_img(C.HOOK[2], 50, R.BLACK, stroke=4)
+        # 2026-11-17 원본 BE(Tesla Model Y 첫 화면) 대조: 브랜드 띠 글자 = 모델 흰 글자 같은 크기·같은 줄,
+        # 흰 글자는 외곽선 대신 부드러운 그림자, 아래 줄도 크게(띠의 75%) 붙여서. 화면 폭을 넘으면 셋 다 같은 비율로 줄임
+        fs = 84
+        while True:
+            # 2026-11-17 사용자: 「노션에 원본 있다」 — 제목 브랜드 칩도 노션 「스카우트24 테마별」 원본 로고 칠(430_239) 그대로.
+            # 원본 BE 'Tesla' 칩 실측: 칠 높이 ≈ 대문자 2.2배, 약 -3° 기울임, #F5F200 + 검정 글자
+            b = dealer_chip(C.HOOK[0], fs, -3.0, font=R.HEAVY, hr=2.3)
+            m = shadow_text(C.HOOK[1], int(fs * 1.15))     # 영문 대문자는 한글보다 낮아 보여 1.15배 → 눈 높이 같게
+            if b.width + m.width - 48 - 14 <= W - 80 or fs <= 56:
+                break
+            fs -= 4
+        sub = shadow_text(C.HOOK[2], int(fs * .75))
         cy = H * getattr(C, 'HOOK_CY', .24)
         rise = 60 * (1 - R.ease(T / .4)) if HD else 0
+        if getattr(C, 'HOOK_DROP', False):  # 처음부터 위에 띄움: 위에서 툭 떨어지듯
+            rise = -50 * (1 - R.ease(T / .35))
         cy += rise
         a = min(1, T / .15, (HE - T0) / .12)
-        wid = b.width + m.width - 10
+        wid = b.width + m.width - 48 - 14   # 그림자 여백(좌우 24) 빼고, 띠 끝에 글자가 바로 붙게(원본: 'Tesla' 띠 끝 = 'Model' 첫 글자)
         x0 = (W - wid) / 2
         R.paste(ov, b, x0 + b.width * (1 - e) / 2, cy - b.height / 2 + b.height * (1 - e) / 2, a, max(.05, e))
-        R.paste(ov, m, x0 + b.width - 10, cy - m.height / 2, a)
+        R.paste(ov, m, x0 + b.width - 14 - 24, cy - m.height / 2 + 2, a)
         e2 = R.ease((T - .25) / .3)
-        R.paste(ov, sub, (W - sub.width) / 2, cy + b.height / 2 + 4 + 20 * (1 - e2), min(a, e2))
+        R.paste(ov, sub, (W - sub.width) / 2, cy + b.height / 2 - 30 + 20 * (1 - e2), min(a, e2))  # 원본: 둘째 줄이 바로 아래 붙음
         T = T0
     hide = bool(getattr(C, 'HOOK_HIDE_CAPS', False)) and T < HE
     band = photo_band(T)
-    cap_cy = min(H - 300, band[1] + 30 + 60) if band else CAP_CY
+    cap_top = min(H - 360, band[1] + CAP_GAP) if band else CAP_TOP
     _cp = getattr(C, 'CAP_CY_PHOTOS', {})  # 독립 컷(성능지·가격 카드) 동안 자막을 카드 아래로
     if _cp and T < BODY:
         _n = CUTS[max(i for i in range(len(CUTS)) if starts[i] <= T)][0]
-        cap_cy = _cp.get(_n, cap_cy)
+        cap_top = _cp[_n] - 60 if (_n in _cp and not band) else cap_top  # 상자 사진(페이드판)은 기준선 그대로
     for i, (txt, st, en) in enumerate(CHIPS):
         if ICON3D and st <= T < en:
             num = any(ch.isdigit() for ch in txt)
@@ -606,7 +719,7 @@ def overlay(T):
             num = any(ch.isdigit() for ch in txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
             tilt = TILT + (-0.8, 0.6, 0.0)[i % 3]
-            im = R.sticker(txt, 76 if num else 70, tilt, False)
+            im = be_chip(txt, 84 if num else 72, tilt)  # 2026-11-17: 키워드 칩도 노션 원본 로고 칠 430_239(벨기에 원본과 같은 칠)
             k = T - st
             e = R.back(k / .28)
             out = R.ease((en - T) / .12)
@@ -630,7 +743,7 @@ def overlay(T):
             if c['s'] <= T < c['e']:
                 act = max([j for j, w in enumerate(c['ws']) if T + 0.04 >= w] or [0])  # 노랑은 말보다 0.04초 먼저
                 im = R.phrase_img_be3(c['t'], act)
-                R.paste(ov, im, (W - im.width) / 2, cap_cy - im.height / 2)
+                R.paste(ov, im, (W - im.width) / 2, cap_top - 20)  # 윗선 고정: 두 줄 자막은 아래로 늘어남
                 break
     return ov
 

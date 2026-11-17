@@ -47,6 +47,13 @@ def main(car, speed=1.1):
         miss = [t for t in first if not any(k in hook.replace(' ', '') for k in [t.rstrip('입니다.!').replace(' ', '')]) and len(t) > 1]
         if miss:
             err.append(f'첫 컷 자막을 숨기는데 타이틀에 없는 말: {miss} → 타이틀에 있는 말만 하거나 HOOK_HIDE_CAPS=False')
+    hk = tuple(getattr(C, 'HOOK', ())) + ('', '', '')
+    if not hk[0].strip() or not hk[1].strip():  # 2026-11-17 사용자: 첫 컷 브랜드·모델명은 필수
+        err.append('첫 컷 제목에 브랜드(HOOK[0])와 모델명(HOOK[1])이 둘 다 있어야 함')
+    elif not re.search(r'[A-Za-z0-9]', hk[1]):
+        warn.append(f'첫 컷 모델명 「{hk[1]}」 → 영문 모델명 권장(브랜드는 한국어, 모델은 영문)')
+    if getattr(C, 'HOOK_DELAY', 0.0) > 0.3:
+        warn.append('첫 컷 제목이 늦게 나옴(HOOK_DELAY) → 처음부터 띄우기(HOOK_DELAY=0, HOOK_DROP=True)')
     if not getattr(C, 'HOOK_ZOOM', None):
         warn.append('첫 컷 엠블럼 확대(HOOK_ZOOM) 없음 — 엠블럼이 작거나 흐린 경우만 생략(8장)')
 
