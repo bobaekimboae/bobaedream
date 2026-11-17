@@ -884,11 +884,48 @@ def official_layer(ov, T):
     R.paste(ov, _OFF_TAG, W - 40 - _OFF_TAG.width, getattr(C, 'OFFICIAL_TAG_Y', 104), k)
 
 
+_STK = {}
+
+
+def sticker_layer(ov, T):
+    """2026-11-17 나세르식: 실제 사진의 해당 부위 옆에 3D 이모지가 말에 맞춰 톡 튀어나와 떠 있음.
+    STICKERS = [{'w': 어절 번호, 'emo': '❄️', 'x': 중심x, 'y': 중심y, 'h': 높이, 'tilt': 각도}] — 그 어절이 든 컷이 끝날 때까지 유지"""
+    for i, sk in enumerate(getattr(C, 'STICKERS', [])):
+        t0 = onset(sk['w']) - 0.05
+        ci = _cut_at(max(t0, 0))
+        t1 = ends[ci] - 0.12
+        if not (t0 <= T < t1):
+            continue
+        key = (sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
+        if key not in _STK:
+            im = fluent_emoji(sk['emo'], sk.get('h', 200))
+            if im is None:
+                continue
+            if sk.get('tilt'):
+                im = im.rotate(sk['tilt'], resample=Image.BICUBIC, expand=True)
+            sh = Image.new('RGBA', (im.width + 60, im.height + 60), (0, 0, 0, 0))
+            a = im.getchannel('A').point(lambda v: int(v * .45))
+            sh.paste(Image.new('RGBA', im.size, (0, 0, 0, 255)), (30, 42), a)
+            sh = sh.filter(ImageFilter.GaussianBlur(12))
+            sh.alpha_composite(im, (30, 30))
+            _STK[key] = sh
+        im = _STK[key]
+        k = (T - t0) / .32
+        sc = R.back(min(1.0, k)) if k < 1 else 1.0
+        sc = max(0.01, sc)
+        fade = min(1.0, max(0.0, (t1 - T) / .15))
+        fy = 8 * math.sin((T - t0) * 2.4 + i)
+        w2 = max(1, int(im.width * sc)); h2 = max(1, int(im.height * sc))
+        im2 = im.resize((w2, h2), Image.LANCZOS)
+        R.paste(ov, im2, sk['x'] - w2 / 2, sk['y'] - h2 / 2 + fy, min(1.0, k * 3) * fade)
+
+
 def overlay(T):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     ov.alpha_composite(LOGO, LOGO_XY)
     footer_layer(ov, T)
     official_layer(ov, T)
+    sticker_layer(ov, T)
     section_layer(ov, T)
     HD = getattr(C, 'HOOK_DELAY', 0.0)  # 엠블럼 확대 동안 타이틀을 늦게 올림
     HE = FW[1][0] if 1 in FW else starts[1]  # 첫 페이드가 시작되기 전에 제목을 내림
