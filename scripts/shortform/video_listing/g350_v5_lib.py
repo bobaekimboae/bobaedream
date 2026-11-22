@@ -31,20 +31,40 @@ def _brush_alpha(name, w, h):
     png = subprocess.run(['rsvg-convert', '-w', str(w), '-h', str(h), A + 'brush-fill/as24-theme/' + name], capture_output=True, check=True).stdout
     return Image.open(BytesIO(png)).convert('RGBA').getchannel('A')
 
-def brush_box(s, f, color, icon=None, svg_short='168_76.svg', svg_long='446_76.svg'):
-    """칠 여백 공식(15-6): 높이 = 글자 높이 × 1.9, 좌우 여백 = 높이 × 0.31, 칠해진 가로 구간 기준."""
+_SHAPE_CACHE = {}
+def _shape(name, scale):
+    """노션 원본 SVG를 가로·세로 같은 배율(scale)로만 그려 칠 알파를 돌려줌. 늘이기·그리기 없음."""
+    key = (name, round(scale, 3))
+    if key not in _SHAPE_CACHE:
+        png = subprocess.run(['rsvg-convert', '-z', str(scale), A + 'brush-fill/as24-theme/' + name + '.svg'], capture_output=True, check=True).stdout
+        _SHAPE_CACHE[key] = Image.open(BytesIO(png)).convert('RGBA').getchannel('A')
+    return _SHAPE_CACHE[key]
+
+def _paint_box(a):
+    """칠 알파에서 가운데 열들 기준 칠 위·아래, 가운데 줄 기준 칠 왼·오른 끝."""
+    m = np.array(a) > 128; H, W = m.shape
+    rows = np.where(m[:, int(W * 0.3):int(W * 0.7)].mean(1) > 0.5)[0]; top, bot = int(rows.min()), int(rows.max())
+    xs = np.where(m[(top + bot) // 2])[0]; return top, bot, int(xs.min()), int(xs.max())
+
+def brush_box(s, f, color, icon=None, **_):
+    """칠 규칙(be_locked_rules.json chip.fill_fit): 노션 원본 칠 중 좌우 여백이 맞는 것을 골라 같은 배율로만 키움.
+    칠 높이 = 글자 높이 × band_to_ink, 글자는 칠 가운데에서 text_lift_ink만큼 위."""
+    FF = R['chip']['fill_fit']
     b = tsize(s, f); tw, th = b[2] - b[0], b[3] - b[1]
     iw = icon.width if icon is not None else 0; gap = 16 if icon is not None else 0; cw = tw + gap + iw
-    h = round(th * 1.9); pad = round(h * 0.31); w = cw + 2 * pad
-    for _ in range(4):
-        a = _brush_alpha(svg_long if w > 640 else svg_short, w, h)
-        row = np.where(np.array(a)[h // 2] > 128)[0]; x0, x1 = int(row[0]), int(row[-1]); span = x1 - x0
-        if abs(span - (cw + 2 * pad)) <= 2: break
-        w += (cw + 2 * pad) - span
+    want_h = FF['band_to_ink'] * th; lo, hi = [k * th for k in FF['side_pad_ink']]
+    best = None
+    for name in FF['shapes']:
+        t0, b0, l0, r0 = _paint_box(_shape(name, 4)); sc = 4 * want_h / (b0 - t0)
+        pad = ((r0 - l0) * sc / 4 - cw) / 2
+        score = abs(pad - hi) if pad >= lo else 1e6 + (lo - pad)   # 여백이 모자라면 맨 뒤 후보
+        if best is None or score < best[0]: best = (score, name, sc)
+    _, name, sc = best; a = _shape(name, sc); top, bot, x0, x1 = _paint_box(a); w, h = a.size
     im = Image.new('RGBA', (w + 30, h + 30)); fill = Image.new('RGBA', (w, h), color + (255,)); fill.putalpha(a)
-    im.alpha_composite(fill, (15, 15)); d = ImageDraw.Draw(im); cx = 15 + x0 + (span - cw) // 2
-    d.text((cx - b[0], 15 + (h - th) // 2 - b[1]), s, font=f, fill=INK)
-    if icon is not None: im.alpha_composite(icon, (cx + tw + gap, 15 + (h - icon.height) // 2))
+    im.alpha_composite(fill, (15, 15)); d = ImageDraw.Draw(im); cx = 15 + x0 + ((x1 - x0) - cw) // 2
+    ty = 15 + top + ((bot - top) - th) // 2 - round(FF['text_lift_ink'] * th)
+    d.text((cx - b[0], ty - b[1]), s, font=f, fill=INK)
+    if icon is not None: im.alpha_composite(icon, (cx + tw + gap, ty + (th - icon.height) // 2))
     return im
 
 def chip(s, size=CHIP_PX, icon=None):
