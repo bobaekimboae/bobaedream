@@ -40,6 +40,7 @@ LINE = (230, 227, 218)
 GREEN = (22, 150, 92)
 YEL = (245, 242, 0)  # AS24 붓칠 노랑 #F5F200 (2026-11-19 전수조사)
 RED = (214, 38, 42)
+AMBER = (196, 98, 0)  # 확인 필요(누유 등) — 흰 바탕 대비 약 4.6:1
 
 
 def F(path, s):
@@ -160,18 +161,23 @@ def report_steps(car, spec, bg):
         if k >= 1 and rp.get('stamp'):
             st = stamp(rp['stamp'])
             im.alpha_composite(st, (W // 2 - st.width // 2, ytop_d + dh // 2 - st.height // 2))
-        for i, (a, b) in enumerate(rows):
+        for i, row in enumerate(rows):
+            a, b = row[0], row[1]
+            warn = len(row) > 2 and row[2] == 'warn'  # 2026-11-22: 기록부에 '누유' 등 확인 필요 표시가 있으면 초록 체크 대신 주황 느낌표
             yy = yrows + rh * i
             d.line([(x0 + 40, yy), (x1 - 40, yy)], fill=LINE, width=2)
             on = i < k
             cy = yy + rh / 2
-            if on:
+            if on and warn:
+                d.ellipse((x0 + 47, cy - 27, x0 + 101, cy + 27), fill=AMBER)
+                d.text((x0 + 74, cy + 1), '!', font=F(R.BLACK, 40), fill='white', anchor='mm')
+            elif on:
                 check(d, x0 + 74, cy)
             else:
                 d.ellipse((x0 + 47, cy - 27, x0 + 101, cy + 27), outline=(214, 210, 200), width=3)
             d.text((x0 + 124, cy), a, font=F(R.BOLD, 40), fill=INK if on else (190, 186, 178), anchor='lm')
             if on:
-                d.text((x1 - 44, cy), b, font=F(R.BLACK, 40), fill=GREEN, anchor='rm')
+                d.text((x1 - 44, cy), b, font=F(R.BLACK, 40), fill=AMBER if warn else GREEN, anchor='rm')
         d.line([(x0 + 40, yrows + rh * len(rows)), (x1 - 40, yrows + rh * len(rows))], fill=LINE, width=2)
         d.text((W // 2, y1 - 42), rp['foot'], font=F(R.MED, 26), fill=GREY, anchor='mm')
         outs.append(im)
