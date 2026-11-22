@@ -332,18 +332,27 @@ while not REMIX and nfr<round(TOTAL*FPS):
 if not REMIX: proc.stdin.close(); proc.wait()
 if LOGON: json.dump(_LOG,open(G+'log8.json','w'),default=lambda o: o.item() if hasattr(o,'item') else list(o))
 json.dump({'seg':[(round(a,2),round(b,2),c[0]) for a,b,c in SEG],'sfx':SFXT,'total':TOTAL},open(G+'plan8.json','w'),ensure_ascii=False)
-OUT=G+'bobae_g350_be_v8.mp4'
+OUT=G+os.environ.get('G350_OUT','bobae_g350_be_v8.mp4')
+NEIGH_WAV=ASSET+'sfx/horse_neigh_el.wav' if os.path.exists(ASSET+'sfx/horse_neigh_el.wav') else G+'neigh.wav'   # 상업 라이선스 말 울음(일레븐랩스) 우선
 inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',ASSET+'bgm/bobae_showroom_v1.mp3']
 fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120[v]',f'[2:a]atrim=0:{TOTAL},volume=0.16,afade=t=out:st={TOTAL-1.5}:d=1.5[b]']; mx=['[v]','[b]']
-if not os.path.exists(G+'neigh.wav'): print('말 울음 파일 없음 → 생략',NEIGH); NEIGH=[]
+if not os.path.exists(NEIGH_WAV): print('말 울음 파일 없음 → 생략',NEIGH); NEIGH=[]
+# 비유 효과음 2번째: '제로백'을 말하는 순간 스톱워치(option_visual_rules.json metaphor_sfx, 영상당 2개)
+WATCH=[]
+try: WATCH=[WS[idx('제로백')][1]] if os.path.exists(ASSET+'sfx/stopwatch.wav') else []
+except StopIteration: pass
+SFXT=[x for x in SFXT if all(abs(x-w)>=0.45 for w in WATCH)]
+for tw in WATCH:
+    inp+=['-i',ASSET+'sfx/stopwatch.wav']; fl.append(f'[{len(inp)//2-1}:a]volume=0.6,adelay={int(tw*1000)}:all=1[w0]'); mx.append('[w0]')
+print('stopwatch',WATCH)
 for tn in NEIGH:
-    inp+=['-i',G+'neigh.wav']; fl.append(f'[{len(mx)+1}:a]volume=0.55,adelay={int(tn*1000)}:all=1[n0]'); mx.append('[n0]')
+    inp+=['-i',NEIGH_WAV]; fl.append(f'[{len(inp)//2-1}:a]volume=0.55,adelay={int(tn*1000)}:all=1[n0]'); mx.append('[n0]')
 for j,tc in enumerate(SFXT):
-    inp+=['-i',ASSET+'sfx/ding.wav']; fl.append(f'[{j+3+len(NEIGH)}:a]volume=0.7,adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
+    inp+=['-i',ASSET+'sfx/ding.wav']; fl.append(f'[{len(inp)//2-1}:a]volume=0.7,adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
 # 아이콘 팝 0.30: 0.45초 안에 딩·말소리가 있으면 생략, 아이콘끼리 0.45초 안이면 앞의 것만
 IP=[]
 for ti in sorted(ICONT):
-    if any(abs(ti-x)<0.45 for x in SFXT+NEIGH): continue
+    if any(abs(ti-x)<0.45 for x in SFXT+NEIGH+WATCH): continue
     if IP and ti-IP[-1]<0.45: continue
     IP.append(ti)
 for j,tc in enumerate(IP):

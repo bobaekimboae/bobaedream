@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>벤츠 G350 숏폼 샘플</title>
+<meta name="description" content="딜러가 찍은 매물 영상을 컷마다 기능 설명 자막·내레이션으로 자동 편집한 숏폼 샘플 (벤츠 G350 블루텍 2013년식)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; --accent: #306bd9; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #121212; --card: #1c1c1c; --ink: #ececec; --sub: #a0a0a0; --line: #2c2c2c; --accent: #6f9cf0; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 24px; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: start; }
+  h1 { grid-column: 1 / -1; margin: 0; font-size: 22px; line-height: 30px; }
+  h1 small { display: block; color: var(--sub); font-size: 14px; font-weight: 400; }
+  .player { position: sticky; top: 16px; background: #000; border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16; }
+  video { width: 100%; height: 100%; display: block; }
+  .side { display: grid; gap: 16px; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; }
+  h2 { margin: 0 0 12px; font-size: 18px; line-height: 24px; }
+  ol { margin: 0; padding: 0; list-style: none; }
+  li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  li:last-child { border-bottom: 0; }
+  li button { all: unset; cursor: pointer; color: var(--accent); font-variant-numeric: tabular-nums; }
+  li button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  ul { margin: 0; padding-left: 18px; }
+  .note { color: var(--sub); font-size: 13px; }
+  @media (max-width: 720px) { main { grid-template-columns: minmax(0, 1fr); } .player { position: static; max-width: 360px; width: 100%; margin: 0 auto; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>벤츠 G350 블루텍 2013년식 숏폼 샘플<small>딜러가 찍은 매물 영상 → 컷마다 기능 설명 자막·내레이션 자동 편집 · 70초 · 세로 1080×1920</small></h1>
+  <div class="player"><video id="v" src="g350-v09.mp4" controls playsinline preload="metadata"></video></div>
+  <div class="side">
+    <section>
+      <h2>장면 순서</h2>
+      <ol id="cuts"></ol>
+    </section>
+    <section>
+      <h2>이 영상에 쓴 것</h2>
+      <ul>
+        <li>원본: 딜러가 찍은 매물 영상 그대로(자르기·확대·이동만, 보정·배경 바꾸기 없음)</li>
+        <li>내레이션: AI 남성 음성, 매물 정보와 화면에 보이는 것만 말함</li>
+        <li>자막: 말하는 낱말을 따라가는 노랑 강조, 핵심 숫자는 칩으로</li>
+        <li>비유 효과음 2개: 「211마력」에 말 울음, 「제로백」에 스톱워치</li>
+        <li>배경음: 보배드림 자체 쇼룸 음악 · 효과음 출처는 <a href="../../shortform-kit/#소리">숏폼 편집 매뉴얼</a></li>
+      </ul>
+      <p class="note">편집 규칙과 버전 기록은 깃허브 shortform-kit 매뉴얼을 따릅니다. 장면 시간을 누르면 그 장면으로 이동합니다.</p>
+    </section>
+  </div>
+</main>
+<script>
+const cuts = [
+  [0.0, '첫 화면 · 벤츠 G350 블루텍 2013년식 디젤'],
+  [4.17, '제논 헤드램프 · LED 주간등'],
+  [7.35, '펜더 위 깜빡이'],
+  [10.79, '18인치 휠 · 265/60 R18 타이어'],
+  [15.33, '전동 선루프'],
+  [18.78, '뒷문 스페어 타이어'],
+  [20.91, '견인고리 · 최대 3,500kg'],
+  [24.58, '트렁크 480L → 2,250L'],
+  [30.34, '브라운 가죽 시트 · 열선·통풍'],
+  [33.93, '도어 전동 시트 버튼'],
+  [35.89, '메모리 3개'],
+  [38.25, '커맨드 컨트롤러'],
+  [40.42, '공조 다이얼'],
+  [43.03, '디퍼렌셜 락 버튼 3개'],
+  [48.96, '진흙길·눈길 탈출'],
+  [53.63, '조명 도어 스텝'],
+  [55.64, '3.0 V6 디젤 · 211마력 · 제로백 9.1초'],
+  [64.47, '끝 화면 · 보배드림 앱 안내']
+];
+const v = document.getElementById('v'), ol = document.getElementById('cuts');
+const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+for (const [t, label] of cuts) {
+  const li = document.createElement('li'), b = document.createElement('button');
+  b.textContent = fmt(t); b.setAttribute('aria-label', `${fmt(t)} ${label}으로 이동`);
+  b.onclick = () => { v.currentTime = t; v.play(); };
+  li.append(b, document.createTextNode(label)); ol.append(li);
+}
+</script>
+</body>
+</html>
