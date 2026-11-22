@@ -1,4 +1,4 @@
-# 숏폼 편집 기법 사전 v0.2.1
+# 숏폼 편집 기법 사전 v0.2.3
 
 > 이 파일은 `build.py`가 `techniques.json`으로 자동으로 만듭니다. 직접 고치지 마세요. 갱신: 2026-11-22
 
@@ -52,7 +52,7 @@
 | `SG-HOST-PLAIN` | 설명 | 단색 배경 진행자 | Host on plain background | 정보 | 단색 배경 + 사람 상반신 |  | ○ |  |  | 관찰 | `` |
 | `SG-SPLIT3` | 구성 | 세로 3분할 | Triple split | 둘 다 | 화면이 세로 3칸으로 나뉨, 가운데 칩 | ○ | ○ | ○ |  | 관찰 | `` |
 
-## 편집 기법 (60개)
+## 편집 기법 (61개)
 
 | 코드 | 분류 | 이름 | 영어 이름 | 목적 | 영상에서 보이는 모습 | ① 사진 | ② 심플 | ③ 3D | ④ ASMR | 상태 | 코드 위치 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -96,7 +96,8 @@
 | `SFX-WHOOSH` | 효과음 | 휙 | Whoosh | 재미 | (소리) 바람 소리 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
 | `SFX-POP` | 효과음 | 팝 | Pop | 재미 | (소리) 톡 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
 | `SFX-CLICK` | 효과음 | 클릭 | Click | 재미 | (소리) 딸깍 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
-| `SFX-CONTEXT` | 효과음 | 문맥 효과음 | Context SFX | 재미 | (소리) 말 울음 등 | ○ | ○ | ○ |  | 일부 | `scripts/shortform/video_listing/feature_edit_planner.py` |
+| `SFX-CONTEXT` | 효과음 | 문맥 효과음 | Context SFX | 재미 | (소리) 말 울음 등 ⚠ 마력 = 말 울음은 SFX-HORSE로 확정·구현(2026-11-22). 그 밖의 낱말(배기음·문 닫힘 등)은 아직 | ○ | ○ | ○ |  | 일부 | `scripts/shortform/video_listing/feature_edit_planner.py` |
+| `SFX-HORSE` | 효과음 | 말 울음(마력) | Horse neigh on horsepower | 재미 | (소리) 말 울음 약 1.9초 ⚠ 2026-11-22 사용자 확정. 사진판 구현, 실촬영(sag_reel_v1) 연결은 다음 | ○ | ○ | ○ |  | 일부 | `scripts/shortform/photo_listing/common.py:_horse_sfx` |
 | `BGM-SHOWROOM` | 음악·음성 | 배경음악 + 말할 때 줄이기 | BGM with ducking | 둘 다 | (소리) 잔잔한 음악 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:mix_audio` |
 | `VO-TTS` | 음악·음성 | AI 내레이션 | TTS voice | 둘 다 | (소리) 내레이션 ⚠ 같은 결과가 필요하면 녹음 파일을 매물 폴더에 보관 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/tr.py` |
 | `AUD-LOUDNORM` | 음악·음성 | 음량 맞춤 | Loudness | 둘 다 | (측정값) | ○ | ○ | ○ | ○ | 구현 | `scripts/shortform/photo_listing/common.py:mix_audio` |
@@ -141,7 +142,7 @@
 | `FM-SEAT-BUNDLE` | 옵션 표시 | 시트 묶음(재질 + 열선·통풍·마사지·메모리) | fm-seat-bundle | 정보 | 시트 등받이 위에 🔥❄️💆💾 한 줄 + 재질 3D 글자 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:_seat_bundle` |
 | `FM-CLIMATE-BUNDLE` | 옵션 표시 | 공조 묶음 | fm-climate-bundle | 정보 | 공조 화면 위 🌬️ + N존 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:_climate_bundle` |
 
-## 자산 (9개)
+## 자산 (10개)
 
 | 코드 | 분류 | 이름 | 영어 이름 | 목적 | 영상에서 보이는 모습 | ① 사진 | ② 심플 | ③ 3D | ④ ASMR | 상태 | 코드 위치 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -153,11 +154,19 @@
 | `AS-SFX-WHOOSH` | 효과음 | whoosh.wav | whoosh |  |  |  |  |  |  | 구현 | `public/assets/shortform/sfx/whoosh.wav` |
 | `AS-SFX-POP` | 효과음 | pop.wav | pop |  |  |  |  |  |  | 구현 | `public/assets/shortform/sfx/pop.wav` |
 | `AS-SFX-CLICK` | 효과음 | click.wav | click |  |  |  |  |  |  | 구현 | `public/assets/shortform/sfx/click.wav` |
+| `AS-SFX-HORSE` | 효과음 | horse_neigh.wav | horse_neigh |  |  |  |  |  |  | 구현 | `public/assets/shortform/sfx/horse_neigh.wav` |
 | `AS-BGM-SHOWROOM` | 음악 | bobae_showroom_v1.mp3 | showroom bgm |  |  |  |  |  |  | 구현 | `public/assets/shortform/bgm/bobae_showroom_v1.mp3` |
 
-## 사례 예제 — 보배드림에서 이렇게 쓴다 (23개)
+## 사례 예제 — 보배드림에서 이렇게 쓴다 (24개)
 
 재미와 정보를 함께 주기 위한 기법들. AS24 예시 링크는 참고용(원본 영상은 저장소에 넣지 않음).
+
+### `SFX-HORSE` 말 울음(마력) — 재미
+
+- 무엇: 대본에서 '마력'을 말하는 순간 말 울음소리, 영상당 1번. 앞뒤 0.45초 안의 딩은 빼고 말 울음이 우선
+- 영상에서 보이는 모습: (소리) 말 울음 약 1.9초
+- **보배드림 사례:** 「최고출력 640마력」 하는 순간 말이 히힝 — 숫자 정보(마력)에 웃음 한 번을 붙인다
+- 크기·길이: 낱말 시작 0.05초 전, 볼륨 0.5
 
 ### `SG-QUIZ-HOOK` 퀴즈 첫 화면 — 재미
 
@@ -341,10 +350,10 @@
 
 ## 목적 균형
 
-재미 34 · 정보 50 · 둘 다 14 — 한 영상에 재미 기법과 정보 기법이 둘 다 들어가야 한다.
+재미 35 · 정보 50 · 둘 다 14 — 한 영상에 재미 기법과 정보 기법이 둘 다 들어가야 한다.
 
 
-## 해야 할 일 — 상태가 일부·계획인 항목 (18개)
+## 해야 할 일 — 상태가 일부·계획인 항목 (19개)
 
 - `SG-INTRO-IMPACT` 첫 컷 임팩트(로고·모델명 현란 등장) — 계획
 - `SG-CARD-BASIC` 차량 기본 정보 카드 — 일부: 지금은 칩 한 줄(주행 N km)로만 나옴 → 카드로 바꿔야 함
@@ -361,7 +370,8 @@
 - `MOVE-COUNTUP` 숫자 카운트업 — 일부: 실촬영만
 - `MOVE-TRACK` 부위 따라가기 — 일부
 - `INS-MAGNIFIER` 돋보기 원 — 일부
-- `SFX-CONTEXT` 문맥 효과음 — 일부
+- `SFX-CONTEXT` 문맥 효과음 — 일부: 마력 = 말 울음은 SFX-HORSE로 확정·구현(2026-11-22). 그 밖의 낱말(배기음·문 닫힘 등)은 아직
+- `SFX-HORSE` 말 울음(마력) — 일부: 2026-11-22 사용자 확정. 사진판 구현, 실촬영(sag_reel_v1) 연결은 다음
 - `AS-PLATE-CHIL-103x33` 칠 판 103×33(기울기 없음) — 계획: 노션에만 있음 → public/assets/shortform/ 로 받아 와야 함
 - `AS-PLATE-CHIL-38x43` 원형 칠 38×43 — 계획
 

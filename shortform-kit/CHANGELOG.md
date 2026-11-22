@@ -2,6 +2,13 @@
 
 형식: 버전 · 날짜 · 무엇을 · 왜 · 정한 사람
 
+## v0.2.3 · 2026-11-22
+
+- 「마력」 = 말 울음 효과음 확정·사진판 구현(SFX-HORSE, `option_visual_rules.json` layout.horsepower_sfx, `common.py:_horse_sfx`). 영상당 1번, 겹치면 말 울음 우선 — 사용자
+- 자산 `horse_neigh.wav` 추가: Freesound 521246, CC0 1.0. 출처표 `public/assets/shortform/sfx/README.md` 신설
+- 무료 효과음·배경음 사이트 전수조사 `research/free-audio-sources-1122.md` — 결론: 효과음 자체 제작 → Freesound CC0 → Pixabay, 배경음 자체 제작 → Pixabay(방패 없는 곡) → Incompetech(표기). CC BY-NC·유튜브 오디오 보관함은 쓰지 않음
+- 작업 추적은 노션 체크리스트 「숏폼 자동 편집 최종 작업 계획서」에서 함(이 파일·ROADMAP과 같은 순번)
+
 ## v0.2.2 · 2026-11-22
 
 - 운영 규칙: 좋은 안은 바로 고정하고 매뉴얼화(규칙 파일 → 사전 → 변경 기록 → 매뉴얼 → 커밋 → 노션) — 사용자

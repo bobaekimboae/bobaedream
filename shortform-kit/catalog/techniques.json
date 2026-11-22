@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1",
+  "version": "0.2.3",
   "updated": "2026-11-22",
   "_what": "보배드림 숏폼 자동 편집 — 편집 유형·편집 구성·편집 기법·옵션 표시·자산의 표준 이름 사전(단일 기준). 사람용 문서 CATALOG.md 는 build.py 가 이 파일로 만든다. 옵션 표시(FM-*)는 scripts/shortform/photo_listing/option_visual_rules.json 에서, AS24 관찰 스킬은 scripts/shortform/edit_skills/library_v2.json 에서, 실촬영 기법(T01~)은 scripts/shortform/video_listing/feature_edit_rules.json 에서 자동으로 붙인다.",
   "terms": {
@@ -1060,7 +1060,30 @@
       "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
       "refs": [
         "T07"
-      ]
+      ],
+      "note": "마력 = 말 울음은 SFX-HORSE로 확정·구현(2026-11-22). 그 밖의 낱말(배기음·문 닫힘 등)은 아직"
+    },
+    {
+      "code": "SFX-HORSE",
+      "kind": "technique",
+      "group": "효과음",
+      "ko": "말 울음(마력)",
+      "en": "Horse neigh on horsepower",
+      "what": "대본에서 '마력'을 말하는 순간 말 울음소리, 영상당 1번. 앞뒤 0.45초 안의 딩은 빼고 말 울음이 우선",
+      "look": "(소리) 말 울음 약 1.9초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "purpose": "재미",
+      "asset": "AS-SFX-HORSE",
+      "impl": "scripts/shortform/photo_listing/common.py:_horse_sfx",
+      "rules": "scripts/shortform/photo_listing/option_visual_rules.json#layout.horsepower_sfx",
+      "note": "2026-11-22 사용자 확정. 사진판 구현, 실촬영(sag_reel_v1) 연결은 다음",
+      "example_bobae": "「최고출력 640마력」 하는 순간 말이 히힝 — 숫자 정보(마력)에 웃음 한 번을 붙인다",
+      "timing": "낱말 시작 0.05초 전, 볼륨 0.5"
     },
     {
       "code": "BGM-SHOWROOM",
@@ -1229,6 +1252,19 @@
       "status": "구현",
       "impl": "",
       "file": "public/assets/shortform/sfx/click.wav"
+    },
+    {
+      "code": "AS-SFX-HORSE",
+      "kind": "asset",
+      "group": "효과음",
+      "ko": "horse_neigh.wav",
+      "en": "horse_neigh",
+      "what": "Freesound 521246 'Horse' (poodaddy69), CC0 1.0 — 앞뒤 무음 자르고 최고 -1dB로 맞춤",
+      "look": "",
+      "ed": [],
+      "status": "구현",
+      "impl": "",
+      "file": "public/assets/shortform/sfx/horse_neigh.wav"
     },
     {
       "code": "AS-BGM-SHOWROOM",
