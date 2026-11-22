@@ -488,7 +488,13 @@
    "v_pct": 30,
    "w_pct": 52,
    "appear": "instant",
-   "sfx": "whoosh"
+   "sfx": "whoosh",
+   "fixed_edit": {
+    "technique": "TR-SPLIT2",
+    "what": "위아래 이중 화면: 위 = 천장 버튼·닫힌 모습, 아래 = 열린 선루프(사진판은 사진 2장, 실촬영은 동작·결과 장면)",
+    "decided": "2026-11-22 사용자 확정",
+    "fallback": "사진이 1장뿐이면 지금처럼 3D 글자"
+   }
   },
   {
    "id": "ambient",

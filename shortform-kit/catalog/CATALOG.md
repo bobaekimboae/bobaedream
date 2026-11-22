@@ -135,7 +135,7 @@
 | `FM-WIRELESS-CHARGE` | 옵션 표시 | 무선충전 | wireless_charge | 정보 | ⚡ + 「무선충전」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SPEAKER` | 옵션 표시 | 스피커 | speaker | 정보 | 3D 글자 {brand} | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-ENGINE` | 옵션 표시 | 엔진·마력 | engine | 정보 | 3D 글자 {hp} 마력 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
-| `FM-SUNROOF` | 옵션 표시 | 선루프 | sunroof | 정보 | 3D 글자 파노라마 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
+| `FM-SUNROOF` | 옵션 표시 | 선루프 | sunroof | 정보 | 3D 글자 파노라마 ⚠ 확정 편집: TR-SPLIT2 — 위아래 이중 화면: 위 = 천장 버튼·닫힌 모습, 아래 = 열린 선루프(사진판은 사진 2장, 실촬영은 동작·결과 장면) (2026-11-22 사용자 확정) | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-AMBIENT` | 옵션 표시 | 앰비언트 | ambient | 정보 | 3D 글자 {colors}색 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-HUD` | 옵션 표시 | HUD | hud | 정보 | 3D 글자 HUD | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-BUNDLE` | 옵션 표시 | 시트 묶음(재질 + 열선·통풍·마사지·메모리) | fm-seat-bundle | 정보 | 시트 등받이 위에 🔥❄️💆💾 한 줄 + 재질 3D 글자 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:_seat_bundle` |
