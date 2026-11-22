@@ -137,26 +137,27 @@ def prep(car, chk_html):
 
 def pick_front_seat(car, cands=range(8, 15)):
     """앞좌석 사진을 내용으로 고른다(2026-11-22 K9 측정: 사진 순서 K10·K11이 차마다 달라 렉서스는 뒷좌석이 걸림).
-    CLIP(openai/clip-vit-base-patch32, MIT)으로 「좌석 사진」인지, OWLv2로 핸들이 크게(사진 높이 35% 이상) 보이는지 본다.
+    SigLIP 2(공용 vlm.py, 2026-11-22 CLIP에서 교체)로 「좌석 사진」인지, OWLv2로 핸들이 크게(사진 높이 35% 이상) 보이는지 본다.
     CLIP 혼자서는 앞·뒤 좌석을 못 가르고(앞좌석을 뒷좌석으로 봄), OWLv2 등받이 상자는 들쭉날쭉해서 둘을 합쳤다.
     결과는 seat_pick.json에 남긴다. 못 고르면 11(고정 촬영 순서 K11)."""
     cache = os.path.join(car, 'seat_pick.json')
     if os.path.exists(cache):
         return json.load(open(cache))['p']
-    import torch
+    import sys
     from PIL import Image
-    from transformers import CLIPModel, CLIPProcessor
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'auto'))
+    from vlm import ZeroShot  # 2026-11-22 공용 모듈(SigLIP 2 기본, BBM_VLM=clip 이면 옛 CLIP)
     import part_anchor
-    m = CLIPModel.from_pretrained('openai/clip-vit-base-patch32'); pr = CLIPProcessor.from_pretrained('openai/clip-vit-base-patch32')
+    zs = ZeroShot()
     T = ['a photo of car seats', 'a photo of a car dashboard and center screen', 'a close-up photo of a car part']
+    tf = zs.text(T)
     best, log = None, {}
     for n in cands:
         f = os.path.join(car, 'src2', f'p{n:02d}.png')
         if not os.path.exists(f):
             continue
         im = Image.open(f).convert('RGB'); W, H = im.size
-        with torch.no_grad():
-            seat = float(m(**pr(text=T, images=im, return_tensors='pt', padding=True)).logits_per_image.softmax(-1)[0][0])
+        seat = float(zs.probs(zs.image([im]), tf)[0][0])
         st = part_anchor.detect(im, ['steering'], thr=0.2)['steering']
         sh = max(((b[3] - b[1]) / H for sc, b in st), default=0)
         score = seat * sh if (seat >= 0.6 and sh >= 0.35) else 0

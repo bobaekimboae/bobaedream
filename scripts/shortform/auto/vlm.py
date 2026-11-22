@@ -19,7 +19,7 @@ class ZeroShot:
         import torch
         from transformers import AutoModel, AutoProcessor
         self.torch = torch
-        self.name = name or os.environ.get('BBM_VLM', 'clip')  # 2026-11-22 SigLIP 2 비교 시험 끝나기 전까지 기본은 CLIP
+        self.name = name or os.environ.get('BBM_VLM', 'siglip2')  # 2026-11-22 비교 시험 통과(영상 27장면 22 대 18, 사진 20장 16 대 12)로 기본 SigLIP 2
         self.m = AutoModel.from_pretrained(MODELS[self.name]).eval()
         self.p = AutoProcessor.from_pretrained(MODELS[self.name])
 

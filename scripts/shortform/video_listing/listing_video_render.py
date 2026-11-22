@@ -14,6 +14,16 @@ G350 v8 렌더러(g350_v8_render.py)의 편집 기법을 차량 값 없이 옮�
 """
 import json, math, os, re, subprocess, sys
 import numpy as np, cv2
+
+# 부위 추적기: 2026-11-22 CSRT(2014) → VitTrack(OpenCV 5.1, opencv_zoo 2023sep, Apache-2.0). cha13 휠 60프레임 같은 경로·5배 빠름.
+# 모델 파일(scripts/shortform/models/vittrack_2023sep.onnx)이 없거나 OpenCV가 옛판이면 CSRT로 돌아간다.
+_VIT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'models', 'vittrack_2023sep.onnx')
+def _tracker():
+    if hasattr(cv2, 'TrackerVit_create') and os.path.exists(_VIT):
+        p = cv2.TrackerVit_Params(); p.net = _VIT; return cv2.TrackerVit_create(p)
+    return cv2.TrackerCSRT_create()
+def _track_ok(tr):
+    return not hasattr(tr, 'getTrackingScore') or tr.getTrackingScore() >= 0.2  # 자신 없으면 마지막 자리 유지
 from PIL import Image, ImageDraw, ImageFilter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -103,10 +113,10 @@ if need:
         ii = min(len(fr) - 1, int(round((ti - s0) * 30))); bw, bh = int(SW * .16), int(SH * .09)
         box = (int(fx * SW - bw / 2), int(fy * SH - bh / 2), bw, bh); res = [None] * len(fr); res[ii] = (fx, fy)
         for seq in (range(ii + 1, len(fr)), range(ii - 1, -1, -1)):
-            tr = cv2.TrackerCSRT_create(); tr.init(fr[ii], box); last = (fx, fy)
+            tr = _tracker(); tr.init(fr[ii], box); last = (fx, fy)
             for j in seq:
                 ok, b = tr.update(fr[j])
-                if ok: last = ((b[0] + b[2] / 2) / SW, (b[1] + b[3] / 2) / SH)
+                if ok and _track_ok(tr): last = ((b[0] + b[2] / 2) / SW, (b[1] + b[3] / 2) / SH)
                 res[j] = last
         TR[c['key']] = res
         print(f"  부위 {c['key']} {c['part']} ({fx:.2f},{fy:.2f}) 점수 {sc_:.2f}")
