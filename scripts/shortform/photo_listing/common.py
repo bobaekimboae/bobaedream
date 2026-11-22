@@ -112,6 +112,41 @@ PHOTO_BOTTOM = CAP_TOP - CAP_GAP   # 가로 사진(상자 맞춤) 아랫선 — 
 
 # 컷 시작 = 첫 어절 소리 시작 0.12초 전(첫 컷은 0)
 starts = [0.0] + [onset(c[2]) - 0.12 for c in CUTS[1:]]
+
+
+def _bgm_beats():
+    """배경음 박자 시각(초). 처음 한 번 librosa로 재고 bgm 폴더 옆 json에 저장(배경음은 0초부터 깔림, atrim=0)"""
+    src = f'{ASSET}/bgm/bobae_showroom_v1.mp3'
+    cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bgm_beats.json')
+    db_ = json.load(open(cache)) if os.path.exists(cache) else {}
+    key = os.path.basename(src) + ':' + str(os.path.getsize(src))
+    if key not in db_:
+        import librosa
+        y_, sr_ = librosa.load(src, sr=22050, mono=True)
+        tempo_, fr_ = librosa.beat.beat_track(y=y_, sr=sr_)
+        db_[key] = {'tempo': float(np.atleast_1d(tempo_)[0]), 'beats': [round(float(t), 3) for t in librosa.frames_to_time(fr_, sr=sr_)]}
+        json.dump(db_, open(cache, 'w'), indent=1)
+    return db_[key]
+
+
+if getattr(C, 'BEAT_SNAP', False):
+    # 2026-11-22 캡컷 가이드 박자 맞춤(docs/shortform/capcut-guide-survey-v1.md): 컷 경계를 배경음 박자에 붙인다.
+    # 말 싱크를 지키려고 컷은 앞 낱말이 끝난 뒤 ~ 그 컷 첫 낱말 소리 시작 0.04초 전(최대 0.45초 전) 안에서만 움직인다. 구간 경계(WHOOSH_AT)는 강박(4박마다) 먼저.
+    _bt = _bgm_beats(); _beats = np.array(_bt['beats'])
+    _strong = _beats[::4] if len(_beats) else _beats
+    _moved = []
+    for _i in range(1, len(starts)):
+        _on = onset(CUTS[_i][2]); _hi = _on - 0.04
+        _lo = max(_on - 0.45, WRD[CUTS[_i][2] - 1][1] / SPEED - 0.02 if CUTS[_i][2] > 0 else 0)
+        _lo = max(_lo, starts[_i - 1] + 0.8)   # 앞 컷이 너무 짧아지지 않게
+        _pick = None
+        for _pool in ((_strong, _beats) if _i in set(getattr(C, 'WHOOSH_AT', [])) else (_beats,)):
+            _c = _pool[(_pool >= _lo) & (_pool <= _hi)]
+            if len(_c):
+                _pick = float(_c[np.argmin(np.abs(_c - starts[_i]))]); break
+        if _pick is not None:
+            _moved.append(round(float(_pick - starts[_i]), 3)); starts[_i] = _pick
+    print(f"  [박자 맞춤] 템포 {_bt['tempo']:.0f}BPM · 컷 {len(starts) - 1}개 중 {len(_moved)}개 박자에 붙임 · 이동 {_moved}")
 BODY = VOICE_LEN + TAIL
 ends = starts[1:] + [BODY]
 if getattr(C, 'AUTO_ZOOM', False):   # 매뉴얼 14장 — 부위 당기기(키프레임 자동), 규칙은 part_zoom_rules.json
