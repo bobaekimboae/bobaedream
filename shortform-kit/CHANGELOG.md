@@ -6,6 +6,12 @@
 - 사전 `catalog/techniques.json`의 `version`은 맨 위 버전과 같아야 한다(`build.py`가 검사).
 - v0.0.1~v0.0.5는 예전 마스터 문서(`docs/shortform/shortform-master.md`)의 v1.0~v1.4를 2026-11-22에 옮긴 것이다.
 
+## v0.4.8 · 2026-11-23
+
+- **편집 스킬 전수 목록 `SKILLS-INDEX.md`**: 11-09~11-23에 정한 편집 스킬 13개, 규칙 파일 10개, 근거 문서, 기준 영상(G350 v13 · 사진판), 제작 기술스택을 한 표로. 스킬 원문을 `shortform-kit/skills/<이름>/SKILL.md`로 복사해 버전 기록을 저장소에 남김 — 사용자(「2주간 매뉴얼로 저장하고 반복 자동 사용하려고 했던 편집 스킬들 모두 찾아 … 앞으로는 무조건 깃허브로 배포해」)
+- **ED-SIMPLE을 v13 방식으로 되돌림**(`edition_lock.json` 1.2): `order` = picked(말하는 부위 장면을 골라 잘라 붙임), 렌더러 = `g350_v8_render.py`, `reorder_scenes` 금지 해제, 원본 순서판 `listing_video_render.py`는 비교용. 검사에 기준 영상 같은 시각 비교 추가 — 사용자(「기존 잘 작업했던 벤츠 g350 영상 편집 매뉴얼 따른 작업을 왜 엉망 만들었냐」)
+- 새 스킬 `bobae-be-skeleton-video-edit`(실촬영 매물 벨기에 뼈대 · v13 비교 통과 전 전달 금지). LESSONS L37(1회차 퇴보)
+
 ## v0.4.7 · 2026-11-22
 
 - **무인 흐름 실측**(마스터 12-3): 서울오토갤러리 벤츠 E250 · 렉서스 NX 350h를 `photo_listing/sag_auto.py`(prep → 음성 → `tr.py` → cfg 자동 → 검사 → 렌더)로 사람이 대본 · cfg를 쓰지 않고 완성, 검사 통과. 수작업 cfg 47줄 → 0줄 — 사용자(「우리 도구 새로운거 도입해서 샘플 만들고 자동화 효과 측정해라」)

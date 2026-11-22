@@ -195,6 +195,8 @@
 
 | 문서 | 내용 |
 |---|---|
+| [`SKILLS-INDEX.md`](SKILLS-INDEX.md) | **편집 스킬 전수 목록 · 기준 영상 · 기술스택 — 영상 전 먼저 연다** |
+| [`skills/`](skills/) | claude.ai 편집 스킬 원문 사본(버전 기록) |
 | [`CHANGELOG.md`](CHANGELOG.md) | 유일한 버전 기록 |
 | [`ROADMAP.md`](ROADMAP.md) | 해야 할 일 순번표(노션 체크리스트와 같은 순번) |
 | [`catalog/CATALOG.md`](catalog/CATALOG.md) | 기법 사전(사람용, `build.py`가 만듦 — 직접 고치지 않음) |

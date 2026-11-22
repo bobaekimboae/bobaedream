@@ -1,31 +1,31 @@
 {
- "version": "1.1",
- "updated": "2026-11-22",
+ "version": "1.2",
+ "updated": "2026-11-23",
  "_what": "판(에디션)마다 쓸 렌더러 하나와 반드시 들어갈 편집 기법을 고정한다. 즉흥 편집 방지 장치(2026-11-22 사용자: 「매뉴얼 없는 즉흥적 편집 방식 대책」). 색·크기·효과음 숫자는 be_locked_rules.json, 이 파일은 '무엇을 쓰는가'만. 사용자가 말할 때만 고친다.",
  "_check": "edit_gate.py pre <판> <렌더러> (렌더 전) · edit_gate.py post <영상.mp4> (렌더 후, .plan.json의 판·렌더러·기법을 이 파일과 대조) · check_be.py <영상.mp4> (색·칩·자막·효과음 숫자)",
  "editions": {
   "ED-SIMPLE": {
    "ko": "실촬영 영상 매물 · 오토스카우트24 벨기에 심플",
    "input": "촬영 영상 + 매물 정보",
-   "renderer": "scripts/shortform/video_listing/listing_video_render.py",
+   "renderer": "scripts/shortform/video_listing/g350_v8_render.py",
    "prep": [
     "scripts/shortform/video_listing/make_job.py",
     "scripts/shortform/video_listing/place_voice.py"
    ],
-   "order": "source",
-   "_order": "원본 순서·원본 길이 고정. 장면을 다시 배치하지 않고 문장을 그 장면 시각에 놓는다(2026-11-22 사용자: 매핑 안 됨 → 원본 길이로)",
+   "order": "picked",
+   "_order": "말하는 부위 장면을 골라 잘라 붙이고 순서를 다시 놓는다(기준 G350 v13, 70초). 2026-11-23 사용자: 「기존 잘 작업했던 벤츠 g350 영상 편집 매뉴얼 따른 작업」 → 11-22 「원본 순서·원본 길이 고정」을 되돌림. listing_video_render.py(원본 순서판)는 장면 고르기를 넣기 전까지 비교용",
    "golden": {
     "name": "G350 v13",
     "commit": "771f02708",
     "renderer": "scripts/shortform/video_listing/g350_v8_render.py"
    },
    "required": [
-    "title_brand_chip",
-    "caption_chunks",
-    "slow_push",
-    "end_logo",
     "bgm",
-    "loudness_rule"
+    "caption_chunks",
+    "end_logo",
+    "loudness_rule",
+    "slow_push",
+    "title_brand_chip"
    ],
    "required_if": {
     "point_chip|callout_chip": "job.cuts에 chip이 하나라도 있으면",
@@ -40,8 +40,7 @@
     "emoji_sticker_floating",
     "chip_tilt",
     "caption_paint",
-    "non_yellow_accent",
-    "reorder_scenes"
+    "non_yellow_accent"
    ],
    "voice": {
     "provider": "ElevenLabs",
@@ -54,9 +53,11 @@
    "checks": [
     "video_listing/job_fact_check.py (렌더 전, job.json ↔ facts.json)",
     "edit_gate.py post [--plates]",
-    "check_be.py"
+    "check_be.py",
+    "기준 영상 비교: public/shortform-samples/g350-v13 같은 시각 화면 나란히(shortform-kit/SKILLS-INDEX.md 6장)"
    ],
-   "_prep": "make_job.py: facts.json + scenes.json(원본 장면·구역·부위·보이는 것) → job.json 초안(장면 길이 안에 읽히는 문장만, 끝 자동 사실 검사). 사람이 다듬어도 사실 검사·관문을 다시 통과해야 함"
+   "_prep": "make_job.py: facts.json + scenes.json(원본 장면·구역·부위·보이는 것) → job.json 초안(장면 길이 안에 읽히는 문장만, 끝 자동 사실 검사). 사람이 다듬어도 사실 검사·관문을 다시 통과해야 함",
+   "renderer_auto_wip": "scripts/shortform/video_listing/listing_video_render.py"
   },
   "ED-PHOTO": {
    "ko": "사진 매물 숏폼 변환",
@@ -105,11 +106,11 @@
   "scripts/shortform/video_listing/g350_v5_render.py": "G350 전용 옛 판",
   "scripts/shortform/video_listing/g350_v6_render.py": "G350 전용 옛 판",
   "scripts/shortform/video_listing/g350_v7_render.py": "G350 전용 옛 판",
-  "scripts/shortform/video_listing/g350_v8_render.py": "G350 기준 영상(v13) 재현용. 다른 차에 쓰지 않음 — listing_video_render.py가 같은 기법을 차 값 없이 가짐",
   "scripts/shortform/video_listing/g350_feature_cut_render.py": "G350 첫 판",
   "scripts/shortform/nasser_v3/ns300v3.py": "나세르 시험",
   "scripts/shortform/egypt_3d_callout_sample.py": "기법 샘플",
   "scripts/shortform/dealer_narration_sample.py": "기법 샘플",
-  "scripts/shortform/vlog_auto/render.py": "브이로그(별도 판, 아직 판 코드 없음)"
+  "scripts/shortform/vlog_auto/render.py": "브이로그(별도 판, 아직 판 코드 없음)",
+  "scripts/shortform/video_listing/listing_video_render.py": "2026-11-23: 원본 순서·길이 고정판 — 장면 고르기가 빠져 G350 1회차가 v13보다 나빠짐(LESSONS L37). 장면 고르기를 넣고 v13 비교를 통과하기 전까지 비교용"
  }
 }
