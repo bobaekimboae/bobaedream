@@ -77,9 +77,9 @@ def main(car, speed=1.1):
 
     # ⑤ 앱 안내 / 딜러 호칭
     if not any('딜러' in t for t, _, _ in items):
-        warn.append('내레이션에 딜러 호칭 없음(10장: 「판매는 ○○, ○○○ 딜러가 담당합니다」)')
+        warn.append('내레이션에 딜러 호칭 없음(README 6장 사진판: 「판매는 ○○, ○○○ 딜러가 담당합니다」)')
     if not getattr(C, 'CAPS_ALWAYS', False):
-        err.append('CAPS_ALWAYS=True 아님(10장: 자막은 항상 보인다)')
+        err.append('CAPS_ALWAYS=True 아님(README 6장 사진판 예외: 자막은 항상 보인다)')
 
     # ⑥ 독립 컷 자막 위치
     so = os.path.join(car, 'skills_out.json')

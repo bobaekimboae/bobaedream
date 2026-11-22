@@ -2,7 +2,7 @@
 
 딜러 매물의 사진·촬영 영상으로 세로 숏폼(인스타 릴스 · 유튜브 쇼츠 · 틱톡)을 **누가, 어떤 매물로 만들어도 같은 편집이 나오게** 하는 기준이다.
 
-- 현재 버전: **v0.3.0** (2026-11-22) — 버전 기록은 [`CHANGELOG.md`](CHANGELOG.md) 하나뿐이다.
+- 현재 버전: **v0.3.1** (2026-11-22) — 버전 기록은 [`CHANGELOG.md`](CHANGELOG.md) 하나뿐이다.
 - 고치는 곳: 이 깃허브 폴더(`shortform-kit/`)와 규칙 파일(3장)만. 노션·구글 시트·매뉴얼 화면은 보기용 사본이다.
 - 보기 화면: https://bobaekimboae.github.io/bobaedream/shortform-kit/ (`catalog/export_html.py`로 만듦)
 
@@ -53,10 +53,12 @@
 | 영상판 옵션 편집 기법 | `scripts/shortform/video_listing/feature_edit_rules.json` | 기법 T01~T08의 조건 · 수치, 화살표 · 칩 간격, 검사 기준 `qa` | `feature_edit_planner.py`, `g350_v8_render.py` |
 | AS24 칩 배치 | `scripts/shortform/as24_edit_rules.json` | 칩 띠 위치, 부위 위 · 아래 판단, 딩 비율(원본 재현용) | `as24_edit_planner.py` |
 | 기법 사전 | `shortform-kit/catalog/techniques.json` | 모든 편집 요소의 표준 코드 · 이름 · 상태 · 구현 위치 · 사례 | `build.py`, `identify.py`, `export_*.py` |
-| 자산 | `public/assets/shortform/` | 칠 판(`brush-fill/as24-theme/`, 파일 이름 = 원본 가로_세로), 효과음(`sfx/`), 배경음(`bgm/`), 글꼴 | 렌더러 |
+| 자산 | `public/assets/shortform/`, 글꼴은 `scripts/shortform/fonts/` | 칠 판(`brush-fill/as24-theme/` = 칩용 노랑 판, 파일 이름 = 원본 가로_세로 · `as24-original/` = 원본 색), 효과음(`sfx/`), 배경음(`bgm/`), 그림 스티커(`sticker-art/`), Pretendard(OFL) | 렌더러 |
 | 근거 자료 | `docs/shortform/*.md`, `as24-stats-v1.json` | AS24 네덜란드 · 벨기에 · 독일 분석, 효과음 · 자막 실측 | 사람(값의 출처 확인) |
 
 규칙끼리 겹치면 **더 좁은 파일이 이긴다**: 벨기에판 칩 · 자막은 `be_locked_rules.json`, 사진판 옵션 표시는 `option_visual_rules.json`, 영상판 기법 선택은 `feature_edit_rules.json`. 근거 문서(`docs/shortform/`)의 숫자와 규칙 파일이 다르면 규칙 파일이 맞다.
+
+단, **칩 · 자막의 크기 · 자리 · 색은 `be_locked_rules.json` 한 곳**이다. `feature_edit_rules.json`의 `chip` · `caption`에 같은 이름의 값이 다시 적혀 있고 일부는 다르다(10장 7번) — 정리 전까지 그쪽 값은 쓰지 않는다. 사진판이 벨기에판 규칙과 일부러 다르게 하는 것(예외)은 6 · 7장 표에 「사진판 예외」로 적는다.
 
 ## 4. 이름 체계와 편집 유형
 
@@ -77,7 +79,7 @@
 | 유형 | 소재 | 소리 | 렌더러(지금) | 상태 |
 |---|---|---|---|---|
 | `ED-PHOTO` 사진 매물 | 매물 사진 + 원장 | 내레이션 + 배경음 + 효과음(많게) | `scripts/shortform/photo_listing/common.py` | 구현 |
-| `ED-SIMPLE` 실촬영 · AS24 벨기에 심플 | 촬영 영상 + 원장 | 내레이션 + 배경음 + 효과음 | `scripts/shortform/video_listing/g350_v8_render.py`(+ `sag_reel_v1.py` 공용 그리기) | 구현(차마다 스크립트, 10장) |
+| `ED-SIMPLE` 실촬영 · AS24 벨기에 심플 | 촬영 영상 + 원장 | 내레이션 + 배경음 + 효과음 | `scripts/shortform/video_listing/g350_v8_render.py` + `g350_v5_lib.py`(차마다 스크립트) | 일부(확정 규칙과 다른 곳이 있음, 10장 3 · 6~8번) |
 | `ED-3D` 실촬영 · 나세르 3D | 촬영 영상 + 원장 | 내레이션 + 효과음 | `scripts/shortform/egypt_3d_callout_sample.py`(시안) | 계획 |
 | `ED-ASMR` 내레이션 없음 | 소리를 살려 찍은 영상 | 녹음된 원래 소리만(배경음 · 효과음 없음) | 없음 | 계획 |
 
@@ -109,16 +111,16 @@
 | 항목 | 정한 것 | 값이 있는 곳 |
 |---|---|---|
 | 색 | 노랑 한 가지 + 잉크(검정). 주황 · 민트 · 파랑 강조 금지, 반짝이 금지 | `be_locked_rules.json` `color`, `user_locked` |
-| 말 자막 | 흰 굵은 글자 + 그림자, 지금 말하는 낱말만 노랑, 칠 없음, 뜻 단위 덩어리(기계적 2~3어절 끊기 금지), 컷 뒤 짧게 비움, 숫자 칩이 뜨는 동안 숨김 | `be_locked_rules.json` `caption` |
+| 말 자막 | 흰 굵은 글자 + 그림자, 지금 말하는 낱말만 노랑, 칠 없음, 뜻 단위 덩어리(기계적 2~3어절 끊기 금지), 컷 뒤 짧게 비움, 숫자 칩이 뜨는 동안 숨김. **사진판 예외**: 자막은 항상 보임(`CAPS_ALWAYS = True`, `check_cfg.py`가 검사) | `be_locked_rules.json` `caption` |
 | 포인트 칩 | 말한 낱말을 칩으로. 모든 칩 같은 글자 크기 · 같은 모양, 위쪽 고정 자리, 같은 순간이면 같은 자리에서 글자만 바뀜, 컷을 넘지 않음 | `be_locked_rules.json` `chip` |
 | 칩 칠 | 노션 원본 칠 판 중 좌우 여백이 맞는 것을 골라 **같은 배율로만** 키움. 칠 높이 = 글자 높이 × 2.0(AS24 벨기에 실측 1.86~2.19), 글자는 칠 가운데보다 살짝 위 | `be_locked_rules.json` `chip.fill_fit` |
 | 아이콘 | Fluent 3D, 칩 오른쪽 끝에 붙임. 따로 툭 뜨는 이모지 스티커 금지 | `be_locked_rules.json` `icon` |
 | 큰 숫자 | 숫자가 매물 정보에 있을 때만. 정수 + 단위는 0에서 올라감(카운트업), 소수 · 규격 · 연식 제외. 한 화면에 같은 숫자 한 번 | `feature_edit_rules.json` `big_number`, `count_up_*` |
 | 화살표 · 칩 간격(영상판) | 부위 → 화살표 → 칩 순서, 컷마다 위 · 아래 한 번만 정하고 컷 안에서 뒤집지 않음 | `feature_edit_rules.json` `mapping` |
 | 옵션 편집 기법(영상판) | T01 위아래 2분할 · T02 ✓ 목록 · T03 점프컷 · T04 카운트업 · T05 스포트라이트 · T06 돋보기 · T07 마력 흔들림 · T08 부위 당기기 | `feature_edit_rules.json` `techniques` |
-| 옵션 표시(사진판) | 시트 묶음(재질 + 열선 · 통풍 · 마사지 · 메모리), 휠 인치 · 타이어 규격 크기 맞춤, 숫자 화면 표기, 계기판 주행거리 원 | `option_visual_rules.json` `layout`, `options` |
+| 옵션 표시(사진판) | 시트 묶음(재질 + 열선 · 통풍 · 마사지 · 메모리), 휠 인치 · 타이어 규격 크기 맞춤, 숫자 화면 표기, 계기판 주행거리 표시(확정: 노션 원형 칠 · 지금 코드: 빨강 손그림 원 → 10장 9번) | `option_visual_rules.json` `layout`, `options` |
 | 부위 당기기(사진판) | 그 부위를 말할 때 그 부위로 다가감, 라벨 부위 우선, 정지 사진처럼 보이지 않게 | `part_zoom_rules.json` |
-| 선루프 | 위아래 2분할(누르는 장면 + 열리는 장면) | `option_visual_rules.json` `options.sunroof.fixed_edit` |
+| 선루프 | 위아래 2분할(누르는 장면 + 열리는 장면), 사진이 1장뿐이면 3D 글자. 영상판은 구현(T01), 사진판은 아직(ROADMAP 1-6) | `option_visual_rules.json` `options[id=sunroof].fixed_edit` |
 | 첫 화면 | 노랑 칩 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄(연식 · 연료 · 코드네임 규칙) | 렌더러 |
 | 끝 화면 | 마지막 장면 어둡게 + 보배드림 로고가 커짐, 딜러 명함 | `be_locked_rules.json` `end` |
 
@@ -127,9 +129,9 @@
 | 항목 | 정한 것 | 값이 있는 곳 |
 |---|---|---|
 | 음량 | 목표 음량과 피크 상한 | `be_locked_rules.json` `audio` |
-| 효과음 개수 | 영상판: 음악이 있으면 적게(현재 값은 10장 참고), 사진판: 많게(`SFX_RICH`) | `be_locked_rules.json` `sfx` |
-| 효과음 종류 | 딩(칩 · 큰 숫자), 팝(아이콘), 휙(부위 바뀔 때). 끝 로고 · 컷에는 넣지 않음 | `be_locked_rules.json` `sfx`, `docs/shortform/as24-sfx-rules-v1.md` |
-| 비유 효과음 | 그 낱말을 말하는 순간에만, 영상당 2개, 좋은 정보에만. 마력 = 말 울음, 제로백 = 스톱워치, 연비 = 동전, 열선 = 장작, 통풍 = 얼음. 겹치면 딩 · 팝보다 우선. 사람 목소리 금지 | `option_visual_rules.json` `layout.metaphor_sfx` |
+| 효과음 개수 | 영상판: 확정은 「모두 냄 · 최소 간격 0.3초」, 규칙 파일은 아직 「음악 있으면 1번 · 한 종류 · 간격 1.0초」(10장 2번). 사진판: 많게(`SFX_RICH`, 사용자 확정 예외) | `be_locked_rules.json` `sfx`, `user_locked` |
+| 효과음 종류 | 딩(칩 · 큰 숫자), 팝(아이콘), 휙(부위 바뀔 때). 끝 로고 · 컷에는 넣지 않음. **사진판 예외**: 끝 로고에 딩 1번(`common.py` `SFX_RICH`) | `be_locked_rules.json` `sfx`, `option_visual_rules.json` `layout.icon_sfx`, `docs/shortform/as24-sfx-rules-v1.md` |
+| 비유 효과음 | 그 낱말을 말하는 순간에만, 영상당 2개, 좋은 정보에만. 마력 = 말 울음, 제로백 = 스톱워치, 연비 = 동전, 열선 = 장작, 통풍 = 얼음. 겹치면 딩 · 팝보다 우선. 사람 목소리 금지. 모든 편집 유형 공통 규칙인데 사진판 파일에 있음, 영상판 렌더러는 이 파일을 읽지 않고 G350 낱말을 직접 씀(10장 10번) | `option_visual_rules.json` `layout.metaphor_sfx` |
 | 배경음 | 자체 곡만, 말할 때 줄임. 슈퍼카 · 고급 세단 · 쇼룸 | `public/assets/shortform/bgm/` |
 | ASMR판 | 녹음된 원래 소리만. 배경음 · 효과음 없음 | 사전 `ED-ASMR` |
 | 내레이션 | 한국어 남성, 한 번 만들고 확인(크레딧 드는 재생성 반복 금지). 고칠 때는 그 문장만 같은 목소리로 다시 녹음 | 렌더러, `revoice_splice.py` |
@@ -140,8 +142,8 @@
 
 | 검사 | 명령 | 보는 것 |
 |---|---|---|
-| 규칙 · 코드 일치 | `python3 scripts/shortform/check_be.py --code` | 렌더 코드 값이 `be_locked_rules.json`과 같은지 |
-| 완성 영상(벨기에판) | `python3 scripts/shortform/check_be.py 영상.mp4` | 음량, 효과음 개수 · 간격, 칩 크기 · 자리 · 컷 넘김, 노랑 색, 자막 띠에 칠 없음 |
+| 규칙 · 코드 일치 | `python3 scripts/shortform/check_be.py --code` | `sag_reel_v1.py`의 벨기에판 값이 `be_locked_rules.json`과 같은지. **영상판 `g350_*`은 아직 검사하지 않음**(10장 8번) |
+| 완성 영상(벨기에판) | `python3 scripts/shortform/check_be.py 영상.mp4` | 음량, 효과음 개수 · 간격, 칩 크기 · 자리 · 컷 넘김, 노랑 색, 자막 띠에 칠 없음. 영상 옆 `.plan.json`이 있어야 하는데 `g350_v8_render.py`는 아직 만들지 않음(10장 8번) |
 | 사진판 설정 | `python3 scripts/shortform/photo_listing/check_cfg.py 차폴더` | 자막 규칙, 필수 낱말 등 렌더 전 설정 |
 | 사진판 완성 영상 | `python3 scripts/shortform/photo_listing/check_render.py 차폴더` | 자막 빠짐, 끝 화면 |
 | 영상판 기법 계획기 | `python3 scripts/shortform/video_listing/test_feature_edit_planner.py` | 계획기가 정답과 같은 기법을 고르는지 |
@@ -169,7 +171,7 @@
 | 나 | 화면 · 소리 결과가 달라지는 규칙 값 · 새 기법 | 칩 칠 맞춤, T08 부위 당기기 |
 | 다 | 결과가 그대로인 문서 · 검사 · 자산 추가 | 효과음 파일 추가, 오타 |
 
-버전 기록은 `CHANGELOG.md` 하나뿐이다. 2026-11-08~11-21 예전 마스터 문서의 v1.0~v1.4는 같은 줄의 `v0.0.1~v0.0.5`로 옮겼다.
+버전 기록은 `CHANGELOG.md` 하나뿐이다. 예전 마스터 문서의 v1.0~v1.4(모두 2026-11-08)는 `v0.0.1~v0.0.5`로 옮겼다.
 
 ## 10. 지금 어긋나 있는 것
 
@@ -182,6 +184,13 @@
 | 3 | 영상판 렌더러가 차마다 따로 있음 | `g350_v8_render.py`에 G350의 원본 시각 · 일부 장면 그래픽이 직접 적혀 있음 | ROADMAP 12: 공용 렌더러 + 차마다 입력 파일 하나 |
 | 4 | T08 부위 당기기 | 규칙 · 계획기에는 있고, 렌더러 반영 전 | ROADMAP 1-11 |
 | 5 | 사진판 칩 칠 | `photo_listing/common.py`는 아직 `126_40`을 상자 크기에 맞춰 늘림 | ROADMAP 1-12: `chip.fill_fit`과 같은 방식으로 |
+| 6 | 영상판 말 자막 위치 · 덩어리 | `g350_v8_render.py`가 자막 높이를 화면의 67%(옛 값, 1286px)로 직접 쓰고 「최대 3어절」로 기계 분할. 규칙은 `caption.center_y_px`(1283) · 뜻 단위 덩어리(LESSONS L27) | ROADMAP 1-13: 렌더러가 `be_locked_rules.json` `caption`을 읽게, 덩어리는 대본에서 지정 |
+| 7 | 칩 · 자막 값이 두 파일에 | `feature_edit_rules.json` `chip`(글자 70 · 기울기 5.7 · 칠 높이 1.9배) · `caption`(1286 · 최대 3어절)이 `be_locked_rules.json`과 겹치고 일부 다름(칠 높이 확정 2.0배) | ROADMAP 1-14: 그쪽 `chip` · `caption`에서 크기 · 자리 값을 빼고 `be_locked_rules.json`만 가리키게(사용자 확인 후) |
+| 8 | 영상판 출고 검사 없음 | `check_be.py --code`는 `sag_reel_v1.py`만 보고, 영상 검사는 `.plan.json`이 필요한데 `g350_v8_render.py`가 만들지 않음 → G350 v09 · v10은 `check_be.py`를 거치지 않음 | ROADMAP 1-15: 렌더러가 `.plan.json` 남기기 + `--code`가 `g350_v5_lib.py`도 보게 |
+| 9 | 계기판 주행거리 표시 | 확정은 노션 원형 칠(2026-11-22). 코드는 빨강(232,53,43) 손그림 원(`layout.mileage_circle`) — 「노랑 한 가지, 빨강 금지」 색 규칙과도 어긋남 | ROADMAP 1-2 |
+| 10 | 비유 효과음 · 마력 효과 | `metaphor_sfx`(영상당 2개)와 T07 「마력 흔들림 + 말 울음」(1번)이 말 울음을 따로 정의. 영상판 렌더러는 `metaphor_sfx`를 읽지 않음 | ROADMAP 1-8: 말 울음은 `metaphor_sfx` 하나로, T07은 흔들림만 · 렌더러가 규칙을 읽게 |
+| 11 | `user_locked` 효과음 줄 | 「영상 매물은 벨기에 효과음 기준」(2026-11-18)이 2026-11-22 「모두 냄」 결정과 반대인데 그대로 남음 | 2번과 함께 사용자 확인 후 문구 교체 |
+| 12 | 사진판 기본 정보 카드 · 체크 목록 · 선루프 2분할 · 사용 기법 기록 | 확정했지만 코드 전(사전 `SG-CARD-BASIC` · `LIST-CHECK` 일부, `identify.py`는 아직 추정 방식) | ROADMAP 1-4 · 1-5 · 1-6 · 1-7 |
 
 ## 11. 함께 보는 문서
 
@@ -194,8 +203,8 @@
 | [`LESSONS.md`](LESSONS.md) | 자주 틀린 예와 지킬 것 |
 | [`research/`](research/) | 조사 기록(무료 효과음 · 배경음 사이트 등) |
 | `docs/shortform/as24-nl-be-edit-manual-v4.md` 외 | AS24 분석 근거 자료(값은 규칙 파일이 우선) |
-| 노션 「숏폼 자동 편집 최종 작업 계획서 · 체크리스트」 | 작업 추적 사본 |
-| 구글 시트 「숏폼 자동 편집 매뉴얼 (깃허브 사본)」 | 표 사본 — https://docs.google.com/spreadsheets/d/1c-OdKZMS3OvZK1rfFSIDoTVFy7tYdq3dX_yq7GFafwo/edit |
+| 노션 「숏폼 자동 편집 최종 작업 계획서 · 체크리스트」 | 작업 추적 사본(1-11 · 1-12 · 12~14는 아직 노션에 없음) |
+| 구글 시트 「숏폼 자동 편집 매뉴얼 (깃허브 사본)」 | 표 사본(v0.2.4 기준, v0.3.x는 아직 안 올림) — https://docs.google.com/spreadsheets/d/1c-OdKZMS3OvZK1rfFSIDoTVFy7tYdq3dX_yq7GFafwo/edit |
 
 ### 도구 명령
 
