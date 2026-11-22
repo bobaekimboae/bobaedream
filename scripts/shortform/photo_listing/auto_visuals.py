@@ -123,6 +123,7 @@ def build(C, words, cuts):
     stickers += _seat_bundle(C, words, cuts, opts, lay, report)
     stickers += _climate_bundle(words, cuts, lay, report)
     stickers += _numbers_on_screen(C, words, cuts, stickers, report)
+    stickers = _cap_per_cut(stickers, lay['max_per_cut'], report)
     for sk in stickers:   # 같은 사진의 시트 아이콘들을 부위 가운데 기준으로 고르게 벌림
         if 'seat_k' in sk:
             n = seat_n[sk['photo']]
@@ -131,6 +132,34 @@ def build(C, words, cuts):
             if 'y' in sk and same:
                 sk['y'] = min(o['y'] for o in same)   # 한 줄로
     return stickers, report
+
+
+def _group(sk):
+    a = str(sk.get('auto', ''))
+    if a.startswith('climate_'):
+        return 'climate'
+    if a.endswith('@seat'):
+        return 'seat'
+    return a.split('@')[0]
+
+
+def _cap_per_cut(stickers, cap, report):
+    """2026-11-22 오토비브 학습(말은 다 하되 그림은 골라서): 한 컷(사진)에 그림 묶음은 layout.max_per_cut개까지.
+    시트 묶음 · 공조 묶음 · 휠 인치+타이어 규격은 각각 한 묶음으로 센다. 먼저 말한 묶음부터 남긴다."""
+    first = {}
+    for sk in stickers:
+        k = (sk['photo'], _group(sk))
+        first[k] = min(first.get(k, 10 ** 9), sk['w'])
+    keep = set()
+    by_photo = {}
+    for (ph, g), w in sorted(first.items(), key=lambda t: t[1]):
+        by_photo.setdefault(ph, [])
+        if len(by_photo[ph]) < cap:
+            by_photo[ph].append(g)
+            keep.add((ph, g))
+        else:
+            report.append(f"컷당 그림 {cap}묶음 상한으로 생략: 컷 {ph} 「{g}」(말은 그대로)")
+    return [sk for sk in stickers if (sk['photo'], _group(sk)) in keep]
 
 
 SEAT_BUNDLE = ('seat_heat', 'seat_vent', 'seat_massage', 'seat_power', 'seat_memory')
