@@ -47,7 +47,7 @@ G350 이전 판(v09 · v10 · v11)은 `public/shortform-samples/g350-v09~v11/`�
 | AS24 칩 배치 | `scripts/shortform/as24_edit_rules.json` | 띠 위치 · 부위 위/아래 판단 |
 | 기법 사전 | `shortform-kit/catalog/techniques.json` | 모든 기법 코드 · 상태 · 구현 위치 |
 | 판 잠금 | `scripts/shortform/edition_lock.json` | 유형별 렌더러 · 필수 기법 · 금지 · 검사 |
-| 오픈소스 효과음(예비) | `public/assets/shortform/sfx/opensource/manifest.json` | CC0 32개(12종) · 출처 · CLAP 점수. 기본(`sfx.kinds`)은 그대로, 바꾸려면 사용자 확인 |
+| 오픈소스 효과음(예비) | `public/assets/shortform/sfx/opensource/manifest.json` | 29개(13종, CC0 + earshot 렌더) · 출처 · earshot 점수. 기본(`sfx.kinds`)은 그대로, 바꾸려면 사용자 확인 |
 
 ## 3. 근거 문서(값은 규칙 파일이 우선)
 
@@ -90,7 +90,7 @@ G350 이전 판(v09 · v10 · v11)은 `public/shortform-samples/g350-v09~v11/`�
 | 글자 인식 | RapidOCR(PP-OCRv6) · onnxruntime | 3.10.0 · 1.32 · Apache-2.0 |
 | 음성 | ElevenLabs eleven_v3(Taehyung 등) | 유료 API, 한 번만 생성 |
 | 효과음 찾기 | Openverse API(익명, 쪽당 20개) → Freesound CC0 녹음 · uisfx(CC0) | `scripts/shortform/sfx_opensource/fetch_openverse.py` |
-| 효과음 '귀'(채점) | CLAP laion/larger_clap_general(earshot `match`와 같은 모델) | Apache-2.0 · `score_clap.py` · z ≥ 1.0 통과 |
+| 효과음 '귀'(채점) | **earshot 1.0.0 `rank`·`describe`·`timeline`**(CLAP+AST, 322개 설명) · 1차 거르기는 CLAP 직접 | MIT · `earshot_check.sh` · strong(z ≥ 3.0)만 기본 후보 |
 | 그리기 | Pillow · numpy | 13 · 2.5.5 |
 | 영상 · 음량 | FFmpeg | 시스템 6.1.1 · 작업용 9.0.2 |
 | 실행 | Python | 3.13.18(시안 전용, 서비스는 Nuxt 4 · Laravel 12) |

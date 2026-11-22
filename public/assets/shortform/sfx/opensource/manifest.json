@@ -1,5 +1,5 @@
 {
- "note": "CC0 효과음만. 표기 의무 없음. 기본 효과음(be_locked_rules sfx.kinds)은 바뀌지 않음 — 예비·대체용.",
+ "note": "CC0·earshot 렌더 효과음. 표기 의무 없음. 기본 효과음(be_locked_rules sfx.kinds)은 바뀌지 않음 — 예비·대체용. 'earshot' 점수는 earshot 1.0.0 rank(CLAP+AST, 322개 설명 대비 z, strong ≥ 3.0).",
  "sounds": [
   {
    "file": "camera_shutter_os1.wav",
@@ -18,7 +18,12 @@
     "z": 2.703,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a camera shutter click",
+    "z": 4.2,
+    "verdict": "strong"
+   }
   },
   {
    "file": "camera_shutter_os2.wav",
@@ -37,7 +42,12 @@
     "z": 2.691,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a camera shutter click",
+    "z": 4.0,
+    "verdict": "strong"
+   }
   },
   {
    "file": "camera_shutter_os3.wav",
@@ -56,7 +66,12 @@
     "z": 2.655,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a camera shutter click",
+    "z": 3.7,
+    "verdict": "strong"
+   }
   },
   {
    "file": "car_door_os1.wav",
@@ -75,7 +90,12 @@
     "z": 2.896,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car door closing",
+    "z": 4.1,
+    "verdict": "strong"
+   }
   },
   {
    "file": "car_door_os2.wav",
@@ -94,7 +114,12 @@
     "z": 2.727,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car door closing",
+    "z": 4.7,
+    "verdict": "strong"
+   }
   },
   {
    "file": "car_door_os3.wav",
@@ -113,7 +138,12 @@
     "z": 2.592,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car door closing",
+    "z": 4.1,
+    "verdict": "strong"
+   }
   },
   {
    "file": "cash_os1.wav",
@@ -132,7 +162,12 @@
     "z": 2.509,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a cash register",
+    "z": 2.8,
+    "verdict": "plausible"
+   }
   },
   {
    "file": "cash_os2.wav",
@@ -151,83 +186,12 @@
     "z": 1.649,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
-  },
-  {
-   "file": "cash_os3.wav",
-   "kind": "cash",
-   "duration_s": 0.286,
-   "title": "Coin GET!",
-   "creator": "plasterbrain",
-   "source": "freesound",
-   "url": "https://freesound.org/people/plasterbrain/sounds/242857",
-   "license": "CC0 1.0",
-   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "clap": {
-    "model": "laion/larger_clap_general",
-    "desc": "a cash register cha-ching with coins",
-    "sim": 0.1755,
-    "z": 1.617,
-    "verdict": "맞음"
-   },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
-  },
-  {
-   "file": "click_os1.wav",
-   "kind": "click",
-   "duration_s": 0.182,
-   "title": "uisfx minimal/double-click",
-   "creator": "Yuki Capital (uisfx)",
-   "source": "uisfx",
-   "url": "https://github.com/romainsimon/uisfx",
-   "license": "CC0 1.0",
-   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "clap": {
-    "model": "laion/larger_clap_general",
-    "desc": "a crisp interface button click",
-    "sim": 0.0996,
-    "z": 1.643,
-    "verdict": "맞음"
-   },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
-  },
-  {
-   "file": "click_os2.wav",
-   "kind": "click",
-   "duration_s": 0.188,
-   "title": "uisfx studio/double-click",
-   "creator": "Yuki Capital (uisfx)",
-   "source": "uisfx",
-   "url": "https://github.com/romainsimon/uisfx",
-   "license": "CC0 1.0",
-   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "clap": {
-    "model": "laion/larger_clap_general",
-    "desc": "a crisp interface button click",
-    "sim": 0.122,
-    "z": 1.621,
-    "verdict": "맞음"
-   },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
-  },
-  {
-   "file": "click_os3.wav",
-   "kind": "click",
-   "duration_s": 0.121,
-   "title": "uisfx studio/press",
-   "creator": "Yuki Capital (uisfx)",
-   "source": "uisfx",
-   "url": "https://github.com/romainsimon/uisfx",
-   "license": "CC0 1.0",
-   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "clap": {
-    "model": "laion/larger_clap_general",
-    "desc": "a crisp interface button click",
-    "sim": 0.0206,
-    "z": 1.462,
-    "verdict": "맞음"
-   },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a cash register",
+    "z": 3.5,
+    "verdict": "strong"
+   }
   },
   {
    "file": "ding_os1.wav",
@@ -246,7 +210,12 @@
     "z": 2.485,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a bright bell ding",
+    "z": 1.9,
+    "verdict": "no match(성공 차임에 가까움)"
+   }
   },
   {
    "file": "ding_os2.wav",
@@ -265,7 +234,12 @@
     "z": 2.367,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a bright bell ding",
+    "z": 1.3,
+    "verdict": "no match(성공 차임에 가까움)"
+   }
   },
   {
    "file": "ding_os3.wav",
@@ -284,7 +258,12 @@
     "z": 2.356,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a bright bell ding",
+    "z": 1.5,
+    "verdict": "no match(성공 차임에 가까움)"
+   }
   },
   {
    "file": "engine_start_os1.wav",
@@ -303,7 +282,12 @@
     "z": 2.58,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car engine starting",
+    "z": 5.8,
+    "verdict": "strong"
+   }
   },
   {
    "file": "engine_start_os2.wav",
@@ -322,7 +306,12 @@
     "z": 2.164,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car engine starting",
+    "z": 4.3,
+    "verdict": "strong"
+   }
   },
   {
    "file": "impact_os1.wav",
@@ -341,7 +330,12 @@
     "z": 2.43,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a deep cinematic impact hit",
+    "z": 3.2,
+    "verdict": "strong"
+   }
   },
   {
    "file": "impact_os2.wav",
@@ -360,7 +354,12 @@
     "z": 2.344,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a deep cinematic impact hit",
+    "z": 3.3,
+    "verdict": "strong"
+   }
   },
   {
    "file": "impact_os3.wav",
@@ -379,7 +378,12 @@
     "z": 1.941,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a deep cinematic impact hit",
+    "z": 2.2,
+    "verdict": "weak"
+   }
   },
   {
    "file": "key_fob_os1.wav",
@@ -398,7 +402,12 @@
     "z": 2.151,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car remote lock chirp",
+    "z": 3.9,
+    "verdict": "strong"
+   }
   },
   {
    "file": "key_fob_os2.wav",
@@ -417,7 +426,12 @@
     "z": 1.748,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car remote lock chirp",
+    "z": 3.3,
+    "verdict": "strong"
+   }
   },
   {
    "file": "riser_os1.wav",
@@ -436,7 +450,12 @@
     "z": 1.584,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a rising riser swell",
+    "z": 3.5,
+    "verdict": "strong"
+   }
   },
   {
    "file": "seatbelt_os1.wav",
@@ -455,7 +474,12 @@
     "z": 2.608,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a seatbelt buckle click",
+    "z": 3.3,
+    "verdict": "strong"
+   }
   },
   {
    "file": "seatbelt_os2.wav",
@@ -474,7 +498,12 @@
     "z": 2.605,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a seatbelt buckle click",
+    "z": 4.4,
+    "verdict": "strong"
+   }
   },
   {
    "file": "seatbelt_os3.wav",
@@ -493,26 +522,12 @@
     "z": 2.564,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
-  },
-  {
-   "file": "swipe_os1.wav",
-   "kind": "swipe",
-   "duration_s": 0.474,
-   "title": "uisfx cinematic/swipe",
-   "creator": "Yuki Capital (uisfx)",
-   "source": "uisfx",
-   "url": "https://github.com/romainsimon/uisfx",
-   "license": "CC0 1.0",
-   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-   "clap": {
-    "model": "laion/larger_clap_general",
-    "desc": "a quick swipe slide sound",
-    "sim": 0.1237,
-    "z": 1.727,
-    "verdict": "맞음"
-   },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a seatbelt buckle click",
+    "z": 4.0,
+    "verdict": "strong"
+   }
   },
   {
    "file": "swipe_os2.wav",
@@ -531,7 +546,12 @@
     "z": 1.692,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a swipe",
+    "z": 2.9,
+    "verdict": "plausible"
+   }
   },
   {
    "file": "swipe_os3.wav",
@@ -550,7 +570,12 @@
     "z": 1.684,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a swipe",
+    "z": 2.0,
+    "verdict": "weak"
+   }
   },
   {
    "file": "whoosh_os1.wav",
@@ -569,7 +594,12 @@
     "z": 3.233,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a fast whoosh",
+    "z": 4.7,
+    "verdict": "strong"
+   }
   },
   {
    "file": "whoosh_os2.wav",
@@ -588,7 +618,12 @@
     "z": 3.171,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a fast whoosh",
+    "z": 4.5,
+    "verdict": "strong"
+   }
   },
   {
    "file": "whoosh_os3.wav",
@@ -607,7 +642,44 @@
     "z": 3.166,
     "verdict": "맞음"
    },
-   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz"
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a fast whoosh",
+    "z": 4.5,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "turn_signal_es1.wav",
+   "kind": "turn_signal",
+   "duration_s": 3.528,
+   "title": "earshot make \"a car turn signal indicator ticking\"",
+   "creator": "earshot 1.0.0 렌더(보배드림)",
+   "source": "earshot",
+   "url": "https://github.com/Leonxlnx/earshot",
+   "license": "렌더한 사람 소유·자유 이용(earshot MIT, 학습 원천은 퍼블릭 도메인 녹음)",
+   "earshot": {
+    "query": "a car turn signal ticking",
+    "z": 3.0,
+    "verdict": "strong"
+   },
+   "processing": "모노 48kHz 변환만"
+  },
+  {
+   "file": "pop_es1.wav",
+   "kind": "pop",
+   "duration_s": 0.592,
+   "title": "earshot 카탈로그 pop/mouth",
+   "creator": "earshot 1.0.0 렌더(보배드림)",
+   "source": "earshot",
+   "url": "https://github.com/Leonxlnx/earshot",
+   "license": "렌더한 사람 소유·자유 이용(earshot MIT, 학습 원천은 퍼블릭 도메인 녹음)",
+   "earshot": {
+    "query": "a bubble pop",
+    "z": 2.7,
+    "verdict": "plausible"
+   },
+   "processing": "모노 48kHz 변환만"
   }
  ]
 }

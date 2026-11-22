@@ -6,6 +6,11 @@
 - 사전 `catalog/techniques.json`의 `version`은 맨 위 버전과 같아야 한다(`build.py`가 검사).
 - v0.0.1~v0.0.5는 예전 마스터 문서(`docs/shortform/shortform-master.md`)의 v1.0~v1.4를 2026-11-22에 옮긴 것이다.
 
+## v0.4.10 · 2026-11-23
+
+- **earshot 연결**(MIT, 1.0.0, 작업 환경 별도 가상환경): `earshot rank`로 오픈소스 효과음 재점검 → no match 5개 삭제, 깜빡이(turn_signal_es1)·팝 대체(pop_es1) 2개를 earshot으로 렌더해 추가(29개). 점검 도구 `scripts/shortform/sfx_opensource/earshot_check.sh` — 사용자(「이어샷 연결해봐」)
+- **정정**: v0.4.9의 "기존 pop·click이 덜 맞음, click_os가 대안"은 틀림. earshot(322개 설명 대비)으로는 기존 pop이 bubble pop strong 3.3, click_os는 no match. 기존 click만 no match(대체 후보 없음). whoosh는 whoosh_os1~3(4.5~4.7)이 기존(3.1)보다 맞음 — 바꿀지 사용자 확인
+
 ## v0.4.9 · 2026-11-23
 
 - **오픈소스 효과음 32개 추가**(`public/assets/shortform/sfx/opensource/`, 모두 CC0): whoosh · ding · click · swipe · impact · riser · 카메라 셔터 · 차 문 · 시동 · 차 키 잠금 · 안전벨트 · 계산대. Openverse로 후보 157개를 받고 CLAP으로 "설명에 맞는 소리인가" 채점(z ≥ 1.0)해 종류마다 상위 3개. 기본 효과음은 바꾸지 않음(예비) — 사용자(「크로스체크해서 너 효과음 오픈소스 추가해라」, 릴스 reelsner의 Openverse · Real SFX · earshot 3종 소개)

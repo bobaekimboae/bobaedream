@@ -25,7 +25,7 @@ description: "보배드림 숏폼에 AS24(네덜란드·벨기에)식 효과음�
 
 ## 3. 소리 파일
 - 보배드림 자체 효과음 팩만 쓴다: `public/assets/shortform/sfx`(ElevenLabs 생성, 브랜치 `codex/sag-reel-sfx-pack`).
-- 예비 CC0 효과음은 `public/assets/shortform/sfx/opensource/`(출처·CLAP 점수 `manifest.json`). 새 효과음은 `scripts/shortform/sfx_opensource/score_clap.py`로 z ≥ 1.0을 확인한 뒤 넣는다. 기본 소리를 바꾸는 것은 사용자 확인 뒤 `be_locked_rules.json`만 고친다.
+- 예비 CC0 효과음은 `public/assets/shortform/sfx/opensource/`(출처·CLAP 점수 `manifest.json`). 새 효과음은 `scripts/shortform/sfx_opensource/earshot_check.sh "설명" 파일`로 earshot strong(z ≥ 3.0)을 확인한 뒤 넣는다. 렌더한 영상은 `--timeline`으로 효과음이 들어간 시각을 확인한다. 기본 소리를 바꾸는 것은 사용자 확인 뒤 `be_locked_rules.json`만 고친다.
 - 캡컷 등 다른 앱의 효과음, 원본 영상의 소리, 저작권 음악은 금지다. 참고 영상은 분석용으로만 쓰고 다시 올리지 않는다.
 
 ## 4. 실행과 점검
