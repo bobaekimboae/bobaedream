@@ -6,6 +6,13 @@
 - 사전 `catalog/techniques.json`의 `version`은 맨 위 버전과 같아야 한다(`build.py`가 검사).
 - v0.0.1~v0.0.5는 예전 마스터 문서(`docs/shortform/shortform-master.md`)의 v1.0~v1.4를 2026-11-22에 옮긴 것이다.
 
+## v0.4.3 · 2026-11-22
+
+- **서울오토갤러리 매물 준비 도구**(`photo_listing/sag_prep.py` · `inspect_parse.py`): 상세 페이지 → `listing.json`(차명·연식·주행·연료·색·**등록 옵션은 `class="on"`만**·상사·딜러), 성능기록부 → 체크된 값만 `cards.json`(누유·리콜 미이행·단순 수리 부위는 warn), K01~K20 사진 → 부위 이름표(`photos.json`). 차량번호·제시번호·차대번호·딜러 개인 연락처는 넣지 않음 — 사용자(「오토갤러리 10대 샘플 만들 준비」)
+- 서울오토갤러리 고정 촬영 순서 20장 표(10대 대조, K10·K15~K17만 차마다 다름)
+- 문서: `docs/shortform/photo-listing-playbook-v1.md`(사진 매물 제작 순서·오늘 정한 화면 규칙·판매글 문체·크로스체크), `docs/shortform/nasser-autobeeb-option-edit-study-v1.md`(나세르·오토비브 10편씩 옵션 편집 학습 + 우리 적용표) — 사용자(「문서로 체계적으로 기록」 「옵션 기능 편집 학습해서 우리 적용할거 찾아라」)
+- 바로잡음: 콰트로포르테 「전동·열선·통풍」은 사이트 등록 옵션이 아니었다(옵션 아이콘 목록은 모든 매물에 같은 틀, 이 매물 등록 옵션 0개). 시트 문장 다시 녹음은 사용자 승인 뒤. LESSONS L35
+
 ## v0.4.2 · 2026-11-22
 
 - **카드 컷 루틴**(`photo_listing/card_routine_rules.json` · `card_routine.py`): 성능점검기록부 같은 독립 카드는 ① 첫 컷 「성능점검기록부 요약합니다.」(넘김 flash) → ② 문제없는 줄 한 문장씩 「…없습니다!」(reveal) → ③ 확인 필요(warn) 줄은 맨 뒤 「다만 …표시가 있습니다.」 → ④ 다음 컷 딜러 상담. `card_routine.py <차폴더>`가 cards.json에서 대본을 만들고, `check_cfg.py`가 첫 컷 문장 · reveal · 금지 표현(무사고 등)을 검사 — 사용자(「성능점검기록부 요약합니다 처럼 카드 형식은 루틴 만들어라」)
