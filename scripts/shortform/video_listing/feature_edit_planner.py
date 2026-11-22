@@ -114,6 +114,10 @@ def plan(inp):
         o6 = next((o for o in opts if o['class'] == 'small_control'), None)
         if o6 and c.get('tracked') and c.get('part_box_frac', 1) < RULES['small_part_frac'] and used['T06'] < TECH['T06']['max_per_video']:
             T.append({'id': 'T06', 'option': o6['key'], 'at': round(W[a][1] - 0.06 + TECH['T06']['params']['start_after_chip_s'], 2)}); used['T06'] += 1
+        # T08 부위 당기기: 작은 버튼 + 추적됨 + 이 컷에 돋보기·✓ 목록 없음 + 컷 길이 충분
+        if o6 and c.get('tracked') and not any(x['id'] in ('T06', 'T02') for x in T) and t1 - t0 >= TECH['T08']['params']['min_cut_s'] and used['T08'] < TECH['T08']['max_per_video']:
+            j = word_at(match_word(o6, text)[1].split()[0]) or a
+            T.append({'id': 'T08', 'option': o6['key'], 'at': round(W[j][1] - TECH['T08']['params']['lead_s'], 2)}); used['T08'] += 1
         # T07 마력 흔들림: 가장 큰 마력 한 번
         if power and a <= power[1] < b and used['T07'] < TECH['T07']['max_per_video']:
             T.append({'id': 'T07', 'word': power[1], 'value': power[0], 'at': round(W[power[1]][2] - 0.05, 2), 'sfx': 'neigh.wav'}); used['T07'] += 1

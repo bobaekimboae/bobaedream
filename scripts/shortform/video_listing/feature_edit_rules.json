@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "_what": "영상 매물(차량 영상 + 내레이션) 숏폼에서 옵션·기능 편집 기법을 차종과 상관없이 자동으로 고르는 규칙. feature_edit_planner.py 가 읽는다. 값은 G350 v7 렌더(g350_v7_render.py)에서 실제로 쓴 값과 같다.",
   "_source": "G350 블루텍 v4(나세르형 벨기에판) 뼈대 + 2026-11-21 사용자 승인 기법 7개(「기법 좋다」) · 예시 시각은 feature_edit_planner.py 가 samples/g350_input.json 으로 낸 값(소리 시작 보정 후)",
   "canvas": {
@@ -185,6 +185,22 @@
       },
       "max_per_video": 1,
       "example": "G350 58.85초 211마력"
+    },
+    {
+      "id": "T08",
+      "name": "부위 당기기",
+      "en": "part push-in",
+      "trigger": "옵션 class=small_control 이고 추적이 되며, 같은 컷에 돋보기(T06)·✓ 목록(T02)이 없고 컷이 1.5초 이상일 때 · 영상에 2번까지",
+      "params": {
+        "zoom_to": 1.35,
+        "lead_s": 0.1,
+        "arrive_s": 0.6,
+        "center_bias": 0.85,
+        "hold_drift": 0.04,
+        "min_cut_s": 1.5
+      },
+      "max_per_video": 2,
+      "example": "G350 커맨드 컨트롤러·공조 다이얼(2026-11-22 사용자: 「옵션 편집기능 너 판단해서 추가」, 매뉴얼 부위 당기기 규칙 part_zoom_rules.json을 영상판으로)"
     }
   ],
   "option_classes": {
