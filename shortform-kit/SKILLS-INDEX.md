@@ -10,10 +10,10 @@
 
 | 편집 유형 | 기준 영상 | 커밋 | 만든 코드 | 입력 |
 |---|---|---|---|---|
-| ED-SIMPLE 실촬영 · 벨기에 심플 | **G350 v13** `public/shortform-samples/g350-v13/g350-v13.mp4` (70초) | 771f02708 | `scripts/shortform/video_listing/g350_v8_render.py` + `g350_v5_lib.py` | `video_listing/samples/g350_input.json` · `g350_edit.json` |
+| ED-SIMPLE 실촬영 · 벨기에 심플 | **G350 버전 1** `public/shortform-samples/g350-v1/g350-v1.mp4` (70초, 2026-11-23, v13 + 번호판·안전영역 3곳 수정) — 공용 문서 [`docs/shortform/g350-v1-agent-handoff.md`](../docs/shortform/g350-v1-agent-handoff.md) | (이 커밋) | `scripts/shortform/video_listing/g350_v8_render.py` + `g350_v5_lib.py` | `video_listing/samples/g350_input.json` · `g350_edit.json` |
 | ED-PHOTO 사진 매물 | 서울오토갤러리 콰트로포르테 v6 · E250 · NX 350h (무인) | 1910010be · 02aed754a | `scripts/shortform/photo_listing/common.py` · `sag_auto.py` | 차 폴더 `cfg.py` · `listing.json` |
 
-**재현**: `scripts/shortform/video_listing/g350_reproduce.sh` + 입력 `samples/g350_work/` — 2회차(2026-11-23)가 v13과 화소 차이 0, `public/shortform-samples/g350-r02/`.
+**재현**: `scripts/shortform/video_listing/g350_reproduce.sh` + 입력 `samples/g350_work/` — 2회차(2026-11-23)가 v13과 화소 차이 0(`g350-r02/`). 이후 개선은 모두 **버전 1과 비교**한다. v13(771f02708)은 기록.
 
 G350 이전 판(v09 · v10 · v11)은 `public/shortform-samples/g350-v09~v11/`에 있다. v12는 v13으로 교체됐다.
 

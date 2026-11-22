@@ -160,15 +160,25 @@ def plate_check(video, chips):
     use_src = P.get('order') == 'source' and P.get('src') and os.path.exists(srcp)
     W, H = P.get('frame') or [1080, 1920]
     cap = cv2.VideoCapture(srcp if use_src else video); hit = []
-    for c in chips:
+    for c in list(chips) + list(P.get('bigs') or []):   # r03: 큰 숫자(bigs)도 번호판을 덮으면 실패
         if not c.get('box') or 't_box' not in c: continue
         cap.set(cv2.CAP_PROP_POS_MSEC, c['t_box'] * 1000); okf, f = cap.read()
         if not okf: continue
         if use_src: f = cv2.resize(f, (W, H))
         # 칩이 그려진 화면이 아니라 같은 순간의 원본에 가깝게 보려면 칩을 피한 판정이 필요 → 칩 상자 밖의 번호판만 셈하지 않고, 상자와 겹치는 번호판을 찾는다
-        for sc, (x0, y0, x1, y1) in PA.detect(Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)), ['plate'], thr=0.2).get('plate', []):
+        _det = PA.detect(Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)), ['plate'], thr=0.2).get('plate', [])
+        _best = max([d[0] for d in _det] or [0])
+        for sc, (x0, y0, x1, y1) in _det:
+            # 2026-11-23 r03: OWLv2 상자는 범퍼까지 넓게 잡음 — 가장 확실한 상자의 60% 미만 점수는 빼고, 상자를 사방 5% 줄여 본다
+            if sc < 0.6 * _best: continue
+            _dx = (x1 - x0) * 0.05; _dy = (y1 - y0) * 0.05; x0, y0, x1, y1 = x0 + _dx, y0 + _dy, x1 - _dx, y1 - _dy
             bx = c['box']
-            if min(x1, bx[2]) > max(x0, bx[0]) and min(y1, bx[3]) > max(y0, bx[1]):
+            iw = min(x1, bx[2]) - max(x0, bx[0]); ih = min(y1, bx[3]) - max(y0, bx[1])
+            if iw <= 0 or ih <= 0: continue
+            # 2026-11-23 r03: 노랑 칩 자체를 번호판으로 잡는 오탐 — 찾은 상자가 칩 상자와 거의 같으면(IoU ≥ 0.8) 칩이므로 뺀다
+            inter = iw * ih; uni = (x1 - x0) * (y1 - y0) + (bx[2] - bx[0]) * (bx[3] - bx[1]) - inter
+            if inter / uni >= 0.8: continue
+            if True:
                 hit.append(f"{c['label']}({c['t_box']:.1f}초)")
     (ok if not hit else bad)('칩이 번호판을 덮지 않음' + (f' — 겹침: {hit}' if hit else ''))
 
