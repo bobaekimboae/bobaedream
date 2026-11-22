@@ -112,7 +112,9 @@ def check_video(path):
     SF = [x if isinstance(x, dict) else {'t': x, 'sound': '?'} for x in P['sfx']]
     T = sorted(x['t'] for x in SF); total = P.get('total') or (T[-1] if T else 30)
     lim = int(S['max_per_30s'] * total / 30)
-    (ok if len(T) <= lim else bad)(f'효과음 {len(T)}번 (규칙 30초당 {S["max_per_30s"]}번 → 최대 {lim}번)')
+    ph = P.get('edition_code') == 'ED-PHOTO'   # 사진판: 효과음 많게(사용자 확정 예외) → 개수 상한은 보지 않음
+    if ph: ok(f'효과음 {len(T)}번 (사진판 예외 — 개수 상한 안 봄)')
+    else: (ok if len(T) <= lim else bad)(f'효과음 {len(T)}번 (규칙 30초당 {S["max_per_30s"]}번 → 최대 {lim}번)')
     gaps = [b - a for a, b in zip(T, T[1:])]
     (ok if all(g >= S['min_gap_s'] - 1e-6 for g in gaps) else bad)(f'효과음 간격 최소 {min(gaps) if gaps else "-":.2f}초 (규칙 {S["min_gap_s"]}초 이상)' if gaps else '효과음 간격 -')
     same = [(a['sound'], b['t'] - a['t']) for i, a in enumerate(sorted(SF, key=lambda x: x['t'])) for b in sorted(SF, key=lambda x: x['t'])[i + 1:] if a['sound'] == b['sound'] != '?']
@@ -121,10 +123,10 @@ def check_video(path):
     tail = [t for t in T if t > total - RULES['end']['tail_s']]
     (bad if tail and not S['end_logo'] else ok)(f'끝 로고 구간 효과음 {len(tail)}번 (규칙: 넣지 않음)')
     want_px = lambda c: CH['title_font_px'] if c.get('kind') == 'title' else CH['font_px']
-    badpx = [c['label'] for c in P['chips'] if c['px'] != want_px(c)]
+    badpx = [c['label'] for c in P['chips'] if 'px' in c and c['px'] != want_px(c)]
     (ok if not badpx else bad)(f'칩 글자 크기 규칙대로(칩 {CH["font_px"]} · 제목 {CH["title_font_px"]})' if not badpx else f'칩 글자 크기 어긋남: {badpx}')
     fixed = [c for c in P['chips'] if c.get('kind', 'point') in ('point', 'title')]
-    ywant = CH['y_top_px_feature_video'] if fv else CH['y_top_px']; ys = {c['y'] for c in fixed}
+    ywant = CH['y_top_px_feature_video'] if fv else CH['y_top_px']; ys = {c['y'] for c in fixed if 'y' in c}
     (ok if ys <= {ywant} else bad)(f'위쪽 칩 자리 {sorted(ys)} (규칙 위 {ywant}px 하나, 부위 이름표는 부위를 따라감)')
     for c in P['chips']:
         cut_in = [t for t in P['cuts'] if c['t0'] + 0.02 < t < c['t1'] - 0.02]

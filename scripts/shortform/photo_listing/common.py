@@ -1790,12 +1790,41 @@ def mix_audio():
           f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={R.STYLE['bgm_vol']},volume='1-({g})':eval=frame,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.4}:d=1.4[m0];"
           + (f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={ALT[2] if len(ALT) > 2 else R.STYLE['bgm_vol']},volume='{g}':eval=frame[m1];[m0][m1]amix=inputs=2:normalize=0[m];" if ALT else '[m0]anull[m];')
           + sf + '[vo]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
-          f'[v2][md][fx]amix=inputs=3:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=9,aresample=192000,alimiter=limit=0.8:level=false,aresample=48000,atrim=0:{TOTAL}[a]')
+          f'[v2][md][fx]amix=inputs=3:normalize=0:duration=first,@LN@,aresample=192000,alimiter=limit=0.8:level=false,aresample=48000,atrim=0:{TOTAL}[a]')
+    # 음량: 규칙 파일(be_locked_rules.json audio) 값 + 2회 측정(재고 → 맞추기). 2026-11-22 숫자 직접 쓰기 제거(전수조사 D)
+    _A = _BE['audio']; LN = f"loudnorm=I={_A['loudness_lufs']}:TP={_A['true_peak_db']}:LRA=9"
+    _m = subprocess.run(['ffmpeg', '-hide_banner', *ins, '-filter_complex', af.replace('@LN@', LN + ':print_format=json'), '-map', '[a]', '-f', 'null', '-'],
+                        capture_output=True, text=True).stderr
+    try:
+        _j = json.loads(_m[_m.rindex('{'):_m.rindex('}') + 1])
+        LN += f":measured_I={_j['input_i']}:measured_TP={_j['input_tp']}:measured_LRA={_j['input_lra']}:measured_thresh={_j['input_thresh']}:offset={_j['target_offset']}:linear=true"
+    except (ValueError, KeyError):
+        print('  음량 1차 측정 실패 — 1회 맞춤으로 진행')
+    af = af.replace('@LN@', LN)
     run(['ffmpeg', '-y', '-v', 'error', *ins, '-i', 'video_only.mp4', '-filter_complex', af, '-map', f'{len(SFX) + k0}:v', '-map', '[a]',
          '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-movflags', '+faststart', '-shortest', OUT_FILE])
     os.remove('video_only.mp4')
     # 렌더 후 점검(⑥): 말하는 동안 자막이 보이는가 — 걸려도 영상은 남기고 고칠 곳만 알린다
     subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'check_render.py'), SC, OUT_FILE])
+    write_edition_plan(SFX)
+
+
+def write_edition_plan(SFX):
+    """edit_gate.py post용 계획 파일(영상.mp4.plan.json) — 판 코드·렌더러·쓴 기법. 2026-11-22(전수조사 C).
+    기법은 실제로 그려진 것만 적는다: 첫 화면 칩(HOOK) · 포인트 칩(card_basic, 칩 1개 이상) · 켄번스 · 끝 화면+딜러(end_dealer) · 배경음 · 음량 규칙.
+    칩 기울기가 0이 아니면 chip_tilt(금지 기법)를 적어 관문에서 걸리게 한다."""
+    T = {'kenburns', 'bgm', 'loudness_rule'}
+    if getattr(C, 'HOOK', None): T.add('title_brand_chip')
+    if CHIPS: T.update({'card_basic', 'point_chip'})
+    if END_CARD and (getattr(C, 'DEALER_CHIP', None) or (_lgp and os.path.exists(_lgp))): T.add('end_dealer')
+    if SFX: T.add('sfx_rules')
+    tilts = [*JITTER, getattr(C, 'DEALER_CHIP_TILT', 0.0), getattr(C, 'HOOK_TILT', 0.0)]
+    if any(abs(float(x)) > 1e-6 for x in tilts): T.add('chip_tilt')
+    json.dump({'edition': 'photo_listing', 'edition_code': 'ED-PHOTO', 'renderer': 'common.py', 'order': 'script', 'total': round(TOTAL, 3),
+               'techniques': sorted(T), 'chips': [{'label': a, 't0': round(b, 2), 't1': round(e, 2), 't_box': round(b + 0.3, 2), 'kind': 'point'} for a, b, e in CHIPS],
+               'sfx': [{'sound': n, 't': round(t, 3)} for n, t, v in SFX], 'cuts': [round(x, 3) for x in starts]},
+              open(OUT_FILE + '.plan.json', 'w'), ensure_ascii=False, indent=1)
+    print('계획 파일:', OUT_FILE + '.plan.json')
 
 if __name__ == '__main__':
     print('voice', round(VOICE_LEN, 2), 'total', round(TOTAL, 2))

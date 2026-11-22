@@ -2,7 +2,7 @@
 """즉흥 편집 방지 관문 — 판(에디션)·렌더러·편집 기법을 edition_lock.json 하나와 대조한다. 2026-11-22.
 
   python3 edit_gate.py pre ED-SIMPLE scripts/shortform/video_listing/listing_video_render.py   # 렌더 전: 이 판에 이 렌더러를 써도 되나
-  python3 edit_gate.py post 영상.mp4                                                         # 렌더 후: 판·렌더러·필수 기법·금지 기법
+  python3 edit_gate.py post 영상.mp4 [--plates]                                              # 렌더 후: 판·렌더러·필수 기법·금지 기법 (+ 칩이 번호판을 덮는지)
   python3 edit_gate.py golden 영상.mp4 [기준영상.mp4]                                          # 기준 영상과 같은 역할 장면 나란히 시트
 하나라도 어긋나면 끝 코드 1. post 통과 + check_be.py 통과 전에는 영상을 전달하지 않는다.
 """
@@ -56,9 +56,30 @@ def post(video):
         (ok if not hit else bad)('칩이 말 자막 띠와 겹치지 않음' + (f' — 겹침: {hit}' if hit else ''))
     if P.get('sfx'):
         (ok if 'sfx_rules' in T else bad)('효과음이 있으면 규칙 효과음')
+    if '--plates' in sys.argv:
+        plate_check(video, chips)
     forb = [t for t in E.get('forbidden', []) if t in T]
     (ok if not forb else bad)('금지 기법 없음' + (f' — 들어감: {forb}' if forb else ''))
     ok(f'쓴 기법: {", ".join(sorted(T))}')
+
+
+def plate_check(video, chips):
+    """칩 상자가 번호판을 덮는가 — 칩이 뜬 순간 화면에서 번호판(OWLv2 「plate」)을 찾아 겹치면 실패.
+    번호판은 가리지 않는다(사용자 확정). 칩이 덮어도 안 된다. 칩 상자(box)가 기록된 칩만 본다."""
+    sys.path.insert(0, os.path.join(HERE, 'photo_listing'))
+    import cv2, part_anchor as PA
+    from PIL import Image
+    cap = cv2.VideoCapture(video); hit = []
+    for c in chips:
+        if not c.get('box') or 't_box' not in c: continue
+        cap.set(cv2.CAP_PROP_POS_MSEC, c['t_box'] * 1000); okf, f = cap.read()
+        if not okf: continue
+        # 칩이 그려진 화면이 아니라 같은 순간의 원본에 가깝게 보려면 칩을 피한 판정이 필요 → 칩 상자 밖의 번호판만 셈하지 않고, 상자와 겹치는 번호판을 찾는다
+        for sc, (x0, y0, x1, y1) in PA.detect(Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)), ['plate'], thr=0.2).get('plate', []):
+            bx = c['box']
+            if min(x1, bx[2]) > max(x0, bx[0]) and min(y1, bx[3]) > max(y0, bx[1]):
+                hit.append(f"{c['label']}({c['t_box']:.1f}초)")
+    (ok if not hit else bad)('칩이 번호판을 덮지 않음' + (f' — 겹침: {hit}' if hit else ''))
 
 
 def golden(video, ref=None):

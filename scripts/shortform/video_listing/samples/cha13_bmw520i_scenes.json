@@ -1,0 +1,148 @@
+[
+ {
+  "src": [
+   0.0,
+   4.0
+  ],
+  "zone": "ext"
+ },
+ {
+  "src": [
+   4.0,
+   8.6
+  ],
+  "zone": "ext"
+ },
+ {
+  "src": [
+   8.6,
+   11.0
+  ],
+  "zone": "ext"
+ },
+ {
+  "src": [
+   11.0,
+   14.0
+  ],
+  "zone": "ext",
+  "part": "wheel",
+  "see": [
+   "caliper"
+  ]
+ },
+ {
+  "src": [
+   14.0,
+   17.0
+  ],
+  "zone": "trunk",
+  "see": [
+   "trunk"
+  ]
+ },
+ {
+  "src": [
+   17.0,
+   20.0
+  ],
+  "zone": "int",
+  "see": [
+   "seat_material"
+  ]
+ },
+ {
+  "src": [
+   20.0,
+   23.0
+  ],
+  "zone": "int",
+  "see": [
+   "shifter"
+  ]
+ },
+ {
+  "src": [
+   23.0,
+   26.0
+  ],
+  "zone": "int"
+ },
+ {
+  "src": [
+   26.0,
+   28.0
+  ],
+  "zone": "int",
+  "see": [
+   "two_tone"
+  ]
+ },
+ {
+  "src": [
+   28.0,
+   30.0
+  ],
+  "zone": "int",
+  "part": "steering",
+  "see": [
+   "m_wheel"
+  ]
+ },
+ {
+  "src": [
+   30.0,
+   33.0
+  ],
+  "zone": "int",
+  "see": [
+   "shifter"
+  ]
+ },
+ {
+  "src": [
+   33.0,
+   38.0
+  ],
+  "zone": "int",
+  "see": [
+   "cluster"
+  ]
+ },
+ {
+  "src": [
+   38.0,
+   41.0
+  ],
+  "zone": "int"
+ },
+ {
+  "src": [
+   41.0,
+   44.0
+  ],
+  "zone": "int",
+  "part": "screen",
+  "see": [
+   "navi"
+  ]
+ },
+ {
+  "src": [
+   44.0,
+   49.0
+  ],
+  "zone": "int",
+  "part": "screen",
+  "see": [
+   "rearcam"
+  ]
+ },
+ {
+  "src": [
+   49.0,
+   53.5
+  ],
+  "zone": "ext"
+ }
+]

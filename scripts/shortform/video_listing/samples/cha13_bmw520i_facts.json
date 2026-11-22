@@ -1,0 +1,17 @@
+{
+ "_source": "드라이브 13_차란차_매물정보.txt(원장) + seen = 원본 영상에 보이는 것(사람 1회 확인). 차량번호·연락처 없음",
+ "id": "cha13", "make": "BMW", "series": "5시리즈", "model": "520i M 스포츠", "gen": "G30",
+ "color": "파란색", "reg": "20년09월", "year": 2021, "km": 58176, "cc": 1998, "fuel": "가솔린", "trans": "자동",
+ "price_manwon": 2990, "region": "경기", "body": "세단",
+ "seen": [
+  {"key": "caliper", "zone": "ext", "part": "wheel", "chip": "블루 캘리퍼", "say": "휠 안쪽엔 / 블루 캘리퍼가 보입니다."},
+  {"key": "trunk", "zone": "trunk", "say": "트렁크를 열어 보겠습니다."},
+  {"key": "seat_material", "zone": "int", "material": "브라운 가죽", "say": "시트는 / 브라운 가죽입니다."},
+  {"key": "shifter", "zone": "int", "say": "가운데엔 / 기어 레버와 다이얼이 있습니다."},
+  {"key": "two_tone", "zone": "int", "say": "실내는 블랙과 브라운 투톤입니다."},
+  {"key": "m_wheel", "zone": "int", "part": "steering", "chip": "M 스티어링 휠", "say": "핸들은 M|엠 스티어링 휠입니다."},
+  {"key": "cluster", "zone": "int", "chip": "디지털 계기판", "say": "계기판은 디지털입니다."},
+  {"key": "navi", "zone": "int", "part": "screen", "chip": "내비게이션", "say": "센터 화면엔 / 내비게이션이 나옵니다."},
+  {"key": "rearcam", "zone": "int", "part": "screen", "chip": "후방 카메라", "say": "주차할 때는 / 후방 카메라 화면을 볼 수 있습니다."}
+ ]
+}
