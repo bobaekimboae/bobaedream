@@ -87,6 +87,15 @@ def main(car, speed=1.1):
         if c[5] == 'reveal' and c[0] not in getattr(C, 'CAP_CY_PHOTOS', {}):
             err.append(f'독립 컷 p{c[0]} 자막 위치(CAP_CY_PHOTOS) 없음 → 카드에 자막이 겹침')
 
+    # ⑦ 카드 컷 루틴(card_routine_rules.json): 「성능점검기록부 요약합니다」로 시작 · 줄은 reveal · warn은 「다만」
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import card_routine
+        e2, w2 = card_routine.check(C, None)
+        err += e2; warn += w2
+    except FileNotFoundError:
+        pass
+
     for e in err:
         print('✗', e)
     for w in warn:

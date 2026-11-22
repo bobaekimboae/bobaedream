@@ -1,4 +1,4 @@
-# 숏폼 편집 기법 사전 v0.4.1
+# 숏폼 편집 기법 사전 v0.4.2
 
 > 이 파일은 `build.py`가 `techniques.json`으로 자동으로 만듭니다. 직접 고치지 마세요. 갱신: 2026-11-22
 
@@ -119,7 +119,7 @@
 | `END-COMMENT` | 마무리 | 댓글 유도 | Comment prompt | 재미 | 마지막 2초 큰 노랑 질문 | ○ | ○ | ○ | ○ | 관찰 | `` |
 | `END-FOLLOW` | 마무리 | 팔로우 유도 | Follow prompt | 재미 | 마지막 2초 팔로우 문구 | ○ | ○ | ○ | ○ | 관찰 | `` |
 
-## 옵션 표시 (19개)
+## 옵션 표시 (20개)
 
 | 코드 | 분류 | 이름 | 영어 이름 | 목적 | 영상에서 보이는 모습 | ① 사진 | ② 심플 | ③ 3D | ④ ASMR | 상태 | 코드 위치 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -129,6 +129,7 @@
 | `FM-SEAT-VENT` | 옵션 표시 | 통풍 | seat_vent | 정보 | ❄️ + 「통풍」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-MASSAGE` | 옵션 표시 | 마사지 | seat_massage | 정보 | 💆 + 「마사지」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-MEMORY` | 옵션 표시 | 메모리 시트 | seat_memory | 정보 | 💾 + 「메모리」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
+| `FM-SEAT-POWER` | 옵션 표시 | 전동 시트 | seat_power | 정보 | ⚡ + 「전동」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-MATERIAL` | 옵션 표시 | 시트 재질 | seat_material | 정보 | 3D 글자 {material} | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-CAMERA` | 옵션 표시 | 카메라 | camera | 정보 | 📷 + 「{camera}」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-CLIMATE` | 옵션 표시 | 공조 | climate | 정보 | 🌬️ + 「{zones}존」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
@@ -369,7 +370,7 @@
 
 ## 목적 균형
 
-재미 36 · 정보 50 · 둘 다 14 — 한 영상에 재미 기법과 정보 기법이 둘 다 들어가야 한다.
+재미 36 · 정보 51 · 둘 다 14 — 한 영상에 재미 기법과 정보 기법이 둘 다 들어가야 한다.
 
 
 ## 해야 할 일 — 상태가 일부·계획인 항목 (20개)
