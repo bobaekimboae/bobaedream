@@ -170,6 +170,39 @@ def theme_mask(w: int, h: int, name: str, margin: int = 0) -> Image.Image:
     return m
 
 
+def theme_mask_sliced(w: int, h: int, name: str, margin: int = 0, cap: float = 0.34) -> Image.Image:
+    """테마 바탕색 원본을 글자 길이에 맞춰 자동으로 늘린 알파 마스크 — 3분할 늘리기(9-slice / 안드로이드 나인패치 /
+    CSS border-image 와 같은 방식). 2026-11-19 사용자 「자동으로 길이 조정되게」.
+    원본을 높이 h에 맞춰 원래 비율로 그린 뒤, 양 끝(각 cap 비율)은 원본 그대로 두고 가운데 띠만 가로로 늘린다.
+    → 글자가 길어져도 붓 끝 모양이 납작하게 찌그러지지 않음. 칸이 원본보다 좁으면 통째로 줄임. 원본 파일은 그대로."""
+    import io
+    import subprocess
+
+    path = os.path.join(THEME_DIR, name + ".svg")
+    vw, vh = (int(v) for v in name.split("_")[:2])
+    png = subprocess.run(["rsvg-convert", "-h", str(h * 4), path], check=True, capture_output=True).stdout
+    im = Image.open(io.BytesIO(png)).convert("RGBA")
+    bb = im.getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
+    if bb:
+        im = im.crop(bb)
+    a = im.getchannel("A")
+    nw = max(1, round(a.width * h / a.height))  # 높이 h일 때 원본 비율 그대로의 폭
+    if w <= nw:
+        body = a.resize((w, h), Image.LANCZOS)
+    else:
+        cl = int(a.width * cap)
+        left, right = a.crop((0, 0, cl, a.height)), a.crop((a.width - cl, 0, a.width, a.height))
+        mid = a.crop((cl, 0, a.width - cl, a.height))
+        ce = max(1, round(cl * h / a.height))
+        body = Image.new("L", (w, h), 0)
+        body.paste(left.resize((ce, h), Image.LANCZOS), (0, 0))
+        body.paste(mid.resize((max(1, w - ce * 2 + 2), h), Image.LANCZOS), (ce - 1, 0))  # 1px 겹쳐 이음매 없앰
+        body.paste(right.resize((ce, h), Image.LANCZOS), (w - ce, 0))
+    m = Image.new("L", (w + margin * 2, h + margin * 2), 0)
+    m.paste(body, (margin, margin))
+    return m
+
+
 def safe_box(w: int, h: int) -> tuple[float, float, float, float]:
     """글자를 둘 안전 영역 (x0, y0, x1, y1)"""
     return (w * SAFE["left"], h * SAFE["top"], w * (1 - SAFE["right"]), h * (1 - SAFE["bottom"]))

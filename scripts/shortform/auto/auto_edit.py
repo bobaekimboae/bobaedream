@@ -712,8 +712,11 @@ def words_local(mp3, out):
     import subprocess, numpy as np  # av 판이 안 맞는 환경이 있어 ffmpeg로 직접 풀어 넘긴다
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', mp3, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True, check=True).stdout
     audio = np.frombuffer(raw, np.int16).astype(np.float32) / 32768
-    segs, _ = m.transcribe(audio, language='ko', word_timestamps=True)
+    segs, _ = m.transcribe(audio, language='ko', word_timestamps=True, vad_filter=True)  # 끝 무음에서 「자막 제공 및…」 헛받아쓰기 방지(2026-11-22)
     ws = [dict(text=w.word.strip(), start=round(w.start, 3), end=round(w.end, 3)) for sg in segs for w in sg.words]
+    bad = ('자막', '제공', '광고를', '포함하고', '시청해')
+    while ws and (any(b in ws[-1]['text'] for b in bad) or ws[-1]['end'] - ws[-1]['start'] < 0.02):  # 길이 0 낱말 = 헛받아쓰기 꼬리
+        ws.pop()
     json.dump(ws, open(out, 'w'), ensure_ascii=False)
     return ws
 
