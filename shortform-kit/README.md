@@ -2,6 +2,7 @@
 
 매물 사진·촬영 영상으로 숏폼을 **자동으로, 누가 만들어도 똑같이** 편집하기 위한 매뉴얼·규칙·도구 모음입니다.
 고치는 곳은 이 깃허브 하나뿐입니다. 구글 시트·노션은 보기용 사본입니다.
+작업 추적: 노션 「숏폼 자동 편집 최종 작업 계획서 · 체크리스트」 · 시트 사본: https://docs.google.com/spreadsheets/d/1c-OdKZMS3OvZK1rfFSIDoTVFy7tYdq3dX_yq7GFafwo/edit
 
 ## 지금 들어 있는 것 (v0.1)
 
@@ -11,6 +12,7 @@
 | `catalog/CATALOG.md` | 사람이 읽는 사전(자동 생성, 직접 고치지 않음) |
 | `catalog/build.py` | 사전 검사 + CATALOG.md 만들기 |
 | `catalog/identify.py` | 만든 영상에 어떤 기법을 썼는지 코드로 기록 |
+| `catalog/export_sheet.py` · `export_xlsx.py` | 구글 시트 사본 만들기(사본: [숏폼 자동 편집 매뉴얼](https://docs.google.com/spreadsheets/d/1c-OdKZMS3OvZK1rfFSIDoTVFy7tYdq3dX_yq7GFafwo/edit)) |
 | `ROADMAP.md` | 해야 할 일 순번표 + 「좋은 안은 바로 고정」 운영 규칙 |
 | `CHANGELOG.md` | 버전별 변경 기록(무엇을 / 왜 / 누가 정했나) |
 
