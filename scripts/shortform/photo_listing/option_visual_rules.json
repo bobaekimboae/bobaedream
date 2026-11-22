@@ -148,22 +148,63 @@
     22
    ]
   },
-  "horsepower_sfx": {
-   "note": "대본에 '마력'을 말하는 순간 말 울음소리. 영상당 1번, 칩 딩과 겹치면 말 울음이 우선. 2026-11-22 사용자 확정",
-   "name": "horse_neigh",
-   "keywords": [
-    "마력"
-   ],
-   "lead_s": 0.05,
-   "vol": 0.5,
-   "once_per_video": true,
+  "metaphor_sfx": {
+   "note": "비유 효과음: 대본에서 그 낱말을 말하는 순간에만, 영상당 2개까지(목록 순서 = 우선순위), 좋은 정보에만(사고·수리 등에는 넣지 않음), 사람 목소리 소리 금지, ASMR판 제외. 겹치면 딩·팝보다 우선. 마력=말 울음은 2026-11-22 사용자 확정, 나머지 4개는 사용자 위임으로 Claude 선정(2026-11-22)",
+   "max_per_video": 2,
+   "min_gap_s": 1.5,
    "editions": [
     "photo",
     "simple",
     "3d"
    ],
-   "asset": "public/assets/shortform/sfx/horse_neigh.wav",
-   "source": "Freesound 521246 'Horse' by poodaddy69, CC0 1.0"
+   "items": [
+    {
+     "name": "horse_neigh_el",
+     "keywords": [
+      "마력"
+     ],
+     "vol": 0.5,
+     "lead_s": 0.05,
+     "what": "말 울음",
+     "alt": "horse_neigh"
+    },
+    {
+     "name": "stopwatch",
+     "keywords": [
+      "제로백"
+     ],
+     "vol": 0.6,
+     "lead_s": 0.0,
+     "what": "스톱워치 딸깍"
+    },
+    {
+     "name": "coin",
+     "keywords": [
+      "연비"
+     ],
+     "vol": 0.45,
+     "lead_s": 0.05,
+     "what": "돼지저금통 동전"
+    },
+    {
+     "name": "fire_crackle",
+     "keywords": [
+      "열선"
+     ],
+     "vol": 0.45,
+     "lead_s": 0.05,
+     "what": "장작 타닥"
+    },
+    {
+     "name": "ice_clink",
+     "keywords": [
+      "통풍"
+     ],
+     "vol": 0.45,
+     "lead_s": 0.05,
+     "what": "얼음 달그랑"
+    }
+   ]
   }
  },
  "options": [
