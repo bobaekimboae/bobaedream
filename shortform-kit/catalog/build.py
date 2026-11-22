@@ -41,7 +41,8 @@ def load():
                       'look': look, 'ed': ['photo', 'simple', '3d'], 'status': '구현',
                       'impl': 'scripts/shortform/photo_listing/auto_visuals.py:build',
                       'rules': f"scripts/shortform/photo_listing/option_visual_rules.json#options.{o['id']}",
-                      'sfx': o.get('sfx', ''), 'required': o.get('required')})
+                      'sfx': o.get('sfx', ''), 'required': o.get('required'),
+                      **({'note': f"확정 편집: {o['fixed_edit']['technique']} — {o['fixed_edit']['what']} ({o['fixed_edit']['decided']})"} if o.get('fixed_edit') else {})})
     for b in C['feature_map']['bundles']:
         items.append({'kind': 'feature', 'group': '옵션 표시', 'en': b['code'].lower(), 'what': '', 'ed': ['photo', 'simple', '3d'],
                       'status': '구현', **b})

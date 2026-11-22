@@ -11,6 +11,7 @@
 | `catalog/CATALOG.md` | 사람이 읽는 사전(자동 생성, 직접 고치지 않음) |
 | `catalog/build.py` | 사전 검사 + CATALOG.md 만들기 |
 | `catalog/identify.py` | 만든 영상에 어떤 기법을 썼는지 코드로 기록 |
+| `ROADMAP.md` | 해야 할 일 순번표 + 「좋은 안은 바로 고정」 운영 규칙 |
 | `CHANGELOG.md` | 버전별 변경 기록(무엇을 / 왜 / 누가 정했나) |
 
 ## 이름 체계 (5단계)
