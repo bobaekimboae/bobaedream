@@ -149,6 +149,10 @@ def _seat_bundle(C, words, cuts, opts, lay, report):
     b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1
     rules = {r['id']: r for r in RULES['options']}
     icons = [i for i in SEAT_BUNDLE if i in opts]
+    rules0 = {r['id']: r for r in RULES['options']}
+    def _said(oid):   # 2026-11-22: 화면 왼쪽→오른쪽 순서 = 말한 순서(말하지 않은 기능은 뒤)
+        return next((i for i in range(a, b + 1) if any(kw in words[i][2] for kw in rules0[oid]['keywords'])), 10 ** 6)
+    icons.sort(key=_said)
     seat_words = ' '.join(w[2] for w in words[a:b + 1])
     for oid in icons + (['seat_material'] if (opts.get('seat_material') or {}).get('material') else []):
         r = rules[oid]
