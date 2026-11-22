@@ -135,6 +135,39 @@ def prep(car, chk_html):
     print(' '.join(s['text'] for s in S))
 
 
+def pick_front_seat(car, cands=range(8, 15)):
+    """앞좌석 사진을 내용으로 고른다(2026-11-22 K9 측정: 사진 순서 K10·K11이 차마다 달라 렉서스는 뒷좌석이 걸림).
+    CLIP(openai/clip-vit-base-patch32, MIT)으로 「좌석 사진」인지, OWLv2로 핸들이 크게(사진 높이 35% 이상) 보이는지 본다.
+    CLIP 혼자서는 앞·뒤 좌석을 못 가르고(앞좌석을 뒷좌석으로 봄), OWLv2 등받이 상자는 들쭉날쭉해서 둘을 합쳤다.
+    결과는 seat_pick.json에 남긴다. 못 고르면 11(고정 촬영 순서 K11)."""
+    cache = os.path.join(car, 'seat_pick.json')
+    if os.path.exists(cache):
+        return json.load(open(cache))['p']
+    import torch
+    from PIL import Image
+    from transformers import CLIPModel, CLIPProcessor
+    import part_anchor
+    m = CLIPModel.from_pretrained('openai/clip-vit-base-patch32'); pr = CLIPProcessor.from_pretrained('openai/clip-vit-base-patch32')
+    T = ['a photo of car seats', 'a photo of a car dashboard and center screen', 'a close-up photo of a car part']
+    best, log = None, {}
+    for n in cands:
+        f = os.path.join(car, 'src2', f'p{n:02d}.png')
+        if not os.path.exists(f):
+            continue
+        im = Image.open(f).convert('RGB'); W, H = im.size
+        with torch.no_grad():
+            seat = float(m(**pr(text=T, images=im, return_tensors='pt', padding=True)).logits_per_image.softmax(-1)[0][0])
+        st = part_anchor.detect(im, ['steering'], thr=0.2)['steering']
+        sh = max(((b[3] - b[1]) / H for sc, b in st), default=0)
+        score = seat * sh if (seat >= 0.6 and sh >= 0.35) else 0
+        log[n] = dict(seat=round(seat, 2), steering_h=round(sh, 2), score=round(score, 3))
+        if score and (best is None or score > best[1]):
+            best = (n, score)
+    p = best[0] if best else 11
+    json.dump(dict(p=p, log=log), open(cache, 'w'), ensure_ascii=False, indent=1)
+    return p
+
+
 def _norm(s):
     return re.sub(r'[^0-9A-Za-z가-힣]', '', s)
 
@@ -154,11 +187,12 @@ def make_cfg(car):
         for ch in _norm(s['text']):
             schars.append(ch); sid.append(k)
     sm = difflib.SequenceMatcher(None, ''.join(schars), ''.join(wchars), autojunk=False)
-    first = {}
+    first, s2w = {}, {}
     for a, b, n in sm.get_matching_blocks():
         for j in range(n):
             k, i = sid[a + j], wid[b + j]
             first[k] = min(first.get(k, 10 ** 9), i)
+            s2w[a + j] = i
     starts = []
     prev = -1
     for k in range(len(S)):
@@ -168,22 +202,31 @@ def make_cfg(car):
         starts.append(st); prev = st
     starts.append(len(W))
     cuts, marks, whoosh = [], {}, []
+    seat_p = pick_front_seat(car) if any(x.get('seat') for x in S) else None
     card_ids = [s['p'] for s in S if s.get('card')]
     for k, s in enumerate(S):
         a, b = starts[k], starts[k + 1]
         ids = list(range(a, b))
-        caps = []
-        for i in ids:
-            t = W[i][2].rstrip('.,')
-            if not t:
-                continue
+        # 자막 글자는 대본 그대로(받아쓰기 글자는 시각만 씀) — 「보베드림」「57 ,998km」 같은 받아쓰기 오타 방지
+        caps, pos, last = [], 0, a
+        base = sum(len(_norm(S[j]['text'])) for j in range(k))
+        toks = s['text'].split()
+        j = 0
+        while j < len(toks):
+            t = toks[j].rstrip('.,!')
+            n = len(_norm(toks[j]))
+            hit = [s2w[base + pos + q] for q in range(n) if base + pos + q in s2w]
+            i = max(last, min(hit)) if hit else last
+            i = min(max(i, a), b - 1)
             m = re.fullmatch(r'(\d{4})년', t)
-            if m and i + 1 < b and re.fullmatch(r'(\d{1,2})월,?', W[i + 1][2]):   # 차란차 표기: 2020년 1월 → 20년01월
-                caps.append((f"{m.group(1)[2:]}년{int(W[i + 1][2].rstrip(',')[:-1]):02d}월", i))
+            if m and j + 1 < len(toks) and re.fullmatch(r'\d{1,2}월,?', toks[j + 1].rstrip('.,')):   # 차란차 표기: 2020년 1월 → 20년01월
+                mo = int(toks[j + 1].rstrip('.,')[:-1])
+                caps.append((f"{m.group(1)[2:]}년{mo:02d}월", i))
+                pos += n + len(_norm(toks[j + 1])); last = i; j += 2
                 continue
-            if caps and re.fullmatch(r'\d{1,2}월', t) and re.fullmatch(r'\d{2}년\d{2}월', caps[-1][0]):
-                continue
-            caps.append((t, i))
+            if t:
+                caps.append((t, i))
+            pos += n; last = i; j += 1
         if len(caps) > 3:
             caps.insert((len(caps) + 1) // 2, '|')
         chip = None
@@ -203,7 +246,7 @@ def make_cfg(car):
         else:
             trans = None
         kb = (.5, .5, 1.0, 1.0, .5) if s.get('card') else ((.5, .5, 1.0, 1.10, .5) if k % 2 == 0 else (.5, .5, 1.10, 1.0, .5))
-        cuts.append((s['p'], s['label'], a, caps, chip, trans, kb))
+        cuts.append((seat_p if s.get('seat') else s['p'], s['label'], a, caps, chip, trans, kb))
     for idx, c in enumerate(cuts):   # 구간 경계에서만 휙(외관→실내, 실내→카드, 카드→딜러)
         if idx and (c[5] in ('zoom', 'flash', 'whip_l')):
             whoosh.append(idx)

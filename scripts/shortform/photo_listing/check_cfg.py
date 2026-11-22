@@ -36,6 +36,7 @@ def main(car, speed=1.1):
         pj = max([j for j in used if j < i], default=None)  # 바로 앞 자막 어절(여러 어절을 한 자막으로 붙여 쓴 경우: 서울 오토 갤러리에)
         prev = [t for t, j, _ in items if j == pj]
         joined = any(clean and clean in re.sub(r'[^0-9A-Za-z가-힣]', '', t) for t in prev)  # 앞 자막 낱말이 이 말까지 붙여 씀(성능점검 · 서울오토갤러리에)
+        joined = joined or any(len(clean) >= 3 and clean[:2] in re.sub(r'[^0-9A-Za-z가-힣]', '', t) for t in prev)  # 받아쓰기 끝 글자 오타(기록부→기록도), 자막은 대본 글자
         if not frag and not joined:
             err.append(f'자막 빠짐: {i}번 「{w[2]}」 ({w[0] / speed:.2f}초)')
 
