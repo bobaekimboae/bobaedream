@@ -89,6 +89,13 @@ def check(C, items, lib, fer):
                 err.append(f"{i['code']}: 함수 {name} 없음 ({path})")
         if i['status'] in ('구현', '일부') and i['kind'] != 'asset' and not i.get('impl'):
             err.append(f"{i['code']}: 상태 {i['status']}인데 impl 없음")
+    # 버전 기록은 CHANGELOG.md 하나: 사전 버전 = 변경 기록 맨 위 버전
+    cl = os.path.join(os.path.dirname(HERE), 'CHANGELOG.md')
+    top = re.search(r'^## v([\d.]+) · ', open(cl, encoding='utf-8').read(), re.M) if os.path.exists(cl) else None
+    if not top:
+        err.append('CHANGELOG.md 맨 위 버전(## vX.Y.Z · 날짜)을 찾지 못함')
+    elif top.group(1) != C['version']:
+        err.append(f"사전 버전 {C['version']} ≠ CHANGELOG 맨 위 버전 {top.group(1)} — 둘 다 같은 번호로 올리세요")
     return err
 
 
