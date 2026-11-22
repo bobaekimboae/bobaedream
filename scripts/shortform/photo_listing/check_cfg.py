@@ -72,12 +72,17 @@ def main(car, speed=1.1):
     # ④ 합니다체: 문장 끝 낱말 검사
     for t, _, c in items:
         tt = t.strip()
+        if tt.rstrip('!.') == '다운받으세요':   # 사용자 확정 CTA 문장(끝말 고정)
+            continue
         if any(tt.endswith(b) for b in BAD_END) and not tt.endswith('주십시오'):
             err.append(f'합니다체 아님: 「{tt}」(컷 {c[1]})')
 
     # ⑤ 앱 안내 / 딜러 호칭
     if not any('딜러' in t for t, _, _ in items):
         warn.append('내레이션에 딜러 호칭 없음(README 6장 사진판: 「판매는 ○○, ○○○ 딜러가 담당합니다」)')
+    import fact_check   # ⑧ 대본 사실 검사(마스터 12장 K1)
+    _fe, _fw = fact_check.check(C, W, car)
+    err += _fe; warn += _fw
     if getattr(C, 'AUTO_VISUALS', False) and any(('휠' in c[1] or '타이어' in c[1]) for c in C.CUTS):
         wv = (getattr(C, 'LISTING_OPTIONS', {}) or {}).get('wheel') or {}
         if not (wv.get('inch') and wv.get('tire')):   # 2026-11-22 사용자 「휠은 인치와 타이어크기 고정」
