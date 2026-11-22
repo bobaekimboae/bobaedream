@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "updated": "2026-11-22",
   "_what": "보배드림 숏폼 자동 편집 — 편집 유형·편집 구성·편집 기법·옵션 표시·자산의 표준 이름 사전(단일 기준). 사람용 문서 CATALOG.md 는 build.py 가 이 파일로 만든다. 옵션 표시(FM-*)는 scripts/shortform/photo_listing/option_visual_rules.json 에서, AS24 관찰 스킬은 scripts/shortform/edit_skills/library_v2.json 에서, 실촬영 기법(T01~)은 scripts/shortform/video_listing/feature_edit_rules.json 에서 자동으로 붙인다.",
   "terms": {
@@ -62,7 +62,7 @@
       "ko": "ASMR (내레이션 없음)",
       "en": "ASMR, no narration",
       "input": "소리를 살려 찍은 촬영 영상 + 매물 원장",
-      "sound": "녹음된 원래 소리만(배경음악·효과음 없음 — 사용자 확인 대기)",
+      "sound": "녹음된 원래 소리만 — 배경음악·효과음 없음(2026-11-22 확정)",
       "status": "계획",
       "impl": "",
       "fixed": [
