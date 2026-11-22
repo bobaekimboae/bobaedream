@@ -58,7 +58,16 @@ def check_code_video():
             (lib, "R['chip']['y_top_px_feature_video']", '위쪽 칩 줄을 규칙에서 읽음'),
             (ren, "R['caption']['center_y_px']", '자막 높이를 규칙에서 읽음'), (ren, "R['caption']['font_px']", '자막 크기를 규칙에서 읽음'),
             (ren, "R['sfx']", '효과음 규칙을 읽음'), (ren, "R['audio']", '음량을 규칙에서 읽음'), (ren, "metaphor_sfx", '비유 효과음 규칙을 읽음'),
-            (ren, "g350_edit.json", '뜻 단위 자막 덩어리 입력 파일')]
+            (ren, "g350_edit.json", '뜻 단위 자막 덩어리 입력 파일'),
+            (lib, "R['chip']['title_plate']", '첫 컷 브랜드 칩 판·여백을 규칙에서 읽음'), (ren, "title=True", '첫 컷 브랜드 칩만 칠 기울임')]
+    pho = open(os.path.join(HERE, 'photo_listing', 'common.py'), encoding='utf-8').read()
+    one = open(os.path.join(vl, 'listing_video_render.py'), encoding='utf-8').read()
+    must += [(pho, "_BE['chip']['tilt_jitter_deg']", '사진판 칩 흔들림을 규칙에서 읽음'),
+             (one, "R['caption']['center_y_px']", '단일 영상 렌더러: 자막 높이 규칙'), (one, "R['sfx']", '단일 영상 렌더러: 효과음 규칙'),
+             (one, "R['audio']", '단일 영상 렌더러: 음량 규칙'), (one, 'edition_lock.json', '단일 영상 렌더러: 판 잠금 파일')]
+    for pat, name in [(r'\(-0\.8,\s*0\.6,\s*0\.0\)', '사진판 칩 흔들림 숫자 직접 씀'), (r"'(HOOK|DEALER_CHIP)_TILT',\s*-\d", '사진판 칩 기울기 숫자 직접 씀')]:
+        hit = re.search(pat, pho)
+        (bad if hit else ok)(f'{name} 없음' if not hit else f'{name}: {hit.group(0)}')
     for src, pat, name in must:
         (ok if pat in src else bad)(f'{name} ({pat})')
     banned = [(r'CAPY\s*=\s*int\(H', '자막 높이를 화면 비율로 직접 씀'), (r'loudnorm=I=-?\d', '음량 숫자를 직접 씀'),
@@ -103,7 +112,9 @@ def check_video(path):
     SF = [x if isinstance(x, dict) else {'t': x, 'sound': '?'} for x in P['sfx']]
     T = sorted(x['t'] for x in SF); total = P.get('total') or (T[-1] if T else 30)
     lim = int(S['max_per_30s'] * total / 30)
-    (ok if len(T) <= lim else bad)(f'효과음 {len(T)}번 (규칙 30초당 {S["max_per_30s"]}번 → 최대 {lim}번)')
+    ph = P.get('edition_code') == 'ED-PHOTO'   # 사진판: 효과음 많게(사용자 확정 예외) → 개수 상한은 보지 않음
+    if ph: ok(f'효과음 {len(T)}번 (사진판 예외 — 개수 상한 안 봄)')
+    else: (ok if len(T) <= lim else bad)(f'효과음 {len(T)}번 (규칙 30초당 {S["max_per_30s"]}번 → 최대 {lim}번)')
     gaps = [b - a for a, b in zip(T, T[1:])]
     (ok if all(g >= S['min_gap_s'] - 1e-6 for g in gaps) else bad)(f'효과음 간격 최소 {min(gaps) if gaps else "-":.2f}초 (규칙 {S["min_gap_s"]}초 이상)' if gaps else '효과음 간격 -')
     same = [(a['sound'], b['t'] - a['t']) for i, a in enumerate(sorted(SF, key=lambda x: x['t'])) for b in sorted(SF, key=lambda x: x['t'])[i + 1:] if a['sound'] == b['sound'] != '?']
@@ -112,10 +123,10 @@ def check_video(path):
     tail = [t for t in T if t > total - RULES['end']['tail_s']]
     (bad if tail and not S['end_logo'] else ok)(f'끝 로고 구간 효과음 {len(tail)}번 (규칙: 넣지 않음)')
     want_px = lambda c: CH['title_font_px'] if c.get('kind') == 'title' else CH['font_px']
-    badpx = [c['label'] for c in P['chips'] if c['px'] != want_px(c)]
+    badpx = [c['label'] for c in P['chips'] if 'px' in c and c['px'] != want_px(c)]
     (ok if not badpx else bad)(f'칩 글자 크기 규칙대로(칩 {CH["font_px"]} · 제목 {CH["title_font_px"]})' if not badpx else f'칩 글자 크기 어긋남: {badpx}')
     fixed = [c for c in P['chips'] if c.get('kind', 'point') in ('point', 'title')]
-    ywant = CH['y_top_px_feature_video'] if fv else CH['y_top_px']; ys = {c['y'] for c in fixed}
+    ywant = CH['y_top_px_feature_video'] if fv else CH['y_top_px']; ys = {c['y'] for c in fixed if 'y' in c}
     (ok if ys <= {ywant} else bad)(f'위쪽 칩 자리 {sorted(ys)} (규칙 위 {ywant}px 하나, 부위 이름표는 부위를 따라감)')
     for c in P['chips']:
         cut_in = [t for t in P['cuts'] if c['t0'] + 0.02 < t < c['t1'] - 0.02]
@@ -134,6 +145,18 @@ def check_video(path):
             if len(rows) == 0: bad(f'{t:.2f}초 칩 노랑이 안 보임 ({c["label"]})'); continue
             if c.get('kind', 'point') in ('point',): tops.append(y0 + rows.min())
             if c.get('kind') != 'title': hs.append(rows.max() - rows.min())
+            else:   # 첫 컷 브랜드 칩: 칠 윗선·아랫선 직선 맞춤 기울기(벨기에 원본과 같은 재는 법, 규칙 title_plate_edge_deg_check)
+                cols_ = np.where(band.sum(0) > 3)[0]; X_, tp_, bt_ = [], [], []
+                if len(cols_) > 20:
+                    a_, b_ = cols_.min(), cols_.max(); w_ = b_ - a_
+                    for x_ in range(int(a_ + 0.2 * w_), int(b_ - 0.2 * w_)):
+                        r_ = np.where(band[:, x_])[0]
+                        if len(r_) >= 5: X_.append(x_); tp_.append(r_.min()); bt_.append(r_.max())
+                if len(X_) > 10:
+                    ang = float(np.degrees(-np.arctan((np.polyfit(X_, tp_, 1)[0] + np.polyfit(X_, bt_, 1)[0]) / 2)))
+                    want, tol = CH['title_plate_edge_deg_check']
+                    (ok if abs(ang - want) <= tol else bad)(f'첫 컷 브랜드 칩 칠 기울기 실측 {ang:.1f}° (벨기에 원본 {want}° ±{tol}°, 판 {CH["title_plate"]["shape"]})')
+                else: bad('첫 컷 브랜드 칩 칠을 못 잼')
             cols.append(reg[band].mean(0))
         else:
             band = yellow_mask(img[:cy - 120])

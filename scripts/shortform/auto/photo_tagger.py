@@ -50,28 +50,21 @@ SCREEN_KIND = {
 }
 
 
-def _cls(m, pr, ims, table):
-    import torch
+def _cls(zs, ims, table):
     keys = list(table); texts = [t for k in keys for t in table[k]]; own = [k for k in keys for _ in table[k]]
-    with torch.no_grad():
-        ti = pr(text=texts, return_tensors='pt', padding=True); tf = m.get_text_features(**ti); tf = getattr(tf, 'pooler_output', tf); tf = tf / tf.norm(dim=-1, keepdim=True)
-        ii = pr(images=ims, return_tensors='pt'); f = m.get_image_features(**ii); f = getattr(f, 'pooler_output', f); f = f / f.norm(dim=-1, keepdim=True)
-        lg = (100 * f @ tf.T).softmax(-1).numpy()
+    lg = zs.probs(zs.image(ims), zs.text(texts))
     p = np.stack([lg[:, [j for j, o in enumerate(own) if o == k]].sum(1) for k in keys], 1)
     return [(keys[int(r.argmax())], round(float(r.max()), 2), {k: round(float(v), 3) for k, v in zip(keys, r)}) for r in p]
 
 
 def tag(folder):
-    import torch
-    from transformers import CLIPModel, CLIPProcessor
-    m = CLIPModel.from_pretrained('openai/clip-vit-base-patch32').eval(); pr = CLIPProcessor.from_pretrained('openai/clip-vit-base-patch32')
+    from vlm import ZeroShot
+    zs = ZeroShot()  # 2026-11-22 공용 모듈(SigLIP 2 기본, BBM_VLM=clip 이면 옛 CLIP)
     keys = list(PROMPTS); texts = [t for k in keys for t in PROMPTS[k]]; own = [k for k in keys for _ in PROMPTS[k]]
     files = sorted(glob.glob(os.path.join(folder, 'p*.jpg')))
     ims = [Image.open(f).convert('RGB') for f in files]
-    with torch.no_grad():
-        ti = pr(text=texts, return_tensors='pt', padding=True); tf = m.get_text_features(**ti); tf = getattr(tf, 'pooler_output', tf); tf = tf / tf.norm(dim=-1, keepdim=True)
-        ii = pr(images=ims, return_tensors='pt'); f = m.get_image_features(**ii); f = getattr(f, 'pooler_output', f); f = f / f.norm(dim=-1, keepdim=True)
-        lg = (100 * f @ tf.T).softmax(-1).numpy()
+    imf = zs.image(ims)
+    lg = zs.probs(imf, zs.text(texts))
     prob = np.stack([lg[:, [j for j, o in enumerate(own) if o == k]].sum(1) for k in keys], 1)
     small = [np.asarray(im.convert('L').resize((32, 18)), np.float32) for im in ims]
     top = [keys[int(np.argmax(prob[i]))] for i in range(len(files))]
@@ -79,10 +72,10 @@ def tag(folder):
     scr = [i for i in range(len(files)) if top[i] in SCREEN]
     view = {}
     if ext:
-        whole = _cls(m, pr, [ims[i] for i in ext], WHOLE)
+        whole = _cls(zs, [ims[i] for i in ext], WHOLE)
         ext = [i for i, w in zip(ext, whole) if w[0] == 'whole']
     if ext:
-        fr = {i: r[2]['front'] for i, r in zip(ext, _cls(m, pr, [ims[i] for i in ext], FRONT_REAR))}
+        fr = {i: r[2]['front'] for i, r in zip(ext, _cls(zs, [ims[i] for i in ext], FRONT_REAR))}
         sym = {i: symmetry_diff(ims[i]) for i in ext}
         hi = sorted(sym.values(), reverse=True)[:2]
         cut = STRAIGHT_RATIO * (sum(hi) / len(hi))
@@ -97,7 +90,10 @@ def tag(folder):
             for i in grp if len(grp) == 1 else []:
                 v = fname if fr[i] >= 0.5 else rname
                 view[i] = (v, round(fr[i], 2), {v: 1.0, 'sym': round(sym[i], 1)})
-    skind = dict(zip(scr, _cls(m, pr, [ims[i] for i in scr], SCREEN_KIND))) if scr else {}
+    # SigLIP 2는 「화면 없음」 같은 부정 문장을 잘 못 읽어(실측 람보르기니 우루스 20장: 후방카메라 사진도 none 0.52) none을 빼고 고른다
+    sk_table = {k: v for k, v in SCREEN_KIND.items() if not (zs.name == 'siglip2' and k == 'none')}
+    skind = dict(zip(scr, _cls(zs, [ims[i] for i in scr], sk_table))) if scr else {}
+    sk_parts = ('screen',) if zs.name == 'siglip2' else ('screen', 'steering_wheel', 'interior_dash')
     out = []
     for i, fn in enumerate(files):
         order = np.argsort(-prob[i])[:3]
@@ -109,7 +105,7 @@ def tag(folder):
             part = {'front': 'exterior_front', 'front_3_4': 'exterior_front_3_4', 'rear_3_4': 'exterior_rear_3_4', 'rear': 'exterior_rear'}[v]
         if i in skind:
             k, ks, kp = skind[i]; extra['screen'] = [k, ks]; extra['screen_probs'] = kp
-            if k in ('cluster', 'camera', 'map') and ks >= 0.5 and part in ('screen', 'steering_wheel', 'interior_dash'):
+            if k in ('cluster', 'camera', 'map') and ks >= 0.5 and part in sk_parts:
                 part = 'screen_' + k
         if np.asarray(ims[i].convert('L'), np.float32).std() < 18:  # 거의 한 가지 색(천장 조명만 찍힌 사진 등)은 쓰지 않음
             part, extra['note'] = 'other', '정보 없는 사진'
@@ -117,7 +113,7 @@ def tag(folder):
                     'part': part, 'score': sc, **extra,
                     'top3': [[keys[k], round(float(prob[i, k]), 2)] for k in order],
                     'probs': {k: round(float(prob[i, j]), 3) for j, k in enumerate(keys)},
-                    'dup_of': dup, 'by': 'clip'})
+                    'dup_of': dup, 'by': zs.name})
     return out, ims
 
 

@@ -1,0 +1,289 @@
+[
+ {
+  "t0": 0.0,
+  "t1": 3.5,
+  "part": "door",
+  "score": 0.57,
+  "by": "clip"
+ },
+ {
+  "t0": 3.5,
+  "t1": 8.5,
+  "part": "interior_ceiling",
+  "score": 0.75,
+  "by": "clip"
+ },
+ {
+  "t0": 8.5,
+  "t1": 10.0,
+  "part": "door",
+  "score": 0.76,
+  "by": "clip"
+ },
+ {
+  "t0": 10.0,
+  "t1": 13.0,
+  "part": "wheel",
+  "score": 0.98,
+  "by": "clip"
+ },
+ {
+  "t0": 13.0,
+  "t1": 13.5,
+  "part": "other",
+  "score": 0.32,
+  "by": "clip",
+  "note": "짧고 점수 낮음"
+ },
+ {
+  "t0": 13.5,
+  "t1": 14.0,
+  "part": "other",
+  "score": 0.53,
+  "by": "clip",
+  "note": "짧고 점수 낮음"
+ },
+ {
+  "t0": 14.0,
+  "t1": 14.5,
+  "part": "other",
+  "score": 0.35,
+  "by": "clip",
+  "note": "짧고 점수 낮음"
+ },
+ {
+  "t0": 14.5,
+  "t1": 16.5,
+  "part": "exterior_rear",
+  "score": 0.6,
+  "by": "clip"
+ },
+ {
+  "t0": 16.5,
+  "t1": 21.0,
+  "part": "taillight",
+  "score": 0.78,
+  "by": "clip"
+ },
+ {
+  "t0": 21.0,
+  "t1": 22.0,
+  "part": "other",
+  "score": 0.69,
+  "by": "clip",
+  "note": "짧고 점수 낮음"
+ },
+ {
+  "t0": 22.0,
+  "t1": 23.0,
+  "part": "exterior_rear",
+  "score": 0.79,
+  "by": "clip"
+ },
+ {
+  "t0": 23.0,
+  "t1": 26.0,
+  "part": "door",
+  "score": 0.89,
+  "by": "clip"
+ },
+ {
+  "t0": 26.0,
+  "t1": 29.0,
+  "part": "trunk",
+  "score": 0.63,
+  "by": "clip"
+ },
+ {
+  "t0": 29.0,
+  "t1": 30.5,
+  "part": "console",
+  "score": 0.6,
+  "by": "clip"
+ },
+ {
+  "t0": 30.5,
+  "t1": 32.5,
+  "part": "exterior_side",
+  "score": 0.59,
+  "by": "clip"
+ },
+ {
+  "t0": 32.5,
+  "t1": 35.0,
+  "part": "door",
+  "score": 0.9,
+  "by": "clip"
+ },
+ {
+  "t0": 35.0,
+  "t1": 37.0,
+  "part": "console",
+  "score": 0.43,
+  "by": "clip"
+ },
+ {
+  "t0": 37.0,
+  "t1": 41.0,
+  "part": "seats_front",
+  "score": 0.67,
+  "by": "clip"
+ },
+ {
+  "t0": 41.0,
+  "t1": 42.5,
+  "part": "console",
+  "score": 0.73,
+  "by": "clip"
+ },
+ {
+  "t0": 42.5,
+  "t1": 55.0,
+  "part": "door",
+  "score": 0.78,
+  "by": "clip"
+ },
+ {
+  "t0": 55.0,
+  "t1": 66.5,
+  "part": "console",
+  "score": 0.74,
+  "by": "clip"
+ },
+ {
+  "t0": 66.5,
+  "t1": 69.5,
+  "part": "interior_ceiling",
+  "score": 0.74,
+  "by": "clip"
+ },
+ {
+  "t0": 69.5,
+  "t1": 71.0,
+  "part": "door",
+  "score": 0.51,
+  "by": "clip"
+ },
+ {
+  "t0": 71.0,
+  "t1": 76.5,
+  "part": "interior_ceiling",
+  "score": 0.92,
+  "by": "clip"
+ },
+ {
+  "t0": 76.5,
+  "t1": 80.0,
+  "part": "door",
+  "score": 0.66,
+  "by": "clip"
+ },
+ {
+  "t0": 80.0,
+  "t1": 86.0,
+  "part": "interior_ceiling",
+  "score": 0.87,
+  "by": "clip"
+ },
+ {
+  "t0": 86.0,
+  "t1": 87.5,
+  "part": "key",
+  "score": 0.66,
+  "by": "clip"
+ },
+ {
+  "t0": 87.5,
+  "t1": 92.0,
+  "part": "console",
+  "score": 0.73,
+  "by": "clip"
+ },
+ {
+  "t0": 92.0,
+  "t1": 93.5,
+  "part": "other",
+  "score": 0.56,
+  "by": "clip"
+ },
+ {
+  "t0": 93.5,
+  "t1": 96.5,
+  "part": "door",
+  "score": 0.64,
+  "by": "clip"
+ },
+ {
+  "t0": 96.5,
+  "t1": 99.5,
+  "part": "exterior_side",
+  "score": 0.62,
+  "by": "clip"
+ },
+ {
+  "t0": 99.5,
+  "t1": 101.0,
+  "part": "exterior_front",
+  "score": 0.57,
+  "by": "clip"
+ },
+ {
+  "t0": 101.0,
+  "t1": 103.5,
+  "part": "headlight",
+  "score": 0.85,
+  "by": "clip"
+ },
+ {
+  "t0": 103.5,
+  "t1": 116.5,
+  "part": "exterior_front",
+  "score": 0.67,
+  "by": "clip"
+ },
+ {
+  "t0": 116.5,
+  "t1": 121.5,
+  "part": "door",
+  "score": 0.8,
+  "by": "clip"
+ },
+ {
+  "t0": 121.5,
+  "t1": 122.5,
+  "part": "other",
+  "score": 0.21,
+  "by": "clip",
+  "note": "짧고 점수 낮음"
+ },
+ {
+  "t0": 122.5,
+  "t1": 128.5,
+  "part": "door",
+  "score": 0.66,
+  "by": "clip"
+ },
+ {
+  "t0": 128.5,
+  "t1": 129.5,
+  "part": "other",
+  "score": 0.48,
+  "by": "clip",
+  "note": "짧고 점수 낮음"
+ },
+ {
+  "t0": 129.5,
+  "t1": 130.5,
+  "part": "other",
+  "score": 0.49,
+  "by": "clip",
+  "note": "짧고 점수 낮음"
+ },
+ {
+  "t0": 130.5,
+  "t1": 131.37,
+  "part": "exterior_side",
+  "score": 0.8,
+  "by": "clip"
+ }
+]

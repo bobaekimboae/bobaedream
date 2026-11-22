@@ -21,14 +21,42 @@
     "brush_on_caption": false
   },
   "chip": {
-  "fill_fit": {"band_to_ink": 2.0, "side_pad_ink": [0.5, 0.8], "text_lift_ink": 0.06, "shapes": ["103_33", "126_40", "168_76", "193_76", "201_43", "325_76", "265_42", "446_76"], "_rule": "칠은 노션 원본 SVG(brush-fill/as24-theme) 그대로, 가로·세로 같은 배율로만 키움(늘이기·그리기 금지). 칠 높이 = 글자 높이 × 2.0(AS24 벨기에 실측 1.86~2.19). 좌우 여백이 글자 높이 0.5~0.8배에 가장 가까운 원본을 고름. 글자는 칠 가운데에서 글자 높이 6% 위(2026-11-22 사용자 확정)"},
+    "fill_fit": {
+      "band_to_ink": 2.0,
+      "side_pad_ink": [
+        0.5,
+        0.8
+      ],
+      "text_lift_ink": 0.06,
+      "shapes": [
+        "103_33",
+        "126_40",
+        "168_76",
+        "193_76",
+        "201_43",
+        "325_76",
+        "265_42",
+        "446_76"
+      ],
+      "_rule": "칠은 노션 원본 SVG(brush-fill/as24-theme) 그대로, 가로·세로 같은 배율로만 키움(늘이기·그리기 금지). 칠 높이 = 글자 높이 × 2.0(AS24 벨기에 실측 1.86~2.19). 좌우 여백이 글자 높이 0.5~0.8배에 가장 가까운 원본을 고름. 글자는 칠 가운데에서 글자 높이 6% 위(2026-11-22 사용자 확정)"
+    },
     "shape": "notion_plate_fill_fit",
     "text_color": "ink",
     "font_px": 70,
     "title_font_px": 74,
     "tilt_ccw_deg": 0,
-    "tilt_jitter_deg": [0, 0, 0],
-    "_tilt_rule": "2026-11-22 사용자 확정: 칩은 기울이지 않는다(옛 붓 테이프 5.7° 폐지). 칠 모양은 fill_fit(노션 원본 판)",
+    "tilt_jitter_deg": [
+      0,
+      0,
+      0
+    ],
+    "_tilt_rule": "2026-11-22 사용자 확정: 칩은 기울이지 않는다(옛 붓 테이프 5.7° 폐지). 칠 모양은 fill_fit(노션 원본 판). 예외는 첫 컷 브랜드 칩 하나(title_plate)",
+    "title_text_level": true,
+    "title_plate_edge_deg_check": [
+      6.7,
+      1.0
+    ],
+    "_title_tilt_rule": "첫 컷 브랜드 칩 기울기는 title_plate 판(430_239) 자체 기울기다. 렌더러가 따로 돌리지 않는다. 검사 title_plate_edge_deg_check(윗선·아랫선 맞춤 6.7° ±1°)",
     "y_top_px": 400,
     "y_top_px_feature_video": 300,
     "hold_feature_video": "cut_end",
@@ -39,7 +67,15 @@
     "never_cross_cut": true,
     "same_slot_replace": true,
     "text_is_spoken_word": true,
-    "_rule": "장소 칩·포인트 칩·숫자 칩 모두 같은 글자 크기·같은 칠·같은 자리. 같은 순간 두 칩이면 같은 자리에서 글자만 바뀜. 영상판 「부위 이름표」(화살표로 부위를 가리키는 칩, 2026-11-21 사용자 승인 기법)는 글자 크기·칠은 같고 자리만 부위를 따라감 — 자리 규칙은 feature_edit_rules.json mapping"
+    "_rule": "장소 칩·포인트 칩·숫자 칩 모두 같은 글자 크기·같은 칠·같은 자리. 같은 순간 두 칩이면 같은 자리에서 글자만 바뀜. 영상판 「부위 이름표」(화살표로 부위를 가리키는 칩, 2026-11-21 사용자 승인 기법)는 글자 크기·칠은 같고 자리만 부위를 따라감 — 자리 규칙은 feature_edit_rules.json mapping",
+    "title_plate": {
+      "shape": "430_239",
+      "side_pad_ink": [
+        0.45,
+        0.3
+      ],
+      "_rule": "2026-11-22 사용자 확정(「첫 컷 브랜드는 칠은 벨기에처럼 각도 있는 거 고정」 → 「좌우 마진 너무 많다, 칩 원본은 노션 테마 바탕색 36_20 · 63_34 · 430_239 중 하나」): 첫 컷 브랜드 칩 칠은 노션 「테마 바탕색_430_239」(36_20 · 63_34와 같은 모양, 가장 큰 원본) 하나만 쓴다. 노션 매핑에서 벨기에 제목 칩(Mercedes · Golf R · Luxe optie)이 이 판. 판 자체가 기울어 있어(윗선·아랫선 6.9°) 따로 돌리지 않고, 글자는 수평. 칠 폭 = 글자 폭 + 왼쪽 글자 높이 0.45배 + 오른쪽 0.3배, 높이는 같은 배율로 따라감(늘이기 금지). 근거: 벨기에 원본 6편 첫 컷 칠 가운데 줄 폭÷높이 2.11~2.13(430_239 판 2.11), 윗선·아랫선 5.8~9.2°(중앙 6.7°, 판 6.9°), 글자 좌우 여백 왼쪽 0.35~0.7 · 오른쪽 0.05~0.45배. 포인트 칩은 fill_fit · 0° 그대로"
+    }
   },
   "icon": {
     "set": "fluent_3d",
@@ -56,9 +92,30 @@
     "chip_ratio": 0.4,
     "big_number_ratio": 1.0,
     "part_change_max": 4,
-    "kinds": {"title": "ding", "chip": "ding", "big_number": "ding", "emphasis": "impact", "part_change": "whoosh", "icon": "pop", "metaphor": "photo_listing/option_visual_rules.json layout.metaphor_sfx"},
-    "priority": ["metaphor", "big_number", "title", "chip", "emphasis", "part_change", "icon"],
-    "volume": {"ding": 0.7, "impact": 0.5, "whoosh": 0.45, "pop": 0.3},
+    "kinds": {
+      "title": "ding",
+      "chip": "ding",
+      "big_number": "ding",
+      "emphasis": "impact",
+      "part_change": "whoosh",
+      "icon": "pop",
+      "metaphor": "photo_listing/option_visual_rules.json layout.metaphor_sfx"
+    },
+    "priority": [
+      "metaphor",
+      "big_number",
+      "title",
+      "chip",
+      "emphasis",
+      "part_change",
+      "icon"
+    ],
+    "volume": {
+      "ding": 0.7,
+      "impact": 0.5,
+      "whoosh": 0.45,
+      "pop": 0.3
+    },
     "end_logo": false,
     "cut": false,
     "_rule": "2026-11-22 사용자 확정(「네덜란드 오토스카우트24처럼 다양하게, 나세르도 효과음 잘 살린다」): 빈도는 NL(칩 약 40%·큰 숫자·첫 화면 딩), 종류는 나세르처럼 여러 가지(딩·쿵·휙·팝 + 비유 효과음). 겹치면 priority 앞쪽만 남김. 끝 로고·단순 컷에는 넣지 않음. 사진판은 SFX_RICH 예외 그대로, ASMR판은 효과음 없음. 옛 규칙(음악 있으면 1번·한 종류·간격 1.0초) 폐지"
@@ -80,6 +137,7 @@
     "2026-11-19 모든 칩은 글자 크기·모양이 같다",
     "2026-11-22 효과음은 네덜란드 AS24 빈도 + 나세르처럼 다양한 종류(sfx 규칙) · 사진 매물(photo_listing)은 SFX_RICH 그대로 · ASMR판은 효과음 없음",
     "2026-11-22 칩은 기울이지 않는다 · 칠은 노션 원본 판을 같은 배율로만(그리기·늘이기 금지)",
+    "2026-11-22 첫 컷 브랜드 칩만 벨기에 원본 판(노션 테마 바탕색 430_239, 판 자체 기울기) · 좌우 여백 좁게 · 글자는 수평",
     "번호판은 가리지 않고 개인 연락처만 가린다 · 없는 사실·할부 금액 금지"
   ]
 }

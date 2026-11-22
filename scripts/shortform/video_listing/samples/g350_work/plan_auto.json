@@ -1,0 +1,293 @@
+{
+ "cuts": [
+  {
+   "key": "c1",
+   "t0": 0.0,
+   "t1": 4.17,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c2",
+   "t0": 4.17,
+   "t1": 7.35,
+   "options": [
+    "headlight",
+    "drl"
+   ],
+   "chip": "헤드램프",
+   "techniques": [
+    {
+     "id": "T05",
+     "option": "headlight",
+     "glow": 124.6,
+     "at": 4.13,
+     "fade_out_at": 5.27
+    }
+   ]
+  },
+  {
+   "key": "c3",
+   "t0": 7.35,
+   "t1": 10.79,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c4",
+   "t0": 10.79,
+   "t1": 15.33,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c5",
+   "t0": 15.33,
+   "t1": 18.78,
+   "options": [
+    "sunroof"
+   ],
+   "chip": "전동 선루프",
+   "techniques": [
+    {
+     "id": "T01",
+     "at": 15.33,
+     "action_src": [
+      69.6,
+      71.0
+     ],
+     "result_src": [
+      72.3,
+      75.3
+     ]
+    }
+   ]
+  },
+  {
+   "key": "c6",
+   "t0": 18.78,
+   "t1": 20.91,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c7",
+   "t0": 20.91,
+   "t1": 24.58,
+   "options": [
+    "tow_hitch"
+   ],
+   "chip": "견인고리",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 38,
+     "value": "3,500kg",
+     "at": 22.01
+    }
+   ]
+  },
+  {
+   "key": "c8",
+   "t0": 24.58,
+   "t1": 30.34,
+   "options": [
+    "trunk"
+   ],
+   "chip": "트렁크 용량",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 44,
+     "value": "480L",
+     "at": 25.14
+    },
+    {
+     "id": "T04",
+     "word": 47,
+     "value": "2,250L",
+     "at": 27.4
+    }
+   ]
+  },
+  {
+   "key": "c9",
+   "t0": 30.34,
+   "t1": 33.93,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c10",
+   "t0": 33.93,
+   "t1": 35.89,
+   "options": [
+    "seat_adjust"
+   ],
+   "chip": "전동 시트 조절",
+   "techniques": [
+    {
+     "id": "T06",
+     "option": "seat_adjust",
+     "at": 34.14
+    }
+   ]
+  },
+  {
+   "key": "mem",
+   "t0": 35.89,
+   "t1": 38.25,
+   "options": [
+    "seat_memory"
+   ],
+   "chip": "메모리 시트",
+   "techniques": []
+  },
+  {
+   "key": "c11",
+   "t0": 38.25,
+   "t1": 40.42,
+   "options": [
+    "controller"
+   ],
+   "chip": "커맨드 컨트롤러",
+   "techniques": [
+    {
+     "id": "T08",
+     "option": "controller",
+     "at": 38.39
+    }
+   ]
+  },
+  {
+   "key": "c12",
+   "t0": 40.42,
+   "t1": 43.03,
+   "options": [
+    "climate"
+   ],
+   "chip": "공조 다이얼",
+   "techniques": [
+    {
+     "id": "T08",
+     "option": "climate",
+     "at": 40.44
+    }
+   ]
+  },
+  {
+   "key": "c13",
+   "t0": 43.03,
+   "t1": 48.96,
+   "options": [
+    "diff_lock"
+   ],
+   "chip": "디퍼렌셜 락",
+   "techniques": [
+    {
+     "id": "T02",
+     "option": "diff_lock",
+     "rows": [
+      {
+       "item": "앞",
+       "word": 79,
+       "at": 46.5
+      },
+      {
+       "item": "가운데",
+       "word": 80,
+       "at": 47.0
+      },
+      {
+       "item": "뒤",
+       "word": 81,
+       "at": 47.66
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "dx",
+   "t0": 48.96,
+   "t1": 53.63,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c14",
+   "t0": 53.63,
+   "t1": 55.64,
+   "options": [
+    "door_step_light"
+   ],
+   "chip": "조명 도어 스텝",
+   "techniques": [
+    {
+     "id": "T05",
+     "option": "door_step_light",
+     "glow": 135.0,
+     "at": 54.43,
+     "fade_out_at": null
+    }
+   ]
+  },
+  {
+   "key": "c15",
+   "t0": 55.64,
+   "t1": 68.22,
+   "options": [
+    "power",
+    "engine"
+   ],
+   "chip": "마력",
+   "techniques": [
+    {
+     "id": "T03",
+     "steps": [
+      {
+       "word": 101,
+       "at": 59.13
+      },
+      {
+       "word": 103,
+       "at": 61.05
+      },
+      {
+       "word": 105,
+       "at": 61.99
+      }
+     ]
+    },
+    {
+     "id": "T04",
+     "word": 100,
+     "value": "211마력",
+     "at": 57.9
+    },
+    {
+     "id": "T07",
+     "word": 100,
+     "value": 211,
+     "at": 58.85
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "T01": 1,
+  "T02": 1,
+  "T03": 1,
+  "T04": 4,
+  "T05": 2,
+  "T06": 1,
+  "T07": 1,
+  "T08": 2
+ }
+}

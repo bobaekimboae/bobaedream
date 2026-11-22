@@ -52,12 +52,18 @@ def build(C, words, cuts):
                 continue
         kws = list(r['keywords']) + [str(v).split()[0] for v in vals.values() if isinstance(v, str) and v.strip()]   # v1.8.3: 매물 값 낱말(「서라운드 뷰」)로 말해도 그 옵션을 말한 것
         wi = next((i for i, w in enumerate(words) if any(k in w[2] for k in kws)), None)
+        if r.get('fixed_on_part_cut'):   # 2026-11-22 사용자 「휠은 인치와 타이어 크기 고정」: 휠 사진 컷이면 말하지 않아도 항상
+            pci = next((i for i, c in enumerate(cuts) if any(k in c[1] for k in ('휠', '타이어'))), None)
+            if pci is not None:
+                end = cuts[pci + 1][2] if pci + 1 < len(cuts) else 10 ** 9
+                if wi is None or not (cuts[pci][2] <= wi < end):
+                    wi = cuts[pci][2]
         if wi is None:
             report.append(('⛔ 필수 옵션 대본에 없음: ' if r.get('required') else '대본에 없음(그림 생략): ') + r['name'])
             continue
         ci = max(i for i, s in enumerate(starts) if s <= wi)
         photo, label = cuts[ci][0], cuts[ci][1]
-        if r['id'] == 'seat_memory' or (r['id'] in SEAT_BUNDLE + ('seat_material',) and any(k in label for k in FRONT_SEAT) and '뒷' not in label):
+        if r['id'] in ('seat_memory', 'seat_power') or (r['id'] in SEAT_BUNDLE + ('seat_material',) and any(k in label for k in FRONT_SEAT) and '뒷' not in label):
             continue   # 시트 사진에서는 시트 묶음(_seat_bundle)이 한꺼번에 그림
         v = r['visual']
         sk = {'w': wi, 'photo': photo, 'auto': r['id']}
@@ -123,6 +129,7 @@ def build(C, words, cuts):
     stickers += _seat_bundle(C, words, cuts, opts, lay, report)
     stickers += _climate_bundle(words, cuts, lay, report)
     stickers += _numbers_on_screen(C, words, cuts, stickers, report)
+    stickers = _cap_per_cut(stickers, lay['max_per_cut'], report)
     for sk in stickers:   # 같은 사진의 시트 아이콘들을 부위 가운데 기준으로 고르게 벌림
         if 'seat_k' in sk:
             n = seat_n[sk['photo']]
@@ -133,7 +140,35 @@ def build(C, words, cuts):
     return stickers, report
 
 
-SEAT_BUNDLE = ('seat_heat', 'seat_vent', 'seat_massage', 'seat_memory')
+def _group(sk):
+    a = str(sk.get('auto', ''))
+    if a.startswith('climate_'):
+        return 'climate'
+    if a.endswith('@seat'):
+        return 'seat'
+    return a.split('@')[0]
+
+
+def _cap_per_cut(stickers, cap, report):
+    """2026-11-22 오토비브 학습(말은 다 하되 그림은 골라서): 한 컷(사진)에 그림 묶음은 layout.max_per_cut개까지.
+    시트 묶음 · 공조 묶음 · 휠 인치+타이어 규격은 각각 한 묶음으로 센다. 먼저 말한 묶음부터 남긴다."""
+    first = {}
+    for sk in stickers:
+        k = (sk['photo'], _group(sk))
+        first[k] = min(first.get(k, 10 ** 9), sk['w'])
+    keep = set()
+    by_photo = {}
+    for (ph, g), w in sorted(first.items(), key=lambda t: t[1]):
+        by_photo.setdefault(ph, [])
+        if len(by_photo[ph]) < cap:
+            by_photo[ph].append(g)
+            keep.add((ph, g))
+        else:
+            report.append(f"컷당 그림 {cap}묶음 상한으로 생략: 컷 {ph} 「{g}」(말은 그대로)")
+    return [sk for sk in stickers if (sk['photo'], _group(sk)) in keep]
+
+
+SEAT_BUNDLE = ('seat_heat', 'seat_vent', 'seat_massage', 'seat_power', 'seat_memory')
 FRONT_SEAT = ('앞좌석', '운전석', '시트')
 
 
@@ -149,6 +184,10 @@ def _seat_bundle(C, words, cuts, opts, lay, report):
     b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1
     rules = {r['id']: r for r in RULES['options']}
     icons = [i for i in SEAT_BUNDLE if i in opts]
+    rules0 = {r['id']: r for r in RULES['options']}
+    def _said(oid):   # 2026-11-22: 화면 왼쪽→오른쪽 순서 = 말한 순서(말하지 않은 기능은 뒤)
+        return next((i for i in range(a, b + 1) if any(kw in words[i][2] for kw in rules0[oid]['keywords'])), 10 ** 6)
+    icons.sort(key=_said)
     seat_words = ' '.join(w[2] for w in words[a:b + 1])
     for oid in icons + (['seat_material'] if (opts.get('seat_material') or {}).get('material') else []):
         r = rules[oid]
@@ -244,8 +283,13 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
         b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1
         shown = ' '.join([c[4][0] if c[4] else ''] + [t for t, wi in getattr(C, 'EXTRA_CHIPS', []) if a <= wi <= b] + sk_txt.get(c[0], []))
         have = [v for v in _vals_in(shown) if v]
-        toks = [(i, words[i][2]) for i in range(a, b + 1) if re.match(r'^\d', words[i][2])
-                and not re.match(NUM['skip_token_re'], words[i][2].rstrip('.,!?'))]
+        def _wt(i):   # 받아쓰기가 「57」「,998km」로 나눈 숫자는 이어 붙인다(2026-11-22 K9: 「57」만 크게 뜸)
+            t = words[i][2]
+            if i + 1 < len(words) and re.match(r'^[,.]\d', words[i + 1][2]):
+                t += words[i + 1][2]
+            return t
+        toks = [(i, _wt(i)) for i in range(a, b + 1) if re.match(r'^\d', words[i][2])
+                and not re.match(NUM['skip_token_re'], _wt(i).rstrip('.,!?'))]
         # 「3만 2천」처럼 한국어 단위로 이어 읽은 숫자는 한 값으로 합쳐 비교(32,000 ≈ 32,770 칩)
         merged, j = [], 0
         while j < len(toks):

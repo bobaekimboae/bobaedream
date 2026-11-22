@@ -120,13 +120,18 @@ def gchip(s,size=70):
     return _chips[(s,size)]
 H3={}
 # 첫 화면(벨기에식): 노랑 붓띠 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄
-HB=chip('벤츠',R['chip']['title_font_px']); HM=white('G350 블루텍',104)
+HB=chip('벤츠',R['chip']['title_font_px'],title=True); HM=white('G350 블루텍',104)
 _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
 while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white('G350 블루텍',_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
 HS=white('2013년식 · 디젤 · W463',58)
 place_chip_y_cap=H*0.58
+SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24px라 칩 3개가 벗어났음
+BIG_LOW={'c7'}   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
+HIDE_SUB=[False]
+BIGS_LOG=[]; BIGS_SEEN=set()
+CHIP_DELAY={'c7':0.75}   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
 def place(Cimg,tx,ty,below):
-    bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(24-bx0,min(W-24-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)
+    bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(SAFE_X-bx0,min(W-SAFE_X-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)
     if below:
         y=ty+TG+L+CG-by0
         if y+by1>place_chip_y_cap: L=max(AMIN,int(L-(y+by1-place_chip_y_cap))); y=ty+TG+L+CG-by0
@@ -238,11 +243,11 @@ for t0,t1,c in SEG:
     for (b,l,j),tb in zip(bigs,[x[2] for x in BIG]):
         if not any(k in WS[j][0] for k in _metak): EV.append((t0+tb-0.02,'big_number'))   # 비유 효과음이 있는 숫자(마력 등)는 그 소리가 대신함
     if key=='c8': EV.extend([(WS[idx('480')][1]-0.24,'big_number'),(WS[idx('2,250')][1]-0.24,'big_number')])
-    if clab: EV.append((t0+((WS[cw][1]-t0-0.06) if cw is not None else 0)-0.02,'chip'))
+    if clab: EV.append((t0+((WS[cw][1]-t0-0.06) if cw is not None else 0)+CHIP_DELAY.get(key,0)-0.02,'chip'))
     for e in PL.get(key,{}).get('T05',[])+PL.get(key,{}).get('T06',[]): EV.append((e['at'],'emphasis'))
     if ZONE.get(key)!=_prevzone and _prevzone is not None: EV.append((t0-0.08,'part_change'))
     _prevzone=ZONE.get(key,_prevzone)
-    tc=(WS[cw][1]-t0-0.06) if cw is not None else 0
+    tc=((WS[cw][1]-t0-0.06) if cw is not None else 0)+CHIP_DELAY.get(key,0)
     BL0=None
     if pts is not None and Cimg is not None and av is not None:   # v7: 칩 위·아래를 컷 전체 추적으로 한 번만 정함(중간 뒤집힘 금지)
         _b=Cimg.getbbox(); _h=_b[3]-_b[1]; _n=int((min(s1,s0+dur*rate)-s0)*30)+1; _ys=[p[1]*H for p in pts[:_n]]   # 실제로 보이는 구간만
@@ -317,12 +322,18 @@ for t0,t1,c in SEG:
         for k2,(B3,BL,tb) in enumerate(BIG):
             y3=int(H*0.12) if key!='c15' else int(H*0.24)
             if Cimg is not None and av is None: y3=max(y3,YB+Cimg.getbbox()[3]+20)
+            if key in BIG_LOW: y3=CAPY-100; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb
             B3=cnt(BIGS[k2],180 if key!='c15' else 210,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
+            if t>=tb+0.4 and (key,k2) not in BIGS_SEEN:   # r03: 큰 숫자 상자 기록(번호판 검사용)
+                BIGS_SEEN.add((key,k2)); _b=B3.getbbox() or (0,0,B3.width,B3.height); _x=(W-B3.width)//2; _y1=y3+_b[3]
+                if BL: _lb=BL.getbbox() or (0,0,BL.width,BL.height); _y1=max(_y1,y3+B3.height+6+_lb[3])
+                BIGS_LOG.append({'key':key,'label':str(BIGS[k2]),'kind':'big','t_box':round(nfr/FPS,3),'box':[_x+_b[0],y3+_b[1],_x+_b[2],int(_y1)]})
             if PL.get(key,{}).get('T07'): _wf=cnt(BIGS[k2],210,99,0).width; pop(cv,HORSE,(min(W-HORSE.width-24,(W+_wf)//2-HORSE.width+20),y3-HORSE.height-6),t,WS[idx('211')][2]-t0-0.1,0.3)   # v7: 숫자 칠 위 오른쪽, 겹침 없음
         special(key,cv,t,t0)
         if key=='mem' and t>=tc: pop(cv,MEMI,(cx+Cimg.width-10,cy-MEMI.height//2+Cimg.height//2-10),t,tc+0.08)
-        draw_sub(cv,nfr/FPS)
+        draw_sub(cv,nfr/FPS) if not HIDE_SUB[0] else None
+        HIDE_SUB[0]=False
         proc.stdin.write(cv.convert('RGB').tobytes()); nfr+=1; last=fr[fi]
     del fr
 # 끝 화면: 마지막 장면 어둡게 + 보배드림 로고 커짐
@@ -376,7 +387,14 @@ LN2=LN+f":measured_I={_j['input_i']}:measured_TP={_j['input_tp']}:measured_LRA={
 fl.append(''.join(mx)+f"amix=inputs={len(mx)}:normalize=0:duration=longest,{LN2},aresample=48000[a]")
 subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.join(fl),'-map','0:v','-map','[a]','-c:v','copy','-c:a','aac','-b:a','192k','-t',str(TOTAL),OUT],check=True)
 # 출고 검사용 계획(check_be.py 영상 검사가 읽음)
-json.dump({'edition':'feature_video','music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
+# 2026-11-23 r02: edit_gate.py post가 읽는 판 코드·렌더러·쓴 기법을 기록(그림은 바꾸지 않음). 기법은 이 코드가 실제로 그린 것만.
+_TECH={'bgm','caption_chunks','end_logo','loudness_rule','slow_push','title_brand_chip','big_number_3d','seat_material_3d'}
+_TECH|={'point_chip' if c['kind']=='point' else 'callout_chip' for c in CHIPS_LOG if c['kind'] in ('point','callout')}
+if any(c['kind']=='callout' for c in CHIPS_LOG): _TECH.add('callout_arrow')
+if acc: _TECH.add('sfx_rules')
+_TECH|={e['id'] for c in _PLAN['cuts'] for e in c['techniques']}
+json.dump({'bigs':BIGS_LOG,'edition':'feature_video','edition_code':'ED-SIMPLE','renderer':'g350_v8_render.py','order':'picked','voice':'voice5.wav',
+           'frame':[W,H],'techniques':sorted(_TECH),'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
            'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,
            'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH)}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
 print(OUT,TOTAL)

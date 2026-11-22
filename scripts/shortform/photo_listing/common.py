@@ -104,6 +104,10 @@ EXTRA_CHIPS = getattr(C,'EXTRA_CHIPS',[])
 WHOOSH_AT = set() if os.environ.get('BBM_FADE') == '1' else set(C.WHOOSH_AT)
 R.MARKS = getattr(C,'MARKS',{})
 TILT = R.STYLE['tilt_fixed']
+# 2026-11-22 즉흥 편집 전수조사: 칩 흔들림(−0.8/0.6/0)·딜러 칩 −1.5°·첫 화면 −3° 추가 회전이 사용자 확정 「칩은 기울이지 않는다」와 어긋남 → 규칙 파일 값만 씀
+import json as _json
+_BE = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(R.__file__)), 'be_locked_rules.json')))
+JITTER = tuple(_BE['chip']['tilt_jitter_deg'])
 CAP_CY = R.STYLE['cap_cy']
 # 2026-11-17 사진–자막 간격 통일: 자막은 윗선 기준(한 줄 자막 가운데 = CAP_CY), 가로 사진 상자는 아랫선을 한 줄로 고정
 CAP_TOP = CAP_CY - 60          # 자막 글줄 윗선(이미지 위 여백 20 제외)
@@ -112,6 +116,41 @@ PHOTO_BOTTOM = CAP_TOP - CAP_GAP   # 가로 사진(상자 맞춤) 아랫선 — 
 
 # 컷 시작 = 첫 어절 소리 시작 0.12초 전(첫 컷은 0)
 starts = [0.0] + [onset(c[2]) - 0.12 for c in CUTS[1:]]
+
+
+def _bgm_beats():
+    """배경음 박자 시각(초). 처음 한 번 librosa로 재고 bgm 폴더 옆 json에 저장(배경음은 0초부터 깔림, atrim=0)"""
+    src = f'{ASSET}/bgm/bobae_showroom_v1.mp3'
+    cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bgm_beats.json')
+    db_ = json.load(open(cache)) if os.path.exists(cache) else {}
+    key = os.path.basename(src) + ':' + str(os.path.getsize(src))
+    if key not in db_:
+        import librosa
+        y_, sr_ = librosa.load(src, sr=22050, mono=True)
+        tempo_, fr_ = librosa.beat.beat_track(y=y_, sr=sr_)
+        db_[key] = {'tempo': float(np.atleast_1d(tempo_)[0]), 'beats': [round(float(t), 3) for t in librosa.frames_to_time(fr_, sr=sr_)]}
+        json.dump(db_, open(cache, 'w'), indent=1)
+    return db_[key]
+
+
+if getattr(C, 'BEAT_SNAP', False):
+    # 2026-11-22 캡컷 가이드 박자 맞춤(docs/shortform/capcut-guide-survey-v1.md): 컷 경계를 배경음 박자에 붙인다.
+    # 말 싱크를 지키려고 컷은 앞 낱말이 끝난 뒤 ~ 그 컷 첫 낱말 소리 시작 0.04초 전(최대 0.45초 전) 안에서만 움직인다. 구간 경계(WHOOSH_AT)는 강박(4박마다) 먼저.
+    _bt = _bgm_beats(); _beats = np.array(_bt['beats'])
+    _strong = _beats[::4] if len(_beats) else _beats
+    _moved = []
+    for _i in range(1, len(starts)):
+        _on = onset(CUTS[_i][2]); _hi = _on - 0.04
+        _lo = max(_on - 0.45, WRD[CUTS[_i][2] - 1][1] / SPEED - 0.02 if CUTS[_i][2] > 0 else 0)
+        _lo = max(_lo, starts[_i - 1] + 0.8)   # 앞 컷이 너무 짧아지지 않게
+        _pick = None
+        for _pool in ((_strong, _beats) if _i in set(getattr(C, 'WHOOSH_AT', [])) else (_beats,)):
+            _c = _pool[(_pool >= _lo) & (_pool <= _hi)]
+            if len(_c):
+                _pick = float(_c[np.argmin(np.abs(_c - starts[_i]))]); break
+        if _pick is not None:
+            _moved.append(round(float(_pick - starts[_i]), 3)); starts[_i] = _pick
+    print(f"  [박자 맞춤] 템포 {_bt['tempo']:.0f}BPM · 컷 {len(starts) - 1}개 중 {len(_moved)}개 박자에 붙임 · 이동 {_moved}")
 BODY = VOICE_LEN + TAIL
 ends = starts[1:] + [BODY]
 if getattr(C, 'AUTO_ZOOM', False):   # 매뉴얼 14장 — 부위 당기기(키프레임 자동), 규칙은 part_zoom_rules.json
@@ -680,7 +719,7 @@ FOOTER = None
 #   타이틀 칩(리싱마크트)·첫 컷(430_239)과 모양을 달리해 화면에 오래 떠 있는 판매자 칩이 정보 칩과 섞여 보이지 않게
 _DLINES = getattr(C, 'DEALER_CHIP_LINES', [getattr(C, 'DEALER_CHIP', '')]) if getattr(C, 'DEALER_CHIP', None) else []
 if _DLINES and getattr(C, 'DEALER_ONE_CHIP', True):
-    _one = dealer_chip(' · '.join(x for x in _DLINES if x), getattr(C, 'DEALER_CHIP_SIZE', 34), getattr(C, 'DEALER_CHIP_TILT', -1.5),
+    _one = dealer_chip(' · '.join(x for x in _DLINES if x), getattr(C, 'DEALER_CHIP_SIZE', 34), getattr(C, 'DEALER_CHIP_TILT', 0.0),
                        font=R.BOLD, hr=2.6, fill=getattr(C, 'DEALER_CHIP_FILL', '265_42'))
     if getattr(C, 'DEALER_FOOTER', False):
         FOOTER = _one; LOGO = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
@@ -755,7 +794,7 @@ def icon_for(txt):
 
 
 def icon_chip(ov, txt, st, en, T, i, num):
-    tilt = TILT + (-0.8, 0.6, 0.0)[i % 3]
+    tilt = TILT + JITTER[i % 3]
     ic = icon_for(txt)
     fs = 76 if num else 70
     for _ in range(6):  # 칩 + 아이콘이 화면 안(좌우 40px)에 들어오게 글자 크기 줄임
@@ -869,10 +908,19 @@ def footer_layer(ov, T):
     if getattr(C, 'DEALER_FOOTER_STYLE', '') == 'text':  # 2026-11-17: 아래 딜러는 상자 없이 흰 글자만(칩은 위쪽 몫)
         F0 = shadow_text('  ·  '.join(getattr(C, 'DEALER_CHIP_LINES', [C.DEALER_CHIP])), getattr(C, 'DEALER_FOOTER_TEXT_SIZE', 38))
     im = F0 if sc == 1.0 else F0.resize((int(F0.width * sc), int(F0.height * sc)), Image.LANCZOS)
-    _unused = FOOTER if False else None
-    if False: im = FOOTER.resize((int(FOOTER.width * sc), int(FOOTER.height * sc)), Image.LANCZOS)
+    if getattr(C, 'DEALER_FOOTER_STYLE', '') == 'text':
+        # 2026-11-22 사용자 「딜러 상사는 중간 어정쩡하게 하지 말고 푸터 영역에」: 화면 맨 아래 전폭 띠(높이 FOOTER_BAND_H) 가운데에
+        bh = FOOTER_BAND_H
+        R.paste(ov, FOOTER_BAND, 0, H - bh, a)
+        R.paste(ov, im, (W - im.width) / 2, H - bh + (bh - im.height) / 2, a)
+        return
     yb = getattr(C, 'DEALER_FOOTER_Y', H - 250)  # 띠 아랫선
     R.paste(ov, im, (W - im.width) / 2, yb - im.height, a)
+
+
+_WHEEL_FIX = {}
+FOOTER_BAND_H = 120
+FOOTER_BAND = Image.new('RGBA', (W, FOOTER_BAND_H), (0, 0, 0, 150))
 
 
 def section_layer(ov, T):
@@ -947,7 +995,7 @@ def _auto_visuals():
         return
     sys.path.insert(0, os.path.dirname(os.path.abspath(R.__file__)) + '/photo_listing')
     import auto_visuals
-    stk, rep = auto_visuals.build(C, C.W, CUTS)
+    stk, rep = auto_visuals.build(C, WRD, CUTS)
     for line in rep:
         print('  [옵션 그림] ' + line)
     if any(l.startswith('⛔') for l in rep) and not getattr(C, 'ALLOW_MISSING_REQUIRED', False):
@@ -1153,6 +1201,12 @@ def sticker_layer(ov, T):
                         continue   # 시트 줄·휠 인치+타이어 묶음은 위에서 자막·딜러 띠 사이로 이미 맞춤
                     top_box = sk['box'][1] * ph * ay + oy if sk.get('box') and sk.get('place') not in ('tire_top', 'inside') else 0
                     y = max(top_box + half, lo - half - (40 if sk.get('place') == 'inside' else 8))
+            if sk.get('place') == 'tire_top' or sk.get('tire_sub'):
+                # 2026-11-22 사용자 「휠은 인치와 타이어크기 고정해라」: 컷 첫 프레임의 자리·크기로 고정(사진 확대를 따라 움직이지 않음)
+                fk = (ci, sk.get('auto'), sk.get('sub_idx', -1))
+                if fk not in _WHEEL_FIX:
+                    _WHEEL_FIX[fk] = (x, y, im)
+                x, y, im = _WHEEL_FIX[fk]
         if 'u' not in sk:
             x = (x or 0) + sk.get('dx', 0)
             if sk.get('under_chip'):
@@ -1526,7 +1580,7 @@ def overlay(T):
             #   (로고는 칠을 안 돌리지만 벨기에 릴스는 칠만 기울임 → 아래 HOOK_TILT) 글자는 똑바로 · 남색 #1E2832 · 중간 굵기(획 ≈ 대문자 높이 0.13배),
             #   칠 높이 ≈ 대문자 1.9배(벨기에 Alfa 릴스 1.65배 → 기본 1.65), 글자 왼 0.22 · 오른 0.24(칠 높이 비율), 글자는 칠 가운데보다 살짝 위(-0.04),
             #   흰 글자 = 같은 크기·같은 굵기·같은 바닥선, 칠 오른쪽 끝에서 대문자 높이 0.15배 띄움
-            b = dealer_chip(C.HOOK[0], fs, getattr(C, 'HOOK_TILT', -3.0), font=getattr(C, 'HOOK_FONT', R.MED), hr=getattr(C, 'HOOK_HR', 1.65),
+            b = dealer_chip(C.HOOK[0], fs, getattr(C, 'HOOK_TILT', 0.0), font=getattr(C, 'HOOK_FONT', R.MED), hr=getattr(C, 'HOOK_HR', 1.65),
                             fill=getattr(C, 'HOOK_FILL', '430_239'), sliced=getattr(C, 'HOOK_SLICED', False),
                             txt_col=getattr(C, 'HOOK_TXT_COL', (0x1E, 0x28, 0x32)), pad=getattr(C, 'HOOK_PAD', (0.22, 0.24)), ty=getattr(C, 'HOOK_TY', -0.04),
                             fit_ink=True, tilt_text=False)
@@ -1573,7 +1627,7 @@ def overlay(T):
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
             hide = hide or txt in getattr(C, 'HIDE_CAP_CHIPS', ())  # 2026-11-18: 숫자가 든 키워드 칩(11.9인치 등)도 자막과 숫자 겹치면 자막 숨김
             # 2026-11-17 벨기에 원본 실측: 키워드 칩 약 −2°(거의 수평), 숫자 칩 약 −6°
-            tilt = (TILT if num else getattr(C, 'CHIP_TILT_WORD', TILT)) + (-0.8, 0.6, 0.0)[i % 3] * (0.5 if not num and hasattr(C, 'CHIP_TILT_WORD') else 1)
+            tilt = (TILT if num else getattr(C, 'CHIP_TILT_WORD', TILT)) + JITTER[i % 3] * (0.5 if not num and hasattr(C, 'CHIP_TILT_WORD') else 1)
             if getattr(C, 'CHIP_TILT_ALL', None) is not None:  # 2026-11-17 일관성: 모든 칩 같은 기울기, 흔들림 없음
                 tilt = C.CHIP_TILT_ALL
             k = T - st
@@ -1736,12 +1790,41 @@ def mix_audio():
           f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={R.STYLE['bgm_vol']},volume='1-({g})':eval=frame,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.4}:d=1.4[m0];"
           + (f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={ALT[2] if len(ALT) > 2 else R.STYLE['bgm_vol']},volume='{g}':eval=frame[m1];[m0][m1]amix=inputs=2:normalize=0[m];" if ALT else '[m0]anull[m];')
           + sf + '[vo]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
-          f'[v2][md][fx]amix=inputs=3:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=9,aresample=192000,alimiter=limit=0.8:level=false,aresample=48000,atrim=0:{TOTAL}[a]')
+          f'[v2][md][fx]amix=inputs=3:normalize=0:duration=first,@LN@,aresample=192000,alimiter=limit=0.8:level=false,aresample=48000,atrim=0:{TOTAL}[a]')
+    # 음량: 규칙 파일(be_locked_rules.json audio) 값 + 2회 측정(재고 → 맞추기). 2026-11-22 숫자 직접 쓰기 제거(전수조사 D)
+    _A = _BE['audio']; LN = f"loudnorm=I={_A['loudness_lufs']}:TP={_A['true_peak_db']}:LRA=9"
+    _m = subprocess.run(['ffmpeg', '-hide_banner', *ins, '-filter_complex', af.replace('@LN@', LN + ':print_format=json'), '-map', '[a]', '-f', 'null', '-'],
+                        capture_output=True, text=True).stderr
+    try:
+        _j = json.loads(_m[_m.rindex('{'):_m.rindex('}') + 1])
+        LN += f":measured_I={_j['input_i']}:measured_TP={_j['input_tp']}:measured_LRA={_j['input_lra']}:measured_thresh={_j['input_thresh']}:offset={_j['target_offset']}:linear=true"
+    except (ValueError, KeyError):
+        print('  음량 1차 측정 실패 — 1회 맞춤으로 진행')
+    af = af.replace('@LN@', LN)
     run(['ffmpeg', '-y', '-v', 'error', *ins, '-i', 'video_only.mp4', '-filter_complex', af, '-map', f'{len(SFX) + k0}:v', '-map', '[a]',
          '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-movflags', '+faststart', '-shortest', OUT_FILE])
     os.remove('video_only.mp4')
     # 렌더 후 점검(⑥): 말하는 동안 자막이 보이는가 — 걸려도 영상은 남기고 고칠 곳만 알린다
     subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'check_render.py'), SC, OUT_FILE])
+    write_edition_plan(SFX)
+
+
+def write_edition_plan(SFX):
+    """edit_gate.py post용 계획 파일(영상.mp4.plan.json) — 판 코드·렌더러·쓴 기법. 2026-11-22(전수조사 C).
+    기법은 실제로 그려진 것만 적는다: 첫 화면 칩(HOOK) · 포인트 칩(card_basic, 칩 1개 이상) · 켄번스 · 끝 화면+딜러(end_dealer) · 배경음 · 음량 규칙.
+    칩 기울기가 0이 아니면 chip_tilt(금지 기법)를 적어 관문에서 걸리게 한다."""
+    T = {'kenburns', 'bgm', 'loudness_rule'}
+    if getattr(C, 'HOOK', None): T.add('title_brand_chip')
+    if CHIPS: T.update({'card_basic', 'point_chip'})
+    if END_CARD and (getattr(C, 'DEALER_CHIP', None) or (_lgp and os.path.exists(_lgp))): T.add('end_dealer')
+    if SFX: T.add('sfx_rules')
+    tilts = [*JITTER, getattr(C, 'DEALER_CHIP_TILT', 0.0), getattr(C, 'HOOK_TILT', 0.0)]
+    if any(abs(float(x)) > 1e-6 for x in tilts): T.add('chip_tilt')
+    json.dump({'edition': 'photo_listing', 'edition_code': 'ED-PHOTO', 'renderer': 'common.py', 'order': 'script', 'total': round(TOTAL, 3),
+               'techniques': sorted(T), 'chips': [{'label': a, 't0': round(b, 2), 't1': round(e, 2), 't_box': round(b + 0.3, 2), 'kind': 'point'} for a, b, e in CHIPS],
+               'sfx': [{'sound': n, 't': round(t, 3)} for n, t, v in SFX], 'cuts': [round(x, 3) for x in starts]},
+              open(OUT_FILE + '.plan.json', 'w'), ensure_ascii=False, indent=1)
+    print('계획 파일:', OUT_FILE + '.plan.json')
 
 if __name__ == '__main__':
     print('voice', round(VOICE_LEN, 2), 'total', round(TOTAL, 2))

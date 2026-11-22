@@ -2,7 +2,7 @@
 
 python3 -I shot_tagger.py src.mp4 --out shots.json [--sheet sheet.jpg]
 
-1) 0.5초 창마다 가운데 장면 1장을 뽑고, 오픈소스 CLIP(openai/clip-vit-base-patch32, MIT)로 부위 문장과 비교해 점수를 매긴다.
+1) 0.5초 창마다 가운데 장면 1장을 뽑고, 오픈소스 CLIP(기본)·SigLIP 2(BBM_VLM=siglip2, 2026-11-22 교체 시험 중)로 부위 문장과 비교해 점수를 매긴다.
 2) 옆 창과 부위가 같으면 하나로 잇고, 장면 전환(화면 차이 큼)에서는 끊는다.
 3) 점수가 낮은 장면(0.30 미만)은 part=other 로 두고 대본·칩 배치에 쓰지 않는다.
 부위 이름은 auto_edit_rules.json parts 와 같다. 사람 표시(score·note)는 바꾸지 않는다.
@@ -55,19 +55,12 @@ def frames(src, step):
 
 
 def tag(src):
-    import torch
-    from transformers import CLIPModel, CLIPProcessor
-    m = CLIPModel.from_pretrained('openai/clip-vit-base-patch32').eval(); pr = CLIPProcessor.from_pretrained('openai/clip-vit-base-patch32')
+    sys.path.insert(0, HERE)
+    from vlm import ZeroShot
+    zs = ZeroShot()   # 2026-11-22 BBM_VLM=siglip2 로 SigLIP 2 시험(비교 끝나면 기본 교체)
     keys = list(PROMPTS); texts = [t for k in keys for t in PROMPTS[k]]; own = [k for k in keys for _ in PROMPTS[k]]
     dur, size, arr = frames(src, WIN)
-    with torch.no_grad():
-        ti = pr(text=texts, return_tensors='pt', padding=True); tf = m.get_text_features(**ti); tf = getattr(tf, 'pooler_output', tf); tf = tf / tf.norm(dim=-1, keepdim=True)
-        feats = []
-        for i in range(0, len(arr), 32):
-            ii = pr(images=[Image.fromarray(a) for a in arr[i:i + 32]], return_tensors='pt'); f = m.get_image_features(**ii); f = getattr(f, 'pooler_output', f)
-            feats.append(f / f.norm(dim=-1, keepdim=True))
-        imf = torch.cat(feats)
-        logits = (100 * imf @ tf.T).softmax(-1).numpy()
+    logits = zs.probs(zs.image([Image.fromarray(a) for a in arr]), zs.text(texts))
     prob = np.stack([logits[:, [j for j, o in enumerate(own) if o == k]].sum(1) for k in keys], 1)
     # 장면 전환: 옆 창과 화면 차이(작은 회색 그림 평균 차)
     small = arr[:, ::8, ::8].astype(np.float32).mean(-1)

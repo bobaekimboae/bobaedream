@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>벤츠 G350 숏폼 버전 1</title>
+<meta name="description" content="딜러가 찍은 매물 영상을 컷마다 기능 설명 자막·내레이션으로 자동 편집한 숏폼 샘플 (벤츠 G350 블루텍 2013년식)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; --accent: #306bd9; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #121212; --card: #1c1c1c; --ink: #ececec; --sub: #a0a0a0; --line: #2c2c2c; --accent: #6f9cf0; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 24px; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: start; }
+  h1 { grid-column: 1 / -1; margin: 0; font-size: 22px; line-height: 30px; }
+  h1 small { display: block; color: var(--sub); font-size: 14px; font-weight: 400; }
+  .player { position: sticky; top: 16px; background: #000; border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16; }
+  video { width: 100%; height: 100%; display: block; }
+  .side { display: grid; gap: 16px; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; }
+  h2 { margin: 0 0 12px; font-size: 18px; line-height: 24px; }
+  ol { margin: 0; padding: 0; list-style: none; }
+  li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  li:last-child { border-bottom: 0; }
+  li button { all: unset; cursor: pointer; color: var(--accent); font-variant-numeric: tabular-nums; }
+  li button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  ul { margin: 0; padding-left: 18px; }
+  .dl { display: inline-block; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; }
+  .dl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .note { color: var(--sub); font-size: 13px; }
+  @media (max-width: 720px) { main { grid-template-columns: minmax(0, 1fr); } .player { position: static; max-width: 360px; width: 100%; margin: 0 auto; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>벤츠 G350 블루텍 2013년식 숏폼 샘플<small>버전 1 — 에이전트들과 함께 개선할 기준 영상 · v13에서 번호판 덮임·안전영역 3곳만 고침 · 70초 · 세로 1080×1920</small></h1>
+  <div class="player"><video id="v" src="g350-v1.mp4" controls playsinline preload="metadata"></video></div>
+  <div class="side">
+    <section>
+      <h2>장면 순서</h2>
+      <ol id="cuts"></ol>
+    </section>
+    <section>
+      <h2>이 영상에 쓴 것</h2>
+      <ul>
+        <li>원본: 딜러가 찍은 매물 영상 그대로(자르기·확대·이동·어둡게 하기만, 보정·배경 바꾸기 없음)</li>
+        <li>내레이션: AI 남성 음성, 매물 정보와 화면에 보이는 것만 말함</li>
+        <li>자막: 뜻 단위로 끊고 말하는 낱말만 노랑 강조</li>
+        <li>노랑 칩: 노션 원본 칠을 같은 배율로만 키움, 위쪽 칩은 늘 같은 자리. 첫 화면 브랜드 칩만 벨기에 원본 칠 판(기울어진 모양)·좁은 좌우 여백, 글자는 수평, 나머지 칩은 기울기 없음</li>
+        <li>옵션 편집: 스포트라이트·돋보기·위아래 2분할·✓ 목록·숫자 카운트업·마력 흔들림 + 커맨드 컨트롤러·공조 다이얼로 다가가기(부위 당기기)</li>
+        <li>효과음(네덜란드 오토스카우트24 빈도 + 나세르식 다양한 종류): 딩·쿵·휙·팝 + 「211마력」 말 울음 · 「제로백」 스톱워치</li>
+        <li>배경음: 보배드림 자체 쇼룸 음악 · 효과음 출처는 <a href="../../shortform-kit/#소리">숏폼 편집 매뉴얼</a></li>
+      </ul>
+      <p><a class="dl" href="g350-v1.mp4" download="bobae_g350_v1.mp4">영상 내려받기 (mp4 · 43MB)</a></p>
+      <p class="note">장면 시간을 누르면 그 장면으로 이동합니다.</p>
+    </section>
+    <section>
+      <h2>버전 1에서 바뀐 것 (v13 대비)</h2>
+      <ul>
+        <li>3,500kg 큰 숫자가 번호판 위에 뜨던 것 → 자막 자리로 내리고 그동안 말 자막 숨김(견인고리 컷만)</li>
+        <li>견인고리 칩이 카메라가 내려오는 순간 번호판을 덮던 것 → 칩을 0.75초 늦게 띄움(번호판이 화면 위로 빠진 뒤)</li>
+        <li>칩이 화면 끝 24px까지 붙던 것 → 좌우 40px 안쪽(헤드램프·펜더·스페어타이어·견인고리 칩)</li>
+        <li>그 밖의 장면·음성·자막·효과음·음악은 v13 그대로</li>
+      </ul>
+      <p class="note"><a href="compare-v13-v1.jpg">v13(위) · 버전 1(아래) 나란히 비교</a></p>
+    </section>
+    <section>
+      <h2>제작 기록 (2026-11-23)</h2>
+      <ol class="rec" style="list-style:decimal;padding-left:20px">
+        <li style="display:list-item;border:0;padding:3px 0">음성: 일레븐랩스 생성 기록에서 v13 음성 내려받기(다시 생성하지 않음)</li>
+        <li style="display:list-item;border:0;padding:3px 0">받아쓰기(낱말 시각): faster-whisper large-v3-turbo · 75초 / 정리 9초</li>
+        <li style="display:list-item;border:0;padding:3px 0">부위 따라가기: OpenCV CSRT · 43초 / 옵션 기법 계획 2초</li>
+        <li style="display:list-item;border:0;padding:3px 0">렌더: g350_v8_render.py · 123초</li>
+        <li style="display:list-item;border:0;padding:3px 0">검사: check_be.py 통과(11초) · edit_gate.py post 통과(약 100초, 번호판 검사 포함)</li>
+      </ol>
+      <p class="note">순수 제작 약 4분 10초, 검사 포함 약 6분. 사람 개입 0회. 음량 −14.5 LUFS.</p>
+      <p class="note">에이전트 공용 문서: <a href="https://github.com/bobaekimboae/bobaedream/blob/main/docs/shortform/g350-v1-agent-handoff.md">g350-v1-agent-handoff.md</a></p>
+    </section>
+  </div>
+</main>
+<script>
+const cuts = [
+  [0.0, '첫 화면 · 벤츠 G350 블루텍 2013년식 디젤'],
+  [4.17, '제논 헤드램프 · LED 주간등'],
+  [7.35, '펜더 위 깜빡이'],
+  [10.79, '18인치 휠 · 265/60 R18 타이어'],
+  [15.33, '전동 선루프'],
+  [18.78, '뒷문 스페어 타이어'],
+  [20.91, '견인고리 · 최대 3,500kg'],
+  [24.58, '트렁크 480L → 2,250L'],
+  [30.34, '브라운 가죽 시트 · 열선·통풍'],
+  [33.93, '도어 전동 시트 버튼'],
+  [35.89, '메모리 3개'],
+  [38.25, '커맨드 컨트롤러'],
+  [40.42, '공조 다이얼'],
+  [43.03, '디퍼렌셜 락 버튼 3개'],
+  [48.96, '진흙길·눈길 탈출'],
+  [53.63, '조명 도어 스텝'],
+  [55.64, '3.0 V6 디젤 · 211마력 · 제로백 9.1초'],
+  [64.47, '끝 화면 · 보배드림 앱 안내']
+];
+const v = document.getElementById('v'), ol = document.getElementById('cuts');
+const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+for (const [t, label] of cuts) {
+  const li = document.createElement('li'), b = document.createElement('button');
+  b.textContent = fmt(t); b.setAttribute('aria-label', `${fmt(t)} ${label}으로 이동`);
+  b.onclick = () => { v.currentTime = t; v.play(); };
+  li.append(b, document.createTextNode(label)); ol.append(li);
+}
+</script>
+</body>
+</html>

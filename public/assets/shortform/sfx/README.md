@@ -16,3 +16,14 @@
 
 - 새 효과음은 CC0·자체 제작·상업 이용 허용 라이선스만 넣고 이 표에 출처를 적는다.
 - CC BY-NC(비상업) 소리는 쓰지 않는다.
+
+## 오픈소스 효과음 폴더 `opensource/` (2026-11-23 추가, 같은 날 earshot으로 재점검)
+
+- 29개. CC0 27개(Openverse로 찾은 Freesound 녹음 · uisfx) + earshot 렌더 2개(turn_signal_es1 · pop_es1, 렌더한 사람 소유·자유 이용). 출처·점수는 `opensource/manifest.json`.
+- 종류: whoosh · ding · swipe · impact · riser · camera_shutter · car_door · engine_start · key_fob · seatbelt · cash · turn_signal · pop.
+- 고른 방법: ① CLAP 채점(14개 설명 대비)으로 1차 선정 → ② **earshot 1.0.0 `rank`**(CLAP+AST, 322개 설명 대비, strong = z ≥ 3.0)로 재점검해 `no match` 5개(click_os1~3 · cash_os3 · swipe_os1) 삭제. 1차 채점은 설명 수가 적어 틀렸던 것이 있었다(아래).
+- 손본 것: 앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz. 음색은 바꾸지 않음.
+- **기본 효과음은 바뀌지 않는다**(be_locked_rules.json `sfx.kinds` 그대로). 바꾸려면 사용자 확인 뒤 규칙 파일만 고친다.
+- 점검 도구: `scripts/shortform/sfx_opensource/earshot_check.sh "설명" 파일...` (새 효과음은 strong만 기본 후보).
+- earshot으로 본 기존 기본 소리: **pop = bubble pop strong 3.3(좋음)**, whoosh strong 3.1(하이햇 느낌, whoosh_os1~3이 4.5~4.7로 더 맞음), ding weak 2.3(트라이앵글 느낌, 그래도 후보 중 1위), click 0.8 no match(캔 따는 소리처럼 들림, 맞는 대체 없음).
+- 1차 CLAP 채점에서 "pop·click이 덜 맞음, click_os가 대안"이라고 적었던 것은 틀렸다: pop은 잘 맞고 click_os는 earshot에서 no match.

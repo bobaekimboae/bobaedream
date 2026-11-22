@@ -1,0 +1,685 @@
+{
+ "note": "CC0·earshot 렌더 효과음. 표기 의무 없음. 기본 효과음(be_locked_rules sfx.kinds)은 바뀌지 않음 — 예비·대체용. 'earshot' 점수는 earshot 1.0.0 rank(CLAP+AST, 322개 설명 대비 z, strong ≥ 3.0).",
+ "sounds": [
+  {
+   "file": "camera_shutter_os1.wav",
+   "kind": "camera_shutter",
+   "duration_s": 0.282,
+   "title": "1/100 second camera shutter",
+   "creator": "FenrirFangs",
+   "source": "freesound",
+   "url": "https://freesound.org/people/FenrirFangs/sounds/213180",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a camera shutter click",
+    "sim": 0.3335,
+    "z": 2.703,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a camera shutter click",
+    "z": 4.2,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "camera_shutter_os2.wav",
+   "kind": "camera_shutter",
+   "duration_s": 0.571,
+   "title": "Camera shutter analogue film SLR 1/4 01",
+   "creator": "cabled_mess",
+   "source": "freesound",
+   "url": "https://freesound.org/people/cabled_mess/sounds/338220",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a camera shutter click",
+    "sim": 0.3438,
+    "z": 2.691,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a camera shutter click",
+    "z": 4.0,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "camera_shutter_os3.wav",
+   "kind": "camera_shutter",
+   "duration_s": 0.579,
+   "title": "Camera shutter analogue film SLR 1/4 02",
+   "creator": "cabled_mess",
+   "source": "freesound",
+   "url": "https://freesound.org/people/cabled_mess/sounds/338219",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a camera shutter click",
+    "sim": 0.3534,
+    "z": 2.655,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a camera shutter click",
+    "z": 3.7,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "car_door_os1.wav",
+   "kind": "car_door",
+   "duration_s": 0.414,
+   "title": "Car door closing; sudden_1-2.aif",
+   "creator": "domrodrig",
+   "source": "freesound",
+   "url": "https://freesound.org/people/domrodrig/sounds/119068",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a car door closing thud",
+    "sim": 0.3625,
+    "z": 2.896,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car door closing",
+    "z": 4.1,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "car_door_os2.wav",
+   "kind": "car_door",
+   "duration_s": 3.0,
+   "title": "Car Door Closing SFX",
+   "creator": "haydenrem",
+   "source": "freesound",
+   "url": "https://freesound.org/people/haydenrem/sounds/557617",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a car door closing thud",
+    "sim": 0.3869,
+    "z": 2.727,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car door closing",
+    "z": 4.7,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "car_door_os3.wav",
+   "kind": "car_door",
+   "duration_s": 0.28,
+   "title": "auto real older car door close rattly.wav",
+   "creator": "kyles",
+   "source": "freesound",
+   "url": "https://freesound.org/people/kyles/sounds/452549",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a car door closing thud",
+    "sim": 0.2659,
+    "z": 2.592,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car door closing",
+    "z": 4.1,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "cash_os1.wav",
+   "kind": "cash",
+   "duration_s": 2.02,
+   "title": "Cash Register",
+   "creator": "Plonkapple",
+   "source": "freesound",
+   "url": "https://freesound.org/people/Plonkapple/sounds/550451",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a cash register cha-ching with coins",
+    "sim": 0.2578,
+    "z": 2.509,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a cash register",
+    "z": 2.8,
+    "verdict": "plausible"
+   }
+  },
+  {
+   "file": "cash_os2.wav",
+   "kind": "cash",
+   "duration_s": 2.176,
+   "title": "cash drawer and receipt.wav",
+   "creator": "kalisemorrison",
+   "source": "freesound",
+   "url": "https://freesound.org/people/kalisemorrison/sounds/202531",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a cash register cha-ching with coins",
+    "sim": 0.2652,
+    "z": 1.649,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a cash register",
+    "z": 3.5,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "ding_os1.wav",
+   "kind": "ding",
+   "duration_s": 0.613,
+   "title": "uisfx soft/notification",
+   "creator": "Yuki Capital (uisfx)",
+   "source": "uisfx",
+   "url": "https://github.com/romainsimon/uisfx",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a short bright bell ding notification",
+    "sim": 0.2772,
+    "z": 2.485,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a bright bell ding",
+    "z": 1.9,
+    "verdict": "no match(성공 차임에 가까움)"
+   }
+  },
+  {
+   "file": "ding_os2.wav",
+   "kind": "ding",
+   "duration_s": 0.44,
+   "title": "uisfx minimal/reward",
+   "creator": "Yuki Capital (uisfx)",
+   "source": "uisfx",
+   "url": "https://github.com/romainsimon/uisfx",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a short bright bell ding notification",
+    "sim": 0.1627,
+    "z": 2.367,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a bright bell ding",
+    "z": 1.3,
+    "verdict": "no match(성공 차임에 가까움)"
+   }
+  },
+  {
+   "file": "ding_os3.wav",
+   "kind": "ding",
+   "duration_s": 0.675,
+   "title": "uisfx soft/reward",
+   "creator": "Yuki Capital (uisfx)",
+   "source": "uisfx",
+   "url": "https://github.com/romainsimon/uisfx",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a short bright bell ding notification",
+    "sim": 0.1979,
+    "z": 2.356,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a bright bell ding",
+    "z": 1.5,
+    "verdict": "no match(성공 차임에 가까움)"
+   }
+  },
+  {
+   "file": "engine_start_os1.wav",
+   "kind": "engine_start",
+   "duration_s": 2.933,
+   "title": "Car Engine Starting",
+   "creator": "Grasopt",
+   "source": "freesound",
+   "url": "https://freesound.org/people/Grasopt/sounds/479351",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a car engine starting and revving",
+    "sim": 0.2991,
+    "z": 2.58,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car engine starting",
+    "z": 5.8,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "engine_start_os2.wav",
+   "kind": "engine_start",
+   "duration_s": 2.434,
+   "title": "Car Start",
+   "creator": "snakebarney",
+   "source": "freesound",
+   "url": "https://freesound.org/people/snakebarney/sounds/138099",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a car engine starting and revving",
+    "sim": 0.3124,
+    "z": 2.164,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car engine starting",
+    "z": 4.3,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "impact_os1.wav",
+   "kind": "impact",
+   "duration_s": 2.0,
+   "title": "shipboard_railgun.mp3",
+   "creator": "deleted_user_1941307",
+   "source": "freesound",
+   "url": "https://freesound.org/people/deleted_user_1941307/sounds/155790",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a deep cinematic impact hit",
+    "sim": 0.3129,
+    "z": 2.43,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a deep cinematic impact hit",
+    "z": 3.2,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "impact_os2.wav",
+   "kind": "impact",
+   "duration_s": 2.883,
+   "title": "Bass Impact - Ki_01.mp3",
+   "creator": "Kievinay",
+   "source": "freesound",
+   "url": "https://freesound.org/people/Kievinay/sounds/512389",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a deep cinematic impact hit",
+    "sim": 0.2809,
+    "z": 2.344,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a deep cinematic impact hit",
+    "z": 3.3,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "impact_os3.wav",
+   "kind": "impact",
+   "duration_s": 2.436,
+   "title": "sub bass 4 secondsssss.wav",
+   "creator": "uzerx",
+   "source": "freesound",
+   "url": "https://freesound.org/people/uzerx/sounds/59540",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a deep cinematic impact hit",
+    "sim": 0.1416,
+    "z": 1.941,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a deep cinematic impact hit",
+    "z": 2.2,
+    "verdict": "weak"
+   }
+  },
+  {
+   "file": "key_fob_os1.wav",
+   "kind": "key_fob",
+   "duration_s": 0.401,
+   "title": "Car Lock",
+   "creator": "hz37",
+   "source": "freesound",
+   "url": "https://freesound.org/people/hz37/sounds/396448",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a car remote lock chirp beep",
+    "sim": 0.2849,
+    "z": 2.151,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car remote lock chirp",
+    "z": 3.9,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "key_fob_os2.wav",
+   "kind": "key_fob",
+   "duration_s": 1.12,
+   "title": "Car locking",
+   "creator": "jackthemurray",
+   "source": "freesound",
+   "url": "https://freesound.org/people/jackthemurray/sounds/433590",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a car remote lock chirp beep",
+    "sim": 0.2994,
+    "z": 1.748,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a car remote lock chirp",
+    "z": 3.3,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "riser_os1.wav",
+   "kind": "riser",
+   "duration_s": 1.791,
+   "title": "Riser",
+   "creator": "Rizzard",
+   "source": "freesound",
+   "url": "https://freesound.org/people/Rizzard/sounds/561207",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a rising swell riser before a reveal",
+    "sim": 0.2415,
+    "z": 1.584,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a rising riser swell",
+    "z": 3.5,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "seatbelt_os1.wav",
+   "kind": "seatbelt",
+   "duration_s": 0.468,
+   "title": "car seatbelt clicking.wav",
+   "creator": "RutgerMuller",
+   "source": "freesound",
+   "url": "https://freesound.org/people/RutgerMuller/sounds/50900",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a seatbelt buckle click",
+    "sim": 0.3865,
+    "z": 2.608,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a seatbelt buckle click",
+    "z": 3.3,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "seatbelt_os2.wav",
+   "kind": "seatbelt",
+   "duration_s": 1.573,
+   "title": "2 SEAT BELT CLICKS.wav",
+   "creator": "metrostock99",
+   "source": "freesound",
+   "url": "https://freesound.org/people/metrostock99/sounds/345064",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a seatbelt buckle click",
+    "sim": 0.4483,
+    "z": 2.605,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a seatbelt buckle click",
+    "z": 4.4,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "seatbelt_os3.wav",
+   "kind": "seatbelt",
+   "duration_s": 0.767,
+   "title": "click-seatbelt-4-cs.wav",
+   "creator": "csproductions",
+   "source": "freesound",
+   "url": "https://freesound.org/people/csproductions/sounds/36841",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a seatbelt buckle click",
+    "sim": 0.4674,
+    "z": 2.564,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a seatbelt buckle click",
+    "z": 4.0,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "swipe_os2.wav",
+   "kind": "swipe",
+   "duration_s": 0.492,
+   "title": "Swipe/Scrape",
+   "creator": "Caitlin_100",
+   "source": "freesound",
+   "url": "https://freesound.org/people/Caitlin_100/sounds/398404",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a quick swipe slide sound",
+    "sim": 0.1319,
+    "z": 1.692,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a swipe",
+    "z": 2.9,
+    "verdict": "plausible"
+   }
+  },
+  {
+   "file": "swipe_os3.wav",
+   "kind": "swipe",
+   "duration_s": 0.853,
+   "title": "swipe dash.wav",
+   "creator": "mattlohkamp",
+   "source": "freesound",
+   "url": "https://freesound.org/people/mattlohkamp/sounds/246472",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a quick swipe slide sound",
+    "sim": 0.1268,
+    "z": 1.684,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a swipe",
+    "z": 2.0,
+    "verdict": "weak"
+   }
+  },
+  {
+   "file": "whoosh_os1.wav",
+   "kind": "whoosh",
+   "duration_s": 0.448,
+   "title": "Swipe Whoosh",
+   "creator": "qubodup",
+   "source": "freesound",
+   "url": "https://freesound.org/people/qubodup/sounds/60007",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a short fast air whoosh transition sound",
+    "sim": 0.4198,
+    "z": 3.233,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a fast whoosh",
+    "z": 4.7,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "whoosh_os2.wav",
+   "kind": "whoosh",
+   "duration_s": 0.522,
+   "title": "13th Whoosh Swing Sound",
+   "creator": "qubodup",
+   "source": "freesound",
+   "url": "https://freesound.org/people/qubodup/sounds/60000",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a short fast air whoosh transition sound",
+    "sim": 0.4373,
+    "z": 3.171,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a fast whoosh",
+    "z": 4.5,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "whoosh_os3.wav",
+   "kind": "whoosh",
+   "duration_s": 2.345,
+   "title": "Cartoony whooshes",
+   "creator": "BranRainey",
+   "source": "freesound",
+   "url": "https://freesound.org/people/BranRainey/sounds/142348",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "clap": {
+    "model": "laion/larger_clap_general",
+    "desc": "a short fast air whoosh transition sound",
+    "sim": 0.4533,
+    "z": 3.166,
+    "verdict": "맞음"
+   },
+   "processing": "앞뒤 무음 자름, 최대 3초(끝 0.15초 페이드), 최고 -1dB, 모노 48kHz",
+   "earshot": {
+    "query": "a fast whoosh",
+    "z": 4.5,
+    "verdict": "strong"
+   }
+  },
+  {
+   "file": "turn_signal_es1.wav",
+   "kind": "turn_signal",
+   "duration_s": 3.528,
+   "title": "earshot make \"a car turn signal indicator ticking\"",
+   "creator": "earshot 1.0.0 렌더(보배드림)",
+   "source": "earshot",
+   "url": "https://github.com/Leonxlnx/earshot",
+   "license": "렌더한 사람 소유·자유 이용(earshot MIT, 학습 원천은 퍼블릭 도메인 녹음)",
+   "earshot": {
+    "query": "a car turn signal ticking",
+    "z": 3.0,
+    "verdict": "strong"
+   },
+   "processing": "모노 48kHz 변환만"
+  },
+  {
+   "file": "pop_es1.wav",
+   "kind": "pop",
+   "duration_s": 0.592,
+   "title": "earshot 카탈로그 pop/mouth",
+   "creator": "earshot 1.0.0 렌더(보배드림)",
+   "source": "earshot",
+   "url": "https://github.com/Leonxlnx/earshot",
+   "license": "렌더한 사람 소유·자유 이용(earshot MIT, 학습 원천은 퍼블릭 도메인 녹음)",
+   "earshot": {
+    "query": "a bubble pop",
+    "z": 2.7,
+    "verdict": "plausible"
+   },
+   "processing": "모노 48kHz 변환만"
+  }
+ ]
+}

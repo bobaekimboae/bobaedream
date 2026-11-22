@@ -30,6 +30,9 @@ PROMPTS = {
     'dial': 'a rotary drive mode dial on a steering wheel',
     'stalk': 'a lever stalk behind a steering wheel',
     'climate': 'a car climate control panel',
+    # 2026-11-22 관문: 번호판은 칩이 덮는지 검사용(가리지 않음). 차란차 13번 앞모습에서 0.49로 찾음.
+    # 캘리퍼 단어('a colored brake caliper…')는 시험에서 화면 전체 상자가 나와 넣지 않음(전수조사 K 그대로 남음)
+    'plate': 'a car license plate',
 }
 SIZE_RATIO = 0.32      # 스티커 높이 = 부위 상자 폭의 32% (사람 눈 기준 「부위 위에 얹힌」 크기, 2026-11-18 시트로 맞춤)
 _MODEL = {}
