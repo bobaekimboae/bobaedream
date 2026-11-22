@@ -48,3 +48,28 @@
 - 효과음 사이트 비교(Uppbeat 블로그, 광고성): https://uppbeat.io/blog/sound-effects/free-sound-effects-websites
 - 비교 글: https://wyzowl.com/free-sound-effects-sites/ · https://www.videomaker.com/buyers-guide/the-best-royalty-free-music-and-sound-effects-sites/
 - 공유마당: https://gongu.copyright.or.kr/gongu/wrt/wrtCl/ksoundlibrary_kr.do?menuNo=200275
+
+## 크로스체크 (사용자 제시 목록, 2026-11-22 오후)
+
+우리 용도 = 인스타·틱톡·유튜브 **3채널 동시**, **딜러 상업 홍보**, **자동 편집(서버에서 mp4로 섞음, 나중엔 딜러용 앱)** 기준.
+
+| 사이트 | 제시 내용 | 원문 확인 결과 | 판정 |
+|---|---|---|---|
+| YouTube 오디오 보관함 | 1위, 가장 안전 | ✅ 공식 도움말은 유튜브 스튜디오 안 사용만 안내, 유튜브 밖 사용 언급 없음. 저작권 자동 검사 보호도 유튜브 안에서만(제3자 글). 자동 다운로드 불가(스튜디오 로그인) | ⬇ 유튜브 전용 영상에만. 3채널 기본 소리로는 제외 |
+| Pixabay | 상업 OK, 출처 불필요 | ✅ 맞음. 단 음악은 방패(Content ID) 곡 신고 가능, 파일 단독 재배포 금지. 「가입 없이 다운로드」는 ❓ | ⭕ 방패 없는 곡만 |
+| Mixkit | 출처 불필요, 가입 불필요 | ✅ Free License = 상업(유튜브·SNS 광고) 가능·표기 없음·가입 없음. **Restricted License 곡은 비상업 전용** → 곡마다 라이선스 확인. 제3자에게 파일 제공 금지 | ⭕ Free License 표시 곡만 |
+| 공유마당 | 공공 사이트라 안전 | ✅ 자료마다 CCL·공공누리 유형이 다름. **NC·공공누리 2·4유형은 상업 금지** | ⚠ 「공공」이라 다 안전한 게 아님. CC0·만료·공공누리 1유형만 |
+| Freesound | CC0만 추천 | ✅ 맞음 | ⭕ (말 울음 여기서) |
+| 뮤팟 · 셀바이뮤직 | 무료 트랙 일부 출처 필요 | ❓ 원문 접속 실패 | ❓ 확인 전 보류 |
+| DOVA-SYNDROME | 곡별 상이 | ✅ 상업 가능·**표기 불필요**(배경음일 때). 곡이 주인공인 영상·편곡·리믹스·**AI 학습** 금지, 작곡가별 추가 조건 우선 | ⭕ 배경음 3순위 후보(곡별 조건 확인) |
+| Bensound | 무료 버전 출처 필수 | ✅ 맞음(무료는 표기 필수). 상업 광고 사용은 원문에 명시 없음 | ⚠ 표기 가능한 채널만 |
+| 효과음 연구소 | 출처 불필요 | ✅ 상업·수익화 유튜브 가능, 표기 불필요. **효과음 들어간 작품의 Content ID 등록 금지, 앱에 기본 소리로 넣는 것 = 재배포로 금지, AI 학습 금지** | ⭕ 서버 렌더 영상엔 OK, 딜러 앱에 파일로 넣으면 ✕ |
+| Zapsplat | 무료 계정 출처 필수 | ✅ 맞음(Basic은 「ZapSplat」 표기 필수, MP3만). Premium은 표기 없음·평생 유지 | ⚠ 표기 부담 → 유료 아니면 후순위 |
+| 쿠라게 코쇼 | 출처 불필요 | ❓ 원문 접속 실패 | ❓ 확인 전 보류 |
+
+### 우리 구조에서 꼭 지킬 것(새로 찾은 점)
+- **딜러용 앱(숏폼 스튜디오)에 효과음·음악 파일을 그대로 넣어 배포하면** 효과음 연구소(앱 기본 소리 금지)·DOVA(사용자가 파일에 쉽게 접근 금지)·Mixkit(제3자 제공 금지)·Pixabay(단독 배포 금지) 조건에 걸릴 수 있다 → 외부 소리는 **서버에서 mp4로 섞어 내보내기만**, 앱에 파일로 싣는 소리는 자체 제작·CC0만.
+- **AI 학습 금지**(DOVA·효과음 연구소): 나중에 편집 모델을 학습시킬 때 이 소리들은 학습 자료에서 뺀다.
+- 결론 순위는 그대로: 효과음 자체 제작 → Freesound CC0 → Pixabay·효과음 연구소(서버 렌더 한정) / 배경음 자체 제작 → Pixabay(방패 없음)·Mixkit Free License → DOVA. 유튜브 오디오 보관함은 유튜브 전용 영상에만.
+
+출처(추가): Mixkit 공식 안내 https://mixkit.co/llm-info/ · DOVA 라이선스 https://dova-s.jp/_contents/license/ · 효과음 연구소 약관 https://soundeffect-lab.info/agreement/ · Zapsplat 라이선스 https://www.zapsplat.com/license-agreement · Bensound https://www.bensound.com/free-music-for-videos · 공유마당 이용조건 https://gongu.copyright.or.kr/gongu/main/contents.do?menuNo=200196 · 유튜브 밖 사용(제3자) https://hellothematic.com/youtube-audio-library/
