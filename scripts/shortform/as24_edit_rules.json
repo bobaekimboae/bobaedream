@@ -399,7 +399,8 @@
     "cut_gap_s": 0.3
    },
    "music": "bgm",
-   "shot_target_s": 1.9
+   "shot_target_s": 1.9,
+   "_superseded": "2026-11-19: 이 칸의 색·높이·기울기는 옛 값. 벨기에판 기준은 be_locked_rules.json(검사 check_be.py)"
   }
  },
  "rules": {

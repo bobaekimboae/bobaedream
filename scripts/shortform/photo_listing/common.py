@@ -5,8 +5,8 @@ v1.4: 렌더 전 매뉴얼 점검(check_cfg.py, 걸리면 멈춤) · 한 덩어�
 v1.3: 딜러 칩 독일식 두 줄 둥근 상자(DEALER_CHIP_STYLE='de') 추가 · 붓칠 칩 벨기에 비율(칠 높이 2.8배·여백 0.2배)과 글자 잘림 방지
 v1.2: 낱말 시작 에너지 골짜기 맞춤 · 페이드 창(FW) · 가로 사진 아래 자막 · SFX_RICH · 노션 원본 칠 딜러 칩
 """
-PIPELINE_VERSION = '1.4'
-import json, os, subprocess, sys, wave
+PIPELINE_VERSION = '1.5'  # v1.5: 옵션 비주얼 자동(auto_visuals.py · option_visual_rules.json)
+import json, os, re, subprocess, sys, wave
 import numpy as np
 import cv2
 from PIL import Image, ImageFilter, ImageDraw, ImageFont
@@ -114,6 +114,12 @@ PHOTO_BOTTOM = CAP_TOP - CAP_GAP   # 가로 사진(상자 맞춤) 아랫선 — 
 starts = [0.0] + [onset(c[2]) - 0.12 for c in CUTS[1:]]
 BODY = VOICE_LEN + TAIL
 ends = starts[1:] + [BODY]
+if getattr(C, 'AUTO_ZOOM', False):   # 매뉴얼 14장 — 부위 당기기(키프레임 자동), 규칙은 part_zoom_rules.json
+    import part_zoom
+    _zk, _zr = part_zoom.build(C, CUTS, starts, ends, onset, WRD, W, H, os.environ.get('BBM_FADE') == '1')
+    CUTS = [tuple(c[:6]) + (_zk[i],) + tuple(c[7:]) if i in _zk else c for i, c in enumerate(CUTS)]
+    for _l in _zr:
+        print('  [부위 당기기]', _l)
 END_CARD = getattr(C, 'END_CARD', True)  # False = 끝 보배드림 화면 없이 마지막 장면을 0.8초 어둡게 닫음
 if not END_CARD:
     END_S = 0.8
@@ -154,12 +160,35 @@ for ci, c in enumerate(CUTS):
         e = (groups[gi + 1][0][1] if gi + 1 < len(groups) else (onset(CUTS[ci + 1][2]) - 0.05 if ci + 1 < len(CUTS) else VOICE_LEN + 0.3))
         CAPS.append(dict(s=s, e=e, t=' '.join(t for t, _ in g), ws=[w for _, w in g]))
 
+def chip_px(txt, num):
+    """칩 글자 크기. v1.8.3(2026-11-18 사용자 승인): 마지막 가격 칩은 cfg CHIP_SIZE_OVERRIDE로 크게(예: {'7,450만원': 120})."""
+    return getattr(C, 'CHIP_SIZE_OVERRIDE', {}).get(txt, 84 if num else 72)
+
+
+def is_num_chip(txt):
+    """숫자 칩(가격·주행거리·마력 등 값 자체)인가. '360도 카메라'처럼 숫자가 든 기능 이름은 키워드 칩."""
+    if not any(ch.isdigit() for ch in txt):
+        return False
+    rest = re.sub(r'[\d,.\s~/·]', '', txt)
+    rest = re.sub(r'(만원|억|원|km/h|km|마력|kg·m|kgm|kg|cc|초|년|월|명|단|%|인승)', '', rest)
+    return rest == ''
+
+
+# 2026-11-17 매뉴얼 v4 9-3(벨기에판): 칩은 그 낱말이 든 구절(자막 덩어리) 시작 +0.05초에 뜸
+def chip_start(wi):
+    t = onset(wi)
+    for cp in CAPS:
+        if cp['s'] - 0.02 <= t < cp['e']:
+            return cp['s'] + 0.05
+    return t + 0.05
+
+
 CHIPS = []
 for ci, c in enumerate(CUTS):
     if c[4]:
-        CHIPS.append((c[4][0], onset(c[4][1]) + 0.05, ends[ci] - 0.08))
+        CHIPS.append((c[4][0], max(starts[ci] + 0.05, chip_start(c[4][1])), ends[ci] - 0.08))
 for txt, wi in EXTRA_CHIPS:
-    t0 = onset(wi) + 0.05
+    t0 = chip_start(wi)
     ci_ = max(i for i in range(len(CUTS)) if starts[i] <= t0)
     CHIPS.append((txt, t0, ends[ci_] - 0.08))
 if getattr(C, 'DEALER_FOOTER', False):  # 딜러는 아래 띠가 맡으므로 딜러 이름 칩은 겹치지 않게 뺌
@@ -186,6 +215,7 @@ for _j in range(1, len(CUTS)):
     _d = min(FADES[_tr], max(0.25, _end - _prev + 0.10))
     FW[_j] = (_end - _d, _end, _tr)
 # 칩: 새 컷 칩은 페이드가 끝난 뒤, 앞 컷 칩은 페이드 시작 전에 내려감
+CHIP_MIN = getattr(C, 'CHIP_MIN', 0.9)
 _cut_of = lambda t: max(i for i in range(len(CUTS)) if starts[i] <= t)
 _ch = []
 for txt, st, en in CHIPS:
@@ -194,8 +224,12 @@ for txt, st, en in CHIPS:
         st = max(st, FW[ci][1] + 0.05)
     if ci + 1 in FW:
         en = min(en, FW[ci + 1][0])
-    if en - st > 0.3:
-        _ch.append((txt, st, en))
+    if en - st < CHIP_MIN:  # 2026-11-17 검수: 짧은 컷이라 칩이 잘리거나 빠지지 않게 다음 넘김 위로 이어서 최소 시간 보임
+        en = min(st + CHIP_MIN, BODY - 0.1)
+    _ch.append((txt, st, en))
+for _k in range(len(_ch) - 1):  # 늘린 칩이 다음 칩과 겹치지 않게
+    if _ch[_k][2] > _ch[_k + 1][1] - 0.05:
+        _ch[_k] = (_ch[_k][0], _ch[_k][1], _ch[_k + 1][1] - 0.05)
 CHIPS = _ch
 for c in CAPS:  # 문장 마지막 자막도 페이드 시작 전에 내려감
     ci = _cut_of(c['s'])
@@ -265,12 +299,27 @@ def frame_of(ci, T):
         u = ease(u) * 0.85 + u * 0.15
     hz = getattr(C, 'HOOK_ZOOM', None)  # 첫 컷 엠블럼 확대 → 뒤로 빠지기 (A안)
     if ci == 0 and hz:
-        uu = min(1, max(0, T / hz[1]))
-        u = ease(uu)
+        # 2026-11-17 검수: 확대가 1.6초에 뚝 멈춘 뒤 한 프레임 쉬고 넘김이 시작돼 걸려 보였음 →
+        # 첫 컷이 화면에서 사라질 때까지(다음 넘김 끝) 감속(ease-out)으로 이어서 움직임
+        dur = max(hz[1], FW[1][1] if 1 in FW else ends[0])
+        uu = min(1, max(0, T / dur))
+        u = 1 - (1 - uu) ** 3
     img = photo(n)
     h, w = img.shape[:2]
     z = (z0 + (z1 - z0) * u) * punch(ci, T)
     full = (h, w) == (H, W)  # 미리 만든 9:16 독립 컷(성능지·가격·자료 카드)은 상자 맞춤 없이 그대로
+    # 2026-11-17 검수: 이동 끝점이 사진 밖이면 중간에 가장자리에 걸려 뚝 멈춤(페이드판 마지막 컷 1.5초 정지) →
+    # 시작·끝점을 먼저 사진 안으로 넣고 그 사이를 움직여, 컷 끝까지 같은 곡선으로 부드럽게 멈춤
+    if not full and not isinstance(kb, list):
+        if FADE:
+            spx = lambda zz: 1 / max(1.0, zz)
+        else:
+            spx = lambda zz: min(1.0, W * h / (H * w * max(zz, 1e-3)))
+        cl = lambda f, sp: min(max(f, sp / 2), 1 - sp / 2)
+        fx0, fx1 = cl(fx0, spx(z0)), cl(fx1, spx(z1))
+        if FADE:
+            fya, fyb = cl(fy, 1 / max(1.0, z0)), cl(fy, 1 / max(1.0, z1))
+            fy = fya + (fyb - fya) * u
     if FADE and not full:
         return box_frame(n, img, fx0 + (fx1 - fx0) * u, fy, z)
     if n in FIT and not full:
@@ -280,10 +329,12 @@ def frame_of(ci, T):
     cx = min(max((fx0 + (fx1 - fx0) * u) * w, vw / 2), w - vw / 2)
     cy = min(max(fy * h, vh / 2), h - vh / 2)
     M = np.float32([[sc, 0, W / 2 - cx * sc], [0, sc, H / 2 - cy * sc]])
+    AFF[n] = (sc, sc, W / 2 - cx * sc, H / 2 - cy * sc, w, h)  # 스티커가 사진 부위를 따라가도록 이번 프레임 변환 기록
     return cv2.warpAffine(img, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
 
 
 FIT = set(getattr(C, 'FIT', []))
+AFF = {}  # 사진 번호 → (가로 배율, 세로 배율, x 이동, y 이동, 사진 폭, 사진 높이) 이번 프레임
 BG = {}
 FADE = os.environ.get('BBM_FADE') == '1'
 
@@ -321,6 +372,7 @@ def box_frame(n, img, fx, fy, z):
     fg = cv2.warpAffine(img, M, (int(fw), int(fh)), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
     x0 = int((W - fw) / 2); y0 = int(_photo_y0(fh))
     out[y0:y0 + fg.shape[0], x0:x0 + fg.shape[1]] = fg
+    AFF[n] = (fw / sw, fh / sh, x0 - (cx - sw / 2) * fw / sw, y0 - (cy - sh / 2) * fh / sh, w, h)
     return out
 
 
@@ -449,37 +501,48 @@ if _lgp and os.path.exists(_lgp):
 else:  # 딜러 로고 없음
     LOGO = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
 LOGO_XY = (40, 96)
-def dealer_chip(txt, size=40, tilt=-1.5, font=None, hr=2.8, emo=None, tsc=1.0):
+def dealer_chip(txt, size=40, tilt=-1.5, font=None, hr=2.8, emo=None, tsc=1.0, fill='430_239', sliced=False,
+                txt_col=(0, 0, 0), pad=None, ty=0.0, fit_ink=False, tilt_text=True):
     """딜러 칩 = 노션 「스카우트24 테마별」 원본 로고 칠(테마 바탕색_430_239) 그대로, 가로로만 늘림. 색 #F5F200, 글자 검정.
     벨기에판 실측(tags_zoom: €56.490·€180·Auto): 칠 높이 ≈ 대문자 높이 2.8배, 글자 좌우 여백 ≈ 칠 높이 0.2배, 글자는 칠 세로 가운데.
     칠 가장자리가 들쭉날쭉하므로 글자 칸의 모든 세로줄이 칠 안(불투명)에 들 때까지 칠 폭을 넓힘 → 글자 잘림 없음."""
     import sys as _s
     import numpy as _np
     _s.path.insert(0, REPO)
-    from brushfill import theme_mask
+    from brushfill import theme_mask, theme_mask_sliced
     fnt = ImageFont.truetype(font or R.BOLD, size)
     bb = fnt.getbbox(txt, anchor='ls'); tw = bb[2] - bb[0]; th = bb[3] - bb[1]
     cap = size * 0.74
-    h = int(round(cap * hr)); m = 12
+    h = int(round((max(cap, th) if fit_ink else cap) * hr)); m = 12  # fit_ink: 한글은 받침까지 글자 높이가 커서 실제 글자 높이 기준
     badge = int(cap * 1.42) if emo is not None else 0  # 기존 방식: 칠 안, 글자 뒤 흰 원 + 이모지
     gap = int(cap * 0.38) if badge else 0
     cw = tw + gap + badge
-    w = int(cw + h * 0.2 * 2)
+    pl, pr = pad or (0.2, 0.2)  # 글자 좌우 여백(칠 높이 비율). 2026-11-19 AS24 로고 실측: 왼 0.18 · 오른 0.24(붓 끝이 뾰족한 쪽을 더 비움)
+    w = int(cw + h * (pl + pr))
     for _ in range(30):
-        mask = theme_mask(w, h, '430_239', margin=m)
+        mask = theme_mask_sliced(w, h, fill, margin=m) if sliced else theme_mask(w, h, fill, margin=m)
+        dx = dy = 0
+        if tilt and not tilt_text:  # 2026-11-19 벨기에 원본(Alfa·Giulia·Opzoek): 칠만 기울이고 글자는 똑바로
+            ow, oh = mask.size
+            mask = mask.rotate(-tilt, resample=Image.BICUBIC, expand=True)
+            dx, dy = (mask.width - ow) / 2, (mask.height - oh) / 2
         A = _np.asarray(mask)
-        x0 = m + (w - cw) / 2; y0 = m + (h - th) / 2
+        x0 = dx + m + h * pl + (w - h * (pl + pr) - cw) / 2; y0 = dy + m + (h - th) / 2 + h * ty
         by = m + h / 2 - badge / 2
         sub = A[int(min(y0, by)) - 3:int(max(y0 + th, by + badge)) + 4, int(x0) - 4:int(x0 + cw) + 5]
         if sub.size and sub.min() > 200:
             break
-        w = int(w * 1.04) + 2
+        if fit_ink:  # 비스듬한 칠(432_227)은 가로만 넓히면 끝없이 길어짐 → 높이·폭을 같이 조금씩
+            h = int(h * 1.03) + 1; w = int(w * 1.02) + 1
+        else:
+            w = int(w * 1.04) + 2
     im = Image.new('RGBA', mask.size, (0xF5, 0xF2, 0x00, 0)); im.putalpha(mask)
+    rot = 0 if not tilt_text else tilt  # 칠만 기울인 경우 이미 기울어 있음
     if tsc <= 0:  # 벨기에 원본 등장: 빈 노랑 띠가 먼저(글자 없음)
-        return im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
+        return im.rotate(-rot, resample=Image.BICUBIC, expand=True)
     tl = Image.new('RGBA', mask.size, (0, 0, 0, 0))  # 글자(+흰 원 이모지) 층: 원본처럼 띠 안에서 작게→크게
     d = ImageDraw.Draw(tl)
-    d.text((x0 - bb[0], y0 - bb[1]), txt, font=fnt, fill=(0, 0, 0), anchor='ls')
+    d.text((x0 - bb[0], y0 - bb[1]), txt, font=fnt, fill=txt_col, anchor='ls')
     if badge:
         bx = x0 + tw + gap
         d.ellipse((bx, by, bx + badge, by + badge), fill=(255, 255, 255, 255))
@@ -495,12 +558,50 @@ def dealer_chip(txt, size=40, tilt=-1.5, font=None, hr=2.8, emo=None, tsc=1.0):
         tl = Image.new('RGBA', mask.size, (0, 0, 0, 0))
         tl.alpha_composite(sm, (int(round(cx - cx * tsc)), int(round(cy - cy * tsc))))
     im.alpha_composite(tl)
-    return im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
+    out = im.rotate(-rot, resample=Image.BICUBIC, expand=True)
+    if not rot:  # 같은 줄 흰 글자를 붙일 기준: 글자 바닥선 y, 글자 줄 높이에서 칠 오른쪽 끝 x
+        row = _np.asarray(mask)[int(y0 + th * 0.5)]
+        xs = _np.where(row > 128)[0]
+        out.info['baseline'] = y0 - bb[1]
+        out.info['right'] = int(xs.max()) if xs.size else out.width - m
+    return out
 
 
 _BEC = {}
+try:  # 3D 아이콘판(_sticker_core)의 옵션·기능·숫자 칩도 같은 리싱마크트 칠로(이 렌더 안에서만)
+    sys.path.insert(0, REPO)
+    import brushfill as _bf
+    for _k in _bf.THEME_KINDS:
+        _bf.THEME_KINDS[_k]['fills'] = [getattr(C, 'CHIP_FILL', '126_40')]
+except Exception:
+    pass
 CHIP_TXT_DELAY = getattr(C, 'CHIP_TXT_DELAY', 1 / 30)  # 띠 뒤 글자 시작(원본 1프레임)
 CHIP_TXT_DUR = getattr(C, 'CHIP_TXT_DUR', 0.20)
+
+
+FLUENT_DIR = os.path.join(os.path.dirname(os.path.abspath(R.__file__)), 'photo_listing', 'fluent3d')  # 렌더 중 작업 폴더가 바뀌므로 모듈 위치 기준
+
+
+def fluent_emoji(mark, h=112):
+    """이모지 글자(여러 개 가능, 예: '❄️🔥')를 fluent3d/<코드포인트>.png 3D 그림으로. 하나라도 없으면 None"""
+    ims = []
+    for ch in mark:
+        if ord(ch) in (0xFE0F, 0x200D):
+            continue
+        f = os.path.join(FLUENT_DIR, f'{ord(ch):x}.png')
+        if not os.path.exists(f):
+            return None
+        im = Image.open(f).convert('RGBA')
+        im = im.crop(im.getchannel('A').point(lambda v: 255 if v > 40 else 0).getbbox())
+        ims.append(im.resize((max(1, round(im.width * h / im.height)), h), Image.LANCZOS))
+    if not ims:
+        return None
+    gap = 6
+    out = Image.new('RGBA', (sum(i.width for i in ims) + gap * (len(ims) - 1), h), (0, 0, 0, 0))
+    x = 0
+    for i in ims:
+        out.alpha_composite(i, (x, 0)); x += i.width + gap
+    return out
 
 
 def be_chip(txt, size, tilt, tsc=1.0):
@@ -513,14 +614,11 @@ def be_chip(txt, size, tilt, tsc=1.0):
     mark = getattr(C, 'MARKS', {}).get(txt)
     emo = None
     if mark and mark != '✓':
-        try:
-            ef = ImageFont.truetype(R.EMOJI_FONT, 109)
-            emo = Image.new('RGBA', (160, 160), (0, 0, 0, 0))
-            ImageDraw.Draw(emo).text((80, 80), mark, font=ef, embedded_color=True, anchor='mm')
-            emo = emo.crop(emo.getbbox())
-        except Exception:
-            emo = None
-    out = dealer_chip(txt, size, tilt, font=R.HEAVY, hr=2.8, emo=emo, tsc=tsc)
+        emo = fluent_emoji(mark)  # 2026-11-17 사용자: 마이크로소프트 Fluent 3D 이모지 기본(MIT). 없으면 아래 Noto 글꼴로
+    if mark and mark != '✓' and emo is None:  # 2026-11-18 사용자 규정: 이모지는 마이크로소프트 Fluent 3D만. 다른 글꼴로 대신하지 않고 멈춤
+        raise SystemExit(f'⛔ Fluent 3D 이모지 파일 없음: {mark!r} ({" ".join(f"{ord(c):x}" for c in mark)}) — fluent3d/에 공식 3D PNG를 받아 넣고 다시 렌더')
+    # 2026-11-19 사용자: 첫 컷 브랜드·모델 외 타이틀 칩 = 노션 「리싱마크트 메인 사용 칩」(126_40) 칠
+    out = dealer_chip(txt, size, tilt, font=R.HEAVY, hr=getattr(C, 'CHIP_HR', 2.4), emo=emo, tsc=tsc, fill=getattr(C, 'CHIP_FILL', '126_40'))
     _BEC[k] = out
     return out
 
@@ -578,7 +676,17 @@ def dealer_chip_row(lines, size=34):
 
 
 FOOTER = None
-if getattr(C, 'DEALER_FOOTER', False) and getattr(C, 'DEALER_CHIP', None):  # 딜러는 아래 한 줄 띠, 위는 포인트 칩 자리
+# 2026-11-19 사용자 「판매자·상사도 한 칩으로」: 이름·상사를 한 줄 한 칩으로 — 노션 「테마 바탕색_265_42」(사용자 선택, 긴 한 줄에 원본 비율이 맞아 양 끝 붓 모양이 살아 있음).
+#   타이틀 칩(리싱마크트)·첫 컷(430_239)과 모양을 달리해 화면에 오래 떠 있는 판매자 칩이 정보 칩과 섞여 보이지 않게
+_DLINES = getattr(C, 'DEALER_CHIP_LINES', [getattr(C, 'DEALER_CHIP', '')]) if getattr(C, 'DEALER_CHIP', None) else []
+if _DLINES and getattr(C, 'DEALER_ONE_CHIP', True):
+    _one = dealer_chip(' · '.join(x for x in _DLINES if x), getattr(C, 'DEALER_CHIP_SIZE', 34), getattr(C, 'DEALER_CHIP_TILT', -1.5),
+                       font=R.BOLD, hr=2.6, fill=getattr(C, 'DEALER_CHIP_FILL', '265_42'))
+    if getattr(C, 'DEALER_FOOTER', False):
+        FOOTER = _one; LOGO = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
+    else:
+        LOGO = _one
+elif getattr(C, 'DEALER_FOOTER', False) and getattr(C, 'DEALER_CHIP', None):  # 딜러는 아래 한 줄 띠, 위는 포인트 칩 자리
     FOOTER = dealer_chip_row(getattr(C, 'DEALER_CHIP_LINES', [C.DEALER_CHIP]), getattr(C, 'DEALER_CHIP_SIZE', 34))
     LOGO = Image.new('RGBA', (2, 2), (0, 0, 0, 0))
 elif getattr(C, 'DEALER_CHIP', None):  # 딜러 이름 칩: 노션 원본 로고 칠
@@ -695,7 +803,7 @@ _SH = {}
 
 def shadow_text(txt, size, font=None):
     """흰 글자 + 부드러운 검정 그림자(원본 BE 첫 화면 'Model Y' 방식, 외곽선 없음)"""
-    k = (txt, size)
+    k = (txt, size, font)
     if k in _SH:
         return _SH[k]
     from PIL import ImageFilter, ImageFont, ImageDraw
@@ -707,6 +815,8 @@ def shadow_text(txt, size, font=None):
     ImageDraw.Draw(sh).text((pad - bb[0] + 3, pad - bb[1] + 5), txt, font=fnt, fill=(0, 0, 0, 200), stroke_width=3, stroke_fill=(0, 0, 0, 200))
     im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
     ImageDraw.Draw(im).text((pad - bb[0], pad - bb[1]), txt, font=fnt, fill=(255, 255, 255, 255))
+    im.info['baseline'] = pad - bb[1] + fnt.getmetrics()[0]  # 글자 바닥선 y
+    im.info['ink_left'] = pad
     _SH[k] = im
     return im
 
@@ -787,7 +897,7 @@ def section_layer(ov, T):
         tk = (k - CHIP_TXT_DELAY) / CHIP_TXT_DUR
         tsc = 0.0 if tk < 0 else (0.2 + 0.8 * (1 - (1 - min(1.0, tk)) ** 3))
         size = getattr(C, 'SECTION_SIZE', 54)
-        stl = getattr(C, 'CHIP_TILT_WORD', TILT)
+        stl = getattr(C, 'CHIP_TILT_ALL', None) if getattr(C, 'CHIP_TILT_ALL', None) is not None else getattr(C, 'CHIP_TILT_WORD', TILT)
         im = be_chip(title, size, stl, round(tsc * 20) / 20)
         full = be_chip(title, size, stl)
         out = R.ease((en - T) / .15)
@@ -799,13 +909,608 @@ def section_layer(ov, T):
         R.paste(ov, im, x + (full.width - im.width) / 2, y + (full.height - im.height) / 2, out)
 
 
+_OFF_TAG = None
+
+
+def official_layer(ov, T):
+    """2026-11-17: 제조사 공식 사진 컷에는 오른쪽 위에 「제조사 공식 이미지」 작은 글자 — 매물 실사진과 구분(구매자 오인 방지)"""
+    global _OFF_TAG
+    offs = getattr(C, 'OFFICIAL_PHOTOS', ())
+    if not offs or T >= BODY:
+        return
+    ci = _cut_at(T)
+    if CUTS[ci][0] not in offs:
+        return
+    # 2026-11-18: 사진마다 다른 출처 글자(OFFICIAL_TAGS = {사진번호: 글자}) — 예: 트렁크 「오토블로그 실측」
+    if _OFF_TAG is None:
+        _OFF_TAG = {}
+    txt = getattr(C, 'OFFICIAL_TAGS', {}).get(CUTS[ci][0], getattr(C, 'OFFICIAL_TAG', '제조사 공식 이미지'))
+    if txt not in _OFF_TAG:
+        _t = shadow_text(txt, 30)   # 밝은 배경(흰 벽)에서도 읽히게 반투명 검정 알약 위에
+        _pill = Image.new('RGBA', (_t.width + 28, _t.height + 12), (0, 0, 0, 0))
+        ImageDraw.Draw(_pill).rounded_rectangle((0, 0, _pill.width - 1, _pill.height - 1), _pill.height // 2, fill=(0, 0, 0, 120))
+        _pill.alpha_composite(_t, (14, 6))
+        _OFF_TAG[txt] = _pill
+    tag = _OFF_TAG[txt]
+    k = min(1.0, (T - starts[ci]) / .25)
+    if ci + 1 < len(CUTS):
+        k = min(k, max(0.0, (starts[ci + 1] - T) / .2))
+    R.paste(ov, tag, W - 40 - tag.width, getattr(C, 'OFFICIAL_TAG_Y', 104), k)
+
+
+_STK = {}
+
+
+def _auto_visuals():
+    """v1.5 매뉴얼 13장: AUTO_VISUALS=True면 옵션 낱말 → 컷 → 부위 → Fluent 3D/3D 글자 자동 추가"""
+    if not getattr(C, 'AUTO_VISUALS', False):
+        return
+    sys.path.insert(0, os.path.dirname(os.path.abspath(R.__file__)) + '/photo_listing')
+    import auto_visuals
+    stk, rep = auto_visuals.build(C, C.W, CUTS)
+    for line in rep:
+        print('  [옵션 그림] ' + line)
+    if any(l.startswith('⛔') for l in rep) and not getattr(C, 'ALLOW_MISSING_REQUIRED', False):
+        raise SystemExit('⛔ 매물 필수 옵션이 대본에 없음(매뉴얼 13-2) — 대본에 넣거나 cfg ALLOW_MISSING_REQUIRED=True')
+    C.STICKERS = list(getattr(C, 'STICKERS', [])) + stk
+
+
+def _resolve_stickers():
+    """STICKERS 항목에 'part'(backrest·cushion·headrest·steering·screen·wheel)만 적으면 part_anchor.py가 사진에서 부위를 찾아
+    u·v·size·box를 채움. 결과는 src2/pNN.anchors.json에 저장해 다음 렌더부터는 모델을 다시 돌리지 않음"""
+    out = []
+    for sk in getattr(C, 'STICKERS', []):
+        if 'part' in sk and 'u' not in sk:
+            n = sk['photo']
+            f = f'src2/p{n:02d}.anchors.json'
+            data = json.load(open(f)) if os.path.exists(f) else {}
+            if sk['part'] not in data:
+                sys.path.insert(0, os.path.dirname(os.path.abspath(R.__file__)) + '/photo_listing')
+                import part_anchor
+                data.update(part_anchor.anchors(f'src2/p{n:02d}.png', tuple(set(list(data) + [sk['part']]))))
+                json.dump(data, open(f, 'w'), ensure_ascii=False)
+            if sk['part'] not in data:
+                print(f'⚠ 스티커 부위를 못 찾음: 사진 {n} {sk["part"]} — 이 스티커는 빼고 렌더')
+                continue
+            sk = {**sk, **data[sk['part']]}
+        out.append(sk)
+    return out
+STK_MIN, STK_MAX = 150, 280  # 스티커 화면 높이 한계(px): 너무 작으면 안 보이고 너무 크면 부위를 가림
+
+
+def text3d(txt, h=200):
+    """2026-11-18 나세르식 입체 숫자(「396 LITER」처럼): 흰 굵은 숫자 + 아래쪽 두께 + 작은 단위. 이모지로는 L 같은 글자가 없어 직접 그림.
+    h = 전체 높이(px). 숫자는 Pretendard Black, 단위는 숫자 크기의 0.5배로 숫자 밑줄에 맞춤."""
+    m = re.match(r'^([\d.,+]+)\s*(.*)$', txt)
+    num, unit = (m.group(1), m.group(2)) if m else (txt, '')
+    if re.fullmatch(r'[\d\s:.,]+', txt):   # 40 : 20 : 40 같은 비율은 전부 숫자 크기
+        num, unit = txt, ''
+    fs = int(h / 0.78)
+    fn = ImageFont.truetype(R.HEAVY, fs)
+    fu = ImageFont.truetype(R.HEAVY, int(fs * 0.5))
+    d0 = ImageDraw.Draw(Image.new('L', (1, 1)))
+    nb = d0.textbbox((0, 0), num, font=fn, anchor='ls')
+    ub = d0.textbbox((0, 0), unit, font=fu, anchor='ls') if unit else (0, 0, 0, 0)
+    gap = int(fs * 0.06) if unit else 0
+    depth = max(3, int(h * 0.07))
+    sw = max(2, int(h * 0.015))   # 2026-11-18 크로스체크: 흰 배경(트렁크 벽)에서 흐려 보여 얇은 검은 외곽선
+    pad = 4 + sw
+    Wt = (nb[2] - nb[0]) + gap + (ub[2] - ub[0]) + depth + pad * 2
+    top = min(nb[1], ub[1])
+    Ht = -top + depth + pad * 2
+    def draw_text(d, dx, dy, fill, stroke=0):
+        x = pad + dx - nb[0]; y = pad + dy - top
+        kw = dict(stroke_width=stroke, stroke_fill=fill) if stroke else {}
+        d.text((x, y), num, font=fn, fill=fill, anchor='ls', **kw)
+        if unit:
+            d.text((x + nb[2] + gap - ub[0], y), unit, font=fu, fill=fill, anchor='ls', **kw)
+    out = Image.new('RGBA', (Wt, Ht), (0, 0, 0, 0))
+    d = ImageDraw.Draw(out)
+    draw_text(d, depth * 0.5, depth, (25, 27, 30, 230), stroke=sw)   # 외곽선(두께 끝)
+    for k in range(depth, 0, -1):   # 두께: 뒤쪽일수록 어두운 회색
+        c = int(120 + 60 * (1 - k / depth))
+        draw_text(d, k * 0.5, k, (c, c + 4, c + 10, 255))
+    draw_text(d, 0, 0, (25, 27, 30, 230), stroke=sw)                 # 외곽선(앞면): 두께 위에
+    face = Image.new('L', out.size, 0)
+    draw_text(ImageDraw.Draw(face), 0, 0, 255)
+    grad = Image.new('RGBA', out.size)
+    gd = ImageDraw.Draw(grad)
+    for yy in range(out.height):   # 앞면: 위 흰색 → 아래 아주 옅은 회색
+        v = int(255 - 22 * yy / max(1, out.height))
+        gd.line([(0, yy), (out.width, yy)], fill=(v, v, min(255, v + 3), 255))
+    out.paste(grad, (0, 0), face)
+    return out
+
+
+def sticker_img(sk, h):
+    if sk.get('text3d'):
+        return text3d(sk['text3d'], h)
+    im = fluent_emoji(sk['emo'], h)
+    if im is None:  # 2026-11-18: Fluent 3D만 허용
+        raise SystemExit(f'⛔ Fluent 3D 이모지 파일 없음: {sk["emo"]!r} — fluent3d/에 공식 3D PNG를 받아 넣고 다시 렌더')
+    return im
+
+
+_ASP = {}
+
+
+def sticker_layer(ov, T):
+    """2026-11-17 나세르식: 실제 사진의 해당 부위 옆에 3D 이모지가 말에 맞춰 톡 튀어나와 떠 있음.
+    STICKERS = [{'w': 어절 번호, 'emo': '❄️', 'x': 중심x, 'y': 중심y, 'h': 높이, 'tilt': 각도}] — 그 어절이 든 컷이 끝날 때까지 유지"""
+    for i, sk in enumerate(STICKERS_R):
+        t0 = onset(sk['w']) - 0.05
+        ci = _cut_at(max(t0, 0))
+        t1 = ends[ci] - 0.12
+        if not (t0 <= T < t1):
+            continue
+        key = (sk.get('text3d') or sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
+        if key not in _STK:
+            im = sticker_img(sk, sk.get('h', 200))
+            if im is None:
+                continue
+            if sk.get('tilt'):
+                im = im.rotate(sk['tilt'], resample=Image.BICUBIC, expand=True)
+            sh = Image.new('RGBA', (im.width + 60, im.height + 60), (0, 0, 0, 0))
+            a = im.getchannel('A').point(lambda v: int(v * .45))
+            sh.paste(Image.new('RGBA', im.size, (0, 0, 0, 255)), (30, 42), a)
+            sh = sh.filter(ImageFilter.GaussianBlur(12))
+            sh.alpha_composite(im, (30, 30))
+            _STK[key] = sh
+        im = _STK[key]
+        x, y = sk.get('x'), sk.get('y')
+        if 'u' in sk:  # 2026-11-18: 사진 안 좌표(part_anchor.py 결과) → 이번 프레임 사진 변환을 그대로 따라감
+            n = CUTS[ci][0]
+            if n not in AFF:
+                continue
+            ax, ay, ox, oy, pw, ph = AFF[n]
+            x, y = sk['u'] * pw * ax + ox, sk['v'] * ph * ay + oy
+            hh = sk['h'] if sk.get('fixed') else min(sk.get('hmax', STK_MAX), max(STK_MIN, sk['size'] * pw * ax))
+            if sk.get('fit') and sk.get('box'):   # v1.6: 부위 크기에 맞춤(휠 인치 = 휠 상자 높이의 비율, 사진 확대를 따라감)
+                fr, fmin, fmax = sk['fit'][:3]
+                ext = (sk['box'][2] - sk['box'][0]) * pw * ax if sk['fit'][3:] == ('w',) else (sk['box'][3] - sk['box'][1]) * ph * ay
+                hh = int(min(fmax, max(fmin, fr * ext)) // 4 * 4)
+                if sk.get('tire_sub') and sk.get('grp_fit'):   # v1.7.2: 타이어 규격 = 인치 글자의 0.55배(인치보다 커지지 않게, 최소 52px)
+                    gr, gmin, gmax = sk['grp_fit'][:3]
+                    ih_ = int(min(gmax, max(gmin, gr * (sk['box'][3] - sk['box'][1]) * ph * ay)) // 4 * 4)
+                    hh = int(max(52, min(hh, ih_ * .55)) // 4 * 4)
+            if sk.get('fit_w') and sk.get('box') and sk.get('text3d'):   # v1.7: 부위에 붙는 숫자는 글자 폭 ≤ 부위 폭 × fit_w(긴 「40 : 20 : 40」이 등받이를 덮지 않게)
+                bw = min((sk['box'][2] - sk['box'][0]) * pw * ax, W - 120)
+                asp = _ASP.setdefault(sk['text3d'], (lambda t: t.width / max(1, t.height))(text3d(sk['text3d'], 100)))
+                hh = int(max(sk.get('min_h', 64), min(hh, sk['fit_w'] * bw / asp)) // 4 * 4)
+            if abs(hh - im.height + 60) > 4:
+                key2 = key + (int(hh),)
+                if key2 not in _STK:
+                    base = sticker_img(sk, int(hh))
+                    if sk.get('tilt'):
+                        base = base.rotate(sk['tilt'], resample=Image.BICUBIC, expand=True)
+                    sh = Image.new('RGBA', (base.width + 60, base.height + 60), (0, 0, 0, 0))
+                    a = base.getchannel('A').point(lambda v: int(v * .45))
+                    sh.paste(Image.new('RGBA', base.size, (0, 0, 0, 255)), (30, 42), a)
+                    sh = sh.filter(ImageFilter.GaussianBlur(12)); sh.alpha_composite(base, (30, 30))
+                    _STK[key2] = sh
+                im = _STK[key2]
+            # 화면 밖(세로 자르기로 잘린 쪽)이면 부위 상자의 보이는 부분 안으로 옮김
+            half_w = im.width / 2 - 30
+            if sk.get('box') and (sk.get('above') or sk.get('place') in ('tire_top', 'inside', 'seat_row')):   # v1.5: 위에 띄우는 그림은 부위 폭에 갇히지 않고 화면 안으로만
+                x = min(max(x, half_w + 60), W - 60 - half_w)
+            elif sk.get('box'):
+                bx0, bx1 = sk['box'][0] * pw * ax + ox, sk['box'][2] * pw * ax + ox
+                lo_x, hi_x = max(bx0, 60) + half_w, min(bx1, W - 60) - half_w
+                if lo_x <= hi_x:
+                    x = min(max(x, lo_x), hi_x)
+                else:
+                    continue  # 부위가 화면에 거의 안 보이면 스티커를 띄우지 않음
+            x += sk.get('dx', 0)
+            half = im.height / 2 - 30
+            if sk.get('place') == 'tire_top' and sk.get('box'):   # 휠 인치: 타이어 윗부분(휠 상자 위 25%)에 가운데
+                bx0, by0, bx1, by1 = (sk['box'][0] * pw * ax + ox, sk['box'][1] * ph * ay + oy, sk['box'][2] * pw * ax + ox, sk['box'][3] * ph * ay + oy)
+                x = min(max((bx0 + bx1) / 2, half_w + 60), W - 60 - half_w)
+                y = by0 + 0.25 * (by1 - by0)
+                if sk.get('grp_sub') or sk.get('tire_sub'):   # v1.7: 휠 인치 + 타이어 규격 한 묶음(인치 바로 아래 6px, 자막 띠와 겹치면 둘 다 위로)
+                    _fh = lambda f: int(min(f[2], max(f[1], f[0] * (by1 - by0))) // 4 * 4)
+                    ih_, sh_ = (_fh(sk['grp_fit']), hh) if sk.get('tire_sub') else (hh, int(max(52, min(_fh(sk['grp_sub']), hh * .55)) // 4 * 4))
+                    nl = sk.get('sub_n', 1)
+                    bot = y + ih_ * .6 + 10 + sh_ * (1.2 + 1.12 * (nl - 1))
+                    if bot > CAP_TOP - 20 and y - ih_ * .6 < CAP_TOP + 150:
+                        y -= bot - (CAP_TOP - 28)
+                    if sk.get('tire_sub'):
+                        y += ih_ * .6 + 10 + sh_ * (.6 + 1.12 * sk.get('sub_idx', 0))
+            elif sk.get('place') == 'inside' and sk.get('box'):   # 트렁크 리터: 적재 공간 안(상자 위에서 45%, 자막과 띄움)
+                bx0, by0, bx1, by1 = (sk['box'][0] * pw * ax + ox, sk['box'][1] * ph * ay + oy, sk['box'][2] * pw * ax + ox, sk['box'][3] * ph * ay + oy)
+                x = min(max((bx0 + bx1) / 2, half_w + 60), W - 60 - half_w)
+                y = by0 + 0.45 * (by1 - by0)
+            elif sk.get('place') == 'seat_row' and sk.get('box'):   # v1.6.1: 시트 묶음 — 등받이 상자(OWLv2) 폭에 맞춘 크기·간격, 등받이 윗부분에 한 줄
+                bx0, by0, bx1, by1 = (sk['box'][0] * pw * ax + ox, sk['box'][1] * ph * ay + oy, sk['box'][2] * pw * ax + ox, sk['box'][3] * ph * ay + oy)
+                fr, fmin, fmax = sk['row_fit']
+                ih = int(min(fmax, max(fmin, fr * (bx1 - bx0))) // 4 * 4)   # 아이콘 높이(묶음 공통)
+                n_, k_ = sk['seat_n'], sk.get('seat_idx', 0)
+                gap = ih * sk.get('row_gap', 1.15)
+                rw = n_ * gap / 2
+                xc = min(max((bx0 + bx1) / 2, rw + 60), W - 60 - rw)
+                vis0, vis1 = max(by0, getattr(C, 'CHIP_Y', 285) + 110), min(by1, H - 400)   # v1.8.3: 아래 딜러 띠와 최소 60px 더 띄움(컷 7 🔥❄️가 딜러 칩에 붙던 일)
+                yc = by0 + sk.get('row_v', 0.35) * (by1 - by0)
+                yc = min(max(yc, vis0 + ih / 2), vis1 - ih / 2) if vis1 - vis0 > ih else (vis0 + vis1) / 2
+                c0, c1 = CAP_TOP - 20, CAP_TOP + 150   # 말 자막 띠를 피함: 위에 자리가 있으면 위, 없으면 아래
+                if yc + ih / 2 > c0 and yc - ih / 2 < c1:   # 시트는 화면 아래쪽에 있으므로 자막 아래 칸을 먼저(그 칸이 등받이 안일 때)
+                    below, above = c1 + ih / 2 + 8, c0 - ih / 2 - 8
+                    yc = above if above - ih / 2 >= vis0 - 4 else (below if below + ih / 2 <= vis1 + 4 else above)   # v1.8.3: 자막 위 칸 먼저(아래 칸은 딜러 띠와 붙음)
+                if 'seat_idx' in sk:
+                    x, y = xc + (k_ - (n_ - 1) / 2) * gap, yc
+                else:   # 재질 3D 글자: 아이콘 줄 바로 위
+                    x, y = xc, yc - ih / 2 - half - 10
+            elif sk.get('above') and sk.get('box'):   # v1.5: 3D 글자는 부위 바로 위(화면 2% 띄움), 위에 자리가 없으면 부위 가운데
+                ya = sk['box'][1] * ph * ay + oy - half - 0.02 * H
+                if ya - half > 250:
+                    y = ya
+                else:   # 위에 자리가 없으면 부위 오른쪽 위 모서리 안쪽(가운데를 가리지 않게)
+                    bx1 = sk['box'][2] * pw * ax + ox
+                    x = min(bx1, W - 60) - half_w - 20
+                    y = max(sk['box'][1] * ph * ay + oy, 250) + half + 20
+            # 자막 띠·아래 딜러 띠와 겹치면 부위 상자 안에서 위로 올림(부위 밖으로는 안 나감)
+            for lo, hi in ((CAP_TOP - 20, CAP_TOP + 150), (H - 340, H)):
+                if y + half > lo and y - half < hi:
+                    if sk.get('place') == 'seat_row' or sk.get('grp_sub') or sk.get('tire_sub'):
+                        continue   # 시트 줄·휠 인치+타이어 묶음은 위에서 자막·딜러 띠 사이로 이미 맞춤
+                    top_box = sk['box'][1] * ph * ay + oy if sk.get('box') and sk.get('place') not in ('tire_top', 'inside') else 0
+                    y = max(top_box + half, lo - half - (40 if sk.get('place') == 'inside' else 8))
+        if 'u' not in sk:
+            x = (x or 0) + sk.get('dx', 0)
+            if sk.get('under_chip'):
+                y = getattr(C, 'CHIP_Y', 285) + 80 + (im.height / 2 - 30)
+        elif sk.get('auto'):   # 자동 그림은 위 칩 띠(칩 아래 끝까지)를 피함 — 770 L이 1,700L 칩에 가리던 일(전수조사)
+            top_ok = getattr(C, 'CHIP_Y', 285) + 110 + (im.height / 2 - 30)
+            if y < top_ok:
+                y = top_ok
+        if sk.get('auto') and CUTS[ci][0] in AFF:   # 페이드형(사진 상자 맞춤): 자동 그림이 사진 테두리에 걸치지 않게 사진 안으로
+            _ax, _ay, _ox, _oy, _pw, _ph = AFF[CUTS[ci][0]]
+            ptop, pbot = _oy, _oy + _ph * _ay
+            hh2 = im.height / 2 - 30
+            if ptop > 40 and pbot - ptop > 2 * hh2 + 40:
+                y = min(max(y, ptop + hh2 + 16), pbot - hh2 - 16)
+        k = (T - t0) / .32
+        if sk.get('appear') == 'instant':
+            k = 1.0
+        sc = R.back(min(1.0, k)) if k < 1 else 1.0
+        sc = max(0.01, sc)
+        fade = min(1.0, max(0.0, (t1 - T) / .15))
+        fy = 8 * math.sin((T - t0) * 2.4 + sk.get('phase', i))
+        w2 = max(1, int(im.width * sc)); h2 = max(1, int(im.height * sc))
+        im2 = im.resize((w2, h2), Image.LANCZOS)
+        R.paste(ov, im2, x - w2 / 2, y - h2 / 2 + fy, min(1.0, k * 3) * fade)
+
+
+_auto_visuals()
+STICKERS_R = _resolve_stickers()
+
+
+_PTR = {}
+_TIP = {'👆': (.40, .02, 0, -1), '👇': (.60, .98, 0, 1), '👉': (.98, .55, 1, 0), '👈': (.02, .45, -1, 0)}  # 손끝 위치(그림 비율)·가리키는 방향
+
+
+def _ptr_target(p, T, ci):
+    """손가락이 가리킬 화면 점. 'chip': 칩 글자 → 그 칩의 오른쪽 아래 끝 / 'u','v': 사진 안 좌표(프레임 변환 따라감) / 'x','y': 화면 좌표"""
+    if p.get('chip'):
+        txt = p['chip']
+        for (t, st, en) in CHIPS:
+            if t == txt and st <= T < en:
+                num = is_num_chip(t)
+                full = be_chip(t, chip_px(t, num), getattr(C, 'CHIP_TILT_ALL', TILT) or 0)
+                cy = getattr(C, 'CHIP_Y', None) or (H * .28 if num else CAP_CY - 70 - full.height / 2)
+                return W / 2 + full.width * p.get('cx', .30), cy + full.height * p.get('cy', .30)
+        return None
+    if 'u' in p:
+        n = CUTS[ci][0]
+        if n not in AFF:
+            return None
+        ax, ay, ox, oy, pw, ph = AFF[n]
+        return p['u'] * pw * ax + ox, p['v'] * ph * ay + oy
+    return p['x'], p['y']
+
+
+_MC = ((json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'option_visual_rules.json'))).get('layout') or {}).get('mileage_circle'))
+
+
+def mileage_circle(ov, cx, cy, rx, ry, k, alpha=1.0):
+    """주행거리 원: k = 칩이 뜬 뒤 초. 시계 방향으로 그려지며 끝이 살짝 겹치고, 반지름이 조금씩 흔들려 손 그림처럼."""
+    p = (k - _MC['delay']) / _MC['draw']
+    if p <= 0:
+        return
+    p = 1 - (1 - min(1.0, p)) ** 2
+    span = (360 + _MC['overshoot_deg']) * p
+    a0 = -150
+    S = 2
+    pad = _MC['width'] * 2 + 12
+    lay = Image.new('RGBA', (int((rx * 2 + pad * 2) * S), int((ry * 2 + pad * 2) * S)), (0, 0, 0, 0))
+    pts = []
+    n = max(2, int(span / 3))
+    for j in range(n + 1):
+        a = math.radians(a0 + span * j / n)
+        wob = 1 + 0.035 * math.sin(3 * a + 0.7) + 0.02 * (j / n)   # 끝으로 갈수록 살짝 바깥(손 그림)
+        pts.append(((rx * wob * math.cos(a) + rx + pad) * S, (ry * wob * math.sin(a) + ry + pad) * S))
+    col = tuple(_MC['color']) + (int(255 * alpha),)
+    ImageDraw.Draw(lay).line(pts, fill=col, width=_MC['width'] * S, joint='curve')
+    lay = lay.resize((lay.width // S, lay.height // S), Image.LANCZOS)
+    ov.alpha_composite(lay, (int(cx - rx - pad), int(cy - ry - pad)))
+
+
+_ODO = 'unset'
+
+
+def _odometer():
+    """v1.7.2 사용자 규칙: 원은 칩이 아니라 사진 속 진짜 계기판 주행거리 숫자에. 사진에서 안 읽히면 None(원 없음)."""
+    global _ODO
+    if _ODO != 'unset':
+        return _ODO
+    _ODO = None
+    if not _MC:
+        return None
+    import odometer
+    km, approx = (getattr(C, 'ODOMETER_KM', None), False)
+    wi = None
+    if not km:
+        for c in CUTS:
+            if c[4] and re.match(_MC['chip_re'], c[4][0]):
+                (km, approx), wi = odometer.km_value(c[4][0]), c[4][1]
+                break
+    photos = sorted({c[0] for c in CUTS})
+    hit = odometer.find(os.path.join(SC, 'src2'), photos, km, approx) if km else None
+    if hit:
+        hit['w'] = wi
+        print(f"  [주행거리 원] 사진 p{hit['photo']:02d} 계기판 숫자 「{hit['text']}」 → 원", flush=True)
+    else:
+        print(f"  [주행거리 원] 사진에서 주행거리 숫자({km}) 안 읽힘 → 원 없음", flush=True)
+    _ODO = hit
+    return hit
+
+
+def odometer_layer(ov, T):
+    hit = _odometer()
+    if not hit:
+        return
+    ci = _cut_at(T)
+    n = CUTS[ci][0]
+    if n != hit['photo'] or n not in AFF:
+        return
+    t0 = onset(hit['w']) if hit.get('w') is not None and starts[ci] <= onset(hit['w']) < ends[ci] else starts[ci] + 0.4
+    if T < t0:
+        return
+    ax, ay, ox, oy, pw, ph = AFF[n]
+    u0, v0, u1, v1 = hit['box']
+    x0, y0, x1, y1 = u0 * pw * ax + ox, v0 * ph * ay + oy, u1 * pw * ax + ox, v1 * ph * ay + oy
+    mileage_circle(ov, (x0 + x1) / 2, (y0 + y1) / 2, (x1 - x0) / 2 + _MC['pad'][0], (y1 - y0) / 2 + _MC['pad'][1], T - t0)
+
+
+def pointer_layer(ov, T):
+    """2026-11-18 사용자 「캡컷 스티커처럼 손가락으로 주행거리 등 애니 효과」:
+    Fluent 3D 손가락이 톡 튀어나와 대상을 2~3번 두드리고(누를 때 살짝 눌림), 두드릴 때마다 흰 물결 원이 퍼짐.
+    POINTERS = [{'w': 어절 번호, 'emo': '👆', 'chip': '32,770km' | 'u':.., 'v':.. | 'x':.., 'y':.., 'h': 150, 'taps': 3, 'dur': 1.6}]"""
+    for i, p in enumerate(getattr(C, 'POINTERS', [])):
+        t0 = onset(p['w']) + p.get('delay', 0.0)
+        ci = _cut_at(max(t0, 0))
+        t1 = min(ends[ci] - 0.12, t0 + p.get('dur', 1.7))
+        if not (t0 <= T < t1):
+            continue
+        tgt = _ptr_target(p, T, ci)
+        if tgt is None:
+            continue
+        emo = p.get('emo', '👆'); h = p.get('h', 150)
+        key = (emo, h)
+        if key not in _PTR:
+            im = fluent_emoji(emo, h)
+            if im is None:
+                raise SystemExit(f'⛔ Fluent 3D 이모지 파일 없음: {emo!r}')
+            sh = Image.new('RGBA', (im.width + 60, im.height + 60), (0, 0, 0, 0))
+            a = im.getchannel('A').point(lambda v: int(v * .5))
+            sh.paste(Image.new('RGBA', im.size, (0, 0, 0, 255)), (34, 44), a)
+            sh = sh.filter(ImageFilter.GaussianBlur(10)); sh.alpha_composite(im, (30, 30))
+            _PTR[key] = (sh, im.size)
+        sh, (iw, ih) = _PTR[key]
+        fx, fy, dx, dy = _TIP.get(emo, _TIP['👆'])
+        k = T - t0
+        pop = R.back(min(1.0, k / .25)) if k < .25 else 1.0
+        taps = p.get('taps', 3); period = .42; tk = k - .28
+        push = 0.0; ph_ = -1
+        if 0 <= tk < taps * period:
+            ph_ = tk % period
+            push = math.sin(math.pi * min(1.0, ph_ / (period * .55))) if ph_ < period * .55 else 0.0
+        back = 26 - 20 * push  # 손끝과 대상 사이 거리(누르면 가까워짐)
+        squash = 1 - .08 * push
+        out = min(1.0, (t1 - T) / .15)
+        w2 = max(1, int(sh.width * pop * squash)); h2 = max(1, int(sh.height * pop * (2 - squash)))
+        im2 = sh.resize((w2, h2), Image.LANCZOS)
+        tipx = (30 + fx * iw) * w2 / sh.width; tipy = (30 + fy * ih) * h2 / sh.height
+        x = tgt[0] - tipx - dx * back; y = tgt[1] - tipy - dy * back
+        # 물결: 두드림마다 대상 점에서 퍼지는 흰 원(캡컷 탭 스티커 느낌)
+        if 0 <= tk < taps * period + .35:
+            for j in range(taps):
+                rk = (tk - j * period - .12) / .38
+                if 0 <= rk < 1:
+                    r = 14 + 58 * R.ease(rk); al = int(200 * (1 - rk))
+                    rg = Image.new('RGBA', (int(r * 2 + 12), int(r * 2 + 12)), (0, 0, 0, 0))
+                    ImageDraw.Draw(rg).ellipse((6, 6, 6 + 2 * r, 6 + 2 * r), outline=(255, 255, 255, al), width=6)
+                    ov.alpha_composite(rg, (int(tgt[0] - r - 6), int(tgt[1] - r - 6)))
+        R.paste(ov, im2, x, y, min(1.0, k * 6) * out)
+
+
+_TAGIM = {}
+
+
+def tag_layer(ov, T):
+    """2026-11-18 사용자 「휠에 인치 숫자, 스피커에 스피커명 — 오토스카우트 칩」:
+    사진 속 부위 점(u, v)에 흰 점 고리 + 짧은 선 + 오토스카우트식 파랑(#306BD9) 둥근 칩·흰 굵은 글자. 사진이 움직이면 따라감.
+    TAGS = [{'w': 어절, 'u': .., 'v': .., 'text': '21인치', 'dx': 120, 'dy': -140, 'size': 54}] — 그 어절이 든 컷 끝까지"""
+    for i, tg in enumerate(getattr(C, 'TAGS', [])):
+        t0 = onset(tg['w']) - 0.06
+        ci = _cut_at(max(t0, 0))
+        t1 = ends[ci] - 0.1
+        if not (t0 <= T < t1):
+            continue
+        n = CUTS[ci][0]
+        if n not in AFF:
+            continue
+        ax, ay, ox, oy, pw, ph = AFF[n]
+        px, py = tg['u'] * pw * ax + ox, tg['v'] * ph * ay + oy
+        key = (tg['text'], tg.get('size', 54))
+        if key not in _TAGIM:
+            f = ImageFont.truetype(R.BLACK, key[1])
+            d0 = ImageDraw.Draw(Image.new('RGBA', (8, 8)))
+            bb = d0.textbbox((0, 0), tg['text'], font=f)
+            tw, th = bb[2] - bb[0], bb[3] - bb[1]
+            pad_x, pad_y = int(key[1] * .5), int(key[1] * .34)
+            cw, ch = tw + pad_x * 2, th + pad_y * 2
+            im = Image.new('RGBA', (cw + 40, ch + 40), (0, 0, 0, 0))
+            sh = Image.new('L', im.size, 0)
+            ImageDraw.Draw(sh).rounded_rectangle((20, 26, 20 + cw, 26 + ch), ch // 2, fill=130)
+            sh = sh.filter(ImageFilter.GaussianBlur(9))
+            im.paste(Image.new('RGBA', im.size, (0, 0, 0, 255)), (0, 0), sh)
+            d = ImageDraw.Draw(im)
+            d.rounded_rectangle((20, 20, 20 + cw, 20 + ch), ch // 2, fill=(48, 107, 217, 255))
+            d.text((20 + cw / 2, 20 + ch / 2), tg['text'], font=f, fill=(255, 255, 255), anchor='mm')
+            _TAGIM[key] = im
+        im = _TAGIM[key]
+        k = T - t0
+        e = R.ease(min(1.0, k / .28))
+        out = min(1.0, (t1 - T) / .15)
+        cx, cy = px + tg.get('dx', 120), py + tg.get('dy', -150)
+        cx = min(max(cx, im.width / 2 + 20), W - im.width / 2 - 20)
+        # 선 + 점 고리
+        lay = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        d = ImageDraw.Draw(lay)
+        lx, ly = px + (cx - px) * e, py + (cy - py) * e
+        al = int(255 * out)
+        d.line([(px, py), (lx, ly)], fill=(255, 255, 255, al), width=6)
+        r = 16 + 4 * math.sin(k * 5)
+        d.ellipse((px - r, py - r, px + r, py + r), outline=(255, 255, 255, al), width=6)
+        d.ellipse((px - 7, py - 7, px + 7, py + 7), fill=(48, 107, 217, al))
+        ov.alpha_composite(lay)
+        sc = max(0.01, R.back(min(1.0, max(0.0, (k - .12) / .3))))
+        w2, h2 = max(1, int(im.width * sc)), max(1, int(im.height * sc))
+        R.paste(ov, im.resize((w2, h2), Image.LANCZOS), cx - w2 / 2, cy - h2 / 2, out * min(1.0, k * 5))
+
+
+_DIM = {}
+
+
+def dim_layer(ov, T):
+    """2026-11-18 나세르식 치수선(비교형): 사진 속 두 점(a → b, 사진 비율 좌표)을 잇는 흰 치수선 + b 쪽 끝 'ext' 비율만큼 노란 구간
+    (= 비교 대상보다 늘어난 부분) + 3D 숫자 + 작은 비교 대상 글자. 길이는 강조용이며 실제 축척이 아니다.
+    DIM_LINES = [{'w': 어절, 'photo': n, 'a': (u, v), 'b': (u, v), 'ext': .35, 'label': '+72mm', 'sub': '…대비', 'side': -1}]
+    side = 숫자를 둘 쪽(선의 법선 방향, -1 위 / 1 아래)"""
+    for i, dl in enumerate(getattr(C, 'DIM_LINES', [])):
+        t0 = onset(dl['w']) - 0.2
+        ci = _cut_at(max(t0, 0))
+        t1 = ends[ci] - 0.12
+        if not (t0 <= T < t1):
+            continue
+        n = CUTS[ci][0]
+        if n != dl['photo'] or n not in AFF:
+            continue
+        ax, ay, ox, oy, pw, ph = AFF[n]
+        A = np.array([dl['a'][0] * pw * ax + ox, dl['a'][1] * ph * ay + oy])
+        B = np.array([dl['b'][0] * pw * ax + ox, dl['b'][1] * ph * ay + oy])
+        L = float(np.linalg.norm(B - A))
+        if L < 40:
+            continue
+        d = (B - A) / L
+        nrm = np.array([-d[1], d[0]])
+        if nrm[1] > 0:
+            nrm = -nrm          # 기본은 위쪽
+        nrm = nrm * dl.get('side', 1)
+        fade = min(1.0, max(0.0, (t1 - T) / .15))
+        k1 = R.ease(min(1.0, (T - t0) / .30))                      # 흰 선: 가운데에서 양끝으로
+        k2 = R.ease(min(1.0, max(0.0, (T - t0 - .30) / .30)))      # 노란 구간: 이어서 늘어남
+        P = A + (B - A) * (1 - dl.get('ext', .35))                 # 흰 선과 노란 구간의 경계
+        lay = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        g = ImageDraw.Draw(lay)
+        M = (A + P) / 2
+        wa, wb = M + (A - M) * k1, M + (P - M) * k1
+        tk = 26
+        def seg(p, q, col, w):
+            g.line([tuple(p), tuple(q)], fill=(18, 20, 24, 210), width=w + 6)
+            g.line([tuple(p), tuple(q)], fill=col, width=w)
+        def tick(p, col):
+            seg(p - nrm * tk, p + nrm * tk, col, 6)
+        if dl.get('single'):
+            # 2026-11-18 사용자: 「선은 하나만, 나세르처럼」 — 흰 선 하나 + 양끝 화살촉(끝점을 가리킴), 구간 나눔·눈금 없음
+            k2 = R.ease(min(1.0, max(0.0, (T - t0 - .25) / .30)))   # 숫자는 선이 다 그려진 뒤
+            M = (A + B) / 2
+            hl = 26                                    # 화살촉 길이
+            pa, pb = M + (A - M) * k1, M + (B - M) * k1
+            ia, ib = pa + d * hl * .8, pb - d * hl * .8  # 선은 화살촉 밑에서 멈춤
+            seg(ia if k1 >= 1 else pa, ib if k1 >= 1 else pb, (255, 255, 255, 255), 9)
+            if k1 >= 1:
+                for tip, s_ in ((A, -1), (B, 1)):
+                    back = tip - d * s_ * hl
+                    pts = [tuple(tip), tuple(back + nrm * 16), tuple(back - nrm * 16)]
+                    g.polygon(pts, fill=(255, 255, 255, 255), outline=(18, 20, 24, 210))
+            P = A
+        else:
+            seg(wa, wb, (255, 255, 255, 255), 9)
+        if dl.get('single'):
+            pass
+        elif k1 >= 1:
+            tick(A, (255, 255, 255, 255))
+        if k2 > 0 and not dl.get('single'):
+            Q = P + (B - P) * k2
+            seg(P, Q, (238, 239, 5, 255), 11)
+            tick(P, (255, 255, 255, 255))
+            if k2 >= 1:
+                tick(B, (238, 239, 5, 255))
+                for e_, s_ in ((B, 1), (A, -1)):           # 양끝 바깥 화살촉
+                    tip = e_ + d * s_ * 30
+                    col = (238, 239, 5, 255) if s_ == 1 else (255, 255, 255, 255)
+                    pts = [tuple(tip), tuple(e_ + nrm * 14 + d * s_ * 6), tuple(e_ - nrm * 14 + d * s_ * 6)]
+                    g.polygon(pts, fill=col, outline=(18, 20, 24, 210))
+        sh = lay.filter(ImageFilter.GaussianBlur(5))
+        sha = sh.getchannel('A').point(lambda v: int(v * .5))
+        base = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        base.paste(Image.new('RGBA', (W, H), (0, 0, 0, 255)), (0, 4), sha)
+        base.alpha_composite(lay)
+        if fade < 1:
+            base.putalpha(base.getchannel('A').point(lambda v: int(v * fade)))
+        ov.alpha_composite(base)
+        if k2 <= 0:
+            continue
+        key = ('dim', i)
+        if key not in _DIM:
+            num = text3d(dl['label'], dl.get('h', 120))
+            sub = shadow_text(dl['sub'], 30) if dl.get('sub') else None
+            pill = None
+            if sub:
+                pill = Image.new('RGBA', (sub.width + 28, sub.height + 12), (0, 0, 0, 0))
+                ImageDraw.Draw(pill).rounded_rectangle((0, 0, pill.width - 1, pill.height - 1), pill.height // 2, fill=(0, 0, 0, 140))
+                pill.alpha_composite(sub, (14, 6))
+            wv = max(num.width, pill.width if pill else 0)
+            hv = num.height + (pill.height + 8 if pill else 0)
+            box = Image.new('RGBA', (wv + 60, hv + 60), (0, 0, 0, 0))
+            a = num.getchannel('A').point(lambda v: int(v * .45))
+            box.paste(Image.new('RGBA', num.size, (0, 0, 0, 255)), (30 + (wv - num.width) // 2, 42), a)
+            box = box.filter(ImageFilter.GaussianBlur(12))
+            box.alpha_composite(num, (30 + (wv - num.width) // 2, 30))
+            if pill:
+                box.alpha_composite(pill, (30 + (wv - pill.width) // 2, 30 + num.height + 8))
+            _DIM[key] = box
+        im = _DIM[key]
+        mid = (P + B) / 2 + nrm * (abs(nrm[0]) * (im.width / 2 - 20) + abs(nrm[1]) * (im.height / 2 - 20) + 14)
+        x = min(max(mid[0], im.width / 2 + 20), W - im.width / 2 - 20)
+        y = min(max(mid[1], im.height / 2 + 200), CAP_TOP - 30 - im.height / 2)
+        sc = max(0.01, R.back(min(1.0, k2)))
+        w2, h2 = max(1, int(im.width * sc)), max(1, int(im.height * sc))
+        R.paste(ov, im.resize((w2, h2), Image.LANCZOS), x - w2 / 2, y - h2 / 2, fade * min(1.0, k2 * 3))
+
+
 def overlay(T):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     ov.alpha_composite(LOGO, LOGO_XY)
     footer_layer(ov, T)
+    official_layer(ov, T)
+    sticker_layer(ov, T)
+    dim_layer(ov, T)
     section_layer(ov, T)
     HD = getattr(C, 'HOOK_DELAY', 0.0)  # 엠블럼 확대 동안 타이틀을 늦게 올림
     HE = FW[1][0] if 1 in FW else starts[1]  # 첫 페이드가 시작되기 전에 제목을 내림
+    if getattr(C, 'HOOK_HOLD', False) and 1 in FW:  # 2026-11-17: 제목을 넘김 끝 직전까지(약 2초) 유지
+        HE = FW[1][1] - 0.08
     if HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
         T0 = T; T = T - HD
         e = R.back(T / .28)
@@ -815,9 +1520,21 @@ def overlay(T):
         while True:
             # 2026-11-17 사용자: 「노션에 원본 있다」 — 제목 브랜드 칩도 노션 「스카우트24 테마별」 원본 로고 칠(430_239) 그대로.
             # 원본 BE 'Tesla' 칩 실측: 칠 높이 ≈ 대문자 2.2배, 약 -3° 기울임, #F5F200 + 검정 글자
-            b = dealer_chip(C.HOOK[0], fs, -3.0, font=R.HEAVY, hr=2.3)
-            m = shadow_text(C.HOOK[1], int(fs * 1.15))     # 영문 대문자는 한글보다 낮아 보여 1.15배 → 눈 높이 같게
-            if b.width + m.width - 48 - 14 <= W - 80 or fs <= 56:
+            # 2026-11-19 사용자 「벨기에는 기울어진다, 노션 원본서 동일한 거」: 첫 컷 브랜드 칩 = 노션 「테마 바탕색_430_239」(벨기에 릴스 Alfa·Giulia·Opzoek 칩과 같은 모양,
+            #   오른쪽 붓 끝 들쭉날쭉) 원본 그대로 가로로만 늘림, 칠만 -3° 기울이고 글자는 똑바로
+            # 2026-11-19 사용자 「이렇게 텍스트가 나와야지」 = 노션 「AutoScout24 로고_리브랜딩_1017_227」 실측(1017px 원본):
+            #   (로고는 칠을 안 돌리지만 벨기에 릴스는 칠만 기울임 → 아래 HOOK_TILT) 글자는 똑바로 · 남색 #1E2832 · 중간 굵기(획 ≈ 대문자 높이 0.13배),
+            #   칠 높이 ≈ 대문자 1.9배(벨기에 Alfa 릴스 1.65배 → 기본 1.65), 글자 왼 0.22 · 오른 0.24(칠 높이 비율), 글자는 칠 가운데보다 살짝 위(-0.04),
+            #   흰 글자 = 같은 크기·같은 굵기·같은 바닥선, 칠 오른쪽 끝에서 대문자 높이 0.15배 띄움
+            b = dealer_chip(C.HOOK[0], fs, getattr(C, 'HOOK_TILT', -3.0), font=getattr(C, 'HOOK_FONT', R.MED), hr=getattr(C, 'HOOK_HR', 1.65),
+                            fill=getattr(C, 'HOOK_FILL', '430_239'), sliced=getattr(C, 'HOOK_SLICED', False),
+                            txt_col=getattr(C, 'HOOK_TXT_COL', (0x1E, 0x28, 0x32)), pad=getattr(C, 'HOOK_PAD', (0.22, 0.24)), ty=getattr(C, 'HOOK_TY', -0.04),
+                            fit_ink=True, tilt_text=False)
+            _hangul = re.search('[가-힣]', C.HOOK[1])
+            m = shadow_text(C.HOOK[1], int(fs * (1.0 if _hangul else 1.15)), getattr(C, 'HOOK_MODEL_FONT', getattr(C, 'HOOK_FONT', R.MED)))  # 영문 대문자는 한글보다 낮아 1.15배
+            _gap = int(fs * 0.74 * 0.15)
+            _br = b.info.get('right', b.width - 62)
+            if _br + _gap + m.width - 2 * m.info.get('ink_left', 24) <= W - 80 or fs <= 56:
                 break
             fs -= 4
         sub = shadow_text(C.HOOK[2], int(fs * .75))
@@ -827,10 +1544,14 @@ def overlay(T):
             rise = -50 * (1 - R.ease(T / .35))
         cy += rise
         a = min(1, T / .15, (HE - T0) / .12)
-        wid = b.width + m.width - 48 - 14   # 그림자 여백(좌우 24) 빼고, 띠 끝에 글자가 바로 붙게(원본: 'Tesla' 띠 끝 = 'Model' 첫 글자)
+        il = m.info.get('ink_left', 24)
+        wid = _br + _gap + m.width - 2 * il   # 칠 + 간격 + 흰 글자(그림자 여백 뺌)
         x0 = (W - wid) / 2
         R.paste(ov, b, x0 + b.width * (1 - e) / 2, cy - b.height / 2 + b.height * (1 - e) / 2, a, max(.05, e))
-        R.paste(ov, m, x0 + b.width - 14 - 24, cy - m.height / 2 + 2, a)
+        if 'baseline' in b.info and 'baseline' in m.info:  # 같은 바닥선(AS24 로고: Auto · Scout24)
+            R.paste(ov, m, x0 + _br + _gap - il, cy - b.height / 2 + b.info['baseline'] - m.info['baseline'], a)
+        else:
+            R.paste(ov, m, x0 + b.width - 14 - 24, cy - m.height / 2 + 2, a)
         e2 = R.ease((T - .25) / .3)
         R.paste(ov, sub, (W - sub.width) / 2, cy + b.height / 2 - 30 + 20 * (1 - e2), min(a, e2))  # 원본: 둘째 줄이 바로 아래 붙음
         T = T0
@@ -843,22 +1564,25 @@ def overlay(T):
         cap_top = _cp[_n] - 60 if (_n in _cp and not band) else cap_top  # 상자 사진(페이드판)은 기준선 그대로
     for i, (txt, st, en) in enumerate(CHIPS):
         if ICON3D and st <= T < en:
-            num = any(ch.isdigit() for ch in txt)
+            num = is_num_chip(txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
             icon_chip(ov, txt, st, en, T, i, num)
             continue
         if st <= T < en:
-            num = any(ch.isdigit() for ch in txt)
+            num = is_num_chip(txt)
             hide = hide or (num and not getattr(C, 'CAPS_ALWAYS', False))
+            hide = hide or txt in getattr(C, 'HIDE_CAP_CHIPS', ())  # 2026-11-18: 숫자가 든 키워드 칩(11.9인치 등)도 자막과 숫자 겹치면 자막 숨김
             # 2026-11-17 벨기에 원본 실측: 키워드 칩 약 −2°(거의 수평), 숫자 칩 약 −6°
             tilt = (TILT if num else getattr(C, 'CHIP_TILT_WORD', TILT)) + (-0.8, 0.6, 0.0)[i % 3] * (0.5 if not num and hasattr(C, 'CHIP_TILT_WORD') else 1)
+            if getattr(C, 'CHIP_TILT_ALL', None) is not None:  # 2026-11-17 일관성: 모든 칩 같은 기울기, 흔들림 없음
+                tilt = C.CHIP_TILT_ALL
             k = T - st
             # 2026-11-17 벨기에 원본 칩 모션(dl50/be 실측, 30fps): 빈 노랑 띠가 첫 프레임에 제 크기로 바로 뜨고,
             # 다음 프레임부터 글자가 띠 안에서 약 20% → 100%로 커짐(약 0.2초, 끝으로 갈수록 느려짐). 띠는 움직이지 않음
             tk = (k - CHIP_TXT_DELAY) / CHIP_TXT_DUR
             tsc = 0.0 if tk < 0 else (0.2 + 0.8 * (1 - (1 - min(1.0, tk)) ** 3))
-            im = be_chip(txt, 84 if num else 72, tilt, round(tsc * 20) / 20)  # 2026-11-17: 키워드 칩도 노션 원본 로고 칠 430_239
-            full = be_chip(txt, 84 if num else 72, tilt)
+            im = be_chip(txt, chip_px(txt, num), tilt, round(tsc * 20) / 20)  # 2026-11-17: 키워드 칩도 노션 원본 로고 칠 430_239
+            full = be_chip(txt, chip_px(txt, num), tilt)
             out = R.ease((en - T) / .12)
             x = (W - full.width) / 2
             y = H * .28 - full.height / 2 if num else CAP_CY - 70 - full.height
@@ -878,6 +1602,14 @@ def overlay(T):
             x = W * o.get('cx', .5) - im.width / 2; y = H * o.get('cy', .3) - im.height / 2
             sc = max(.05, e)
             R.paste(ov, im, x + im.width * (1 - sc) / 2, y + im.height * (1 - sc) / 2, min(1, k / .1) * out, sc)
+    for dl in getattr(C, 'DIM_LINES', []):  # 2026-11-18: 치수선이 자막 띠를 지나면(9:16판) 그동안 말 자막 숨김 — 큰 숫자 규칙과 같음
+        if dl.get('hide_caps') and not FADE and T < BODY:
+            _t0 = onset(dl['w']) - 0.2
+            if _t0 <= T < ends[_cut_at(max(_t0, 0))] - 0.12:
+                hide = True
+    tag_layer(ov, T)  # 2026-11-18 부위 이름표(오토스카우트식 파랑 칩)
+    odometer_layer(ov, T)  # v1.7.2 계기판 주행거리 숫자 원(사진에 보일 때만)
+    pointer_layer(ov, T)  # 2026-11-18 손가락 탭 스티커(맨 위)
     if not hide:
         for c in CAPS:
             if c['s'] <= T < c['e']:
@@ -900,34 +1632,87 @@ def sfx_plan():
     return sorted(_sfx_plan() + extra, key=lambda e: e[1])
 
 
+def _av_rules():
+    try:
+        return json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'option_visual_rules.json')))
+    except Exception:
+        return None
+
+
+def _metaphor_sfx():
+    """비유 효과음(마력=말 울음 등). 대본에서 그 낱말을 말하는 순간에만, 영상당 max_per_video개까지(목록 순서가 우선순위).
+    값은 option_visual_rules.json layout.metaphor_sfx. 2026-11-22 사용자 확정(마력) · 나머지는 사용자 위임으로 Claude 선정."""
+    lay = (_av_rules() or {}).get('layout', {})
+    ms = lay.get('metaphor_sfx')
+    if not ms and lay.get('horsepower_sfx'):
+        ms = {'max_per_video': 1, 'items': [lay['horsepower_sfx']]}
+    if not ms or os.environ.get('BBM_NO_METAPHOR') == '1' or os.environ.get('BBM_NO_HORSE') == '1':
+        return []
+    txts = [(w.get('w') or w.get('word') or w.get('text') or '') if isinstance(w, dict) else str(w[2] if isinstance(w, (list, tuple)) and len(w) > 2 else w) for w in WRD]
+    out = []
+    for it in ms['items']:
+        if len(out) >= ms.get('max_per_video', 2):
+            break
+        for i, txt in enumerate(txts):
+            if any(k in txt for k in it['keywords']):
+                t = max(0.0, onset(i) - it.get('lead_s', 0.05))
+                if all(abs(t - o[1]) >= ms.get('min_gap_s', 1.5) for o in out):
+                    out.append((it['name'], t, it['vol']))
+                break
+    return sorted(out, key=lambda e: e[1])
+
+
+def _metaphor_names():
+    lay = (_av_rules() or {}).get('layout', {})
+    ms = lay.get('metaphor_sfx') or {'items': [lay['horsepower_sfx']] if lay.get('horsepower_sfx') else []}
+    return {it['name'] for it in ms['items']}
+
+
 def _sfx_plan():
     if not getattr(C, 'SFX_RICH', False):
-        return ([('ding', 0.05, .45)] + [('ding', st, .45) for (txt, st, en) in CHIPS if txt in getattr(C, 'SFX_CHIPS', [])]
+        hz = _metaphor_sfx()
+        base = ([('ding', 0.05, .45)] + [('ding', st, .45) for (txt, st, en) in CHIPS if txt in getattr(C, 'SFX_CHIPS', [])]
                 + [('whoosh', starts[j] - 0.16, .38) for j in sorted(WHOOSH_AT)])
+        if hz:   # 비유 효과음 앞뒤 0.45초 안의 딩은 뺀다
+            base = [e for e in base if all(abs(e[1] - h[1]) >= 0.45 for h in hz)]
+        return sorted(base + hz, key=lambda e: e[1])
     big = set(getattr(C, 'SFX_CHIPS', []))
     ev = [('whoosh', 0.0, .30)]                                   # 엠블럼 확대 시작
     hz = getattr(C, 'HOOK_DELAY', 0.0)
     ev.append(('pop', max(0.05, hz - 0.02), .42))                 # 타이틀 올라옴
     for (txt, st, en) in CHIPS:                                   # 칩: 큰 숫자 딩, 나머지 팝(벨기에 띠)
         ev.append(('ding' if txt in big else 'pop', st - 0.02, .45 if txt in big else .40))
+    _isfx = (_av_rules() or {}).get('layout', {}).get('icon_sfx')
+    if _isfx:                                                     # v1.7: 자동 아이콘(열선·통풍·마사지·메모리·공조 등) 톡 나올 때 작은 팝
+        for sk in STICKERS_R:
+            if sk.get('auto') and sk.get('emo') and sk.get('appear', 'pop') == 'pop':
+                ev.append(('icon', onset(sk['w']) - 0.07, _isfx['vol']))
     for ci, c in enumerate(CUTS):                                 # 단계 공개(체크 한 줄 켜짐)에 팝
         if ci and c[5] == 'reveal':
             ev.append(('pop', FW[ci][1] - 0.04 if ci in FW else starts[ci], .42))
     for ci, c in enumerate(CUTS):                                 # 큰 전환에 부드러운 휙
-        if ci and c[5] in ('fade_long', 'dip_black', 'dip_white'):
+        if ci and c[5] in ('fade_long', 'dip_black', 'dip_white') and (getattr(C, 'WHOOSH_CUTS', None) is None or ci in C.WHOOSH_CUTS):  # 2026-11-18 휙은 30초당 3~4번(WHOOSH_CUTS로 고른 컷만)
             ev.append(('whoosh', (FW[ci][0] if ci in FW else starts[ci]) - 0.05, .24))
     if END_CARD:
         ev.append(('ding', BODY + 0.15, .40))                     # 끝 로고
+    hz = _metaphor_sfx()                                          # 2026-11-22 비유 효과음(겹치면 비유 소리 우선)
+    if hz:
+        ev = [e for e in ev if all(abs(e[1] - h[1]) >= 0.45 for h in hz)] + hz
     ev.sort(key=lambda e: e[1])
     out = []
     for e in ev:                                                  # 0.45초 안에 겹치면 칩 소리를 남김
         if out and e[1] - out[-1][1] < 0.45:
-            if e[0] != 'whoosh' and out[-1][0] == 'whoosh':
+            if out[-1][0] in _metaphor_names():
+                continue
+            if e[0] in _metaphor_names():
                 out[-1] = e
+                continue
+            if (e[0] != 'whoosh' and out[-1][0] == 'whoosh') or (e[0] not in ('whoosh', 'icon') and out[-1][0] == 'icon'):
+                out[-1] = e   # 칩·딩이 휙·아이콘 팝보다 우선
             continue
         out.append(e)
     g = float(os.environ.get('BBM_SFX_GAIN') or getattr(C, 'SFX_GAIN', 1.6))  # 2026-11-17 사용자: 효과음(틱·팝) 더 크게 — 기본 1.6배(약 +4dB)
-    return [(n, max(0.0, t), min(1.0, v * g)) for n, t, v in out]
+    return [('pop' if n == 'icon' else n, max(0.0, t), min(1.0, v * g)) for n, t, v in out]
 
 
 def mix_audio():

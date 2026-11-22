@@ -1,0 +1,180 @@
+{
+ "words": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/g350/words_clean.json",
+ "src": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/g350/src.mp4",
+ "cuts": [
+  {
+   "key": "c1",
+   "start_word": 0,
+   "src": [
+    108,
+    113
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c2",
+   "start_word": 6,
+   "src": [
+    100.4,
+    103.2
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c3",
+   "start_word": 12,
+   "src": [
+    104.6,
+    107
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c4",
+   "start_word": 19,
+   "src": [
+    10.4,
+    12.2
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c5",
+   "start_word": 25,
+   "src": [
+    72.3,
+    75.3
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144,
+   "action_src": [
+    69.6,
+    71.0
+   ]
+  },
+  {
+   "key": "c6",
+   "start_word": 31,
+   "src": [
+    14.8,
+    17.2
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c7",
+   "start_word": 36,
+   "src": [
+    21.6,
+    22.8
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c8",
+   "start_word": 42,
+   "src": [
+    26.4,
+    30.4
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c9",
+   "start_word": 49,
+   "src": [
+    39,
+    40.6
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c10",
+   "start_word": 55,
+   "src": [
+    50.5,
+    51.3
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "mem",
+   "start_word": 61,
+   "src": [
+    51.3,
+    52.3
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c11",
+   "start_word": 64,
+   "src": [
+    56,
+    56.9
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c12",
+   "start_word": 68,
+   "src": [
+    59.8,
+    62.6
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c13",
+   "start_word": 72,
+   "src": [
+    64.8,
+    66.4
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "dx",
+   "start_word": 83,
+   "src": [
+    96,
+    100.2
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c14",
+   "start_word": 91,
+   "src": [
+    124,
+    126
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c15",
+   "start_word": 97,
+   "src": [
+    112.6,
+    117.4
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  }
+ ]
+}
