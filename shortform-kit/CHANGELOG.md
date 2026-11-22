@@ -6,6 +6,12 @@
 - 사전 `catalog/techniques.json`의 `version`은 맨 위 버전과 같아야 한다(`build.py`가 검사).
 - v0.0.1~v0.0.5는 예전 마스터 문서(`docs/shortform/shortform-master.md`)의 v1.0~v1.4를 2026-11-22에 옮긴 것이다.
 
+## v0.4.9 · 2026-11-23
+
+- **오픈소스 효과음 32개 추가**(`public/assets/shortform/sfx/opensource/`, 모두 CC0): whoosh · ding · click · swipe · impact · riser · 카메라 셔터 · 차 문 · 시동 · 차 키 잠금 · 안전벨트 · 계산대. Openverse로 후보 157개를 받고 CLAP으로 "설명에 맞는 소리인가" 채점(z ≥ 1.0)해 종류마다 상위 3개. 기본 효과음은 바꾸지 않음(예비) — 사용자(「크로스체크해서 너 효과음 오픈소스 추가해라」, 릴스 reelsner의 Openverse · Real SFX · earshot 3종 소개)
+- **효과음 '귀' 점검 도구** `scripts/shortform/sfx_opensource/score_clap.py`: 클로드가 못 듣는 소리를 CLAP 점수로 판정. 기존 소리 점검 결과 pop(-0.26) · click(0.66)이 설명과 덜 맞음 → click은 `click_os1~3`이 대안, 바꿀지는 사용자 확인
+- earshot(MIT) 패키지 설치는 작업 환경 권한 확인에서 막혀 설치하지 않음 — 같은 모델(CLAP)만 직접 씀. Real SFX(MIT)는 uisfx CC0 팩만 가져옴(내려받은 소리 파일, 코드 실행 없음)
+
 ## v0.4.8 · 2026-11-23
 
 - **편집 스킬 전수 목록 `SKILLS-INDEX.md`**: 11-09~11-23에 정한 편집 스킬 13개, 규칙 파일 10개, 근거 문서, 기준 영상(G350 v13 · 사진판), 제작 기술스택을 한 표로. 스킬 원문을 `shortform-kit/skills/<이름>/SKILL.md`로 복사해 버전 기록을 저장소에 남김 — 사용자(「2주간 매뉴얼로 저장하고 반복 자동 사용하려고 했던 편집 스킬들 모두 찾아 … 앞으로는 무조건 깃허브로 배포해」)
