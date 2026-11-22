@@ -1639,10 +1639,29 @@ def _av_rules():
         return None
 
 
+def _horse_sfx():
+    """2026-11-22 사용자 확정: 대본에서 '마력'을 말하는 순간 말 울음소리(영상당 1번). 값은 option_visual_rules.json layout.horsepower_sfx."""
+    hs = (_av_rules() or {}).get('layout', {}).get('horsepower_sfx')
+    if not hs or os.environ.get('BBM_NO_HORSE') == '1':
+        return []
+    out = []
+    for i, w in enumerate(WRD):
+        txt = (w.get('w') or w.get('word') or w.get('text') or '') if isinstance(w, dict) else str(w[2] if isinstance(w, (list, tuple)) and len(w) > 2 else w)
+        if any(k in txt for k in hs['keywords']):
+            out.append((hs['name'], max(0.0, onset(i) - hs.get('lead_s', 0.05)), hs['vol']))
+            if hs.get('once_per_video', True):
+                break
+    return out
+
+
 def _sfx_plan():
     if not getattr(C, 'SFX_RICH', False):
-        return ([('ding', 0.05, .45)] + [('ding', st, .45) for (txt, st, en) in CHIPS if txt in getattr(C, 'SFX_CHIPS', [])]
+        hz = _horse_sfx()
+        base = ([('ding', 0.05, .45)] + [('ding', st, .45) for (txt, st, en) in CHIPS if txt in getattr(C, 'SFX_CHIPS', [])]
                 + [('whoosh', starts[j] - 0.16, .38) for j in sorted(WHOOSH_AT)])
+        if hz:   # 말 울음 앞뒤 0.45초 안의 딩은 뺀다
+            base = [e for e in base if all(abs(e[1] - h[1]) >= 0.45 for h in hz)]
+        return sorted(base + hz, key=lambda e: e[1])
     big = set(getattr(C, 'SFX_CHIPS', []))
     ev = [('whoosh', 0.0, .30)]                                   # 엠블럼 확대 시작
     hz = getattr(C, 'HOOK_DELAY', 0.0)
@@ -1662,10 +1681,18 @@ def _sfx_plan():
             ev.append(('whoosh', (FW[ci][0] if ci in FW else starts[ci]) - 0.05, .24))
     if END_CARD:
         ev.append(('ding', BODY + 0.15, .40))                     # 끝 로고
+    hz = _horse_sfx()                                             # 2026-11-22 '마력' = 말 울음(겹치면 말 울음 우선)
+    if hz:
+        ev = [e for e in ev if all(abs(e[1] - h[1]) >= 0.45 for h in hz)] + hz
     ev.sort(key=lambda e: e[1])
     out = []
     for e in ev:                                                  # 0.45초 안에 겹치면 칩 소리를 남김
         if out and e[1] - out[-1][1] < 0.45:
+            if out[-1][0] == 'horse_neigh':
+                continue
+            if e[0] == 'horse_neigh':
+                out[-1] = e
+                continue
             if (e[0] != 'whoosh' and out[-1][0] == 'whoosh') or (e[0] not in ('whoosh', 'icon') and out[-1][0] == 'icon'):
                 out[-1] = e   # 칩·딩이 휙·아이콘 팝보다 우선
             continue
