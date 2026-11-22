@@ -57,7 +57,7 @@ def build(C, words, cuts):
             continue
         ci = max(i for i, s in enumerate(starts) if s <= wi)
         photo, label = cuts[ci][0], cuts[ci][1]
-        if r['id'] == 'seat_memory' or (r['id'] in SEAT_BUNDLE + ('seat_material',) and any(k in label for k in FRONT_SEAT) and '뒷' not in label):
+        if r['id'] in ('seat_memory', 'seat_power') or (r['id'] in SEAT_BUNDLE + ('seat_material',) and any(k in label for k in FRONT_SEAT) and '뒷' not in label):
             continue   # 시트 사진에서는 시트 묶음(_seat_bundle)이 한꺼번에 그림
         v = r['visual']
         sk = {'w': wi, 'photo': photo, 'auto': r['id']}
@@ -133,7 +133,7 @@ def build(C, words, cuts):
     return stickers, report
 
 
-SEAT_BUNDLE = ('seat_heat', 'seat_vent', 'seat_massage', 'seat_memory')
+SEAT_BUNDLE = ('seat_heat', 'seat_vent', 'seat_massage', 'seat_power', 'seat_memory')
 FRONT_SEAT = ('앞좌석', '운전석', '시트')
 
 

@@ -947,7 +947,7 @@ def _auto_visuals():
         return
     sys.path.insert(0, os.path.dirname(os.path.abspath(R.__file__)) + '/photo_listing')
     import auto_visuals
-    stk, rep = auto_visuals.build(C, C.W, CUTS)
+    stk, rep = auto_visuals.build(C, WRD, CUTS)
     for line in rep:
         print('  [옵션 그림] ' + line)
     if any(l.startswith('⛔') for l in rep) and not getattr(C, 'ALLOW_MISSING_REQUIRED', False):
