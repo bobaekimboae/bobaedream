@@ -46,7 +46,7 @@ def _paint_box(a):
     rows = np.where(m[:, int(W * 0.3):int(W * 0.7)].mean(1) > 0.5)[0]; top, bot = int(rows.min()), int(rows.max())
     xs = np.where(m[(top + bot) // 2])[0]; return top, bot, int(xs.min()), int(xs.max())
 
-def brush_box(s, f, color, icon=None, icon_left=False, plate_tilt=0.0, **_):
+def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, **_):
     """칠 규칙(be_locked_rules.json chip.fill_fit): 노션 원본 칠 중 좌우 여백이 맞는 것을 골라 같은 배율로만 키움.
     칠 높이 = 글자 높이 × band_to_ink, 글자는 칠 가운데에서 text_lift_ink만큼 위."""
     FF = R['chip']['fill_fit']
@@ -54,21 +54,22 @@ def brush_box(s, f, color, icon=None, icon_left=False, plate_tilt=0.0, **_):
     iw = icon.width if icon is not None else 0; gap = 16 if icon is not None else 0; cw = tw + gap + iw
     want_h = FF['band_to_ink'] * th; lo, hi = [k * th for k in FF['side_pad_ink']]
     best = None
-    for name in FF['shapes']:
-        t0, b0, l0, r0 = _paint_box(_shape(name, 4)); sc = 4 * want_h / (b0 - t0)
-        pad = ((r0 - l0) * sc / 4 - cw) / 2
-        score = abs(pad - hi) if pad >= lo else 1e6 + (lo - pad)   # 여백이 모자라면 맨 뒤 후보
-        if best is None or score < best[0]: best = (score, name, sc)
+    TT = R['chip']['title_plate'] if title_plate else None
+    if TT:   # 첫 컷 브랜드 칩: 벨기에 원본 판(노션 테마 바탕색 430_239) 하나. 판 자체가 기울어 있어 돌리지 않음. 칠 폭 = 글자 폭 + 좌우 여백(글자 높이 배수), 같은 배율
+        pl, pr = TT['side_pad_ink']; t0, b0, l0, r0 = _paint_box(_shape(TT['shape'], 1))
+        best = (0, TT['shape'], (cw + (pl + pr) * th) / (r0 - l0))
+    else:
+        for name in FF['shapes']:
+            t0, b0, l0, r0 = _paint_box(_shape(name, 4)); sc = 4 * want_h / (b0 - t0)
+            pad = ((r0 - l0) * sc / 4 - cw) / 2
+            score = abs(pad - hi) if pad >= lo else 1e6 + (lo - pad)   # 여백이 모자라면 맨 뒤 후보
+            if best is None or score < best[0]: best = (score, name, sc)
     _, name, sc = best; a = _shape(name, sc); top, bot, x0, x1 = _paint_box(a)
     m = max(0, top - 20); a = a.crop((0, m, a.width, min(a.height, bot + 21))); top, bot = top - m, bot - m   # 칠 윗선을 늘 같은 높이에(원본 판마다 위 여백이 달라 칩이 위아래로 튀던 것 방지)
     w, h = a.size; dy = 20 - top   # 칠 윗선을 상자 위 35px에 고정
     im = Image.new('RGBA', (w + 30, h + 30 + dy)); fill = Image.new('RGBA', (w, h), color + (255,)); fill.putalpha(a)
     im.alpha_composite(fill, (15, 15 + dy))
-    if plate_tilt:   # 첫 컷 브랜드 칩: 칠 판만 반시계로 기울이고 글자는 수평(벨기에 원본 실측, chip.title_plate_tilt_ccw_deg)
-        plate = Image.new('RGBA', im.size); plate.alpha_composite(fill, (15, 15 + dy))
-        r = plate.rotate(plate_tilt, resample=Image.BICUBIC, expand=True); ox, oy = (r.width - im.width) // 2, (r.height - im.height) // 2
-        im = r; dy += oy; x0 += ox; x1 += ox
-    d = ImageDraw.Draw(im); cx = 15 + x0 + ((x1 - x0) - cw) // 2
+    d = ImageDraw.Draw(im); cx = 15 + x0 + (round(TT['side_pad_ink'][0] * th) if TT else ((x1 - x0) - cw) // 2)
     ty = 15 + dy + top + ((bot - top) - th) // 2 - round(FF['text_lift_ink'] * th)
     tx = cx + (iw + gap if icon_left else 0)
     d.text((tx - b[0], ty - b[1]), s, font=f, fill=INK)
@@ -77,8 +78,8 @@ def brush_box(s, f, color, icon=None, icon_left=False, plate_tilt=0.0, **_):
 
 def chip(s, size=CHIP_PX, icon=None, title=False):
     """노랑 칩: 노션 원본 칠 판(fill_fit) + 검정 글자. 기울기는 규칙 값(2026-11-22부터 0).
-    title=True(첫 컷 브랜드 칩)만 칠 판을 chip.title_plate_tilt_ccw_deg만큼 기울이고 글자는 수평."""
-    im = brush_box(s, XB(size), YEL, icon, plate_tilt=R['chip']['title_plate_tilt_ccw_deg'] if title else 0.0)
+    title=True(첫 컷 브랜드 칩)만 벨기에 원본 판 chip.title_plate(430_239, 판 자체 기울기)·좌우 여백 좁게, 글자는 수평."""
+    im = brush_box(s, XB(size), YEL, icon, title_plate=title)
     return im.rotate(TILT, resample=Image.BICUBIC, expand=True) if TILT else im
 
 def info_pill(s, size, icon=None, icon_left=False):

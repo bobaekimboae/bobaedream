@@ -47,7 +47,7 @@
 
 | 종류 | 파일 | 담고 있는 것 | 읽는 쪽 |
 |---|---|---|---|
-| 화면·소리 값(모든 편집 유형 공통) | `scripts/shortform/be_locked_rules.json` | 노랑 · 잉크 색, 말 자막(크기 · 높이 · 강조), 칩(글자 크기 · 기울기 0(첫 컷 브랜드 칩 칠만 5.7°) · 자리 · **칠 맞춤 `chip.fill_fit`**, 영상판 위쪽 칩 줄 `y_top_px_feature_video`), 아이콘, **효과음 `sfx`(빈도 · 종류 · 간격 · 우선순위)**, 음량, 끝 화면, 사용자 확정 목록 `user_locked` | `sag_reel_v1.py`, `photo_listing/common.py`, `video_listing/g350_v5_lib.py` · `g350_v8_render.py`, `check_be.py` |
+| 화면·소리 값(모든 편집 유형 공통) | `scripts/shortform/be_locked_rules.json` | 노랑 · 잉크 색, 말 자막(크기 · 높이 · 강조), 칩(글자 크기 · 기울기 0(첫 컷 브랜드 칩만 430_239 판) · 자리 · **칠 맞춤 `chip.fill_fit`**, 영상판 위쪽 칩 줄 `y_top_px_feature_video`), 아이콘, **효과음 `sfx`(빈도 · 종류 · 간격 · 우선순위)**, 음량, 끝 화면, 사용자 확정 목록 `user_locked` | `sag_reel_v1.py`, `photo_listing/common.py`, `video_listing/g350_v5_lib.py` · `g350_v8_render.py`, `check_be.py` |
 | 사진판 옵션 표시 · 배치 | `scripts/shortform/photo_listing/option_visual_rules.json` | 옵션별 이모지 · 3D 글자, 시트 묶음, 휠 · 타이어 크기 맞춤, 숫자 화면 표기, 주행거리 원, **비유 효과음 `layout.metaphor_sfx`**, 대본 규칙 | `photo_listing/common.py`, `auto_visuals.py` |
 | 사진판 부위 당기기 | `scripts/shortform/photo_listing/part_zoom_rules.json` | 당길 때 · 안 당길 때, 확대 크기, 도착 시각 | `photo_listing/part_zoom.py` |
 | 영상판 옵션 편집 기법 | `scripts/shortform/video_listing/feature_edit_rules.json` | 기법 T01~T08의 조건 · 수치, 화살표 · 칩 간격, 등장 시각, 검사 기준 `qa`(칩 · 자막의 크기 · 자리 값은 두지 않음) | `feature_edit_planner.py`, `g350_v8_render.py` |
@@ -124,7 +124,7 @@
 | 옵션 표시(사진판) | 시트 묶음(재질 + 열선 · 통풍 · 마사지 · 메모리), 휠 인치 · 타이어 규격 크기 맞춤, 숫자 화면 표기, 계기판 주행거리 표시(확정: 노션 원형 칠 · 지금 코드: 빨강 손그림 원 → 10장 4번) | `option_visual_rules.json` `layout`, `options` |
 | 부위 당기기(사진판) | 그 부위를 말할 때 그 부위로 다가감, 라벨 부위 우선, 정지 사진처럼 보이지 않게 | `part_zoom_rules.json` |
 | 선루프 | 위아래 2분할(누르는 장면 + 열리는 장면), 사진이 1장뿐이면 3D 글자. 영상판은 구현(T01), 사진판은 아직(ROADMAP 1-6) | `option_visual_rules.json` `options[id=sunroof].fixed_edit` |
-| 첫 화면 | 노랑 칩 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄(연식 · 연료 · 코드네임 규칙). **제조사 칩만 칠 판을 반시계 5.7° 고정, 글자는 수평**(AS24 벨기에 원본 6편 첫 컷 실측, 2026-11-22 사용자 확정). 포인트 칩은 0° | 렌더러, `be_locked_rules.json` `chip.title_plate_tilt_ccw_deg` |
+| 첫 화면 | 노랑 칩 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄(연식 · 연료 · 코드네임 규칙). **제조사 칩만 벨기에 원본 판(노션 「테마 바탕색_430_239」, 판 자체가 기울어 있음) · 좌우 여백 좁게(글자 높이 왼쪽 0.45 · 오른쪽 0.3배) · 글자는 수평**(AS24 벨기에 원본 6편 첫 컷 실측, 2026-11-22 사용자 확정). 포인트 칩은 fill_fit · 0° | 렌더러, `be_locked_rules.json` `chip.title_plate` |
 | 끝 화면 | 마지막 장면 어둡게 + 보배드림 로고가 커짐, 딜러 명함 | `be_locked_rules.json` `end` |
 
 ## 7. 소리 규칙

@@ -59,7 +59,7 @@ def check_code_video():
             (ren, "R['caption']['center_y_px']", '자막 높이를 규칙에서 읽음'), (ren, "R['caption']['font_px']", '자막 크기를 규칙에서 읽음'),
             (ren, "R['sfx']", '효과음 규칙을 읽음'), (ren, "R['audio']", '음량을 규칙에서 읽음'), (ren, "metaphor_sfx", '비유 효과음 규칙을 읽음'),
             (ren, "g350_edit.json", '뜻 단위 자막 덩어리 입력 파일'),
-            (lib, "R['chip']['title_plate_tilt_ccw_deg']", '첫 컷 브랜드 칩 칠 기울기를 규칙에서 읽음'), (ren, "title=True", '첫 컷 브랜드 칩만 칠 기울임')]
+            (lib, "R['chip']['title_plate']", '첫 컷 브랜드 칩 판·여백을 규칙에서 읽음'), (ren, "title=True", '첫 컷 브랜드 칩만 칠 기울임')]
     for src, pat, name in must:
         (ok if pat in src else bad)(f'{name} ({pat})')
     banned = [(r'CAPY\s*=\s*int\(H', '자막 높이를 화면 비율로 직접 씀'), (r'loudnorm=I=-?\d', '음량 숫자를 직접 씀'),
@@ -145,7 +145,7 @@ def check_video(path):
                 if len(X_) > 10:
                     ang = float(np.degrees(-np.arctan((np.polyfit(X_, tp_, 1)[0] + np.polyfit(X_, bt_, 1)[0]) / 2)))
                     want, tol = CH['title_plate_edge_deg_check']
-                    (ok if abs(ang - want) <= tol else bad)(f'첫 컷 브랜드 칩 칠 기울기 실측 {ang:.1f}° (벨기에 원본 {want}° ±{tol}°, 판 회전 {CH["title_plate_tilt_ccw_deg"]}°)')
+                    (ok if abs(ang - want) <= tol else bad)(f'첫 컷 브랜드 칩 칠 기울기 실측 {ang:.1f}° (벨기에 원본 {want}° ±{tol}°, 판 {CH["title_plate"]["shape"]})')
                 else: bad('첫 컷 브랜드 칩 칠을 못 잼')
             cols.append(reg[band].mean(0))
         else:
