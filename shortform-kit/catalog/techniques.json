@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "updated": "2026-11-22",
   "_what": "보배드림 숏폼 자동 편집 — 편집 유형·편집 구성·편집 기법·옵션 표시·자산의 표준 이름 사전(단일 기준). 사람용 문서 CATALOG.md 는 build.py 가 이 파일로 만든다. 옵션 표시(FM-*)는 scripts/shortform/photo_listing/option_visual_rules.json 에서, AS24 관찰 스킬은 scripts/shortform/edit_skills/library_v2.json 에서, 실촬영 기법(T01~)은 scripts/shortform/video_listing/feature_edit_rules.json 에서 자동으로 붙인다.",
   "terms": {
@@ -7,7 +7,8 @@
     "segment": "편집 구성 — 독립된 한 컷(또는 몇 컷) 단위로 끼워 넣는 덩어리. 예: 차량 기본 정보 카드 컷, 배기음 컷.",
     "technique": "편집 기법 — 화면·소리에 거는 효과 하나. 예: 포인트 칩, 휙 넘김, 부위 당기기, 딩 효과음.",
     "feature": "옵션 표시 — 차량 기능(열선·통풍·마사지·메모리 등)을 말할 때 그 부위에 붙는 이모지·3D 글자 표시.",
-    "asset": "자산 — 기법이 쓰는 원본 파일(칠 판 SVG, 3D 이모지, 효과음, 배경음악, 글꼴)."
+    "asset": "자산 — 기법이 쓰는 원본 파일(칠 판 SVG, 3D 이모지, 효과음, 배경음악, 글꼴).",
+    "purpose": "목적 — 재미 / 정보 / 둘 다. 보배드림 숏폼은 한국 딜러 영상과 달리 재미와 정보 두 가지를 함께 준다. 한 영상에 재미 기법과 정보 기법이 모두 들어가야 한다."
   },
   "status_values": {
     "구현": "코드가 있고 실제 영상에 쓰임",
@@ -17,90 +18,1834 @@
     "금지": "쓰지 않기로 정함"
   },
   "editions": [
-    {"code": "ED-PHOTO", "ko": "사진 매물 숏폼 변환", "en": "Photo listing to short", "input": "매물 사진 + 매물 원장", "sound": "내레이션 + 배경음악 + 효과음", "status": "구현", "impl": "scripts/shortform/photo_listing/common.py", "fixed": ["1번째 컷 SG-INTRO-EMBLEM", "2번째 컷 SG-CARD-BASIC(2026-11-22 확정)", "끝 SG-END-DEALER"]},
-    {"code": "ED-SIMPLE", "ko": "실촬영 · 오토스카우트24 벨기에 심플", "en": "Live footage, AS24 Belgium simple", "input": "촬영 영상 + 매물 원장", "sound": "내레이션 + 배경음악 + 효과음", "status": "구현", "impl": "scripts/shortform/video_listing/g350_v8_render.py", "fixed": ["끝 SG-END-DEALER"]},
-    {"code": "ED-3D", "ko": "실촬영 · 나세르 3D 효과", "en": "Live footage, Nasser-style 3D", "input": "촬영 영상 + 매물 원장", "sound": "내레이션 + 효과음", "status": "계획", "impl": "scripts/shortform/egypt_3d_callout_sample.py", "fixed": ["1번째 컷 SG-INTRO-IMPACT", "끝 SG-END-DEALER"]},
-    {"code": "ED-ASMR", "ko": "ASMR (내레이션 없음)", "en": "ASMR, no narration", "input": "소리를 살려 찍은 촬영 영상 + 매물 원장", "sound": "녹음된 원래 소리만(배경음악·효과음 없음 — 사용자 확인 대기)", "status": "계획", "impl": "", "fixed": ["끝 SG-END-DEALER"]}
+    {
+      "code": "ED-PHOTO",
+      "ko": "사진 매물 숏폼 변환",
+      "en": "Photo listing to short",
+      "input": "매물 사진 + 매물 원장",
+      "sound": "내레이션 + 배경음악 + 효과음",
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py",
+      "fixed": [
+        "1번째 컷 SG-INTRO-EMBLEM",
+        "2번째 컷 SG-CARD-BASIC(2026-11-22 확정)",
+        "끝 SG-END-DEALER"
+      ]
+    },
+    {
+      "code": "ED-SIMPLE",
+      "ko": "실촬영 · 오토스카우트24 벨기에 심플",
+      "en": "Live footage, AS24 Belgium simple",
+      "input": "촬영 영상 + 매물 원장",
+      "sound": "내레이션 + 배경음악 + 효과음",
+      "status": "구현",
+      "impl": "scripts/shortform/video_listing/g350_v8_render.py",
+      "fixed": [
+        "끝 SG-END-DEALER"
+      ]
+    },
+    {
+      "code": "ED-3D",
+      "ko": "실촬영 · 나세르 3D 효과",
+      "en": "Live footage, Nasser-style 3D",
+      "input": "촬영 영상 + 매물 원장",
+      "sound": "내레이션 + 효과음",
+      "status": "계획",
+      "impl": "scripts/shortform/egypt_3d_callout_sample.py",
+      "fixed": [
+        "1번째 컷 SG-INTRO-IMPACT",
+        "끝 SG-END-DEALER"
+      ]
+    },
+    {
+      "code": "ED-ASMR",
+      "ko": "ASMR (내레이션 없음)",
+      "en": "ASMR, no narration",
+      "input": "소리를 살려 찍은 촬영 영상 + 매물 원장",
+      "sound": "녹음된 원래 소리만(배경음악·효과음 없음 — 사용자 확인 대기)",
+      "status": "계획",
+      "impl": "",
+      "fixed": [
+        "끝 SG-END-DEALER"
+      ]
+    }
   ],
   "items": [
-    {"code": "SG-INTRO-EMBLEM", "kind": "segment", "group": "첫 화면", "ko": "엠블럼 확대 → 제목", "en": "Emblem zoom title", "what": "첫 컷에서 사진 속 엠블럼을 확대한 뒤 제조사·모델·연식 제목", "look": "0~3초, 차 앞 사진이 확대되며 노랑 칩(제조사) + 흰 큰 모델명 + 아래 한 줄(등록·주행)", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:base_frame", "cfg": ["HOOK", "HOOK_ZOOM"], "refs": ["S041"]},
-    {"code": "SG-INTRO-IMPACT", "kind": "segment", "group": "첫 화면", "ko": "첫 컷 임팩트(로고·모델명 현란 등장)", "en": "Logo impact intro", "what": "브랜드 로고와 모델명이 나세르식으로 현란하게 등장", "look": "0~2초, 로고가 튀어나오고 모델명이 글자별로 쌓임, 효과음 동반", "ed": ["simple", "3d", "asmr"], "status": "계획", "impl": "", "refs": ["S016", "S017", "S049"]},
-    {"code": "SG-CARD-BASIC", "kind": "segment", "group": "카드 정보", "ko": "차량 기본 정보 카드", "en": "Basic info card", "what": "등록·주행·연료·변속기·배기량(마력)·색상 최대 6줄 카드. 사진판은 2번째 컷 고정", "look": "2번째 컷, 뒤 45° 사진 위 카드, 대사는 등록·주행만", "ed": ["photo", "simple", "3d", "asmr"], "status": "일부", "impl": "scripts/shortform/photo_listing/common.py:icon_chip", "note": "지금은 칩 한 줄(주행 N km)로만 나옴 → 카드로 바꿔야 함", "refs": ["S026"]},
-    {"code": "SG-CARD-INSPECT", "kind": "segment", "group": "카드 정보", "ko": "성능점검 카드", "en": "Inspection card", "what": "성능점검 기록 요약 카드", "look": "독립 컷 카드", "ed": ["photo", "simple", "3d", "asmr"], "status": "계획", "impl": ""},
-    {"code": "SG-CARD-INSURE", "kind": "segment", "group": "카드 정보", "ko": "보험이력 카드", "en": "Insurance history card", "what": "카히스토리 보험이력 요약(내 차·상대 차 피해, 소유자 변경). 「무사고」 표현 금지", "look": "독립 컷 카드", "ed": ["photo", "simple", "3d", "asmr"], "status": "계획", "impl": ""},
-    {"code": "SG-CARD-SPEC", "kind": "segment", "group": "카드 정보", "ko": "제원 카드", "en": "Spec card", "what": "마력·토크·제로백·크기 등 제원 요약 카드", "look": "독립 컷 카드", "ed": ["photo", "simple", "3d", "asmr"], "status": "계획", "impl": ""},
-    {"code": "SG-CATALOG", "kind": "segment", "group": "카탈로그", "ko": "카탈로그 컷", "en": "Catalog insert", "what": "독립 컷에 제조사 카탈로그 이미지 + 요약. 「제조사 이미지」 표시 필수, 딜러 사진에 없는 옵션만", "look": "실차 사진이 아닌 깨끗한 공식 사진, 위에 작은 「제조사 이미지」 꼬리표", "ed": ["photo", "simple", "3d"], "status": "일부", "impl": "scripts/shortform/photo_listing/common.py:official_layer", "cfg": ["OFFICIAL_PHOTOS", "OFFICIAL_TAG"]},
-    {"code": "SG-DEALER-TALK", "kind": "segment", "group": "딜러", "ko": "딜러 설명 컷", "en": "Dealer talk cut", "what": "딜러가 등장해 차를 설명하는 독립 컷. 딜러 말을 받아써서 자막·칩", "look": "사람 얼굴이 나오고 가슴 높이에 이름표", "ed": ["simple", "3d"], "status": "계획", "impl": "", "refs": ["S033", "S035"]},
-    {"code": "SG-EXHAUST", "kind": "segment", "group": "소리", "ko": "배기음 컷", "en": "Exhaust sound cut", "what": "배기음만 들려주는 독립 컷. 이 컷 동안 배경음악 끔, 칩 하나", "look": "뒤쪽·배기구 장면, 🔊 또는 「V8 배기음」 칩, 음악 꺼짐", "ed": ["simple", "3d", "asmr"], "status": "관찰", "impl": "", "refs": ["S012"]},
-    {"code": "SG-ODOMETER", "kind": "segment", "group": "신뢰", "ko": "계기판 주행거리 확인", "en": "Odometer proof", "what": "계기판 사진을 확대하고 주행거리 숫자에 우리 원형 칠(테마 바탕색_38_43)", "look": "계기판 확대, 주행거리 숫자 뒤 노랑 원형 칠 + 숫자 칩", "ed": ["photo", "simple"], "status": "일부", "impl": "scripts/shortform/photo_listing/common.py:odometer_layer", "cfg": ["ODOMETER_KM"], "note": "지금은 코드로 그린 손그림 선 원(mileage_circle) → 노션 원형 칠로 바꿔야 함(2026-11-22 확정)"},
-    {"code": "SG-SECTION", "kind": "segment", "group": "구성", "ko": "구간 제목", "en": "Section title", "what": "외관·실내 등 구간이 바뀔 때 위쪽 작은 제목", "look": "화면 위 작은 글자 띠", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:section_layer", "cfg": ["SECTIONS"]},
-    {"code": "SG-END-DEALER", "kind": "segment", "group": "마무리", "ko": "딜러 엔딩 · 앱 안내", "en": "Dealer end card", "what": "마지막 장면 어둡게 + 보배드림 엔드카드 커짐 + 딜러 로고/상사명 + 앱 안내", "look": "끝 2초, 로고가 작게→크게", "ed": ["photo", "simple", "3d", "asmr"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:overlay", "cfg": ["END_CARD", "DEALER_LOGO"], "refs": ["S030", "S050"]},
-
-    {"code": "CAP-KARAOKE", "kind": "technique", "group": "자막", "ko": "말 자막(낱말 따라 색 바뀜)", "en": "Word-by-word caption", "what": "2~5어절 덩어리, 말하는 낱말만 노랑. 바탕 칠 없음", "look": "화면 아래쪽 흰 글자 + 검정 테두리, 한 낱말씩 노랑", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/sag_reel_v1.py:phrase_img_be3", "rules": "scripts/shortform/be_locked_rules.json#caption", "refs": ["S038", "S039"]},
-    {"code": "CAP-HOOK-TITLE", "kind": "technique", "group": "자막", "ko": "첫 화면 제목", "en": "Hook title", "what": "제조사 칩 + 흰 큰 모델명 + 아래 한 줄", "look": "첫 3초 가운데 위", "ed": ["photo", "simple", "3d", "asmr"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:base_frame", "cfg": ["HOOK", "HOOK_FONT", "HOOK_MODEL_FONT"], "refs": ["S041"]},
-    {"code": "CAP-ASMR-WORD", "kind": "technique", "group": "자막", "ko": "ASMR 낱말 칩", "en": "ASMR word chip", "what": "내레이션 대신 사실 낱말만(「시동」·「V8 배기음」)", "look": "소리 장면마다 칩 하나", "ed": ["asmr"], "status": "계획", "impl": "", "refs": ["S032"]},
-
-    {"code": "CHIP-POINT", "kind": "technique", "group": "칩", "ko": "포인트 칩", "en": "Point chip", "what": "말한 낱말을 칠 판 위 검정 글자로. 모든 칩 같은 크기·같은 자리", "look": "화면 위쪽 고정 자리 노랑 칠 판, 기울기 없음", "ed": ["photo", "simple", "3d"], "status": "일부", "impl": "scripts/shortform/photo_listing/common.py:be_chip", "rules": "scripts/shortform/be_locked_rules.json#chip", "asset": "AS-PLATE-CHIL-103x33", "note": "규칙 파일은 아직 붓 테이프 + 5.7° 기울기 → 기울기 없는 칠 판으로 바꿔야 함(2026-11-22 확정)", "refs": ["S008", "S001"]},
-    {"code": "CHIP-NUMBER", "kind": "technique", "group": "칩", "ko": "큰 숫자 칩", "en": "Big number chip", "what": "숫자(가격·주행·마력)를 크게, 그동안 말 자막 숨김", "look": "화면 28% 높이 큰 숫자 칩", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:is_num_chip", "cfg": ["HIDE_CAP_CHIPS"], "refs": ["S004", "S006"]},
-    {"code": "CHIP-ICON3D", "kind": "technique", "group": "칩", "ko": "칩 옆 3D 아이콘", "en": "Chip 3D icon", "what": "칩 오른쪽 끝에 Fluent 3D 이모지(칩에 붙은 것만 허용)", "look": "칩 오른쪽 입체 아이콘", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:icon_chip", "cfg": ["MARKS"], "asset": "AS-FLUENT3D"},
-    {"code": "CHIP-DEALER", "kind": "technique", "group": "칩", "ko": "딜러 칩 · 하단 띠", "en": "Dealer chip / footer", "what": "상사·딜러 이름을 칩 또는 화면 아래 띠로", "look": "왼쪽 위 흰 알약 로고 또는 아래 띠", "ed": ["photo", "simple", "3d", "asmr"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:footer_layer", "cfg": ["DEALER_CHIP", "DEALER_FOOTER", "DEALER_LOGO"], "refs": ["S046"]},
-    {"code": "CHIP-TAG", "kind": "technique", "group": "칩", "ko": "부위 꼬리표", "en": "Part tag", "what": "부위 옆에 붙는 작은 이름표", "look": "부위 옆 작은 칩", "ed": ["photo", "simple"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:tag_layer", "cfg": ["TAGS"], "refs": ["S007"]},
-    {"code": "CHIP-PRICEDROP", "kind": "technique", "group": "칩", "ko": "가격 인하 칩", "en": "Price drop chip", "what": "옛 가격에 빨강 X, 아래 새 가격", "look": "가격 칩 두 줄, 위 줄 X", "ed": ["photo", "simple", "3d", "asmr"], "status": "관찰", "impl": "", "refs": ["S011"]},
-    {"code": "LIST-CHECK", "kind": "technique", "group": "목록", "ko": "옵션 체크 목록", "en": "Checklist stack", "what": "옵션을 말할 때마다 ✓ 한 줄씩, 최대 3줄. 적극 도입(2026-11-22)", "look": "칩 아래 ✓ 줄이 하나씩 늘어남", "ed": ["photo", "simple", "3d"], "status": "일부", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "note": "실촬영(T02)만 구현, 사진판은 아직", "refs": ["T02", "S002", "S003", "S045"]},
-
-    {"code": "MARK-POINTER", "kind": "technique", "group": "기호", "ko": "손가락·화살표 포인터", "en": "Pointer", "what": "부위를 가리키는 손가락 또는 화살표 1개(노션 원본만)", "look": "부위로 날아와 톡 누르는 손가락", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:pointer_layer", "cfg": ["POINTERS"], "refs": ["S020", "S035"]},
-    {"code": "MARK-DIM-LINE", "kind": "technique", "group": "기호", "ko": "치수선", "en": "Dimension line", "what": "트렁크 용량·길이를 치수선과 숫자로", "look": "차 옆 <---> 화살표 + 숫자", "ed": ["photo", "simple"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:dim_layer", "cfg": ["DIM_LINES"], "refs": ["S015"]},
-    {"code": "MARK-RED-X", "kind": "technique", "group": "기호", "ko": "빨강 X 부정", "en": "Red X", "what": "부정할 때 대상 위 빨강 X", "look": "빨강 X", "ed": [], "status": "관찰", "impl": "", "refs": ["S010"]},
-    {"code": "MARK-SPARKLE", "kind": "technique", "group": "기호", "ko": "반짝이", "en": "Sparkle", "what": "빛나는 부위에 ✨", "look": "반짝이", "ed": [], "status": "금지", "impl": "", "note": "be_locked_rules user_locked: 반짝임 금지", "refs": ["S031"]},
-    {"code": "MARK-LOOSE-EMOJI", "kind": "technique", "group": "기호", "ko": "따로 뜨는 이모지 스티커", "en": "Loose emoji sticker", "what": "부위나 칩에 붙지 않고 툭 뜨는 이모지", "look": "화면 빈 곳 이모지", "ed": [], "status": "금지", "impl": "", "note": "2026-11-19 사용자: 칩 옆 3D 아이콘은 좋지만 따로 뜨는 스티커는 안 됨", "refs": ["S013"]},
-    {"code": "FX-TEXT3D", "kind": "technique", "group": "3D", "ko": "3D 글자", "en": "3D text", "what": "숫자·재질·인치 등을 입체 글자로(부위 위)", "look": "부위 위 두꺼운 입체 글자", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:text3d"},
-    {"code": "FX-NUMBER3D", "kind": "technique", "group": "3D", "ko": "숫자 화면 표기", "en": "On-screen number", "what": "대본 숫자를 칩 아래 3D 글자로(한 컷 1개, 칩과 같은 값은 생략)", "look": "칩 아래 가운데 3D 숫자", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/photo_listing/auto_visuals.py:_numbers_on_screen", "rules": "scripts/shortform/photo_listing/option_visual_rules.json#numbers_on_screen"},
-    {"code": "FX-CALLOUT-3D", "kind": "technique", "group": "3D", "ko": "부위 3D 말풍선", "en": "3D callout", "what": "부위를 따라가는 입체 말풍선(나세르식)", "look": "부위에서 선이 나와 말풍선", "ed": ["3d"], "status": "계획", "impl": "scripts/shortform/egypt_3d_callout_sample.py:draw_callout"},
-
-    {"code": "MOVE-KENBURNS", "kind": "technique", "group": "움직임", "ko": "켄번스", "en": "Ken Burns", "what": "사진을 천천히 확대·이동(가속 부드럽게)", "look": "정지 사진이 천천히 다가오거나 옆으로 흐름", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:frame_of"},
-    {"code": "MOVE-PARTZOOM", "kind": "technique", "group": "움직임", "ko": "부위 당기기", "en": "Part push-in", "what": "그 부위를 말할 때 그 부위로 확대(라벨 부위 우선)", "look": "계기판·화면·시트로 화면이 다가감", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/part_zoom.py:build", "cfg": ["AUTO_ZOOM"], "rules": "scripts/shortform/photo_listing/part_zoom_rules.json"},
-    {"code": "MOVE-FIT-BLURFILL", "kind": "technique", "group": "움직임", "ko": "차 전체 맞춤 + 흐린 채움", "en": "Fit with blurred fill", "what": "가로 사진의 차 전체를 보이고 위아래는 같은 사진 흐리게", "look": "가운데 선명한 가로 사진, 위아래 흐림", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:fit_frame", "cfg": ["FIT"]},
-    {"code": "MOVE-PUNCH", "kind": "technique", "group": "움직임", "ko": "펀치 확대", "en": "Punch zoom", "what": "강조 낱말에 순간 확대", "look": "화면이 툭 커짐", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:punch", "cfg": ["PUNCH"]},
-    {"code": "MOVE-JUMPCUT", "kind": "technique", "group": "움직임", "ko": "점프컷", "en": "Jump cut", "what": "제원 낱말 3개 이상 이어 말할 때 계단식 확대", "look": "같은 장면이 단계별로 커짐", "ed": ["simple", "3d"], "status": "구현", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "refs": ["T03"]},
-    {"code": "MOVE-COUNTUP", "kind": "technique", "group": "움직임", "ko": "숫자 카운트업", "en": "Count up", "what": "큰 숫자가 0부터 올라감", "look": "숫자가 빠르게 증가", "ed": ["photo", "simple", "3d"], "status": "일부", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "note": "실촬영만", "refs": ["T04", "S005"]},
-    {"code": "MOVE-SHAKE", "kind": "technique", "group": "움직임", "ko": "마력 흔들림", "en": "Power shake", "what": "마력 말할 때 화면 흔들림 + 말 울음", "look": "화면 떨림", "ed": ["simple", "3d"], "status": "구현", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "refs": ["T07"]},
-    {"code": "MOVE-TRACK", "kind": "technique", "group": "움직임", "ko": "부위 따라가기", "en": "Motion tracking", "what": "움직이는 영상에서 부위 위치를 따라가 칩·표시를 붙임", "look": "칩이 부위와 함께 움직임", "ed": ["simple", "3d"], "status": "일부", "impl": "scripts/shortform/video_listing/g350_track.py"},
-
-    {"code": "TR-WHIP", "kind": "technique", "group": "컷 넘김", "ko": "휙 넘김(좌·우)", "en": "Whip pan", "what": "가로 밀기 + 모션 블러 0.30초", "look": "옆으로 번지며 넘어감", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:_base_frame", "plan": ["whip_l", "whip_r"]},
-    {"code": "TR-PUSH-UP", "kind": "technique", "group": "컷 넘김", "ko": "위로 밀기", "en": "Push up", "what": "위로 밀며 넘어감 0.30초", "look": "아래에서 다음 장면이 올라옴", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:_base_frame", "plan": ["push_up"]},
-    {"code": "TR-ZOOM", "kind": "technique", "group": "컷 넘김", "ko": "확대 넘김", "en": "Zoom transition", "what": "확대 + 흐림 + 섬광 0.40초", "look": "빨려 들어가며 넘어감", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:_base_frame", "plan": ["zoom"]},
-    {"code": "TR-FLASH", "kind": "technique", "group": "컷 넘김", "ko": "흰 섬광", "en": "Flash", "what": "흰 섬광 0.30초(가격 컷)", "look": "하얗게 번쩍", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:_base_frame", "plan": ["flash"]},
-    {"code": "TR-BLUR", "kind": "technique", "group": "컷 넘김", "ko": "흐림 교차", "en": "Blur dissolve", "what": "흐려지며 교차 0.45초(마지막 컷)", "look": "흐려지며 바뀜", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:_base_frame", "plan": ["blur"]},
-    {"code": "TR-FADE", "kind": "technique", "group": "컷 넘김", "ko": "페이드(페이드판)", "en": "Cross fade", "what": "모든 넘김을 0.5초 페이드, 휙 효과음 없음", "look": "부드럽게 겹치며 바뀜", "ed": ["photo"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:_base_frame", "env": "BBM_FADE=1"},
-    {"code": "TR-CUT", "kind": "technique", "group": "컷 넘김", "ko": "바로 자르기", "en": "Hard cut", "what": "효과 없이 바로 다음 장면", "look": "즉시 바뀜", "ed": ["simple", "asmr"], "status": "구현", "impl": "scripts/shortform/video_listing/g350_v8_render.py"},
-    {"code": "TR-SPLIT2", "kind": "technique", "group": "컷 넘김", "ko": "위아래 2분할", "en": "Split screen", "what": "동작(위)과 결과(아래)를 한 화면에", "look": "가운데 흰 선으로 위아래 두 장면", "ed": ["simple", "3d"], "status": "구현", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "refs": ["T01", "S047"]},
-    {"code": "INS-MAGNIFIER", "kind": "technique", "group": "화면 삽입", "ko": "돋보기 원", "en": "Magnifier", "what": "작은 버튼을 원 안에 크게", "look": "동그란 확대 창", "ed": ["photo", "simple", "3d"], "status": "일부", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "refs": ["T06"]},
-    {"code": "INS-SPOTLIGHT", "kind": "technique", "group": "화면 삽입", "ko": "스포트라이트", "en": "Spotlight", "what": "빛나는 부위만 밝게, 나머지 어둡게", "look": "주변이 어두워지고 라이트만 밝음", "ed": ["simple", "3d"], "status": "구현", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "refs": ["T05"]},
-
-    {"code": "SFX-DING", "kind": "technique", "group": "효과음", "ko": "딩", "en": "Ding", "what": "칩·큰 숫자 등장 0.02초 전", "look": "(소리) 맑은 딩", "ed": ["photo", "simple", "3d"], "status": "구현", "asset": "AS-SFX-DING", "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan", "rules": "scripts/shortform/be_locked_rules.json#sfx", "note": "2026-11-22 확정: 효과음 모두 냄(실촬영 1번 제한 폐지) → 규칙 파일 바꿔야 함"},
-    {"code": "SFX-WHOOSH", "kind": "technique", "group": "효과음", "ko": "휙", "en": "Whoosh", "what": "휙 넘김 0.16초 전", "look": "(소리) 바람 소리", "ed": ["photo", "simple", "3d"], "status": "구현", "asset": "AS-SFX-WHOOSH", "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan", "cfg": ["WHOOSH_CUTS"]},
-    {"code": "SFX-POP", "kind": "technique", "group": "효과음", "ko": "팝", "en": "Pop", "what": "옵션 표시(이모지·3D 글자) 등장", "look": "(소리) 톡", "ed": ["photo", "simple", "3d"], "status": "구현", "asset": "AS-SFX-POP", "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan"},
-    {"code": "SFX-CLICK", "kind": "technique", "group": "효과음", "ko": "클릭", "en": "Click", "what": "화면·버튼 표시 등장", "look": "(소리) 딸깍", "ed": ["photo", "simple", "3d"], "status": "구현", "asset": "AS-SFX-CLICK", "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan"},
-    {"code": "SFX-CONTEXT", "kind": "technique", "group": "효과음", "ko": "문맥 효과음", "en": "Context SFX", "what": "말 울음(마력) 등 낱말 뜻에 맞는 소리", "look": "(소리) 말 울음 등", "ed": ["photo", "simple", "3d"], "status": "일부", "impl": "scripts/shortform/video_listing/feature_edit_planner.py", "refs": ["T07"]},
-    {"code": "BGM-SHOWROOM", "kind": "technique", "group": "음악·음성", "ko": "배경음악 + 말할 때 줄이기", "en": "BGM with ducking", "what": "자체 음악, 목소리 나오면 줄임", "look": "(소리) 잔잔한 음악", "ed": ["photo", "simple", "3d"], "status": "구현", "asset": "AS-BGM-SHOWROOM", "impl": "scripts/shortform/photo_listing/common.py:mix_audio"},
-    {"code": "VO-TTS", "kind": "technique", "group": "음악·음성", "ko": "AI 내레이션", "en": "TTS voice", "what": "일레븐랩스 남성 영업 톤, 1.1배, 합니다체", "look": "(소리) 내레이션", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/photo_listing/tr.py", "note": "같은 결과가 필요하면 녹음 파일을 매물 폴더에 보관"},
-    {"code": "AUD-LOUDNORM", "kind": "technique", "group": "음악·음성", "ko": "음량 맞춤", "en": "Loudness", "what": "−14 LUFS, 최고 −1.5", "look": "(측정값)", "ed": ["photo", "simple", "3d", "asmr"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:mix_audio", "rules": "scripts/shortform/be_locked_rules.json#audio"},
-
-    {"code": "AS-PLATE-CHIL-103x33", "kind": "asset", "group": "칠 판", "ko": "칠 판 103×33(기울기 없음)", "en": "Background shape 103x33", "what": "포인트 칩 바탕", "look": "노랑 칠 판", "ed": ["photo", "simple", "3d"], "status": "계획", "impl": "", "notion": "https://app.notion.com/p/413ee9c4b606815a9174dd37df998a40", "notion_file": "as24_chil_103_33.svg", "note": "노션에만 있음 → public/assets/shortform/ 로 받아 와야 함"},
-    {"code": "AS-PLATE-CHIL-38x43", "kind": "asset", "group": "칠 판", "ko": "원형 칠 38×43", "en": "Round background shape", "what": "계기판 주행거리 원", "look": "노랑 원형 칠", "ed": ["photo", "simple"], "status": "계획", "impl": "", "notion": "https://app.notion.com/p/413ee9c4b60681e4ab95c54954d08d7c"},
-    {"code": "AS-BRUSH-TAPE", "kind": "asset", "group": "칠 판", "ko": "붓 테이프(기울어진 띠)", "en": "Brush tape", "what": "예전 포인트 칩 바탕", "look": "기울어진 노랑 붓띠", "ed": [], "status": "금지", "impl": "scripts/shortform/brushfill.py:brush_mask", "note": "2026-11-22 칠 판 103×33으로 대체"},
-    {"code": "AS-FLUENT3D", "kind": "asset", "group": "아이콘", "ko": "Fluent 3D 이모지", "en": "Microsoft Fluent 3D emoji", "what": "칩 옆·옵션 표시 아이콘", "look": "입체 이모지", "ed": ["photo", "simple", "3d"], "status": "구현", "impl": "scripts/shortform/photo_listing/common.py:fluent_emoji"},
-    {"code": "AS-SFX-DING", "kind": "asset", "group": "효과음", "ko": "ding.wav", "en": "ding", "what": "", "look": "", "ed": [], "status": "구현", "impl": "", "file": "public/assets/shortform/sfx/ding.wav"},
-    {"code": "AS-SFX-WHOOSH", "kind": "asset", "group": "효과음", "ko": "whoosh.wav", "en": "whoosh", "what": "", "look": "", "ed": [], "status": "구현", "impl": "", "file": "public/assets/shortform/sfx/whoosh.wav"},
-    {"code": "AS-SFX-POP", "kind": "asset", "group": "효과음", "ko": "pop.wav", "en": "pop", "what": "", "look": "", "ed": [], "status": "구현", "impl": "", "file": "public/assets/shortform/sfx/pop.wav"},
-    {"code": "AS-SFX-CLICK", "kind": "asset", "group": "효과음", "ko": "click.wav", "en": "click", "what": "", "look": "", "ed": [], "status": "구현", "impl": "", "file": "public/assets/shortform/sfx/click.wav"},
-    {"code": "AS-BGM-SHOWROOM", "kind": "asset", "group": "음악", "ko": "bobae_showroom_v1.mp3", "en": "showroom bgm", "what": "", "look": "", "ed": [], "status": "구현", "impl": "", "file": "public/assets/shortform/bgm/bobae_showroom_v1.mp3"}
+    {
+      "code": "SG-INTRO-EMBLEM",
+      "kind": "segment",
+      "group": "첫 화면",
+      "ko": "엠블럼 확대 → 제목",
+      "en": "Emblem zoom title",
+      "what": "첫 컷에서 사진 속 엠블럼을 확대한 뒤 제조사·모델·연식 제목",
+      "look": "0~3초, 차 앞 사진이 확대되며 노랑 칩(제조사) + 흰 큰 모델명 + 아래 한 줄(등록·주행)",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:base_frame",
+      "cfg": [
+        "HOOK",
+        "HOOK_ZOOM"
+      ],
+      "refs": [
+        "S041"
+      ]
+    },
+    {
+      "code": "SG-INTRO-IMPACT",
+      "kind": "segment",
+      "group": "첫 화면",
+      "ko": "첫 컷 임팩트(로고·모델명 현란 등장)",
+      "en": "Logo impact intro",
+      "what": "브랜드 로고와 모델명이 나세르식으로 현란하게 등장",
+      "look": "0~2초, 로고가 튀어나오고 모델명이 글자별로 쌓임, 효과음 동반",
+      "ed": [
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "계획",
+      "impl": "",
+      "refs": [
+        "S016",
+        "S017",
+        "S049"
+      ]
+    },
+    {
+      "code": "SG-CARD-BASIC",
+      "kind": "segment",
+      "group": "카드 정보",
+      "ko": "차량 기본 정보 카드",
+      "en": "Basic info card",
+      "what": "등록·주행·연료·변속기·배기량(마력)·색상 최대 6줄 카드. 사진판은 2번째 컷 고정",
+      "look": "2번째 컷, 뒤 45° 사진 위 카드, 대사는 등록·주행만",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/photo_listing/common.py:icon_chip",
+      "note": "지금은 칩 한 줄(주행 N km)로만 나옴 → 카드로 바꿔야 함",
+      "refs": [
+        "S026"
+      ]
+    },
+    {
+      "code": "SG-CARD-INSPECT",
+      "kind": "segment",
+      "group": "카드 정보",
+      "ko": "성능점검 카드",
+      "en": "Inspection card",
+      "what": "성능점검 기록 요약 카드",
+      "look": "독립 컷 카드",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "계획",
+      "impl": ""
+    },
+    {
+      "code": "SG-CARD-INSURE",
+      "kind": "segment",
+      "group": "카드 정보",
+      "ko": "보험이력 카드",
+      "en": "Insurance history card",
+      "what": "카히스토리 보험이력 요약(내 차·상대 차 피해, 소유자 변경). 「무사고」 표현 금지",
+      "look": "독립 컷 카드",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "계획",
+      "impl": ""
+    },
+    {
+      "code": "SG-CARD-SPEC",
+      "kind": "segment",
+      "group": "카드 정보",
+      "ko": "제원 카드",
+      "en": "Spec card",
+      "what": "마력·토크·제로백·크기 등 제원 요약 카드",
+      "look": "독립 컷 카드",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "계획",
+      "impl": ""
+    },
+    {
+      "code": "SG-CATALOG",
+      "kind": "segment",
+      "group": "카탈로그",
+      "ko": "카탈로그 컷",
+      "en": "Catalog insert",
+      "what": "독립 컷에 제조사 카탈로그 이미지 + 요약. 「제조사 이미지」 표시 필수, 딜러 사진에 없는 옵션만",
+      "look": "실차 사진이 아닌 깨끗한 공식 사진, 위에 작은 「제조사 이미지」 꼬리표",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/photo_listing/common.py:official_layer",
+      "cfg": [
+        "OFFICIAL_PHOTOS",
+        "OFFICIAL_TAG"
+      ]
+    },
+    {
+      "code": "SG-DEALER-TALK",
+      "kind": "segment",
+      "group": "딜러",
+      "ko": "딜러 설명 컷",
+      "en": "Dealer talk cut",
+      "what": "딜러가 등장해 차를 설명하는 독립 컷. 딜러 말을 받아써서 자막·칩",
+      "look": "사람 얼굴이 나오고 가슴 높이에 이름표",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "계획",
+      "impl": "",
+      "refs": [
+        "S033",
+        "S035"
+      ]
+    },
+    {
+      "code": "SG-EXHAUST",
+      "kind": "segment",
+      "group": "소리",
+      "ko": "배기음 컷",
+      "en": "Exhaust sound cut",
+      "what": "배기음만 들려주는 독립 컷. 이 컷 동안 배경음악 끔, 칩 하나",
+      "look": "뒤쪽·배기구 장면, 🔊 또는 「V8 배기음」 칩, 음악 꺼짐",
+      "ed": [
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S012"
+      ]
+    },
+    {
+      "code": "SG-ODOMETER",
+      "kind": "segment",
+      "group": "신뢰",
+      "ko": "계기판 주행거리 확인",
+      "en": "Odometer proof",
+      "what": "계기판 사진을 확대하고 주행거리 숫자에 우리 원형 칠(테마 바탕색_38_43)",
+      "look": "계기판 확대, 주행거리 숫자 뒤 노랑 원형 칠 + 숫자 칩",
+      "ed": [
+        "photo",
+        "simple"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/photo_listing/common.py:odometer_layer",
+      "cfg": [
+        "ODOMETER_KM"
+      ],
+      "note": "지금은 코드로 그린 손그림 선 원(mileage_circle) → 노션 원형 칠로 바꿔야 함(2026-11-22 확정)"
+    },
+    {
+      "code": "SG-SECTION",
+      "kind": "segment",
+      "group": "구성",
+      "ko": "구간 제목",
+      "en": "Section title",
+      "what": "외관·실내 등 구간이 바뀔 때 위쪽 작은 제목",
+      "look": "화면 위 작은 글자 띠",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:section_layer",
+      "cfg": [
+        "SECTIONS"
+      ]
+    },
+    {
+      "code": "SG-END-DEALER",
+      "kind": "segment",
+      "group": "마무리",
+      "ko": "딜러 엔딩 · 앱 안내",
+      "en": "Dealer end card",
+      "what": "마지막 장면 어둡게 + 보배드림 엔드카드 커짐 + 딜러 로고/상사명 + 앱 안내",
+      "look": "끝 2초, 로고가 작게→크게",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:overlay",
+      "cfg": [
+        "END_CARD",
+        "DEALER_LOGO"
+      ],
+      "refs": [
+        "S030",
+        "S050"
+      ]
+    },
+    {
+      "code": "CAP-KARAOKE",
+      "kind": "technique",
+      "group": "자막",
+      "ko": "말 자막(낱말 따라 색 바뀜)",
+      "en": "Word-by-word caption",
+      "what": "2~5어절 덩어리, 말하는 낱말만 노랑. 바탕 칠 없음",
+      "look": "화면 아래쪽 흰 글자 + 검정 테두리, 한 낱말씩 노랑",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/sag_reel_v1.py:phrase_img_be3",
+      "rules": "scripts/shortform/be_locked_rules.json#caption",
+      "refs": [
+        "S038",
+        "S039"
+      ]
+    },
+    {
+      "code": "CAP-HOOK-TITLE",
+      "kind": "technique",
+      "group": "자막",
+      "ko": "첫 화면 제목",
+      "en": "Hook title",
+      "what": "제조사 칩 + 흰 큰 모델명 + 아래 한 줄",
+      "look": "첫 3초 가운데 위",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:base_frame",
+      "cfg": [
+        "HOOK",
+        "HOOK_FONT",
+        "HOOK_MODEL_FONT"
+      ],
+      "refs": [
+        "S041"
+      ]
+    },
+    {
+      "code": "CAP-ASMR-WORD",
+      "kind": "technique",
+      "group": "자막",
+      "ko": "ASMR 낱말 칩",
+      "en": "ASMR word chip",
+      "what": "내레이션 대신 사실 낱말만(「시동」·「V8 배기음」)",
+      "look": "소리 장면마다 칩 하나",
+      "ed": [
+        "asmr"
+      ],
+      "status": "계획",
+      "impl": "",
+      "refs": [
+        "S032"
+      ]
+    },
+    {
+      "code": "CHIP-POINT",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "포인트 칩",
+      "en": "Point chip",
+      "what": "말한 낱말을 칠 판 위 검정 글자로. 모든 칩 같은 크기·같은 자리",
+      "look": "화면 위쪽 고정 자리 노랑 칠 판, 기울기 없음",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/photo_listing/common.py:be_chip",
+      "rules": "scripts/shortform/be_locked_rules.json#chip",
+      "asset": "AS-PLATE-CHIL-103x33",
+      "note": "규칙 파일은 아직 붓 테이프 + 5.7° 기울기 → 기울기 없는 칠 판으로 바꿔야 함(2026-11-22 확정)",
+      "refs": [
+        "S008",
+        "S001"
+      ]
+    },
+    {
+      "code": "CHIP-NUMBER",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "큰 숫자 칩",
+      "en": "Big number chip",
+      "what": "숫자(가격·주행·마력)를 크게, 그동안 말 자막 숨김",
+      "look": "화면 28% 높이 큰 숫자 칩",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:is_num_chip",
+      "cfg": [
+        "HIDE_CAP_CHIPS"
+      ],
+      "refs": [
+        "S004",
+        "S006"
+      ]
+    },
+    {
+      "code": "CHIP-ICON3D",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "칩 옆 3D 아이콘",
+      "en": "Chip 3D icon",
+      "what": "칩 오른쪽 끝에 Fluent 3D 이모지(칩에 붙은 것만 허용)",
+      "look": "칩 오른쪽 입체 아이콘",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:icon_chip",
+      "cfg": [
+        "MARKS"
+      ],
+      "asset": "AS-FLUENT3D"
+    },
+    {
+      "code": "CHIP-DEALER",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "딜러 칩 · 하단 띠",
+      "en": "Dealer chip / footer",
+      "what": "상사·딜러 이름을 칩 또는 화면 아래 띠로",
+      "look": "왼쪽 위 흰 알약 로고 또는 아래 띠",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:footer_layer",
+      "cfg": [
+        "DEALER_CHIP",
+        "DEALER_FOOTER",
+        "DEALER_LOGO"
+      ],
+      "refs": [
+        "S046"
+      ]
+    },
+    {
+      "code": "CHIP-TAG",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "부위 꼬리표",
+      "en": "Part tag",
+      "what": "부위 옆에 붙는 작은 이름표",
+      "look": "부위 옆 작은 칩",
+      "ed": [
+        "photo",
+        "simple"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:tag_layer",
+      "cfg": [
+        "TAGS"
+      ],
+      "refs": [
+        "S007"
+      ]
+    },
+    {
+      "code": "CHIP-PRICEDROP",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "가격 인하 칩",
+      "en": "Price drop chip",
+      "what": "옛 가격에 빨강 X, 아래 새 가격",
+      "look": "가격 칩 두 줄, 위 줄 X",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S011"
+      ]
+    },
+    {
+      "code": "LIST-CHECK",
+      "kind": "technique",
+      "group": "목록",
+      "ko": "옵션 체크 목록",
+      "en": "Checklist stack",
+      "what": "옵션을 말할 때마다 ✓ 한 줄씩, 최대 3줄. 적극 도입(2026-11-22)",
+      "look": "칩 아래 ✓ 줄이 하나씩 늘어남",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "note": "실촬영(T02)만 구현, 사진판은 아직",
+      "refs": [
+        "T02",
+        "S002",
+        "S003",
+        "S045"
+      ]
+    },
+    {
+      "code": "MARK-POINTER",
+      "kind": "technique",
+      "group": "기호",
+      "ko": "손가락·화살표 포인터",
+      "en": "Pointer",
+      "what": "부위를 가리키는 손가락 또는 화살표 1개(노션 원본만)",
+      "look": "부위로 날아와 톡 누르는 손가락",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:pointer_layer",
+      "cfg": [
+        "POINTERS"
+      ],
+      "refs": [
+        "S020",
+        "S035"
+      ]
+    },
+    {
+      "code": "MARK-DIM-LINE",
+      "kind": "technique",
+      "group": "기호",
+      "ko": "치수선",
+      "en": "Dimension line",
+      "what": "트렁크 용량·길이를 치수선과 숫자로",
+      "look": "차 옆 <---> 화살표 + 숫자",
+      "ed": [
+        "photo",
+        "simple"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:dim_layer",
+      "cfg": [
+        "DIM_LINES"
+      ],
+      "refs": [
+        "S015"
+      ]
+    },
+    {
+      "code": "MARK-RED-X",
+      "kind": "technique",
+      "group": "기호",
+      "ko": "빨강 X 부정",
+      "en": "Red X",
+      "what": "부정할 때 대상 위 빨강 X",
+      "look": "빨강 X",
+      "ed": [],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S010"
+      ]
+    },
+    {
+      "code": "MARK-SPARKLE",
+      "kind": "technique",
+      "group": "기호",
+      "ko": "반짝이",
+      "en": "Sparkle",
+      "what": "빛나는 부위에 ✨",
+      "look": "반짝이",
+      "ed": [],
+      "status": "금지",
+      "impl": "",
+      "note": "be_locked_rules user_locked: 반짝임 금지",
+      "refs": [
+        "S031"
+      ]
+    },
+    {
+      "code": "MARK-LOOSE-EMOJI",
+      "kind": "technique",
+      "group": "기호",
+      "ko": "따로 뜨는 이모지 스티커",
+      "en": "Loose emoji sticker",
+      "what": "부위나 칩에 붙지 않고 툭 뜨는 이모지",
+      "look": "화면 빈 곳 이모지",
+      "ed": [],
+      "status": "금지",
+      "impl": "",
+      "note": "2026-11-19 사용자: 칩 옆 3D 아이콘은 좋지만 따로 뜨는 스티커는 안 됨",
+      "refs": [
+        "S013"
+      ]
+    },
+    {
+      "code": "FX-TEXT3D",
+      "kind": "technique",
+      "group": "3D",
+      "ko": "3D 글자",
+      "en": "3D text",
+      "what": "숫자·재질·인치 등을 입체 글자로(부위 위)",
+      "look": "부위 위 두꺼운 입체 글자",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:text3d"
+    },
+    {
+      "code": "FX-NUMBER3D",
+      "kind": "technique",
+      "group": "3D",
+      "ko": "숫자 화면 표기",
+      "en": "On-screen number",
+      "what": "대본 숫자를 칩 아래 3D 글자로(한 컷 1개, 칩과 같은 값은 생략)",
+      "look": "칩 아래 가운데 3D 숫자",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/auto_visuals.py:_numbers_on_screen",
+      "rules": "scripts/shortform/photo_listing/option_visual_rules.json#numbers_on_screen"
+    },
+    {
+      "code": "FX-CALLOUT-3D",
+      "kind": "technique",
+      "group": "3D",
+      "ko": "부위 3D 말풍선",
+      "en": "3D callout",
+      "what": "부위를 따라가는 입체 말풍선(나세르식)",
+      "look": "부위에서 선이 나와 말풍선",
+      "ed": [
+        "3d"
+      ],
+      "status": "계획",
+      "impl": "scripts/shortform/egypt_3d_callout_sample.py:draw_callout"
+    },
+    {
+      "code": "MOVE-KENBURNS",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "켄번스",
+      "en": "Ken Burns",
+      "what": "사진을 천천히 확대·이동(가속 부드럽게)",
+      "look": "정지 사진이 천천히 다가오거나 옆으로 흐름",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:frame_of"
+    },
+    {
+      "code": "MOVE-PARTZOOM",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "부위 당기기",
+      "en": "Part push-in",
+      "what": "그 부위를 말할 때 그 부위로 확대(라벨 부위 우선)",
+      "look": "계기판·화면·시트로 화면이 다가감",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/part_zoom.py:build",
+      "cfg": [
+        "AUTO_ZOOM"
+      ],
+      "rules": "scripts/shortform/photo_listing/part_zoom_rules.json"
+    },
+    {
+      "code": "MOVE-FIT-BLURFILL",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "차 전체 맞춤 + 흐린 채움",
+      "en": "Fit with blurred fill",
+      "what": "가로 사진의 차 전체를 보이고 위아래는 같은 사진 흐리게",
+      "look": "가운데 선명한 가로 사진, 위아래 흐림",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:fit_frame",
+      "cfg": [
+        "FIT"
+      ]
+    },
+    {
+      "code": "MOVE-PUNCH",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "펀치 확대",
+      "en": "Punch zoom",
+      "what": "강조 낱말에 순간 확대",
+      "look": "화면이 툭 커짐",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:punch",
+      "cfg": [
+        "PUNCH"
+      ]
+    },
+    {
+      "code": "MOVE-JUMPCUT",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "점프컷",
+      "en": "Jump cut",
+      "what": "제원 낱말 3개 이상 이어 말할 때 계단식 확대",
+      "look": "같은 장면이 단계별로 커짐",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "refs": [
+        "T03"
+      ]
+    },
+    {
+      "code": "MOVE-COUNTUP",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "숫자 카운트업",
+      "en": "Count up",
+      "what": "큰 숫자가 0부터 올라감",
+      "look": "숫자가 빠르게 증가",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "note": "실촬영만",
+      "refs": [
+        "T04",
+        "S005"
+      ]
+    },
+    {
+      "code": "MOVE-SHAKE",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "마력 흔들림",
+      "en": "Power shake",
+      "what": "마력 말할 때 화면 흔들림 + 말 울음",
+      "look": "화면 떨림",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "refs": [
+        "T07"
+      ]
+    },
+    {
+      "code": "MOVE-TRACK",
+      "kind": "technique",
+      "group": "움직임",
+      "ko": "부위 따라가기",
+      "en": "Motion tracking",
+      "what": "움직이는 영상에서 부위 위치를 따라가 칩·표시를 붙임",
+      "look": "칩이 부위와 함께 움직임",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/video_listing/g350_track.py"
+    },
+    {
+      "code": "TR-WHIP",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "휙 넘김(좌·우)",
+      "en": "Whip pan",
+      "what": "가로 밀기 + 모션 블러 0.30초",
+      "look": "옆으로 번지며 넘어감",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:_base_frame",
+      "plan": [
+        "whip_l",
+        "whip_r"
+      ]
+    },
+    {
+      "code": "TR-PUSH-UP",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "위로 밀기",
+      "en": "Push up",
+      "what": "위로 밀며 넘어감 0.30초",
+      "look": "아래에서 다음 장면이 올라옴",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:_base_frame",
+      "plan": [
+        "push_up"
+      ]
+    },
+    {
+      "code": "TR-ZOOM",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "확대 넘김",
+      "en": "Zoom transition",
+      "what": "확대 + 흐림 + 섬광 0.40초",
+      "look": "빨려 들어가며 넘어감",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:_base_frame",
+      "plan": [
+        "zoom"
+      ]
+    },
+    {
+      "code": "TR-FLASH",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "흰 섬광",
+      "en": "Flash",
+      "what": "흰 섬광 0.30초(가격 컷)",
+      "look": "하얗게 번쩍",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:_base_frame",
+      "plan": [
+        "flash"
+      ]
+    },
+    {
+      "code": "TR-BLUR",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "흐림 교차",
+      "en": "Blur dissolve",
+      "what": "흐려지며 교차 0.45초(마지막 컷)",
+      "look": "흐려지며 바뀜",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:_base_frame",
+      "plan": [
+        "blur"
+      ]
+    },
+    {
+      "code": "TR-FADE",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "페이드(페이드판)",
+      "en": "Cross fade",
+      "what": "모든 넘김을 0.5초 페이드, 휙 효과음 없음",
+      "look": "부드럽게 겹치며 바뀜",
+      "ed": [
+        "photo"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:_base_frame",
+      "env": "BBM_FADE=1"
+    },
+    {
+      "code": "TR-CUT",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "바로 자르기",
+      "en": "Hard cut",
+      "what": "효과 없이 바로 다음 장면",
+      "look": "즉시 바뀜",
+      "ed": [
+        "simple",
+        "asmr"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/video_listing/g350_v8_render.py"
+    },
+    {
+      "code": "TR-SPLIT2",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "위아래 2분할",
+      "en": "Split screen",
+      "what": "동작(위)과 결과(아래)를 한 화면에",
+      "look": "가운데 흰 선으로 위아래 두 장면",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "refs": [
+        "T01",
+        "S047"
+      ]
+    },
+    {
+      "code": "INS-MAGNIFIER",
+      "kind": "technique",
+      "group": "화면 삽입",
+      "ko": "돋보기 원",
+      "en": "Magnifier",
+      "what": "작은 버튼을 원 안에 크게",
+      "look": "동그란 확대 창",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "refs": [
+        "T06"
+      ]
+    },
+    {
+      "code": "INS-SPOTLIGHT",
+      "kind": "technique",
+      "group": "화면 삽입",
+      "ko": "스포트라이트",
+      "en": "Spotlight",
+      "what": "빛나는 부위만 밝게, 나머지 어둡게",
+      "look": "주변이 어두워지고 라이트만 밝음",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "refs": [
+        "T05"
+      ]
+    },
+    {
+      "code": "SFX-DING",
+      "kind": "technique",
+      "group": "효과음",
+      "ko": "딩",
+      "en": "Ding",
+      "what": "칩·큰 숫자 등장 0.02초 전",
+      "look": "(소리) 맑은 딩",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "asset": "AS-SFX-DING",
+      "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan",
+      "rules": "scripts/shortform/be_locked_rules.json#sfx",
+      "note": "2026-11-22 확정: 효과음 모두 냄(실촬영 1번 제한 폐지) → 규칙 파일 바꿔야 함"
+    },
+    {
+      "code": "SFX-WHOOSH",
+      "kind": "technique",
+      "group": "효과음",
+      "ko": "휙",
+      "en": "Whoosh",
+      "what": "휙 넘김 0.16초 전",
+      "look": "(소리) 바람 소리",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "asset": "AS-SFX-WHOOSH",
+      "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan",
+      "cfg": [
+        "WHOOSH_CUTS"
+      ]
+    },
+    {
+      "code": "SFX-POP",
+      "kind": "technique",
+      "group": "효과음",
+      "ko": "팝",
+      "en": "Pop",
+      "what": "옵션 표시(이모지·3D 글자) 등장",
+      "look": "(소리) 톡",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "asset": "AS-SFX-POP",
+      "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan"
+    },
+    {
+      "code": "SFX-CLICK",
+      "kind": "technique",
+      "group": "효과음",
+      "ko": "클릭",
+      "en": "Click",
+      "what": "화면·버튼 표시 등장",
+      "look": "(소리) 딸깍",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "asset": "AS-SFX-CLICK",
+      "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan"
+    },
+    {
+      "code": "SFX-CONTEXT",
+      "kind": "technique",
+      "group": "효과음",
+      "ko": "문맥 효과음",
+      "en": "Context SFX",
+      "what": "말 울음(마력) 등 낱말 뜻에 맞는 소리",
+      "look": "(소리) 말 울음 등",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "일부",
+      "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
+      "refs": [
+        "T07"
+      ]
+    },
+    {
+      "code": "BGM-SHOWROOM",
+      "kind": "technique",
+      "group": "음악·음성",
+      "ko": "배경음악 + 말할 때 줄이기",
+      "en": "BGM with ducking",
+      "what": "자체 음악, 목소리 나오면 줄임",
+      "look": "(소리) 잔잔한 음악",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "asset": "AS-BGM-SHOWROOM",
+      "impl": "scripts/shortform/photo_listing/common.py:mix_audio"
+    },
+    {
+      "code": "VO-TTS",
+      "kind": "technique",
+      "group": "음악·음성",
+      "ko": "AI 내레이션",
+      "en": "TTS voice",
+      "what": "일레븐랩스 남성 영업 톤, 1.1배, 합니다체",
+      "look": "(소리) 내레이션",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/tr.py",
+      "note": "같은 결과가 필요하면 녹음 파일을 매물 폴더에 보관"
+    },
+    {
+      "code": "AUD-LOUDNORM",
+      "kind": "technique",
+      "group": "음악·음성",
+      "ko": "음량 맞춤",
+      "en": "Loudness",
+      "what": "−14 LUFS, 최고 −1.5",
+      "look": "(측정값)",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:mix_audio",
+      "rules": "scripts/shortform/be_locked_rules.json#audio"
+    },
+    {
+      "code": "AS-PLATE-CHIL-103x33",
+      "kind": "asset",
+      "group": "칠 판",
+      "ko": "칠 판 103×33(기울기 없음)",
+      "en": "Background shape 103x33",
+      "what": "포인트 칩 바탕",
+      "look": "노랑 칠 판",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "계획",
+      "impl": "",
+      "notion": "https://app.notion.com/p/413ee9c4b606815a9174dd37df998a40",
+      "notion_file": "as24_chil_103_33.svg",
+      "note": "노션에만 있음 → public/assets/shortform/ 로 받아 와야 함"
+    },
+    {
+      "code": "AS-PLATE-CHIL-38x43",
+      "kind": "asset",
+      "group": "칠 판",
+      "ko": "원형 칠 38×43",
+      "en": "Round background shape",
+      "what": "계기판 주행거리 원",
+      "look": "노랑 원형 칠",
+      "ed": [
+        "photo",
+        "simple"
+      ],
+      "status": "계획",
+      "impl": "",
+      "notion": "https://app.notion.com/p/413ee9c4b60681e4ab95c54954d08d7c"
+    },
+    {
+      "code": "AS-BRUSH-TAPE",
+      "kind": "asset",
+      "group": "칠 판",
+      "ko": "붓 테이프(기울어진 띠)",
+      "en": "Brush tape",
+      "what": "예전 포인트 칩 바탕",
+      "look": "기울어진 노랑 붓띠",
+      "ed": [],
+      "status": "금지",
+      "impl": "scripts/shortform/brushfill.py:brush_mask",
+      "note": "2026-11-22 칠 판 103×33으로 대체"
+    },
+    {
+      "code": "AS-FLUENT3D",
+      "kind": "asset",
+      "group": "아이콘",
+      "ko": "Fluent 3D 이모지",
+      "en": "Microsoft Fluent 3D emoji",
+      "what": "칩 옆·옵션 표시 아이콘",
+      "look": "입체 이모지",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "구현",
+      "impl": "scripts/shortform/photo_listing/common.py:fluent_emoji"
+    },
+    {
+      "code": "AS-SFX-DING",
+      "kind": "asset",
+      "group": "효과음",
+      "ko": "ding.wav",
+      "en": "ding",
+      "what": "",
+      "look": "",
+      "ed": [],
+      "status": "구현",
+      "impl": "",
+      "file": "public/assets/shortform/sfx/ding.wav"
+    },
+    {
+      "code": "AS-SFX-WHOOSH",
+      "kind": "asset",
+      "group": "효과음",
+      "ko": "whoosh.wav",
+      "en": "whoosh",
+      "what": "",
+      "look": "",
+      "ed": [],
+      "status": "구현",
+      "impl": "",
+      "file": "public/assets/shortform/sfx/whoosh.wav"
+    },
+    {
+      "code": "AS-SFX-POP",
+      "kind": "asset",
+      "group": "효과음",
+      "ko": "pop.wav",
+      "en": "pop",
+      "what": "",
+      "look": "",
+      "ed": [],
+      "status": "구현",
+      "impl": "",
+      "file": "public/assets/shortform/sfx/pop.wav"
+    },
+    {
+      "code": "AS-SFX-CLICK",
+      "kind": "asset",
+      "group": "효과음",
+      "ko": "click.wav",
+      "en": "click",
+      "what": "",
+      "look": "",
+      "ed": [],
+      "status": "구현",
+      "impl": "",
+      "file": "public/assets/shortform/sfx/click.wav"
+    },
+    {
+      "code": "AS-BGM-SHOWROOM",
+      "kind": "asset",
+      "group": "음악",
+      "ko": "bobae_showroom_v1.mp3",
+      "en": "showroom bgm",
+      "what": "",
+      "look": "",
+      "ed": [],
+      "status": "구현",
+      "impl": "",
+      "file": "public/assets/shortform/bgm/bobae_showroom_v1.mp3"
+    },
+    {
+      "code": "SG-QUIZ-HOOK",
+      "kind": "segment",
+      "group": "첫 화면",
+      "ko": "퀴즈 첫 화면",
+      "en": "Quiz hook",
+      "purpose": "재미",
+      "what": "첫 1~2초 「이 차 얼마일까요?」「몇 마력일까요?」 질문으로 시작, 마지막에 정답",
+      "look": "첫 화면 큰 노랑 질문 글자 + 3초 카운트",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S025"
+      ],
+      "timing": "첫 1~2초, 큰 노랑 대문자",
+      "example_bobae": "「6억대? 8억대? 이 푸로산게 가격 맞혀 보세요」 → 끝에 가격 칩(원장 가격만, 가격 상담 매물은 쓰지 않음)",
+      "example_as24": [
+        "https://youtube.com/shorts/0J04wFIwOts?t=0",
+        "https://youtube.com/shorts/4sBdletteU0?t=0",
+        "https://youtube.com/shorts/olp_8F7x6RY?t=0"
+      ]
+    },
+    {
+      "code": "SG-REVEAL",
+      "kind": "segment",
+      "group": "첫 화면",
+      "ko": "덮개·가림 공개",
+      "en": "Reveal",
+      "purpose": "재미",
+      "what": "가려 둔 차를 공개하며 퀴즈 정답",
+      "look": "검정 가림막이 걷히거나 흐림이 풀리며 차가 드러남",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S037"
+      ],
+      "timing": "1~2초",
+      "example_bobae": "퀴즈 첫 화면 정답 컷: 흐리게 가린 엠블럼이 선명해지며 「정답은 람보르기니 우루스」 (사진판은 흐림 풀기로 대신)",
+      "example_as24": [
+        "https://youtube.com/shorts/rxVoJMK93qE?t=14",
+        "https://youtube.com/shorts/2csZ_JTDIhg?t=0",
+        "https://youtube.com/shorts/2csZ_JTDIhg?t=14"
+      ]
+    },
+    {
+      "code": "SG-THIS-OR-THAT",
+      "kind": "segment",
+      "group": "첫 화면",
+      "ko": "둘 중 하나",
+      "en": "This or that",
+      "purpose": "재미",
+      "what": "두 선택지를 위아래로 두고 고른 쪽을 노랑으로",
+      "look": "위아래 두 줄, 한쪽이 노랑으로 바뀜",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S027"
+      ],
+      "timing": "질문마다 1.5초",
+      "example_bobae": "「SUV 실용성 vs 쿠페 감성 — 푸로산게는?」 → 「둘 다」 노랑 (같은 차의 실제 사양으로만)",
+      "example_as24": [
+        "https://youtube.com/shorts/GFYb3CitDOs?t=0",
+        "https://youtube.com/shorts/fVo1bynrBKs?t=4",
+        "https://youtube.com/shorts/vvRsy6pNv4w?t=0"
+      ]
+    },
+    {
+      "code": "SG-SERIES-TITLE",
+      "kind": "segment",
+      "group": "첫 화면",
+      "ko": "시리즈 타이틀 카드",
+      "en": "Series title card",
+      "purpose": "재미",
+      "what": "정기 코너 첫 화면: 진한 둥근 판 + 원 아이콘 + 코너 이름 + 로고 1~2초",
+      "look": "가운데 진한 둥근 판, 코너 이름",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S052"
+      ],
+      "timing": "가운데, 화면 폭 60%, 2초",
+      "example_bobae": "「보배 슈퍼카 3분 매물」「오늘의 딜러 추천」 같은 연재 코너 첫 화면",
+      "example_as24": []
+    },
+    {
+      "code": "SG-EXPLAIN-ART",
+      "kind": "segment",
+      "group": "설명",
+      "ko": "설명용 그림 컷",
+      "en": "Explainer illustration",
+      "purpose": "정보",
+      "what": "서비스·제도(안전 거래·이전 서류 등)를 그림 컷 + 초록 체크로 설명",
+      "look": "일러스트 컷, 체크가 그려지며 나타남",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S048"
+      ],
+      "timing": "컷 1~2초, 체크 그려짐 0.4초",
+      "example_bobae": "「보배드림 안심번호로 문의하면 번호가 노출되지 않습니다」 그림 컷 + ✓ (실제 서비스 내용만)",
+      "example_as24": []
+    },
+    {
+      "code": "SG-HOST-PLAIN",
+      "kind": "segment",
+      "group": "설명",
+      "ko": "단색 배경 진행자",
+      "en": "Host on plain background",
+      "purpose": "정보",
+      "what": "차 없는 공지·서비스 설명 영상: 브랜드색 배경 앞 진행자",
+      "look": "단색 배경 + 사람 상반신",
+      "ed": [
+        "simple"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S051"
+      ],
+      "timing": "전체 화면",
+      "example_bobae": "보배드림 진행자가 「이번 주 새 기능: 숏폼 자동 제작」 안내",
+      "example_as24": []
+    },
+    {
+      "code": "SG-SPLIT3",
+      "kind": "segment",
+      "group": "구성",
+      "ko": "세로 3분할",
+      "en": "Triple split",
+      "purpose": "둘 다",
+      "what": "외관·실내·뒤를 한 화면에 3칸 + 가운데 칩",
+      "look": "화면이 세로 3칸으로 나뉨, 가운데 칩",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S023"
+      ],
+      "timing": "3분할 1.5~2초",
+      "example_bobae": "앞 45°·실내·뒤 45° 사진 3장을 한 화면에 + 「외관 · 실내 · 뒤」, 사진 매물 요약 컷으로 좋음",
+      "example_as24": [
+        "https://youtube.com/shorts/NyDBGk0EZhU?t=13",
+        "https://youtube.com/shorts/fQxhWJp4inA?t=9",
+        "https://youtube.com/shorts/mJGJkSQltJw?t=11"
+      ]
+    },
+    {
+      "code": "INS-COMPARE-CARD",
+      "kind": "technique",
+      "group": "화면 삽입",
+      "ko": "비교 차 카드",
+      "en": "Comparison card",
+      "purpose": "정보",
+      "what": "다른 차와 비교할 때 흰 카드(차 사진·차명·가격)를 테이프로 붙임",
+      "look": "화면 45% 폭 흰 카드가 테이프로 붙음, 1.2초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S018"
+      ],
+      "timing": "카드 폭 화면 45%, 1.2초",
+      "example_bobae": "「같은 연식 신차 가격은 ○○만원」 카드 (제조사 공식 가격 등 출처 있는 값만, 출처 꼬리표)",
+      "example_as24": [
+        "https://youtube.com/shorts/PHuIyaZ1zmM?t=5",
+        "https://youtube.com/shorts/YecFFNxSTeU?t=2",
+        "https://youtube.com/shorts/8kr8ZLrlXP8?t=10"
+      ]
+    },
+    {
+      "code": "INS-PHONE-APP",
+      "kind": "technique",
+      "group": "화면 삽입",
+      "ko": "폰 앱 화면",
+      "en": "Phone app screen",
+      "purpose": "정보",
+      "what": "앱 사용법·시세 조회를 폰 화면으로 보여줌",
+      "look": "화면 58% 높이 폰 화면, 버튼 동그라미",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S019"
+      ],
+      "timing": "화면 높이 58%, 1.2초 이상",
+      "example_bobae": "끝부분 「보배드림 앱에서 매물 번호 ○○ 검색」 → 실제 보배드림 앱 화면(우리 화면만)",
+      "example_as24": [
+        "https://youtube.com/shorts/RWTRI1IQxM8?t=5",
+        "https://youtube.com/shorts/gfU82u6LfOY?t=11",
+        "https://youtube.com/shorts/fbqIM7Vs4AQ?t=24"
+      ]
+    },
+    {
+      "code": "INS-LISTING-CARD",
+      "kind": "technique",
+      "group": "화면 삽입",
+      "ko": "매물 카드",
+      "en": "Listing card",
+      "purpose": "정보",
+      "what": "매물 하나를 사진·가격 카드로",
+      "look": "매물 목록 카드 모양 1.2초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S021"
+      ],
+      "timing": "1.2초",
+      "example_bobae": "끝 화면 직전 보배드림 매물 카드(대표 사진 · 연식 · 주행 · 가격) — 보러 갈 곳을 알려 줌",
+      "example_as24": [
+        "https://youtube.com/shorts/X_q6N_cfeoI?t=0"
+      ]
+    },
+    {
+      "code": "INS-WEB-WINDOW",
+      "kind": "technique",
+      "group": "화면 삽입",
+      "ko": "웹 창",
+      "en": "Web window",
+      "purpose": "정보",
+      "what": "사이트 화면을 창으로 삽입",
+      "look": "브라우저 창 모양 1.2초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S022"
+      ],
+      "timing": "1.2초",
+      "example_bobae": "보배드림 매물 상세 페이지 화면(성능점검·보험이력 칸을 동그라미)",
+      "example_as24": [
+        "https://youtube.com/shorts/Sci6-idq6W0?t=6",
+        "https://youtube.com/shorts/oOsforcVrhY?t=5"
+      ]
+    },
+    {
+      "code": "CAP-EXCLAIM",
+      "kind": "technique",
+      "group": "자막",
+      "ko": "감탄 큰 낱말",
+      "en": "Exclamation word",
+      "purpose": "재미",
+      "what": "감탄을 말할 때 그 낱말 하나를 크게",
+      "look": "글자 높이 7~9% 큰 낱말 0.8초 + 휙",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S009"
+      ],
+      "timing": "글자 높이 7~9%, 0.8초",
+      "example_bobae": "딜러가 실제로 「미쳤습니다」라고 말한 순간만 크게(사람이 말한 것만, AI 내레이션은 과장 금지)",
+      "example_as24": [
+        "https://youtube.com/shorts/1OYdLaUcKHc?t=25",
+        "https://youtube.com/shorts/4S6D1y4-BFk?t=17",
+        "https://youtube.com/shorts/uc2QnjoYyRY?t=18"
+      ]
+    },
+    {
+      "code": "CAP-QUOTE",
+      "kind": "technique",
+      "group": "자막",
+      "ko": "인용 문장 카드",
+      "en": "Quote card",
+      "purpose": "정보",
+      "what": "인터뷰 핵심 한 문장을 노랑 판에 크게(말한 그대로)",
+      "look": "화면 폭 85% 노랑 판 2~3초",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S053"
+      ],
+      "timing": "가운데, 화면 폭 85%, 2~3초",
+      "example_bobae": "딜러 인터뷰 「이 차는 제가 직접 출고한 차입니다」 그대로",
+      "example_as24": []
+    },
+    {
+      "code": "CAP-ORDINAL",
+      "kind": "technique",
+      "group": "자막",
+      "ko": "순번 숫자",
+      "en": "Ordinal number",
+      "purpose": "둘 다",
+      "what": "목록·순위 소개 때 큰 순번 숫자",
+      "look": "큰 숫자 5·4·3… 0.8초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S043"
+      ],
+      "timing": "0.8초",
+      "example_bobae": "「이 차의 옵션 TOP 3」 3·2·1 순서로 옵션 소개",
+      "example_as24": [
+        "https://youtube.com/shorts/JfmHdoXItFY?t=0",
+        "https://youtube.com/shorts/_ZB7seKJ1Kc?t=0"
+      ]
+    },
+    {
+      "code": "CAP-PRICE-TEASE",
+      "kind": "technique",
+      "group": "자막",
+      "ko": "가격 예고",
+      "en": "Price tease",
+      "purpose": "재미",
+      "what": "가격 공개 직전 「가격은?」을 크게 띄워 기대감",
+      "look": "0.6초 큰 「가격은?」 → 다음 순간 가격 숫자",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S042"
+      ],
+      "timing": "0.6초",
+      "example_bobae": "가격 컷 직전 「가격은?」 0.6초 → 「6억 1,900만원」 큰 숫자 + 섬광",
+      "example_as24": [
+        "https://youtube.com/shorts/ej0_7zcH3cE?t=0",
+        "https://youtube.com/shorts/rzC-_mU1yoM?t=5"
+      ]
+    },
+    {
+      "code": "CHIP-STAT-ARROW",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "통계 화살표 칩",
+      "en": "Stat arrow chip",
+      "purpose": "정보",
+      "what": "늘었다·줄었다를 화살표 + 퍼센트 작은 칩으로",
+      "look": "⬇️36% ↗175% 작은 노랑 띠 0.8초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S014"
+      ],
+      "timing": "작은 노랑 띠, 0.8초",
+      "example_bobae": "「신차 대비 32% 낮은 가격」(신차가·판매가가 원장에 있을 때만 계산)",
+      "example_as24": [
+        "https://youtube.com/shorts/5o0FI-TXz2E?t=17",
+        "https://youtube.com/shorts/5o0FI-TXz2E?t=27"
+      ]
+    },
+    {
+      "code": "CHIP-SWAP",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "칩 교체",
+      "en": "Chip swap",
+      "purpose": "정보",
+      "what": "모드가 바뀔 때마다 같은 자리에서 ✓ 칩 글자만 교체",
+      "look": "같은 자리 칩, 0.5~0.8초마다 글자 바뀜",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S024"
+      ],
+      "timing": "모드마다 0.5~0.8초",
+      "example_bobae": "주행 모드 다이얼 영상: 「컴포트 → 스포츠 → 스포츠 플러스」",
+      "example_as24": [
+        "https://youtube.com/shorts/h-YY69bL2mU?t=5",
+        "https://youtube.com/shorts/h-YY69bL2mU?t=11"
+      ]
+    },
+    {
+      "code": "CHIP-FLAG",
+      "kind": "technique",
+      "group": "칩",
+      "ko": "국기",
+      "en": "Country flag",
+      "purpose": "정보",
+      "what": "원산지·출고 국가를 국기 아이콘으로",
+      "look": "칩 옆 국기 0.8초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S040"
+      ],
+      "timing": "0.8초",
+      "example_bobae": "「이탈리아 마라넬로 생산」 🇮🇹 (원장 제조국 값만)",
+      "example_as24": [
+        "https://youtube.com/shorts/2csZ_JTDIhg?t=4"
+      ]
+    },
+    {
+      "code": "MARK-SURPRISE",
+      "kind": "technique",
+      "group": "기호",
+      "ko": "놀람 선",
+      "en": "Surprise lines",
+      "purpose": "재미",
+      "what": "놀라는 순간 머리 위 빨강 놀람 선",
+      "look": "사람 머리 위 빨강 선 0.6초",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S034"
+      ],
+      "timing": "0.6초",
+      "example_bobae": "딜러가 배기음에 놀라는 장면(사람이 나올 때만)",
+      "example_as24": [
+        "https://youtube.com/shorts/R2TF8IgifbY?t=22"
+      ]
+    },
+    {
+      "code": "MARK-PRESS",
+      "kind": "technique",
+      "group": "기호",
+      "ko": "버튼 누름 클로즈업",
+      "en": "Button press",
+      "purpose": "정보",
+      "what": "버튼 누르는 손 클로즈업 + ✓ 기능명",
+      "look": "손가락이 버튼 누름 + ✓ 칩 1초",
+      "ed": [
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S036"
+      ],
+      "timing": "1초",
+      "example_bobae": "통풍 버튼 누르는 손 + 「✓ 통풍 시트 3단」",
+      "example_as24": [
+        "https://youtube.com/shorts/2aDUWd4JY_c?t=11",
+        "https://youtube.com/shorts/rzC-_mU1yoM?t=17",
+        "https://youtube.com/shorts/rzC-_mU1yoM?t=19"
+      ]
+    },
+    {
+      "code": "TR-BRUSH-WIPE",
+      "kind": "technique",
+      "group": "컷 넘김",
+      "ko": "붓 원 와이프",
+      "en": "Brush circle wipe",
+      "purpose": "재미",
+      "what": "다른 장면을 끼울 때 흰 화면 + 노랑 붓 원으로 넘김",
+      "look": "노랑 붓 원이 화면을 덮으며 0.4초",
+      "ed": [
+        "photo",
+        "simple",
+        "3d"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S044"
+      ],
+      "timing": "0.4초",
+      "example_bobae": "외관 → 실내로 넘어갈 때, 또는 카드 정보 컷으로 들어갈 때",
+      "example_as24": [
+        "https://youtube.com/shorts/j7eqQu5CaBk?t=12"
+      ]
+    },
+    {
+      "code": "END-COMMENT",
+      "kind": "technique",
+      "group": "마무리",
+      "ko": "댓글 유도",
+      "en": "Comment prompt",
+      "purpose": "재미",
+      "what": "마지막에 댓글로 의견을 묻는 큰 낱말",
+      "look": "마지막 2초 큰 노랑 질문",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S028"
+      ],
+      "timing": "마지막 2초",
+      "example_bobae": "「이 가격이면 사시겠어요? 댓글로」",
+      "example_as24": [
+        "https://youtube.com/shorts/7jJH5B06RT0?t=3",
+        "https://youtube.com/shorts/NyDBGk0EZhU?t=27",
+        "https://youtube.com/shorts/ej0_7zcH3cE?t=25"
+      ]
+    },
+    {
+      "code": "END-FOLLOW",
+      "kind": "technique",
+      "group": "마무리",
+      "ko": "팔로우 유도",
+      "en": "Follow prompt",
+      "purpose": "재미",
+      "what": "마지막에 딜러 계정 팔로우 유도",
+      "look": "마지막 2초 팔로우 문구",
+      "ed": [
+        "photo",
+        "simple",
+        "3d",
+        "asmr"
+      ],
+      "status": "관찰",
+      "impl": "",
+      "refs": [
+        "S029"
+      ],
+      "timing": "마지막 2초",
+      "example_bobae": "「○○모터스 김태규 딜러 팔로우하고 새 입고 먼저 보기」",
+      "example_as24": [
+        "https://youtube.com/shorts/4Dq0ZCs-zeg?t=4",
+        "https://youtube.com/shorts/ej0_7zcH3cE?t=27"
+      ]
+    }
   ],
   "feature_map": {
     "_what": "옵션 표시(FM-*) 코드는 option_visual_rules.json 의 options[].id 를 대문자로 바꿔 붙인다(seat_heat → FM-SEAT-HEAT). 묶음 표시는 아래.",
     "bundles": [
-      {"code": "FM-SEAT-BUNDLE", "ko": "시트 묶음(재질 + 열선·통풍·마사지·메모리)", "impl": "scripts/shortform/photo_listing/auto_visuals.py:_seat_bundle", "look": "시트 등받이 위에 🔥❄️💆💾 한 줄 + 재질 3D 글자"},
-      {"code": "FM-CLIMATE-BUNDLE", "ko": "공조 묶음", "impl": "scripts/shortform/photo_listing/auto_visuals.py:_climate_bundle", "look": "공조 화면 위 🌬️ + N존"}
+      {
+        "code": "FM-SEAT-BUNDLE",
+        "ko": "시트 묶음(재질 + 열선·통풍·마사지·메모리)",
+        "impl": "scripts/shortform/photo_listing/auto_visuals.py:_seat_bundle",
+        "look": "시트 등받이 위에 🔥❄️💆💾 한 줄 + 재질 3D 글자"
+      },
+      {
+        "code": "FM-CLIMATE-BUNDLE",
+        "ko": "공조 묶음",
+        "impl": "scripts/shortform/photo_listing/auto_visuals.py:_climate_bundle",
+        "look": "공조 화면 위 🌬️ + N존"
+      }
     ]
   }
 }

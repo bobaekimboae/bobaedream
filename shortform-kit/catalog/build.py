@@ -21,6 +21,12 @@ FER = os.path.join(ROOT, 'scripts/shortform/video_listing/feature_edit_rules.jso
 OUT = os.path.join(HERE, 'CATALOG.md')
 ED = {'photo': 'ED-PHOTO', 'simple': 'ED-SIMPLE', '3d': 'ED-3D', 'asmr': 'ED-ASMR'}
 ED_KO = {'photo': '① 사진', 'simple': '② 심플', '3d': '③ 3D', 'asmr': '④ ASMR'}
+# 목적(재미·정보) 기본값 — 항목에 purpose 가 없으면 분류로 정한다
+PURPOSE_BY_GROUP = {'첫 화면': '재미', '마무리': '둘 다', '컷 넘김': '재미', '효과음': '재미', '움직임': '재미', '3D': '둘 다',
+                    '기호': '둘 다', '음악·음성': '둘 다', '자막': '정보', '칩': '정보', '목록': '정보', '카드 정보': '정보',
+                    '카탈로그': '정보', '신뢰': '정보', '딜러': '정보', '소리': '재미', '구성': '정보', '화면 삽입': '정보',
+                    '설명': '정보', '옵션 표시': '정보'}
+PURPOSES = ('재미', '정보', '둘 다')
 
 
 def load():
@@ -39,6 +45,9 @@ def load():
     for b in C['feature_map']['bundles']:
         items.append({'kind': 'feature', 'group': '옵션 표시', 'en': b['code'].lower(), 'what': '', 'ed': ['photo', 'simple', '3d'],
                       'status': '구현', **b})
+    for i in items:
+        if i['kind'] != 'asset':
+            i.setdefault('purpose', PURPOSE_BY_GROUP.get(i.get('group', ''), '정보'))
     lib = json.load(open(LIB, encoding='utf-8'))['skills']
     fer = json.load(open(FER, encoding='utf-8'))['techniques']
     return C, items, lib, fer
@@ -57,6 +66,8 @@ def check(C, items, lib, fer):
                 err.append(f"{i.get('code')}: {k} 없음")
         if i['status'] not in C['status_values']:
             err.append(f"{i['code']}: 상태 값 {i['status']}")
+        if i['kind'] != 'asset' and i.get('purpose') not in PURPOSES:
+            err.append(f"{i['code']}: 목적 값 {i.get('purpose')}")
         for e in i.get('ed', []):
             if e not in ED:
                 err.append(f"{i['code']}: 유형 값 {e}")
@@ -94,12 +105,27 @@ def md(C, items, lib, fer):
     for kind, title in groups:
         rows = [i for i in items if i['kind'] == kind]
         L += ['', f'## {title} ({len(rows)}개)', '',
-              '| 코드 | 분류 | 이름 | 영어 이름 | 영상에서 보이는 모습 | ' + ' | '.join(ED_KO.values()) + ' | 상태 | 코드 위치 |',
-              '|---|---|---|---|---|' + '---|' * len(ED_KO) + '---|---|']
+              '| 코드 | 분류 | 이름 | 영어 이름 | 목적 | 영상에서 보이는 모습 | ' + ' | '.join(ED_KO.values()) + ' | 상태 | 코드 위치 |',
+              '|---|---|---|---|---|---|' + '---|' * len(ED_KO) + '---|---|']
         for i in rows:
             eds = ' | '.join('○' if e in i.get('ed', []) else '' for e in ED_KO)
             note = f" ⚠ {i['note']}" if i.get('note') else ''
-            L.append(f"| `{i['code']}` | {i.get('group', '')} | {i['ko']} | {i.get('en', '')} | {i.get('look', '')}{note} | {eds} | {i['status']} | `{i.get('impl') or i.get('file') or ''}` |")
+            L.append(f"| `{i['code']}` | {i.get('group', '')} | {i['ko']} | {i.get('en', '')} | {i.get('purpose', '')} | {i.get('look', '')}{note} | {eds} | {i['status']} | `{i.get('impl') or i.get('file') or ''}` |")
+    ex = [i for i in items if i.get('example_bobae')]
+    L += ['', f'## 사례 예제 — 보배드림에서 이렇게 쓴다 ({len(ex)}개)', '',
+          '재미와 정보를 함께 주기 위한 기법들. AS24 예시 링크는 참고용(원본 영상은 저장소에 넣지 않음).', '']
+    for i in ex:
+        links = ' · '.join(f'[예{n + 1}]({u})' for n, u in enumerate(i.get('example_as24', [])[:3]))
+        L += [f"### `{i['code']}` {i['ko']} — {i['purpose']}", '',
+              f"- 무엇: {i.get('what', '')}", f"- 영상에서 보이는 모습: {i.get('look', '')}",
+              f"- **보배드림 사례:** {i['example_bobae']}"]
+        if i.get('timing'):
+            L.append(f"- 크기·길이: {i['timing']}")
+        if links:
+            L.append(f"- AS24 원본 장면: {links}")
+        L.append('')
+    bal = {p: sum(1 for i in items if i.get('purpose') == p) for p in PURPOSES}
+    L += ['## 목적 균형', '', f"재미 {bal['재미']} · 정보 {bal['정보']} · 둘 다 {bal['둘 다']} — 한 영상에 재미 기법과 정보 기법이 둘 다 들어가야 한다.", '']
     todo = [i for i in items if i['status'] in ('일부', '계획')]
     L += ['', f'## 해야 할 일 — 상태가 일부·계획인 항목 ({len(todo)}개)', '']
     for i in todo:
