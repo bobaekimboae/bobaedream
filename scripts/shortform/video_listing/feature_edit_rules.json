@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "updated": "2026-11-22",
   "_what": "영상 매물(차량 영상 + 내레이션) 숏폼에서 옵션·기능 편집 기법을 차종과 상관없이 자동으로 고르는 규칙. feature_edit_planner.py 가 읽는다. 값은 G350 v7 렌더(g350_v7_render.py)에서 실제로 쓴 값과 같다.",
   "_source": "G350 블루텍 v4(나세르형 벨기에판) 뼈대 + 2026-11-21 사용자 승인 기법 7개(「기법 좋다」) · 예시 시각은 feature_edit_planner.py 가 samples/g350_input.json 으로 낸 값(소리 시작 보정 후)",
@@ -39,22 +39,17 @@
     "no_track": "부위 추적이 없는 컷은 화살표 없이 위 띠(x 50, y 300)"
   },
   "chip": {
+    "_values": "글자 크기·칠(fill_fit)·기울기·색은 be_locked_rules.json chip 한 곳(2026-11-22 정리). 여기는 영상판 등장 시각만",
     "font": "Pretendard ExtraBold",
-    "font_px": 70,
-    "height_vs_text": 1.9,
-    "pad_vs_height": 0.31,
-    "tilt_ccw_deg": 5.7,
     "appear_before_word_s": 0.06,
     "pop_s": 0.2,
-    "sub_chip_font_px": 58
+    "sub_chip_font_px": 58,
+    "info_pill": "흰 정보 알약도 같은 fill_fit 칠(노션 원본, 같은 배율)·아이콘은 오른쪽 끝"
   },
   "caption": {
+    "_values": "글자 크기·높이·강조색은 be_locked_rules.json caption 한 곳(2026-11-22 정리)",
     "font": "Pretendard Black",
-    "font_px": 60,
-    "center_y_px": 1286,
-    "max_words": 3,
-    "break_on": ",.?!",
-    "spoken_word_color": "yellow"
+    "chunks": "뜻 단위 덩어리를 차마다 입력 파일(samples/<차>_chunks.json)로 지정. 기계적 어절 수 분할 금지(LESSONS L27)"
   },
   "big_number": {
     "h_px": 180,
@@ -169,9 +164,9 @@
     },
     {
       "id": "T07",
-      "name": "마력 흔들림 + 말 울음",
+      "name": "마력 흔들림",
       "en": "power_shake",
-      "trigger": "영상에서 가장 큰 마력 값 한 번(마력 단위일 때만 말 울음)",
+      "trigger": "영상에서 가장 큰 마력 값 한 번. 말 울음은 비유 효과음 규칙(option_visual_rules.json layout.metaphor_sfx) 한 곳에서 냄(2026-11-22 정리)",
       "params": {
         "dur_s": 0.35,
         "amp_px": 14,
@@ -180,8 +175,7 @@
         "y": "cos(u*70)",
         "min_zoom": 1.04,
         "at": "마력 낱말 끝 −0.05초",
-        "sfx": "neigh.wav",
-        "sfx_vol": 0.55
+        "sfx": "metaphor_sfx(마력)"
       },
       "max_per_video": 1,
       "example": "G350 58.85초 211마력"

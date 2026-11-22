@@ -90,7 +90,7 @@ EDIT_PRESETS = {
                      cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
     'bobae_be': dict(chip_theme=True, cap_style='be3', cap_kw_col=(245, 242, 0), stk_bg=(245, 242, 0), stk_fg=(0, 0, 0),  # 노랑 붓띠 #F5F200 + 검정 글자 (2026-11-19 AS24 7개국 웹 전수조사: 붓칠 #F5F200 / 평면 #FAEB00, 영상 실측 #F7EC38은 압축으로 바랜 값)
                      cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
-                     stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
+                     stk_shape='as24', tilt_k=1.0, tilt_fixed=0.0, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
                      bgm='file', bgm_vol=0.34, sfx_pack=True, sfx_type='ding', sfx_mode='orig', sfx_profile='be', sfx_pitch=0.96, shot_target_s=0, no_progress=True, hook_be=True, cap_chunk_chars=13, cap_chunk_words=4, end_style='logo', end_tail_s=2.0,
                      cut_early_s=0.6, shot_min_s=1.5, cut_on_phrase_every=3),  # 칩은 장면 시작 약 0.8초 뒤(2차 조사)
 }

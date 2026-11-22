@@ -120,7 +120,7 @@ def plan(inp):
             T.append({'id': 'T08', 'option': o6['key'], 'at': round(W[j][1] - TECH['T08']['params']['lead_s'], 2)}); used['T08'] += 1
         # T07 마력 흔들림: 가장 큰 마력 한 번
         if power and a <= power[1] < b and used['T07'] < TECH['T07']['max_per_video']:
-            T.append({'id': 'T07', 'word': power[1], 'value': power[0], 'at': round(W[power[1]][2] - 0.05, 2), 'sfx': 'neigh.wav'}); used['T07'] += 1
+            T.append({'id': 'T07', 'word': power[1], 'value': power[0], 'at': round(W[power[1]][2] - 0.05, 2)}); used['T07'] += 1
         out.append({'key': c['key'], 't0': round(t0, 2), 't1': round(t1, 2), 'options': [o['key'] for o in opts],
                     'chip': opts[0]['ko'] if opts else None, 'techniques': T})
     return {'cuts': out, 'summary': {k: v for k, v in used.items() if v}}
