@@ -20,6 +20,7 @@ import argparse, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ko_read import brand_ko, km_ko, manwon_ko, model_ko, num_ko
+import job_fact_check as JFC
 
 CPS = 6.5          # 초당 읽는 글자(공백 제외) — 차란차 13번 Taehyung 실측 5.5~7자(숫자 문장이 느림)
 LEAD = 0.25        # 장면 앞 여유(place_voice 앞 0.25초)
@@ -130,7 +131,7 @@ def build(F, scenes, out_name):
         c = dict(key=key, src=list(sc['src']), zone=sc.get('zone', 'ext'), line=pick['line'])
         for k in ('chip', 'chip_word', 'bigs', 'material'):
             if k in pick: c[k] = pick[k]
-        if pick.get('part') and sc.get('part') == pick['part']: c['part'] = pick['part']
+        if pick.get('part') and sc.get('part') == pick['part'] and JFC.chip_matches_part(pick.get('chip', ''), pick['part']): c['part'] = pick['part']
         if not fits(pick, sc) and i < n - 1: c['_over'] = round(need(pick) - (sc['src'][1] - sc['src'][0]), 2)
         cuts.append(c)
     gen = F.get('gen') if any(m in F['make'] for m in CODENAME_MAKERS) else None

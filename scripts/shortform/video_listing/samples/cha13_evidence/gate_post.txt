@@ -1,0 +1,16 @@
+[렌더 후] bobae_cha13_bmw520i_simple.mp4
+  ✓ 렌더러 listing_video_render.py (판 ED-SIMPLE는 video_listing/listing_video_render.py)
+  ✓ 원본 순서·원본 길이 (source)
+  ✓ 필수 기법 6개
+  ✓ 칩이 있으면 칩 기법 기록
+  ✓ 부위 칩이면 화살표
+  ✓ 칩이 말 자막 띠와 겹치지 않음
+  ✓ 효과음이 있으면 규칙 효과음
+  ✓ 칩·자막 안전영역(좌우 40 · 위 120 · 자막 아래 20% 비움)
+  ✓ 오디오 aac 1채널 48000Hz
+  ✓ 음성↔자막 시간축 어긋남 +0ms (규칙 ±40ms)
+  ✓ 주행거리 58,176km가 뜬 동안 계기판이 보임 — 원본 35.6~36.6초 계기판 판정 2/3 (확률 [0.0, 0.81, 0.5])
+  ✓ 칩이 번호판을 덮지 않음
+  ✓ 금지 기법 없음
+  ✓ 쓴 기법: T04, bgm, big_number_3d, callout_arrow, callout_chip, caption_chunks, end_logo, loudness_rule, point_chip, seat_material_3d, sfx_rules, slow_push, title_brand_chip
+통과

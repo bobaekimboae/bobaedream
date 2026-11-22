@@ -2,7 +2,7 @@
  "edition": "ED-SIMPLE",
  "order": "source",
  "src": "src.mp4",
- "out": "bobae_cha13_auto.mp4",
+ "out": "out.mp4",
  "facts_source": "드라이브 13_차란차_매물정보.txt(원장) + seen = 원본 영상에 보이는 것(사람 1회 확인). 차량번호·연락처 없음",
  "title": {
   "brand": "BMW",
@@ -41,8 +41,7 @@
    "zone": "ext",
    "line": "휠 안쪽엔 / 블루 캘리퍼가 보입니다.",
    "chip": "블루 캘리퍼",
-   "chip_word": "블루",
-   "part": "wheel"
+   "chip_word": "블루"
   },
   {
    "key": "c5",

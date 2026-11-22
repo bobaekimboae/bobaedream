@@ -143,7 +143,9 @@ def draw_sub(c, t):
         a = WS[ch[0]][1] - 0.05; b = (WS[CH[q + 1][0]][1] - 0.05) if q + 1 < len(CH) else TOTAL
         if a <= t < b and t < WS[ch[-1]][2] + 0.6:
             act = max([j for j in ch if WS[j][1] <= t + 0.02] or [ch[0]])
-            im = subimg(ch, act); c.alpha_composite(im, ((W - im.width) // 2, CAPY - im.height // 2)); USED.add('caption_chunks')
+            im = subimg(ch, act); _x0, _y0 = (W - im.width) // 2, CAPY - im.height // 2; c.alpha_composite(im, (_x0, _y0)); USED.add('caption_chunks')
+            _bb = im.getbbox()
+            if _bb: CAPBOX[:] = [min(CAPBOX[0], _x0 + _bb[0]), min(CAPBOX[1], _y0 + _bb[1]), max(CAPBOX[2], _x0 + _bb[2]), max(CAPBOX[3], _y0 + _bb[3])]
             return
 
 def smooth(pts, k=21):
@@ -199,7 +201,8 @@ _room = W - 24 - (M - 10 + HB.getbbox()[2] + 6)
 while HM.getbbox()[2] > _room and _hs > 60: _hs -= 4; HM = white(TT['model'], _hs)
 HS = white(TT['sub'], 58)
 
-SFX_EV, ICONT, CHIPS_LOG = [], [], []
+SFX_EV, ICONT, CHIPS_LOG, BIGS_LOG = [], [], [], []
+CAPBOX = [10**9, 10**9, 0, 0]   # 말 자막이 차지한 가장 큰 상자(안전영역 검사용)
 MET = json.load(open(os.path.join(REPO, 'scripts/shortform/photo_listing/option_visual_rules.json')))['layout']['metaphor_sfx']; SX = R['sfx']
 proc = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                          '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', D + '_video.mp4'], stdin=subprocess.PIPE)
@@ -281,7 +284,9 @@ for t0, t1, ci in SEG:
             if t >= tc + 0.2 and key not in {x['key'] for x in CHIPS_LOG}:
                 _bb = Cimg.getbbox(); CHIPS_LOG.append({'key': key, 'label': clab, 'kind': kind, 't0': round(t0 + tc, 3), 't1': round(t1, 3), 't_box': round(nfr / FPS, 3),
                                                        'px': R['chip']['font_px'], 'y': int(cy), 'box': [int(cx + _bb[0]), int(cy + _bb[1]), int(cx + _bb[2]), int(cy + _bb[3])]})
-        for txt, lab, tb in BIG:
+        for (txt, lab, tb), _bj in zip(BIG, c.get('bigs', [])):
+            if t >= tb and not any(x['key'] == key and x['text'] == txt for x in BIGS_LOG):   # 큰 숫자가 뜬 순간 원본 시각(주행거리 = 계기판 검사용)
+                BIGS_LOG.append({'key': key, 'text': txt, 'label': _bj.get('label', ''), 't': round(nfr / FPS, 3), 'src_t': round(st, 3), 'src_end': round(s1, 3)})
             y3 = int(H * 0.12)
             if Cimg is not None and pts is None: y3 = max(y3, YB + Cimg.getbbox()[3] + 20)
             B3 = cnt(txt, 180, t, tb + 0.05); pop(cv, B3, ((W - B3.width) // 2, y3), t, tb, 0.3); USED.add('big_number_3d')
@@ -349,6 +354,7 @@ json.dump({'edition': 'feature_video', 'edition_code': JOB['edition'], 'renderer
            'music': True, 'total': round(TOTAL, 3), 'cuts': [round(a, 3) for a, b, c in SEG[1:]],
            'techniques': sorted(USED), 'planner': PLAN['summary'],
            'sfx': [{'t': a[0], 'kind': a[1], 'sound': a[2]} for a in acc], 'chips': CHIPS_LOG,
-           'caption': {'center_y_px': CAPY, 'font_px': R['caption']['font_px'], 'chunks': len(CH)}},
+           'bigs': BIGS_LOG, 'src': JOB['src'], 'voice': 'voice.wav', 'frame': [W, H],
+           'caption': {'center_y_px': CAPY, 'font_px': R['caption']['font_px'], 'chunks': len(CH), 'box': CAPBOX if CAPBOX[2] else None}},
           open(OUT + '.plan.json', 'w'), ensure_ascii=False, indent=1)
 print(OUT, round(TOTAL, 2), sorted(USED))
