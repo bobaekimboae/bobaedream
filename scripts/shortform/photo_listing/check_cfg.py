@@ -78,6 +78,10 @@ def main(car, speed=1.1):
     # ⑤ 앱 안내 / 딜러 호칭
     if not any('딜러' in t for t, _, _ in items):
         warn.append('내레이션에 딜러 호칭 없음(README 6장 사진판: 「판매는 ○○, ○○○ 딜러가 담당합니다」)')
+    if getattr(C, 'AUTO_VISUALS', False) and any(('휠' in c[1] or '타이어' in c[1]) for c in C.CUTS):
+        wv = (getattr(C, 'LISTING_OPTIONS', {}) or {}).get('wheel') or {}
+        if not (wv.get('inch') and wv.get('tire')):   # 2026-11-22 사용자 「휠은 인치와 타이어크기 고정」
+            err.append("휠 컷이 있는데 LISTING_OPTIONS['wheel']에 inch · tire 값이 없음 → 매물 정보나 사진 속 타이어 옆면 글자로 확인해 넣기(지어내지 않음)")
     if not getattr(C, 'CAPS_ALWAYS', False):
         err.append('CAPS_ALWAYS=True 아님(README 6장 사진판 예외: 자막은 항상 보인다)')
 

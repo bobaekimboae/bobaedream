@@ -904,10 +904,19 @@ def footer_layer(ov, T):
     if getattr(C, 'DEALER_FOOTER_STYLE', '') == 'text':  # 2026-11-17: 아래 딜러는 상자 없이 흰 글자만(칩은 위쪽 몫)
         F0 = shadow_text('  ·  '.join(getattr(C, 'DEALER_CHIP_LINES', [C.DEALER_CHIP])), getattr(C, 'DEALER_FOOTER_TEXT_SIZE', 38))
     im = F0 if sc == 1.0 else F0.resize((int(F0.width * sc), int(F0.height * sc)), Image.LANCZOS)
-    _unused = FOOTER if False else None
-    if False: im = FOOTER.resize((int(FOOTER.width * sc), int(FOOTER.height * sc)), Image.LANCZOS)
+    if getattr(C, 'DEALER_FOOTER_STYLE', '') == 'text':
+        # 2026-11-22 사용자 「딜러 상사는 중간 어정쩡하게 하지 말고 푸터 영역에」: 화면 맨 아래 전폭 띠(높이 FOOTER_BAND_H) 가운데에
+        bh = FOOTER_BAND_H
+        R.paste(ov, FOOTER_BAND, 0, H - bh, a)
+        R.paste(ov, im, (W - im.width) / 2, H - bh + (bh - im.height) / 2, a)
+        return
     yb = getattr(C, 'DEALER_FOOTER_Y', H - 250)  # 띠 아랫선
     R.paste(ov, im, (W - im.width) / 2, yb - im.height, a)
+
+
+_WHEEL_FIX = {}
+FOOTER_BAND_H = 120
+FOOTER_BAND = Image.new('RGBA', (W, FOOTER_BAND_H), (0, 0, 0, 150))
 
 
 def section_layer(ov, T):
@@ -1188,6 +1197,12 @@ def sticker_layer(ov, T):
                         continue   # 시트 줄·휠 인치+타이어 묶음은 위에서 자막·딜러 띠 사이로 이미 맞춤
                     top_box = sk['box'][1] * ph * ay + oy if sk.get('box') and sk.get('place') not in ('tire_top', 'inside') else 0
                     y = max(top_box + half, lo - half - (40 if sk.get('place') == 'inside' else 8))
+            if sk.get('place') == 'tire_top' or sk.get('tire_sub'):
+                # 2026-11-22 사용자 「휠은 인치와 타이어크기 고정해라」: 컷 첫 프레임의 자리·크기로 고정(사진 확대를 따라 움직이지 않음)
+                fk = (ci, sk.get('auto'), sk.get('sub_idx', -1))
+                if fk not in _WHEEL_FIX:
+                    _WHEEL_FIX[fk] = (x, y, im)
+                x, y, im = _WHEEL_FIX[fk]
         if 'u' not in sk:
             x = (x or 0) + sk.get('dx', 0)
             if sk.get('under_chip'):

@@ -52,6 +52,12 @@ def build(C, words, cuts):
                 continue
         kws = list(r['keywords']) + [str(v).split()[0] for v in vals.values() if isinstance(v, str) and v.strip()]   # v1.8.3: 매물 값 낱말(「서라운드 뷰」)로 말해도 그 옵션을 말한 것
         wi = next((i for i, w in enumerate(words) if any(k in w[2] for k in kws)), None)
+        if r.get('fixed_on_part_cut'):   # 2026-11-22 사용자 「휠은 인치와 타이어 크기 고정」: 휠 사진 컷이면 말하지 않아도 항상
+            pci = next((i for i, c in enumerate(cuts) if any(k in c[1] for k in ('휠', '타이어'))), None)
+            if pci is not None:
+                end = cuts[pci + 1][2] if pci + 1 < len(cuts) else 10 ** 9
+                if wi is None or not (cuts[pci][2] <= wi < end):
+                    wi = cuts[pci][2]
         if wi is None:
             report.append(('⛔ 필수 옵션 대본에 없음: ' if r.get('required') else '대본에 없음(그림 생략): ') + r['name'])
             continue

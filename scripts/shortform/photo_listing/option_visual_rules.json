@@ -254,7 +254,9 @@
    "w_pct": 36,
    "appear": "pop",
    "sfx": "pop",
-   "place": "tire_top"
+   "place": "tire_top",
+   "fixed_on_part_cut": true,
+   "fixed_note": "2026-11-22 사용자 「휠은 인치와 타이어크기 고정해라」: 휠 사진 컷이 있으면 대본에 「휠」이 없어도 그 컷 첫머리부터 인치 + 타이어 규격(두 줄)을 항상 띄운다. 값은 매물 정보 또는 사진 속 타이어 옆면 글자(확인한 것만). 값이 없으면 check_cfg가 멈춘다."
   },
   {
    "id": "seat_heat",
