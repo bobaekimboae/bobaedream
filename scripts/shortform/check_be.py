@@ -60,6 +60,14 @@ def check_code_video():
             (ren, "R['sfx']", '효과음 규칙을 읽음'), (ren, "R['audio']", '음량을 규칙에서 읽음'), (ren, "metaphor_sfx", '비유 효과음 규칙을 읽음'),
             (ren, "g350_edit.json", '뜻 단위 자막 덩어리 입력 파일'),
             (lib, "R['chip']['title_plate']", '첫 컷 브랜드 칩 판·여백을 규칙에서 읽음'), (ren, "title=True", '첫 컷 브랜드 칩만 칠 기울임')]
+    pho = open(os.path.join(HERE, 'photo_listing', 'common.py'), encoding='utf-8').read()
+    one = open(os.path.join(vl, 'listing_video_render.py'), encoding='utf-8').read()
+    must += [(pho, "_BE['chip']['tilt_jitter_deg']", '사진판 칩 흔들림을 규칙에서 읽음'),
+             (one, "R['caption']['center_y_px']", '단일 영상 렌더러: 자막 높이 규칙'), (one, "R['sfx']", '단일 영상 렌더러: 효과음 규칙'),
+             (one, "R['audio']", '단일 영상 렌더러: 음량 규칙'), (one, 'edition_lock.json', '단일 영상 렌더러: 판 잠금 파일')]
+    for pat, name in [(r'\(-0\.8,\s*0\.6,\s*0\.0\)', '사진판 칩 흔들림 숫자 직접 씀'), (r"'(HOOK|DEALER_CHIP)_TILT',\s*-\d", '사진판 칩 기울기 숫자 직접 씀')]:
+        hit = re.search(pat, pho)
+        (bad if hit else ok)(f'{name} 없음' if not hit else f'{name}: {hit.group(0)}')
     for src, pat, name in must:
         (ok if pat in src else bad)(f'{name} ({pat})')
     banned = [(r'CAPY\s*=\s*int\(H', '자막 높이를 화면 비율로 직접 씀'), (r'loudnorm=I=-?\d', '음량 숫자를 직접 씀'),

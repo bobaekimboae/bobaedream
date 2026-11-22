@@ -1,0 +1,54 @@
+{
+ "version": "1.0",
+ "updated": "2026-11-22",
+ "_what": "판(에디션)마다 쓸 렌더러 하나와 반드시 들어갈 편집 기법을 고정한다. 즉흥 편집 방지 장치(2026-11-22 사용자: 「매뉴얼 없는 즉흥적 편집 방식 대책」). 색·크기·효과음 숫자는 be_locked_rules.json, 이 파일은 '무엇을 쓰는가'만. 사용자가 말할 때만 고친다.",
+ "_check": "edit_gate.py pre <판> <렌더러> (렌더 전) · edit_gate.py post <영상.mp4> (렌더 후, .plan.json의 판·렌더러·기법을 이 파일과 대조) · check_be.py <영상.mp4> (색·칩·자막·효과음 숫자)",
+ "editions": {
+  "ED-SIMPLE": {
+   "ko": "실촬영 영상 매물 · 오토스카우트24 벨기에 심플",
+   "input": "촬영 영상 + 매물 정보",
+   "renderer": "scripts/shortform/video_listing/listing_video_render.py",
+   "prep": ["scripts/shortform/video_listing/place_voice.py"],
+   "order": "source",
+   "_order": "원본 순서·원본 길이 고정. 장면을 다시 배치하지 않고 문장을 그 장면 시각에 놓는다(2026-11-22 사용자: 매핑 안 됨 → 원본 길이로)",
+   "golden": {"name": "G350 v13", "commit": "771f02708", "renderer": "scripts/shortform/video_listing/g350_v8_render.py"},
+   "required": ["title_brand_chip", "caption_chunks", "slow_push", "end_logo", "bgm", "loudness_rule"],
+   "required_if": {
+    "point_chip|callout_chip": "job.cuts에 chip이 하나라도 있으면",
+    "callout_arrow": "chip에 part가 있고 부위를 찾았으면",
+    "big_number_3d": "job.cuts에 bigs가 있으면",
+    "seat_material_3d": "job.cuts에 material이 있으면",
+    "T04": "계획기가 카운트업을 골랐으면",
+    "T08": "계획기가 부위 당기기를 골랐으면",
+    "sfx_rules": "효과음 후보가 하나라도 있으면"
+   },
+   "forbidden": ["emoji_sticker_floating", "chip_tilt", "caption_paint", "non_yellow_accent", "reorder_scenes"],
+   "voice": {"provider": "ElevenLabs", "model": "eleven_v3", "voice": "Taehyung", "takes": 1, "speech": "합니다체"},
+   "words": "대본 글자(받아쓰기 글자 금지 — 받아쓰기는 시각만)"
+  },
+  "ED-PHOTO": {
+   "ko": "사진 매물 숏폼 변환",
+   "input": "매물 사진 + 매물 원장",
+   "renderer": "scripts/shortform/photo_listing/common.py",
+   "prep": ["scripts/shortform/photo_listing/sag_auto.py"],
+   "order": "script",
+   "golden": {"name": "서울오토갤러리 E250 자동판", "commit": "02aed754a", "renderer": "scripts/shortform/photo_listing/common.py"},
+   "required": ["title_brand_chip", "card_basic", "end_dealer", "kenburns", "bgm", "loudness_rule"],
+   "checks": ["photo_listing/check_cfg.py", "photo_listing/fact_check.py", "photo_listing/check_render.py"],
+   "_note": "사진판 렌더러는 아직 .plan.json에 기법 코드를 적지 않음 → edit_gate post는 사진판에서 '기법 기록 없음'으로 실패한다(다음 과제)"
+  }
+ },
+ "compare_only": {
+  "_what": "출고 금지. 비교·기록용으로만 남긴 렌더러. 이걸로 만든 영상은 edit_gate가 실패시킨다.",
+  "scripts/shortform/sag_reel_v1.py": "옛 자동 편집기(auto_edit.py 짝). 칩 모양·자막·효과음 구현이 영상판과 다름. 차란차 13번 26초 판이 이걸로 만들어져 스타일이 달랐음",
+  "scripts/shortform/video_listing/g350_v5_render.py": "G350 전용 옛 판",
+  "scripts/shortform/video_listing/g350_v6_render.py": "G350 전용 옛 판",
+  "scripts/shortform/video_listing/g350_v7_render.py": "G350 전용 옛 판",
+  "scripts/shortform/video_listing/g350_v8_render.py": "G350 기준 영상(v13) 재현용. 다른 차에 쓰지 않음 — listing_video_render.py가 같은 기법을 차 값 없이 가짐",
+  "scripts/shortform/video_listing/g350_feature_cut_render.py": "G350 첫 판",
+  "scripts/shortform/nasser_v3/ns300v3.py": "나세르 시험",
+  "scripts/shortform/egypt_3d_callout_sample.py": "기법 샘플",
+  "scripts/shortform/dealer_narration_sample.py": "기법 샘플",
+  "scripts/shortform/vlog_auto/render.py": "브이로그(별도 판, 아직 판 코드 없음)"
+ }
+}

@@ -76,6 +76,10 @@ BLOCKS = [
 ]
 SHOW = {'포.': '4.', '구칠일': '971', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km', '킬로미터입니다.': 'km입니다.'}
 HOOK = None  # None이면 차명 스티커 + 가격 + 연식·주행·연료
+# 2026-11-22 출고 금지(edition_lock.json compare_only): 영상 매물 판은 video_listing/listing_video_render.py 하나.
+# 이 렌더러로 만든 영상은 스타일이 다르다(차란차 13번 26초 판). 비교용으로만 SAG_COMPARE=1 을 주고 돌린다.
+if __name__ == '__main__' and not os.environ.get('SAG_COMPARE'):   # 사진판(common.py)이 부품으로 불러올 때는 막지 않음
+    sys.exit('sag_reel_v1.py는 비교용(출고 금지) — 영상 매물은 video_listing/place_voice.py → listing_video_render.py. 비교로 돌리려면 SAG_COMPARE=1')
 # 샘플별 설정: SAG_CONFIG=파일.py 이면 CAR · BLOCKS · SHOW · STYLE · HOOK 을 덮어쓴다
 if os.environ.get('SAG_CONFIG'):
     exec(open(os.environ['SAG_CONFIG'], encoding='utf-8').read(), globals())
