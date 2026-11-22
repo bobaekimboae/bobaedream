@@ -1639,27 +1639,41 @@ def _av_rules():
         return None
 
 
-def _horse_sfx():
-    """2026-11-22 사용자 확정: 대본에서 '마력'을 말하는 순간 말 울음소리(영상당 1번). 값은 option_visual_rules.json layout.horsepower_sfx."""
-    hs = (_av_rules() or {}).get('layout', {}).get('horsepower_sfx')
-    if not hs or os.environ.get('BBM_NO_HORSE') == '1':
+def _metaphor_sfx():
+    """비유 효과음(마력=말 울음 등). 대본에서 그 낱말을 말하는 순간에만, 영상당 max_per_video개까지(목록 순서가 우선순위).
+    값은 option_visual_rules.json layout.metaphor_sfx. 2026-11-22 사용자 확정(마력) · 나머지는 사용자 위임으로 Claude 선정."""
+    lay = (_av_rules() or {}).get('layout', {})
+    ms = lay.get('metaphor_sfx')
+    if not ms and lay.get('horsepower_sfx'):
+        ms = {'max_per_video': 1, 'items': [lay['horsepower_sfx']]}
+    if not ms or os.environ.get('BBM_NO_METAPHOR') == '1' or os.environ.get('BBM_NO_HORSE') == '1':
         return []
+    txts = [(w.get('w') or w.get('word') or w.get('text') or '') if isinstance(w, dict) else str(w[2] if isinstance(w, (list, tuple)) and len(w) > 2 else w) for w in WRD]
     out = []
-    for i, w in enumerate(WRD):
-        txt = (w.get('w') or w.get('word') or w.get('text') or '') if isinstance(w, dict) else str(w[2] if isinstance(w, (list, tuple)) and len(w) > 2 else w)
-        if any(k in txt for k in hs['keywords']):
-            out.append((hs['name'], max(0.0, onset(i) - hs.get('lead_s', 0.05)), hs['vol']))
-            if hs.get('once_per_video', True):
+    for it in ms['items']:
+        if len(out) >= ms.get('max_per_video', 2):
+            break
+        for i, txt in enumerate(txts):
+            if any(k in txt for k in it['keywords']):
+                t = max(0.0, onset(i) - it.get('lead_s', 0.05))
+                if all(abs(t - o[1]) >= ms.get('min_gap_s', 1.5) for o in out):
+                    out.append((it['name'], t, it['vol']))
                 break
-    return out
+    return sorted(out, key=lambda e: e[1])
+
+
+def _metaphor_names():
+    lay = (_av_rules() or {}).get('layout', {})
+    ms = lay.get('metaphor_sfx') or {'items': [lay['horsepower_sfx']] if lay.get('horsepower_sfx') else []}
+    return {it['name'] for it in ms['items']}
 
 
 def _sfx_plan():
     if not getattr(C, 'SFX_RICH', False):
-        hz = _horse_sfx()
+        hz = _metaphor_sfx()
         base = ([('ding', 0.05, .45)] + [('ding', st, .45) for (txt, st, en) in CHIPS if txt in getattr(C, 'SFX_CHIPS', [])]
                 + [('whoosh', starts[j] - 0.16, .38) for j in sorted(WHOOSH_AT)])
-        if hz:   # 말 울음 앞뒤 0.45초 안의 딩은 뺀다
+        if hz:   # 비유 효과음 앞뒤 0.45초 안의 딩은 뺀다
             base = [e for e in base if all(abs(e[1] - h[1]) >= 0.45 for h in hz)]
         return sorted(base + hz, key=lambda e: e[1])
     big = set(getattr(C, 'SFX_CHIPS', []))
@@ -1681,16 +1695,16 @@ def _sfx_plan():
             ev.append(('whoosh', (FW[ci][0] if ci in FW else starts[ci]) - 0.05, .24))
     if END_CARD:
         ev.append(('ding', BODY + 0.15, .40))                     # 끝 로고
-    hz = _horse_sfx()                                             # 2026-11-22 '마력' = 말 울음(겹치면 말 울음 우선)
+    hz = _metaphor_sfx()                                          # 2026-11-22 비유 효과음(겹치면 비유 소리 우선)
     if hz:
         ev = [e for e in ev if all(abs(e[1] - h[1]) >= 0.45 for h in hz)] + hz
     ev.sort(key=lambda e: e[1])
     out = []
     for e in ev:                                                  # 0.45초 안에 겹치면 칩 소리를 남김
         if out and e[1] - out[-1][1] < 0.45:
-            if out[-1][0] == 'horse_neigh':
+            if out[-1][0] in _metaphor_names():
                 continue
-            if e[0] == 'horse_neigh':
+            if e[0] in _metaphor_names():
                 out[-1] = e
                 continue
             if (e[0] != 'whoosh' and out[-1][0] == 'whoosh') or (e[0] not in ('whoosh', 'icon') and out[-1][0] == 'icon'):
