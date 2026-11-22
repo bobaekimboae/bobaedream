@@ -58,7 +58,8 @@ def check_code_video():
             (lib, "R['chip']['y_top_px_feature_video']", '위쪽 칩 줄을 규칙에서 읽음'),
             (ren, "R['caption']['center_y_px']", '자막 높이를 규칙에서 읽음'), (ren, "R['caption']['font_px']", '자막 크기를 규칙에서 읽음'),
             (ren, "R['sfx']", '효과음 규칙을 읽음'), (ren, "R['audio']", '음량을 규칙에서 읽음'), (ren, "metaphor_sfx", '비유 효과음 규칙을 읽음'),
-            (ren, "g350_edit.json", '뜻 단위 자막 덩어리 입력 파일')]
+            (ren, "g350_edit.json", '뜻 단위 자막 덩어리 입력 파일'),
+            (lib, "R['chip']['title_plate_tilt_ccw_deg']", '첫 컷 브랜드 칩 칠 기울기를 규칙에서 읽음'), (ren, "title=True", '첫 컷 브랜드 칩만 칠 기울임')]
     for src, pat, name in must:
         (ok if pat in src else bad)(f'{name} ({pat})')
     banned = [(r'CAPY\s*=\s*int\(H', '자막 높이를 화면 비율로 직접 씀'), (r'loudnorm=I=-?\d', '음량 숫자를 직접 씀'),
@@ -134,6 +135,18 @@ def check_video(path):
             if len(rows) == 0: bad(f'{t:.2f}초 칩 노랑이 안 보임 ({c["label"]})'); continue
             if c.get('kind', 'point') in ('point',): tops.append(y0 + rows.min())
             if c.get('kind') != 'title': hs.append(rows.max() - rows.min())
+            else:   # 첫 컷 브랜드 칩: 칠 윗선·아랫선 직선 맞춤 기울기(벨기에 원본과 같은 재는 법, 규칙 title_plate_edge_deg_check)
+                cols_ = np.where(band.sum(0) > 3)[0]; X_, tp_, bt_ = [], [], []
+                if len(cols_) > 20:
+                    a_, b_ = cols_.min(), cols_.max(); w_ = b_ - a_
+                    for x_ in range(int(a_ + 0.2 * w_), int(b_ - 0.2 * w_)):
+                        r_ = np.where(band[:, x_])[0]
+                        if len(r_) >= 5: X_.append(x_); tp_.append(r_.min()); bt_.append(r_.max())
+                if len(X_) > 10:
+                    ang = float(np.degrees(-np.arctan((np.polyfit(X_, tp_, 1)[0] + np.polyfit(X_, bt_, 1)[0]) / 2)))
+                    want, tol = CH['title_plate_edge_deg_check']
+                    (ok if abs(ang - want) <= tol else bad)(f'첫 컷 브랜드 칩 칠 기울기 실측 {ang:.1f}° (벨기에 원본 {want}° ±{tol}°, 판 회전 {CH["title_plate_tilt_ccw_deg"]}°)')
+                else: bad('첫 컷 브랜드 칩 칠을 못 잼')
             cols.append(reg[band].mean(0))
         else:
             band = yellow_mask(img[:cy - 120])

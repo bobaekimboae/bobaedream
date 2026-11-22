@@ -28,7 +28,11 @@
     "title_font_px": 74,
     "tilt_ccw_deg": 0,
     "tilt_jitter_deg": [0, 0, 0],
-    "_tilt_rule": "2026-11-22 사용자 확정: 칩은 기울이지 않는다(옛 붓 테이프 5.7° 폐지). 칠 모양은 fill_fit(노션 원본 판)",
+    "_tilt_rule": "2026-11-22 사용자 확정: 칩은 기울이지 않는다(옛 붓 테이프 5.7° 폐지). 칠 모양은 fill_fit(노션 원본 판). 예외는 첫 컷 브랜드 칩 하나(title_plate_tilt_ccw_deg)",
+    "title_plate_tilt_ccw_deg": 5.7,
+    "title_text_level": true,
+    "title_plate_edge_deg_check": [6.7, 1.0],
+    "_title_tilt_rule": "2026-11-22 사용자 확정(「첫 컷 브랜드는 칠은 벨기에처럼 각도 있는 거 고정」): 첫 컷 브랜드 칩(kind title)만 노랑 칠 판을 반시계 5.7° 기울이고 글자는 수평 그대로. AS24 벨기에 공식 원본 6편 첫 컷 실측(57oZQTsKOis · KrQhTiRJt40 · STpXdz6tyiQ · _4ac1G0vvMM · ksZW4HQXg5Q · vtaVxsjY2wU) 판 기울기 최소 사각형 기준 5.6~5.8°(중앙 5.7°, 등장 첫 프레임 4.3~4.7°는 애니메이션 중이라 제외), 칠 윗선·아랫선 직선 맞춤 기준 5.8~9.2°(중앙 6.7°). 검사는 윗선·아랫선 기준으로 6.7° ±1°(title_plate_edge_deg_check), 글자는 0°. 흔들림(jitter) 없음. 포인트 칩·부위 이름표·정보 알약은 0°",
     "y_top_px": 400,
     "y_top_px_feature_video": 300,
     "hold_feature_video": "cut_end",
@@ -80,6 +84,7 @@
     "2026-11-19 모든 칩은 글자 크기·모양이 같다",
     "2026-11-22 효과음은 네덜란드 AS24 빈도 + 나세르처럼 다양한 종류(sfx 규칙) · 사진 매물(photo_listing)은 SFX_RICH 그대로 · ASMR판은 효과음 없음",
     "2026-11-22 칩은 기울이지 않는다 · 칠은 노션 원본 판을 같은 배율로만(그리기·늘이기 금지)",
+    "2026-11-22 첫 컷 브랜드 칩만 칠 판을 벨기에 원본처럼 반시계 5.7° 고정 · 글자는 수평",
     "번호판은 가리지 않고 개인 연락처만 가린다 · 없는 사실·할부 금액 금지"
   ]
 }

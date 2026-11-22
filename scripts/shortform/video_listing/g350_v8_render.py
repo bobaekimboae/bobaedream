@@ -120,7 +120,7 @@ def gchip(s,size=70):
     return _chips[(s,size)]
 H3={}
 # 첫 화면(벨기에식): 노랑 붓띠 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄
-HB=chip('벤츠',R['chip']['title_font_px']); HM=white('G350 블루텍',104)
+HB=chip('벤츠',R['chip']['title_font_px'],title=True); HM=white('G350 블루텍',104)
 _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
 while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white('G350 블루텍',_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
 HS=white('2013년식 · 디젤 · W463',58)

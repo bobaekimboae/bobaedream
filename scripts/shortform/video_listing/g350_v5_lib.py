@@ -46,7 +46,7 @@ def _paint_box(a):
     rows = np.where(m[:, int(W * 0.3):int(W * 0.7)].mean(1) > 0.5)[0]; top, bot = int(rows.min()), int(rows.max())
     xs = np.where(m[(top + bot) // 2])[0]; return top, bot, int(xs.min()), int(xs.max())
 
-def brush_box(s, f, color, icon=None, icon_left=False, **_):
+def brush_box(s, f, color, icon=None, icon_left=False, plate_tilt=0.0, **_):
     """칠 규칙(be_locked_rules.json chip.fill_fit): 노션 원본 칠 중 좌우 여백이 맞는 것을 골라 같은 배율로만 키움.
     칠 높이 = 글자 높이 × band_to_ink, 글자는 칠 가운데에서 text_lift_ink만큼 위."""
     FF = R['chip']['fill_fit']
@@ -63,16 +63,22 @@ def brush_box(s, f, color, icon=None, icon_left=False, **_):
     m = max(0, top - 20); a = a.crop((0, m, a.width, min(a.height, bot + 21))); top, bot = top - m, bot - m   # 칠 윗선을 늘 같은 높이에(원본 판마다 위 여백이 달라 칩이 위아래로 튀던 것 방지)
     w, h = a.size; dy = 20 - top   # 칠 윗선을 상자 위 35px에 고정
     im = Image.new('RGBA', (w + 30, h + 30 + dy)); fill = Image.new('RGBA', (w, h), color + (255,)); fill.putalpha(a)
-    im.alpha_composite(fill, (15, 15 + dy)); d = ImageDraw.Draw(im); cx = 15 + x0 + ((x1 - x0) - cw) // 2
+    im.alpha_composite(fill, (15, 15 + dy))
+    if plate_tilt:   # 첫 컷 브랜드 칩: 칠 판만 반시계로 기울이고 글자는 수평(벨기에 원본 실측, chip.title_plate_tilt_ccw_deg)
+        plate = Image.new('RGBA', im.size); plate.alpha_composite(fill, (15, 15 + dy))
+        r = plate.rotate(plate_tilt, resample=Image.BICUBIC, expand=True); ox, oy = (r.width - im.width) // 2, (r.height - im.height) // 2
+        im = r; dy += oy; x0 += ox; x1 += ox
+    d = ImageDraw.Draw(im); cx = 15 + x0 + ((x1 - x0) - cw) // 2
     ty = 15 + dy + top + ((bot - top) - th) // 2 - round(FF['text_lift_ink'] * th)
     tx = cx + (iw + gap if icon_left else 0)
     d.text((tx - b[0], ty - b[1]), s, font=f, fill=INK)
     if icon is not None: im.alpha_composite(icon, (cx if icon_left else cx + tw + gap, ty + (th - icon.height) // 2))
     return im
 
-def chip(s, size=CHIP_PX, icon=None):
-    """노랑 칩: 노션 원본 칠 판(fill_fit) + 검정 글자. 기울기는 규칙 값(2026-11-22부터 0)."""
-    im = brush_box(s, XB(size), YEL, icon)
+def chip(s, size=CHIP_PX, icon=None, title=False):
+    """노랑 칩: 노션 원본 칠 판(fill_fit) + 검정 글자. 기울기는 규칙 값(2026-11-22부터 0).
+    title=True(첫 컷 브랜드 칩)만 칠 판을 chip.title_plate_tilt_ccw_deg만큼 기울이고 글자는 수평."""
+    im = brush_box(s, XB(size), YEL, icon, plate_tilt=R['chip']['title_plate_tilt_ccw_deg'] if title else 0.0)
     return im.rotate(TILT, resample=Image.BICUBIC, expand=True) if TILT else im
 
 def info_pill(s, size, icon=None, icon_left=False):

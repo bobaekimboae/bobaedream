@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "updated": "2026-11-22",
   "_what": "보배드림 숏폼 자동 편집 — 편집 유형·편집 구성·편집 기법·옵션 표시·자산의 표준 이름 사전(단일 기준). 사람용 문서 CATALOG.md 는 build.py 가 이 파일로 만든다. 옵션 표시(FM-*)는 scripts/shortform/photo_listing/option_visual_rules.json 에서, AS24 관찰 스킬은 scripts/shortform/edit_skills/library_v2.json 에서, 실촬영 기법(T01~)은 scripts/shortform/video_listing/feature_edit_rules.json 에서 자동으로 붙인다.",
   "terms": {
@@ -331,7 +331,7 @@
       "group": "자막",
       "ko": "첫 화면 제목",
       "en": "Hook title",
-      "what": "제조사 칩 + 흰 큰 모델명 + 아래 한 줄",
+      "what": "제조사 칩 + 흰 큰 모델명 + 아래 한 줄. 제조사 칩만 칠 판을 벨기에 원본처럼 반시계 5.7° 기울이고 글자는 수평(chip.title_plate_tilt_ccw_deg, 영상판 적용 · 사진판 다음)",
       "look": "첫 3초 가운데 위",
       "ed": [
         "photo",
