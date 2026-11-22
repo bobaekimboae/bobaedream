@@ -19,7 +19,9 @@ def check(name, cond):
 G = json.load(open(os.path.join(HERE, 'samples', 'g350_input.json')))
 if os.path.exists(G['words']):
     P = F.plan(G); s = P['summary']
-    check('G350 기법 개수 T01·T02·T03·T07=1, T04=4, T05=2, T06=1', s == {'T01': 1, 'T02': 1, 'T03': 1, 'T04': 4, 'T05': 2, 'T06': 1, 'T07': 1})
+    check('G350 기법 개수 T01·T02·T03·T06·T07=1, T04=4, T05·T08=2', s == {'T01': 1, 'T02': 1, 'T03': 1, 'T04': 4, 'T05': 2, 'T06': 1, 'T07': 1, 'T08': 2})
+    t8 = [c['key'] for c in P['cuts'] for t in c['techniques'] if t['id'] == 'T08']
+    check('G350 부위 당기기 = 커맨드 컨트롤러·공조 다이얼(돋보기·✓ 목록 컷 제외)', t8 == ['c11', 'c12'])
     v = [t['value'] for c in P['cuts'] for t in c['techniques'] if t['id'] == 'T04']
     check('G350 카운트업 값 = 3,500kg·480L·2,250L·211마력(9.1초·265/60 제외)', v == ['3,500kg', '480L', '2,250L', '211마력'])
 

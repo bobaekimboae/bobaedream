@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "updated": "2026-11-19",
+  "version": "1.1",
+  "updated": "2026-11-22",
   "_what": "보배드림 벨기에판(bobae_be) 화면·소리 규칙의 단일 기준. 렌더 코드는 이 파일만 읽고 숫자를 직접 쓰지 않는다. 바꿀 때는 이 파일만 고치고 check_be.py로 검사한다.",
   "_source": "sag_reel_v1.py EDIT_PRESETS['bobae_be'] (200편 재교정 ad4e76e9d + 2026-11-19 AS24 7개국 웹 색 전수조사). 매뉴얼 v4 표의 64%·2.7°·#F7EC38, 교본 v3·자막 규칙 v2의 #EEEF05·67%·파랑 칩은 옛 값이라 쓰지 않는다.",
   "color": {
@@ -22,20 +22,24 @@
   },
   "chip": {
   "fill_fit": {"band_to_ink": 2.0, "side_pad_ink": [0.5, 0.8], "text_lift_ink": 0.06, "shapes": ["103_33", "126_40", "168_76", "193_76", "201_43", "325_76", "265_42", "446_76"], "_rule": "칠은 노션 원본 SVG(brush-fill/as24-theme) 그대로, 가로·세로 같은 배율로만 키움(늘이기·그리기 금지). 칠 높이 = 글자 높이 × 2.0(AS24 벨기에 실측 1.86~2.19). 좌우 여백이 글자 높이 0.5~0.8배에 가장 가까운 원본을 고름. 글자는 칠 가운데에서 글자 높이 6% 위(2026-11-22 사용자 확정)"},
-    "shape": "as24_brush_tape",
+    "shape": "notion_plate_fill_fit",
     "text_color": "ink",
     "font_px": 70,
     "title_font_px": 74,
-    "tilt_ccw_deg": 5.7,
-    "tilt_jitter_deg": [-0.8, 0.6, 0.0],
+    "tilt_ccw_deg": 0,
+    "tilt_jitter_deg": [0, 0, 0],
+    "_tilt_rule": "2026-11-22 사용자 확정: 칩은 기울이지 않는다(옛 붓 테이프 5.7° 폐지). 칠 모양은 fill_fit(노션 원본 판)",
     "y_top_px": 400,
+    "y_top_px_feature_video": 300,
+    "hold_feature_video": "cut_end",
+    "_feature_video_rule": "영상판 옵션 편집(나세르형, ED-SIMPLE)은 큰 숫자·✓ 목록·정보 알약을 칩 아래로 쌓기 때문에 위쪽 칩 줄이 300px이고, 칩은 그 부위 설명이 이어지는 컷 끝까지 둔다(2026-11-21 사용자 승인 G350 v7 배치를 그대로 기록, 값 변경 아님). 사진판·sag_reel은 y_top_px·hold_s",
     "align": "center",
     "delay_after_phrase_s": 0.05,
     "hold_s": 1.8,
     "never_cross_cut": true,
     "same_slot_replace": true,
     "text_is_spoken_word": true,
-    "_rule": "장소 칩·포인트 칩·숫자 칩 모두 같은 글자 크기·같은 칠·같은 자리. 같은 순간 두 칩이면 같은 자리에서 글자만 바뀜"
+    "_rule": "장소 칩·포인트 칩·숫자 칩 모두 같은 글자 크기·같은 칠·같은 자리. 같은 순간 두 칩이면 같은 자리에서 글자만 바뀜. 영상판 「부위 이름표」(화살표로 부위를 가리키는 칩, 2026-11-21 사용자 승인 기법)는 글자 크기·칠은 같고 자리만 부위를 따라감 — 자리 규칙은 feature_edit_rules.json mapping"
   },
   "icon": {
     "set": "fluent_3d",
@@ -44,12 +48,20 @@
     "standalone_sticker": false
   },
   "sfx": {
-    "with_music_per_video": 1,
-    "without_music_per_video": 3,
-    "min_gap_s": 1.0,
-    "type": "one_type_per_video",
+    "style": "nl_frequency_nasser_variety",
+    "min_gap_s": 0.3,
+    "same_sound_min_gap_s": 0.6,
+    "max_per_30s": 8,
+    "title_ding": true,
+    "chip_ratio": 0.4,
+    "big_number_ratio": 1.0,
+    "part_change_max": 4,
+    "kinds": {"title": "ding", "chip": "ding", "big_number": "ding", "emphasis": "impact", "part_change": "whoosh", "icon": "pop", "metaphor": "photo_listing/option_visual_rules.json layout.metaphor_sfx"},
+    "priority": ["metaphor", "big_number", "title", "chip", "emphasis", "part_change", "icon"],
+    "volume": {"ding": 0.7, "impact": 0.5, "whoosh": 0.45, "pop": 0.3},
     "end_logo": false,
-    "cut": false
+    "cut": false,
+    "_rule": "2026-11-22 사용자 확정(「네덜란드 오토스카우트24처럼 다양하게, 나세르도 효과음 잘 살린다」): 빈도는 NL(칩 약 40%·큰 숫자·첫 화면 딩), 종류는 나세르처럼 여러 가지(딩·쿵·휙·팝 + 비유 효과음). 겹치면 priority 앞쪽만 남김. 끝 로고·단순 컷에는 넣지 않음. 사진판은 SFX_RICH 예외 그대로, ASMR판은 효과음 없음. 옛 규칙(음악 있으면 1번·한 종류·간격 1.0초) 폐지"
   },
   "audio": {
     "loudness_lufs": -14,
@@ -66,7 +78,8 @@
     "2026-11-19 자막에는 붓칠·마커를 칠하지 않는다",
     "2026-11-19 포인트 칩은 장소 칩과 같은 위쪽 고정 자리 · 위아래로 움직이지 않음",
     "2026-11-19 모든 칩은 글자 크기·모양이 같다",
-    "2026-11-18 영상 매물은 벨기에 효과음 기준 · 사진 매물(photo_listing)은 효과음 많게(SFX_RICH) 예외",
+    "2026-11-22 효과음은 네덜란드 AS24 빈도 + 나세르처럼 다양한 종류(sfx 규칙) · 사진 매물(photo_listing)은 SFX_RICH 그대로 · ASMR판은 효과음 없음",
+    "2026-11-22 칩은 기울이지 않는다 · 칠은 노션 원본 판을 같은 배율로만(그리기·늘이기 금지)",
     "번호판은 가리지 않고 개인 연락처만 가린다 · 없는 사실·할부 금액 금지"
   ]
 }

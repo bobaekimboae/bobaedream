@@ -1,4 +1,4 @@
-# 숏폼 편집 기법 사전 v0.2.4
+# 숏폼 편집 기법 사전 v0.4.0
 
 > 이 파일은 `build.py`가 `techniques.json`으로 자동으로 만듭니다. 직접 고치지 마세요. 갱신: 2026-11-22
 
@@ -59,7 +59,7 @@
 | `CAP-KARAOKE` | 자막 | 말 자막(낱말 따라 색 바뀜) | Word-by-word caption | 정보 | 화면 아래쪽 흰 글자 + 검정 테두리, 한 낱말씩 노랑 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/sag_reel_v1.py:phrase_img_be3` |
 | `CAP-HOOK-TITLE` | 자막 | 첫 화면 제목 | Hook title | 정보 | 첫 3초 가운데 위 | ○ | ○ | ○ | ○ | 구현 | `scripts/shortform/photo_listing/common.py:base_frame` |
 | `CAP-ASMR-WORD` | 자막 | ASMR 낱말 칩 | ASMR word chip | 정보 | 소리 장면마다 칩 하나 |  |  |  | ○ | 계획 | `` |
-| `CHIP-POINT` | 칩 | 포인트 칩 | Point chip | 정보 | 화면 위쪽 고정 자리 노랑 칠 판, 기울기 없음 ⚠ 규칙 파일은 아직 붓 테이프 + 5.7° 기울기 → 기울기 없는 칠 판으로 바꿔야 함(2026-11-22 확정) | ○ | ○ | ○ |  | 일부 | `scripts/shortform/photo_listing/common.py:be_chip` |
+| `CHIP-POINT` | 칩 | 포인트 칩 | Point chip | 정보 | 화면 위쪽 고정 자리 노랑 칠 판, 기울기 없음 ⚠ 기울기 0 · 칠은 chip.fill_fit(노션 원본 판 8개 중 고름, 같은 배율, 칠 높이 = 글자 × 2.0) — 영상판 g350_v5_lib.py 반영(v0.4.0). 사진판 · 실촬영 릴스는 기울기 0만 반영, 칠 모양은 아직 옛 붓 테이프 · 126_40 늘림(ROADMAP 1-12) | ○ | ○ | ○ |  | 일부 | `scripts/shortform/photo_listing/common.py:be_chip` |
 | `CHIP-NUMBER` | 칩 | 큰 숫자 칩 | Big number chip | 정보 | 화면 28% 높이 큰 숫자 칩 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:is_num_chip` |
 | `CHIP-ICON3D` | 칩 | 칩 옆 3D 아이콘 | Chip 3D icon | 정보 | 칩 오른쪽 입체 아이콘 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:icon_chip` |
 | `CHIP-DEALER` | 칩 | 딜러 칩 · 하단 띠 | Dealer chip / footer | 정보 | 왼쪽 위 흰 알약 로고 또는 아래 띠 | ○ | ○ | ○ | ○ | 구현 | `scripts/shortform/photo_listing/common.py:footer_layer` |
@@ -75,7 +75,7 @@
 | `FX-NUMBER3D` | 3D | 숫자 화면 표기 | On-screen number | 둘 다 | 칩 아래 가운데 3D 숫자 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:_numbers_on_screen` |
 | `FX-CALLOUT-3D` | 3D | 부위 3D 말풍선 | 3D callout | 둘 다 | 부위에서 선이 나와 말풍선 |  |  | ○ |  | 계획 | `scripts/shortform/egypt_3d_callout_sample.py:draw_callout` |
 | `MOVE-KENBURNS` | 움직임 | 켄번스 | Ken Burns | 재미 | 정지 사진이 천천히 다가오거나 옆으로 흐름 | ○ |  |  |  | 구현 | `scripts/shortform/photo_listing/common.py:frame_of` |
-| `MOVE-PARTZOOM` | 움직임 | 부위 당기기 | Part push-in | 재미 | 계기판·화면·시트로 화면이 다가감 | ○ |  |  |  | 구현 | `scripts/shortform/photo_listing/part_zoom.py:build` |
+| `MOVE-PARTZOOM` | 움직임 | 부위 당기기 | Part push-in | 재미 | 계기판·화면·시트로 화면이 다가감 ⚠ 영상판(심플판)은 옵션 편집 기법 T08(feature_edit_rules.json) — 계획기 · 렌더러 반영(v0.4.0) | ○ | ○ |  |  | 구현 | `scripts/shortform/photo_listing/part_zoom.py:build` |
 | `MOVE-FIT-BLURFILL` | 움직임 | 차 전체 맞춤 + 흐린 채움 | Fit with blurred fill | 재미 | 가운데 선명한 가로 사진, 위아래 흐림 | ○ |  |  |  | 구현 | `scripts/shortform/photo_listing/common.py:fit_frame` |
 | `MOVE-PUNCH` | 움직임 | 펀치 확대 | Punch zoom | 재미 | 화면이 툭 커짐 | ○ |  |  |  | 구현 | `scripts/shortform/photo_listing/common.py:punch` |
 | `MOVE-JUMPCUT` | 움직임 | 점프컷 | Jump cut | 재미 | 같은 장면이 단계별로 커짐 |  | ○ | ○ |  | 구현 | `scripts/shortform/video_listing/feature_edit_planner.py` |
@@ -90,15 +90,15 @@
 | `TR-FADE` | 컷 넘김 | 페이드(페이드판) | Cross fade | 재미 | 부드럽게 겹치며 바뀜 | ○ |  |  |  | 구현 | `scripts/shortform/photo_listing/common.py:_base_frame` |
 | `TR-CUT` | 컷 넘김 | 바로 자르기 | Hard cut | 재미 | 즉시 바뀜 |  | ○ |  | ○ | 구현 | `scripts/shortform/video_listing/g350_v8_render.py` |
 | `TR-SPLIT2` | 컷 넘김 | 위아래 2분할 | Split screen | 재미 | 가운데 흰 선으로 위아래 두 장면 |  | ○ | ○ |  | 구현 | `scripts/shortform/video_listing/feature_edit_planner.py` |
-| `INS-MAGNIFIER` | 화면 삽입 | 돋보기 원 | Magnifier | 정보 | 동그란 확대 창 | ○ | ○ | ○ |  | 일부 | `scripts/shortform/video_listing/feature_edit_planner.py` |
+| `INS-MAGNIFIER` | 화면 삽입 | 돋보기 원 | Magnifier | 정보 | 동그란 확대 창 ⚠ 나타날 때 쿵(sfx emphasis, v0.4.0) | ○ | ○ | ○ |  | 일부 | `scripts/shortform/video_listing/feature_edit_planner.py` |
 | `INS-SPOTLIGHT` | 화면 삽입 | 스포트라이트 | Spotlight | 정보 | 주변이 어두워지고 라이트만 밝음 |  | ○ | ○ |  | 구현 | `scripts/shortform/video_listing/feature_edit_planner.py` |
-| `SFX-DING` | 효과음 | 딩 | Ding | 재미 | (소리) 맑은 딩 ⚠ 2026-11-22 확정: 효과음 모두 냄(실촬영 1번 제한 폐지) → 규칙 파일 바꿔야 함 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
-| `SFX-WHOOSH` | 효과음 | 휙 | Whoosh | 재미 | (소리) 바람 소리 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
+| `SFX-DING` | 효과음 | 딩 | Ding | 재미 | (소리) 맑은 딩 ⚠ 2026-11-22 확정: 효과음 = 네덜란드 AS24 빈도 + 나세르 종류(be_locked_rules.json sfx). 첫 화면 · 칩 약 40% · 큰 숫자. 영상판 반영, 실촬영 릴스 남음 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
+| `SFX-WHOOSH` | 효과음 | 휙 | Whoosh | 재미 | (소리) 바람 소리 ⚠ 부위 구역이 바뀌는 컷 시작에 휙(영상당 sfx.part_change_max), 영상판은 samples/<차>_edit.json zones | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
 | `SFX-POP` | 효과음 | 팝 | Pop | 재미 | (소리) 톡 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
 | `SFX-CLICK` | 효과음 | 클릭 | Click | 재미 | (소리) 딸깍 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:_sfx_plan` |
 | `SFX-CONTEXT` | 효과음 | 문맥 효과음 | Context SFX | 재미 | (소리) 말 울음 등 ⚠ 마력 = 말 울음은 SFX-HORSE로 확정·구현(2026-11-22). 그 밖의 낱말(배기음·문 닫힘 등)은 아직 | ○ | ○ | ○ |  | 일부 | `scripts/shortform/video_listing/feature_edit_planner.py` |
 | `SFX-HORSE` | 효과음 | 말 울음(마력) | Horse neigh on horsepower | 재미 | (소리) 말 울음 약 1.9초 ⚠ 2026-11-22 사용자 확정. 비유 효과음 묶음(SFX-METAPHOR)의 1순위. 사진판 구현, 실촬영 연결은 다음 | ○ | ○ | ○ |  | 일부 | `scripts/shortform/photo_listing/common.py:_metaphor_sfx` |
-| `SFX-METAPHOR` | 효과음 | 비유 효과음 묶음 | Metaphor SFX | 재미 | (소리) 말·스톱워치·동전·장작·얼음 ⚠ 마력은 사용자 확정, 나머지 4개는 사용자 위임으로 Claude 선정(2026-11-22). 실촬영 연결은 다음 | ○ | ○ | ○ |  | 일부 | `scripts/shortform/photo_listing/common.py:_metaphor_sfx` |
+| `SFX-METAPHOR` | 효과음 | 비유 효과음 묶음 | Metaphor SFX | 재미 | (소리) 말·스톱워치·동전·장작·얼음 ⚠ 마력은 사용자 확정, 나머지 4개는 사용자 위임으로 Claude 선정(2026-11-22). 사진판 · 영상판(g350_v8_render.py) 연결, 실촬영 릴스(sag_reel_v1) 남음. 말 울음은 여기서만(T07은 흔들림만) | ○ | ○ | ○ |  | 일부 | `scripts/shortform/photo_listing/common.py:_metaphor_sfx` |
 | `BGM-SHOWROOM` | 음악·음성 | 배경음악 + 말할 때 줄이기 | BGM with ducking | 둘 다 | (소리) 잔잔한 음악 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:mix_audio` |
 | `VO-TTS` | 음악·음성 | AI 내레이션 | TTS voice | 둘 다 | (소리) 내레이션 ⚠ 같은 결과가 필요하면 녹음 파일을 매물 폴더에 보관 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/tr.py` |
 | `AUD-LOUDNORM` | 음악·음성 | 음량 맞춤 | Loudness | 둘 다 | (측정값) | ○ | ○ | ○ | ○ | 구현 | `scripts/shortform/photo_listing/common.py:mix_audio` |
@@ -147,7 +147,7 @@
 
 | 코드 | 분류 | 이름 | 영어 이름 | 목적 | 영상에서 보이는 모습 | ① 사진 | ② 심플 | ③ 3D | ④ ASMR | 상태 | 코드 위치 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| `AS-PLATE-CHIL-103x33` | 칠 판 | 칠 판 103×33(기울기 없음) | Background shape 103x33 |  | 노랑 칠 판 ⚠ 노션에만 있음 → public/assets/shortform/ 로 받아 와야 함 | ○ | ○ | ○ |  | 계획 | `` |
+| `AS-PLATE-CHIL-103x33` | 칠 판 | 칠 판 103×33(기울기 없음) | Background shape 103x33 |  | 노랑 칠 판 ⚠ 저장소에 있음. 영상판 칩이 chip.fill_fit 후보 8개 중 하나로 씀(v0.3.0), 사진판은 아직 안 씀 | ○ | ○ | ○ |  | 일부 | `public/assets/shortform/brush-fill/as24-theme/103_33.svg` |
 | `AS-PLATE-CHIL-38x43` | 칠 판 | 원형 칠 38×43 | Round background shape |  | 노랑 원형 칠 | ○ | ○ |  |  | 계획 | `` |
 | `AS-BRUSH-TAPE` | 칠 판 | 붓 테이프(기울어진 띠) | Brush tape |  | 기울어진 노랑 붓띠 ⚠ 2026-11-22 칠 판 103×33으로 대체 |  |  |  |  | 금지 | `scripts/shortform/brushfill.py:brush_mask` |
 | `AS-FLUENT3D` | 아이콘 | Fluent 3D 이모지 | Microsoft Fluent 3D emoji |  | 입체 이모지 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/common.py:fluent_emoji` |
@@ -383,16 +383,16 @@
 - `SG-DEALER-TALK` 딜러 설명 컷 — 계획
 - `SG-ODOMETER` 계기판 주행거리 확인 — 일부: 지금은 코드로 그린 손그림 선 원(mileage_circle) → 노션 원형 칠로 바꿔야 함(2026-11-22 확정)
 - `CAP-ASMR-WORD` ASMR 낱말 칩 — 계획
-- `CHIP-POINT` 포인트 칩 — 일부: 규칙 파일은 아직 붓 테이프 + 5.7° 기울기 → 기울기 없는 칠 판으로 바꿔야 함(2026-11-22 확정)
+- `CHIP-POINT` 포인트 칩 — 일부: 기울기 0 · 칠은 chip.fill_fit(노션 원본 판 8개 중 고름, 같은 배율, 칠 높이 = 글자 × 2.0) — 영상판 g350_v5_lib.py 반영(v0.4.0). 사진판 · 실촬영 릴스는 기울기 0만 반영, 칠 모양은 아직 옛 붓 테이프 · 126_40 늘림(ROADMAP 1-12)
 - `LIST-CHECK` 옵션 체크 목록 — 일부: 실촬영(T02)만 구현, 사진판은 아직
 - `FX-CALLOUT-3D` 부위 3D 말풍선 — 계획
 - `MOVE-COUNTUP` 숫자 카운트업 — 일부: 실촬영만
 - `MOVE-TRACK` 부위 따라가기 — 일부
-- `INS-MAGNIFIER` 돋보기 원 — 일부
+- `INS-MAGNIFIER` 돋보기 원 — 일부: 나타날 때 쿵(sfx emphasis, v0.4.0)
 - `SFX-CONTEXT` 문맥 효과음 — 일부: 마력 = 말 울음은 SFX-HORSE로 확정·구현(2026-11-22). 그 밖의 낱말(배기음·문 닫힘 등)은 아직
 - `SFX-HORSE` 말 울음(마력) — 일부: 2026-11-22 사용자 확정. 비유 효과음 묶음(SFX-METAPHOR)의 1순위. 사진판 구현, 실촬영 연결은 다음
-- `SFX-METAPHOR` 비유 효과음 묶음 — 일부: 마력은 사용자 확정, 나머지 4개는 사용자 위임으로 Claude 선정(2026-11-22). 실촬영 연결은 다음
-- `AS-PLATE-CHIL-103x33` 칠 판 103×33(기울기 없음) — 계획: 노션에만 있음 → public/assets/shortform/ 로 받아 와야 함
+- `SFX-METAPHOR` 비유 효과음 묶음 — 일부: 마력은 사용자 확정, 나머지 4개는 사용자 위임으로 Claude 선정(2026-11-22). 사진판 · 영상판(g350_v8_render.py) 연결, 실촬영 릴스(sag_reel_v1) 남음. 말 울음은 여기서만(T07은 흔들림만)
+- `AS-PLATE-CHIL-103x33` 칠 판 103×33(기울기 없음) — 일부: 저장소에 있음. 영상판 칩이 chip.fill_fit 후보 8개 중 하나로 씀(v0.3.0), 사진판은 아직 안 씀
 - `AS-PLATE-CHIL-38x43` 원형 칠 38×43 — 계획
 
 ## AS24 관찰 스킬 53개 → 우리 코드 대응표
@@ -465,4 +465,5 @@
 | T04 | 숫자 카운트업 (count_up) | `MOVE-COUNTUP` |
 | T05 | 스포트라이트 (spotlight) | `INS-SPOTLIGHT` |
 | T06 | 돋보기 원 (magnifier) | `INS-MAGNIFIER` |
-| T07 | 마력 흔들림 + 말 울음 (power_shake) | `MOVE-SHAKE`, `SFX-CONTEXT` |
+| T07 | 마력 흔들림 (power_shake) | `MOVE-SHAKE`, `SFX-CONTEXT` |
+| T08 | 부위 당기기 (part push-in) | `MOVE-PARTZOOM` |

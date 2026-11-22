@@ -1,6 +1,8 @@
 import os,sys,json,math,subprocess,re
 import numpy as np,cv2
 from PIL import Image,ImageDraw,ImageFont,ImageFilter
+# v11(2026-11-22): 자막 높이·크기는 be_locked_rules.json caption, 뜻 단위 덩어리는 samples/<차>_chunks.json, 칩 기울기 0·흰 알약도 노션 원본 칠, T08 부위 당기기,
+#   효과음 = be_locked_rules.json sfx(NL 빈도 + 나세르 종류) + metaphor_sfx, 음량 = audio, 출고 검사용 .plan.json
 # G350 v8 = 기법을 계획기(feature_edit_planner.py)가 정한 대로만 씀(컷 이름·낱말을 코드에 직접 쓰지 않음)
 # G350 v6 = v5 + 기법 4개(숫자 카운트업 · 돋보기 원 c10 · 스포트라이트 c2 · 마력 흔들림 c15) + 말 울음
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
@@ -12,7 +14,7 @@ def pop(cv,img,pos,t,t_in,dur=0.2):   # 검수 기록: 다 나타난 글자·그
         b=img.getbbox(); g=globals(); _LOG.append(['pop',g.get('nfr'),g.get('key'),pos[0]+b[0],pos[1]+b[1],pos[0]+b[2],pos[1]+b[3],round(t_in,3)])
 G=os.environ.get('G350_DIR','/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/g350/')
 ASSET=A
-CAPY=int(H*0.67)
+CAPY=R['caption']['center_y_px']   # 규칙 파일(옛 67% 직접 쓰기 폐지)
 WD=json.load(open(G+'words5.json'))[:120]   # 120번 이후는 받아쓰기가 지어낸 낱말
 FIX={'라기':'락이','헛더라도':'헛돌아도','나눠줘서':'나눠 줘서','블루텟':'블루텍','주관':'주간등','밝혀져요.':'밝혀 줘요.','위의':'위','썬루프가':'선루프가','3500kg까지':'3,500kg까지','480L,':'480L,','2250L까지':'2,250L까지','넵이':'내비,','공존은':'공조는','디제이,':'디젤,','.1초입니다.':'.1초입니다.','주관등까지':'주간등까지','팬더':'펜더','썰루프도':'선루프도','집':'짐','고급스럽구요,':'고급스럽고요,','네비,':'내비,','자동의':'자동에','55kgm.':'55kg·m.','보베드림':'보배드림','블루텍!':'블루텍','토큰은':'토크는','55kgm,':'55kg·m,','주관등이':'주간등이','헛도라도':'헛돌아도','3,500km까지':'3,500kg까지','2,250리터까지':'2,250L까지','480리터,':'480L,','견인고리,':'견인고리,','디퍼렌셜락이':'디퍼렌셜 락이'}
 WS=[]
@@ -71,13 +73,12 @@ starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]
 for k,c in enumerate(C):
     t0=starts[k]; t1=starts[k+1] if k+1<len(C) else ENDT; SEG.append((t0,t1,c))
-# 말 자막 덩어리: 문장부호·최대 3어절
-CH=[];cur=[]
-for j,(w,s,e) in enumerate(WS):
-    cur.append(j)
-    if w[-1] in ',.?!' or len(cur)>=3: CH.append(cur); cur=[]
-if cur: CH.append(cur)
-BLK=ImageFont.truetype(F+'/Pretendard-Black.otf',60); YC=(245,242,0)
+# 말 자막 덩어리: 차마다 입력 파일에 뜻 단위로 지정(기계적 어절 수 분할 금지 — LESSONS L27)
+_CK=json.load(open(os.environ.get('EDIT',os.path.join(os.path.dirname(os.path.abspath(__file__)),'samples','g350_edit.json'))))
+assert _CK['words']==len(WS), f"덩어리 파일 낱말 수 {_CK['words']} ≠ 받아쓰기 {len(WS)}"
+CH=[list(range(a,b+1)) for a,b in _CK['chunks']]
+assert [j for c in CH for j in c]==list(range(len(WS))), '덩어리가 낱말을 빠짐없이 차례로 덮지 않음'
+BLK=ImageFont.truetype(F+'/Pretendard-Black.otf',R['caption']['font_px']); YC=YEL
 _sc={}
 def subimg(ch,act):
     k=(tuple(ch),act)
@@ -119,7 +120,10 @@ def gchip(s,size=70):
     return _chips[(s,size)]
 H3={}
 # 첫 화면(벨기에식): 노랑 붓띠 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄
-HB=chip('벤츠',76); HM=white('G350 블루텍',104); HS=white('2013년식 · 디젤 · W463',58)
+HB=chip('벤츠',R['chip']['title_font_px']); HM=white('G350 블루텍',104)
+_room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
+while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white('G350 블루텍',_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
+HS=white('2013년식 · 디젤 · W463',58)
 place_chip_y_cap=H*0.58
 def place(Cimg,tx,ty,below):
     bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(24-bx0,min(W-24-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)
@@ -140,24 +144,8 @@ def as24(fn,h,col=(20,20,20)):
     from io import BytesIO
     im=Image.open(BytesIO(png)).convert('RGBA'); a=im.getchannel('A'); im=Image.new('RGBA',im.size,col+(255,)); im.putalpha(a); im=im.crop(a.getbbox())
     return im.resize((round(im.width*h/im.height),h),Image.LANCZOS)
-def ipill(icon,s,size=50):   # 오토스카우트24 테마 붓칠(노션 원본 126_40 / 긴 글 265_42) 흰색 + 아이콘 + 진한 글자
-    # 여백 규칙을 위 노랑 칩과 같게: 높이 = 글자 높이 × 1.9, 좌우 여백 = 높이 × 0.31(칠이 실제로 칠해진 가로 구간 기준, 붓 끝 들쭉날쭉 보정)
-    from io import BytesIO
-    import numpy as _np
-    f=BD(size); b=tsize(s,f); tw,th=b[2]-b[0],b[3]-b[1]; iw=icon.width; gap=16; cw=iw+gap+tw
-    h=round(th*1.9); pad=round(h*0.31)
-    w=cw+2*pad
-    for _ in range(3):   # 칠해진 구간 폭이 cw+2*pad가 되도록 가로 크기를 맞춤
-        svg='/home/claude/bobaedream/public/assets/shortform/brush-fill/as24-theme/'+('265_42.svg' if w>520 else '126_40.svg')
-        a=Image.open(BytesIO(subprocess.run(['rsvg-convert','-w',str(w),'-h',str(h),svg],capture_output=True).stdout)).convert('RGBA').getchannel('A')
-        A=_np.array(a); row=_np.where(A[h//2]>128)[0]; x0,x1=int(row[0]),int(row[-1]); span=x1-x0
-        if abs(span-(cw+2*pad))<=2: break
-        w+= (cw+2*pad)-span
-    br=Image.new('RGBA',(w,h),(255,255,255,255)); br.putalpha(a)
-    im=Image.new('RGBA',(w+30,h+30)); sh=Image.new('RGBA',im.size); sh.paste((0,0,0,130),(15,19),a)
-    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7))); im.alpha_composite(br,(15,15)); d=ImageDraw.Draw(im)
-    cx=15+x0+(span-cw)//2
-    im.alpha_composite(icon,(cx,15+(h-icon.height)//2)); d.text((cx+iw+gap-b[0],15+(h-th)//2-b[1]),s,font=f,fill=INK); return im
+def ipill(icon,s,size=50,left=False):   # 흰 정보 알약 = 칩과 같은 노션 원본 칠(fill_fit, 같은 배율), 아이콘 오른쪽 끝(✓ 목록만 왼쪽)
+    return info_pill(s,size,icon,left)
 # 휠: 인치 3D + 타이어 규격 3D, 화면 고정 자리(휠 상자 높이 약 800px 기준 0.19배 / 0.12배로 키움 — 사용자: 작으니 교정)
 text3d_all=lambda txt,h=180: text3d(txt,h,split=False)
 W_IN=text3d('18인치',h=170); W_TY=text3d_all('265/60 R18',h=110)   # 타이어 규격은 한 크기로(앞 숫자만 커지던 것 교정)
@@ -174,7 +162,7 @@ EP=[ipill(as24('engine.svg',54),'토크 55kg·m',58),ipill(as24('gearbox.svg',54
 _ck=Image.new('RGBA',(80,80)); ImageDraw.Draw(_ck).text((40,40),'✓',font=BK(64),fill=INK,anchor='mm'); _ck=_ck.crop(_ck.getbbox())
 _ckc={}
 def ckpill(s):
-    if s not in _ckc: _ckc[s]=ipill(_ck,s,58)
+    if s not in _ckc: _ckc[s]=ipill(_ck,s,58,left=True)
     return _ckc[s]   # v5 기법 1: ✓ 목록, 말할 때마다 한 줄씩
 DW1=ipill(flu('1f6de',60),'바퀴 하나가 헛돌아도',58); DW2=ipill(flu('2744',56),'진흙길 · 눈길 탈출',58)
 _cn={}
@@ -228,7 +216,9 @@ def special(key,cv,t,t0):
         y=int(H*0.24)+270
         for k,(im,w) in enumerate(zip(EP,['토크는','7단','제로백은'])):
             b=im.getbbox(); pop(cv,im,((W-im.width)//2,y-b[1]),t,WS[idx(w)][1]-t0-0.06); y+=b[3]-b[1]+12   # v7: 칠 높이 + 12px
-SFXT=[]; NEIGH=[]; ICONT=[]; REMIX=bool(os.environ.get('REMIX'))
+SFXT=[]; ICONT=[]; EV=[]; CHIPS_LOG=[]; REMIX=bool(os.environ.get('REMIX'))   # EV = [(시각, 종류)] 효과음 후보
+ZONE=_CK.get('zones',{}); _prevzone=None
+MET=json.load(open(os.path.join(REPO,'scripts/shortform/photo_listing/option_visual_rules.json')))['layout']['metaphor_sfx']; SX=R['sfx']
 HORSE=flu('1f40e',180)
 proc=subprocess.Popen(['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-','-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',G+('nov8_dummy.mp4' if REMIX else 'nov8.mp4')],stdin=subprocess.PIPE)
 last=None; nfr=0
@@ -244,10 +234,14 @@ for t0,t1,c in SEG:
     pts=smooth(TR[key]['pts'],k=21) if key in TR and key!='c5' else None   # v7: 0.7초 평활로 칩 흔들림 줄임 · 2분할 컷은 추적 안 씀
     CHIPLAB[key]=clab; Cimg=gchip(clab) if clab else None; Simg=white(sub[0],58) if sub else None
     BIG=[(text3d(b,h=180 if key!='c15' else 210),white(l,58) if l else None,WS[j][1]-t0-0.22) for b,l,j in bigs]; BIGS=[b for b,l,j in bigs]
-    for tb in [x[2] for x in BIG]:
-        if key!='c15': SFXT.append(t0+tb-0.02)
-    for e in PL.get(key,{}).get('T07',[]): NEIGH.append(e['at'])   # 마력 흔들림과 같은 순간 말 울음
-    if key=='c8': SFXT.append(t0+WS[idx('480')][1]-t0-0.24)
+    _metak=[k for it in MET['items'] for k in it['keywords']]
+    for (b,l,j),tb in zip(bigs,[x[2] for x in BIG]):
+        if not any(k in WS[j][0] for k in _metak): EV.append((t0+tb-0.02,'big_number'))   # 비유 효과음이 있는 숫자(마력 등)는 그 소리가 대신함
+    if key=='c8': EV.extend([(WS[idx('480')][1]-0.24,'big_number'),(WS[idx('2,250')][1]-0.24,'big_number')])
+    if clab: EV.append((t0+((WS[cw][1]-t0-0.06) if cw is not None else 0)-0.02,'chip'))
+    for e in PL.get(key,{}).get('T05',[])+PL.get(key,{}).get('T06',[]): EV.append((e['at'],'emphasis'))
+    if ZONE.get(key)!=_prevzone and _prevzone is not None: EV.append((t0-0.08,'part_change'))
+    _prevzone=ZONE.get(key,_prevzone)
     tc=(WS[cw][1]-t0-0.06) if cw is not None else 0
     BL0=None
     if pts is not None and Cimg is not None and av is not None:   # v7: 칩 위·아래를 컷 전체 추적으로 한 번만 정함(중간 뒤집힘 금지)
@@ -270,18 +264,27 @@ for t0,t1,c in SEG:
         for e in PL.get(key,{}).get('T07',[]):   # T07 마력 흔들림
             q=TP['T07']; u=t-(e['at']-t0)
             if 0<=u<q['dur_s']: z=max(z,q['min_zoom']); a=q['amp_px']*(1-u/q['dur_s']); dx=a*math.sin(u*90); dy=a*math.cos(u*70)
+        ccx,ccy=W/2,H/2
+        for e in PL.get(key,{}).get('T08',[]):   # T08 부위 당기기: 말하는 순간 그 부위 쪽으로 다가감(추적 점 기준)
+            q=TP['T08']; u=t-(e['at']-t0)
+            if u>=0 and pts is not None:
+                g=ease(min(1.0,u/q['arrive_s'])); z=max(z,1+(q['zoom_to']-1)*g+q['hold_drift']*max(0.0,u-q['arrive_s'])/max(0.1,dur))
+                pj=min(len(pts)-1,int(round((st-s0)*30))); ccx=W/2+(pts[pj][0]*W-W/2)*q['center_bias']*g; ccy=H/2+(pts[pj][1]*H-H/2)*q['center_bias']*g
         im=Image.fromarray(fr[fi]); cw_=W/z; ch_=H/z
-        cv=im.resize((W,H),box=((W-cw_)/2+dx,(H-ch_)/2+dy,(W+cw_)/2+dx,(H+ch_)/2+dy)).convert('RGBA')
+        ccx=min(W-cw_/2,max(cw_/2,ccx+dx)); ccy=min(H-ch_/2,max(ch_/2,ccy+dy))
+        cv=im.resize((W,H),box=(ccx-cw_/2,ccy-ch_/2,ccx+cw_/2,ccy+ch_/2)).convert('RGBA')
         if T01:    # T01 위아래 2분할
             ra=min(1.0,(T01['action_src'][1]-T01['action_src'][0])/dur); fa=min(len(frA)-1,int(round(t*ra*30)))
             top=Image.fromarray(frA[fa]).crop((0,int(H*0.45)-480,W,int(H*0.45)+480))
             bot=Image.fromarray(fr[fi]).crop((0,int(H*0.36)-480,W,int(H*0.36)+480))
             cv=Image.new('RGBA',(W,H)); cv.paste(top,(0,0)); cv.paste(bot,(0,H//2))
             ImageDraw.Draw(cv).rectangle((0,H//2-4,W,H//2+3),fill=(255,255,255,255))
-        tomap=lambda fx,fy:((fx*W-W/2)*z+W/2,(fy*H-H/2)*z+H/2)
+        tomap=lambda fx,fy,_x=ccx,_y=ccy,_z=z:((fx*W-_x)*_z+W/2,(fy*H-_y)*_z+H/2)
         if key=='c1':
             cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,90)))
-            pop(cv,HB,(M-10,YB),t,0.08); pop(cv,HM,(M-10+HB.width+6,YB+(HB.height-HM.height)//2),t,0.28); pop(cv,HS,(M-4,YB+HB.height+16),t,0.5)
+            pop(cv,HB,(M-10,YB),t,0.08)
+            if not any(c_['kind']=='title' for c_ in CHIPS_LOG) and t>=0.28: _bb=HB.getbbox(); CHIPS_LOG.append({'key':'c1','label':'벤츠','kind':'title','t0':round(t0+0.08,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['title_font_px'],'y':YB,'box':[M-10+_bb[0],YB+_bb[1],M-10+_bb[2],YB+_bb[3]]})
+            _hb=HB.getbbox(); pop(cv,HM,(M-10+_hb[2]+6,YB+(_hb[1]+_hb[3]-HM.height)//2),t,0.28); pop(cv,HS,(M-4,YB+_hb[3]+16),t,0.5)   # 칠이 실제로 끝나는 곳 기준(투명 여백 제외)
         if key in('c15',) : cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,70)))
         if key=='c8': cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,40)))
         if Cimg is not None:
@@ -297,8 +300,7 @@ for t0,t1,c in SEG:
             bl=BL0
             if av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
                 av=None
-                cx,cy=M-10,YB if not BIG else YB-120
-                if key=='c15': cx,cy=M-10,YB-150
+                cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
                 L=0
             else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
             if av and av[0]<=st<=av[1] and t>=tc+0.18:
@@ -308,10 +310,13 @@ for t0,t1,c in SEG:
                 if bl: tail=ty+TG+L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail-Lc-bob-offc)))
                 else: tail=ty-TG-L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail+bob-offc)))
             pop(cv,Cimg,(cx,cy),t,tc)
+            if t>=tc+0.2 and key not in {c_['key'] for c_ in CHIPS_LOG}:   # 다 나타난 뒤 한 번 기록(검사는 이 순간 상자를 잼)
+                _bb=Cimg.getbbox(); CHIPS_LOG.append({'key':key,'label':clab,'kind':'point' if av is None else 'callout','t0':round(t0+tc,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['font_px'],'y':int(cy),'box':[int(cx+_bb[0]),int(cy+_bb[1]),int(cx+_bb[2]),int(cy+_bb[3])]})
             if Simg is not None:
                 ts=WS[sub[1]][1]-t0-0.06; pop(cv,Simg,(cx+Cimg.width//2-Simg.width//2,cy+Cimg.height-4) if bl else (cx+Cimg.width//2-Simg.width//2,cy-Simg.height+6),t,ts)
         for k2,(B3,BL,tb) in enumerate(BIG):
             y3=int(H*0.12) if key!='c15' else int(H*0.24)
+            if Cimg is not None and av is None: y3=max(y3,YB+Cimg.getbbox()[3]+20)
             B3=cnt(BIGS[k2],180 if key!='c15' else 210,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
             if PL.get(key,{}).get('T07'): _wf=cnt(BIGS[k2],210,99,0).width; pop(cv,HORSE,(min(W-HORSE.width-24,(W+_wf)//2-HORSE.width+20),y3-HORSE.height-6),t,WS[idx('211')][2]-t0-0.1,0.3)   # v7: 숫자 칠 위 오른쪽, 겹침 없음
@@ -331,33 +336,47 @@ while not REMIX and nfr<round(TOTAL*FPS):
     proc.stdin.write(cv.convert('RGB').tobytes()); nfr+=1
 if not REMIX: proc.stdin.close(); proc.wait()
 if LOGON: json.dump(_LOG,open(G+'log8.json','w'),default=lambda o: o.item() if hasattr(o,'item') else list(o))
-json.dump({'seg':[(round(a,2),round(b,2),c[0]) for a,b,c in SEG],'sfx':SFXT,'total':TOTAL},open(G+'plan8.json','w'),ensure_ascii=False)
-OUT=G+os.environ.get('G350_OUT','bobae_g350_be_v8.mp4')
-NEIGH_WAV=ASSET+'sfx/horse_neigh_el.wav' if os.path.exists(ASSET+'sfx/horse_neigh_el.wav') else G+'neigh.wav'   # 상업 라이선스 말 울음(일레븐랩스) 우선
+OUT=G+os.environ.get('G350_OUT','bobae_g350_be_v11.mp4')
+# ── 효과음: be_locked_rules.json sfx(NL 빈도 + 나세르 종류) + option_visual_rules.json metaphor_sfx ──
+EV.append((0.08-0.02,'title')) if SX.get('title_ding') else None
+for ti in ICONT: EV.append((ti,'icon'))
+_met=[]   # 비유 효과음: 낱말 안에서 키워드가 나오는 순간, 목록 순서 = 우선순위, 영상당 max_per_video
+for it in MET['items']:
+    if len(_met)>=MET['max_per_video']: break
+    for j,(w,s_,e_) in enumerate(WS):
+        k=next((k for k in it['keywords'] if k in w),None)
+        if k and os.path.exists(ASSET+'sfx/'+it['name']+'.wav'):
+            tm=s_+(e_-s_)*w.index(k)/max(1,len(w))-it['lead_s']
+            if all(abs(tm-x[0])>=MET['min_gap_s'] for x in _met): _met.append((tm,it['name'],it['vol']))
+            break
+def _ratio(evs,r):   # 비율 r만큼 고르게(앞에서부터 누적 비율이 정수를 넘을 때 하나씩)
+    return [e for n,e in enumerate(evs) if int((n+1)*r+1e-9)>int(n*r+1e-9)]
+cand=[(t,k) for t,k in EV if k not in ('chip','big_number')]+_ratio(sorted(x for x in EV if x[1]=='chip'),SX['chip_ratio'])+_ratio(sorted(x for x in EV if x[1]=='big_number'),SX['big_number_ratio'])
+pc=sorted(x for x in cand if x[1]=='part_change')[:SX['part_change_max']]; cand=[x for x in cand if x[1]!='part_change']+pc
+PRI={k:n for n,k in enumerate(SX['priority'])}; SND={k:SX['kinds'][k] for k in SX['kinds'] if k!='metaphor'}
+allc=[(t,'metaphor',nm,v) for t,nm,v in _met]+[(t,k,SND[k],SX['volume'][SND[k]]) for t,k in cand]
+cap_n=int(SX['max_per_30s']*TOTAL/30); acc=[]
+for t,k,nm,v in sorted(allc,key=lambda x:(PRI[x[1]],x[0])):
+    if t<0 or t>ENDT-0.2: continue   # 끝 로고 구간에는 넣지 않음
+    if any(abs(t-a[0])<SX['min_gap_s'] for a in acc): continue
+    if any(a[2]==nm and abs(t-a[0])<SX['same_sound_min_gap_s'] for a in acc): continue
+    if len(acc)>=cap_n: break
+    acc.append((round(t,3),k,nm,v))
+acc.sort()
+print('효과음',[(a[0],a[2]) for a in acc])
 inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',ASSET+'bgm/bobae_showroom_v1.mp3']
 fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120[v]',f'[2:a]atrim=0:{TOTAL},volume=0.16,afade=t=out:st={TOTAL-1.5}:d=1.5[b]']; mx=['[v]','[b]']
-if not os.path.exists(NEIGH_WAV): print('말 울음 파일 없음 → 생략',NEIGH); NEIGH=[]
-# 비유 효과음 2번째: '제로백'을 말하는 순간 스톱워치(option_visual_rules.json metaphor_sfx, 영상당 2개)
-WATCH=[]
-try: WATCH=[WS[idx('제로백')][1]] if os.path.exists(ASSET+'sfx/stopwatch.wav') else []
-except StopIteration: pass
-SFXT=[x for x in SFXT if all(abs(x-w)>=0.45 for w in WATCH)]
-for tw in WATCH:
-    inp+=['-i',ASSET+'sfx/stopwatch.wav']; fl.append(f'[{len(inp)//2-1}:a]volume=0.6,adelay={int(tw*1000)}:all=1[w0]'); mx.append('[w0]')
-print('stopwatch',WATCH)
-for tn in NEIGH:
-    inp+=['-i',NEIGH_WAV]; fl.append(f'[{len(inp)//2-1}:a]volume=0.55,adelay={int(tn*1000)}:all=1[n0]'); mx.append('[n0]')
-for j,tc in enumerate(SFXT):
-    inp+=['-i',ASSET+'sfx/ding.wav']; fl.append(f'[{len(inp)//2-1}:a]volume=0.7,adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
-# 아이콘 팝 0.30: 0.45초 안에 딩·말소리가 있으면 생략, 아이콘끼리 0.45초 안이면 앞의 것만
-IP=[]
-for ti in sorted(ICONT):
-    if any(abs(ti-x)<0.45 for x in SFXT+NEIGH+WATCH): continue
-    if IP and ti-IP[-1]<0.45: continue
-    IP.append(ti)
-for j,tc in enumerate(IP):
-    inp+=['-i',ASSET+'sfx/pop.wav']; fl.append(f'[{len(inp)//2-1}:a]volume=0.30,adelay={int(tc*1000)}:all=1[p{j}]'); mx.append(f'[p{j}]')
-print('icon pops',[round(x,2) for x in IP],'from',[round(x,2) for x in ICONT])
-fl.append(''.join(mx)+f'amix=inputs={len(mx)}:normalize=0:duration=longest,loudnorm=I=-10:TP=-1.0,aresample=192000,alimiter=limit=0.76:attack=3:release=60:level=0,aresample=48000[a]')
+for j,(tc,k,nm,v) in enumerate(acc):
+    inp+=['-i',ASSET+'sfx/'+nm+'.wav']; fl.append(f'[{len(inp)//2-1}:a]volume={v},adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
+A_=R['audio']; LN=f"loudnorm=I={A_['loudness_lufs']}:TP={A_['true_peak_db']}:LRA=11"
+# 음량 2단계: 1차로 재고 2차에 그 값으로 고르게(linear) 맞춤 — 1단계만 쓰면 목표에서 1dB 넘게 빗나감
+_m=subprocess.run(['ffmpeg','-hide_banner',*inp,'-filter_complex',';'.join(fl+[''.join(mx)+f'amix=inputs={len(mx)}:normalize=0:duration=longest,{LN}:print_format=json[a]']),'-map','[a]','-t',str(TOTAL),'-f','null','-'],capture_output=True,text=True).stderr
+_j=json.loads(_m[_m.rindex('{'):_m.rindex('}')+1])
+LN2=LN+f":measured_I={_j['input_i']}:measured_TP={_j['input_tp']}:measured_LRA={_j['input_lra']}:measured_thresh={_j['input_thresh']}:offset={_j['target_offset']}:linear=true"
+fl.append(''.join(mx)+f"amix=inputs={len(mx)}:normalize=0:duration=longest,{LN2},aresample=48000[a]")
 subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.join(fl),'-map','0:v','-map','[a]','-c:v','copy','-c:a','aac','-b:a','192k','-t',str(TOTAL),OUT],check=True)
-print(OUT,TOTAL,SFXT)
+# 출고 검사용 계획(check_be.py 영상 검사가 읽음)
+json.dump({'edition':'feature_video','music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
+           'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,
+           'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH)}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
+print(OUT,TOTAL)

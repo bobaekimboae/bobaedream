@@ -1,5 +1,5 @@
 {
-  "version": "0.2.4",
+  "version": "0.4.0",
   "updated": "2026-11-22",
   "_what": "보배드림 숏폼 자동 편집 — 편집 유형·편집 구성·편집 기법·옵션 표시·자산의 표준 이름 사전(단일 기준). 사람용 문서 CATALOG.md 는 build.py 가 이 파일로 만든다. 옵션 표시(FM-*)는 scripts/shortform/photo_listing/option_visual_rules.json 에서, AS24 관찰 스킬은 scripts/shortform/edit_skills/library_v2.json 에서, 실촬영 기법(T01~)은 scripts/shortform/video_listing/feature_edit_rules.json 에서 자동으로 붙인다.",
   "terms": {
@@ -384,7 +384,7 @@
       "impl": "scripts/shortform/photo_listing/common.py:be_chip",
       "rules": "scripts/shortform/be_locked_rules.json#chip",
       "asset": "AS-PLATE-CHIL-103x33",
-      "note": "규칙 파일은 아직 붓 테이프 + 5.7° 기울기 → 기울기 없는 칠 판으로 바꿔야 함(2026-11-22 확정)",
+      "note": "기울기 0 · 칠은 chip.fill_fit(노션 원본 판 8개 중 고름, 같은 배율, 칠 높이 = 글자 × 2.0) — 영상판 g350_v5_lib.py 반영(v0.4.0). 사진판 · 실촬영 릴스는 기울기 0만 반영, 칠 모양은 아직 옛 붓 테이프 · 126_40 늘림(ROADMAP 1-12)",
       "refs": [
         "S008",
         "S001"
@@ -683,14 +683,19 @@
       "what": "그 부위를 말할 때 그 부위로 확대(라벨 부위 우선)",
       "look": "계기판·화면·시트로 화면이 다가감",
       "ed": [
-        "photo"
+        "photo",
+        "simple"
       ],
       "status": "구현",
       "impl": "scripts/shortform/photo_listing/part_zoom.py:build",
       "cfg": [
         "AUTO_ZOOM"
       ],
-      "rules": "scripts/shortform/photo_listing/part_zoom_rules.json"
+      "rules": "scripts/shortform/photo_listing/part_zoom_rules.json",
+      "refs": [
+        "T08"
+      ],
+      "note": "영상판(심플판)은 옵션 편집 기법 T08(feature_edit_rules.json) — 계획기 · 렌더러 반영(v0.4.0)"
     },
     {
       "code": "MOVE-FIT-BLURFILL",
@@ -950,7 +955,8 @@
       "impl": "scripts/shortform/video_listing/feature_edit_planner.py",
       "refs": [
         "T06"
-      ]
+      ],
+      "note": "나타날 때 쿵(sfx emphasis, v0.4.0)"
     },
     {
       "code": "INS-SPOTLIGHT",
@@ -987,7 +993,7 @@
       "asset": "AS-SFX-DING",
       "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan",
       "rules": "scripts/shortform/be_locked_rules.json#sfx",
-      "note": "2026-11-22 확정: 효과음 모두 냄(실촬영 1번 제한 폐지) → 규칙 파일 바꿔야 함"
+      "note": "2026-11-22 확정: 효과음 = 네덜란드 AS24 빈도 + 나세르 종류(be_locked_rules.json sfx). 첫 화면 · 칩 약 40% · 큰 숫자. 영상판 반영, 실촬영 릴스 남음"
     },
     {
       "code": "SFX-WHOOSH",
@@ -1007,7 +1013,8 @@
       "impl": "scripts/shortform/photo_listing/common.py:_sfx_plan",
       "cfg": [
         "WHOOSH_CUTS"
-      ]
+      ],
+      "note": "부위 구역이 바뀌는 컷 시작에 휙(영상당 sfx.part_change_max), 영상판은 samples/<차>_edit.json zones"
     },
     {
       "code": "SFX-POP",
@@ -1102,7 +1109,7 @@
       "purpose": "재미",
       "impl": "scripts/shortform/photo_listing/common.py:_metaphor_sfx",
       "rules": "scripts/shortform/photo_listing/option_visual_rules.json#layout.metaphor_sfx",
-      "note": "마력은 사용자 확정, 나머지 4개는 사용자 위임으로 Claude 선정(2026-11-22). 실촬영 연결은 다음",
+      "note": "마력은 사용자 확정, 나머지 4개는 사용자 위임으로 Claude 선정(2026-11-22). 사진판 · 영상판(g350_v8_render.py) 연결, 실촬영 릴스(sag_reel_v1) 남음. 말 울음은 여기서만(T07은 흔들림만)",
       "example_bobae": "「연비는 리터당 15km」 하는 순간 동전 짤랑 — 정보에 웃음 한 번",
       "timing": "낱말 시작 0~0.05초 전"
     },
@@ -1171,11 +1178,12 @@
         "simple",
         "3d"
       ],
-      "status": "계획",
+      "status": "일부",
       "impl": "",
+      "file": "public/assets/shortform/brush-fill/as24-theme/103_33.svg",
       "notion": "https://app.notion.com/p/413ee9c4b606815a9174dd37df998a40",
       "notion_file": "as24_chil_103_33.svg",
-      "note": "노션에만 있음 → public/assets/shortform/ 로 받아 와야 함"
+      "note": "저장소에 있음. 영상판 칩이 chip.fill_fit 후보 8개 중 하나로 씀(v0.3.0), 사진판은 아직 안 씀"
     },
     {
       "code": "AS-PLATE-CHIL-38x43",
