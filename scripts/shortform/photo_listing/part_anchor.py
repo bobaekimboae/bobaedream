@@ -20,6 +20,16 @@ PROMPTS = {
     'screen': 'a touchscreen display',
     'wheel': 'a car wheel rim',
     'trunk': 'an open car trunk cargo space',
+    'headlight': 'a car headlight',          # 2026-11-18 v1.5 옵션 비주얼(라이트 종류 3D 글자)
+    'speaker': 'a car door speaker grille',
+    'console': 'a car center console',
+    'roof': 'a car panoramic sunroof',
+    # 2026-11-18 v1.6 부위 당기기(part_zoom): 작은 실내 부위
+    'gauge': 'a car instrument cluster gauge',
+    'clock': 'an analog clock on a car dashboard',
+    'dial': 'a rotary drive mode dial on a steering wheel',
+    'stalk': 'a lever stalk behind a steering wheel',
+    'climate': 'a car climate control panel',
 }
 SIZE_RATIO = 0.32      # 스티커 높이 = 부위 상자 폭의 32% (사람 눈 기준 「부위 위에 얹힌」 크기, 2026-11-18 시트로 맞춤)
 _MODEL = {}
@@ -102,7 +112,9 @@ def anchors(path, parts=('backrest', 'cushion')):
     for k in parts:
         if k in out or k not in det or not det[k]:
             continue
-        s, b = max((s, b) for s, b in det[k] if not big(b)) if any(not big(b) for _, b in det[k]) else (None, None)
+        # 2026-11-18 전수조사: 점수만 보면 멀리 있는 작은 휠(앞바퀴)을 고름 → 가장 가까운(큰) 부위 = 점수 × √넓이
+        ok = [(s * _area(b) ** .5, s, b) for s, b in det[k] if not big(b)]
+        _, s, b = max(ok) if ok else (None, None, None)
         if b:
             out[k] = dict(u=(b[0] + b[2]) / 2 / W, v=(b[1] + b[3]) / 2 / H, size=SIZE_RATIO * (b[2] - b[0]) / W,
                           box=[b[0] / W, b[1] / H, b[2] / W, b[3] / H], score=round(s, 2))

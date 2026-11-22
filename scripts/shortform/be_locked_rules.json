@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "updated": "2026-11-19",
+  "_what": "보배드림 벨기에판(bobae_be) 화면·소리 규칙의 단일 기준. 렌더 코드는 이 파일만 읽고 숫자를 직접 쓰지 않는다. 바꿀 때는 이 파일만 고치고 check_be.py로 검사한다.",
+  "_source": "sag_reel_v1.py EDIT_PRESETS['bobae_be'] (200편 재교정 ad4e76e9d + 2026-11-19 AS24 7개국 웹 색 전수조사). 매뉴얼 v4 표의 64%·2.7°·#F7EC38, 교본 v3·자막 규칙 v2의 #EEEF05·67%·파랑 칩은 옛 값이라 쓰지 않는다.",
+  "color": {
+    "yellow": "#F5F200",
+    "yellow_flat": "#FAEB00",
+    "ink": "#141414",
+    "caption_text": "#FFFFFF",
+    "_rule": "붓칠 칩·말 자막 강조 낱말은 yellow 하나. 한 화면에 노랑은 한 종류만. 다른 강조색(주황·민트·파랑·빨강) 금지"
+  },
+  "caption": {
+    "style": "be3_shadow",
+    "font_px": 60,
+    "center_y_px": 1283,
+    "highlight": "spoken_word_only",
+    "entry": "instant",
+    "cut_gap_s": 0.3,
+    "hide_while_number_chip": true,
+    "brush_on_caption": false
+  },
+  "chip": {
+    "shape": "as24_brush_tape",
+    "text_color": "ink",
+    "font_px": 70,
+    "title_font_px": 74,
+    "tilt_ccw_deg": 5.7,
+    "tilt_jitter_deg": [-0.8, 0.6, 0.0],
+    "y_top_px": 400,
+    "align": "center",
+    "delay_after_phrase_s": 0.05,
+    "hold_s": 1.8,
+    "never_cross_cut": true,
+    "same_slot_replace": true,
+    "text_is_spoken_word": true,
+    "_rule": "장소 칩·포인트 칩·숫자 칩 모두 같은 글자 크기·같은 칠·같은 자리. 같은 순간 두 칩이면 같은 자리에서 글자만 바뀜"
+  },
+  "icon": {
+    "set": "fluent_3d",
+    "attach": "chip_right_end",
+    "height_vs_chip": 0.82,
+    "standalone_sticker": false
+  },
+  "sfx": {
+    "with_music_per_video": 1,
+    "without_music_per_video": 3,
+    "min_gap_s": 1.0,
+    "type": "one_type_per_video",
+    "end_logo": false,
+    "cut": false
+  },
+  "audio": {
+    "loudness_lufs": -14,
+    "loudness_tol": 1.0,
+    "true_peak_db": -1.5
+  },
+  "end": {
+    "logo_scale_up": true,
+    "tail_s": 2.0
+  },
+  "user_locked": [
+    "2026-11-19 칩 옆 Fluent 3D 아이콘은 좋음 · 따로 툭 뜨는 이모지 스티커 금지",
+    "2026-11-19 노랑만 쓴다 · 주황 획·원·민트 화살표·반짝임 금지",
+    "2026-11-19 자막에는 붓칠·마커를 칠하지 않는다",
+    "2026-11-19 포인트 칩은 장소 칩과 같은 위쪽 고정 자리 · 위아래로 움직이지 않음",
+    "2026-11-19 모든 칩은 글자 크기·모양이 같다",
+    "2026-11-18 영상 매물은 벨기에 효과음 기준 · 사진 매물(photo_listing)은 효과음 많게(SFX_RICH) 예외",
+    "번호판은 가리지 않고 개인 연락처만 가린다 · 없는 사실·할부 금액 금지"
+  ]
+}

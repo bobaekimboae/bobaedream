@@ -1,0 +1,440 @@
+{
+  "version": "1.0",
+  "updated": "2026-11-21",
+  "_what": "영상 매물(차량 영상 + 내레이션) 숏폼에서 옵션·기능 편집 기법을 차종과 상관없이 자동으로 고르는 규칙. feature_edit_planner.py 가 읽는다. 값은 G350 v7 렌더(g350_v7_render.py)에서 실제로 쓴 값과 같다.",
+  "_source": "G350 블루텍 v4(나세르형 벨기에판) 뼈대 + 2026-11-21 사용자 승인 기법 7개(「기법 좋다」) · 예시 시각은 feature_edit_planner.py 가 samples/g350_input.json 으로 낸 값(소리 시작 보정 후)",
+  "canvas": {
+    "w": 1080,
+    "h": 1920,
+    "fps": 30
+  },
+  "mapping": {
+    "_what": "부위 → 화살표 → 칩 간격(매핑 간격). 칩은 부위를 따라 움직이고 화살표가 부위를 가리킨다.",
+    "part_track": "지금(G350): 사람이 정한 첫 점 + CSRT 추적(상자 화면의 16%×9%) → 21프레임(0.7초) 이동평균. 다음 단계(아직 안 함): OWLv2로 첫 점 자동 찾기",
+    "arrow_len_px": 170,
+    "arrow_min_px": 70,
+    "gap_part_to_arrow_tip_px": 24,
+    "gap_arrow_tail_to_chip_px": 6,
+    "arrow_shape": {
+      "head_h": 44,
+      "head_w": 72,
+      "stem_w": 20,
+      "outline_px": 4,
+      "color": "yellow",
+      "outline": "ink"
+    },
+    "arrow_grow": {
+      "start_after_chip_s": 0.18,
+      "dur_s": 0.25,
+      "from_ratio": 0.55
+    },
+    "arrow_bob": {
+      "amp_px": 10,
+      "speed_rad_s": 5
+    },
+    "chip_edge_margin_px": 24,
+    "chip_bottom_max_y": 1113,
+    "chip_top_min_y": 150,
+    "side_rule": "컷마다 한 번만 정함: 보이는 구간 전체에서 부위 아래에 들어가면 아래(첫 위치가 화면 위 45% 안이거나 위에 안 들어갈 때), 아니면 위. 컷 중간 뒤집힘 금지",
+    "no_track": "부위 추적이 없는 컷은 화살표 없이 위 띠(x 50, y 300)"
+  },
+  "chip": {
+    "font": "Pretendard ExtraBold",
+    "font_px": 70,
+    "height_vs_text": 1.9,
+    "pad_vs_height": 0.31,
+    "tilt_ccw_deg": 5.7,
+    "appear_before_word_s": 0.06,
+    "pop_s": 0.2,
+    "sub_chip_font_px": 58
+  },
+  "caption": {
+    "font": "Pretendard Black",
+    "font_px": 60,
+    "center_y_px": 1286,
+    "max_words": 3,
+    "break_on": ",.?!",
+    "spoken_word_color": "yellow"
+  },
+  "big_number": {
+    "h_px": 180,
+    "power_h_px": 210,
+    "y_px": 230,
+    "power_y_px": 460,
+    "unit_scale": 0.62,
+    "appear_before_word_s": 0.22,
+    "pop_s": 0.3
+  },
+  "default_motion": {
+    "slow_push_ratio": 0.045
+  },
+  "techniques": [
+    {
+      "id": "T01",
+      "name": "위아래 2분할",
+      "en": "split_screen",
+      "trigger": "옵션 class=action_result 이고 원본에 동작 장면(action)과 결과 장면(result)이 둘 다 있을 때",
+      "params": {
+        "top": "동작 장면, 세로 중심 0.45H에서 높이 960 자름",
+        "bottom": "결과 장면, 세로 중심 0.36H에서 높이 960 자름",
+        "divider_px": 8,
+        "divider_color": "white",
+        "max_rate": 1.0,
+        "chip": "위 띠, 화살표 없음"
+      },
+      "max_per_video": 2,
+      "example": "G350 15.33~18.78초 천장 버튼(위) ↔ 선루프 열림(아래)"
+    },
+    {
+      "id": "T02",
+      "name": "✓ 목록 쌓기",
+      "en": "checklist",
+      "trigger": "한 컷 대본에 같은 그룹 항목을 2개 이상 이어 말할 때(시트 기능 그룹 제외 — 시트는 아이콘 묶음 규칙)",
+      "params": {
+        "max_rows": 3,
+        "pill": "흰 붓칠 + ✓ + 글자 58px",
+        "row_gap_px": 12,
+        "anchor": "칩 바로 아래, 칩 칠 왼쪽 선에 맞춤",
+        "appear_before_word_s": 0.06,
+        "chip": "위 띠 제목, 화살표 없음"
+      },
+      "max_per_video": 2,
+      "example": "G350 46.50·47.00·47.66초에 앞·가운데·뒤 잠금 한 줄씩"
+    },
+    {
+      "id": "T03",
+      "name": "점프컷",
+      "en": "jump_cut",
+      "trigger": "한 컷에서 제원 낱말(토크·변속기·제로백·연비 등)을 3개 이상 이어 말할 때",
+      "params": {
+        "zoom_step": 0.11,
+        "ramp_s": 0.067,
+        "before_word_s": 0.04,
+        "max_steps": 3,
+        "replaces": "slow_push"
+      },
+      "max_per_video": 1,
+      "example": "G350 59.13·61.05·61.99초 토크는/7단/제로백은"
+    },
+    {
+      "id": "T04",
+      "name": "숫자 카운트업",
+      "en": "count_up",
+      "trigger": "큰 숫자로 띄우는 정수 값(마력·kg·L·cc·km·N·m). 연식·타이어 규격·소수·모델 번호는 제외",
+      "params": {
+        "dur_s": 0.45,
+        "start_before_word_s": 0.17,
+        "curve": "ease-out cubic",
+        "keep_commas": true
+      },
+      "max_per_video": 4,
+      "example": "G350 3,500kg 22.01초 · 480L 25.14초 · 2,250L 27.40초 · 211마력 57.90초 시작"
+    },
+    {
+      "id": "T05",
+      "name": "스포트라이트",
+      "en": "spotlight",
+      "trigger": "옵션 class=lighting 이고 부위가 빛나는 장면일 때(밝은 쪽 상위 5% 밝기 − 중앙값 밝기 ≥ 80, 구간 5장 평균)",
+      "params": {
+        "hole_r_px": 300,
+        "feather_px": 200,
+        "alpha": 190,
+        "fade_in_s": 0.3,
+        "start_before_chip_s": 0.1,
+        "fade_out": "다음 부위 낱말 0.1초 전부터 0.3초"
+      },
+      "max_per_video": 2,
+      "example": "G350 헤드램프 4.13초 어두워짐 → 5.27초(LED 낱말)부터 다시 밝게 · 도어스텝 54.43초부터 컷 끝까지"
+    },
+    {
+      "id": "T06",
+      "name": "돋보기 원",
+      "en": "magnifier",
+      "trigger": "옵션 class=small_control 이고 부위 상자가 화면의 3% 미만이며 추적이 될 때 · 영상에 1번(먼저 나오는 컷)",
+      "params": {
+        "diameter_px": 320,
+        "zoom": 2.2,
+        "grow_s": 0.25,
+        "start_after_chip_s": 0.15,
+        "ring_px": 7,
+        "line_px": 5,
+        "pos": [
+          230,
+          288
+        ],
+        "color": "white"
+      },
+      "max_per_video": 1,
+      "example": "G350 34.14초 전동 시트 조절 버튼"
+    },
+    {
+      "id": "T07",
+      "name": "마력 흔들림 + 말 울음",
+      "en": "power_shake",
+      "trigger": "영상에서 가장 큰 마력 값 한 번(마력 단위일 때만 말 울음)",
+      "params": {
+        "dur_s": 0.35,
+        "amp_px": 14,
+        "decay": "linear",
+        "x": "sin(u*90)",
+        "y": "cos(u*70)",
+        "min_zoom": 1.04,
+        "at": "마력 낱말 끝 −0.05초",
+        "sfx": "neigh.wav",
+        "sfx_vol": 0.55
+      },
+      "max_per_video": 1,
+      "example": "G350 58.85초 211마력"
+    }
+  ],
+  "option_classes": {
+    "lighting": "헤드램프·주간등·앰비언트·도어스텝 조명·웰컴 라이트",
+    "small_control": "작은 버튼·스위치(시트 조절·메모리·디퍼렌셜 락·드라이브 모드·공조 버튼)",
+    "action_result": "누르면 결과가 보이는 기능(선루프·전동 트렁크·사이드미러 폴딩·문 열면 켜지는 조명)",
+    "group_list": "같은 그룹을 이어 말하는 기능(디퍼렌셜 락 앞·가운데·뒤, 주행 보조 묶음)",
+    "number": "숫자 제원(마력·토크·적재·견인·트렁크 용량)",
+    "spec_burst": "엔진·변속기·제로백 요약"
+  },
+  "options": [
+    {
+      "key": "headlight",
+      "ko": "헤드램프",
+      "words": [
+        "헤드램프",
+        "헤드라이트",
+        "제논",
+        "LED 헤드",
+        "매트릭스"
+      ],
+      "class": "lighting",
+      "part": "headlight"
+    },
+    {
+      "key": "drl",
+      "ko": "주간등",
+      "words": [
+        "LED 주간등",
+        "주간등",
+        "주간 주행등",
+        "DRL"
+      ],
+      "class": "lighting",
+      "part": "headlight"
+    },
+    {
+      "key": "ambient",
+      "ko": "앰비언트 라이트",
+      "words": [
+        "앰비언트",
+        "무드등"
+      ],
+      "class": "lighting",
+      "part": "console"
+    },
+    {
+      "key": "door_step_light",
+      "ko": "조명 도어 스텝",
+      "words": [
+        "도어 스텝",
+        "도어스텝",
+        "웰컴 라이트"
+      ],
+      "class": "lighting",
+      "part": "door step"
+    },
+    {
+      "key": "sunroof",
+      "ko": "전동 선루프",
+      "words": [
+        "선루프",
+        "썬루프",
+        "파노라마"
+      ],
+      "class": "action_result",
+      "part": "roof",
+      "action": "천장 버튼",
+      "result": "지붕 열림"
+    },
+    {
+      "key": "power_tailgate",
+      "ko": "전동 트렁크",
+      "words": [
+        "전동 트렁크",
+        "파워 트렁크",
+        "전동 테일게이트"
+      ],
+      "class": "action_result",
+      "part": "trunk",
+      "action": "트렁크 버튼",
+      "result": "테일게이트 열림"
+    },
+    {
+      "key": "mirror_fold",
+      "ko": "사이드미러 폴딩",
+      "words": [
+        "미러 폴딩",
+        "사이드미러"
+      ],
+      "class": "action_result",
+      "part": "mirror",
+      "action": "폴딩 버튼",
+      "result": "미러 접힘"
+    },
+    {
+      "key": "seat_adjust",
+      "ko": "전동 시트 조절",
+      "words": [
+        "시트 조절",
+        "전동 시트"
+      ],
+      "class": "small_control",
+      "part": "seat switch"
+    },
+    {
+      "key": "seat_memory",
+      "ko": "메모리 시트",
+      "words": [
+        "메모리"
+      ],
+      "class": "small_control",
+      "part": "seat switch"
+    },
+    {
+      "key": "diff_lock",
+      "ko": "디퍼렌셜 락",
+      "words": [
+        "디퍼렌셜",
+        "디프 락",
+        "락 버튼"
+      ],
+      "class": "group_list",
+      "part": "button panel",
+      "items": [
+        "앞",
+        "가운데",
+        "뒤"
+      ],
+      "item_suffix": " 잠금"
+    },
+    {
+      "key": "drive_mode",
+      "ko": "드라이브 모드",
+      "words": [
+        "드라이브 모드",
+        "주행 모드"
+      ],
+      "class": "small_control",
+      "part": "dial"
+    },
+    {
+      "key": "climate",
+      "ko": "공조 다이얼",
+      "words": [
+        "공조",
+        "에어컨",
+        "다이얼"
+      ],
+      "class": "small_control",
+      "part": "climate"
+    },
+    {
+      "key": "controller",
+      "ko": "커맨드 컨트롤러",
+      "words": [
+        "컨트롤러",
+        "다이얼 컨트롤",
+        "조그"
+      ],
+      "class": "small_control",
+      "part": "console"
+    },
+    {
+      "key": "tow_hitch",
+      "ko": "견인고리",
+      "words": [
+        "견인고리",
+        "견인 고리",
+        "토우바"
+      ],
+      "class": "number",
+      "part": "tow hitch"
+    },
+    {
+      "key": "trunk",
+      "ko": "트렁크 용량",
+      "words": [
+        "트렁크"
+      ],
+      "class": "number",
+      "part": "trunk"
+    },
+    {
+      "key": "engine",
+      "ko": "엔진 제원",
+      "words": [
+        "토크",
+        "변속",
+        "제로백",
+        "연비"
+      ],
+      "class": "spec_burst",
+      "part": null
+    },
+    {
+      "key": "power",
+      "ko": "마력",
+      "words": [
+        "마력"
+      ],
+      "class": "number",
+      "part": null
+    }
+  ],
+  "spec_words": [
+    "토크",
+    "단",
+    "제로백",
+    "연비",
+    "최고속도",
+    "배기량"
+  ],
+  "count_up_units": [
+    "마력",
+    "kg",
+    "L",
+    "cc",
+    "km",
+    "N·m"
+  ],
+  "count_up_exclude": [
+    "년식",
+    "년",
+    "R",
+    "/",
+    "."
+  ],
+  "small_part_frac": 0.03,
+  "qa": {
+    "_what": "렌더 기록(LOG=1)으로 프레임마다 재는 기준. 하나라도 나오면 고친 뒤 다시 렌더",
+    "graphic_overlap_max": 0.03,
+    "graphic_vs_caption_overlap": 0,
+    "safe_area": {
+      "x_margin": 24,
+      "y_top": 100,
+      "y_bottom_from_end": 260
+    },
+    "arrow_chip_gap_px": [
+      -4,
+      26
+    ],
+    "arrow_inside_chip_margin_px": 20,
+    "part_must_not_be_covered": true,
+    "arrow_min_px": 70,
+    "chip_side_flip_in_cut": false,
+    "loudness_lufs": [
+      -15,
+      -13
+    ]
+  },
+  "glow_contrast": 80
+}

@@ -88,7 +88,7 @@ EDIT_PRESETS = {
                      stk_shape='flat', tilt_k=0.0, big_numbers=True, big_hides_cap=False, cap_cut_gap=0.0,  # 2026-11-10 원본 눈 대조: NL은 말하는 동안 자막이 비는 순간이 없다(큰 숫자는 자막 위에 함께)
                      bgm='file', bgm_vol=0.12, sfx_music=False, sfx_pack=True, sfx_type='ding', sfx_hook=True, sfx_mode='orig', sfx_profile='nl', sfx_pitch=1.19, shot_target_s=2.5, cap_chunk_chars=11, feat_size=85, big_size=100, pad=(0.45, 1.6), big_pad=(0.45, 1.6), stk_minw=0, stk_weight='heavy', big_y=430, price_y=430, end_style='logo', end_tail_s=2.0, hook_minimal=True, no_progress=True, cap_heavy=True, cap_size=64, cap_track=-0.04, cap_stroke=8,
                      cut_early_s=1.0, shot_min_s=1.9, cut_on_phrase_every=3),  # 칩은 장면 시작 약 1.2초 뒤(2차 조사)
-    'bobae_be': dict(chip_theme=True, cap_style='be3', cap_kw_col=(247, 236, 56), stk_bg=(247, 236, 56), stk_fg=(0, 0, 0),  # 원본 100% 재현: 노랑 붓띠 #F7EC38 + 검정 글자(원본 6편 실측)
+    'bobae_be': dict(chip_theme=True, cap_style='be3', cap_kw_col=(245, 242, 0), stk_bg=(245, 242, 0), stk_fg=(0, 0, 0),  # 노랑 붓띠 #F5F200 + 검정 글자 (2026-11-19 AS24 7개국 웹 전수조사: 붓칠 #F5F200 / 평면 #FAEB00, 영상 실측 #F7EC38은 압축으로 바랜 값)
                      cap_cy=1283, chip_delay=0.05,  # 66.8% · 칩은 구절 시작 직후(200편)  # 그림자 흰 글자, 말하는 어절만 노랑, 바로 등장, 64%(100편 재조사)
                      stk_shape='as24', tilt_k=1.0, tilt_fixed=-5.7, big_numbers=False, big_hides_cap=False, numchip_hides_cap=True, cap_cut_gap=0.3,
                      bgm='file', bgm_vol=0.34, sfx_pack=True, sfx_type='ding', sfx_mode='orig', sfx_profile='be', sfx_pitch=0.96, shot_target_s=0, no_progress=True, hook_be=True, cap_chunk_chars=13, cap_chunk_words=4, end_style='logo', end_tail_s=2.0,
