@@ -153,11 +153,18 @@ def plate_check(video, chips):
     sys.path.insert(0, os.path.join(HERE, 'photo_listing'))
     import cv2, part_anchor as PA
     from PIL import Image
-    cap = cv2.VideoCapture(video); hit = []
+    # 2026-11-22 G350: 칩이 그려진 화면에서 찾으면 노랑 칩 자체를 번호판으로 잘못 봄(펜더 깜빡이 오탐) →
+    # 원본 순서 판(order=source)은 같은 시각의 원본 화면을 영상 크기로 맞춰서 찾는다.
+    P = json.load(open(video + '.plan.json', encoding='utf-8')) if os.path.exists(video + '.plan.json') else {}
+    srcp = os.path.join(os.path.dirname(os.path.abspath(video)), P.get('src') or '')
+    use_src = P.get('order') == 'source' and P.get('src') and os.path.exists(srcp)
+    W, H = P.get('frame') or [1080, 1920]
+    cap = cv2.VideoCapture(srcp if use_src else video); hit = []
     for c in chips:
         if not c.get('box') or 't_box' not in c: continue
         cap.set(cv2.CAP_PROP_POS_MSEC, c['t_box'] * 1000); okf, f = cap.read()
         if not okf: continue
+        if use_src: f = cv2.resize(f, (W, H))
         # 칩이 그려진 화면이 아니라 같은 순간의 원본에 가깝게 보려면 칩을 피한 판정이 필요 → 칩 상자 밖의 번호판만 셈하지 않고, 상자와 겹치는 번호판을 찾는다
         for sc, (x0, y0, x1, y1) in PA.detect(Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)), ['plate'], thr=0.2).get('plate', []):
             bx = c['box']

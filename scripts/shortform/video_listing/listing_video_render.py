@@ -152,20 +152,28 @@ def smooth(pts, k=21):
     a = np.array(pts); out = a.copy()
     for i in range(len(a)): out[i] = a[max(0, i - k // 2):i + k // 2 + 1].mean(0)
     return out
+class _Frames:
+    """컷 프레임을 앞에서부터 한 장씩 읽는다(2026-11-22 G350: 30초 컷을 통째로 메모리에 올리면 5.6GB → 렌더가 죽음).
+    렌더 루프는 프레임 번호가 줄지 않으므로 지금 장만 들고 있으면 된다."""
+    def __init__(self, s0, s1):
+        cap.set(cv2.CAP_PROP_POS_MSEC, s0 * 1000); self.n = int(round((s1 - s0) * 30)) + 2; self.i = -1; self.f = None
+    def __len__(self): return self.n
+    def __getitem__(self, i):
+        while self.i < i:
+            ok, f = cap.read()
+            if not ok: self.n = max(1, self.i + 1); break
+            self.i += 1; self.f = cv2.cvtColor(f, cv2.COLOR_BGR2RGB)
+        return self.f
 def frames(s0, s1):
-    cap.set(cv2.CAP_PROP_POS_MSEC, s0 * 1000); fr = []
-    for _ in range(int(round((s1 - s0) * 30)) + 2):
-        ok, f = cap.read()
-        if not ok: break
-        fr.append(cv2.cvtColor(f, cv2.COLOR_BGR2RGB))
-    return fr
+    return _Frames(s0, s1)
 _chips = {}
 def gchip(s, size=CHIP_PX):
     if (s, size) not in _chips: _chips[(s, size)] = chip(s, size)
     return _chips[(s, size)]
 place_chip_y_cap = H * 0.58
+SAFE_X = 40
 def place(Cimg, tx, ty, below):
-    bx0, by0, bx1, by1 = Cimg.getbbox(); x = int(max(24 - bx0, min(W - 24 - bx1, tx - (bx0 + bx1) / 2))); L = ALEN
+    bx0, by0, bx1, by1 = Cimg.getbbox(); x = int(max(SAFE_X - bx0, min(W - SAFE_X - bx1, tx - (bx0 + bx1) / 2))); L = ALEN   # 좌우 안전영역(edit_gate safe_area와 같은 40px)
     if below:
         y = ty + TG + L + CG - by0
         if y + by1 > place_chip_y_cap: L = max(AMIN, int(L - (y + by1 - place_chip_y_cap))); y = ty + TG + L + CG - by0
