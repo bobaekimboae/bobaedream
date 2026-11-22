@@ -24,6 +24,8 @@
   li button { all: unset; cursor: pointer; color: var(--accent); font-variant-numeric: tabular-nums; }
   li button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
   ul { margin: 0; padding-left: 18px; }
+  .dl { display: inline-block; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; }
+  .dl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
   .note { color: var(--sub); font-size: 13px; }
   @media (max-width: 720px) { main { grid-template-columns: minmax(0, 1fr); } .player { position: static; max-width: 360px; width: 100%; margin: 0 auto; } }
 </style>
@@ -48,6 +50,7 @@
         <li>효과음(네덜란드 오토스카우트24 빈도 + 나세르식 다양한 종류): 딩·쿵·휙·팝 + 「211마력」 말 울음 · 「제로백」 스톱워치</li>
         <li>배경음: 보배드림 자체 쇼룸 음악 · 효과음 출처는 <a href="../../shortform-kit/#소리">숏폼 편집 매뉴얼</a></li>
       </ul>
+      <p><a class="dl" href="g350-v11.mp4" download="bobae_g350_be_v11.mp4">영상 내려받기 (mp4 · 44MB)</a></p>
       <p class="note">편집 규칙과 버전 기록은 깃허브 shortform-kit 매뉴얼 v0.4.0을 따르며, 출고 검사(check_be.py)를 통과했습니다. 장면 시간을 누르면 그 장면으로 이동합니다.</p>
     </section>
   </div>
