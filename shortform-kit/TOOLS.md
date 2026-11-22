@@ -76,7 +76,8 @@
 | 번호 | 도구 | 구분 | 비고 |
 |---|---|---|---|
 | TL28 | FFmpeg 필터(줌 · 이동 · 페이드) | 🧪 | 2026-11-22 정정: 지금 사진판은 FFmpeg 필터가 아니라 파이썬(Pillow)이 프레임마다 그려 FFmpeg로 인코딩한다(41초 영상 116초). 켄번스 · 페이드를 FFmpeg 필터로 옮기면 빨라질 후보(README 12장 K4) |
-| TL29 | HyperFrames(헤이젠) | 🧪 | Apache-2.0. HTML · CSS · GSAP → mp4. 2026-11-22 시험(0.9.80): 칩 층 투명 WebM 65초/38.7초 영상, 품질 같음 → 사진판 렌더는 대체 안 함. 디자이너가 고치는 HTML 템플릿이 필요할 때만 |
+| TL29 | HyperFrames(헤이젠) | 🧪 | Apache-2.0. HTML · CSS · GSAP → mp4. 2026-11-22 시험(0.9.80): 칩 층 투명 WebM 65초, 전체 장면 477초(우리 91~99초의 약 5배, 낱말 자막·3D 아이콘·소리 없이) → 사진판 렌더는 대체 안 함(`scripts/shortform/experiments/hyperframes/`). 디자이너가 고치는 HTML 템플릿이 필요할 때만 |
+| TL67 | Blender(bpy 5.3, GPL) | 🧪 | 2026-11-22 시험 못 함: 휠(약 0.5GB+) 설치가 이 서버 디스크 한도를 넘음. 2코어 · GPU 없음이라 Cycles는 느리고 EEVEE는 GPU가 필요(예상). 쓸 곳은 영상마다 렌더가 아니라 3D 글자 · 아이콘 묶음을 미리 한 번 만들어 두는 자산 공장(예상). 사용자 PC 또는 새 세션에서 시험 |
 | TL30 | gl-transitions · ffmpeg-concat | 💡 | 전환 효과 모음. AS24는 바로 컷이라 쓸 일 적음 |
 | TL31 | Lottie 렌더(rlottie) | 🧪 | 움직이는 스티커 |
 | ⛔ | Remotion · Revideo | ⛔ | React 계열 · 라이선스/유지 상태 확인 안 됨 |
