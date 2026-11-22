@@ -1,7 +1,7 @@
 """계기판 사진에서 실제 주행거리 숫자 찾기 (2026-11-18 사용자 규칙).
 
 「주행거리 동그라미는 진짜 계기판 주행거리 숫자에 친다. 사진에 안 보이면 치지 않는다.」
-- 컷에 쓰는 사진마다 글자 인식(RapidOCR, Apache-2.0)으로 숫자를 읽는다.
+- 컷에 쓰는 사진마다 글자 인식(RapidOCR 3.x · PP-OCRv6, Apache-2.0)으로 숫자를 읽는다.
 - 매물 주행거리와 같은 숫자(쉼표·km 무시)를 찾는다. 「3만 2천」처럼 매물 값이 어림이면 ±2% 안.
 - 찾으면 {'photo': n, 'box': [u0, v0, u1, v1]}(사진 비율 좌표), 못 찾으면 None → 원을 그리지 않음.
 - 결과는 src2/pNN.odo.json 에 저장(다음 렌더는 다시 읽지 않음).
@@ -22,16 +22,17 @@ def km_value(txt):
 
 
 def _ocr(path):
-    from rapidocr_onnxruntime import RapidOCR
+    """RapidOCR 3.x(PP-OCRv6, Apache-2.0)로 글자 상자를 읽는다. 2026-11-22 rapidocr-onnxruntime 1.2.3(구판) → rapidocr 3.10."""
     global _O
     try:
         _O
     except NameError:
+        from rapidocr import RapidOCR
         _O = RapidOCR()
-    r, _ = _O(path)
+    r = _O(path)
     out = []
-    for b, t, s in (r or []):
-        out.append({'t': t, 's': float(s), 'b': [min(p[0] for p in b), min(p[1] for p in b), max(p[0] for p in b), max(p[1] for p in b)]})
+    for b, t, s in zip(r.boxes if r.boxes is not None else [], r.txts or [], r.scores or []):
+        out.append({'t': t, 's': float(s), 'b': [float(min(p[0] for p in b)), float(min(p[1] for p in b)), float(max(p[0] for p in b)), float(max(p[1] for p in b))]})
     return out
 
 

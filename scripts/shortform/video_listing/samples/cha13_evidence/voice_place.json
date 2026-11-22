@@ -1,0 +1,150 @@
+{
+ "ratio": 0.863,
+ "voice_s": 54.31,
+ "sentences": [
+  {
+   "key": "c1",
+   "want": 0.0,
+   "start": 0.74,
+   "end": 3.0,
+   "scene_end": 4.0,
+   "late_s": 1.48,
+   "over_s": 0
+  },
+  {
+   "key": "c2",
+   "want": 4.25,
+   "start": 4.25,
+   "end": 7.67,
+   "scene_end": 8.6,
+   "late_s": 0,
+   "over_s": 0
+  },
+  {
+   "key": "c3",
+   "want": 8.85,
+   "start": 8.85,
+   "end": 11.286,
+   "scene_end": 11.0,
+   "late_s": 0,
+   "over_s": 0.286
+  },
+  {
+   "key": "c4",
+   "want": 11.25,
+   "start": 11.436,
+   "end": 13.556,
+   "scene_end": 14.0,
+   "late_s": 0.211,
+   "over_s": 0
+  },
+  {
+   "key": "c5",
+   "want": 14.25,
+   "start": 14.25,
+   "end": 15.37,
+   "scene_end": 17.0,
+   "late_s": 0.005,
+   "over_s": 0
+  },
+  {
+   "key": "c6",
+   "want": 17.25,
+   "start": 17.25,
+   "end": 19.17,
+   "scene_end": 20.0,
+   "late_s": 0.1,
+   "over_s": 0
+  },
+  {
+   "key": "c7",
+   "want": 20.25,
+   "start": 20.25,
+   "end": 22.35,
+   "scene_end": 23.0,
+   "late_s": 0.115,
+   "over_s": 0
+  },
+  {
+   "key": "c8",
+   "want": 23.25,
+   "start": 23.25,
+   "end": 25.23,
+   "scene_end": 26.0,
+   "late_s": 0.06,
+   "over_s": 0
+  },
+  {
+   "key": "c9",
+   "want": 26.25,
+   "start": 26.25,
+   "end": 28.09,
+   "scene_end": 28.0,
+   "late_s": 0.13,
+   "over_s": 0.09
+  },
+  {
+   "key": "c9b",
+   "want": 28.25,
+   "start": 28.25,
+   "end": 29.97,
+   "scene_end": 30.0,
+   "late_s": 0.02,
+   "over_s": 0
+  },
+  {
+   "key": "c10",
+   "want": 30.25,
+   "start": 30.25,
+   "end": 31.49,
+   "scene_end": 33.0,
+   "late_s": 0.05,
+   "over_s": 0
+  },
+  {
+   "key": "c11",
+   "want": 33.25,
+   "start": 33.25,
+   "end": 37.77,
+   "scene_end": 38.0,
+   "late_s": 0.025,
+   "over_s": 0
+  },
+  {
+   "key": "c12",
+   "want": 38.25,
+   "start": 38.25,
+   "end": 40.59,
+   "scene_end": 41.0,
+   "late_s": 0,
+   "over_s": 0
+  },
+  {
+   "key": "c13",
+   "want": 41.25,
+   "start": 41.25,
+   "end": 43.07,
+   "scene_end": 44.0,
+   "late_s": 0.075,
+   "over_s": 0
+  },
+  {
+   "key": "c14",
+   "want": 44.25,
+   "start": 44.25,
+   "end": 46.73,
+   "scene_end": 49.0,
+   "late_s": 0.145,
+   "over_s": 0
+  },
+  {
+   "key": "c15",
+   "want": 49.25,
+   "start": 49.25,
+   "end": 54.01,
+   "scene_end": 53.5,
+   "late_s": 0.045,
+   "over_s": 0.51
+  }
+ ]
+}

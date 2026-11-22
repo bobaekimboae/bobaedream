@@ -1,0 +1,226 @@
+{
+ "edition": "feature_video",
+ "edition_code": "ED-SIMPLE",
+ "renderer": "listing_video_render.py",
+ "renderer_version": "1.0",
+ "order": "source",
+ "music": true,
+ "total": 55.71,
+ "cuts": [
+  4.0,
+  8.6,
+  11.0,
+  14.0,
+  17.0,
+  20.0,
+  23.0,
+  26.0,
+  28.0,
+  30.0,
+  33.0,
+  38.0,
+  41.0,
+  44.0,
+  49.0
+ ],
+ "techniques": [
+  "T04",
+  "bgm",
+  "big_number_3d",
+  "callout_arrow",
+  "callout_chip",
+  "caption_chunks",
+  "end_logo",
+  "loudness_rule",
+  "point_chip",
+  "seat_material_3d",
+  "sfx_rules",
+  "slow_push",
+  "title_brand_chip"
+ ],
+ "planner": {
+  "T04": 2
+ },
+ "sfx": [
+  {
+   "t": 0.06,
+   "kind": "title",
+   "sound": "ding"
+  },
+  {
+   "t": 8.61,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 13.92,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 16.92,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 28.773,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 33.17,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 35.517,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 38.682,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 48.92,
+   "kind": "part_change",
+   "sound": "whoosh"
+  }
+ ],
+ "chips": [
+  {
+   "key": "c1",
+   "label": "BMW",
+   "kind": "title",
+   "t0": 0.08,
+   "t1": 4.0,
+   "t_box": 0.3,
+   "px": 74,
+   "y": 300,
+   "box": [
+    65,
+    315,
+    304,
+    448
+   ]
+  },
+  {
+   "key": "c2",
+   "label": "20년09월 등록",
+   "kind": "point",
+   "t0": 5.73,
+   "t1": 8.6,
+   "t_box": 5.933,
+   "px": 70,
+   "y": 300,
+   "box": [
+    105,
+    332,
+    627,
+    480
+   ]
+  },
+  {
+   "key": "c4",
+   "label": "블루 캘리퍼",
+   "kind": "point",
+   "t0": 12.156,
+   "t1": 14.0,
+   "t_box": 12.367,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    331,
+    493,
+    467
+   ]
+  },
+  {
+   "key": "c9b",
+   "label": "M 스티어링 휠",
+   "kind": "callout",
+   "t0": 28.793,
+   "t1": 30.0,
+   "t_box": 29.0,
+   "px": 70,
+   "y": 718,
+   "box": [
+    313,
+    750,
+    828,
+    897
+   ]
+  },
+  {
+   "key": "c10",
+   "label": "자동 변속기",
+   "kind": "point",
+   "t0": 30.19,
+   "t1": 33.0,
+   "t_box": 30.4,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    331,
+    493,
+    467
+   ]
+  },
+  {
+   "key": "c11",
+   "label": "디지털 계기판",
+   "kind": "point",
+   "t0": 33.19,
+   "t1": 38.0,
+   "t_box": 33.4,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    332,
+    580,
+    479
+   ]
+  },
+  {
+   "key": "c13",
+   "label": "내비게이션",
+   "kind": "callout",
+   "t0": 41.91,
+   "t1": 44.0,
+   "t_box": 42.133,
+   "px": 70,
+   "y": 770,
+   "box": [
+    239,
+    800,
+    665,
+    937
+   ]
+  },
+  {
+   "key": "c14",
+   "label": "후방 카메라",
+   "kind": "callout",
+   "t0": 44.77,
+   "t1": 49.0,
+   "t_box": 45.0,
+   "px": 70,
+   "y": 584,
+   "box": [
+    294,
+    615,
+    722,
+    751
+   ]
+  }
+ ],
+ "caption": {
+  "center_y_px": 1283,
+  "font_px": 60,
+  "chunks": 27
+ }
+}
