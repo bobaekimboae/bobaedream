@@ -13,6 +13,8 @@
 | ED-SIMPLE 실촬영 · 벨기에 심플 | **G350 v13** `public/shortform-samples/g350-v13/g350-v13.mp4` (70초) | 771f02708 | `scripts/shortform/video_listing/g350_v8_render.py` + `g350_v5_lib.py` | `video_listing/samples/g350_input.json` · `g350_edit.json` |
 | ED-PHOTO 사진 매물 | 서울오토갤러리 콰트로포르테 v6 · E250 · NX 350h (무인) | 1910010be · 02aed754a | `scripts/shortform/photo_listing/common.py` · `sag_auto.py` | 차 폴더 `cfg.py` · `listing.json` |
 
+**재현**: `scripts/shortform/video_listing/g350_reproduce.sh` + 입력 `samples/g350_work/` — 2회차(2026-11-23)가 v13과 화소 차이 0, `public/shortform-samples/g350-r02/`.
+
 G350 이전 판(v09 · v10 · v11)은 `public/shortform-samples/g350-v09~v11/`에 있다. v12는 v13으로 교체됐다.
 
 ## 1. 스킬 목록 (claude.ai 스킬 = 저장소 `shortform-kit/skills/<이름>/SKILL.md`)

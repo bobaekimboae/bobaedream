@@ -6,6 +6,13 @@
 - 사전 `catalog/techniques.json`의 `version`은 맨 위 버전과 같아야 한다(`build.py`가 검사).
 - v0.0.1~v0.0.5는 예전 마스터 문서(`docs/shortform/shortform-master.md`)의 v1.0~v1.4를 2026-11-22에 옮긴 것이다.
 
+## v0.4.11 · 2026-11-23
+
+- **G350 30회 시험 2회차**: 기준 v13과 같은 코드(`g350_v8_render.py`)·같은 입력으로 다시 제작 → 0.5초마다 138장면 화소 차이 0, check_be 통과. 순수 제작 약 4분 10초, 검사 포함 약 7분 40초, 사람 개입 0. 배포 `public/shortform-samples/g350-r02/` — 사용자(「영상 다시 제작해서 깃허브로 배포하고 제작시간 기술스택 등 모두 입력해라 … 영상 엉망 만들지마」)
+- **재현 입력 커밋**: `samples/g350_work/`(낱말 시각 · 추적 · 기법 계획 · 계획 파일), 절차 `g350_reproduce.sh`, 음성은 일레븐랩스 생성 기록 ID로 되찾음(LESSONS L38)
+- 렌더러 계획 파일에 판 코드·렌더러·쓴 기법을 기록해 `edit_gate.py post`가 v8 영상을 읽게 함(그림 변화 없음). `g350_track.py`가 작업 폴더 설정을 읽게 함
+- 관문 결과 남은 문제(v13에도 있음): 견인고리 칩이 번호판 앞부분을 일부 덮음, 칩 3개 안전영역 좌우 40px 초과 — 고칠지 사용자 확인
+
 ## v0.4.10 · 2026-11-23
 
 - **earshot 연결**(MIT, 1.0.0, 작업 환경 별도 가상환경): `earshot rank`로 오픈소스 효과음 재점검 → no match 5개 삭제, 깜빡이(turn_signal_es1)·팝 대체(pop_es1) 2개를 earshot으로 렌더해 추가(29개). 점검 도구 `scripts/shortform/sfx_opensource/earshot_check.sh` — 사용자(「이어샷 연결해봐」)
