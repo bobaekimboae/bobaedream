@@ -22,7 +22,7 @@ C = [('c1', 0, 0.0, 2.0, '외관', [], [], [], 0.5, None),   # 정면 샷(원본
      ('grille', 7, None, None, '외관', [], [], [], 0.5, (8.0, 0.20, 0.53, 9, 'roma_l_grille', None)),
      ('lamp', 13, 10.0, 12.4, '외관', [('풀 LED 헤드램프', 15)], [], [], 0.5, None),
      ('wheel', 18, None, None, '외관', [('노란색 캘리퍼', 20)], [('20인치', 19, False)], [], 0.55, (16.6, 0.16, 0.62, 20, None, None)),
-     ('top', 22, None, None, '외관', [('5겹 패브릭 탑', 22)], [('13.5초', 26, False)], [('시속 60km까지 작동', 27, False)], 0.5, (169.3, 0.44, 0.45, 24, None, None)),
+     ('top', 22, None, None, '외관', [('패브릭 탑', 24)], [('13.5초', 26, False)], [('시속 60km까지 작동', 27, False)], 0.5, (169.3, 0.44, 0.45, 24, None, None)),
      ('exh', 28, None, None, '외관', [], [], [], 0.55, (127.5, 0.50, 0.589, 28, 'roma_l_exh', None)),
      ('trunk', 30, 119.6, 123.8, '트렁크', [('트렁크', 30)], [('255L', 31, False)], [], 0.6, None),
      ('sill', 32, None, None, '실내', [], [], [], 0.45, (35.0, 0.32, 0.43, 34, 'roma_l_sill', None)),
@@ -108,10 +108,15 @@ def tap_fx(cv, x, y, u):
 PINTXT = {'roma_l_grille': '타공 패널', 'roma_l_exh': '배기구 4개', 'roma_l_sill': '페라리 레터링', 'roma_l_defl': '윈드 디플렉터', 'roma_l_paddle': '카본 패들', 'roma_l_pdisp': '조수석 디스플레이'}
 GOLDC = (232, 184, 74)
 import partfx as PFX
+# 부위 낱말 칩 → 스카우트 화살표 이름표(check_be 칩 매핑 규칙): 키 → {칩 글자: 화면 비율 좌표(칩 뜰 때)}
+PARTPIN = {'lamp': {'풀 LED 헤드램프': (0.47, 0.41)}, 'steer': {'마네티노': (0.35, 0.38)}}
+# 화살표 대신 다른 방식으로 부위를 보여 주는 칩(사유를 plan.json에 남김)
+NOTRACK = {'트렁크': '부위가 화면 가득(트렁크 공간 전체)', '듀얼 콕핏': '부위가 화면 가득(운전석·조수석 전체)',
+           '노란색 캘리퍼': '손가락 터치 + 부위 색·외곽선 효과(PFX)로 캘리퍼를 직접 표시'}
 def pin_fx(cv, x, y, u, name):
     # 스카우트식: 부위 바로 위에 짧은 노랑 화살표(끝이 부위를 가리킴) + 그 위 붓칠 칩. 흰 선 없음
     if u < 0: return cv
-    L = gchip(PINTXT[name]); bb_ = L.getbbox(); cw = bb_[2] - bb_[0]
+    L = gchip(PINTXT.get(name, name)); bb_ = L.getbbox(); cw = bb_[2] - bb_[0]
     AL = 110; below = False
     if y - 8 - AL - 6 - (bb_[3] - bb_[1]) < 330: AL = 70
     if y - 8 - AL - 6 - (bb_[3] - bb_[1]) < 150: below = True
@@ -123,7 +128,9 @@ def pin_fx(cv, x, y, u, name):
     ax = x - A_.width / 2; cx = min(W - 40 - bb_[2], max(40 - bb_[0], x - (bb_[0] + bb_[2]) / 2))
     pop(cv, A_, (int(ax), int(ay)), u, 0.0, 0.16)
     pop(cv, L, (int(cx), int(cy)), u, 0.1, 0.2)
+    PINBOX[name] = [int(cx) + bb_[0], int(cy) + bb_[1], int(cx) + bb_[2], int(cy) + bb_[3]]
     return cv
+PINBOX = {}
 def part_glow(cv, x, y, u, R=300):
     if u < 0 or u > 0.9: return cv
     a = np.array(cv.convert('RGB')); g = cv2.cvtColor(a, cv2.COLOR_RGB2GRAY); m = cv2.Canny(cv2.GaussianBlur(g, (5, 5), 0), 50, 140)
@@ -321,6 +328,12 @@ for t0, t1, c in SEG:
         if '마력' in b: EVS.append((ST(w) - 0.05, 'horse_neigh_el', 0.5))
         elif '초' in b and key == 'zb': EVS.append((ST(80), 'stopwatch', 0.6))
         elif key not in ('zb', 'odo'): EVS.append((ST(w) - 0.24, 'ding', 0.7))
+    ppins = [(s_, w_, PARTPIN[key][s_]) for s_, w_ in chips if s_ in PARTPIN.get(key, {})]
+    chips = [(s_, w_) for s_, w_ in chips if s_ not in PARTPIN.get(key, {})]
+    PP = []
+    for s_, w_, (fx_, fy_) in ppins:
+        tp_ = ST(w_) - t0 + 0.05; fi_ = min(len(fr) - 1, int(round((min(s1, s0 + tp_ * rate) - s0) * 30)))
+        PP.append((s_, tp_, fi_, track(fr, fi_, fx_ * W, fy_ * H)))
     ctimes = [ST(w) - t0 + 0.05 for _, w in chips]; btimes = [ST(w) - t0 - 0.22 for _, w, _ in bigs]
     chip_seen = set(); big_seen = set()
     while nfr < round(t1 * FPS):
@@ -374,7 +387,7 @@ for t0, t1, c in SEG:
             Ci = gchip(cur[0]); bb = Ci.getbbox(); x = (W - (bb[2] - bb[0])) // 2 - bb[0]
             pop(cv, Ci, (x, YB), t, cur[1]); yk = YB + bb[3] + 14
             if t >= cur[1] + 0.2 and cur[0] not in chip_seen:
-                chip_seen.add(cur[0]); CHIPS_LOG.append({'key': key, 'label': cur[0], 'kind': 'point', 't0': round(t0 + cur[1], 3), 't1': round(t1, 3), 't_box': round(nfr / FPS, 3), 'px': R['chip']['font_px'], 'y': YB, 'box': [x + bb[0], YB + bb[1], x + bb[2], YB + bb[3]]})
+                chip_seen.add(cur[0]); CHIPS_LOG.append({**({'no_track_reason': NOTRACK[cur[0]]} if cur[0] in NOTRACK else {}), 'key': key, 'label': cur[0], 'kind': 'point', 't0': round(t0 + cur[1], 3), 't1': round(t1, 3), 't_box': round(nfr / FPS, 3), 'px': R['chip']['font_px'], 'y': YB, 'box': [x + bb[0], YB + bb[1], x + bb[2], YB + bb[3]]})
         y3 = max(int(H * 0.12), yk + 10); hide = False
         for k2, ((b, w, sh), tb) in enumerate(zip(bigs, btimes)):
             if t >= tb:
@@ -386,18 +399,29 @@ for t0, t1, c in SEG:
         for s, w, ck in pills:
             P = gpill(s, ck); tp = ST(w) - t0 - 0.06
             if t >= tp: pop(cv, P, ((W - P.width) // 2, yp), t, tp); yp += P.getbbox()[3] - P.getbbox()[1] + 12
+        for s_, tp_, fi_, pp_ in PP:
+            if t >= tp_:
+                qx, qy = pp_.get(fi, pp_[max(pp_)]); X_, Y_ = (qx - ccx) * z + W / 2, (qy - ccy) * z + H / 2
+                PIN.append((X_, Y_, t - tp_, s_))
         for (px_, py_, u_, nm_) in PIN: cv = pin_fx(cv, px_, py_, u_, nm_)
+        for s_, tp_, fi_, pp_ in PP:
+            if t - tp_ >= 0.4 and (key, s_) not in chip_seen and s_ in PINBOX:
+                chip_seen.add((key, s_)); CHIPS_LOG.append({'key': key, 'label': s_, 'kind': 'callout', 't0': round(t0 + tp_, 3), 't1': round(t1, 3), 't_box': round(nfr / FPS, 3), 'box': PINBOX[s_], 'px': R['chip']['font_px']})
         if not hide: draw_sub(cv, nfr / FPS)
         put(cv); last = clean
     _prev = zone
     del fr
 DC = chip('강성경 딜러', R['chip']['title_font_px']); DS = white('오토갤러리 레이브', 72); DQ = white('문의 환영합니다', 54)
+import dealer_card as _DCD   # 임모스카우트식 딜러 프사 카드(둥근 얼굴 + 노랑 붓 띠)
+DCARD = _DCD.DealerCard(REPO + '/public/assets/dealer-profile/seoul-auto-gallery-formal-ai/450551-1.webp', R['color']['yellow'])
+FCX, FCY = W // 2, 600
 base = last
 while nfr < round(TOTAL * FPS):
     t = nfr / FPS - ENDT; cv = Image.alpha_composite(base, Image.new('RGBA', (W, H), (0, 0, 0, int(170 * min(1, t / 0.3)))))
-    db = DC.getbbox(); y0 = 700
-    pop(cv, DC, ((W - (db[2] - db[0])) // 2 - db[0], y0), t, 0.1)
-    pop(cv, DS, ((W - DS.width) // 2, y0 + db[3] + 10), t, 0.3); pop(cv, DQ, ((W - DQ.width) // 2, y0 + db[3] + 10 + DS.height + 6), t, 0.5)
+    DCARD.draw(cv, FCX, FCY, t)
+    db = DC.getbbox(); y0 = DCARD.box(FCX, FCY)[3] + 24 - db[1]
+    pop(cv, DC, ((W - (db[2] - db[0])) // 2 - db[0], y0), t, 0.42)
+    pop(cv, DS, ((W - DS.width) // 2, y0 + db[3] + 10), t, 0.58); pop(cv, DQ, ((W - DQ.width) // 2, y0 + db[3] + 10 + DS.height + 6), t, 0.72)
     if nfr / FPS < VOICE: draw_sub(cv, nfr / FPS)
     put(cv)
 proc.stdin.close(); proc.wait()
@@ -428,8 +452,9 @@ _j = json.loads(_m[_m.rindex('{'):_m.rindex('}') + 1])
 LN2 = LN + f":measured_I={_j['input_i']}:measured_TP={_j['input_tp']}:measured_LRA={_j['input_lra']}:measured_thresh={_j['input_thresh']}:offset={_j['target_offset']}:linear=true"
 fl.append(''.join(mx) + f"amix=inputs={len(mx)}:normalize=0:duration=longest,{LN2},aresample=48000[a]")
 subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *inp, '-filter_complex', ';'.join(fl), '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-t', str(TOTAL), OUT], check=True)
-TECH = {'bgm', 'caption_chunks', 'end_logo', 'loudness_rule', 'slow_push', 'title_brand_chip', 'big_number_3d', 'point_chip', 'sfx_rules', 'T02', 'T04', 'T07', 'T08', 'intro_flash_montage', 'touch_laser_3d'}
-json.dump({'bigs': BIGS_LOG, 'edition': 'feature_video', 'edition_code': 'ED-SIMPLE', 'renderer': 'roma_render2.py (g350_v5_lib)', 'order': 'picked', 'voice': 'voice_intro.wav', 'voice_offset_s': INTRO,
+TECH = {'bgm', 'caption_chunks', 'end_logo', 'loudness_rule', 'slow_push', 'title_brand_chip', 'dealer_profile_card', 'callout_chip', 'callout_arrow', 'big_number_3d', 'point_chip', 'sfx_rules', 'T02', 'T04', 'T07', 'T08', 'intro_flash_montage', 'touch_laser_3d'}
+json.dump([[w[0], round(w[1], 3), round(w[2], 3)] for w in WS], open(G + 'voice_intro_words.json', 'w'), ensure_ascii=False)   # 화면 시간축(인트로 뒤) 낱말 시각
+json.dump({'words': G + 'voice_intro_words.json', 'bigs': BIGS_LOG, 'edition': 'feature_video', 'edition_code': 'ED-SIMPLE', 'renderer': 'roma_render2.py (g350_v5_lib)', 'order': 'picked', 'voice': 'voice_intro.wav', 'voice_offset_s': INTRO,
            'frame': [W, H], 'techniques': sorted(TECH), 'music': True, 'total': round(TOTAL, 3), 'cuts': [round(a, 3) for a in [INTRO] + CUTS],
            'sfx': [{'t': a[0], 'kind': a[1], 'sound': a[1]} for a in acc], 'chips': CHIPS_LOG, 'touch': TOUCH_T,
            'caption': {'center_y_px': CAPY, 'font_px': R['caption']['font_px'], 'chunks': len(CH)}}, open(OUT + '.plan.json', 'w'), ensure_ascii=False, indent=1)
