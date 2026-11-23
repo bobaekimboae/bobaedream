@@ -4,9 +4,9 @@
 // 기관 키는 서버에만 둔다. 차량번호·차대번호는 화면·GitHub에 남기지 않는다(원장 내부 전용 칸만, 가린 값).
 import MAP from "./vehicle-ledger-map.json";
 
-export type Source = "매물 DB" | "딜러 입력" | "국토부" | "카히스토리" | "계산";
+export type Source = "매물 DB" | "딜러 입력" | "국토부" | "카히스토리" | "다른 사이트" | "계산";
 export type Verify = "확인됨" | "미확인" | "서로 다름";
-export type Cell = { value: string | number | null; source: Source | null; verify: Verify; other?: string | number };
+export type Cell = { value: string | number | null; source: Source | null; verify: Verify; other?: string | number; site?: string };
 export type Ledger = { listing_id: string; checked_at: string; cells: Record<string, Cell> };
 
 /** 시험 서버 응답 모양(public/vehicle-history 계약). 모르는 칸은 그대로 무시한다 */

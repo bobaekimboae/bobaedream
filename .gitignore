@@ -15,3 +15,5 @@ tmp/
 # 작업 에이전트 작업 사본
 .claude/worktrees/
 __pycache__/
+data/import-out/
+data/import-zip/
