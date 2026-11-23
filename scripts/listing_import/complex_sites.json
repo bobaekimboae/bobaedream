@@ -202,7 +202,7 @@
    "region_short": "전남",
    "builder": "전국자동차매매사업조합연합회",
    "family": "carku",
-   "status": "가동 · 같은 전산 · 시험 중 접속 끊김(재시도 대상)",
+   "status": "가동(실매물 확인)",
    "home": "https://jncar.org/"
   },
   {
@@ -312,7 +312,7 @@
    "region_short": "경남",
    "builder": "전국자동차매매사업조합연합회",
    "family": "carku",
-   "status": "가동 · 같은 전산 · 시험 중 접속 끊김(재시도 대상)",
+   "status": "가동 · 같은 전산 · 접속 끊김 반복(재시도 대상)",
    "home": "https://www.kucar.kr/"
   },
   {
