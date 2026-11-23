@@ -23,6 +23,7 @@ for c in car['cuts']:
         c['arrow']=False; rep.append((k,c['chip'],'화살표 끔(부위를 또렷이 못 찾음)',round(cov,2),round(ms,2))); continue
     c['src']=[round(w0,2),round(w0+dur,2)]
     good=[r for r in rr if ok(r)]; pts=[(r[0],(r[2]+r[4])/2,(r[3]+r[5])/2,(r[5]-r[3])/2) for r in good]
+    mw=statistics.median(r[4]-r[2] for r in good); gt=[r[0] for r in good if not ((r[2]<=0.01 or r[4]>=0.99) and (r[4]-r[2])<0.6*mw)]   # 화면 끝에 걸려 잘린 상자는 '나가는 중'
     mx=statistics.median(p[1] for p in pts); my=statistics.median(p[2] for p in pts)
     keep=[p for p in pts if abs(p[1]-mx)<0.3 and abs(p[2]-my)<0.3] or pts   # 한두 장 튀는 검출 버림
     n=int(round(dur*30))+1; out=[]; hy=[]
@@ -33,7 +34,7 @@ for c in car['cuts']:
         for p,q in zip(keep,keep[1:]):
             if p[0]<=t<=q[0]:
                 u=(t-p[0])/max(1e-6,q[0]-p[0]); out.append([p[1]+(q[1]-p[1])*u,p[2]+(q[2]-p[2])*u]); hy.append(p[3]+(q[3]-p[3])*u); break
-    tracks[k]={'s0':c['src'][0],'s1':c['src'][1],'pts':out,'hy':hy}; c['track']=[round(keep[0][0],2),round(keep[0][1],3),round(keep[0][2],3)]
+    tracks[k]={'s0':c['src'][0],'s1':c['src'][1],'pts':out,'hy':hy,'vis':[1.0 if gt and (any(p<=w0+i/30<=q and q-p<=0.5 for p,q in zip(gt,gt[1:])) or min(abs(w0+i/30-t) for t in gt)<=0.3) else 0.0 for i in range(n)]}   # 부위가 화면 안에 또렷이 있을 때만 화살표; c['track']=[round(keep[0][0],2),round(keep[0][1],3),round(keep[0][2],3)]
     rep.append((k,c['chip'],c['src'],'표본 %d/%d'%(len(keep),len(rr)),round(ms,2)))
 json.dump(car,open(sys.argv[3],'w',encoding='utf-8'),ensure_ascii=False,indent=1); json.dump(tracks,open(sys.argv[4],'w'))
 for r in rep: print(*r)

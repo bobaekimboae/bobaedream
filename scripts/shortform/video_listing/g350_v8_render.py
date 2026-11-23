@@ -317,6 +317,7 @@ for t0,t1,c in SEG:
     fr=frames(s0,s1)
     frA=frames(*T01['action_src']) if T01 else None
     pts=smooth(TR[key]['pts'],k=int((CAR or {}).get('track_smooth',21))) if key in TR and key!='c5' else None   # v7: 0.7초 평활로 칩 흔들림 줄임 · 2분할 컷은 추적 안 씀
+    VIS=(smooth([[v,v] for v in TR[key]['vis']],k=7)[:,0] if key in TR and TR[key].get('vis') else None)   # 부위가 화면 밖으로 나가면 화살표를 서서히 지움
     HY=(smooth([[v,v] for v in TR[key]['hy']],k=int((CAR or {}).get('track_smooth',21)))[:,0] if key in TR and TR[key].get('hy') else None)   # 부위 상자 반높이(화살표가 가장자리를 짚게)
     CHIPLAB[key]=clab; Cimg=gchip(clab) if clab else None; Simg=white(sub[0],58) if sub else None
     BIG=[(text3d(b,h=180 if key!='c15' else 210),white(l,58) if l else None,WS[j][1]-t0-0.22) for b,l,j in bigs]; BIGS=[b for b,l,j in bigs]
@@ -395,7 +396,7 @@ for t0,t1,c in SEG:
                 if str(DECO.get('arrow','')).startswith('hand'):   # 노션 손그림 화살표: 길이 고정 · 부위 윗(아랫)가장자리를 짚음 · 칩 쪽으로 기울임
                     La=int(DECO.get('arrow_len',180)); Lc=max(20,round(La*(0.6+0.4*g)))
                     A,off=arrimg_hand(La,bl); A=A.resize((max(4,round(A.width*Lc/La)),round(A.height*Lc/La))) if Lc!=La else A
-                    hh=HY[pi]*H if HY is not None else 0; edge=min(float(DECO.get('arrow_edge_max',60)),0.5*hh)   # 상자 가운데에서 가장자리 쪽으로
+                    hh=HY[pi]*H if HY is not None else 0; edge=0.8*hh if hh<=float(DECO.get('arrow_edge_small',240)) else 0.0   # 작은 부위는 상자 가장자리 바깥에서 짚고, 큰 부위(휠 등)는 가운데 가까이   # 상자 가운데에서 가장자리 쪽으로
                     _cb=Cimg.getbbox(); ang=max(-26.0,min(26.0,((cx+(_cb[0]+_cb[2])/2)-tx)/W*70))*(-1 if not bl else 1)
                     tipx,tipy=tx,(ty+edge+TG*0.4+bob) if bl else (ty-edge-TG*0.4-bob)
                     pad=A.height; Bx=Image.new('RGBA',(A.width+2*pad,A.height*2+2*pad),(0,0,0,0))   # 끝점을 가운데 두고 돌림
@@ -403,6 +404,7 @@ for t0,t1,c in SEG:
                     if bl: Bx.alpha_composite(A,(pad,pad+A.height-round(off*Lc/La)))      # 끝이 위: 끝점 아래로 몸통
                     else: Bx.alpha_composite(A,(pad,pad+round(off*Lc/La)))                 # 끝이 아래: 끝점 위로 몸통
                     Bx=Bx.rotate(ang,resample=Image.BICUBIC,center=tip_local)
+                    if VIS is not None and VIS[pi]<0.98: Bx.putalpha(Bx.getchannel('A').point(lambda v,_k=float(VIS[pi]): int(v*_k)))
                     if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,La,Lc,bob,cx,cy,Cimg.getbbox()])
                     cv.alpha_composite(Bx,(int(tipx-tip_local[0]),int(tipy-tip_local[1])))
                 else:
