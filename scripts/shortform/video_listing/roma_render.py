@@ -27,6 +27,16 @@ idx=lambda key,after=0: next(j for j,(w,s,e) in enumerate(WS) if j>=after and w.
 TR=json.load(open(G+'tracks.json'))
 _PLAN=json.load(open(os.environ.get('PLAN',G+'plan_auto.json')))   # v8: 자동 계획
 PL={c['key']:{} for c in _PLAN['cuts']}
+_EXTRA=os.environ.get('PLAN_EXTRA')   # r08: 자동 계획에 기법을 더함(낱말 번호 → 받아쓰기 시각)
+if _EXTRA:
+    _TPX={t['id']:t['params'] for t in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'feature_edit_rules.json')))['techniques']}
+    _cs={c['key']:c for c in _PLAN['cuts']}
+    for x in json.load(open(_EXTRA))['add']:
+        c=_cs[x['key']]; e={'id':x['id'],'extra':True}
+        if x['id']=='T05': e['at']=c['t0']+0.06-_TPX['T05']['start_before_chip_s']+0.1; e['fade_out_at']=WS[x['fade_out_word']][1]-0.1
+        if x['id']=='T03': e['steps']=[{'word':j,'at':WS[j][1]-_TPX['T03']['before_word_s']} for j in x['step_words']]
+        if x['id']=='T08': e['word']=x['word']; e['at']=WS[x['word']][1]-_TPX['T08']['lead_s']
+        c['techniques'].append(e)
 for c in _PLAN['cuts']:
     for e in c['techniques']: PL[c['key']].setdefault(e['id'],[]).append(e)
 COUNT={e['value'] for c in _PLAN['cuts'] for e in c['techniques'] if e['id']=='T04'}
