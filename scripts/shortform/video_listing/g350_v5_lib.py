@@ -153,9 +153,29 @@ def arrimg(L, below):
     """노랑 화살표(검은 테두리). below=True면 끝이 위(칩이 부위 아래), False면 끝이 아래. (그림, 위 여백)."""
     k = (L, below)
     if k in _ac: return _ac[k]
+    if os.environ.get('BBM_ARROW', 'hand') == 'hand':   # 2026-11-24 「손글씨 화살표로 밸런스 맞게 교체」: 노션 원본 SVG(경로 무수정, 색만 노랑) + 검정 테두리
+        p = 10; hand = _hand_arrow(); hw = round(L * hand.width / hand.height)   # 원본 비율 그대로(늘이지 않음), 길이 = L
+        a = hand.resize((hw, L), Image.LANCZOS)
+        if not below: a = a.transpose(Image.FLIP_TOP_BOTTOM)
+        al = a.getchannel('A'); ol = al.filter(ImageFilter.MaxFilter(7))   # 테두리 약 3px(기존 4px 선과 같은 굵기감)
+        im = Image.new('RGBA', (hw + 2 * p, L + 2 * p)); ink = Image.new('RGBA', a.size, INK + (255,)); ink.putalpha(ol)
+        im.alpha_composite(ink, (p, p)); im.alpha_composite(a, (p, p))
+        _ac[k] = (im, p); return _ac[k]
     p = 10; w = 72; im = Image.new('RGBA', (w + 2 * p, L + 2 * p)); d = ImageDraw.Draw(im)
     hd = 44; sw = 20; cx = p + w // 2
     if below: poly = [(cx, p), (cx + w // 2, p + hd), (cx + sw // 2, p + hd), (cx + sw // 2, p + L), (cx - sw // 2, p + L), (cx - sw // 2, p + hd), (cx - w // 2, p + hd)]
     else: poly = [(cx, p + L), (cx + w // 2, p + L - hd), (cx + sw // 2, p + L - hd), (cx + sw // 2, p), (cx - sw // 2, p), (cx - sw // 2, p + L - hd), (cx - w // 2, p + L - hd)]
     d.polygon(poly, fill=YEL + (255,), outline=INK + (255,), width=4)
     _ac[k] = (im, p); return _ac[k]
+
+
+_HAND = []
+def _hand_arrow():
+    """노션 「손글씨 굵은 화살표 오른쪽_551_332」(오토스카우트24 smyle 원본) → 노랑, 끝이 위를 보게 세운 그림."""
+    if not _HAND:
+        svg = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'public', 'assets', 'shortform', 'arrow', 'arrow_right_why_smyle_551_332.svg')
+        png = subprocess.run(['rsvg-convert', '-w', '1102', svg], capture_output=True, check=True).stdout
+        im = Image.open(BytesIO(png)).convert('RGBA'); im = im.crop(im.getchannel('A').getbbox())
+        y = Image.new('RGBA', im.size, YEL + (255,)); y.putalpha(im.getchannel('A'))
+        _HAND.append(y.rotate(90, expand=True, resample=Image.BICUBIC))   # 오른쪽 → 위
+    return _HAND[0]
