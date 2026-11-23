@@ -143,3 +143,8 @@
 - 24번: 자막에서 숫자가 든 낱말은 늘 노랑(`caption_hl.number_yellow`). 말하는 낱말 강조는 그대로.
 - 검사: `check_be.py` 통과 · `edit_gate.py post --plates` 통과. 화면 `v8_sample_sheet.jpg`. 듣기 검수 안 함.
 - 27 · 18 · 17+38 · 칩 23번은 아직 만들지 않음.
+
+## v9 — 배기량 옆 강조 선 제거 (2026-11-24)
+
+- 결과 `bobae_cha10_gle450_be_v9.mp4`(64.0초). v8 샘플(체크 목록 · 자막 숫자 노랑)에서 배기량 큰 숫자 양옆 강조 선만 뺐다. 가격 숫자 옆 강조 선은 그대로.
+- 검사: `check_be.py` 통과 · `edit_gate.py post --plates` 통과. 듣기 검수 안 함.
