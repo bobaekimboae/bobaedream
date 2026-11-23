@@ -268,7 +268,7 @@ for t0,t1,c in SEG:
                 cx,cy,L=M-10,YB,0; _b=Cimg.getbbox(); _ax=min(max(tx,cx+_b[0]+90),cx+_b[2]-90); _ay=cy+_b[3]-34; _d=math.hypot(tx-_ax,ty-_ay)
                 if _d>260 and t>=tc+0.12:
                     _g=0.4+0.6*ease((t-tc-0.12)/0.22); _bob=6*math.sin(t*6); _ex,_ey=tx-(tx-_ax)/_d*100,ty-(ty-_ay)/_d*100+_bob
-                    _w=max(60,int(min(400,math.hypot(_ex-_ax,_ey-_ay))*_g/6)*6)   # 400px까지만 키움(멀면 굵어져 부위를 덮음); _an=math.atan2(_ey-_ay,_ex-_ax); _A=_doodle('hand_arrow_469_264.svg',_w,-round(math.degrees(_an)))
+                    _w=max(60,int(min(400,math.hypot(_ex-_ax,_ey-_ay))*_g/6)*6); _an=math.atan2(_ey-_ay,_ex-_ax); _A=_doodle('hand_arrow_469_264.svg',_w,-round(math.degrees(_an)))
                     cv.alpha_composite(_A,(int(_ax+math.cos(_an)*_w/2-_A.width/2),int(_ay+math.sin(_an)*_w/2-_A.height/2)))
             elif av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
                 av=None
