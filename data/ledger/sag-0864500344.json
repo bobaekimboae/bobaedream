@@ -1,0 +1,32 @@
+{
+ "listing_id": "sag-0864500344",
+ "checked_at": "2026-10-15T00:00:00+09:00",
+ "note": "서울오토갤러리 김태규 딜러 매물(레인지로버). 출처 = 서울오토갤러리 공개 매물 페이지 글자(2026-10-15 수집 시트). 국토부 대조 전이라 모두 '미확인'. 차량번호는 원장 시트 내부 칸에만 둔다.",
+ "cells": {
+  "category": {"value": "승용", "source": "매물 DB", "verify": "미확인"},
+  "listing_url": {"value": "https://www.seoulautogallery.com/car/car_detail.html?DemoNo=0864500344", "source": "매물 DB", "verify": "미확인"},
+  "make": {"value": "랜드로버", "source": "매물 DB", "verify": "미확인"},
+  "model": {"value": "레인지로버", "source": "매물 DB", "verify": "미확인"},
+  "generation": {"value": "4세대", "source": "매물 DB", "verify": "미확인"},
+  "trim": {"value": "5.0 V8 SC LWB SV AB", "source": "매물 DB", "verify": "미확인"},
+  "year": {"value": 2019, "source": "매물 DB", "verify": "미확인"},
+  "first_reg": {"value": null, "source": null, "verify": "미확인"},
+  "mileage_km": {"value": 52000, "source": "매물 DB", "verify": "미확인"},
+  "fuel": {"value": "가솔린", "source": "매물 DB", "verify": "미확인"},
+  "transmission": {"value": "자동", "source": "매물 DB", "verify": "미확인"},
+  "body_type": {"value": "SUV", "source": "매물 DB", "verify": "미확인"},
+  "ext_color": {"value": "미색", "source": "매물 DB", "verify": "미확인"},
+  "displacement_cc": {"value": 5000, "source": "매물 DB", "verify": "미확인"},
+  "price_display": {"value": "가격 상담", "source": "매물 DB", "verify": "미확인"},
+  "status": {"value": "판매중", "source": "매물 DB", "verify": "미확인"},
+  "seller_type": {"value": "딜러", "source": "매물 DB", "verify": "미확인"},
+  "shop_name": {"value": "투제이모터웍스", "source": "매물 DB", "verify": "미확인"},
+  "dealer_name": {"value": "김태규 딜러", "source": "매물 DB", "verify": "미확인"},
+  "complex": {"value": "서울오토갤러리", "source": "매물 DB", "verify": "미확인"},
+  "region": {"value": "서울 서초구", "source": "매물 DB", "verify": "미확인"},
+  "photos": {"value": 17, "source": "매물 DB", "verify": "미확인"},
+  "photo_source": {"value": "딜러 촬영", "source": "매물 DB", "verify": "미확인"},
+  "insurance": {"value": null, "source": null, "verify": "미확인"},
+  "lien": {"value": null, "source": null, "verify": "미확인"}
+ }
+}

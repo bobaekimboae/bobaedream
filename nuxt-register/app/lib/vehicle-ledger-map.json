@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "note": "국토부·카히스토리 통합 응답(staging /v1/test/vehicle-history) → 매물 원장 키(시트 20_매물원장_필드). TS(vehicle-lookup.ts)와 Python(scripts/vehicle_lookup/normalize.py)이 이 파일 하나를 읽는다.",
+  "api_to_ledger": [
+    { "api": "vehicle.manufacturer", "key": "make", "col": "B01", "source": "국토부" },
+    { "api": "vehicle.model", "key": "model", "col": "B02", "source": "국토부" },
+    { "api": "vehicle.trimName", "key": "trim", "col": "B05", "source": "국토부", "fallback": "vehicle.trim" },
+    { "api": "vehicle.modelYear", "key": "year", "col": "B06", "source": "국토부", "fallback": "vehicle.year", "type": "int" },
+    { "api": "vehicle.firstRegistration", "key": "first_reg", "col": "B07", "source": "국토부", "type": "yyyymm" },
+    { "api": "vehicle.mileage", "key": "mileage_km", "col": "B08", "source": "국토부", "type": "int" },
+    { "api": "vehicle.fuel", "key": "fuel", "col": "B09", "source": "국토부", "type": "fuel" },
+    { "api": "vehicle.transmission", "key": "transmission", "col": "B10", "source": "국토부", "type": "gear" },
+    { "api": "vehicle.color", "key": "ext_color", "col": "B13", "source": "국토부" },
+    { "api": "vehicle.displacement", "key": "displacement_cc", "col": "D01", "source": "국토부", "type": "int" },
+    { "api": "registration.ownerChangeCount", "key": "insurance.owner_changes", "col": "F03", "source": "카히스토리", "type": "int" },
+    { "api": "insurance.accidentCount", "key": "insurance.own_damage_count", "col": "F03", "source": "카히스토리", "type": "int" },
+    { "api": "insurance.ownDamageTotal", "key": "insurance.own_damage_krw", "col": "F03", "source": "카히스토리", "type": "int" },
+    { "api": "registration.usage", "key": "usage_history", "col": "F04", "source": "카히스토리" },
+    { "api": "registration.lien", "key": "lien", "col": "F05", "source": "국토부" }
+  ],
+  "internal_only": [
+    { "api": "vehicle.plateMasked", "key": "plate_no", "col": "A04" },
+    { "api": "vehicle.vinMasked", "key": "vin", "col": "A05" }
+  ],
+  "fuel": { "휘발유": "가솔린", "가솔린": "가솔린", "경유": "디젤", "디젤": "디젤", "하이브리드": "하이브리드", "휘발유+전기": "하이브리드", "플러그인하이브리드": "플러그인 하이브리드", "전기": "전기", "LPG": "LPG", "엘피지": "LPG", "수소": "수소" },
+  "gear": { "오토": "자동", "자동": "자동", "A/T": "자동", "수동": "수동", "M/T": "수동", "DCT": "DCT", "CVT": "CVT" },
+  "form_keys": { "make": "maker", "model": "model", "year": "year", "fuel": "fuel", "transmission": "gear", "displacement_cc": "cc", "trim": "grade" },
+  "never_write": ["무사고"]
+}
