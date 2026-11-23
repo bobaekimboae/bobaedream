@@ -14,6 +14,20 @@ def pop(cv,img,pos,t,t_in,dur=0.2):   # 검수 기록: 다 나타난 글자·그
     _pop(cv,img,pos,t,t_in,dur)
     if LOGON and img is not None and t>=t_in+dur:
         b=img.getbbox(); g=globals(); _LOG.append(['pop',g.get('nfr'),g.get('key'),pos[0]+b[0],pos[1]+b[1],pos[0]+b[2],pos[1]+b[3],round(t_in,3)])
+LINK=os.environ.get('BE_LINK')   # 시안: 칩과 부위를 노션 손그림 화살표 하나로 잇는다(값 없으면 기존 규칙 그대로)
+_DOO=os.path.join(REPO,'public/assets/shortform/brush-fill/as24-theme/doodle')+'/'; _dc={}
+def _doodle(name,w,rot):   # 노션 원본을 그대로 그려 알파만 읽고 노랑으로 칠함(크기·회전만)
+    if (name,w,rot) not in _dc:
+        import io
+        a_=Image.open(io.BytesIO(subprocess.run(['rsvg-convert','-w',str(w),_DOO+name],capture_output=True,check=True).stdout)).convert('RGBA').getchannel('A')
+        if rot: a_=a_.rotate(rot,expand=True,resample=Image.BICUBIC)
+        sh=Image.new('RGBA',a_.size); sh.paste((0,0,0,150),(0,5),a_); im=Image.new('RGBA',a_.size); im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6))); im.paste(tuple(YEL)+(255,),(0,0),a_); _dc[(name,w,rot)]=im
+    return _dc[(name,w,rot)]
+def _quote(h):
+    if ('q',h) not in _dc:
+        im=Image.open(_DOO+'quote_open_320_260.png').convert('RGBA'); im=im.resize((int(im.width*h/im.height),h),Image.LANCZOS)
+        sh=Image.new('RGBA',(im.width+24,im.height+24)); sh.paste((0,0,0,170),(12,16),im.getchannel('A')); sh=sh.filter(ImageFilter.GaussianBlur(6)); sh.alpha_composite(im,(12,12)); _dc[('q',h)]=sh
+    return _dc[('q',h)]
 G=os.environ['BE_DIR']; CAR=json.load(open(G+'car.json',encoding='utf-8'))
 ASSET=A
 CAPY=R['caption']['center_y_px']   # 규칙 파일(옛 67% 직접 쓰기 폐지)
@@ -250,25 +264,32 @@ for t0,t1,c in SEG:
                 q=TP['T06']; lens(cv,cv.copy(),tx,ty,q['pos'][0],q['pos'][1],t,e['at']-t0,q['diameter_px'],q['zoom'])
             if BL0 is None: BL0=ty<H*0.45   # 칩 위·아래는 컷 안에서 고정(뒤집힘 방지)
             bl=BL0
-            if av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
+            if LINK and pts is not None:
+                cx,cy,L=M-10,YB,0; _b=Cimg.getbbox(); _ax=min(max(tx,cx+_b[0]+90),cx+_b[2]-90); _ay=cy+_b[3]-34; _d=math.hypot(tx-_ax,ty-_ay)
+                if _d>260 and t>=tc+0.12:
+                    _g=0.4+0.6*ease((t-tc-0.12)/0.22); _bob=6*math.sin(t*6); _ex,_ey=tx-(tx-_ax)/_d*100,ty-(ty-_ay)/_d*100+_bob
+                    _w=max(60,int(min(400,math.hypot(_ex-_ax,_ey-_ay))*_g/6)*6)   # 400px까지만 키움(멀면 굵어져 부위를 덮음); _an=math.atan2(_ey-_ay,_ex-_ax); _A=_doodle('hand_arrow_469_264.svg',_w,-round(math.degrees(_an)))
+                    cv.alpha_composite(_A,(int(_ax+math.cos(_an)*_w/2-_A.width/2),int(_ay+math.sin(_an)*_w/2-_A.height/2)))
+            elif av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
                 av=None
                 cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
                 L=0
             else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
-            if av and av[0]<=st<=av[1] and t>=tc+0.18:
+            if av and not (LINK and pts is not None) and av[0]<=st<=av[1] and t>=tc+0.18:
                 g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*abs(math.sin((t-tc-0.43)*5))) if t>tc+0.43 else 0
                 A,off=arrimg(L,bl); A=A.resize((A.width,round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
                 if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,L,Lc,bob,cx,cy,Cimg.getbbox()])
                 if bl: tail=ty+TG+L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail-Lc-bob-offc)))
                 else: tail=ty-TG-L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail+bob-offc)))
             pop(cv,Cimg,(cx,cy),t,tc)
+            if LINK and t>=tc+0.12: _q=_quote(92); _b=Cimg.getbbox(); pop(cv,_q,(cx+_b[0]-34,cy+_b[1]-62),t,tc+0.12)   # 칩 = 방금 말한 낱말
             if t>=tc+0.2 and key not in {c_['key'] for c_ in CHIPS_LOG}:   # 다 나타난 뒤 한 번 기록(검사는 이 순간 상자를 잼)
                 _bb=Cimg.getbbox(); CHIPS_LOG.append({'key':key,'label':clab,'kind':'point' if av is None else 'callout','t0':round(t0+tc,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['font_px'],'y':int(cy),'box':[int(cx+_bb[0]),int(cy+_bb[1]),int(cx+_bb[2]),int(cy+_bb[3])]})
             if Simg is not None:
                 ts=WS[sub[1]][1]-t0-0.06; pop(cv,Simg,(cx+Cimg.width//2-Simg.width//2,cy+Cimg.height-4) if bl else (cx+Cimg.width//2-Simg.width//2,cy-Simg.height+6),t,ts)
         for k2,(B3,BL,tb) in enumerate(BIG):
             y3=int(H*0.12)
-            if Cimg is not None and av is None: y3=max(y3,YB+Cimg.getbbox()[3]+20)
+            if Cimg is not None and (av is None or LINK): y3=max(y3,YB+Cimg.getbbox()[3]+20)
             if t>=tb and not any(x['key']==key and x['text']==BIGS[k2] for x in BIGS_LOG): BIGS_LOG.append({'key':key,'text':BIGS[k2],'label':bigs[k2][1] or '','t':round(nfr/FPS,3),'src_t':round(st,3),'src_end':round(s1,3)}); USED.add('big_number_3d')
             B3=cnt(BIGS[k2],180,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
