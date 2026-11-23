@@ -1,0 +1,156 @@
+{
+ "title": {
+  "brand": "볼보",
+  "model": "S60 B5",
+  "sub": "2022년식 · 가솔린+전기 · R-디자인"
+ },
+ "end_word": 41,
+ "cuts": [
+  {
+   "key": "c1",
+   "src": [
+    0.0,
+    3.0
+   ],
+   "word": 0,
+   "zone": "외관"
+  },
+  {
+   "key": "c2",
+   "src": [
+    7.0,
+    9.4
+   ],
+   "word": 4,
+   "chip": "브론즈 휠",
+   "chip_word": 5,
+   "arrow": true,
+   "find": "a car wheel rim",
+   "zone": "외관"
+  },
+  {
+   "key": "c3",
+   "src": [
+    19.0,
+    21.0
+   ],
+   "word": 7,
+   "chip": "볼보 로고 조명",
+   "chip_word": 10,
+   "arrow": false,
+   "find": "a logo projected on the floor",
+   "zone": "외관"
+  },
+  {
+   "key": "c4",
+   "src": [
+    12.0,
+    14.2
+   ],
+   "word": 13,
+   "chip": "블랙 인테리어",
+   "chip_word": 14,
+   "zone": "실내"
+  },
+  {
+   "key": "c5",
+   "src": [
+    23.6,
+    25.9
+   ],
+   "word": 16,
+   "mat": [
+    "블랙 가죽",
+    17
+   ],
+   "zone": "실내"
+  },
+  {
+   "key": "c6",
+   "src": [
+    9.6,
+    11.0
+   ],
+   "word": 19,
+   "chip": "뒷좌석 송풍구",
+   "chip_word": 20,
+   "arrow": false,
+   "find": "air vents",
+   "zone": "실내"
+  },
+  {
+   "key": "c7",
+   "src": [
+    27.0,
+    29.3
+   ],
+   "word": 22,
+   "chip": "디지털 계기판",
+   "chip_word": 23,
+   "bigs": [
+    [
+     "40,208km",
+     "주행거리",
+     25
+    ]
+   ],
+   "zone": "실내"
+  },
+  {
+   "key": "c8",
+   "src": [
+    29.4,
+    31.3
+   ],
+   "word": 26,
+   "chip": "자동 변속기",
+   "chip_word": 26,
+   "arrow": true,
+   "find": "a gear shift lever",
+   "zone": "실내"
+  },
+  {
+   "key": "c9",
+   "src": [
+    32.0,
+    35.0
+   ],
+   "word": 28,
+   "chip": "세로형 화면",
+   "chip_word": 29,
+   "arrow": true,
+   "find": "a touchscreen display",
+   "zone": "실내"
+  },
+  {
+   "key": "c10",
+   "src": [
+    36.6,
+    39.0
+   ],
+   "word": 32,
+   "chip": "후방 카메라",
+   "chip_word": 32,
+   "arrow": true,
+   "find": "a touchscreen display",
+   "zone": "실내"
+  },
+  {
+   "key": "c11",
+   "src": [
+    3.6,
+    6.4
+   ],
+   "word": 38,
+   "bigs": [
+    [
+     "2,690만원",
+     "가격",
+     39
+    ]
+   ],
+   "dim": 40,
+   "zone": "외관"
+  }
+ ]
+}

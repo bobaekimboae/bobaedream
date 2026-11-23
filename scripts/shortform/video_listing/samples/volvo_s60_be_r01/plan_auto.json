@@ -1,0 +1,104 @@
+{
+ "cuts": [
+  {
+   "key": "c1",
+   "t0": 0.0,
+   "t1": 2.91,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c2",
+   "t0": 2.91,
+   "t1": 5.61,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c3",
+   "t0": 5.61,
+   "t1": 8.88,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c4",
+   "t0": 8.88,
+   "t1": 10.91,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c5",
+   "t0": 10.91,
+   "t1": 13.18,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c6",
+   "t0": 13.18,
+   "t1": 15.55,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c7",
+   "t0": 15.55,
+   "t1": 20.13,
+   "options": [],
+   "chip": null,
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 25,
+     "value": "40,208km",
+     "at": 17.87
+    }
+   ]
+  },
+  {
+   "key": "c8",
+   "t0": 20.13,
+   "t1": 22.0,
+   "options": [
+    "engine"
+   ],
+   "chip": "엔진 제원",
+   "techniques": []
+  },
+  {
+   "key": "c9",
+   "t0": 22.0,
+   "t1": 24.42,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c10",
+   "t0": 24.42,
+   "t1": 26.98,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c11",
+   "t0": 26.98,
+   "t1": 32.08,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  }
+ ],
+ "summary": {
+  "T04": 1
+ }
+}
