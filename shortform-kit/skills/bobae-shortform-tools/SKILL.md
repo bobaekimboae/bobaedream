@@ -22,7 +22,7 @@ description: "보배드림 매물 사진·영상으로 숏폼을 만들거나 �
 |---|---|---|
 | 매물 사진 → 숏폼(켄번스 이동·자막·끝 명함) | 우리 숏폼 제작기(`nuxt-shootkit` / `src/prototype/dealer-page/shortform/render.ts`, 브라우저 Mediabunny) | Orshot 템플릿 영상, HyperFrames(HTML 템플릿, Apache 2.0) |
 | 무편집 영상 → 짧은 클립 | 우리 쇼츠 만들기(부위별 영상 자동 컷) | OpusClip, AI Producer by OpusClip, Descript |
-| 한국어 남성 내레이션 | ElevenLabs `creative_generate_speech` (`creative_list_voices` languages=['ko'], gender='male'로 고름. 후보: Jubal 영업 톤, Mr.H 크리에이터, Minchul 차분) | vidIQ voiceover, Speko `audio_synthesize`, 오픈소스 Supertonic 3 · MeloTTS-Korean |
+| 한국어 남성 내레이션 | ElevenLabs `creative_generate_speech` (`creative_list_voices` languages=['ko'], gender='male'로 고름. 후보: Jubal 영업 톤, Mr.H 크리에이터, Minchul 차분) | vidIQ voiceover, Speko `audio_synthesize`, 오픈소스 MeloTTS-Korean, 검증 전 후보 Qwen3-TTS · OmniVoice(Supertonic·Chatterbox는 개발 종료로 제외) |
 | 음성 → 자막(단어별 시간) | ElevenLabs `creative_transcribe_audio` 또는 Speko `audio_transcribe` | 오픈소스 faster-whisper · WhisperX(large-v3-turbo, 한국어 미세조정판) |
 | 음성 잡음 제거 | Adobe `media_enhance_speech` | AI Producer `enhance_voice` |
 | 컷·사진 부위 판정 | 오픈소스 SigLIP 2 base(`scripts/shortform/auto/vlm.py`, Apache-2.0, 2026-11-22 기본) | `BBM_VLM=clip`(옛 CLIP, 비교용만) |

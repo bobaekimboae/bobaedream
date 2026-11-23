@@ -63,9 +63,26 @@
 ### 쓰지 말 것
 - **Ultralytics YOLO:** AGPL-3.0이라 서비스에 쓰면 소스 공개 의무가 생긴다.
 - **Remotion:** 리액트 전용이고, 회사 규모에 따라 유료 라이선스가 필요하다.
-- **Supertonic 1:** 모델이 OpenRAIL-M이고 영어 전용이다. 한국어를 지원하는 2·3판은 확인이 필요하다.
+- **Supertonic(1·2·3판 모두):** 2026-11-24 저장소 README 첫 줄에 「This repository is archived. Development and support have ended.」 공지가 있다(코드·모델은 `supertone-oss-archive`로 옮겨 보관만 함, 업데이트·보안 패치 없음). 자체 호스팅 TTS 백업 목록에서 뺀다.
+- **Chatterbox:** 2026-11-24 저장소 README에 「As of August 2026, Chatterbox is retired research and is no longer maintained.」 공지(MIT, 지원·업데이트 없음). 후보에서 뺀다.
+- **CoTracker3:** 비상업 라이선스(CC-BY-NC)라 쓰지 않는다. 점 추적은 TAPNet 계열(Apache-2.0)만 쓴다.
 
-## 4. 다음 순서
+## 4. 2026-11-24 교체 검토 기준 (총괄 마스터 조사 반영)
+
+- 기본 음성: 그대로 ElevenLabs KKC HQ(eleven_v3). 아래 자체 호스팅 TTS는 모두 **검증 전 후보**다.
+
+| 후보 | 라이선스(저장소 LICENSE 직접 확인) | 한국어 | 상태 |
+|---|---|---|---|
+| Qwen3-TTS (QwenLM) | Apache-2.0 · 모델 apache-2.0 | 지원(README 10개 언어에 Korean) | 검증 전 후보 |
+| OmniVoice (k2-fsa) | Apache-2.0 | 600개 이상 언어(README) | 검증 전 후보 |
+| Kokoro (hexgrad) | Apache-2.0 | **README 언어 코드에 한국어 없음**(영·스·프·힌·이·일·포·중) | 검증 전 후보 — 한국어 미지원이라 실사용 불가 가능성 높음 |
+
+- **Three.js 서버 렌더:** WebGPU가 아니라 **WebGL 경로**로 한다. 리눅스 헤드리스 크롬에서 WebGPU 화면 캡처가 잡히지 않는 한계가 있다.
+- **SAM 3:** 보류 — 라이선스가 Apache가 아니라 자체 SAM License. 조항 확인 필요.
+- **VectCutAPI:** 보류 — 비공식 캡컷 초안 생성기라 대량 자동화에 맞지 않음(사람 편집 보조용으로만 검토).
+- **CoTracker3:** 쓰지 않음(비상업 라이선스).
+
+## 5. 다음 순서
 1. edge-tts를 빼고 MeloTTS-Korean을 시험한다(샘플 1개, 음질 비교).
 2. PySceneDetect와 MediaPipe Hands로 「장면 후보 + 손 가림 제외」를 만들어 로마 r13 장면 고르기에 쓴다.
 3. nuxt-shootkit 버전 정리(vue 3.5.33, onnxruntime-web 1.30.0)는 촬영 키트 담당 작업창에 넘긴다.
