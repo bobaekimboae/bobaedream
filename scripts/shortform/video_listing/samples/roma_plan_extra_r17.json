@@ -1,0 +1,65 @@
+{
+ "_what": "r17: r14 기법 추가를 새 대사 낱말 번호로",
+ "add": [
+  {
+   "key": "c2",
+   "id": "T05",
+   "from_cut_start": true,
+   "fade_out_word": 15
+  },
+  {
+   "key": "c5",
+   "id": "T03",
+   "step_words": [
+    29,
+    31
+   ]
+  },
+  {
+   "key": "c7",
+   "id": "T03",
+   "step_words": [
+    42,
+    44
+   ]
+  },
+  {
+   "key": "c9",
+   "id": "T08",
+   "word": 54
+  },
+  {
+   "key": "c12",
+   "id": "T03",
+   "step_words": [
+    88,
+    89
+   ]
+  },
+  {
+   "key": "c13",
+   "id": "T05",
+   "from_cut_start": true,
+   "fade_out_word": 95
+  },
+  {
+   "key": "c16",
+   "id": "T02",
+   "option": "engine",
+   "rows": [
+    [
+     "77.5kg·m",
+     108
+    ],
+    [
+     "제로백 3.4초",
+     111
+    ],
+    [
+     "200km 9.7초",
+     113
+    ]
+   ]
+  }
+ ]
+}

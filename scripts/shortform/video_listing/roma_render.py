@@ -59,6 +59,7 @@ C=[('c1',214.5,219.0,0,None,None,None,None,[]),
  ('c10',84.6,86.6,_i('가운데'),'8.4인치 세로 화면',_i('8.4인치'),None,(84.7,86.6),[]),
  ('c10b',86.8,88.8,_i('아래에'),'기어 셀렉터',_i('기어',_i('아래에')),None,None,[]),
  ('c11',167.0,172.0,_i('소프트탑은'),'소프트탑',_i('소프트탑은'),None,None,[('13.5초','시속 60km 이하 개폐',_i('13.5'))]),
+ ('c11b',107.5,110.8,_i('뒷좌석',_i('13.5')),'바람막이',_i('바람막이'),None,None,[('170km',None,_i('170'))]),   # r17: 뒷좌석 등받이 → 바람막이(공식 보도자료)
  ('c12',172.5,179.0,_i('후면은'),'LED 테일램프',_i('LED',_i('후면은')),None,(172.5,179.0),[]),   # r14: OWLv2 추적 33/33
  ('c13',125.5,128.5,_i('머플러'),'머플러 4개',_i('머플러'),None,(126.0,128.5),[]),
  ('c14',118.5,122.5,_i('트렁크'),None,None,None,None,[]),
@@ -133,7 +134,7 @@ def label_log(lab,kind,anchor,pt,pos,img,t,tin,reason=None):   # r15: 부위에 
     b=img.getbbox(); LABELS_LOG[lab]={'label':lab,'kind':kind,'anchor':anchor,'pt':[int(pt[0]),int(pt[1])] if pt else None,
         'box':[int(pos[0]+b[0]),int(pos[1]+b[1]),int(pos[0]+b[2]),int(pos[1]+b[3])],'t_box':round(CUR.get('T',0),3),**({'no_anchor_reason':reason} if reason and not pt else {})}
 CHIP_DELAY={}
-NOTRACK={'c5':'fills_frame','c8':'fills_frame','c11':'fills_frame','c7':'not_found','c10b':'not_found'}   # c7·c10b: OWLv2가 0.2초 간격 23·11칸 중 3칸만 찾음(오검출) → 틀린 화살표보다 위쪽 가운데   # r14: 부위가 화면을 가득 채워 화살표가 의미 없는 컷만(매뉴얼 v4.1 §10-4)
+NOTRACK={'c11b':'fills_frame','c5':'fills_frame','c8':'fills_frame','c11':'fills_frame','c7':'not_found','c10b':'not_found'}   # c7·c10b: OWLv2가 0.2초 간격 23·11칸 중 3칸만 찾음(오검출) → 틀린 화살표보다 위쪽 가운데   # r14: 부위가 화면을 가득 채워 화살표가 의미 없는 컷만(매뉴얼 v4.1 §10-4)
 cxc=lambda img:int(W/2-(img.getbbox()[0]+img.getbbox()[2])/2)   # 칠 기준 가로 가운데   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
 def place(Cimg,tx,ty,below):
     bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(SAFE_X-bx0,min(W-SAFE_X-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)

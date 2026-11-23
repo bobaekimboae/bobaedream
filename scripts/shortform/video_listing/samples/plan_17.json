@@ -1,0 +1,215 @@
+{
+ "cuts": [
+  {
+   "key": "c1",
+   "t0": 0.0,
+   "t1": 5.98,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c2",
+   "t0": 5.98,
+   "t1": 7.72,
+   "options": [
+    "headlight"
+   ],
+   "chip": "헤드램프",
+   "techniques": []
+  },
+  {
+   "key": "c3",
+   "t0": 7.72,
+   "t1": 12.12,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c4",
+   "t0": 12.12,
+   "t1": 14.92,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c5",
+   "t0": 14.92,
+   "t1": 17.08,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c6",
+   "t0": 17.08,
+   "t1": 20.52,
+   "options": [
+    "drive_mode"
+   ],
+   "chip": "드라이브 모드",
+   "techniques": [
+    {
+     "id": "T06",
+     "option": "drive_mode",
+     "at": 18.23
+    }
+   ]
+  },
+  {
+   "key": "c7",
+   "t0": 20.52,
+   "t1": 22.42,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c8",
+   "t0": 22.42,
+   "t1": 25.16,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c9",
+   "t0": 25.16,
+   "t1": 28.28,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c10",
+   "t0": 28.28,
+   "t1": 30.86,
+   "options": [
+    "climate"
+   ],
+   "chip": "공조 다이얼",
+   "techniques": [
+    {
+     "id": "T08",
+     "option": "climate",
+     "at": 29.93
+    }
+   ]
+  },
+  {
+   "key": "c10b",
+   "t0": 30.86,
+   "t1": 33.0,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c11",
+   "t0": 33.0,
+   "t1": 37.18,
+   "options": [],
+   "chip": null,
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 72,
+     "value": "60km",
+     "at": 33.81
+    }
+   ]
+  },
+  {
+   "key": "c11b",
+   "t0": 37.18,
+   "t1": 41.36,
+   "options": [
+    "wind_deflector"
+   ],
+   "chip": "바람막이",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 83,
+     "value": "170km",
+     "at": 39.27
+    }
+   ]
+  },
+  {
+   "key": "c12",
+   "t0": 41.36,
+   "t1": 42.66,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c13",
+   "t0": 42.66,
+   "t1": 45.16,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c14",
+   "t0": 45.16,
+   "t1": 47.8,
+   "options": [
+    "trunk"
+   ],
+   "chip": "트렁크 용량",
+   "techniques": []
+  },
+  {
+   "key": "c15",
+   "t0": 47.8,
+   "t1": 51.14,
+   "options": [
+    "power"
+   ],
+   "chip": "마력",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 105,
+     "value": "620마력",
+     "at": 50.29
+    },
+    {
+     "id": "T07",
+     "word": 105,
+     "value": 620,
+     "at": 51.56
+    }
+   ]
+  },
+  {
+   "key": "c16",
+   "t0": 51.14,
+   "t1": 59.86,
+   "options": [
+    "engine"
+   ],
+   "chip": "엔진 제원",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 118,
+     "value": "320km",
+     "at": 58.27
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "T06": 1,
+  "T08": 1,
+  "T04": 4,
+  "T07": 1
+ },
+ "_what": "r17 대사(125낱말) 키워드로 새로 세운 계획"
+}
