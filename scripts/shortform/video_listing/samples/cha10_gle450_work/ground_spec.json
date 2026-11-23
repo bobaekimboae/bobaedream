@@ -1,0 +1,11 @@
+{"scenes":[
+{"range":[2.8,5.37],"parts":{"g2":"headlight"}},
+{"range":[8.17,10.7],"parts":{"g4":"wheel"}},
+{"range":[10.7,13.57],"parts":{"g5":"open trunk"}},
+{"range":[13.57,17.43],"parts":{"g6":"sunroof"}},
+{"range":[17.43,20.2],"parts":{"g7":"air vent"}},
+{"range":[20.2,26.8],"parts":{"g9":"navigation map","g10":"touchpad"}},
+{"range":[26.8,29.57],"parts":{"g8":"display screen"}},
+{"range":[34.8,37.5],"parts":{"g12":"seat adjustment switch","g13":"memory buttons"}},
+{"range":[40.03,42.77],"parts":{"g11":"cup holder"}},
+{"range":[42.77,48.17],"parts":{"g16":"display screen"}}]}

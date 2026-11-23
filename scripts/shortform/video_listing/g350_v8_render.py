@@ -156,7 +156,7 @@ def emph(h,flip=False):   # 노션 원본 「강조 선_125x139」 모양만 읽
 DECO=(CAR or {}).get('deco',{})
 _ARW={}
 def arrimg_hand(L,below):
-    """노션 원본 손그림 화살표(파일 그대로, 모양만 읽음) — 흰색 칠 + 얇은 어두운 테두리. 같은 배율로만 줄인다. (그림, 위 여백)"""
+    """노션 원본 손그림 화살표(파일 그대로, 모양만 읽음) — 노랑(hand_yellow) 또는 흰색(hand_white) 칠 + 얇은 어두운 테두리. 같은 배율로만 줄인다. (그림, 위 여백)"""
     k=(L,below)
     if k in _ARW: return _ARW[k]
     import subprocess; from io import BytesIO; from PIL import ImageFilter
@@ -167,7 +167,7 @@ def arrimg_hand(L,below):
     A=Image.new('L',(a.width+2*p,L+2*p),0); A.paste(a,(p,p))
     im=Image.new('RGBA',A.size,(0,0,0,0))
     edge=Image.new('RGBA',A.size,(24,24,24,255)); edge.putalpha(A.filter(ImageFilter.MaxFilter(7))); im.alpha_composite(edge)
-    w=Image.new('RGBA',A.size,(255,255,255,255)); w.putalpha(A); im.alpha_composite(w)
+    w=Image.new('RGBA',A.size,((255,255,255,255) if DECO.get('arrow')=='hand_white' else YEL+(255,))); w.putalpha(A); im.alpha_composite(w)
     _ARW[k]=(im,p); return _ARW[k]
 SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24px라 칩 3개가 벗어났음
 BIG_LOW={'c7'}   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
@@ -367,7 +367,7 @@ for t0,t1,c in SEG:
             else: cx,cy,L,bl=slot_place(key,Cimg,tx,ty,pts,bool(PL.get(key,{}).get('T06'))) if SLOTS else place(Cimg,tx,ty,bl)
             if av and av[0]<=st<=av[1] and t>=tc+0.18:
                 g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*abs(math.sin((t-tc-0.43)*5))) if t>tc+0.43 else 0
-                A,off=(arrimg_hand if DECO.get('arrow')=='hand_white' else arrimg)(L,bl); A=A.resize(((max(4,round(A.width*Lc/L)) if DECO.get('arrow')=='hand_white' else A.width),round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
+                A,off=(arrimg_hand if str(DECO.get('arrow','')).startswith('hand') else arrimg)(L,bl); A=A.resize(((max(4,round(A.width*Lc/L)) if str(DECO.get('arrow','')).startswith('hand') else A.width),round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
                 if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,L,Lc,bob,cx,cy,Cimg.getbbox()])
                 if bl: tail=ty+TG+L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail-Lc-bob-offc)))
                 else: tail=ty-TG-L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail+bob-offc)))

@@ -1,0 +1,318 @@
+{
+ "_what": "차란차 10번 벤츠 GLE450 4MATIC(W167) — g350_v8_render.py CAR 입력. 사실 = 드라이브 10_차란차_매물정보.txt + 원본 영상에 보이는 것. 차량번호·연락처 없음",
+ "id": "cha10",
+ "out": "bobae_cha10_gle450_be_v4.mp4",
+ "chip_layout": "slots",
+ "slot_b_y": 1030,
+ "deco": {
+  "emphasis": true,
+  "arrow": "hand_yellow"
+ },
+ "map_source": {
+  "model": "iSEE-Laboratory/llmdet_base",
+  "method": "0.3초 간격 재검출(추적기 없음)",
+  "spec": "samples/cha10_gle450_work/ground_spec.json"
+ },
+ "title": {
+  "brand": "벤츠",
+  "model": "GLE450 4MATIC",
+  "sub": "2024년식 · 가솔린+전기 · W167"
+ },
+ "cuts": [
+  {
+   "key": "g1",
+   "src": [
+    0.0,
+    2.75
+   ],
+   "start_word": 0
+  },
+  {
+   "key": "g2",
+   "src": [
+    2.85,
+    5.2
+   ],
+   "start_word": 4,
+   "chip": "LED 헤드램프",
+   "chip_word": 5,
+   "arrow": true,
+   "track": [
+    3.4,
+    0.561,
+    0.502
+   ]
+  },
+  {
+   "key": "g3",
+   "src": [
+    5.4,
+    7.0
+   ],
+   "start_word": 9,
+   "bigs": [
+    [
+     "2,999cc",
+     "가솔린+전기",
+     10
+    ]
+   ],
+   "pills": [
+    {
+     "icon": "gearbox.svg",
+     "text": "자동 변속기",
+     "word": 15,
+     "y": 560
+    }
+   ],
+   "dim": 60
+  },
+  {
+   "key": "g4",
+   "src": [
+    8.2,
+    10.65
+   ],
+   "start_word": 17,
+   "chip": "AMG 휠",
+   "chip_word": 18,
+   "arrow": true,
+   "pills": [
+    {
+     "icon": "tyre-as24.svg",
+     "text": "콘티넨탈 타이어",
+     "word": 21,
+     "y": 300
+    }
+   ],
+   "track": [
+    8.47,
+    0.518,
+    0.481
+   ]
+  },
+  {
+   "key": "g5",
+   "src": [
+    10.75,
+    13.5
+   ],
+   "start_word": 23,
+   "chip": "전동 트렁크",
+   "chip_word": 24,
+   "arrow": true,
+   "track": [
+    11.0,
+    0.48,
+    0.524
+   ]
+  },
+  {
+   "key": "g6",
+   "src": [
+    15.2,
+    17.4
+   ],
+   "start_word": 27,
+   "chip": "파노라마 선루프",
+   "chip_word": 28,
+   "arrow": false
+  },
+  {
+   "key": "g7",
+   "src": [
+    17.5,
+    18.9
+   ],
+   "start_word": 31,
+   "chip": "뒷좌석 공조",
+   "chip_word": 33,
+   "arrow": true,
+   "track": [
+    17.73,
+    0.511,
+    0.311
+   ]
+  },
+  {
+   "key": "g8",
+   "src": [
+    26.85,
+    29.5
+   ],
+   "start_word": 37,
+   "chip": "와이드 디스플레이",
+   "chip_word": 43,
+   "arrow": false,
+   "track": [
+    27.1,
+    0.735,
+    0.466
+   ]
+  },
+  {
+   "key": "g9",
+   "src": [
+    23.9,
+    25.7
+   ],
+   "start_word": 45,
+   "chip": "내비게이션",
+   "chip_word": 47,
+   "arrow": true,
+   "track": [
+    24.1,
+    0.47,
+    0.306
+   ]
+  },
+  {
+   "key": "g10",
+   "src": [
+    22.0,
+    23.9
+   ],
+   "start_word": 49,
+   "chip": "터치패드 컨트롤러",
+   "chip_word": 50,
+   "arrow": true,
+   "track": [
+    22.0,
+    0.515,
+    0.509
+   ]
+  },
+  {
+   "key": "g11",
+   "src": [
+    41.7,
+    42.7
+   ],
+   "start_word": 53,
+   "chip": "컵홀더",
+   "chip_word": 55,
+   "arrow": true,
+   "track": [
+    41.7,
+    0.509,
+    0.227
+   ]
+  },
+  {
+   "key": "g12",
+   "src": [
+    34.85,
+    35.5
+   ],
+   "start_word": 59,
+   "chip": "전동 시트 조절",
+   "chip_word": 60,
+   "arrow": true,
+   "track": [
+    35.1,
+    0.32,
+    0.292
+   ]
+  },
+  {
+   "key": "g13",
+   "src": [
+    35.5,
+    36.15
+   ],
+   "start_word": 65,
+   "chip": "메모리 시트 3개",
+   "chip_word": 65,
+   "arrow": true,
+   "track": [
+    35.7,
+    0.471,
+    0.249
+   ]
+  },
+  {
+   "key": "g14",
+   "src": [
+    25.5,
+    26.75
+   ],
+   "start_word": 68,
+   "chip": "앰비언트 라이트",
+   "chip_word": 69,
+   "arrow": false
+  },
+  {
+   "key": "g15",
+   "src": [
+    37.6,
+    40.0
+   ],
+   "start_word": 72,
+   "bigs": [
+    [
+     "20,885km",
+     "주행거리",
+     73
+    ]
+   ],
+   "dim": 50
+  },
+  {
+   "key": "g16",
+   "src": [
+    43.7,
+    48.1
+   ],
+   "start_word": 74,
+   "chip": "서라운드 뷰",
+   "chip_word": 76,
+   "arrow": true,
+   "track": [
+    43.97,
+    0.487,
+    0.457
+   ]
+  },
+  {
+   "key": "g17",
+   "src": [
+    53.0,
+    55.3
+   ],
+   "start_word": 82,
+   "chip": "24년06월 등록",
+   "chip_word": 84,
+   "arrow": false
+  },
+  {
+   "key": "g18",
+   "src": [
+    55.3,
+    57.2
+   ],
+   "start_word": 87,
+   "bigs": [
+    [
+     "7,990만원",
+     "가격",
+     88
+    ]
+   ],
+   "pills": [
+    {
+     "icon": "year.svg",
+     "text": "2024년식",
+     "word": 89,
+     "y": 560
+    },
+    {
+     "icon": "mileage.svg",
+     "text": "20,885km",
+     "word": 90,
+     "y": 660
+    }
+   ],
+   "dim": 60
+  }
+ ]
+}
