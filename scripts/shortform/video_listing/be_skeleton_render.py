@@ -101,9 +101,10 @@ def smooth(pts,k=7):
     for i in range(len(a)): out[i]=a[max(0,i-k//2):i+k//2+1].mean(0)
     return out
 cap=cv2.VideoCapture(G+'src.mp4')
+SFP=float(os.environ.get('BE_SRCFPS',30)); BLEND=bool(os.environ.get('BE_BLEND'))   # 원본이 30fps가 아니면 BE_SRCFPS=원본 fps, BE_BLEND=1이면 앞뒤 원본 장면을 섞어 끊김을 줄임(느린 컷·25→30fps)
 def frames(s0,s1):
     cap.set(cv2.CAP_PROP_POS_MSEC,s0*1000); fr=[]
-    for _ in range(int(round((s1-s0)*30))+2):
+    for _ in range(int(round((s1-s0)*SFP))+2):
         ok,f=cap.read()
         if not ok: break
         fr.append(cv2.cvtColor(f,cv2.COLOR_BGR2RGB))
@@ -214,13 +215,15 @@ for t0,t1,c in SEG:
     tc=(WS[cw][1]-t0-0.06) if cw is not None else 0
     BL0=None
     if pts is not None and Cimg is not None and av is not None:   # v7: 칩 위·아래를 컷 전체 추적으로 한 번만 정함(중간 뒤집힘 금지)
-        _b=Cimg.getbbox(); _h=_b[3]-_b[1]; _n=int((min(s1,s0+dur*rate)-s0)*30)+1; _ys=[p[1]*H for p in pts[:_n]]   # 실제로 보이는 구간만
+        _b=Cimg.getbbox(); _h=_b[3]-_b[1]; _n=int((min(s1,s0+dur*rate)-s0)*SFP)+1; _ys=[p[1]*H for p in pts[:_n]]   # 실제로 보이는 구간만
         _fb=max(_ys)+TG+AMIN+CG+_h<=place_chip_y_cap; _fa=min(_ys)-TG-AMIN-CG-_h>=150
         BL0=True if _fb and (_ys[0]<H*0.45 or not _fa) else (False if _fa else _ys[0]<H*0.45)
     # 매뉴얼 v1.7 아이콘 효과음: 시트 열선·통풍·메모리 아이콘이 톡 나올 때 작은 팝
     if REMIX: nfr=round(t1*FPS); continue
     while nfr<round(t1*FPS):
-        t=nfr/FPS-t0; st=min(s1,s0+t*rate); fi=min(len(fr)-1,int(round((st-s0)*30)))
+        t=nfr/FPS-t0; st=min(s1,s0+t*rate); fi=min(len(fr)-1,int(round((st-s0)*SFP)))
+        if BLEND: _p=min(len(fr)-1.0,(st-s0)*SFP); _i=int(_p); _a=_p-_i; cur=fr[_i] if _a<0.02 or _i+1>=len(fr) else cv2.addWeighted(fr[_i],1-_a,fr[_i+1],_a,0)
+        else: cur=fr[fi]
         z=1.0+0.045*ease(t/dur)
         for e in PL.get(key,{}).get('T03',[]):   # T03 점프컷: 제원 낱말마다 확대 단계가 툭 바뀜
             z=1.0
@@ -237,13 +240,13 @@ for t0,t1,c in SEG:
             if u>=0 and pts is not None:
                 g=ease(min(1.0,u/q['arrive_s'])); z=max(z,1+(q['zoom_to']-1)*g+q['hold_drift']*max(0.0,u-q['arrive_s'])/max(0.1,dur))
                 pj=min(len(pts)-1,int(round((st-s0)*30))); ccx=W/2+(pts[pj][0]*W-W/2)*q['center_bias']*g; ccy=H/2+(pts[pj][1]*H-H/2)*q['center_bias']*g
-        im=Image.fromarray(fr[fi]); cw_=W/z; ch_=H/z
+        im=Image.fromarray(cur); cw_=W/z; ch_=H/z
         ccx=min(W-cw_/2,max(cw_/2,ccx+dx)); ccy=min(H-ch_/2,max(ch_/2,ccy+dy))
         cv=im.resize((W,H),box=(ccx-cw_/2,ccy-ch_/2,ccx+cw_/2,ccy+ch_/2)).convert('RGBA')
         if T01:    # T01 위아래 2분할
             ra=min(1.0,(T01['action_src'][1]-T01['action_src'][0])/dur); fa=min(len(frA)-1,int(round(t*ra*30)))
             top=Image.fromarray(frA[fa]).crop((0,int(H*0.45)-480,W,int(H*0.45)+480))
-            bot=Image.fromarray(fr[fi]).crop((0,int(H*0.36)-480,W,int(H*0.36)+480))
+            bot=Image.fromarray(cur).crop((0,int(H*0.36)-480,W,int(H*0.36)+480))
             cv=Image.new('RGBA',(W,H)); cv.paste(top,(0,0)); cv.paste(bot,(0,H//2))
             ImageDraw.Draw(cv).rectangle((0,H//2-4,W,H//2+3),fill=(255,255,255,255))
         tomap=lambda fx,fy,_x=ccx,_y=ccy,_z=z:((fx*W-_x)*_z+W/2,(fy*H-_y)*_z+H/2)
@@ -297,7 +300,7 @@ for t0,t1,c in SEG:
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
         special(key,cv,t,t0)
         draw_sub(cv,nfr/FPS)
-        proc.stdin.write(cv.convert('RGB').tobytes()); nfr+=1; last=fr[fi]
+        proc.stdin.write(cv.convert('RGB').tobytes()); nfr+=1; last=cur
     del fr
 # 끝 화면: 마지막 장면 어둡게 + 보배드림 로고 커짐
 if REMIX: proc.stdin.close(); proc.wait()
