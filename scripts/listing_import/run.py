@@ -37,7 +37,7 @@ def to_row(key: str, led: dict) -> list:
     row = [key] + [cells.get(c, {}).get('value', '') for c in SHEET_COLUMNS[1:-3]]
     cat = led.get('catalog') or {}
     meta = led.get('source_meta') or {}
-    return row + [f"다른 사이트({led['site']})", '미확인', led['checked_at'], '',
+    return row + [led.get('source_word') or f"다른 사이트({led['site']})", led.get('verify_word') or '미확인', led['checked_at'], led.get('photo_zip') or '',
                   cat.get('make') or '', cat.get('model') or '', cat.get('generation') or '', MATCH_WORD.get(cat.get('match'), '연결 안 됨'),
                   meta.get('union') or '', meta.get('federation') or '']
 

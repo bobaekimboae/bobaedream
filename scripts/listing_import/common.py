@@ -213,3 +213,17 @@ def download_photos(urls: list[str], out_dir: Path, referer: str | None = None, 
         (out_dir / name).write_bytes(b)
         saved.append({'order': len(seen), 'file': name, 'bytes': len(b), 'sha256': h[:16]})
     return saved
+
+
+MODEL_PREFIX = {'더', '올', '뉴', '디', '신형', '더뉴', '올뉴', '디올뉴', 'THE', 'ALL', 'NEW'}
+
+
+def split_model(words: list[str]) -> tuple[str | None, str | None]:
+    """['더', '뉴카니발(KA4)', '하이리무진'] → ('더 뉴카니발(KA4)', '하이리무진'). '더'·'올'·'뉴' 같은 앞말만 모델로 잘리지 않게 다음 낱말과 붙인다."""
+    w = [x for x in words if x]
+    i = 0
+    while i < len(w) - 1 and w[i].upper() in MODEL_PREFIX:
+        i += 1
+    if not w:
+        return None, None
+    return ' '.join(w[:i + 1]), (' '.join(w[i + 1:]) or None)

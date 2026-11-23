@@ -16,7 +16,7 @@ import re
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from common import category_of, fetch, fuel, gear, label_value, price_krw, strip_corp, text_lines, to_int, year_month, yes_no_unknown
+from common import category_of, fetch, fuel, gear, label_value, price_krw, split_model, strip_corp, text_lines, to_int, year_month, yes_no_unknown
 
 REGISTRY = json.loads((Path(__file__).with_name('complex_sites.json')).read_text(encoding='utf-8'))
 SITES = {s['domain']: s for s in REGISTRY['sites']}
@@ -96,16 +96,18 @@ def parse_title(L: list[str]) -> tuple[str, str | None, str | None, str | None]:
     for l in L:
         m = re.match(r'^\[([^\]]{1,20})\]\s*(.+)$', l.replace('\xa0', ' '))
         if m:
-            rest = m.group(2).split()
-            return l, m.group(1).strip(), (rest[0] if rest else None), (' '.join(rest[1:]) or None)
+            mo, tr = split_model(m.group(2).split())
+            return l, m.group(1).strip(), mo, tr
     for i, l in enumerate(L):  # 한국연합 carView: 제목 바로 다음 줄이 '2008.11 / 348,533Km 주행 / 경유'
         if re.match(r'^\d{2,4}[./]\d{1,2}\s*/', l) and i > 0:
             p = L[i - 1].split()
-            return L[i - 1], (p[0] if p else None), (p[1] if len(p) > 1 else None), (' '.join(p[2:]) or None)
+            mo, tr = split_model(p[1:])
+            return L[i - 1], (p[0] if p else None), mo, tr
     for i, l in enumerate(L):  # 제목 다음 줄이 '￦' 또는 '950만원' 인 화면
         if i > 0 and (l == '￦' or re.fullmatch(r'[\d,]+\s*만원', l)) and re.search(r'[가-힣A-Za-z]', L[i - 1]) and len(L[i - 1].split()) >= 2:
             p = L[i - 1].split()
-            return L[i - 1], p[0], p[1], (' '.join(p[2:]) or None)
+            mo, tr = split_model(p[1:])
+            return L[i - 1], p[0], mo, tr
     return '', None, None, None
 
 

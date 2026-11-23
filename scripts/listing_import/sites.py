@@ -76,7 +76,7 @@ def seoulautogallery(url: str):
     L = text_lines(h)
     title = re.search(r'class="cartitle">([^<]+)', h)
     t = re.sub(r'&nbsp;|\s+', ' ', title.group(1)).strip() if title else ''
-    m = re.match(r'\[([^\]]+)\]\s*([^( ]+)(?:\(([^)]+)\))?\s*(.*)', t)
+    m = re.match(r'\[([^\]]+)\]\s*((?:(?:더|올|뉴|디|신형)\s+)*[^( ]+)(?:\(([^)]+)\))?\s*(.*)', t)
     y, fr = year_month(label_value(L, '연식'))
     p, disp = price_krw(label_value(L, '차량가격'))
     addr = label_value(L, '상사주소') or ''
