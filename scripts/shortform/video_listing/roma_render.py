@@ -37,20 +37,21 @@ SUFFIX={o['key']:o.get('item_suffix','') for o in RULESF['options']}
 # r05(2026-11-23 「대사 다시 쓰고」): 낱말 번호를 코드에 직접 쓰지 않고 낱말 글자로 찾는다(대사·목소리가 바뀌어도 그대로 동작)
 _i=idx; _c8=min(_i('계기판',_i('카본')),_i('디지털',_i('카본')))
 C=[('c1',214.5,219.0,0,None,None,None,None,[]),
- ('c2',10.0,13.0,_i('헤드램프'),'풀 LED 헤드램프',_i('풀'),None,(10.5,11.9),[]),
+ ('c2',10.3,12.8,_i('헤드램프'),'풀 LED 헤드램프',_i('헤드램프'),None,(10.4,12.5),[]),
  ('c3',13.5,17.5,_i('휠은'),None,None,None,None,[]),
  ('c4',37.0,42.3,_i('실내는'),None,None,None,None,[]),
- ('c5',48.0,50.8,_i('운전석과'),'듀얼 콕핏',_i('듀얼'),None,None,[]),
- ('c6',51.0,55.5,_i('스티어링'),'마네티노',_i('마네티노'),None,(51.5,55.0),[]),
+ ('c5',48.0,50.8,_i('운전석과'),'듀얼 콕핏',_i('운전석과'),None,None,[]),
+ ('c6',51.0,55.5,_i('스티어링'),'마네티노',_i('스티어링'),None,(51.5,55.0),[]),
  ('c7',66.0,70.5,_i('카본'),'카본 패들 시프트',_i('카본'),None,None,[]),
- ('c8',72.5,78.0,_c8,'디지털 계기판',_i('디지털',_i('카본')),None,None,[]),
+ ('c8',72.5,78.0,_c8,'디지털 계기판',_c8,None,None,[]),
  ('c9',79.5,83.5,_i('조수석',_c8),'조수석 디스플레이',_i('조수석',_c8),None,(80.0,83.5),[]),
- ('c10',84.0,88.8,_i('가운데'),'8.4인치 세로형 화면',_i('8.4'),None,(84.7,87.2),[]),
+ ('c10',84.6,86.6,_i('가운데'),'8.4인치 세로형 화면',_i('가운데'),None,(84.7,86.6),[]),
+ ('c10b',86.8,88.8,_i('아래에'),'기어 셀렉터',_i('아래에'),None,None,[]),
  ('c11',167.0,172.0,_i('소프트톱은'),'소프트톱',_i('소프트톱은'),None,None,[('13.5초','시속 60km 이하 개폐',_i('13.5'))]),
- ('c12',172.5,179.0,_i('후면은'),'LED 테일램프',_i('LED',_i('후면은')),None,None,[]),
+ ('c12',172.5,179.0,_i('후면은'),'LED 테일램프',_i('후면은'),None,None,[]),
  ('c13',125.5,128.5,_i('머플러'),'머플러 4개',_i('머플러'),None,(126.0,128.5),[]),
  ('c14',118.5,122.5,_i('트렁크'),None,None,None,None,[]),
- ('c15',200.3,203.3,_i('엔진은'),'3.9 V8 트윈터보',_i('3.9'),None,None,[('620마력',None,_i('620'))]),
+ ('c15',200.3,203.3,_i('엔진은'),'3.9 V8 트윈터보',_i('엔진은'),None,None,[('620마력',None,_i('620'))]),
  ('c16',203.5,208.0,_i('최대'),None,None,None,None,[]),
 ]
 W_IN_J,W_TY_J,MAT_J,SUB_J,ROOF_J,L255_J=_i('20인치'),_i('245'),_i('베이지'),_i('레드'),_i('지붕'),_i('255')
@@ -230,6 +231,8 @@ for t0,t1,c in SEG:
     if key in TR:   # 매핑 v2(2026-11-23): 추적기가 이미 평활함 · 잃은 프레임(None)은 가장 가까운 정상 점으로 채우고 화살표는 숨김
         _raw=TR[key]['pts']; VALID=[p is not None for p in _raw]; _ok=[i for i,v in enumerate(VALID) if v]
         if _ok: pts=smooth([_raw[min(_ok,key=lambda j:abs(j-i))] for i in range(len(_raw))],k=3)
+    TS0,TS1=(TR[key]['s0'],TR[key]['s1']) if key in TR else (s0,s1)   # r06: 추적은 자기 시작 시각 기준(컷 시작과 다르면 화살표가 늦게 따라가던 문제)
+    def tix(st_): return min(len(pts)-1,max(0,int(round((st_-TS0)*30))))
     CHIPLAB[key]=clab; Cimg=gchip(clab) if clab else None; Simg=white(sub[0],58) if sub else None
     BIG=[(text3d(b,h=180 if key!='c15' else 210),white(l,58) if l else None,WS[j][1]-t0-0.22) for b,l,j in bigs]; BIGS=[b for b,l,j in bigs]
     _metak=[k for it in MET['items'] for k in it['keywords']]
@@ -243,7 +246,7 @@ for t0,t1,c in SEG:
     tc=((WS[cw][1]-t0-0.06) if cw is not None else 0)+CHIP_DELAY.get(key,0)
     BL0=None
     if pts is not None and Cimg is not None and av is not None:   # v7: 칩 위·아래를 컷 전체 추적으로 한 번만 정함(중간 뒤집힘 금지)
-        _b=Cimg.getbbox(); _h=_b[3]-_b[1]; _n=int((min(s1,s0+dur*rate)-s0)*30)+1; _ys=[p[1]*H for p in pts[:_n]]   # 실제로 보이는 구간만
+        _b=Cimg.getbbox(); _h=_b[3]-_b[1]; _n=int((min(s1,s0+dur*rate)-s0)*30)+1; _ys=[pts[tix(s0+i/30)][1]*H for i in range(_n)]   # 실제로 보이는 구간만
         _fb=max(_ys)+TG+AMIN+CG+_h<=place_chip_y_cap; _fa=min(_ys)-TG-AMIN-CG-_h>=150
         BL0=True if _fb and (_ys[0]<H*0.45 or not _fa) else (False if _fa else _ys[0]<H*0.45)
     # 매뉴얼 v1.7 아이콘 효과음: 시트 열선·통풍·메모리 아이콘이 톡 나올 때 작은 팝
@@ -265,7 +268,7 @@ for t0,t1,c in SEG:
             q=TP['T08']; u=t-(e['at']-t0)
             if u>=0 and pts is not None:
                 g=ease(min(1.0,u/q['arrive_s'])); z=max(z,1+(q['zoom_to']-1)*g+q['hold_drift']*max(0.0,u-q['arrive_s'])/max(0.1,dur))
-                pj=min(len(pts)-1,int(round((st-s0)*30))); ccx=W/2+(pts[pj][0]*W-W/2)*q['center_bias']*g; ccy=H/2+(pts[pj][1]*H-H/2)*q['center_bias']*g
+                pj=tix(st); ccx=W/2+(pts[pj][0]*W-W/2)*q['center_bias']*g; ccy=H/2+(pts[pj][1]*H-H/2)*q['center_bias']*g
         im=Image.fromarray(fr[fi]); cw_=W/z; ch_=H/z
         ccx=min(W-cw_/2,max(cw_/2,ccx+dx)); ccy=min(H-ch_/2,max(ch_/2,ccy+dy))
         cv=im.resize((W,H),box=(ccx-cw_/2,ccy-ch_/2,ccx+cw_/2,ccy+ch_/2)).convert('RGBA')
@@ -285,7 +288,7 @@ for t0,t1,c in SEG:
         if key in('c14','c3','c4'): cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,40)))
         if Cimg is not None:
             if pts is not None:
-                pi=min(len(pts)-1,int(round((st-s0)*30))); tx,ty=tomap(*pts[pi])
+                pi=tix(st); tx,ty=tomap(*pts[pi])
             else: tx,ty=W/2,H*0.62
             for e in PL.get(key,{}).get('T05',[]):   # T05 스포트라이트(다음 부위 낱말에서 다시 밝게)
                 q=TP['T05']; a0=e['at']-t0; fo=(e['fade_out_at']-t0) if e.get('fade_out_at') else 1e9
@@ -299,7 +302,7 @@ for t0,t1,c in SEG:
                 cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
                 L=0
             else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
-            if av and av[0]<=st<=av[1] and t>=tc+0.18 and VALID[min(len(VALID)-1,int(round((st-s0)*30)))]:
+            if av and av[0]<=st<=av[1] and t>=tc+0.18 and TS0<=st<=TS1 and VALID[tix(st)]:
                 g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*abs(math.sin((t-tc-0.43)*5))) if t>tc+0.43 else 0
                 A,off=arrimg(L,bl); A=A.resize((A.width,round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
                 if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,L,Lc,bob,cx,cy,Cimg.getbbox()])
