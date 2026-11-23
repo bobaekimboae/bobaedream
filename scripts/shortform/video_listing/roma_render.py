@@ -57,7 +57,7 @@ C=[('c1',214.5,219.0,0,None,None,None,None,[]),
  ('c9',79.5,83.5,_i('조수석',_c8),'조수석 디스플레이',_i('조수석',_c8),None,(80.0,83.5),[]),
  ('c10',84.6,86.6,_i('가운데'),'8.4인치 세로형 화면',_i('가운데'),None,(84.7,86.6),[]),
  ('c10b',86.8,88.8,_i('아래에'),'기어 셀렉터',_i('아래에'),None,None,[]),
- ('c11',167.0,172.0,_i('소프트톱은'),'소프트톱',_i('소프트톱은'),None,None,[('13.5초','시속 60km 이하 개폐',_i('13.5'))]),
+ ('c11',167.0,172.0,_i('소프트탑은'),'소프트탑',_i('소프트탑은'),None,None,[('13.5초','시속 60km 이하 개폐',_i('13.5'))]),
  ('c12',172.5,179.0,_i('후면은'),'LED 테일램프',_i('후면은'),None,None,[]),
  ('c13',125.5,128.5,_i('머플러'),'머플러 4개',_i('머플러'),None,(126.0,128.5),[]),
  ('c14',118.5,122.5,_i('트렁크'),None,None,None,None,[]),
@@ -384,8 +384,9 @@ for t,k,nm,v in sorted(allc,key=lambda x:(PRI[x[1]],x[0])):
 acc.sort()
 print('효과음',[(a[0],a[2]) for a in acc])
 BGM=os.environ.get('ROMA_BGM',ASSET+'bgm/bobae_showroom_v1.mp3')  # 2026-11-23 「음악 바꿔」: 웅장한 배경음(일레븐랩스 생성)으로 교체 가능
+BGMV=float(os.environ.get('ROMA_BGM_VOL','0.42'))  # r10 「밋밋한 bgm」: 0.30+강한 더킹(6:1)이면 말하는 내내 음악이 거의 안 들림 → 키우고 더킹 완화
 inp=['-i',G+'nov8.mp4','-i',VOICEF,'-i',BGM]
-fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120,asplit=2[v][vk]',f'[2:a]atrim=0:{TOTAL},volume=0.30,afade=t=in:d=0.4,afade=t=out:st={TOTAL-1.5}:d=1.5[b0]','[b0][vk]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[b]']; mx=['[v]','[b]']  # 말할 때 배경음 자동으로 줄임(더킹)
+fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120,asplit=2[v][vk]',f'[2:a]atrim=0:{TOTAL},volume={BGMV},afade=t=in:d=0.4,afade=t=out:st={TOTAL-1.5}:d=1.5[b0]','[b0][vk]sidechaincompress=threshold=0.06:ratio=2.5:attack=30:release=350[b]']; mx=['[v]','[b]']  # 말할 때 배경음 자동으로 줄임(더킹)
 for j,(tc,k,nm,v) in enumerate(acc):
     inp+=['-i',ASSET+'sfx/'+nm+'.wav']; fl.append(f'[{len(inp)//2-1}:a]volume={v},adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
 A_=R['audio']; LN=f"loudnorm=I={A_['loudness_lufs']}:TP={A_['true_peak_db']}:LRA=11"
