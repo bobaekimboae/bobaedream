@@ -228,6 +228,12 @@ def special(key,cv,t,t0):
 SFXT=[]; ICONT=[]; EV=[]; CHIPS_LOG=[]; REMIX=bool(os.environ.get('REMIX'))   # EV = [(시각, 종류)] 효과음 후보
 ZONE=_CK.get('zones',{}); _prevzone=None
 MET=json.load(open(os.path.join(REPO,'scripts/shortform/photo_listing/option_visual_rules.json')))['layout']['metaphor_sfx']; SX=R['sfx']
+# r11 크로스체크: 두 렌더를 동시에 돌리면 같은 중간 파일(nov8.mp4)을 함께 써서 영상이 깨졌다 → 잠금 파일로 동시 실행을 막는다
+_LOCK=G+'nov8.lock'
+if os.path.exists(_LOCK):
+    try: os.kill(int(open(_LOCK).read()),0); sys.exit('⛔ 다른 roma_render가 실행 중(중간 파일 nov8.mp4 공유) — 끝난 뒤 다시 실행하거나 REMIX=1로 소리만 바꾸세요')
+    except (ProcessLookupError,ValueError): pass
+open(_LOCK,'w').write(str(os.getpid())); import atexit; atexit.register(lambda: os.path.exists(_LOCK) and os.remove(_LOCK))
 proc=subprocess.Popen(['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-','-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',G+('nov8_dummy.mp4' if REMIX else 'nov8.mp4')],stdin=subprocess.PIPE)
 last=None; nfr=0
 for t0,t1,c in SEG:
