@@ -4,7 +4,9 @@
   python3 scripts/listing_import/history_join.py data/import-out/<묶음>/<매물키> [...]
   - 각 폴더의 ledger.json 의 차량번호로 서버 차량이력 API 를 부르고, 응답을 history.json 으로 저장한 뒤
     ledger.json · row.json 을 다시 쓴다(원래 사이트 값은 덮어쓰기 전 'other' 로 보관).
-서버 주소: 환경변수 VEHICLE_HISTORY_URL (기본: 보배드림 스테이징 시험 주소).
+서버 주소: 환경변수 VEHICLE_HISTORY_URL (기본: 보배드림 스테이징 OpenAPI 주소).
+인증: 환경변수 VEHICLE_HISTORY_API_KEY 를 X-API-Key 머리글로 보낸다. 키는 파일·깃허브·화면에 쓰지 않는다.
+한도: 분당 30회 · 24시간 500회 → 호출 사이 2.5초, 429면 한 번 기다렸다가 다시 부른다.
 기관 키·인증서는 서버에만 있다. 이 스크립트는 차량번호만 보내고, 응답은 가린 번호만 담는다.
 '무사고' 같은 단정어는 쓰지 않는다. 사고는 '보험 처리 사고 N건'처럼 숫자로만 적는다.
 """
@@ -23,21 +25,31 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from run import to_row  # noqa: E402
 
-URL = os.environ.get('VEHICLE_HISTORY_URL', 'https://staging.bbmuseum.co.kr/v1/test/vehicle-history')
+URL = os.environ.get('VEHICLE_HISTORY_URL', 'https://staging.bbmuseum.co.kr/v1/openapi/vehicle-history')
+API_KEY = os.environ.get('VEHICLE_HISTORY_API_KEY', '')
+GAP = 2.5  # 분당 30회 한도
 SRC = '차량이력(카히스토리)'
+_last = [0.0]
 
 
 def lookup(plate: str, tries: int = 2) -> dict:
+    if not API_KEY:
+        return {'error': 'VEHICLE_HISTORY_API_KEY 환경변수가 없어 조회하지 않음', 'status': 0}
     body = {'plate': plate, 'consentId': str(uuid.uuid4()), 'purpose': 'USED_CAR_DEALER_LISTING_CHECK',
             'molitLookupType': 'SALE_VEHICLE_OR_OWNER_UNCONSENTED'}
     for i in range(tries):
-        req = urllib.request.Request(URL, data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'Accept': 'application/json'})
+        wait = GAP - (time.time() - _last[0])
+        if wait > 0:
+            time.sleep(wait)
+        _last[0] = time.time()
+        req = urllib.request.Request(URL, data=json.dumps(body).encode(), headers={
+            'Content-Type': 'application/json', 'Accept': 'application/json', 'X-API-Key': API_KEY})
         try:
             with urllib.request.urlopen(req, timeout=90) as r:
                 return json.loads(r.read().decode())
         except urllib.error.HTTPError as e:
-            if e.code in (502, 503, 504) and i + 1 < tries:
-                time.sleep(5)
+            if e.code in (429, 502, 503, 504) and i + 1 < tries:
+                time.sleep(int(e.headers.get('Retry-After') or 0) or (30 if e.code == 429 else 5))
                 continue
             raw = e.read().decode('utf-8', 'ignore')
             try:
