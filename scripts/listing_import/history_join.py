@@ -56,6 +56,11 @@ def lookup(plate: str, tries: int = 2) -> dict:
                 return {'error': json.loads(raw), 'status': e.code}
             except ValueError:
                 return {'error': raw[:200], 'status': e.code}
+        except (urllib.error.URLError, ConnectionError, TimeoutError) as e:  # 접속이 끊기면 잠시 뒤 한 번 더
+            if i + 1 < tries:
+                time.sleep(5)
+                continue
+            return {'error': f'접속 실패: {e}', 'status': 0}
     return {'error': 'no response'}
 
 
