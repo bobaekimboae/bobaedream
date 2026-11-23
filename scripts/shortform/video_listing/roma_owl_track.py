@@ -17,12 +17,16 @@ PA.PROMPTS.update({
     'gauge2': 'a digital instrument cluster screen behind a steering wheel',
     'selector': 'gear selector buttons on a car center console',
     'taillight': 'a car tail light',
+    'backrest2': 'a beige leather car seat backrest',
+    'carpet': 'a red carpet floor mat in a car',
 })
 JOBS = {  # 키: (원본 시작, 끝, 부위, 점수 기준)
     'c7': (66.0, 70.5, 'paddle', 0.10),
     'c8': (72.5, 78.0, 'gauge2', 0.12),
     'c10b': (86.8, 88.8, 'selector', 0.10),
     'c12': (172.5, 179.0, 'taillight', 0.12),
+    'c4s': (37.0, 42.3, 'backrest2', 0.12),   # r15: 시트 재질 글자 → 등받이(매뉴얼 §11)
+    'c4c': (37.0, 42.3, 'carpet', 0.10),      # r15: 레드 카펫 → 바닥 카펫
 }
 STEP, FPS = 0.2, 30
 

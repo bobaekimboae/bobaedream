@@ -43,7 +43,7 @@ def post(video):
     T = set(P.get('techniques') or [])
     if not T:
         bad('쓴 기법 기록 없음'); return
-    miss = [t for t in E['required'] if t not in T]
+    miss = [t for t in E['required'] if not any(x in T for x in t.split('|'))]   # 「a|b」 = 둘 중 하나(v1.3 끝 화면 로고·딜러 카드)
     (ok if not miss else bad)(f'필수 기법 {len(E["required"])}개' + (f' — 빠짐: {miss}' if miss else ''))
     chips = P.get('chips') or []
     if any(c.get('kind') in ('point', 'callout') for c in chips):
