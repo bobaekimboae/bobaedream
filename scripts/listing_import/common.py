@@ -76,8 +76,15 @@ def label_value(lines: list[str], label: str) -> str | None:
     """「라벨 / 값」 줄 구조에서 라벨 다음 줄 값."""
     for i, l in enumerate(lines):
         if l == label and i + 1 < len(lines):
-            return lines[i + 1]
+            v = lines[i + 1]
+            if v in SPEC_LABELS:  # 값이 빈 칸이면 다음 라벨이 붙어 나옴(서울오토갤러리 '색상 / 제시번호')
+                return None
+            return v
     return None
+
+
+SPEC_LABELS = {'차량번호', '연식', '주행거리', '변속기', '연료', '배기량', '색상', '제시번호', '압류', '저당', '성능번호', '제시구분',
+               '최초등록일', '차종', '차량명', '제조사', '사고여부', '세금미납', '판매가격', '차량가격'}
 
 
 def balanced_json(s: str, start: int) -> dict | None:
