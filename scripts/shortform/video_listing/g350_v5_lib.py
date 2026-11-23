@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 R = json.load(open(os.path.join(REPO, 'scripts/shortform/be_locked_rules.json')))
 W, H, FPS = 1080, 1920, 30
-F = os.path.join(REPO, 'scripts/shortform/fonts')
+F = os.environ.get('BBM_FONT_DIR') or os.path.join(REPO, 'scripts/shortform/fonts')   # BBM_FONT_DIR = 글꼴 비교용(기본값은 그대로 프리텐다드)
 A = os.path.join(REPO, 'public/assets/shortform') + '/'
 def _hex(h): h = h.lstrip('#'); return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
 YEL = _hex(R['color']['yellow']); INK = _hex(R['color']['ink'])

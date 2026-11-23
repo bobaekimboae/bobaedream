@@ -148,3 +148,11 @@
 
 - 결과 `bobae_cha10_gle450_be_v9.mp4`(64.0초). v8 샘플(체크 목록 · 자막 숫자 노랑)에서 배기량 큰 숫자 양옆 강조 선만 뺐다. 가격 숫자 옆 강조 선은 그대로.
 - 검사: `check_be.py` 통과 · `edit_gate.py post --plates` 통과. 듣기 검수 안 함.
+
+## 글꼴 비교(2026-11-24)
+- 한 일: GLE450 v9 편집을 그대로 두고 글꼴만 프리텐다드 · 수트(SUIT) · G마켓 산스로 바꿔 3벌 렌더한 뒤 비교 영상 `bobae_font_compare_v1.mp4`(62초)를 만들었다. 앞 9초와 가운데 8.5초를 글꼴마다 차례로, 끝 9초는 3벌 나란히.
+- 코드: `g350_v5_lib.py`에 `BBM_FONT_DIR` 환경 변수(비교용 글꼴 폴더)만 추가. 기본값은 그대로 프리텐다드, 규칙 값은 바꾸지 않았다.
+- 굵기 짝: 프리텐다드 Black/ExtraBold/Bold ↔ SUIT Heavy/ExtraBold/Bold ↔ G마켓 산스 Bold(굵기가 3단계뿐이라 모두 Bold).
+- 참고 릴스(마이바흐 브랜드센터, DgEpLPUzKtt) 자막은 G마켓 산스 Bold로 판단.
+- 검증: 비교용이라 check_be · edit_gate는 돌리지 않았다. 듣기 검수 안 함.
+![글꼴 비교](shortform-cha10-gle450-be/font_compare_v1.jpg)
