@@ -109,7 +109,12 @@ def match(make: str | None, model: str | None, trim: str | None, first_reg: str 
     t = norm(PREFIX.sub('', title))
     t_full = norm(title)
     best = None
-    for g in catalog()['groups'].get(mk['id'], []):
+    tm = norm(PREFIX.sub('', model or ''))
+    for g in catalog()['groups'].get(mk['id'], []):  # 모델 칸만으로 먼저('X6' + 등급 'M50i' 가 'X6M' 으로 붙지 않게)
+        n = norm(PREFIX.sub('', g['name']))
+        if n and tm and tm.startswith(n) and (not best or len(n) > len(norm(PREFIX.sub('', best['name'])))):
+            best = g
+    for g in ([] if best else catalog()['groups'].get(mk['id'], [])):
         n = norm(PREFIX.sub('', g['name']))
         if n and (t.startswith(n) or n in t_full):
             if not best or len(n) > len(norm(best['name'])):
