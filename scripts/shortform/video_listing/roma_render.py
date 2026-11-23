@@ -34,7 +34,7 @@ TP={t['id']:t['params'] for t in RULESF['techniques']}
 SUFFIX={o['key']:o.get('item_suffix','') for o in RULESF['options']}
 # (키, 원본시작, 원본끝, 첫단어, 칩, 칩단어, 보조, 화살표 유효(원본시각 범위), 큰숫자들)
 C=[('c1',214.5,219.0,0,None,None,None,None,[]),
- ('c2',10.0,13.0,9,'풀 LED 헤드램프',10,None,(10.5,12.5),[]),
+ ('c2',10.0,13.0,9,'풀 LED 헤드램프',10,None,(10.5,11.9),[]),
  ('c3',13.5,17.5,12,None,None,None,None,[]),
  ('c4',37.0,42.3,20,None,None,None,None,[]),
  ('c5',48.0,50.8,27,'듀얼 콕핏',30,None,None,[]),
@@ -42,7 +42,7 @@ C=[('c1',214.5,219.0,0,None,None,None,None,[]),
  ('c7',66.0,70.5,39,'카본 패들 시프트',39,None,None,[]),
  ('c8',72.5,78.0,45,'디지털 계기판',46,None,None,[]),
  ('c9',79.5,83.5,51,'조수석 디스플레이',51,None,(80.0,83.5),[]),
- ('c10',84.0,88.8,57,'8.4인치 세로형 화면',58,None,(85.0,87.6),[]),
+ ('c10',84.0,88.8,57,'8.4인치 세로형 화면',58,None,(84.7,87.2),[]),
  ('c11',167.0,172.0,67,'소프트톱',67,None,None,[('13.5초','시속 60km 이하 개폐',71)]),
  ('c12',172.5,179.0,76,'LED 테일램프',77,None,None,[]),
  ('c13',125.5,128.5,79,'머플러 4개',79,None,(126.0,128.5),[]),
@@ -166,15 +166,35 @@ del _yy,_xx,_rr
 def spot(cv,tx,ty,a):
     x0=int(W-tx); y0=int(H-ty); m=(SPOT[y0:y0+H,x0:x0+W]*a).astype('uint8')
     ov=Image.new('RGBA',(W,H),(0,0,0,255)); ov.putalpha(Image.fromarray(m)); return Image.alpha_composite(cv,ov)
+CUR={}
+def ring(cv,x,y,t,t_in):   # 부위 표시 고리: 노랑 한 색(사용자 확정), 0.2초에 커지며 나타남
+    if t<t_in: return
+    g=min(1.0,(t-t_in)/0.2); r=int(46*(0.6+0.4*g)); d=ImageDraw.Draw(cv)
+    d.ellipse((x-r,y-r,x+r,y+r),outline=(0,0,0,110),width=12); d.ellipse((x-r,y-r,x+r,y+r),outline=(245,242,0,int(255*g)),width=7)
 def special(key,cv,t,t0):
     for e in PL.get(key,{}).get('T02',[]):   # T02 ✓ 목록: 칩 바로 아래, 칩 왼쪽 선에 맞춰 쌓음
         cb=gchip(CHIPLAB[key]).getbbox(); x0=M-10+cb[0]; yk=YB+cb[3]+14
         for r in e['rows']:
             im=ckpill(r['item']+SUFFIX.get(e.get('option','diff_lock'),' 잠금')); b=im.getbbox()
             pop(cv,im,(x0-b[0],yk-b[1]),t,r['at']-t0); yk+=b[3]-b[1]+TP['T02']['row_gap_px']
-    if key=='c3':
-        y=int(H*0.10); pop(cv,W_IN,((W-W_IN.width)//2,y),t,WS[13][1]-t0-0.22,0.3)
-        pop(cv,W_TY,((W-W_TY.width)//2,y+W_IN.height+10),t,WS[16][1]-t0-0.22,0.3)
+    if key=='c3':   # 2026-11-23 「타이어도 노출 좌표를 특정」: 휠 가운데(c3)·타이어 옆면(c3t) 좌표 지정 추적을 따라 글자가 붙어 다님(나세르식)
+        st,tomap=CUR['st'],CUR['tomap']
+        def _at(k):
+            if k not in TR: return None
+            d=TR[k]
+            if not (d['s0']<=st<=d['s1']): return None
+            P=d['pts']; i=min(len(P)-1,int(round((st-d['s0'])*30)))
+            return tomap(*P[i]) if P[i] else None
+        hub=_at('c3'); tire=_at('c3t')
+        if hub:   # 20인치: 휠 가운데 위쪽, 휠 크기와 무관한 고정 크기 · 화면 안에 가둠
+            hx,hy=hub; x=int(min(W-W_IN.width-30,max(30,hx-W_IN.width/2))); y=int(min(H*0.55,max(150,hy-W_IN.height-210)))
+            pop(cv,W_IN,(x,y),t,WS[13][1]-t0-0.22,0.3)
+        if tire:  # 타이어 규격: 타이어 옆면 글씨 옆
+            tx,ty=tire; x=int(min(W-W_TY.width-30,max(30,tx-W_TY.width/2))); y=int(min(H*0.62,max(150,ty-W_TY.height-160)))
+            pop(cv,W_TY,(x,y),t,WS[16][1]-t0-0.22,0.3)
+        elif not hub:
+            y=int(H*0.10); pop(cv,W_IN,((W-W_IN.width)//2,y),t,WS[13][1]-t0-0.22,0.3)
+            pop(cv,W_TY,((W-W_TY.width)//2,y+W_IN.height+10),t,WS[16][1]-t0-0.22,0.3)
     if key=='c4':
         y=int(H*0.12); pop(cv,S_MAT,((W-S_MAT.width)//2,y),t,WS[21][1]-t0-0.06,0.3)
         pop(cv,S_SUB,((W-S_SUB.width)//2,y+S_MAT.height+8),t,WS[24][1]-t0-0.06)
@@ -197,7 +217,10 @@ for t0,t1,c in SEG:
     if T01: rate=min(TP['T01']['max_rate'],rate)
     fr=frames(s0,s1)
     frA=frames(*T01['action_src']) if T01 else None
-    pts=smooth(TR[key]['pts'],k=21) if key in TR and key!='c5' else None   # v7: 0.7초 평활로 칩 흔들림 줄임 · 2분할 컷은 추적 안 씀
+    pts=VALID=None
+    if key in TR:   # 매핑 v2(2026-11-23): 추적기가 이미 평활함 · 잃은 프레임(None)은 가장 가까운 정상 점으로 채우고 화살표는 숨김
+        _raw=TR[key]['pts']; VALID=[p is not None for p in _raw]; _ok=[i for i,v in enumerate(VALID) if v]
+        if _ok: pts=smooth([_raw[min(_ok,key=lambda j:abs(j-i))] for i in range(len(_raw))],k=3)
     CHIPLAB[key]=clab; Cimg=gchip(clab) if clab else None; Simg=white(sub[0],58) if sub else None
     BIG=[(text3d(b,h=180 if key!='c15' else 210),white(l,58) if l else None,WS[j][1]-t0-0.22) for b,l,j in bigs]; BIGS=[b for b,l,j in bigs]
     _metak=[k for it in MET['items'] for k in it['keywords']]
@@ -267,7 +290,7 @@ for t0,t1,c in SEG:
                 cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
                 L=0
             else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
-            if av and av[0]<=st<=av[1] and t>=tc+0.18:
+            if av and av[0]<=st<=av[1] and t>=tc+0.18 and VALID[min(len(VALID)-1,int(round((st-s0)*30)))]:
                 g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*abs(math.sin((t-tc-0.43)*5))) if t>tc+0.43 else 0
                 A,off=arrimg(L,bl); A=A.resize((A.width,round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
                 if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,L,Lc,bob,cx,cy,Cimg.getbbox()])
@@ -288,7 +311,7 @@ for t0,t1,c in SEG:
                 BIGS_SEEN.add((key,k2)); _b=B3.getbbox() or (0,0,B3.width,B3.height); _x=(W-B3.width)//2; _y1=y3+_b[3]
                 if BL: _lb=BL.getbbox() or (0,0,BL.width,BL.height); _y1=max(_y1,y3+B3.height+6+_lb[3])
                 BIGS_LOG.append({'key':key,'label':str(BIGS[k2]),'kind':'big','t_box':round(nfr/FPS,3),'box':[_x+_b[0],y3+_b[1],_x+_b[2],int(_y1)]})
-        special(key,cv,t,t0)
+        CUR['st']=st; CUR['tomap']=tomap; special(key,cv,t,t0)
         draw_sub(cv,nfr/FPS) if not HIDE_SUB[0] else None
         HIDE_SUB[0]=False
         proc.stdin.write(cv.convert('RGB').tobytes()); nfr+=1; last=fr[fi]
