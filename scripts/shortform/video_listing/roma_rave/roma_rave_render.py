@@ -258,20 +258,33 @@ _g = np.clip(1 - _yy / 900.0, 0, 1) ** 1.4; _r = np.clip(1 - np.hypot((_xx - W /
 _sk = np.zeros((H, W, 4), np.uint8); _sk[..., 0] = (8 * _g + 230 * _r).clip(0, 255); _sk[..., 1] = (12 * _g + 18 * _r).clip(0, 255); _sk[..., 2] = (40 * _g + 22 * _r).clip(0, 255); _sk[..., 3] = (190 * _g + 215 * _r).clip(0, 255)
 SKYFX = Image.fromarray(_sk)
 FER = None
+def _acx(dst, src, x, y):   # 화면 밖으로 나가는 부분은 잘라서 합성
+    sx, sy = max(0, -x), max(0, -y); x, y = max(0, x), max(0, y)
+    w = min(src.width - sx, dst.width - x); h = min(src.height - sy, dst.height - y)
+    if w > 0 and h > 0: dst.alpha_composite(src.crop((sx, sy, sx + w, sy + h)), (x, y))
+_TXT = {}
 def chrome_behind(cv, raw, mask, t, z, ccx, ccy):
-    # 나세르식: 차 지붕 뒤에서 거대한 3D 모델명이 솟아오름(블렌더 프레임 그대로), 차가 앞을 가림
+    # 나세르식: 차 지붕 뒤 거대한 3D 모델명. 매 프레임 차 윤곽(폭·지붕·가운데)에 맞춰 크기·자리를 따라감 → 카메라가 다가가면 글자도 같이 커짐
     if not CHR: return cv
-    k = min(len(CHR) - 1, int(max(0.0, t - 0.08) * 30)); im = CHR[k]; sc = 1040 / CHR[-1].width
-    im = im.resize((int(im.width * sc), int(im.height * sc)), Image.LANCZOS)
-    top = CTOP[0] if CTOP[0] else 700; base = top + 150   # 글자 아래쪽이 차 지붕보다 150px 아래(차가 가림)
-    y = base - int(CHR[-1].height * sc); x = (W - im.width) // 2
+    m = mask.resize((int(W * z), int(H * z))).crop((int((ccx - W / (2 * z)) * z), int((ccy - H / (2 * z)) * z), int((ccx - W / (2 * z)) * z) + W, int((ccy - H / (2 * z)) * z) + H))
+    ma = np.array(m) > 128; cols = np.nonzero(ma.mean(0) > 0.02)[0]
+    if len(cols) < 10: return cv
+    x0, x1 = cols.min(), cols.max(); cxm = (x0 + x1) / 2; cwid = x1 - x0
+    mid = ma[:, int(x0 + cwid * 0.25):int(x1 - cwid * 0.25)]; rows = np.nonzero(mid.mean(1) > 0.3)[0]; top = rows.min() if len(rows) else 700
+    tw = min(1300.0, max(760.0, cwid * 1.02)); base = top + 0.16 * tw
+    pv = _TXT.get('s')
+    if pv is not None: tw, cxm, base = [p * 0.75 + q * 0.25 for p, q in zip(pv, (tw, cxm, base))]   # 부드럽게
+    _TXT['s'] = (tw, cxm, base)
+    fa = 1.0
+    k = min(len(CHR) - 1, int(max(0.0, t - 0.08) * 30)); im = CHR[k]; sc = tw / CHR[-1].width
+    im = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.LANCZOS)
+    y = max(int(base - CHR[-1].height * sc), 575); x = int(cxm - im.width / 2)   # 제목 줄과 겹치면 아래로 밀어 차 뒤로 더 숨김
     lay = Image.new('RGBA', (W, H))
     gl = Image.new('RGBA', im.size, (255, 40, 30, 0)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.32)))   # 붉은 후광
-    lay.alpha_composite(gl.filter(ImageFilter.GaussianBlur(44)), (x, y))
-    sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 160), (0, 0), im.getchannel('A')); lay.alpha_composite(sh.filter(ImageFilter.GaussianBlur(12)), (x + 6, y + 16))
-    lay.alpha_composite(im, (x, y))
-    m = mask.resize((int(W * z), int(H * z))).crop((int((ccx - W / (2 * z)) * z), int((ccy - H / (2 * z)) * z), int((ccx - W / (2 * z)) * z) + W, int((ccy - H / (2 * z)) * z) + H))
-    a = np.array(lay.getchannel('A')).astype(float) * (1 - np.array(m).astype(float) / 255); lay.putalpha(Image.fromarray(a.astype(np.uint8)))
+    _acx(lay, gl.filter(ImageFilter.GaussianBlur(44)), x, y)
+    sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 160), (0, 0), im.getchannel('A')); _acx(lay, sh.filter(ImageFilter.GaussianBlur(12)), x + 6, y + 16)
+    _acx(lay, im, x, y)
+    a = np.array(lay.getchannel('A')).astype(float) * (1 - np.array(m).astype(float) / 255) * fa; lay.putalpha(Image.fromarray(a.astype(np.uint8)))
     return Image.alpha_composite(cv, lay)
 FER = goldtxt('FERRARI', 640, 120)
 ANC = {}; EVS = []; CHIPS_LOG = []; BIGS_LOG = []; TOUCH_T = {}

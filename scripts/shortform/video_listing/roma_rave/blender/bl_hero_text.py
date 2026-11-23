@@ -62,7 +62,7 @@ side = mat('side', SIDE, 0.35, 0.3, 1.0)
 
 cu = bpy.data.curves.new('t', 'FONT'); cu.body = TEXT; cu.font = bpy.data.fonts.load(FONT)
 cu.align_x = 'CENTER'; cu.align_y = 'CENTER'; cu.size = 1.0; cu.extrude = 0.32; cu.bevel_depth = 0.045; cu.bevel_resolution = 4
-cu.space_character = 0.92
+cu.space_character = 0.92; cu.space_word = 2.4
 o = bpy.data.objects.new('t', cu); sc.collection.objects.link(o)
 bpy.context.view_layer.update()
 me = bpy.data.meshes.new_from_object(o.evaluated_get(bpy.context.evaluated_depsgraph_get()))

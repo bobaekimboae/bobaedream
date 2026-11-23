@@ -38,3 +38,9 @@
 - 차 뒤 모델명을 블렌더 3D로 새로 렌더(`blender/bl_hero_text.py`): 크롬 앞면 · 페라리 레드 옆면 · 테두리 빛 · 솟아오르기 · 빛 띠
 - 차 윤곽: 가이드 필터 · 유리 구멍 메우기 · 프레임 간 떨림 줄이기
 - check_be 통과 · 확인 링크(병합·배포 후): https://bobaekimboae.github.io/bobaedream/shortform-samples/roma-spider-rave-v7/
+
+## v8 · 나세르 인트로 4편 (2026-11-24)
+- 타이어 터치에 휠·타이어 외곽선 추가
+- 인트로 ROMA 글자를 차 윤곽에 맞춰 따라가게(제목 줄과 겹치면 아래로)
+- 사진 매물용 나세르 인트로 생성기 `nasser_intro.py` + 4대 샘플(피스타·STO·G63·911 터보 S)
+- check_be 통과(로마 v8)

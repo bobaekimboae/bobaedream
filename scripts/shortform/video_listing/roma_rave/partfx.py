@@ -45,10 +45,12 @@ def _contours(mf):
     return out
 
 
-def _path(p, tip):
+def _path(p, tip, skip=None):
     # 손끝에 가장 가까운 점부터 시작 · 화면 테두리에 붙은 구간은 그리지 않음(가짜 직선 방지)
     s = int(np.argmin(((p - np.array(tip)) ** 2).sum(1))); p = np.roll(p, -s, 0)
     edge = (p[:, 0] < 6) | (p[:, 0] > W - 7) | (p[:, 1] < 6) | (p[:, 1] > H - 7)
+    if skip is not None:   # 손 가장자리 위 구간은 그리지 않음(손가락 따라 그려지는 선 방지)
+        xi = np.clip(p[:, 0].astype(int), 0, W - 1); yi = np.clip(p[:, 1].astype(int), 0, H - 1); edge = edge | (skip[yi, xi] > 0)
     pa = skia.Path(); pen = False; closed = not edge.any()
     for i, q in enumerate(p):
         if edge[i]: pen = False; continue
@@ -78,7 +80,8 @@ def outline(cv, key, G, k, ccx, ccy, z, tip):
     end = n / 30; fade = 1.0 - ease((u - (end - 0.45)) / 0.45) if u > end - 0.45 else 1.0
     if k >= n: fade = 0.0
     mf = _xform(part[j], ccx, ccy, z); hm = _xform(hand[j].astype(np.float32), ccx, ccy, z)
-    cs = _contours(mf)
+    SK = cv2.dilate((hm > 0.5).astype(np.uint8), np.ones((15, 15), np.uint8))
+    cs = _contours(np.maximum(mf, (hm > 0.5).astype(np.float32) * (cv2.dilate((mf > 0.5).astype(np.uint8), np.ones((41, 41), np.uint8)) > 0)))
     if not cs: return cv, None
     big = max(cs, key=lambda c: cv2.contourArea(c.astype(np.int32)))
     ok_ = (big[:, 0] > 40) & (big[:, 0] < W - 40) & (big[:, 1] > 330) & (big[:, 1] < H - 40)
@@ -93,8 +96,8 @@ def outline(cv, key, G, k, ccx, ccy, z, tip):
     # 안쪽 채움(노랑 얇게) — 0.1~0.6초
     fa = 70 * ease(u / 0.12) * (1 - ease((u - 0.35) / 0.4)) * fade
     for p in cs:
-        pa = _path(p, tip)
-        if fa > 1: c.drawPath(pa, _paint(YEL, fa, fill=True))
+        pa = _path(p, tip, SK); pf = _path(p, tip)
+        if fa > 1: c.drawPath(pf, _paint(YEL, fa, fill=True))
         tr = skia.Path(pa)
         if g < 1:
             eff = skia.TrimPathEffect.Make(0, g * 0.5); eff2 = skia.TrimPathEffect.Make(1 - g * 0.5, 1)
@@ -172,7 +175,8 @@ def holes(cv, key, G, k, ccx, ccy, z, tip):
 
 
 # ── 나세르식 부위 색 바꾸기: 질감(밝기)은 두고 색만 흰색/부위색으로 + 얇은 테두리 + 빛 쓸기 ──
-STR = {'defl': 0.45, 'top': 0.6}   # 넓은 부위는 색을 옅게
+STR = {'defl': 0.45, 'top': 0.6}
+NOBORDER = {'wheel'}   # 캘리퍼는 바퀴살 사이로 보여 테두리가 복잡 → 색만   # 넓은 부위는 색을 옅게
 TINT = {'exh': 'white', 'sill': 'white', 'grille': 'white', 'paddle': (225, 30, 45), 'defl': (225, 30, 45), 'pdisp': (40, 200, 255), 'wheel': (255, 214, 0), 'top': 'white', 'eng': (225, 30, 45)}
 
 
@@ -216,8 +220,9 @@ def recolor(cv, key, G, k, ccx, ccy, z, tip):
     # 얇은 테두리(흰색 + 부위색 번짐)
     arr = np.zeros((H, W, 4), np.uint8); surf = skia.Surface(arr); cvs = surf.getCanvas()
     gc = (255, 255, 255) if c == 'white' else c
-    for p in cs:
-        pa = _path(p, tip); cvs.drawPath(pa, _paint(gc, 150 * e, 14, 9)); cvs.drawPath(pa, _paint((255, 255, 255), 235 * e, 2.5))
+    SK = cv2.dilate((hm > 0.5).astype(np.uint8), np.ones((15, 15), np.uint8))
+    for p in ([] if key in NOBORDER else _contours(np.maximum(mf, (hm > 0.5).astype(np.float32) * (cv2.dilate((mf > 0.5).astype(np.uint8), np.ones((41, 41), np.uint8)) > 0)))):
+        pa = _path(p, tip, SK); cvs.drawPath(pa, _paint(gc, 150 * e, 14, 9)); cvs.drawPath(pa, _paint((255, 255, 255), 235 * e, 2.5))
     lay = surf.makeImageSnapshot().toarray(colorType=skia.kRGBA_8888_ColorType, alphaType=skia.kUnpremul_AlphaType)
     lay[..., 3] = (lay[..., 3].astype(np.float32) * (1 - np.clip(hm, 0, 1))).astype(np.uint8)
     base.alpha_composite(Image.fromarray(lay, 'RGBA'))
@@ -230,6 +235,8 @@ STYLE = _os.environ.get('PART_STYLE', 'recolor')
 
 def fx(cv, key, G, k, ccx, ccy, z, tip):
     if key == 'grille': return holes(cv, key, G, k, ccx, ccy, z, tip)
+    if key == 'wheel':   # 타이어 터치: 캘리퍼 색 + 휠·타이어 외곽선
+        cv, an = recolor(cv, key, G, k, ccx, ccy, z, tip); cv, _ = outline(cv, 'wheelfull', G, k, ccx, ccy, z, tip); return cv, an
     return (recolor if STYLE == 'recolor' else outline)(cv, key, G, k, ccx, ccy, z, tip)
 
 
