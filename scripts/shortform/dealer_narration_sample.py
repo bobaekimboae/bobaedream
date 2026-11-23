@@ -1,8 +1,7 @@
 """딜러 내레이션형 숏폼 샘플: 매물 사진 + 매물 정보 -> 대본 -> TTS(어절 시각) -> 컷 맞춤 -> 자막·그래픽 -> mp4."""
 import asyncio, json, math, os, re, subprocess, sys
-import certifi
-certifi.where = lambda: '/root/.ccr/ca-bundle.crt'
-import edge_tts
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import voice_source  # edge-tts(비공식 접속) 대신: 일레븐랩스 블록 파일(VOICE_DIR) 또는 MeloTTS
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 OUT = os.environ.get('OUT_DIR', os.path.join(os.getcwd(), 'shortform-out'))
@@ -10,7 +9,6 @@ os.makedirs(OUT, exist_ok=True)
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 PH = os.path.join(ROOT, 'public', 'assets', 'cars', 'seoul-autogallery-v01', 'rr', 'rr-%02d.jpg')
 W, H, FPS = 1080, 1920, 30
-VOICE, RATE = 'ko-KR-InJoonNeural', '+18%'
 SANS = '/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc'
 SANS_B = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
 SERIF = '/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc'
@@ -38,18 +36,6 @@ BLOCKS = [
 HIGHLIGHT = re.compile(r'(\d|V8|SV|슈퍼차저|롱휠베이스|롱바디|퀼팅|우드|헤드업|어라운드|디지털|윗급|두)')
 
 
-async def tts(text, path):
-    c = edge_tts.Communicate(text, VOICE, rate=RATE, boundary='WordBoundary')
-    words = []
-    with open(path, 'wb') as f:
-        async for ch in c.stream():
-            if ch['type'] == 'audio':
-                f.write(ch['data'])
-            elif ch['type'] == 'WordBoundary':
-                words.append((ch['offset'] / 1e7, (ch['offset'] + ch['duration']) / 1e7, ch['text']))
-    return words
-
-
 def dur(path):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', path]))
 
@@ -58,7 +44,7 @@ def build_audio():
     t, gap, timeline, parts = 0.3, 0.18, [], []
     for i, b in enumerate(BLOCKS):
         p = os.path.join(OUT, f'b{i}.mp3')
-        words = asyncio.run(tts(b['text'], p))
+        words = voice_source.synth_words(b['text'], p, i)
         d = (words[-1][1] + 0.15) if words else dur(p)
         b['start'], b['end'] = t, t + d
         b['words'] = [(t + s, t + e, w) for s, e, w in words]
