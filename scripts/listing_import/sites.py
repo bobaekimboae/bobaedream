@@ -25,10 +25,13 @@ def detect(url: str) -> str | None:
         return 'koreacarmarket'
     if 'm-park.co.kr' in host:
         return 'mpark'
+    from johap import site_of
+    if site_of(url):          # 전국 조합·매매단지 홈페이지(complex_sites.json)
+        return 'johap'
     return None
 
 
-SITE_NAME = {'encar': '엔카', 'seoulautogallery': '서울오토갤러리', 'charancha': '차란차', 'koreacarmarket': '코리아카마켓', 'mpark': '엠파크'}
+SITE_NAME = {'encar': '엔카', 'seoulautogallery': '서울오토갤러리', 'charancha': '차란차', 'koreacarmarket': '코리아카마켓', 'mpark': '엠파크', 'johap': '조합·매매단지'}
 
 
 # ── 엔카: 공개 매물 화면이 쓰는 읽기 API(readside) ──
@@ -195,4 +198,9 @@ def mpark(url: str):
     return fields, [u for u in photos if u], url
 
 
-ADAPTERS = {'encar': encar, 'seoulautogallery': seoulautogallery, 'charancha': charancha, 'koreacarmarket': koreacarmarket, 'mpark': mpark}
+def johap(url: str):
+    from johap import read
+    return read(url)
+
+
+ADAPTERS = {'encar': encar, 'seoulautogallery': seoulautogallery, 'charancha': charancha, 'koreacarmarket': koreacarmarket, 'mpark': mpark, 'johap': johap}

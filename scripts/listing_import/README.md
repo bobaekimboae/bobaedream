@@ -17,6 +17,9 @@ python3 scripts/listing_import/test_listing_import.py       # 자동 시험(네�
 |---|---|
 | common.py | 요청(1초 간격)·값 정리·원장 칸 만들기·사진 저장 |
 | sites.py | 사이트 판별 + 사이트별 읽기(엔카·서울오토갤러리·차란차·코리아카마켓·엠파크) |
+| johap.py | 전국 조합·매매단지 홈페이지 읽기(전국연합·한국연합·카매니저 전산 3종) |
+| complex_sites.json | 조합·매매단지 사이트 목록(조합·연합회·지역·전산·상태) — 서버도 같이 읽음 |
+| catalog_map.py | 보배드림 차량 기준표 연결(제조사·모델·세대 id) |
 | run.py | 명령줄 실행, 본인 매물 판정, 결과 파일 쓰기 |
 | group.py | 같은 차 묶기 |
 | sheet_columns.json | 시트 열 순서(93칸) |

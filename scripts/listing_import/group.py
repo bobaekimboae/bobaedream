@@ -27,6 +27,10 @@ def same_car(a: dict, b: dict) -> bool:
     va, vb = _norm(_v(a, 'vin')), _norm(_v(b, 'vin'))
     if va and vb:
         return va == vb
+    ca, cb = (a.get('catalog') or {}).get('model_id'), (b.get('catalog') or {}).get('model_id')
+    if ca and cb and _v(a, 'year') == _v(b, 'year') and _v(a, 'mileage_km') and _v(b, 'mileage_km'):
+        ka, kb = float(_v(a, 'mileage_km')), float(_v(b, 'mileage_km'))
+        return ca == cb and abs(ka - kb) <= max(ka, kb) * 0.01      # 기준표 모델이 같고 주행 1% 이내
     if not all(_v(x, k) for x in (a, b) for k in ('make', 'model', 'year', 'mileage_km')):
         return False
     if _norm(_v(a, 'make')) != _norm(_v(b, 'make')) or _v(a, 'year') != _v(b, 'year'):
@@ -58,7 +62,8 @@ def group(ledgers: list[dict]) -> list[dict]:
                        'price_display': _v(x, 'price_display'), 'status': _v(x, 'status') or '판매중',
                        'checked_at': x.get('checked_at'), 'listing_id': x.get('listing_id')} for x in g],
             'price_gap_krw': (max(known) - min(known)) if len(known) > 1 else 0,
-            'match_by': 'plate' if _v(g[0], 'plate_no') else 'vin' if _v(g[0], 'vin') else 'spec',
+            'match_by': 'plate' if _v(g[0], 'plate_no') else 'vin' if _v(g[0], 'vin') else 'catalog' if (g[0].get('catalog') or {}).get('model_id') else 'spec',
+            'catalog': g[0].get('catalog'),
         })
     return out
 

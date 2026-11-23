@@ -19,6 +19,10 @@ id() { python3 -c "import json;print(json.load(open('/tmp/li-smoke.out'))['data'
 t '상태' '"ok":true' "$(req GET /health)"
 t '토큰 없음 401' '401' "$(req POST /listing-imports -d '{"url":"https://fem.encar.com/cars/detail/1","dealer_key":"d1"}')"
 t '지원 안 하는 사이트 422' 'unsupported_site' "$(req POST /listing-imports -H "$A" -d '{"url":"https://www.kbchachacha.com/x","dealer_key":"d1"}')"
+t '조합·매매단지 사이트 수' '"complex_sites":' "$(req GET /health)"
+OUT=$(req POST /listing-imports -H "$A" -d '{"url":"https://www.djcar.org/car/car_detail.html?DemoNo=0261400761","dealer_key":"d9"}')
+t '조합 사이트 접수 202' '202' "$OUT"; t '조합 사이트 이름' '"site":"대전카"' "$OUT"
+t '로봇 금지 사이트 422' 'unsupported_site' "$(req POST /listing-imports -H "$A" -d '{"url":"http://ggauto.co.kr/x","dealer_key":"d1"}')"
 t '링크 아님 422' '422' "$(req POST /listing-imports -H "$A" -d '{"url":"abc","dealer_key":"d1"}')"
 OUT=$(req POST /listing-imports -H "$A" -d '{"url":"https://fem.encar.com/cars/detail/1?utm=x","dealer_key":"d1","dealer_name":"홍길동"}')
 t '접수 202' '202' "$OUT"; I1=$(id)

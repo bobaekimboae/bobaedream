@@ -17,6 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import ROOT, build_ledger, download_photos, listing_key  # noqa: E402
 from sites import ADAPTERS, SITE_NAME, detect  # noqa: E402
+from catalog_map import match as catalog_match  # noqa: E402
 
 SHEET_COLUMNS = json.loads((Path(__file__).resolve().parent / 'sheet_columns.json').read_text(encoding='utf-8'))
 
@@ -34,18 +35,30 @@ def to_row(key: str, led: dict) -> list:
     """시트 열 순서대로 값. 출처·확인·시각은 K01~K03에."""
     cells = led['cells']
     row = [key] + [cells.get(c, {}).get('value', '') for c in SHEET_COLUMNS[1:-3]]
-    return row + [f"다른 사이트({led['site']})", '미확인', led['checked_at']]
+    cat = led.get('catalog') or {}
+    meta = led.get('source_meta') or {}
+    return row + [f"다른 사이트({led['site']})", '미확인', led['checked_at'], '',
+                  cat.get('make') or '', cat.get('model') or '', cat.get('generation') or '', MATCH_WORD.get(cat.get('match'), '연결 안 됨'),
+                  meta.get('union') or '', meta.get('federation') or '']
+
+
+MATCH_WORD = {'exact': '세대까지(이름)', 'by_date': '세대까지(등록연월)', 'model': '모델까지', 'make': '제조사만', 'none': '연결 안 됨'}
 
 
 def run_one(url: str, out: Path, photos: bool, dealer: str | None, shop: str | None) -> dict:
     site = detect(url)
     if not site:
-        return {'url': url, 'error': '지원하지 않는 사이트예요(엔카·서울오토갤러리·차란차·코리아카마켓·엠파크)'}
+        return {'url': url, 'error': '지원하지 않는 사이트예요(엔카·서울오토갤러리·차란차·코리아카마켓·엠파크·전국 조합·매매단지 홈페이지)'}
     res = ADAPTERS[site](url)
     fields, photo_urls, referer = res[:3]
     note = res[3] if len(res) > 3 else ''
+    meta = res[4] if len(res) > 4 else {}
+    name = meta.get('site_name') or SITE_NAME[site]
     key = listing_key(site, url)
-    led = build_ledger(SITE_NAME[site], url, fields, photo_urls)
+    led = build_ledger(name, url, fields, photo_urls)
+    if meta:
+        led['source_meta'] = meta
+    led['catalog'] = catalog_match(fields.get('make'), fields.get('model'), fields.get('trim'), fields.get('first_reg'), fields.get('year'))
     led['listing_id'] = key
     led['owner_check'] = owner_check(fields, dealer, shop)
     led['note'] = note
@@ -56,8 +69,8 @@ def run_one(url: str, out: Path, photos: bool, dealer: str | None, shop: str | N
     (d / 'ledger.json').write_text(json.dumps(led, ensure_ascii=False, indent=1), encoding='utf-8')
     row = to_row(key, led)
     (d / 'row.json').write_text(json.dumps(row, ensure_ascii=False), encoding='utf-8')
-    return {'url': url, 'site': SITE_NAME[site], 'key': key, 'filled': len(led['cells']), 'photos': len(photo_urls),
-            'saved': sum(1 for p in led.get('photos_saved', []) if 'file' in p), 'owner': led['owner_check'], 'note': note}
+    return {'url': url, 'site': name, 'family': meta.get('family'), 'key': key, 'filled': len(led['cells']), 'photos': len(photo_urls),
+            'saved': sum(1 for p in led.get('photos_saved', []) if 'file' in p), 'owner': led['owner_check'], 'catalog': led['catalog']['match'], 'note': note}
 
 
 def main():

@@ -9,6 +9,8 @@ return [
     // 추출 일꾼(Python). 운영은 저장소의 scripts/listing_import/run.py
     'python' => env('LISTING_IMPORT_PYTHON', 'python3'),
     'worker' => env('LISTING_IMPORT_WORKER', base_path('../scripts/listing_import/run.py')),
+    // 전국 조합·매매단지 홈페이지 목록(작업기와 같은 파일)
+    'registry' => env('LISTING_IMPORT_REGISTRY', base_path('../scripts/listing_import/complex_sites.json')),
     'timeout' => (int) env('LISTING_IMPORT_TIMEOUT', 180),
     'work_dir' => env('LISTING_IMPORT_WORK_DIR', storage_path('app/listing-imports')),
 
@@ -31,7 +33,7 @@ return [
     'sheet' => [
         'driver' => env('LISTING_IMPORT_SHEET_DRIVER', 'log'),
         'spreadsheet_id' => env('LISTING_IMPORT_SHEET_ID'),
-        'range' => env('LISTING_IMPORT_SHEET_RANGE', '22_매물원장_데이터!A:CO'),
+        'range' => env('LISTING_IMPORT_SHEET_RANGE', '22_매물원장_데이터!A:CV'),
         'credentials' => env('GOOGLE_SERVICE_ACCOUNT_JSON'), // 키 파일 경로
     ],
 ];

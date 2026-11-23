@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: 보배드림 매물 링크 가져오기 API
-  version: 1.0.0
+  version: 1.1.0
   description: |
     딜러 본인 매물 링크 1건을 받아 매물 원장 칸과 원본 사진을 만든다.
     보배드림 본 서버만 서비스 토큰으로 호출한다. 응답의 차량번호·차대번호·연락처는 가려진다.
@@ -41,6 +41,15 @@ components:
           description: 원장 키(시트 20_매물원장_필드) → 칸. plate_no·vin·contact 는 가림
           additionalProperties: { $ref: '#/components/schemas/Cell' }
         note: { type: [string, 'null'], description: 사이트 한계 안내(예 차란차 사진 1장) }
+        catalog: { $ref: '#/components/schemas/Catalog' }
+        source:
+          type: [object, 'null']
+          description: 조합·매매단지 매물일 때 출처
+          properties:
+            site_name: { type: string, example: 대전카 }
+            family: { type: string, enum: [carku, emi, aton] }
+            union: { type: [string, 'null'] }
+            federation: { type: [string, 'null'], example: 전국연합 }
         photos:
           type: array
           items:
@@ -52,6 +61,18 @@ components:
               sha256: { type: string }
         checked_at: { type: [string, 'null'], format: date-time }
         sheet_synced: { type: boolean }
+    Catalog:
+      type: [object, 'null']
+      description: 보배드림 차량 기준표(cars-index-v1) 연결. 원장 칸 값은 사이트 표기 그대로
+      properties:
+        match: { type: string, enum: [exact, by_date, model, make, none] }
+        make_id: { type: [string, 'null'] }
+        make: { type: [string, 'null'] }
+        model_id: { type: [string, 'null'] }
+        model: { type: [string, 'null'] }
+        generation_id: { type: [string, 'null'] }
+        generation: { type: [string, 'null'] }
+        catalog_version: { type: [string, 'null'] }
     Error:
       type: object
       properties:
@@ -166,6 +187,7 @@ paths:
                         year: { type: [integer, 'null'] }
                         mileage_km: { type: [integer, 'null'] }
                         price_gap_krw: { type: integer }
+                        catalog: { $ref: '#/components/schemas/Catalog' }
                         sites:
                           type: array
                           items:

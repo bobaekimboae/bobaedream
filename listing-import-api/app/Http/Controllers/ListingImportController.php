@@ -21,7 +21,7 @@ class ListingImportController extends Controller
 
     public function health(): JsonResponse
     {
-        return self::j(['ok' => true, 'sites' => array_values(Sites::NAMES)]);
+        return self::j(['ok' => true, 'sites' => array_values(Sites::NAMES), 'complex_sites' => count(Sites::registry())]);
     }
 
     /** POST /listing-imports  딜러가 붙여 넣은 링크 1개 접수 */
@@ -36,7 +36,7 @@ class ListingImportController extends Controller
         ]);
         $site = Sites::detect($in['url']);
         if (! $site) {
-            throw new ImportError('지원하지 않는 사이트예요. 엔카·서울오토갤러리·차란차·코리아카마켓·엠파크 링크를 넣어 주세요.', 'unsupported_site', 422);
+            throw new ImportError('지원하지 않는 사이트예요. 엔카·차란차·엠파크·코리아카마켓 또는 전국 조합·매매단지 홈페이지의 매물 링크를 넣어 주세요.', 'unsupported_site', 422);
         }
         $key = hash('sha256', $in['dealer_key'] . '|' . Sites::normalize($in['url']));
         $existing = DB::table('listing_imports')->where('request_key', $key)->first();
@@ -87,10 +87,11 @@ class ListingImportController extends Controller
             $c = $l['cells'] ?? [];
             $groups[$g] ??= [
                 'car' => trim(implode(' ', array_filter([$c['make']['value'] ?? null, $c['model']['value'] ?? null, $c['trim']['value'] ?? null]))),
-                'year' => $c['year']['value'] ?? null, 'mileage_km' => $c['mileage_km']['value'] ?? null, 'sites' => [],
+                'year' => $c['year']['value'] ?? null, 'mileage_km' => $c['mileage_km']['value'] ?? null,
+                'catalog' => $l['catalog'] ?? null, 'sites' => [],
             ];
             $groups[$g]['sites'][] = [
-                'import_id' => $row->id, 'site' => Sites::NAMES[$row->site] ?? $row->site, 'url' => $row->url,
+                'import_id' => $row->id, 'site' => Sites::label($row->site, $row->url), 'url' => $row->url,
                 'price_krw' => $c['price_krw']['value'] ?? null, 'price_display' => $c['price_display']['value'] ?? null,
                 'status' => $row->listing_status, 'checked_at' => $row->checked_at, 'owner_check' => $row->owner_check,
             ];
@@ -107,11 +108,13 @@ class ListingImportController extends Controller
     {
         $ledger = json_decode((string) $row->ledger, true);
         return [
-            'id' => $row->id, 'site' => Sites::NAMES[$row->site] ?? $row->site, 'url' => $row->url,
+            'id' => $row->id, 'site' => Sites::label($row->site, $row->url), 'url' => $row->url,
             'status' => $row->status, 'owner_check' => $row->owner_check,
             'error' => $row->error ? ['code' => $row->error_code, 'message' => $row->error] : null,
             'cells' => $ledger ? Masker::cells($ledger['cells'] ?? []) : null,
             'note' => $ledger['note'] ?? null,
+            'catalog' => $ledger['catalog'] ?? null,          // 보배드림 차량 기준표 연결(제조사·모델·세대 id)
+            'source' => $ledger['source_meta'] ?? null,       // 조합·매매단지: 사이트·전산·조합·연합회
             'photos' => json_decode((string) $row->photos, true) ?: [],
             'checked_at' => $row->checked_at, 'sheet_synced' => (bool) $row->sheet_synced_at,
         ];

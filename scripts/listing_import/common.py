@@ -33,7 +33,12 @@ def fetch(url: str, encoding: str | None = None, referer: str | None = None, gap
     req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept-Language': 'ko-KR,ko;q=0.9', **({'Referer': referer} if referer else {})})
     with urllib.request.urlopen(req, timeout=30) as r:
         raw = r.read()
-        enc = encoding or r.headers.get_content_charset() or 'utf-8'
+        enc = encoding or r.headers.get_content_charset()
+        if not enc:  # 머리글에 글자 방식이 없으면 HTML 안 meta charset 을 본다(euc-kr 사이트 대비)
+            m = re.search(rb'charset=["\']?([\w-]+)', raw[:4000], re.I)
+            enc = m.group(1).decode() if m else 'utf-8'
+        if enc.lower() in ('euc-kr', 'ks_c_5601-1987', 'euckr'):
+            enc = 'cp949'
     _last_call[0] = time.time()
     return raw.decode(enc, errors='ignore')
 

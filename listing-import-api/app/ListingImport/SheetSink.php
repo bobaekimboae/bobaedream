@@ -49,6 +49,15 @@ class SheetSink
             $v = $cells[$k]['value'] ?? '';
             $row[] = is_array($v) ? json_encode($v, JSON_UNESCAPED_UNICODE) : $v;
         }
-        return [...$row, '다른 사이트(' . ($ledger['site'] ?? '') . ')', '미확인', $ledger['checked_at'] ?? now()->toIso8601String()];
+        $cat = $ledger['catalog'] ?? [];
+        return [...$row, '다른 사이트(' . ($ledger['site'] ?? '') . ')', '미확인', $ledger['checked_at'] ?? now()->toIso8601String(),
+            '', // CP 사진 원본 묶음(사람이 채움)
+            $cat['make'] ?? '', $cat['model'] ?? '', $cat['generation'] ?? '', self::MATCH[$cat['match'] ?? 'none'] ?? '',
+            $ledger['source_meta']['union'] ?? '', $ledger['source_meta']['federation'] ?? ''];
     }
+
+    /** 차량 기준표 연결 방식(시트에 쓰는 말) */
+    private const MATCH = ['exact' => '세대까지(이름)', 'by_date' => '세대까지(등록연월)', 'model' => '모델까지', 'make' => '제조사만', 'none' => '연결 안 됨'];
+
+
 }

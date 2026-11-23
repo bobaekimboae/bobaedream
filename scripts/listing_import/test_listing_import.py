@@ -73,5 +73,76 @@ class Ledger(unittest.TestCase):
         self.assertEqual(g[0]['price_gap_krw'], 490000)
 
 
+class Johap(unittest.TestCase):
+    """조합·매매단지 전산 3종(가짜 조각, 네트워크 없음)."""
+
+    def run_html(self, url, html):
+        import johap
+        orig = johap.fetch
+        johap.fetch = lambda u, encoding=None: html
+        try:
+            return johap.read(url)
+        finally:
+            johap.fetch = orig
+
+    def test_detect_registry(self):
+        self.assertEqual(detect('https://www.djcar.org/car/car_detail.html?DemoNo=0261400761'), 'johap')
+        self.assertEqual(detect('http://www.cnauto.co.kr/Model/DetailView.asp?encOnCarNo=ABC123'), 'johap')
+        self.assertEqual(detect('https://gayangag.co.kr/car/carView.html?m_no=1'), 'johap')
+        self.assertIsNone(detect('http://ggauto.co.kr/x'))          # robots 금지 사이트는 제외
+
+    def test_not_detail(self):
+        with self.assertRaises(ValueError):
+            self.run_html('https://www.djcar.org/', '<html></html>')
+
+    def test_carku(self):
+        h = ('<div class="cartitle">[현대] 팰리세이드&nbsp;2.2 디젤&nbsp;프레스티지</div><span>3,050</span><span>만원</span>'
+             '<td>차량번호</td><td>00가0000</td><td>연식</td><td>2020 / 10식 (년형)</td><td>주행거리</td><td>7.1만km</td>'
+             '<td>연료</td><td>경유</td><td>압류</td><td>없음</td><td>저당</td><td>없음</td>'
+             '<p>성명 :</p><p>홍길동</p><td>소속상사</td><td>시험자동차</td><td>상사주소</td><td>대전광역시 유성구 복용동로 35 (복용동,디오토몰)</td>'
+             '<img src="http://photo.korea-usedcar.co.kr/carphoto/large/20260210/0261400761K01.jpg">')
+        f, p, _, _, meta = self.run_html('https://www.djcar.org/car/car_detail.html?DemoNo=0261400761', h)
+        self.assertEqual((f['make'], f['model'], f['year'], f['first_reg']), ('현대', '팰리세이드', 2020, '2020-10'))
+        self.assertEqual((f['price_krw'], f['fuel'], f['lien'], f['dealer_name'], f['region']), (30500000, '디젤', '없음', '홍길동 딜러', '대전 유성구'))
+        self.assertEqual(len(p), 1)
+        self.assertEqual(meta['family'], 'carku')
+
+    def test_emi_relative_photos_and_sold_hidden(self):
+        h = ('<div class="nocar dp_none"><span>현재 판매중인 차량이 아닙니다</span></div>'
+             '<h3>[기아] 더 뉴K9(RJ) 3.8 가솔린</h3><p>4,790</p><p>만원</p><td>차량번호</td><td>00가0000</td>'
+             '<img src="/data/JB085-12/20210513/1_1.jpg"><img src="/data/JB085-12/20210513/1_0.jpg"><img src="/data/__dealer/x-1.jpg">')
+        f, p, *_ = self.run_html('https://carfull.kr/car/car_detail.html?m_no=167152', h)
+        self.assertIsNone(f['status'])
+        self.assertEqual(p, ['https://carfull.kr/data/JB085-12/20210513/1_0.jpg', 'https://carfull.kr/data/JB085-12/20210513/1_1.jpg'])
+
+    def test_aton_dealer_from_summary(self):
+        h = ('<b>[기아] 더 뉴 K5&nbsp;2.0&nbsp;디럭스</b><p>245</p><p>만원</p><p>시험상사</p><p>홍길동</p><p>010-0000-0000</p>'
+             '<td>차량번호</td><td>00가0000</td><td>상사명</td><td>시험상사</td><td>상사주소</td><td>충청남도 보령시 주교면</td>'
+             '<img src="https://img.carmanager.co.kr/temp/photo/20221027/AB.jpg">')
+        f, p, *_ = self.run_html('http://www.cnauto.co.kr/Model/DetailView.asp?encOnCarNo=ABC123', h)
+        self.assertEqual((f['dealer_name'], f['shop_name'], f['region'], f['contact']), ('홍길동 딜러', '시험상사', '충남 보령시', '010-0000-0000'))
+        self.assertEqual(len(p), 1)
+
+
+class Catalog(unittest.TestCase):
+    """보배드림 차량 기준표 연결(public/data/vehicle-catalog/cars-index-v1.json)."""
+
+    def test_make_alias_and_generation(self):
+        from catalog_map import match
+        m = match('르노(삼성)', 'SM6', '2.0 GDe RE', '2017-02', 2017)
+        self.assertEqual((m['make'], m['model']), ('르노코리아(삼성)', 'SM6'))
+        m = match('현대', '더 뉴그랜저IG', '가솔린 2.5', '2021-04', 2021)
+        self.assertEqual((m['match'], m['generation']), ('exact', '더 뉴 그랜저 IG'))
+
+    def test_by_date_beats_generic_name(self):
+        from catalog_map import match
+        m = match('기아', '더 뉴쏘렌토', '하이브리드(MQ4) 1.6 HEV', '2025-03', 2025)
+        self.assertEqual((m['match'], m['generation']), ('by_date', '더 뉴 쏘렌토 4세대'))
+
+    def test_truck_not_in_car_catalog(self):
+        from catalog_map import match
+        self.assertEqual(match('현대', '포터II', '슈퍼캡', '2019-01', 2019)['match'], 'make')
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=1)

@@ -54,7 +54,7 @@ class RunListingImport implements ShouldQueue, ShouldBeUnique
             'owner_check' => $owner,
             'ledger' => json_encode($ledger, JSON_UNESCAPED_UNICODE),
             'photos' => json_encode($out['photos'], JSON_UNESCAPED_UNICODE),
-            'car_key' => CarKey::of($cells),
+            'car_key' => CarKey::of($cells, $ledger['catalog'] ?? []),
             'listing_status' => $cells['status']['value'] ?? '판매중',
             'error_code' => null, 'error' => null,
             'checked_at' => now(), 'updated_at' => now(),
