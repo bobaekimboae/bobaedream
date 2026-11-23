@@ -358,7 +358,7 @@ for _c in CHIPS_LOG:
     if _c['kind']=='callout': USED.update({'callout_chip','callout_arrow'})
 if acc: USED.add('sfx_rules')
 USED.update(e['id'] for c in _PLAN['cuts'] for e in c['techniques'] if e['id'] in ('T03','T04','T05','T06','T08'))
-json.dump({'edition':'feature_video','edition_code':'ED-FEATURE','renderer':'be_skeleton_render.py','renderer_version':'1.0','order':'edit','techniques':sorted(USED),'bigs':BIGS_LOG,'src':'src.mp4','voice':'voice5.wav','frame':[W,H],'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
+json.dump({'edition':'feature_video','edition_code':'ED-FEATURE','renderer':'be_skeleton_render.py','renderer_version':'1.0','src_fps':SFP,'blend':BLEND,'order':'edit','techniques':sorted(USED),'bigs':BIGS_LOG,'src':'src.mp4','voice':'voice5.wav','frame':[W,H],'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
            'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,
            'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH),'box':CAPBOX if CAPBOX[2] else None}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
 print(OUT,TOTAL)
