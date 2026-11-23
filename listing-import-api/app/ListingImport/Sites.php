@@ -15,7 +15,8 @@ class Sites
             $json = is_file($file) ? json_decode((string) file_get_contents($file), true) : null;
             $sites = [];
             foreach ($json['sites'] ?? [] as $s) {
-                if (in_array($s['family'] ?? '', ['carku', 'emi', 'aton'], true)) {
+                $fam = $s['family'] ?? '';
+                if (in_array($fam, ['carku', 'emi', 'aton', 'attedit', 'autobegins'], true) || ($fam === 'generic' && !empty($s['detail']))) {
                     $sites[$s['domain']] = $s;
                 }
             }
@@ -55,7 +56,7 @@ class Sites
     {
         $p = parse_url(trim($url));
         parse_str($p['query'] ?? '', $q);
-        $keep = array_intersect_key($q, array_flip(['DemoNo', 'carid', 'carId', 'm_no', 'c_no', 'encOnCarNo']));
+        $keep = array_intersect_key($q, array_flip(['DemoNo', 'carid', 'carId', 'm_no', 'c_no', 'encOnCarNo', 'OnCarNo', 'seq', 'idx', 'vehiId', 'sCarProductCode']));
         ksort($keep);
         $path = rtrim($p['path'] ?? '/', '/');
         return strtolower($p['host'] ?? '') . $path . ($keep ? '?' . http_build_query($keep) : '');

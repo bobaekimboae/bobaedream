@@ -4,7 +4,10 @@
  "families": {
   "carku": "전국연합 전산 /car/car_detail.html?DemoNo=",
   "emi": "한국연합 전산(이엠아이앤씨) /car/carView.html?m_no= · /car/car_detail.html?m_no=",
-  "aton": "카매니저 전산(아톤모빌리티) /Model/DetailView.asp?encOnCarNo="
+  "aton": "카매니저 전산(아톤모빌리티) /Model/DetailView.asp?encOnCarNo= · /Model/DetailView.asp?OnCarNo=(충북카·인천차: 목록이 폼 POST로 여는 화면, 매물번호로 같은 공개 폼을 보냄)",
+  "attedit": "단지 자체 전산(AttEdit) /carSearch/detail.asp?DemoNo= · /carSearch/detailView.asp?DemoNo= (서서울모터리움·도이치오토월드)",
+  "autobegins": "단지 자체 전산(오토비긴즈) /buy/view.do?m_no= (경동오토필드)",
+  "generic": "단지 자체 화면(사이트마다 등록부의 detail·photo 정규식으로 읽음)"
  },
  "sites": [
   {
@@ -47,8 +50,8 @@
    "federation": "한국연합",
    "region_short": "서울",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "family": "aton",
+   "status": "가동(실매물 확인)",
    "home": "http://www.seoulauto.org/"
   },
   {
@@ -80,8 +83,8 @@
    "federation": "한국연합",
    "region_short": "서울",
    "builder": "",
-   "family": "unknown",
-   "status": "접속 불가(URLError) · 재시도 대상",
+   "family": "attedit",
+   "status": "가동(실매물 확인)",
    "home": "https://www.motorium.co.kr/"
   },
   {
@@ -114,7 +117,7 @@
    "region_short": "인천",
    "builder": "아톤",
    "family": "aton",
-   "status": "가동 · 같은 전산 · 사이트 보안 인증서 오류로 접속 불가",
+   "status": "가동(실매물 확인) · 매물번호(OnCarNo) 주소로 가져오기",
    "home": "http://iccars.co.kr/"
   },
   {
@@ -125,7 +128,7 @@
    "region_short": "경기",
    "builder": "이엠아이앤씨",
    "family": "emi",
-   "status": "가동 · 같은 전산 · 실매물 미확인",
+   "status": "매물 공개 화면 없음(전산 프로그램 안내 사이트)",
    "home": "https://www.carmodoo.com/"
   },
   {
@@ -180,8 +183,8 @@
    "region_short": "충북",
    "builder": "아톤",
    "family": "aton",
-   "status": "가동 · 같은 전산 · 사이트 보안 인증서 오류로 접속 불가",
-   "home": "https://carcb.co.kr/"
+   "status": "가동(실매물 확인) · 매물번호(OnCarNo) 주소로 가져오기",
+   "home": "http://carcb.co.kr/"
   },
   {
    "domain": "carkj.org",
@@ -224,7 +227,7 @@
    "region_short": "전북",
    "builder": "아톤",
    "family": "aton",
-   "status": "가동 · 같은 전산 · 실매물 미확인",
+   "status": "가동(실매물 확인)",
    "home": "http://www.jbcar.kr/"
   },
   {
@@ -312,7 +315,7 @@
    "region_short": "경남",
    "builder": "전국자동차매매사업조합연합회",
    "family": "carku",
-   "status": "가동 · 같은 전산 · 접속 끊김 반복(재시도 대상)",
+   "status": "가동(실매물 확인)",
    "home": "https://www.kucar.kr/"
   },
   {
@@ -334,7 +337,7 @@
    "region_short": "제주",
    "builder": "아톤",
    "family": "aton",
-   "status": "가동 · 같은 전산 · 실매물 미확인",
+   "status": "가동(실매물 확인)",
    "home": "http://www.jejuca.co.kr/"
   },
   {
@@ -344,8 +347,8 @@
    "federation": "한국연합",
    "region_short": "서울",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "family": "aton",
+   "status": "가동(실매물 확인)",
    "home": "http://www.skuc.co.kr/"
   },
   {
@@ -355,8 +358,8 @@
    "federation": "한국연합",
    "region_short": "서울",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "family": "attedit",
+   "status": "가동(실매물 확인)",
    "home": "http://gangseoautoplex.com/"
   },
   {
@@ -378,9 +381,18 @@
    "federation": "한국연합",
    "region_short": "서울",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
-   "home": "http://www.carseoul.com/"
+   "family": "generic",
+   "status": "가동(실매물 확인) · 목록 세션으로 상세 공개 폼을 보냄",
+   "home": "http://www.carseoul.com/",
+   "detail": "/home/vehiDetail\\.jsp\\?.*vehiId=\\d+",
+   "photo": "https?://[\\w.]+/WEB_FILE/permanent/CAR_IMG/[^\"\\'\\s>]+?_\\d+\\.jpe?g",
+   "post": {
+    "warm": "http://www.carseoul.com/home/Car_Search_Sale.jsp",
+    "data": {
+     "currPage": "1",
+     "currPageGrp": "1"
+    }
+   }
   },
   {
    "domain": "charancha.com",
@@ -400,8 +412,8 @@
    "federation": "",
    "region_short": "경기",
    "builder": "",
-   "family": "unknown",
-   "status": "접속 불가(URLError) · 재시도 대상",
+   "family": "attedit",
+   "status": "가동(실매물 확인)",
    "home": "https://dautoworld.com"
   },
   {
@@ -412,7 +424,7 @@
    "region_short": "경기",
    "builder": "",
    "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "status": "읽기 불가 · 앱형 화면(목록·상세를 내부 호출로만 불러옴), 공개 상세 주소 없음",
    "home": "https://skv1-motors.com/"
   },
   {
@@ -422,8 +434,8 @@
    "federation": "",
    "region_short": "경기",
    "builder": "포인트뱅크",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "family": "attedit",
+   "status": "가동 · 같은 전산(강서오토플렉스와 같은 AttEdit, /buy/detailView.asp?DemoNo=) · 실매물 미확인(목록이 내부 호출로만 나와 견본 주소 없음)",
    "home": "https://autohub.co.kr/"
   },
   {
@@ -444,8 +456,8 @@
    "federation": "",
    "region_short": "경기",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "family": "attedit",
+   "status": "가동 · 같은 전산(강서오토플렉스와 같은 AttEdit, /buy/detailView.asp?DemoNo=) · 실매물 미확인(목록이 내부 호출로만 나와 견본 주소 없음)",
    "home": "http://autodome.kr/"
   },
   {
@@ -477,9 +489,17 @@
    "federation": "",
    "region_short": "경기",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
-   "home": "https://bukbucar.com/"
+   "family": "generic",
+   "status": "가동(실매물 확인)",
+   "home": "https://bukbucar.com/",
+   "detail": "/search/detail/[0-9A-F]{32}",
+   "photo": "https?://img\\.carmanager\\.co\\.kr/[^\"\\'\\s)]+?\\.(?:jpe?g|png)",
+   "photo_sub": [
+    [
+     "_TH(\\.\\w+)$",
+     "\\1"
+    ]
+   ]
   },
   {
    "domain": "dautomall.com",
@@ -488,9 +508,12 @@
    "federation": "전국연합",
    "region_short": "대전",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
-   "home": "http://dautomall.com/"
+   "family": "generic",
+   "status": "가동(실매물 확인)",
+   "home": "http://dautomall.com/",
+   "detail": "/sub_buycar/buycarView\\.aspx\\?.*sCarProductCode=\\S+",
+   "photo": "https?://image\\.dautomall\\.com/image_product/(A\\d+)/\\d+_[^\"\\'\\s)&\\\\]+?\\.(?:jpe?g|png)",
+   "photo_group": "most"
   },
   {
    "domain": "automecainca.co.kr",
@@ -510,9 +533,11 @@
    "federation": "",
    "region_short": "대전",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
-   "home": "http://www.cleancar.or.kr/main"
+   "family": "generic",
+   "status": "가동(실매물 확인)",
+   "home": "http://www.cleancar.or.kr/main",
+   "detail": "/shop_contents/myboard_read\\.htm\\?.*idx=\\d+",
+   "photo": "/shop_contents/multi_file_img_view\\.php\\?type=myboard&(?:amp;)?data_idx=\\d+&(?:amp;)?col_num=\\d+[^\"\\'\\s>]*"
   },
   {
    "domain": "m-world.kr",
@@ -533,7 +558,7 @@
    "region_short": "부산",
    "builder": "",
    "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "status": "읽기 불가 · 접속 시 자동 접속 확인(봇 확인) 화면이 떠서 우회하지 않음",
    "home": "http://sajikautoland.co.kr/"
   },
   {
@@ -554,8 +579,8 @@
    "federation": "",
    "region_short": "부산",
    "builder": "",
-   "family": "unknown",
-   "status": "접속 불가(URLError) · 재시도 대상",
+   "family": "autobegins",
+   "status": "가동(실매물 확인)",
    "home": "https://www.kyungdongautofield.com/"
   },
   {
@@ -599,7 +624,7 @@
    "region_short": "경남",
    "builder": "",
    "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
+   "status": "상세 화면 주소 미확인 · /Car/번호 주소가 첫 화면으로 돌아감(재확인 필요)",
    "home": "http://kcplaza.co.kr/"
   },
   {
@@ -642,9 +667,21 @@
    "federation": "",
    "region_short": "강원",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · 전용 읽기 필요",
-   "home": "http://wjucar.com/"
+   "family": "generic",
+   "status": "가동(실매물 확인)",
+   "home": "http://wjucar.com/",
+   "detail": "/html/sub0401_view\\.php\\?.*seq=\\d+",
+   "photo": "https?://[\\w.]+/data/car/photo/thumb_view/big/thumb-[\\w]+_\\d+x\\d+\\.jpe?g",
+   "photo_sub": [
+    [
+     "/thumb_view/big/thumb-",
+     "/"
+    ],
+    [
+     "_\\d+x\\d+(\\.jpe?g)$",
+     "\\1"
+    ]
+   ]
   }
  ]
 }

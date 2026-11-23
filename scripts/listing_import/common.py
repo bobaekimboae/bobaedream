@@ -11,6 +11,8 @@ import html as _html
 import json
 import re
 import time
+import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -25,20 +27,41 @@ def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat(timespec='seconds')
 
 
-def fetch(url: str, encoding: str | None = None, referer: str | None = None, gap: float = 1.0) -> str:
+_COOKIES = None
+
+
+def _opener():
+    """세션 쿠키(JSESSIONID 등)만 브라우저처럼 기억한다. 카서울닷컴 상세 화면은 목록에서 받은 세션이 있어야 열린다."""
+    global _COOKIES
+    if _COOKIES is None:
+        import http.cookiejar
+        _COOKIES = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+    return _COOKIES
+
+
+def fetch(url: str, encoding: str | None = None, referer: str | None = None, gap: float = 1.0, data: dict | None = None) -> str:
     """한 번에 한 요청, 요청 사이 최소 gap초."""
     wait = gap - (time.time() - _last_call[0])
     if wait > 0:
         time.sleep(wait)
-    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept-Language': 'ko-KR,ko;q=0.9', **({'Referer': referer} if referer else {})})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        raw = r.read()
-        enc = encoding or r.headers.get_content_charset()
-        if not enc:  # 머리글에 글자 방식이 없으면 HTML 안 meta charset 을 본다(euc-kr 사이트 대비)
-            m = re.search(rb'charset=["\']?([\w-]+)', raw[:4000], re.I)
-            enc = m.group(1).decode() if m else 'utf-8'
-        if enc.lower() in ('euc-kr', 'ks_c_5601-1987', 'euckr'):
-            enc = 'cp949'
+    body = urllib.parse.urlencode(data).encode() if data is not None else None  # 사이트 화면의 공개 폼(POST)을 브라우저처럼 보낼 때만
+    req = urllib.request.Request(url, data=body, headers={'User-Agent': UA, 'Accept-Language': 'ko-KR,ko;q=0.9', **({'Referer': referer} if referer else {})})
+    for attempt in (1, 2):  # 지방 단지 서버는 접속이 가끔 끊겨서 한 번만 다시 시도
+        try:
+            with _opener().open(req, timeout=30) as r:
+                raw = r.read()
+                enc_hdr = r.headers.get_content_charset()
+            break
+        except urllib.error.URLError as e:
+            if attempt == 2 or 'reset' not in str(e).lower() and 'timed out' not in str(e).lower():
+                raise
+            time.sleep(3)
+    enc = encoding or enc_hdr
+    if not enc:  # 머리글에 글자 방식이 없으면 HTML 안 meta charset 을 본다(euc-kr 사이트 대비)
+        m = re.search(rb'charset=["\']?([\w-]+)', raw[:4000], re.I)
+        enc = m.group(1).decode() if m else 'utf-8'
+    if enc.lower() in ('euc-kr', 'ks_c_5601-1987', 'euckr'):
+        enc = 'cp949'
     _last_call[0] = time.time()
     return raw.decode(enc, errors='ignore')
 

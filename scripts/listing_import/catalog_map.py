@@ -53,7 +53,8 @@ def catalog() -> dict:
     gens: dict[str, list] = {}
     for g in d['generations']:
         gens.setdefault(g['groupId'], []).append(g)
-    return {'makes': makes, 'groups': groups, 'gens': gens, 'version': d.get('generatedAt')}
+    exact = {re.sub(r'\s', '', m['name']).lower(): m for m in d['manufacturers']}  # '쉐보레(GM대우)' ≠ 수입 '쉐보레'
+    return {'makes': makes, 'exact': exact, 'groups': groups, 'gens': gens, 'version': d.get('generatedAt')}
 
 
 def find_make(make: str | None, title: str) -> dict | None:
@@ -62,13 +63,34 @@ def find_make(make: str | None, title: str) -> dict | None:
     name = MAKE_ALIAS.get(raw) or MAKE_ALIAS.get(re.sub(r'\s', '', raw)) or raw
     if name == '쉐보레' and any(norm(x) in norm(title) for x in DOMESTIC_CHEVY):
         name = '쉐보레(GM대우)'
-    m = c['makes'].get(norm(name))
+    m = c['exact'].get(re.sub(r'\s', '', name).lower()) or c['makes'].get(norm(name))
     if not m and '(' in raw:  # '르노(삼성)' → '르노' 아니면 '삼성'
         for part in re.split(r'[()]', raw):
             m = c['makes'].get(norm(MAKE_ALIAS.get(part.strip(), part.strip())))
             if m:
                 break
     return m
+
+
+def make_from_model(title: str) -> dict | None:
+    """제조사 칸이 빈 매물: 모델 이름이 한 제조사에만 있을 때만 그 제조사로(여러 곳이면 비워 둠)."""
+    c = catalog()
+    t = norm(PREFIX.sub('', title or ''))
+    if not t:
+        return None
+    hits = {}
+    for mid, gs in c['groups'].items():
+        for g in gs:
+            n = norm(PREFIX.sub('', g['name']))
+            if len(n) >= 2 and t.startswith(n):
+                hits[mid] = max(hits.get(mid, 0), len(n))
+    if not hits:
+        return None
+    best = max(hits.values())
+    top = [mid for mid, n in hits.items() if n == best]
+    if len(top) != 1:
+        return None
+    return next((m for m in c['makes'].values() if m['id'] == top[0]), None)
 
 
 def ym_num(ym: str | None) -> int | None:
@@ -80,7 +102,7 @@ def match(make: str | None, model: str | None, trim: str | None, first_reg: str 
     title = ' '.join(x for x in [model, trim] if x)
     out = {'match': 'none', 'make_id': None, 'make': None, 'model_id': None, 'model': None, 'generation_id': None, 'generation': None,
            'catalog_version': catalog()['version']}
-    mk = find_make(make, title)
+    mk = find_make(make, title) or (make_from_model(title) if not make else None)
     if not mk:
         return out
     out.update(match='make', make_id=mk['id'], make=mk['name'])

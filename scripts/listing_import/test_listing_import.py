@@ -76,10 +76,11 @@ class Ledger(unittest.TestCase):
 class Johap(unittest.TestCase):
     """조합·매매단지 전산 3종(가짜 조각, 네트워크 없음)."""
 
-    def run_html(self, url, html):
+    def run_html(self, url, html, get_html=None):
         import johap
         orig = johap.fetch
-        johap.fetch = lambda u, encoding=None: html
+        self.calls = []
+        johap.fetch = lambda u, **kw: (self.calls.append((u, kw)), html if (get_html is None or kw.get('data') is not None) else get_html)[1]
         try:
             return johap.read(url)
         finally:
@@ -106,6 +107,51 @@ class Johap(unittest.TestCase):
         self.assertEqual((f['price_krw'], f['fuel'], f['lien'], f['dealer_name'], f['region']), (30500000, '디젤', '없음', '홍길동 딜러', '대전 유성구'))
         self.assertEqual(len(p), 1)
         self.assertEqual(meta['family'], 'carku')
+
+    def test_attedit_motorium(self):
+        h = ('<p>상세보기</p><p>기아 더 뉴 셀토스(SP2) 1.6 T-GDI 2WD</p><p>입고완료</p><p>판매가격</p><p>3,350</p><p>만원</p>'
+             '<td>차량번호</td><td>00가0000</td><td>연식</td><td>2026년 05월</td><td>주행거리</td><td>5,951 km</td>'
+             '<p>판매자명</p><p>홍길동</p><p>업체명</p><p>: 시험모터스(주)</p><p>연락처</p><p>010-0000-0000</p>'
+             '<p>서울특별시 강서구 양천로53길 30</p><p>소속조합</p><p>서서울자동차매매사업조합 ()</p>'
+             '<img src="/AttEdit/photo/Small/6111100/6111100448R2.jpg"><img src="/AttEdit/photo/Small/6111100/6111100448R1.jpg">')
+        f, p, _, _, meta = self.run_html('https://www.motorium.co.kr/carSearch/detail.asp?DemoNo=6111100448', h)
+        self.assertEqual((f['make'], f['model'], f['price_krw'], f['dealer_name'], f['shop_name'], f['region']),
+                         ('기아', '더 뉴 셀토스(SP2)', 33500000, '홍길동 딜러', '시험모터스', '서울 강서구'))
+        self.assertEqual(p[0], 'https://www.motorium.co.kr/AttEdit/photo/Large/6111100/6111100448R1.jpg')
+        self.assertEqual((meta['family'], meta['union']), ('attedit', '서서울자동차매매사업조합'))
+
+    def test_autobegins_own_photos_only(self):
+        h = ("<script>var x = {title : '르노(삼성) SM6 2.0 GDe RE'};</script><p>700만원</p>"
+             '<td>차량번호</td><td>00가0000</td><dl><dt>시험모터스  홍길동 카매니저</dt><dd>보유차량</dd></dl><p>매매사원증</p><p>20-000-00000</p>'
+             '<img src="/uploadFiles/CAR_PHOTO/000/074/400/a_2_s.jpg"><img src="/uploadFiles/CAR_PHOTO/000/074/400/a_1_s.jpg">'
+             '<img src="/uploadFiles/CAR_PHOTO/000/011/111/b_1_s.jpg">')
+        f, p, *_ = self.run_html('https://www.kyungdongautofield.com/buy/view.do?m_no=74400', h)
+        self.assertEqual((f['make'], f['model'], f['price_krw'], f['shop_name'], f['dealer_name'], f['dealer_reg_no']),
+                         ('르노(삼성)', 'SM6', 7000000, '시험모터스', '홍길동 딜러', '20-000-00000'))
+        self.assertEqual(p, ['https://www.kyungdongautofield.com/uploadFiles/CAR_PHOTO/000/074/400/a_1.jpg',
+                             'https://www.kyungdongautofield.com/uploadFiles/CAR_PHOTO/000/074/400/a_2.jpg'])
+
+    def test_aton_oncarno_post_and_truck_make(self):
+        h = '<h3>[중대형화물] 카고(4.5~5톤)&nbsp;메가트럭5톤&nbsp;초장축</h3><p>4,650</p><p>만원</p><td>차량번호</td><td>00가0000</td>'
+        f, *_ = self.run_html('http://carcb.co.kr/Model/DetailView.asp?OnCarNo=202660022456', h, get_html='<p>빈 화면</p>')
+        self.assertEqual(self.calls[0][0], 'http://carcb.co.kr/Model/DetailView.asp?OnCarNo=202660022456')  # 주소 그대로 먼저
+        self.assertEqual(self.calls[1][0], 'http://carcb.co.kr/Model/DetailView.asp')  # 안 열리면 공개 폼(POST)
+        self.assertEqual(self.calls[1][1]['data'], {'OnCarNo': '202660022456'})
+        self.assertEqual((f['make'], f['model'], f['price_krw']), ('현대', '카고(4.5~5톤)', 46500000))
+
+    def test_aton_seoul_three_line_title_and_carphoto(self):
+        h = ('<p>서울특별시 자동차매매사업조합</p><p>현대</p><p>캐스퍼 1.0 가솔린 터보</p><p>디 에센셜 라이트</p><p>차량번호 :</p><p>00가0000</p>'
+             '<p>판매가 :</p><p>1,580</p><p>만원</p><img src="../CARPHOTO/20261029/20262007095410_1.jpg"><img src="../CARPHOTO/20261029/99999999999910_1.jpg">')
+        f, p, *_ = self.run_html('http://www.seoulauto.org/model/DetailView.asp?ShopNo=&MemberNo=&OnCarNo=202620070954', h)
+        self.assertEqual((f['make'], f['model'], f['price_krw']), ('현대', '캐스퍼', 15800000))
+        self.assertEqual(p, ['http://www.seoulauto.org/CARPHOTO/20261029/20262007095410_1.jpg'])  # 이 매물 번호 사진만
+
+    def test_generic_registry_regex(self):
+        h = ('<p>[현대]</p><p>쏘나타 DN8 2.0 프리미엄 플러스</p><p>판매가격</p><p>1,500만원</p><p>판매자</p><p>(주)시험 모터스 / 홍길동</p>'
+             '<img src="/shop_contents/multi_file_img_view.php?type=myboard&data_idx=1&col_num=2&dir_name=car1&thum_w=1000">')
+        f, p, *_ = self.run_html('http://www.cleancar.or.kr/shop_contents/myboard_read.htm?myboard_code=car1&myboard_idx=1&idx=1', h)
+        self.assertEqual((f['make'], f['model'], f['price_krw'], f['dealer_name'], f['shop_name']), ('현대', '쏘나타', 15000000, '홍길동 딜러', '시험 모터스'))
+        self.assertEqual(len(p), 1)
 
     def test_emi_relative_photos_and_sold_hidden(self):
         h = ('<div class="nocar dp_none"><span>현재 판매중인 차량이 아닙니다</span></div>'
