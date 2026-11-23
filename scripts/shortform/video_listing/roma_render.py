@@ -361,8 +361,9 @@ for t,k,nm,v in sorted(allc,key=lambda x:(PRI[x[1]],x[0])):
     acc.append((round(t,3),k,nm,v))
 acc.sort()
 print('효과음',[(a[0],a[2]) for a in acc])
-inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',ASSET+'bgm/bobae_showroom_v1.mp3']
-fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120[v]',f'[2:a]atrim=0:{TOTAL},volume=0.16,afade=t=out:st={TOTAL-1.5}:d=1.5[b]']; mx=['[v]','[b]']
+BGM=os.environ.get('ROMA_BGM',ASSET+'bgm/bobae_showroom_v1.mp3')  # 2026-11-23 「음악 바꿔」: 웅장한 배경음(일레븐랩스 생성)으로 교체 가능
+inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',BGM]
+fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120,asplit=2[v][vk]',f'[2:a]atrim=0:{TOTAL},volume=0.30,afade=t=in:d=0.4,afade=t=out:st={TOTAL-1.5}:d=1.5[b0]','[b0][vk]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[b]']  # 말할 때 배경음 자동으로 줄임(더킹); mx=['[v]','[b]']
 for j,(tc,k,nm,v) in enumerate(acc):
     inp+=['-i',ASSET+'sfx/'+nm+'.wav']; fl.append(f'[{len(inp)//2-1}:a]volume={v},adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
 A_=R['audio']; LN=f"loudnorm=I={A_['loudness_lufs']}:TP={A_['true_peak_db']}:LRA=11"
