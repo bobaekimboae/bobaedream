@@ -75,9 +75,22 @@ def face_square(path):
 def portrait_disc(photo, d, face=0.86):
     """원 안 인물: 사진(정사각)을 원 지름의 face배로 줄여 아래 맞춤 — 원본처럼 얼굴이 원의 절반쯤, 어깨가 원 아래로 잘림.
     빈 곳은 사진 바탕색으로 채우고 사진 위·옆 가장자리만 부드럽게 이음(보정 없음)."""
-    sq = face_square(photo)
-    bgc = tuple(int(v) for v in Image.open(photo).convert('RGB').crop((4, 4, 40, 40)).resize((1, 1), Image.BOX).getpixel((0, 0)))
+    src = Image.open(photo).convert('RGB')
+    bgc = tuple(int(v) for v in src.crop((4, 4, 24, 24)).resize((1, 1), Image.BOX).getpixel((0, 0)))
     disc = Image.new('RGB', (d, d), bgc)
+    if src.height > src.width * 1.2:
+        # 세로로 긴 증명사진(실제 딜러 사진 115×162 등): 자르지 않고 원 아래 끝에 맞춰 놓음 — 원본처럼 머리 위 여백·어깨가 보이고, 사진 옆 끝은 원이 자름
+        s = round(d * face); h = round(src.height * s / src.width)
+        ph = src.resize((s, h), Image.LANCZOS)
+        fe = Image.new('L', (s, h), 255); fp = fe.load(); fs = max(1, round(s * 0.08))
+        for y in range(h):  # 사진 옆 끝만 부드럽게 이음(사진 바탕과 원판 색 사이 세로 줄 안 보이게)
+            for x in list(range(fs)) + list(range(s - fs, s)):
+                fp[x, y] = round(255 * min(1.0, x / fs, (s - 1 - x) / fs))
+        disc.paste(ph, ((d - s) // 2, max(round(d * 0.02), d - h)), fe)
+        mask = Image.new('L', (d * 4, d * 4), 0); ImageDraw.Draw(mask).ellipse((0, 0, d * 4 - 1, d * 4 - 1), fill=255)
+        out = disc.convert('RGBA'); out.putalpha(mask.resize((d, d), Image.LANCZOS))
+        return out
+    sq = face_square(photo)
     s = round(d * face); ph = sq.resize((s, s), Image.LANCZOS)
     # 옆은 넓게(10%), 위는 좁게(3%) 이음 — 위를 넓게 흐리면 머리카락이 뿌옇게 번짐(사진 위가 머리에서 바로 잘린 프로필이라)
     fe = Image.new('L', (s, s), 255); px = fe.load(); fs, ft = max(1, round(s * 0.10)), max(1, round(s * 0.03))
@@ -115,10 +128,10 @@ def pop(t):  # 0→1.08→1
     return 1.08 * ease(t / 0.7) if t < 0.7 else 1.08 - 0.08 * ease((t - 0.7) / 0.3)
 
 
-def card(photo, name, org, bg_img, t):
+def card(photo, name, org, bg_img, t, face=0.86):
     f = bg_img.copy()
     f = Image.blend(f, Image.new('RGB', f.size, (0, 0, 0)), 0.55).convert('RGBA')
-    b = badge(photo, scale=pop(t / 0.45) if t < 0.45 else 1.0, reveal=ease((t - 0.3) / 0.5))
+    b = badge(photo, scale=pop(t / 0.45) if t < 0.45 else 1.0, reveal=ease((t - 0.3) / 0.5), face=face)
     f.alpha_composite(b, ((W - b.width) // 2, TOP))
     k = ease((t - 0.6) / 0.4)
     if k > 0:
@@ -136,18 +149,19 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument('photo'); ap.add_argument('out')
     ap.add_argument('--name', required=True); ap.add_argument('--org', default=''); ap.add_argument('--bg')
     ap.add_argument('--bg-at', type=float, default=None, help='배경 장면 시각(초). 없으면 끝 4초 전 — 렌더본 말고 원본 촬영 영상을 쓰면 칩·자막이 비치지 않음'); ap.add_argument('--sec', type=float, default=3.0)
+    ap.add_argument('--face', type=float, default=0.86, help='원 지름 대비 사진 폭')
     a = ap.parse_args()
-    badge(a.photo).save(a.out + '_badge.png')
+    badge(a.photo, face=a.face).save(a.out + '_badge.png')
     if a.bg:
         dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', a.bg], capture_output=True, text=True).stdout)
         png = subprocess.run(['ffmpeg', '-loglevel', 'error', '-ss', f'{a.bg_at if a.bg_at is not None else max(0, dur - 4):.2f}', '-i', a.bg, '-frames:v', '1', '-vf', f'scale={W}:{H}', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True).stdout
         bg = Image.open(io.BytesIO(png)).convert('RGB')
     else:
         bg = Image.new('RGB', (W, H), (40, 40, 44))
-    card(a.photo, a.name, a.org, bg, 9).save(a.out + '_card.png')
+    card(a.photo, a.name, a.org, bg, 9, a.face).save(a.out + '_card.png')
     with tempfile.TemporaryDirectory() as td:
         n = round(a.sec * FPS)
-        for i in range(n): card(a.photo, a.name, a.org, bg, i / FPS).save(f'{td}/{i:04d}.png')
+        for i in range(n): card(a.photo, a.name, a.org, bg, i / FPS, a.face).save(f'{td}/{i:04d}.png')
         subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-framerate', str(FPS), '-i', f'{td}/%04d.png', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', a.out + '_card.mp4'], check=True)
     print('완료:', a.out + '_badge.png', a.out + '_card.png', a.out + '_card.mp4')
 
