@@ -249,3 +249,4 @@ r12는 **86점 / 100점**(r11 79점에서 +7)이다. 숫자 위치, ✓ 목록, 
 ![배지](work-roma-spider/brush_cutout_badge.png) ![끝 화면](work-roma-spider/brush_cutout_card.png)
 
 ![움직임 0.1·0.4·0.7초](work-roma-spider/brush_cutout_anim.png)
+- 손(사용자 「손 단정하게」): 주머니에 넣은 손을 허리 앞에서 가지런히 모은 자세로 바꿈(같은 사진에서 손만 바꾸는 편집, 4장 중 1장, 약 433크레딧 × 4). 손이 흐려지지 않게 아래 끝 사라짐을 70px → 28px로 줄임.

@@ -4,7 +4,7 @@
 구성 — 원본을 그대로 쓴다
   - 칠: 노션 원본 PNG(public/assets/shortform/brush-stroke-cutout/, 수정 없음)에서 노랑 칠 픽셀만 떼어 씀(원본 인물은 버림). 색은 #F5F200으로 맞춤(원본도 거의 같은 노랑)
   - 인물: 딜러 상반신 사진을 누끼(rembg u2net_human_seg)해 원본 인물 자리(가운데·머리 위 끝·아래 끝)에 같은 크기로 놓음
-  - 끝 화면에서는 인물 아래 끝을 70px 부드럽게 사라지게 함(공중에 잘린 선이 보이지 않게)
+  - 끝 화면에서는 인물 아래 끝을 28px 부드럽게(손이 흐려지지 않게) 사라지게 함(공중에 잘린 선이 보이지 않게)
 출력
   OUT_badge.png  투명 바탕 1000×842(원본 크기)
   OUT_card.png   1080×1920 끝 화면 시안(배경 영상 장면 어둡게 + 배지 + 이름·소속)
@@ -74,7 +74,7 @@ def ease(t): t = max(0.0, min(1.0, t)); return 1 - (1 - t) ** 3
 def card(stroke, person, name, org, bg_img, t):
     f = Image.blend(bg_img, Image.new('RGB', bg_img.size, (0, 0, 0)), 0.55).convert('RGBA')
     # 인물이 먼저(0.15초 안에) 나타나고 칠이 뒤에서 그어짐 — 원본 칠은 원본 인물 뒤가 비어 있어, 인물 없이 칠만 보이면 구멍이 드러남
-    b = badge(stroke, person, reveal=ease((t - 0.2) / 0.6), rise=1 - ease(t / 0.4), appear=ease(t / 0.15), fade_bottom=70)
+    b = badge(stroke, person, reveal=ease((t - 0.2) / 0.6), rise=1 - ease(t / 0.4), appear=ease(t / 0.15), fade_bottom=28)
     f.alpha_composite(b, ((W - b.width) // 2, TOP))
     k = ease((t - 0.8) / 0.4)
     if k > 0:
