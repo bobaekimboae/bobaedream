@@ -38,23 +38,27 @@ def sub_chunk(ws, act, size=60, mode='A'):
             d.text((x, y), w, font=f, fill=YEL if (ws[n] == act and mode != 'C') else (255, 255, 255), anchor='lm'); n += 1; x += f.getlength(w + ' ')
     return im
 
+SUB = {}
+def _sub(cv, im):
+    x, y = (W - im.width) // 2, CAPY - im.height // 2; cv.alpha_composite(im, (x, y)); SUB['box'] = (x, y, im.width, im.height)
+
 def draw_sub(cv, t, chunks, mode):
     """A 뜻 덩어리 + 말하는 낱말 노랑 / B 낱말 하나씩 크게 / C 문장 통째 두 줄, 강조 없음. t = 목소리 시각."""
     allw = [j for ch in chunks for j in ch]
     if mode == 'C':
-        if t >= WS[allw[0]][1] - 0.05: im = sub_chunk(allw, None, 56, 'C'); cv.alpha_composite(im, ((W - im.width) // 2, CAPY - im.height // 2))
+        if t >= WS[allw[0]][1] - 0.05: im = sub_chunk(allw, None, 56, 'C'); _sub(cv, im)
         return
     if mode == 'B':
         act = [j for j in allw if WS[j][1] - 0.03 <= t]
         if act:
             j = act[-1]; im = sub_chunk([j], j, 88); k = min(1, (t - WS[j][1] + 0.03) / 0.1); s = 0.85 + 0.15 * L.ease(k)
-            im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS); cv.alpha_composite(im, ((W - im.width) // 2, CAPY - im.height // 2))
+            im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS); _sub(cv, im)
         return
     for q, ch in enumerate(chunks):
         a = WS[ch[0]][1] - 0.05; b = WS[chunks[q + 1][0]][1] - 0.05 if q + 1 < len(chunks) else 1e9
         if a <= t < b:
             act = max([j for j in ch if WS[j][1] <= t + 0.02] or [ch[0]]); im = sub_chunk(ch, act)
-            cv.alpha_composite(im, ((W - im.width) // 2, CAPY - im.height // 2)); return
+            _sub(cv, im); return
 
 def flat_pill(s, size=70):
     f = L.XB(size); b = f.getbbox(s); tw, th = b[2] - b[0], b[3] - b[1]; px, py = 34, 22
@@ -133,6 +137,33 @@ def draw_on(im, q):
 def brush_ring(cv, cx, cy, w, k):
     im = draw_on(doodle('circle_387_339.svg', w), L.ease(min(1, k / 0.35))); put(cv, im, cx - im.width / 2, cy - im.height / 2)
 
+def arrow_to(cv, name, ax, ay, tx, ty, grow):
+    """노션 화살표 원본을 칩(ax, ay)에서 부위(tx, ty) 쪽으로. 길이에 맞춰 같은 비율로만 키우고 돌린다. 꼬리는 칩 밑에 물린다."""
+    dx, dy = tx - ax, ty - ay; dist = math.hypot(dx, dy); w = max(60, int(dist * grow / 6) * 6); ang = math.atan2(dy, dx)
+    im = doodle(name, w, rot=-round(math.degrees(ang)))
+    put(cv, im, ax + math.cos(ang) * w / 2 - im.width / 2, ay + math.sin(ang) * w / 2 - im.height / 2)
+
+_two = {}
+def chevron_chip(h, flip=False):
+    """노션 「오른쪽 화살표_356x232」 원본: 붓칠은 노랑으로, 안쪽 화살표는 원본 먹색 그대로."""
+    if (h, flip) not in _two:
+        import io
+        png = subprocess.run(['rsvg-convert', '-h', str(h), DOO + 'chevron_arrow_356_232.svg'], capture_output=True, check=True).stdout
+        a = np.array(Image.open(io.BytesIO(png)).convert('RGBA')); mint = a[..., 1] > 150
+        a[mint, 0], a[mint, 1], a[mint, 2] = YEL; a[~mint, :3] = INK; im = Image.fromarray(a)
+        if flip: im = im.transpose(Image.FLIP_LEFT_RIGHT)
+        sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 130), (0, 5), im.getchannel('A'))
+        out = Image.new('RGBA', im.size); out.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6))); out.alpha_composite(im); _two[(h, flip)] = out
+    return _two[(h, flip)]
+
+_qm = {}
+def quote(name, h):
+    """노션 큰따옴표 원본(노랑 PNG). 크기만 바꾸고 그림자를 깐다."""
+    if (name, h) not in _qm:
+        im = Image.open(DOO + name).convert('RGBA'); im = im.resize((int(im.width * h / im.height), h), Image.LANCZOS)
+        sh = Image.new('RGBA', (im.width + 24, im.height + 24)); sh.paste((0, 0, 0, 170), (12, 16), im.getchannel('A')); sh = sh.filter(ImageFilter.GaussianBlur(6)); sh.alpha_composite(im, (12, 12)); _qm[(name, h)] = sh
+    return _qm[(name, h)]
+
 def track_at(key, st):
     tr = TR[key]; i = int(round((st - tr['s0']) * 30)); p = tr['pts'][max(0, min(len(tr['pts']) - 1, i))]
     k = 7; lo = max(0, i - k // 2); a = np.array(tr['pts'][lo:lo + k]).mean(0) if lo < len(tr['pts']) else np.array(p)
@@ -144,7 +175,7 @@ SC = {  # 장면: 원본 구간 · 목소리 구간 · 자막 덩어리(낱말 �
     'cluster': dict(src=(26.5, 29.0), v=(15.5, 19.8), chunks=[[22, 23], [24, 25]], chip='디지털 계기판', track=None, big=(40208, 'km', '주행거리', 25)),
     'screen': dict(src=(32.0, 34.5), v=(22.0, 24.45), chunks=[[28, 31]], chip='세로형 화면', track='c9'),
 }
-DEF = dict(font=None, caption='A', motion='A', brush='A', place='A', sfx=None, deco=None)
+DEF = dict(font=None, caption='A', motion='A', brush='A', place='A', sfx=None, deco=None, link=None, quote=None)
 
 def render(name, scene, **kw):
     o = dict(DEF); o.update(kw); s = dict(SC[scene]); s['chunks'] = [list(range(a, b + 1)) for a, b in s['chunks']]; set_font(o['font'])
@@ -155,7 +186,21 @@ def render(name, scene, **kw):
     for i in range(n):
         t = i / FPS; st = s0 + (s1 - s0 - 0.04) * i / max(1, n - 1); cv = src_frame(st)
         place = ('D' if o['deco'] in ('B', 'C') else o['place']) if s['track'] else 'T'
-        if place == 'T': chip_in(cv, ch, (M - 10, YB), t, t_chip, o['motion'])   # 부위 추적이 없는 장면: 위쪽 고정
+        if o['link'] and s['track']:   # 잇기 줄: 칩과 부위를 노션 화살표 하나로 묶는다
+            px, py = track_at(s['track'], st); k = t - t_chip - 0.12; g = L.ease(min(1, max(0, k) / 0.22)) * 0.6 + 0.4; bob = 6 * math.sin(t * 6)
+            cl, cr, cbm = M - 10 + cb[0], M - 10 + cb[2], YB + cb[3]
+            if o['link'] in ('A', 'B'):
+                ax = min(max(px, cl + 90), cr - 90); ay = cbm - 34; d = math.hypot(px - ax, py - ay); stop = 100 if o['link'] == 'A' else 190
+                tx, ty = px - (px - ax) / d * stop, py - (py - ay) / d * stop + bob
+                if k >= 0: arrow_to(cv, 'hand_arrow_469_264.svg' if o['link'] == 'A' else 'long_arrow_280_56.svg', ax, ay, tx, ty, g)
+                if o['link'] == 'B' and k >= 0.15: brush_ring(cv, px, py, 400, k - 0.15)
+                chip_in(cv, ch, (M - 10, YB), t, t_chip, o['motion'])
+            else:   # C: 칩이 부위 옆에 붙고, 칩 끝에 붓칠 화살표가 한 줄로 이어짐
+                hh = cb[3] - cb[1]; right = px > W * 0.45; av = chevron_chip(int(hh * 0.92), flip=not right); cw = cb[2] - cb[0]
+                x = (px - 120 - av.width - cw + 26) if right else (px + 120 + av.width - 26); x = min(max(x, 20), W - 20 - cw); y = max(200, py - hh / 2)
+                chip_in(cv, ch, (x - cb[0], y - cb[1]), t, t_chip, o['motion'])
+                if k >= 0: axx = (x + cw - 26) if right else (x - av.width + 26); put(cv, av, axx + (bob if right else -bob), y + hh * 0.04, min(1, k / 0.12))
+        elif place == 'T': chip_in(cv, ch, (M - 10, YB), t, t_chip, o['motion'])   # 부위 추적이 없는 장면: 위쪽 고정
         else:
             px, py = track_at(s['track'], st)
             if place == 'A':   # 위쪽 고정 + 화살표가 부위를 따라감
@@ -184,7 +229,15 @@ def render(name, scene, **kw):
             tg, un, lb, wj = s['big']; tb = WS[wj][1] - v0 - 0.22
             number_in(cv, tg, un, lb, t, tb, o['motion']); hide = t >= tb
             if i == 0: events.append(('big', tb))
-        if not hide: draw_sub(cv, v0 + t, s['chunks'], o['caption'])
+        if o['quote'] == 'A' and t >= t_chip + 0.12:   # 칩 왼쪽 위에 열기 따옴표를 걸친다: 칩 = 방금 말한 낱말
+            qo = quote('quote_open_320_260.png', 92); L.pop(cv, qo, (M - 10 + cb[0] - 34, YB + cb[1] - 62), t, t_chip + 0.12)
+        if not hide:
+            SUB.pop('box', None); draw_sub(cv, v0 + t, s['chunks'], o['caption'])
+            if o['quote'] in ('B', 'C') and 'box' in SUB:   # 말 자막을 따옴표로 열고 닫는다
+                bx, by, bw, bh = SUB['box']; first = v0 + t < WS[s['chunks'][1][0]][1] - 0.05 if len(s['chunks']) > 1 else True; last = not first or len(s['chunks']) == 1
+                big = o['quote'] == 'C'; qh = 120 if big else 64
+                if big or first: qo = quote('quote_open_320_260.png', qh); put(cv, qo, bx - (20 if big else qo.width - 30), by - qh + (4 if big else 30))
+                if big or last: qc = quote('quote_close_102_83.png', qh); put(cv, qc, bx + bw - (qc.width - 20 if big else 30), (by + bh - 34) if big else (by + 14))
         ff.stdin.write(cv.convert('RGB').tobytes())
     ff.stdin.close(); ff.wait()
     # 소리: 목소리 + (효과음 줄만) 효과음
@@ -211,6 +264,8 @@ if __name__ == '__main__':
             ('brush_a', 'wheel', {}), ('brush_b', 'wheel', {'brush': 'B'}), ('brush_c', 'wheel', {'brush': 'C'}),
             ('place_a', 'screen', {}), ('place_b', 'screen', {'place': 'B'}), ('place_c', 'screen', {'place': 'C'}),
             ('deco_a', 'screen', {}), ('deco_b', 'screen', {'deco': 'B'}), ('deco_c', 'screen', {'deco': 'C'}),
+            ('link_a', 'screen', {'link': 'A'}), ('link_b', 'screen', {'link': 'B'}), ('link_c', 'screen', {'link': 'C'}),
+            ('quote_a', 'wheel', {'link': 'A', 'quote': 'A'}), ('quote_b', 'logo', {'place': 'T', 'quote': 'B'}), ('quote_c', 'logo', {'place': 'T', 'caption': 'C', 'quote': 'C'}),
             ('sfx_a', 'cluster', {'sfx': 'A'}), ('sfx_b', 'cluster', {'sfx': 'B'}), ('sfx_c', 'cluster', {'sfx': 'C'})]
     for nm, sc, kw in JOBS:
         if not only or any(nm.startswith(x) for x in only): render(nm, sc, **kw)
