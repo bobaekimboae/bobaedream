@@ -158,7 +158,7 @@ def slot_place(key,Cimg,tx,ty,pts,lens):
         hit=any(x0<=px<=x1 and py<=y1 for px,py in pts) or (cx+b[0]-60<=tx<=cx+b[2]+60 and ty<=YB+b[3]+TG+AMIN+30)
         if str(DECO.get('arrow','')).startswith('hand'):   # 손그림 화살표(길이 고정): 부위가 칩 자리 바로 밑에 깔릴 때만 B줄, 방향은 컷 전체의 가운데 높이로 한 번 정함
             La=int(DECO.get('arrow_len',180)); my=float(np.median([p[1] for p in pts]))*H
-            hit=any(x0<=px<=x1 and py*H<=YB+b[3]+40 for px,py in pts)
+            hit=any(x0<=px<=x1 and py*H<=YB+b[3]+170 for px,py in pts)   # 칩이 부위를 덮지 않게(당겨 찍는 컷 여유 포함)
             SLOT[key]='B' if (lens or hit) else 'T'
             SLOTBL[key]=(my-70-La<YB+b[3]+10) if SLOT[key]=='T' else (my+70+La<=YB2+b[1])
         else:
@@ -178,6 +178,7 @@ def emph(h,flip=False):   # 노션 원본 「강조 선_125x139」 모양만 읽
         _deco[k]=im.transpose(Image.FLIP_LEFT_RIGHT) if flip else im
     return _deco[k]
 DECO=(CAR or {}).get('deco',{})
+_NOEMPH={c_['key'] for c_ in (CAR or {}).get('cuts',[]) if c_.get('no_emphasis')}   # 큰 숫자 양옆 강조 선을 빼는 컷
 _ARW={}
 def arrimg_hand(L,below):
     """노션 원본 손그림 화살표(파일 그대로, 모양만 읽음) — 노랑(hand_yellow) 또는 흰색(hand_white) 칠 + 얇은 어두운 테두리. 같은 배율로만 줄인다. (그림, 위 여백)"""
@@ -424,7 +425,7 @@ for t0,t1,c in SEG:
             B3=cnt(BIGS[k2],180 if key!='c15' else 210,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
             _PTOP[key]=max(_PTOP.get(key,0),y3+B3.height+6+(BL.height if BL else 0))   # 슬롯 규격: 알약은 큰 숫자 묶음 아래부터 쌓음
-            if DECO.get('emphasis'):   # 큰 숫자 양옆 위 강조 선(노션 원본 두들, 노랑) — 숫자 칠 밖, 안전영역 안
+            if DECO.get('emphasis') and key not in _NOEMPH:   # 큰 숫자 양옆 위 강조 선(노션 원본 두들, 노랑) — 숫자 칠 밖, 안전영역 안
                 _fb=cnt(BIGS[k2],180,99,0); _b0=_fb.getbbox() or (0,0,_fb.width,_fb.height); _xl=(W-_fb.width)//2+_b0[0]; _xr=(W-_fb.width)//2+_b0[2]; _e=emph(120)
                 pop(cv,_e,(max(SAFE_X,_xl-_e.width+14),y3+_b0[1]-_e.height+46),t,tb+0.22,0.18); pop(cv,emph(120,True),(min(W-SAFE_X-_e.width,_xr-14),y3+_b0[1]-_e.height+46),t,tb+0.22,0.18)
             if t>=tb+0.4 and (key,k2) not in BIGS_SEEN:   # r03: 큰 숫자 상자 기록(번호판 검사용)
