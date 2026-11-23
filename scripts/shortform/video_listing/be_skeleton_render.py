@@ -272,7 +272,9 @@ for t0,t1,c in SEG:
                     cv.alpha_composite(_A,(int(_ax+math.cos(_an)*_w/2-_A.width/2),int(_ay+math.sin(_an)*_w/2-_A.height/2)))
             elif av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
                 av=None
-                cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
+                cx,cy=M-10,YB
+                if os.environ.get('BE_CHIP_X')=='center': _b=Cimg.getbbox(); cx=(W-(_b[2]-_b[0]))//2-_b[0]
+                # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
                 L=0
             else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
             if av and not (LINK and pts is not None) and av[0]<=st<=av[1] and t>=tc+0.18:
