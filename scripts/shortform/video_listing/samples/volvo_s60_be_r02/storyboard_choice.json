@@ -1,0 +1,17 @@
+{
+  "decided": "2026-11-24",
+  "by": "Claude (사용자 위임: 「니가 판단해서 결정해」)",
+  "font": "A",
+  "caption": "A",
+  "motion": "A",
+  "brush": "A",
+  "place": "C",
+  "deco": "ring_only",
+  "sfx": "B",
+  "chip_delay_sec": 0.2,
+  "notes": {
+    "place": "칩은 위쪽 같은 자리에 고정, 부위에는 노션 원 하이라이트 원본(노랑)을 붓으로 그리듯 표시. 컷마다 섞여 있던 화살표는 쓰지 않는다.",
+    "deco": "붓 화살표(노션 BE 사용 「검토」)와 강조 선(반짝임 금지와 가까움)은 쓰지 않는다. 팔각 판·아이콘 덩어리도 넣지 않는다.",
+    "sfx": "uisfx minimal(swipe·select·success). 소리는 사람이 듣고 확인하지 않았다."
+  }
+}
