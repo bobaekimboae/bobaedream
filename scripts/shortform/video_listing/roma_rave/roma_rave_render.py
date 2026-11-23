@@ -14,10 +14,10 @@ WS = [[w, s + INTRO, e + INTRO] for w, s, e in json.load(open(G + 'words.json'))
 ST = lambda i: WS[i][1]
 VOICE = WS[-1][2]; ENDT = ST(82) - 0.12; TOTAL = VOICE + 1.9
 # 인트로 몽타주: (원본 시각, 확대 시작)
-MONT = [(10.9, 1.18), (15.5, 1.15), (181.1, 1.15), (201.7, 1.12)]
+MONT = [(1.3, 1.15), (15.5, 1.15), (181.1, 1.15), (201.7, 1.12)]   # 첫 컷 = 정면
 # 컷: 키, 첫 낱말, 원본 시작, 원본 끝(None=길이만큼), 구역, 칩[(글자,낱말)], 큰 숫자[(글자,낱말,흔들림)], 알약[(글자,낱말,✓)], 세로 위치, 손 닿음(원본 시각, 손끝 x, 손끝 y, 맞출 낱말)
 # 마지막 칸: 손 닿음(원본 시각, 손끝 x, 손끝 y, 맞출 낱말, 금색 라벨 이름 또는 None, 부위 발광 방식 또는 None)
-C = [('c1', 0, 217.6, 221.5, '외관', [], [], [], 0.42, None),
+C = [('c1', 0, 0.0, 2.0, '외관', [], [], [], 0.5, None),   # 정면 샷(원본 0~2초, 살짝 느리게)
      ('odo', 4, 74.3, 76.8, '실내', [('주행', 4)], [('765km', 6, False)], [], 0.5, None),
      ('grille', 7, None, None, '외관', [], [], [], 0.5, (8.0, 0.20, 0.53, 9, 'roma_l_grille', None)),
      ('lamp', 13, 10.0, 12.4, '외관', [('풀 LED 헤드램프', 15)], [], [], 0.5, None),
@@ -109,18 +109,20 @@ PINTXT = {'roma_l_grille': '타공 패널', 'roma_l_exh': '배기구 4개', 'rom
 GOLDC = (232, 184, 74)
 import partfx as PFX
 def pin_fx(cv, x, y, u, name):
-    # 외곽선 위 고정점(x,y) → 꺾인 흰 선(skia) → 붓칠 칩
+    # 스카우트식: 부위 바로 위에 짧은 노랑 화살표(끝이 부위를 가리킴) + 그 위 붓칠 칩. 흰 선 없음
     if u < 0: return cv
     L = gchip(PINTXT[name]); bb_ = L.getbbox(); cw = bb_[2] - bb_[0]
-    s_ = 1 if x < W / 2 else -1
-    if s_ > 0 and x + 230 + cw > W - 24: s_ = -1
-    if s_ < 0 and x - 230 - cw < 24: s_ = 1
-    ey = min(1060, max(330, y - 220)); ex = x + s_ * 210
-    cv = PFX.callout(cv, x, y, ex, ey, u)
-    if u >= 0.28:
-        cx = ex + 6 if s_ > 0 else ex - 6 - cw
-        cx = min(W - 24 - cw, max(24, cx))
-        pop(cv, L, (int(cx - bb_[0]), int(ey - (bb_[1] + bb_[3]) / 2)), u, 0.28, 0.2)
+    AL = 110; below = False
+    if y - 8 - AL - 6 - (bb_[3] - bb_[1]) < 330: AL = 70
+    if y - 8 - AL - 6 - (bb_[3] - bb_[1]) < 150: below = True
+    A_, p_ = arrimg(AL, below); bob = 6 * math.sin(u * 2 * math.pi * 1.4) * min(1.0, u / 0.3)
+    if not below:
+        ay = y - 8 - (p_ + AL) + bob; cy = ay + p_ - 6 - bb_[3]
+    else:
+        ay = y + 8 - p_ + bob; cy = ay + p_ + AL + 6 - bb_[1]
+    ax = x - A_.width / 2; cx = min(W - 40 - bb_[2], max(40 - bb_[0], x - (bb_[0] + bb_[2]) / 2))
+    pop(cv, A_, (int(ax), int(ay)), u, 0.0, 0.16)
+    pop(cv, L, (int(cx), int(cy)), u, 0.1, 0.2)
     return cv
 def part_glow(cv, x, y, u, R=300):
     if u < 0 or u > 0.9: return cv

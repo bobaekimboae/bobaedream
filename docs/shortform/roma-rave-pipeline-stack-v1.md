@@ -1,6 +1,6 @@
 # 실촬영 매물 숏폼 파이프라인 기술스택 v1 — 페라리 로마 스파이더(레이브) 기준
 
-작성: Claude 시안 마스터 · 2026-11-24 · 결과 영상 `public/shortform-samples/roma-spider-rave-v5/`
+작성: Claude 시안 마스터 · 2026-11-24 · 결과 영상 `public/shortform-samples/roma-spider-rave-v6/`
 코드: `scripts/shortform/video_listing/roma_rave/`
 
 벨기에(오토스카우트24) 자막 뼈대 위에 나세르식 편집(인트로 히어로샷 · 손 닿는 부위 강조)을 얹은 실촬영 매물 숏폼을, 사람 손은 "부위 점 한 번 찍기"만 두고 끝까지 자동으로 만드는 흐름이다.
@@ -19,8 +19,8 @@
 | 8 화면 흔들림 | 마스크가 끝난 뒤 콜아웃 점이 화면 전체 움직임만 따라감 | OpenCV phaseCorrelate (Apache-2.0) | — |
 | 9 부위 강조 | 질감(밝기)은 두고 색만 흰색/부위색으로 + 얇은 흰 테두리 + 빛 쓸기, 손은 늘 앞 | OpenCV LAB 색공간 · **skia-python** (BSD) | `partfx.py` `recolor()` |
 | 10 타공 그릴 | 차체와 한 덩어리라 외곽선 대신 손끝에서 퍼지는 "구멍 파동" | OpenCV(구멍 검출·볼록 껍질) · skia | `partfx.py` `holes()` |
-| 11 콜아웃 | 부위 위 고정점 → 꺾인 흰 선(안티에일리어싱) → 노랑 붓칠 칩 | skia · g350_v5_lib `gchip()` | `partfx.py` `callout()` |
-| 12 인트로 차 윤곽 | 이 차만 고르기 × 선명한 가장자리 → 배경 흐림·어둡게 + 차 뒤 크롬 ROMA(가림) + 실루엣 흰 빛 | SAM 2.1 × IS-Net(rembg, ONNX) | `pseg/intro_sam.npz`, `intro_bir.npz` |
+| 11 부위 칩 | 부위 위 고정점에 스카우트식 짧은 노랑 화살표(끝이 부위) + 붓칠 칩, 화면 움직임 따라감 (v6: 흰 선 폐기) | g350_v5_lib `arrimg()`·`gchip()` | `roma_rave_render.py` `pin_fx()` |
+| 12 인트로 차 윤곽 | 정면 샷(원본 0~2초, 0.67배속) · 이 차만 고르기 × 선명한 가장자리 → 배경 흐림·어둡게 + 차 뒤 크롬 ROMA(가림) + 실루엣 흰 빛 | SAM 2.1 × IS-Net(rembg, ONNX) | `pseg/intro_sam.npz`, `intro_bir.npz` |
 | 13 3D 숫자·글자 | 금색 큰 숫자(765km·20인치·13.5초·255L·620마력·77.5kg·m·3.4초), 크롬 ROMA | Blender (GPL, 결과물은 자유) `blender/bl_gold.py` | `bl/roma_g_*`, `bl/roma_roma` (저장소 밖) |
 | 14 칩·자막 | 노랑 붓칠 칩(노션 원본), Pretendard 흰 자막 + 말하는 낱말 노랑 | g350_v5_lib · be_locked_rules.json | — |
 | 15 소리 | 목소리 + 배경음(2회 이어붙임·말할 때 낮춤) + 규칙 효과음 → 2단 loudnorm −14 LUFS · TP −1.5 | FFmpeg | `.mp4` |
@@ -47,8 +47,8 @@
 | 작업 | 시간 |
 |---|---|
 | SAM 2.1 부위 1개(42프레임, 부위+손) | 약 6분 |
-| SAM 2.1 인트로(120프레임) | 약 12.6분 |
-| IS-Net 인트로 120프레임 | 약 6.4분 |
+| SAM 2.1 인트로(정면 64프레임) | 약 6분 |
+| IS-Net 인트로 64프레임 | 약 3.2분 |
 | 전체 렌더(59.4초, 1080×1920·30fps) | 약 9분 |
 
 마스크는 `pseg/*.npz`에 저장되어 다시 렌더할 때는 계산하지 않는다. 하루 1천 대를 만들려면 GPU 서버에서 SAM 2.1을 돌려야 한다(GPU 기준 부위당 수 초).
@@ -65,7 +65,7 @@
 | Depth Anything V2 Base/Large | 비상업(Small만 Apache-2.0) — 손 가림은 SAM 손 마스크로 해결해서 불필요 |
 | TAPNext/BootsTAPIR (Apache-2.0) | 쓸 수 있으나 SAM 2.1 마스크 추적으로 충분해 보류 |
 
-## 5. 크로스체크 결과 (v5)
+## 5. 크로스체크 결과 (v5 · v6 같음)
 
 - `check_be.py`: 통과
 - `edit_gate.py post --plates`: 2건 표시

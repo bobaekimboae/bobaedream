@@ -10,7 +10,7 @@
 - 손끝 노랑 링(tap_fx) 제거, 콜아웃 점은 작은 흰 점으로
 - 타공 그릴은 손끝에서 퍼지는 구멍 파동
 - 인트로: 옆·뒤 차까지 잡히던 rembg 윤곽 → SAM 2.1(이 차만) × IS-Net(가장자리), 실루엣 흰 빛
-- 기술스택 문서 `docs/shortform/roma-rave-pipeline-stack-v1.md`, 샘플 페이지 `public/shortform-samples/roma-spider-rave-v5/`
+- 기술스택 문서 `docs/shortform/roma-rave-pipeline-stack-v1.md`, 샘플 페이지 `public/shortform-samples/roma-spider-rave-v6/`
 
 ④ 비교: `reports/work-roma-rave-v5/v5_touch_recolor.png`(휠·탑·엔진·배기구·디스플레이), `v4_parts_intro.png`(인트로·나머지 부위), `intro_matte.png`(차 윤곽)
 
@@ -26,3 +26,10 @@
 ⑦ 다음에 할 것: GPU 서버에서 BiRefNet으로 인트로 가장자리 교체, 부위 점 자동 찾기(OWLv2), 표준 렌더러로 합치기, JATO로 「다섯 겹」 확인
 
 ⑧ 확인 링크(병합·배포 후): https://bobaekimboae.github.io/bobaedream/shortform-samples/roma-spider-rave-v5/
+
+
+## v6 추가 (2026-11-24)
+- 부위 칩: 흰 꺾인 선 → 스카우트식 짧은 노랑 화살표(부위가 화면 위쪽이면 칩이 아래로 가고 화살표가 위를 가리킴)
+- 인트로: 3/4 측면 → 정면 샷(원본 0~2초), 몽타주 첫 컷도 정면
+- check_be 통과
+- 확인 링크(병합·배포 후): https://bobaekimboae.github.io/bobaedream/shortform-samples/roma-spider-rave-v6/
