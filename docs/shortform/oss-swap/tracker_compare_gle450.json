@@ -1,0 +1,590 @@
+{
+ "g2": {
+  "prompt": "headlight",
+  "range": [
+   2.8,
+   5.2
+  ],
+  "frames": 25,
+  "vittrack": {
+   "mean_px": 205.6,
+   "max_px": 341.2,
+   "inside": "2/8",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.39,
+   "ms_per_frame": 16.4,
+   "per_label_px": [
+    74.6,
+    4.8,
+    294.6,
+    175.3,
+    217.1,
+    261.2,
+    341.2,
+    276.1
+   ]
+  },
+  "tapnext": {
+   "mean_px": 40.8,
+   "max_px": 72.8,
+   "inside": "8/8",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 63.38,
+   "ms_per_frame": 2640.8,
+   "per_label_px": [
+    55.5,
+    16.7,
+    23.7,
+    26.3,
+    23.0,
+    72.8,
+    52.8,
+    55.5
+   ]
+  },
+  "label_note": ""
+ },
+ "g4": {
+  "prompt": "wheel",
+  "range": [
+   8.17,
+   10.57
+  ],
+  "frames": 25,
+  "vittrack": {
+   "mean_px": 40.9,
+   "max_px": 100.3,
+   "inside": "8/8",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.11,
+   "ms_per_frame": 4.4,
+   "per_label_px": [
+    26.3,
+    100.3,
+    57.7,
+    35.3,
+    32.5,
+    27.9,
+    21.0,
+    26.3
+   ]
+  },
+  "tapnext": {
+   "mean_px": 237.2,
+   "max_px": 304.9,
+   "inside": "8/8",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 57.3,
+   "ms_per_frame": 2387.6,
+   "per_label_px": [
+    61.9,
+    146.5,
+    236.0,
+    265.3,
+    286.4,
+    294.8,
+    301.5,
+    304.9
+   ]
+  },
+  "label_note": ""
+ },
+ "g5": {
+  "prompt": "open trunk",
+  "range": [
+   10.7,
+   13.4
+  ],
+  "frames": 28,
+  "vittrack": {
+   "mean_px": 64.6,
+   "max_px": 95.5,
+   "inside": "9/9",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.14,
+   "ms_per_frame": 5.3,
+   "per_label_px": [
+    77.3,
+    74.2,
+    76.9,
+    63.7,
+    95.5,
+    54.8,
+    39.1,
+    45.5,
+    54.2
+   ]
+  },
+  "tapnext": {
+   "mean_px": 37.7,
+   "max_px": 89.1,
+   "inside": "9/9",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 62.51,
+   "ms_per_frame": 2315.2,
+   "per_label_px": [
+    8.7,
+    7.8,
+    6.9,
+    15.2,
+    32.3,
+    45.3,
+    60.8,
+    73.4,
+    89.1
+   ]
+  },
+  "label_note": ""
+ },
+ "g6": {
+  "prompt": "sunroof",
+  "range": [
+   13.57,
+   17.17
+  ],
+  "frames": 37,
+  "vittrack": {
+   "mean_px": 486.9,
+   "max_px": 876.7,
+   "inside": "1/12",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.17,
+   "ms_per_frame": 4.8,
+   "per_label_px": [
+    11.4,
+    328.8,
+    467.0,
+    588.3,
+    308.5,
+    578.2,
+    876.7,
+    789.2,
+    534.8,
+    700.3,
+    326.2,
+    333.8
+   ]
+  },
+  "tapnext": {
+   "mean_px": 569.5,
+   "max_px": 1130.0,
+   "inside": "1/12",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 85.52,
+   "ms_per_frame": 2375.7,
+   "per_label_px": [
+    18.7,
+    355.3,
+    422.6,
+    572.3,
+    256.7,
+    436.1,
+    685.4,
+    478.1,
+    730.1,
+    1130.0,
+    840.1,
+    908.1
+   ]
+  },
+  "label_note": "자동 라벨 오류(테일게이트→천장 반사), 비교 제외"
+ },
+ "g7": {
+  "prompt": "air vent",
+  "range": [
+   17.43,
+   20.13
+  ],
+  "frames": 28,
+  "vittrack": {
+   "mean_px": 111.4,
+   "max_px": 760.4,
+   "inside": "8/9",
+   "breaks": 1,
+   "lost_frames": 2,
+   "sec": 0.11,
+   "ms_per_frame": 4.2,
+   "per_label_px": [
+    5.1,
+    26.7,
+    49.8,
+    21.8,
+    44.0,
+    6.2,
+    760.4,
+    56.8,
+    31.9
+   ]
+  },
+  "tapnext": {
+   "mean_px": 340.6,
+   "max_px": 1086.6,
+   "inside": "6/9",
+   "breaks": 1,
+   "lost_frames": 9,
+   "sec": 63.24,
+   "ms_per_frame": 2342.2,
+   "per_label_px": [
+    10.5,
+    12.6,
+    36.5,
+    5.9,
+    22.9,
+    22.7,
+    1086.6,
+    966.8,
+    901.1
+   ]
+  },
+  "label_note": ""
+ },
+ "g9": {
+  "prompt": "navigation map",
+  "range": [
+   24.1,
+   25.6
+  ],
+  "frames": 16,
+  "vittrack": {
+   "mean_px": 15.7,
+   "max_px": 24.3,
+   "inside": "5/5",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.06,
+   "ms_per_frame": 4.0,
+   "per_label_px": [
+    24.3,
+    8.9,
+    21.3,
+    3.4,
+    20.4
+   ]
+  },
+  "tapnext": {
+   "mean_px": 13.2,
+   "max_px": 18.9,
+   "inside": "5/5",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 35.81,
+   "ms_per_frame": 2387.6,
+   "per_label_px": [
+    18.9,
+    4.5,
+    17.4,
+    7.3,
+    17.7
+   ]
+  },
+  "label_note": ""
+ },
+ "g10": {
+  "prompt": "a touchpad controller on a car center console",
+  "range": [
+   22.0,
+   23.75
+  ],
+  "frames": 18,
+  "vittrack": {
+   "mean_px": 46.1,
+   "max_px": 79.4,
+   "inside": "7/7",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.08,
+   "ms_per_frame": 4.9,
+   "per_label_px": [
+    58.8,
+    14.7,
+    56.2,
+    48.2,
+    38.7,
+    79.4,
+    26.7
+   ]
+  },
+  "tapnext": {
+   "mean_px": 51.7,
+   "max_px": 87.6,
+   "inside": "7/7",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 39.88,
+   "ms_per_frame": 2345.6,
+   "per_label_px": [
+    53.8,
+    14.0,
+    66.6,
+    58.9,
+    47.1,
+    87.6,
+    33.9
+   ]
+  },
+  "label_note": ""
+ },
+ "g8": {
+  "prompt": "display screen",
+  "range": [
+   26.8,
+   29.5
+  ],
+  "frames": 28,
+  "vittrack": {
+   "mean_px": 231.0,
+   "max_px": 540.6,
+   "inside": "5/9",
+   "breaks": 2,
+   "lost_frames": 3,
+   "sec": 0.11,
+   "ms_per_frame": 4.1,
+   "per_label_px": [
+    110.0,
+    417.0,
+    540.6,
+    527.8,
+    418.6,
+    5.9,
+    13.9,
+    15.9,
+    29.5
+   ]
+  },
+  "tapnext": {
+   "mean_px": 282.7,
+   "max_px": 522.3,
+   "inside": "4/9",
+   "breaks": 1,
+   "lost_frames": 13,
+   "sec": 61.66,
+   "ms_per_frame": 2283.7,
+   "per_label_px": [
+    100.0,
+    407.1,
+    522.3,
+    515.5,
+    470.5,
+    245.8,
+    146.9,
+    80.1,
+    56.4
+   ]
+  },
+  "label_note": ""
+ },
+ "g12": {
+  "prompt": "seat adjustment switch",
+  "range": [
+   34.8,
+   37.5
+  ],
+  "frames": 28,
+  "vittrack": {
+   "mean_px": 240.0,
+   "max_px": 974.1,
+   "inside": "6/9",
+   "breaks": 3,
+   "lost_frames": 7,
+   "sec": 0.11,
+   "ms_per_frame": 4.2,
+   "per_label_px": [
+    18.0,
+    29.9,
+    32.4,
+    19.6,
+    202.9,
+    974.1,
+    225.3,
+    378.1,
+    280.1
+   ]
+  },
+  "tapnext": {
+   "mean_px": 298.9,
+   "max_px": 1070.3,
+   "inside": "7/9",
+   "breaks": 1,
+   "lost_frames": 13,
+   "sec": 62.12,
+   "ms_per_frame": 2300.7,
+   "per_label_px": [
+    23.2,
+    42.1,
+    67.6,
+    49.4,
+    17.8,
+    1070.3,
+    504.6,
+    504.0,
+    410.8
+   ]
+  },
+  "label_note": ""
+ },
+ "g13": {
+  "prompt": "memory buttons",
+  "range": [
+   34.8,
+   37.5
+  ],
+  "frames": 28,
+  "vittrack": {
+   "mean_px": 372.6,
+   "max_px": 1245.7,
+   "inside": "4/9",
+   "breaks": 1,
+   "lost_frames": 8,
+   "sec": 0.1,
+   "ms_per_frame": 3.6,
+   "per_label_px": [
+    19.8,
+    5.5,
+    34.8,
+    18.7,
+    1245.7,
+    1037.2,
+    505.7,
+    332.8,
+    153.1
+   ]
+  },
+  "tapnext": {
+   "mean_px": 417.4,
+   "max_px": 1237.9,
+   "inside": "4/9",
+   "breaks": 1,
+   "lost_frames": 11,
+   "sec": 62.8,
+   "ms_per_frame": 2326.0,
+   "per_label_px": [
+    11.0,
+    21.5,
+    36.5,
+    23.4,
+    1237.9,
+    1132.9,
+    590.3,
+    436.3,
+    266.6
+   ]
+  },
+  "label_note": ""
+ },
+ "g11": {
+  "prompt": "two round cup holders",
+  "range": [
+   41.2,
+   42.7
+  ],
+  "frames": 16,
+  "vittrack": {
+   "mean_px": 68.3,
+   "max_px": 181.9,
+   "inside": "6/6",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.07,
+   "ms_per_frame": 4.8,
+   "per_label_px": [
+    16.3,
+    17.4,
+    66.3,
+    49.8,
+    78.4,
+    181.9
+   ]
+  },
+  "tapnext": {
+   "mean_px": 78.4,
+   "max_px": 133.4,
+   "inside": "6/6",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 36.1,
+   "ms_per_frame": 2406.4,
+   "per_label_px": [
+    18.2,
+    19.7,
+    78.4,
+    114.8,
+    133.4,
+    105.9
+   ]
+  },
+  "label_note": ""
+ },
+ "g16": {
+  "prompt": "display screen",
+  "range": [
+   42.77,
+   47.87
+  ],
+  "frames": 52,
+  "vittrack": {
+   "mean_px": 30.0,
+   "max_px": 60.9,
+   "inside": "17/17",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 0.2,
+   "ms_per_frame": 3.9,
+   "per_label_px": [
+    3.7,
+    60.9,
+    41.2,
+    24.0,
+    15.3,
+    18.4,
+    24.8,
+    31.1,
+    23.6,
+    16.5,
+    32.3,
+    30.3,
+    48.4,
+    42.8,
+    28.5,
+    35.6,
+    33.2
+   ]
+  },
+  "tapnext": {
+   "mean_px": 13.9,
+   "max_px": 19.2,
+   "inside": "17/17",
+   "breaks": 0,
+   "lost_frames": 0,
+   "sec": 118.65,
+   "ms_per_frame": 2326.5,
+   "per_label_px": [
+    16.4,
+    17.4,
+    19.2,
+    17.4,
+    17.4,
+    10.0,
+    12.5,
+    15.5,
+    15.4,
+    16.3,
+    13.7,
+    9.5,
+    15.5,
+    15.6,
+    7.6,
+    8.2,
+    8.3
+   ]
+  },
+  "label_note": ""
+ }
+}
