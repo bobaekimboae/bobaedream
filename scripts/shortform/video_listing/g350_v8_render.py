@@ -83,6 +83,7 @@ assert _CK['words']==len(WS), f"덩어리 파일 낱말 수 {_CK['words']} ≠ �
 CH=[list(range(a,b+1)) for a,b in _CK['chunks']]
 assert [j for c in CH for j in c]==list(range(len(WS))), '덩어리가 낱말을 빠짐없이 차례로 덮지 않음'
 BLK=ImageFont.truetype(F+'/Pretendard-Black.otf',R['caption']['font_px']); YC=YEL
+_NUMY=bool(((CAR or {}).get('caption_hl') or {}).get('number_yellow'))   # 시트 자산 24번: 자막의 숫자 낱말은 늘 노랑(글자색만)
 _sc={}
 def subimg(ch,act):
     k=(tuple(ch),act)
@@ -96,7 +97,7 @@ def subimg(ch,act):
     for i,l in enumerate(lines):
         x=(im.width-BLK.getlength(' '.join(l)))/2; y=20+lh*i+lh/2
         for w in l:
-            d.text((x,y),w,font=BLK,fill=YC if ch[n]==act else (255,255,255),anchor='lm'); n+=1; x+=BLK.getlength(w+' ')
+            d.text((x,y),w,font=BLK,fill=YC if (ch[n]==act or (_NUMY and re.search(r'\d',w))) else (255,255,255),anchor='lm'); n+=1; x+=BLK.getlength(w+' ')
     _sc[k]=im; return im
 _CHL=(CAR or {}).get('caption_hl'); _HLT={}
 def HLT(j):
@@ -265,7 +266,7 @@ _cpill={}
 _PTOP={}
 def special(key,cv,t,t0):
     for it in CARX.get(key,{}).get('pills',[]):   # 다른 차: 흰 정보 알약(오토스카우트24 아이콘 + 글자), 말하는 낱말에 맞춰 나옴
-        if it['text'] not in _cpill: _cpill[it['text']]=ipill(as24(it['icon'],54),it['text'],58)
+        if it['text'] not in _cpill: _cpill[it['text']]=ckpill(it['text']) if it.get('check') else ipill(as24(it['icon'],54),it['text'],58)   # check: 시트 자산 28번 ✓ 목록
         im=_cpill[it['text']]; b=im.getbbox(); _pos=((W-im.width)//2,it['y']-b[1])
         if SLOTS:   # 슬롯 규격: 칩이 있으면 칩 왼쪽 선에 맞춰 칩 아래(B줄은 위), 칩이 없으면 큰 숫자 묶음 아래 가운데 — 차례로 쌓음
             _k=CARX[key]['pills'].index(it); _hh=b[3]-b[1]+12
