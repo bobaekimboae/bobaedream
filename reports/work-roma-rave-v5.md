@@ -10,7 +10,7 @@
 - 손끝 노랑 링(tap_fx) 제거, 콜아웃 점은 작은 흰 점으로
 - 타공 그릴은 손끝에서 퍼지는 구멍 파동
 - 인트로: 옆·뒤 차까지 잡히던 rembg 윤곽 → SAM 2.1(이 차만) × IS-Net(가장자리), 실루엣 흰 빛
-- 기술스택 문서 `docs/shortform/roma-rave-pipeline-stack-v1.md`, 샘플 페이지 `public/shortform-samples/roma-spider-rave-v6/`
+- 기술스택 문서 `docs/shortform/roma-rave-pipeline-stack-v1.md`, 샘플 페이지 `public/shortform-samples/roma-spider-rave-v7/`
 
 ④ 비교: `reports/work-roma-rave-v5/v5_touch_recolor.png`(휠·탑·엔진·배기구·디스플레이), `v4_parts_intro.png`(인트로·나머지 부위), `intro_matte.png`(차 윤곽)
 
@@ -33,3 +33,8 @@
 - 인트로: 3/4 측면 → 정면 샷(원본 0~2초), 몽타주 첫 컷도 정면
 - check_be 통과
 - 확인 링크(병합·배포 후): https://bobaekimboae.github.io/bobaedream/shortform-samples/roma-spider-rave-v6/
+
+## v7 추가 (2026-11-24)
+- 차 뒤 모델명을 블렌더 3D로 새로 렌더(`blender/bl_hero_text.py`): 크롬 앞면 · 페라리 레드 옆면 · 테두리 빛 · 솟아오르기 · 빛 띠
+- 차 윤곽: 가이드 필터 · 유리 구멍 메우기 · 프레임 간 떨림 줄이기
+- check_be 통과 · 확인 링크(병합·배포 후): https://bobaekimboae.github.io/bobaedream/shortform-samples/roma-spider-rave-v7/

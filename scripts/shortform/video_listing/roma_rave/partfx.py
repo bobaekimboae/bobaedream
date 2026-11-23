@@ -237,7 +237,7 @@ def fx(cv, key, G, k, ccx, ccy, z, tip):
 _IM = {}
 
 
-def car_matte(G, fi):
+def car_matte(G, fi, frame=None):
     if 'd' not in _IM:
         try: _IM['d'] = (np.load(G + 'pseg/intro_sam.npz')['m'], np.load(G + 'pseg/intro_bir.npz')['a'])
         except FileNotFoundError: _IM['d'] = None
@@ -249,6 +249,16 @@ def car_matte(G, fi):
     m = np.clip(a * s, 0, 1)
     n, lab, st, _ = cv2.connectedComponentsWithStats((m > 0.5).astype(np.uint8), 8)
     if n > 1: keep = lab == (1 + int(np.argmax(st[1:, 4]))); m = m * cv2.dilate(keep.astype(np.uint8), np.ones((9, 9), np.uint8))
+    hole = (m < 0.5).astype(np.uint8); nh, lh, sh, _ = cv2.connectedComponentsWithStats(hole, 4)   # 차 안쪽 구멍(유리 등) 메우기
+    for j in range(1, nh):
+        x_, y_, w_, h_, ar = sh[j]
+        if x_ > 0 and y_ > 0 and x_ + w_ < W and y_ + h_ < H and ar < 60000: m[lh == j] = 1.0
+    if frame is not None:   # 가이드 필터: 원본 프레임 가장자리에 윤곽을 붙임(선명·정확)
+        m = cv2.ximgproc.guidedFilter(guide=frame, src=m.astype(np.float32), radius=5, eps=2e-3)
+        m = np.clip((m - 0.5) * 1.8 + 0.5, 0, 1)
+    pv = _IM.get('prev')
+    if pv is not None and pv[0] == fi - 1: m = m * 0.7 + pv[1] * 0.3   # 프레임 간 떨림 줄이기
+    _IM['prev'] = (fi, m)
     return Image.fromarray((m * 255).astype(np.uint8))
 
 

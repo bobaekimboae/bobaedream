@@ -7,7 +7,7 @@ sys.path.insert(0, REPO + '/scripts/shortform/video_listing')
 from g350_v5_lib import *
 G = os.path.dirname(os.path.abspath(__file__)) + '/'
 SRC = os.environ.get('ROMA_SRC', '/home/claude/shorts/joy/roma/raw/roma.mp4')   # 원본 영상(저장소에 넣지 않음)
-BL = os.environ.get('ROMA_BL', '/home/claude/shorts/joy/bl/')   # 블렌더 렌더 결과(blender/bl_gold.py + jobs_roma*.json으로 다시 만듦)
+BL = os.environ.get('ROMA_BL', '/home/claude/shorts/joy/bl/')   # 블렌더 렌더 결과(blender/*.py로 다시 만듦)
 CAPY = R['caption']['center_y_px']; SX = R['sfx']
 INTRO = 0.95                                   # 인트로 몽타주 길이(이 뒤에 첫 말)
 WS = [[w, s + INTRO, e + INTRO] for w, s, e in json.load(open(G + 'words.json'))]
@@ -231,8 +231,7 @@ def slam(cv, img, pos, t, t_in, dur=0.22):   # 인트로 제목 쾅: 1.6배에�
     cv.alpha_composite(im, (int(pos[0] + (img.width - im.width) / 2), int(pos[1] + (img.height - im.height) / 2)))
 from rembg import new_session, remove
 RS = new_session('isnet-general-use')
-CHR = [Image.open(p).convert('RGBA') for p in sorted(glob.glob(BL + 'roma_roma/*.png'))]
-CHR = [im.crop(im.getchannel('A').point(lambda v: 255 if v > 20 else 0).getbbox()) for im in CHR]
+CHR = [Image.open(p).convert('RGBA') for p in sorted(glob.glob(BL + 'roma_hero/*.png'))]   # bl_hero_text.py: 크롬 앞면·레드 옆면·빛 쓸기
 def chromify(im):   # 검게 비친 면을 크롬 그라데이션(위 은빛-가운데 어두운 띠-아래 밝음)으로
     a = np.array(im).astype(float); h = a.shape[0]; yy = np.linspace(0, 1, h)[:, None]
     g = np.interp(yy, [0, 0.42, 0.52, 0.62, 1], [245, 205, 70, 150, 235])
@@ -240,7 +239,10 @@ def chromify(im):   # 검게 비친 면을 크롬 그라데이션(위 은빛-가
     tint = np.array([1.0, 1.0, 1.04]); base = g[..., None] * tint
     out = base * (1 - hi) + a[..., :3] * hi; out = np.clip(out * 0.85 + L * 0.25, 0, 255)
     o = np.dstack([out, a[..., 3:]]).astype(np.uint8); return Image.fromarray(o, 'RGBA')
-CHR = [chromify(im) for im in CHR]
+_cb = None
+for _im in CHR:
+    _b = _im.getbbox(); _cb = _b if _cb is None else (min(_cb[0], _b[0]), min(_cb[1], _b[1]), max(_cb[2], _b[2]), max(_cb[3], _b[3]))
+CHR = [im.crop(_cb) for im in CHR] if CHR else CHR
 _mk = {}
 def carmask(fi, frame):
     if fi not in _mk:
@@ -257,19 +259,17 @@ _sk = np.zeros((H, W, 4), np.uint8); _sk[..., 0] = (8 * _g + 230 * _r).clip(0, 2
 SKYFX = Image.fromarray(_sk)
 FER = None
 def chrome_behind(cv, raw, mask, t, z, ccx, ccy):
+    # 나세르식: 차 지붕 뒤에서 거대한 3D 모델명이 솟아오름(블렌더 프레임 그대로), 차가 앞을 가림
     if not CHR: return cv
-    k = min(len(CHR) - 1, int(t / 0.06)); im = CHR[k]; sc = 900 / CHR[-1].width; im = im.resize((int(im.width * sc), int(im.height * sc)), Image.LANCZOS)
-    lay = Image.new('RGBA', (W, H)); y = 600 + (CHR[-1].height * 900 / CHR[-1].width - im.height)
-    u0 = min(1.0, max(0.0, (t - 0.1) / 0.45)); bk = 1 + 2.2 * (u0 - 1) ** 3 + 1.2 * (u0 - 1) ** 2; y += (1 - bk) * 320
-    sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 150), (0, 0), im.getchannel('A')); lay.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)), ((W - im.width) // 2 + 8, int(y) + 14))
-    # 빛 쓸기: 크롬 글자 위를 사선 빛이 지나감(0.35~0.95초)
-    g = im.copy(); u = (t - 0.35) / 0.6
-    if 0 <= u <= 1:
-        sw = Image.new('L', im.size, 0); dsw = ImageDraw.Draw(sw); cx = -200 + u * (im.width + 400)
-        dsw.polygon([(cx - 60, 0), (cx + 20, 0), (cx - 60 + 20 - 80 + 80, im.height), (cx - 140, im.height)], fill=210)
-        sw = sw.filter(ImageFilter.GaussianBlur(18)); sw = ImageChops.multiply(sw, im.getchannel('A'))
-        wl = Image.new('RGBA', im.size, (255, 255, 255, 0)); wl.putalpha(sw); g.alpha_composite(wl)
-    lay.alpha_composite(g, ((W - im.width) // 2, int(y)))
+    k = min(len(CHR) - 1, int(max(0.0, t - 0.08) * 30)); im = CHR[k]; sc = 1040 / CHR[-1].width
+    im = im.resize((int(im.width * sc), int(im.height * sc)), Image.LANCZOS)
+    top = CTOP[0] if CTOP[0] else 700; base = top + 150   # 글자 아래쪽이 차 지붕보다 150px 아래(차가 가림)
+    y = base - int(CHR[-1].height * sc); x = (W - im.width) // 2
+    lay = Image.new('RGBA', (W, H))
+    gl = Image.new('RGBA', im.size, (255, 40, 30, 0)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.32)))   # 붉은 후광
+    lay.alpha_composite(gl.filter(ImageFilter.GaussianBlur(44)), (x, y))
+    sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 160), (0, 0), im.getchannel('A')); lay.alpha_composite(sh.filter(ImageFilter.GaussianBlur(12)), (x + 6, y + 16))
+    lay.alpha_composite(im, (x, y))
     m = mask.resize((int(W * z), int(H * z))).crop((int((ccx - W / (2 * z)) * z), int((ccy - H / (2 * z)) * z), int((ccx - W / (2 * z)) * z) + W, int((ccy - H / (2 * z)) * z) + H))
     a = np.array(lay.getchannel('A')).astype(float) * (1 - np.array(m).astype(float) / 255); lay.putalpha(Image.fromarray(a.astype(np.uint8)))
     return Image.alpha_composite(cv, lay)
@@ -339,7 +339,7 @@ for t0, t1, c in SEG:
                 elif PFX.load(key, G) is not None: cv, _ = PFX.fx(cv, key, G, k, ccx, ccy, z, T)   # 라벨 없는 장면도 부위 색 바꾸기
                 else: cv = tap_fx(cv, T[0], T[1], k / 30)
         if key == 'c1':
-            _m = PFX.car_matte(G, fi) or carmask(fi, fr[fi])   # SAM×BiRefNet 윤곽(없으면 옛 rembg)
+            _m = PFX.car_matte(G, fi, fr[fi]) or carmask(fi, fr[fi])   # SAM×BiRefNet 윤곽(없으면 옛 rembg)
             if CTOP[0] is None: _a = np.array(_m) > 128; _r = np.nonzero(_a[:, int(W * 0.2):int(W * 0.8)].mean(1) > 0.25)[0]; CTOP[0] = int(_r.min()) if len(_r) else 700
             _mz = _m.resize((int(W * z), int(H * z))).crop((int(ccx * z - W / 2), int(ccy * z - H / 2), int(ccx * z - W / 2) + W, int(ccy * z - H / 2) + H))
             _bg = cv.filter(ImageFilter.GaussianBlur(9)); _bg = Image.alpha_composite(_bg, Image.new('RGBA', (W, H), (0, 0, 0, 120)))
