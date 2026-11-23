@@ -36,6 +36,7 @@ if _EXTRA:
         if x['id']=='T05': e['at']=c['t0']+0.06-_TPX['T05']['start_before_chip_s']+0.1; e['fade_out_at']=WS[x['fade_out_word']][1]-0.1
         if x['id']=='T03': e['steps']=[{'word':j,'at':WS[j][1]-_TPX['T03']['before_word_s']} for j in x['step_words']]
         if x['id']=='T08': e['word']=x['word']; e['at']=WS[x['word']][1]-_TPX['T08']['lead_s']
+        if x['id']=='T02': e['option']=x['option']; e['rows']=[{'item':it,'word':j,'at':WS[j][1]-_TPX['T02']['appear_before_word_s']} for it,j in x['rows']]   # r12: 같은 그룹 제원을 이어 말하면 ✓ 목록
         c['techniques'].append(e)
 for c in _PLAN['cuts']:
     for e in c['techniques']: PL[c['key']].setdefault(e['id'],[]).append(e)
@@ -62,7 +63,7 @@ C=[('c1',214.5,219.0,0,None,None,None,None,[]),
  ('c13',125.5,128.5,_i('머플러'),'머플러 4개',_i('머플러'),None,(126.0,128.5),[]),
  ('c14',118.5,122.5,_i('트렁크'),None,None,None,None,[]),
  ('c15',200.3,203.3,_i('엔진은'),'3.9 V8 트윈터보',_i('엔진은'),None,None,[('620마력',None,_i('620'))]),
- ('c16',203.5,208.0,_i('최대'),None,None,None,None,[]),
+ ('c16',203.5,208.0,_i('최대'),'엔진 제원',_i('최대'),None,None,[('320km','최고 속도',_i('320'))]),   # r12: 흰 칩 3줄 → 칩+✓ 목록(T02), 계획의 320km 카운트업을 실제로 그림
 ]
 W_IN_J,W_TY_J,MAT_J,SUB_J,ROOF_J,L255_J=_i('20인치'),_i('245'),_i('베이지'),_i('레드'),_i('지붕'),_i('255')
 EP_J=[_i('토크'),_i('8단'),_i('제로백')]
@@ -202,29 +203,20 @@ def special(key,cv,t,t0):
             P=d['pts']; i=min(len(P)-1,int(round((st-d['s0'])*30)))
             return tomap(*P[i]) if P[i] else None
         hub=_at('c3'); tire=_at('c3t')
-        hb=None
-        if hub:   # 20인치: 휠 가운데 위쪽, 휠 크기와 무관한 고정 크기 · 화면 안에 가둠
-            hx,hy=hub; x=int(min(W-W_IN.width-30,max(30,hx-W_IN.width/2))); y=int(min(H*0.55,max(150,hy-W_IN.height-210)))
-            pop(cv,W_IN,(x,y),t,WS[W_IN_J][1]-t0-0.22,0.3); hb=(x,y,x+W_IN.width,y+W_IN.height)
-        if tire:  # 타이어 규격: 타이어 옆면 글씨 옆 · r05: 20인치 글자와 겹치면 그 바로 아래로(겹침 금지)
-            tx,ty=tire; x=int(min(W-W_TY.width-30,max(30,tx-W_TY.width/2))); y=int(min(H*0.62,max(150,ty-W_TY.height-160)))
-            if hb and x<hb[2] and x+W_TY.width>hb[0] and y<hb[3]+10 and y+W_TY.height>hb[1]-10:
-                y=hb[3]+10
-                if y+W_TY.height>CAPY-90: y=max(150,hb[1]-W_TY.height-10)   # 말 자막 띠에 닿으면 20인치 위로
-            pop(cv,W_TY,(x,y),t,WS[W_TY_J][1]-t0-0.22,0.3)
-        elif not hub:
-            y=int(H*0.10); pop(cv,W_IN,((W-W_IN.width)//2,y),t,WS[W_IN_J][1]-t0-0.22,0.3)
-            pop(cv,W_TY,((W-W_TY.width)//2,y+W_IN.height+10),t,WS[W_TY_J][1]-t0-0.22,0.3)
+        # r12 크로스체크: 숫자가 휠·캘리퍼를 덮던 문제 → v13처럼 휠 위 빈 곳에 「20인치 / 앞 245 · 뒤 285」를 쌓고, 가로만 휠을 따라감
+        WR=int(W*0.40)   # 이 원본 휠 반지름(화면 폭의 약 40%)
+        tb=WS[W_IN_J][1]-t0-0.22; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # 숫자가 떠 있는 동안 말 자막 숨김
+        blk=W_IN.height+10+W_TY.height
+        y=int(H*0.075)   # r12 2차: 원본 휠이 화면 폭보다 커서 휠 위 빈 곳이 거의 없음 → 높이는 위 띠에 고정(휠 위쪽 펜더 자리), 가로만 휠을 따라감
+        x0=int(min(W-W_TY.width/2-30,max(W_TY.width/2+30,hub[0]))) if hub else W//2
+        pop(cv,W_IN,(int(x0-W_IN.width/2),y),t,tb,0.3)
+        pop(cv,W_TY,(int(x0-W_TY.width/2),y+W_IN.height+10),t,WS[W_TY_J][1]-t0-0.22,0.3)
     if key=='c4':
         y=int(H*0.12); pop(cv,S_MAT,((W-S_MAT.width)//2,y),t,WS[MAT_J][1]-t0-0.06,0.3)
         pop(cv,S_SUB,((W-S_SUB.width)//2,y+S_MAT.height+8),t,WS[SUB_J][1]-t0-0.06)
     if key=='c14':
-        y=int(H*0.10); tb=WS[L255_J][1]-t0-0.22
+        y=int(H*0.10); tb=WS[L255_J][1]-t0-0.22; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # r12: 255L가 뜨면 「255리터」 자막과 겹치지 않게 말 자막 숨김
         pop(cv,T1L,((W-T1L.width)//2,y),t,WS[ROOF_J][1]-t0-0.06); _i=cnt('255L',180,t,tb+0.05); pop(cv,_i,((W-_i.width)//2,y+T1L.height),t,tb,0.3)
-    if key=='c16':
-        y=int(H*0.20)
-        for k,(im,j) in enumerate(zip(EP,EP_J)):
-            b=im.getbbox(); pop(cv,im,((W-im.width)//2,y-b[1]),t,WS[j][1]-t0-0.06); y+=b[3]-b[1]+12
 SFXT=[]; ICONT=[]; EV=[]; CHIPS_LOG=[]; REMIX=bool(os.environ.get('REMIX'))   # EV = [(시각, 종류)] 효과음 후보
 ZONE=_CK.get('zones',{}); _prevzone=None
 MET=json.load(open(os.path.join(REPO,'scripts/shortform/photo_listing/option_visual_rules.json')))['layout']['metaphor_sfx']; SX=R['sfx']
@@ -333,6 +325,7 @@ for t0,t1,c in SEG:
             y3=int(H*0.12) if key!='c15' else int(H*0.24)
             if Cimg is not None and av is None: y3=max(y3,YB+Cimg.getbbox()[3]+20)
             if key in BIG_LOW: y3=CAPY-100
+            if key=='c16': y3=int(H*0.52)   # r12: 칩·✓ 목록(3줄, 아래끝 약 0.49H) 아래 — 겹침 금지
             HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # r11: 큰 숫자가 떠 있는 동안 말 자막 숨김(매뉴얼 — 모든 큰 숫자)
             B3=cnt(BIGS[k2],180 if key!='c15' else 210,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
