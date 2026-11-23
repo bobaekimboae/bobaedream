@@ -130,6 +130,30 @@ _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
 while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white(_T['model'],_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
 HS=white(_T['sub'],58)
 place_chip_y_cap=H*0.58
+# 2026-11-24 칩 슬롯 규격(다른 차 입력 chip_layout="slots"일 때만): 모든 칩은 같은 왼쪽 선(M-10), 세로는 T줄(YB) 또는 B줄(YB2) 두 자리뿐.
+# 화살표는 칩에서 떼어 부위 옆에 붙임(칩은 고정, 화살표만 부위를 따라감). 정보 알약은 칩 왼쪽 선에 맞춰 칩 아래(B줄은 위)에 쌓음.
+SLOTS=bool(CAR and CAR.get('chip_layout')=='slots'); YB2=int(CAR.get('slot_b_y',1030)) if CAR else 1030; SLOT={}; SLOTBL={}; SLOTPOS={}
+def slot_place(key,Cimg,tx,ty,pts,lens):
+    b=Cimg.getbbox(); cx=M-10
+    if key not in SLOT:
+        x0,x1,y1=(cx+b[0]-60)/W,(cx+b[2]+60)/W,(YB+b[3]+TG+AMIN+30)/H   # T줄 칩 + 화살표 최소 자리
+        hit=any(x0<=px<=x1 and py<=y1 for px,py in pts) or (cx+b[0]-60<=tx<=cx+b[2]+60 and ty<=YB+b[3]+TG+AMIN+30)
+        SLOT[key]='B' if (lens or hit) else 'T'
+        SLOTBL[key]=(ty-TG-AMIN-CG<YB+b[3]) if SLOT[key]=='T' else (ty+TG+AMIN+CG<=YB2+b[1])
+    bl=SLOTBL[key]
+    if SLOT[key]=='T': cy=YB; L=ALEN if bl else int(max(AMIN,min(ALEN,ty-TG-CG-(cy+b[3]))))
+    else: cy=YB2; L=int(max(AMIN,min(ALEN,(cy+b[1])-CG-TG-ty))) if bl else ALEN
+    SLOTPOS[key]=(cx,cy,b); return cx,cy,L,bl
+_deco={}
+def emph(h,flip=False):   # 노션 원본 「강조 선_125x139」 모양만 읽어 노랑으로 칠함(파일은 그대로)
+    k=(h,flip)
+    if k not in _deco:
+        from io import BytesIO
+        png=subprocess.run(['rsvg-convert','-h',str(h),'/home/claude/bobaedream/public/assets/shortform/doodle/as24-theme/emphasis_125_139.svg'],capture_output=True).stdout
+        a=Image.open(BytesIO(png)).convert('RGBA').getchannel('A'); im=Image.new('RGBA',a.size,(245,242,0,255)); im.putalpha(a)
+        _deco[k]=im.transpose(Image.FLIP_LEFT_RIGHT) if flip else im
+    return _deco[k]
+DECO=(CAR or {}).get('deco',{})
 SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24px라 칩 3개가 벗어났음
 BIG_LOW={'c7'}   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
 HIDE_SUB=[False]
@@ -198,10 +222,18 @@ def spot(cv,tx,ty,a):
     x0=int(W-tx); y0=int(H-ty); m=(SPOT[y0:y0+H,x0:x0+W]*a).astype('uint8')
     ov=Image.new('RGBA',(W,H),(0,0,0,255)); ov.putalpha(Image.fromarray(m)); return Image.alpha_composite(cv,ov)
 _cpill={}
+_PTOP={}
 def special(key,cv,t,t0):
     for it in CARX.get(key,{}).get('pills',[]):   # 다른 차: 흰 정보 알약(오토스카우트24 아이콘 + 글자), 말하는 낱말에 맞춰 나옴
         if it['text'] not in _cpill: _cpill[it['text']]=ipill(as24(it['icon'],54),it['text'],58)
-        im=_cpill[it['text']]; b=im.getbbox(); pop(cv,im,((W-im.width)//2,it['y']-b[1]),t,WS[it['word']][1]-t0-0.06)
+        im=_cpill[it['text']]; b=im.getbbox(); _pos=((W-im.width)//2,it['y']-b[1])
+        if SLOTS:   # 슬롯 규격: 칩이 있으면 칩 왼쪽 선에 맞춰 칩 아래(B줄은 위), 칩이 없으면 큰 숫자 묶음 아래 가운데 — 차례로 쌓음
+            _k=CARX[key]['pills'].index(it); _hh=b[3]-b[1]+12
+            if key in SLOTPOS:
+                _cx,_cy,_cb=SLOTPOS[key]; _pos=(_cx+_cb[0]-b[0],(_cy+_cb[3]+14+_k*_hh-b[1]) if SLOT.get(key,'T')=='T' else (_cy+_cb[1]-14-(_k+1)*_hh+12-b[1]))
+            elif key in _PTOP: _pos=((W-im.width)//2,_PTOP[key]+14+_k*_hh-b[1])
+            elif any(g_['key']==key for g_ in BIGS_LOG): _PTOP[key]=max(g_['box'][3] for g_ in BIGS_LOG if g_['key']==key); _pos=((W-im.width)//2,_PTOP[key]+14+_k*_hh-b[1])
+        pop(cv,im,_pos,t,WS[it['word']][1]-t0-0.06)
     for e in PL.get(key,{}).get('T02',[]):   # T02 ✓ 목록: 칩 바로 아래, 칩 왼쪽 선에 맞춰 쌓음
         cb=gchip(CHIPLAB[key]).getbbox(); x0=M-10+cb[0]; yk=YB+cb[3]+14
         for r in e['rows']:
@@ -317,7 +349,7 @@ for t0,t1,c in SEG:
                 av=None
                 cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
                 L=0
-            else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
+            else: cx,cy,L,bl=slot_place(key,Cimg,tx,ty,pts,bool(PL.get(key,{}).get('T06'))) if SLOTS else place(Cimg,tx,ty,bl)
             if av and av[0]<=st<=av[1] and t>=tc+0.18:
                 g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*abs(math.sin((t-tc-0.43)*5))) if t>tc+0.43 else 0
                 A,off=arrimg(L,bl); A=A.resize((A.width,round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
@@ -335,6 +367,10 @@ for t0,t1,c in SEG:
             if key in BIG_LOW: y3=CAPY-100; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb
             B3=cnt(BIGS[k2],180 if key!='c15' else 210,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
+            _PTOP[key]=max(_PTOP.get(key,0),y3+B3.height+6+(BL.height if BL else 0))   # 슬롯 규격: 알약은 큰 숫자 묶음 아래부터 쌓음
+            if DECO.get('emphasis'):   # 큰 숫자 양옆 위 강조 선(노션 원본 두들, 노랑) — 숫자 칠 밖, 안전영역 안
+                _fb=cnt(BIGS[k2],180,99,0); _b0=_fb.getbbox() or (0,0,_fb.width,_fb.height); _xl=(W-_fb.width)//2+_b0[0]; _xr=(W-_fb.width)//2+_b0[2]; _e=emph(120)
+                pop(cv,_e,(max(SAFE_X,_xl-_e.width+14),y3+_b0[1]-_e.height+46),t,tb+0.22,0.18); pop(cv,emph(120,True),(min(W-SAFE_X-_e.width,_xr-14),y3+_b0[1]-_e.height+46),t,tb+0.22,0.18)
             if t>=tb+0.4 and (key,k2) not in BIGS_SEEN:   # r03: 큰 숫자 상자 기록(번호판 검사용)
                 BIGS_SEEN.add((key,k2)); _b=B3.getbbox() or (0,0,B3.width,B3.height); _x=(W-B3.width)//2; _y1=y3+_b[3]
                 if BL: _lb=BL.getbbox() or (0,0,BL.width,BL.height); _y1=max(_y1,y3+B3.height+6+_lb[3])

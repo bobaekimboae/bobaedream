@@ -1,0 +1,13 @@
+{"cuts":{
+"g2":{"scene":[2.8,5.37],"prompt":"a car headlight"},
+"g4":{"scene":[8.17,10.7],"prompt":"a car wheel rim"},
+"g5":{"scene":[10.7,13.57],"prompt":"an open car trunk cargo space"},
+"g6":{"scene":[13.57,17.43],"prompt":"a car panoramic sunroof"},
+"g7":{"scene":[17.43,20.2],"prompt":"rear seat air vents"},
+"g8":{"scene":[26.8,29.57],"prompt":"a wide dashboard display screen"},
+"g9":{"scene":[20.2,26.8],"prompt":"a navigation map on a touchscreen display"},
+"g10":{"scene":[20.2,26.8],"prompt":"a touchpad controller on a car center console"},
+"g11":{"scene":[40.03,42.77],"prompt":"car cup holders"},
+"g12":{"scene":[34.8,37.5],"prompt":"seat adjustment buttons on a car door"},
+"g13":{"scene":[34.8,37.5],"prompt":"seat memory buttons 1 2 3"},
+"g16":{"scene":[42.77,48.17],"prompt":"a parking camera view on a touchscreen display"}}}

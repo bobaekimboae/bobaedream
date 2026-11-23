@@ -10,13 +10,13 @@ def _tracker():
 cap=cv2.VideoCapture(G+'src.mp4'); SW,SH=270,480; out={}
 for c in CAR['cuts']:
     if not c.get('track'): continue
-    (s0,s1),(ti,fx,fy)=c['src'],c['track']
+    (s0,s1),(ti,fx,fy)=c['src'],c['track'][:3]; wh=c['track'][3:5]   # v2: [시각,x,y,상자 폭,상자 높이] — 자동 찾기(car_map.py) 상자 크기로 추적 시작
     cap.set(cv2.CAP_PROP_POS_MSEC,s0*1000); fr=[]
     for i in range(int(round((s1-s0)*30))+1):
         ok,f=cap.read()
         if not ok: break
         fr.append(cv2.resize(f,(SW,SH)))
-    ii=min(len(fr)-1,max(0,int(round((ti-s0)*30)))); bw,bh=int(SW*.16),int(SH*.09)
+    ii=min(len(fr)-1,max(0,int(round((ti-s0)*30)))); bw,bh=(int(SW*min(.6,max(.08,wh[0]))),int(SH*min(.5,max(.05,wh[1])))) if len(wh)==2 else (int(SW*.16),int(SH*.09))
     box=(int(fx*SW-bw/2),int(fy*SH-bh/2),bw,bh); res=[None]*len(fr); res[ii]=(fx,fy)
     for seq in (range(ii+1,len(fr)),range(ii-1,-1,-1)):
         tr=_tracker(); tr.init(fr[ii],box); last=(fx,fy)
