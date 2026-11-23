@@ -10,12 +10,17 @@ edge-tts(마이크로소프트 비공식 접속, 서비스 약관 위험)를 쓰
 
 낱말 시각은 두 방법 모두 faster-whisper(MIT)로 받아쓴 뒤, 글자 단위로 대본 낱말에 맞춘다.
 받아쓴 글자가 아니라 대본 글자를 화면에 쓰므로 받아쓰기 오타는 자막에 나오지 않는다.
+받아쓰기에서 빠진 낱말(r11의 제로백처럼)은 align_ko.py(WhisperX식 강제 정렬, wav2vec2 한국어)로 채운다.
+VOICE_ALIGN=off면 예전처럼 앞뒤 낱말 사이로 나눠 채운다.
 """
 import difflib
 import os
 import re
 import shutil
 import subprocess
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ENGINE = os.environ.get('VOICE_ENGINE', 'file')
 VOICE_DIR = os.environ.get('VOICE_DIR', '')
@@ -65,9 +70,27 @@ def words_of(audio_path, text):
     for a, b, n in sm.get_matching_blocks():
         for k in range(n):
             hit.setdefault(owner[a + k], []).append(st[b + k])
+    missing = [wi for wi in range(len(toks)) if wi not in hit]
+    aligned = None
+    if missing and os.environ.get('VOICE_ALIGN', 'auto') != 'off':
+        # 받아쓰기에서 빠진 낱말은 강제 정렬(align_ko, WhisperX 방식) 시각으로 채운다.
+        # 정렬은 글자 확률 꼭대기를 잡아 실제 소리보다 약 0.09초 늦어서 그만큼 당긴다(로마 110낱말 실측 중앙값).
+        try:
+            import align_ko
+            shift = float(os.environ.get('ALIGN_SHIFT', '0.09'))
+            res = align_ko.align_words(_pcm16k(audio_path), text)
+            if res:
+                aligned = {wi: (max(0.0, res[wi][0] - shift), res[wi][1]) for wi in missing}
+        except Exception as e:  # 정렬 모델이 없으면 예전 방식(앞뒤 나눠 채우기)
+            print(f'[낱말 시각] 강제 정렬을 못 해서 앞뒤로 채움: {e}')
+    words_of.last_missing = [toks[wi] for wi in missing]
     out, last = [], 0.0
     for wi, w in enumerate(toks):
-        if wi in hit:
+        if aligned and wi in aligned:
+            s, e = aligned[wi]
+            nxt = next((hit[j][0][0] for j in range(wi + 1, len(toks)) if j in hit), e)
+            e = min(e, nxt) if nxt > s else e
+        elif wi in hit:
             s, e = hit[wi][0][0], hit[wi][-1][1]
         else:  # 받아쓰기에 없는 낱말(숫자 읽기 차이 등): 다음 맞은 낱말 전까지 나눠 준다
             nxt = next((hit[j][0][0] for j in range(wi + 1, len(toks)) if j in hit), last + 0.35)
