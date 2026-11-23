@@ -16,8 +16,9 @@ def pop(cv,img,pos,t,t_in,dur=0.2):   # 검수 기록: 다 나타난 글자·그
 G=os.environ.get('ROMA_DIR','/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/roma/')
 ASSET=A
 CAPY=R['caption']['center_y_px']   # 규칙 파일(옛 67% 직접 쓰기 폐지)
-WS=json.load(open(G+'words_clean.json'))   # 로마: 받아쓰기 시각 + 대본 글자로 정리한 낱말(병합·오인식 교정 끝난 것)
+WS=json.load(open(os.environ.get('ROMA_WORDS',G+'words_clean.json')))   # 로마: 받아쓰기 시각 + 대본 글자로 정리한 낱말(병합·오인식 교정 끝난 것)
 VOICE=round(WS[-1][2],2)
+VOICEF=os.environ.get('ROMA_VOICE',G+'voice5.wav')
 def ws(key):  # 단어 시작
     for j,(w,s,e) in enumerate(WS):
         if w.replace(' ','').startswith(key): return j
@@ -33,24 +34,28 @@ RULESF=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'f
 TP={t['id']:t['params'] for t in RULESF['techniques']}
 SUFFIX={o['key']:o.get('item_suffix','') for o in RULESF['options']}
 # (키, 원본시작, 원본끝, 첫단어, 칩, 칩단어, 보조, 화살표 유효(원본시각 범위), 큰숫자들)
+# r05(2026-11-23 「대사 다시 쓰고」): 낱말 번호를 코드에 직접 쓰지 않고 낱말 글자로 찾는다(대사·목소리가 바뀌어도 그대로 동작)
+_i=idx; _c8=min(_i('계기판',_i('카본')),_i('디지털',_i('카본')))
 C=[('c1',214.5,219.0,0,None,None,None,None,[]),
- ('c2',10.0,13.0,9,'풀 LED 헤드램프',10,None,(10.5,11.9),[]),
- ('c3',13.5,17.5,12,None,None,None,None,[]),
- ('c4',37.0,42.3,20,None,None,None,None,[]),
- ('c5',48.0,50.8,27,'듀얼 콕핏',30,None,None,[]),
- ('c6',51.0,55.5,33,'마네티노',35,None,(51.5,55.0),[]),
- ('c7',66.0,70.5,39,'카본 패들 시프트',39,None,None,[]),
- ('c8',72.5,78.0,45,'디지털 계기판',46,None,None,[]),
- ('c9',79.5,83.5,51,'조수석 디스플레이',51,None,(80.0,83.5),[]),
- ('c10',84.0,88.8,57,'8.4인치 세로형 화면',58,None,(84.7,87.2),[]),
- ('c11',167.0,172.0,67,'소프트톱',67,None,None,[('13.5초','시속 60km 이하 개폐',71)]),
- ('c12',172.5,179.0,76,'LED 테일램프',77,None,None,[]),
- ('c13',125.5,128.5,79,'머플러 4개',79,None,(126.0,128.5),[]),
- ('c14',118.5,122.5,84,None,None,None,None,[]),
- ('c15',200.3,203.3,88,'3.9 V8 트윈터보',89,None,None,[('620마력',None,92)]),
- ('c16',203.5,208.0,93,None,None,None,None,[]),
+ ('c2',10.0,13.0,_i('헤드램프'),'풀 LED 헤드램프',_i('풀'),None,(10.5,11.9),[]),
+ ('c3',13.5,17.5,_i('휠은'),None,None,None,None,[]),
+ ('c4',37.0,42.3,_i('실내는'),None,None,None,None,[]),
+ ('c5',48.0,50.8,_i('운전석과'),'듀얼 콕핏',_i('듀얼'),None,None,[]),
+ ('c6',51.0,55.5,_i('스티어링'),'마네티노',_i('마네티노'),None,(51.5,55.0),[]),
+ ('c7',66.0,70.5,_i('카본'),'카본 패들 시프트',_i('카본'),None,None,[]),
+ ('c8',72.5,78.0,_c8,'디지털 계기판',_i('디지털',_i('카본')),None,None,[]),
+ ('c9',79.5,83.5,_i('조수석',_c8),'조수석 디스플레이',_i('조수석',_c8),None,(80.0,83.5),[]),
+ ('c10',84.0,88.8,_i('가운데'),'8.4인치 세로형 화면',_i('8.4'),None,(84.7,87.2),[]),
+ ('c11',167.0,172.0,_i('소프트톱은'),'소프트톱',_i('소프트톱은'),None,None,[('13.5초','시속 60km 이하 개폐',_i('13.5'))]),
+ ('c12',172.5,179.0,_i('후면은'),'LED 테일램프',_i('LED',_i('후면은')),None,None,[]),
+ ('c13',125.5,128.5,_i('머플러'),'머플러 4개',_i('머플러'),None,(126.0,128.5),[]),
+ ('c14',118.5,122.5,_i('트렁크'),None,None,None,None,[]),
+ ('c15',200.3,203.3,_i('엔진은'),'3.9 V8 트윈터보',_i('3.9'),None,None,[('620마력',None,_i('620'))]),
+ ('c16',203.5,208.0,_i('최대'),None,None,None,None,[]),
 ]
-ENDT=WS[100][1]-0.12; TOTAL=VOICE+1.7
+W_IN_J,W_TY_J,MAT_J,SUB_J,ROOF_J,L255_J=_i('20인치'),_i('245'),_i('베이지'),_i('레드'),_i('지붕'),_i('255')
+EP_J=[_i('토크'),_i('8단'),_i('제로백')]
+ENDT=WS[_i('서울오토갤러리')][1]-0.12; TOTAL=VOICE+1.7
 starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]
 for k,c in enumerate(C):
@@ -186,24 +191,28 @@ def special(key,cv,t,t0):
             P=d['pts']; i=min(len(P)-1,int(round((st-d['s0'])*30)))
             return tomap(*P[i]) if P[i] else None
         hub=_at('c3'); tire=_at('c3t')
+        hb=None
         if hub:   # 20인치: 휠 가운데 위쪽, 휠 크기와 무관한 고정 크기 · 화면 안에 가둠
             hx,hy=hub; x=int(min(W-W_IN.width-30,max(30,hx-W_IN.width/2))); y=int(min(H*0.55,max(150,hy-W_IN.height-210)))
-            pop(cv,W_IN,(x,y),t,WS[13][1]-t0-0.22,0.3)
-        if tire:  # 타이어 규격: 타이어 옆면 글씨 옆
+            pop(cv,W_IN,(x,y),t,WS[W_IN_J][1]-t0-0.22,0.3); hb=(x,y,x+W_IN.width,y+W_IN.height)
+        if tire:  # 타이어 규격: 타이어 옆면 글씨 옆 · r05: 20인치 글자와 겹치면 그 바로 아래로(겹침 금지)
             tx,ty=tire; x=int(min(W-W_TY.width-30,max(30,tx-W_TY.width/2))); y=int(min(H*0.62,max(150,ty-W_TY.height-160)))
-            pop(cv,W_TY,(x,y),t,WS[16][1]-t0-0.22,0.3)
+            if hb and x<hb[2] and x+W_TY.width>hb[0] and y<hb[3]+10 and y+W_TY.height>hb[1]-10:
+                y=hb[3]+10
+                if y+W_TY.height>CAPY-90: y=max(150,hb[1]-W_TY.height-10)   # 말 자막 띠에 닿으면 20인치 위로
+            pop(cv,W_TY,(x,y),t,WS[W_TY_J][1]-t0-0.22,0.3)
         elif not hub:
-            y=int(H*0.10); pop(cv,W_IN,((W-W_IN.width)//2,y),t,WS[13][1]-t0-0.22,0.3)
-            pop(cv,W_TY,((W-W_TY.width)//2,y+W_IN.height+10),t,WS[16][1]-t0-0.22,0.3)
+            y=int(H*0.10); pop(cv,W_IN,((W-W_IN.width)//2,y),t,WS[W_IN_J][1]-t0-0.22,0.3)
+            pop(cv,W_TY,((W-W_TY.width)//2,y+W_IN.height+10),t,WS[W_TY_J][1]-t0-0.22,0.3)
     if key=='c4':
-        y=int(H*0.12); pop(cv,S_MAT,((W-S_MAT.width)//2,y),t,WS[21][1]-t0-0.06,0.3)
-        pop(cv,S_SUB,((W-S_SUB.width)//2,y+S_MAT.height+8),t,WS[24][1]-t0-0.06)
+        y=int(H*0.12); pop(cv,S_MAT,((W-S_MAT.width)//2,y),t,WS[MAT_J][1]-t0-0.06,0.3)
+        pop(cv,S_SUB,((W-S_SUB.width)//2,y+S_MAT.height+8),t,WS[SUB_J][1]-t0-0.06)
     if key=='c14':
-        y=int(H*0.10); tb=WS[87][1]-t0-0.22
-        pop(cv,T1L,((W-T1L.width)//2,y),t,WS[85][1]-t0-0.06); _i=cnt('255L',180,t,tb+0.05); pop(cv,_i,((W-_i.width)//2,y+T1L.height),t,tb,0.3)
+        y=int(H*0.10); tb=WS[L255_J][1]-t0-0.22
+        pop(cv,T1L,((W-T1L.width)//2,y),t,WS[ROOF_J][1]-t0-0.06); _i=cnt('255L',180,t,tb+0.05); pop(cv,_i,((W-_i.width)//2,y+T1L.height),t,tb,0.3)
     if key=='c16':
         y=int(H*0.20)
-        for k,(im,j) in enumerate(zip(EP,[94,96,98])):
+        for k,(im,j) in enumerate(zip(EP,EP_J)):
             b=im.getbbox(); pop(cv,im,((W-im.width)//2,y-b[1]),t,WS[j][1]-t0-0.06); y+=b[3]-b[1]+12
 SFXT=[]; ICONT=[]; EV=[]; CHIPS_LOG=[]; REMIX=bool(os.environ.get('REMIX'))   # EV = [(시각, 종류)] 효과음 후보
 ZONE=_CK.get('zones',{}); _prevzone=None
@@ -226,7 +235,7 @@ for t0,t1,c in SEG:
     _metak=[k for it in MET['items'] for k in it['keywords']]
     for (b,l,j),tb in zip(bigs,[x[2] for x in BIG]):
         if not any(k in WS[j][0] for k in _metak): EV.append((t0+tb-0.02,'big_number'))   # 비유 효과음이 있는 숫자(마력 등)는 그 소리가 대신함
-    if key=='c14': EV.append((WS[87][1]-0.24,'big_number'))
+    if key=='c14': EV.append((WS[L255_J][1]-0.24,'big_number'))
     if clab: EV.append((t0+((WS[cw][1]-t0-0.06) if cw is not None else 0)+CHIP_DELAY.get(key,0)-0.02,'chip'))
     for e in PL.get(key,{}).get('T05',[])+PL.get(key,{}).get('T06',[]): EV.append((e['at'],'emphasis'))
     if ZONE.get(key)!=_prevzone and _prevzone is not None: EV.append((t0-0.08,'part_change'))
@@ -362,7 +371,7 @@ for t,k,nm,v in sorted(allc,key=lambda x:(PRI[x[1]],x[0])):
 acc.sort()
 print('효과음',[(a[0],a[2]) for a in acc])
 BGM=os.environ.get('ROMA_BGM',ASSET+'bgm/bobae_showroom_v1.mp3')  # 2026-11-23 「음악 바꿔」: 웅장한 배경음(일레븐랩스 생성)으로 교체 가능
-inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',BGM]
+inp=['-i',G+'nov8.mp4','-i',VOICEF,'-i',BGM]
 fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120,asplit=2[v][vk]',f'[2:a]atrim=0:{TOTAL},volume=0.30,afade=t=in:d=0.4,afade=t=out:st={TOTAL-1.5}:d=1.5[b0]','[b0][vk]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[b]']; mx=['[v]','[b]']  # 말할 때 배경음 자동으로 줄임(더킹)
 for j,(tc,k,nm,v) in enumerate(acc):
     inp+=['-i',ASSET+'sfx/'+nm+'.wav']; fl.append(f'[{len(inp)//2-1}:a]volume={v},adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
@@ -380,7 +389,7 @@ _TECH|={'point_chip' if c['kind']=='point' else 'callout_chip' for c in CHIPS_LO
 if any(c['kind']=='callout' for c in CHIPS_LOG): _TECH.add('callout_arrow')
 if acc: _TECH.add('sfx_rules')
 _TECH|={e['id'] for c in _PLAN['cuts'] for e in c['techniques']}
-json.dump({'bigs':BIGS_LOG,'edition':'feature_video','edition_code':'ED-SIMPLE','renderer':'roma_render.py','order':'picked','voice':'voice5.wav',
+json.dump({'bigs':BIGS_LOG,'edition':'feature_video','edition_code':'ED-SIMPLE','renderer':'roma_render.py','order':'picked','voice':os.path.basename(VOICEF),
            'frame':[W,H],'techniques':sorted(_TECH),'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
            'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,
            'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH)}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
