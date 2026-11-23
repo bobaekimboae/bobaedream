@@ -6,6 +6,13 @@
 - 사전 `catalog/techniques.json`의 `version`은 맨 위 버전과 같아야 한다(`build.py`가 검사).
 - v0.0.1~v0.0.5는 예전 마스터 문서(`docs/shortform/shortform-master.md`)의 v1.0~v1.4를 2026-11-22에 옮긴 것이다.
 
+## v0.5.1 · 2026-11-23
+
+- **문서 체계화**: 제작 단계 · 버전 체계 · 문서 체계 · 시트 탭 지도 [`PIPELINE.md`](PIPELINE.md) 신설. 편집 유형 4가지 · 영상 옵션 기능 편집 T01~T08 · 사진판 옵션 표시 · 편집 방법 전체를 규칙 파일에서 자동으로 만드는 [`EDIT-SPEC.md`](EDIT-SPEC.md)(`catalog/export_edit_spec.py`) 신설 — 사용자(「작업 매뉴얼 체계적으로 정리하고 깃허브에 버전 제작 파이프라인도 동시 기재 … 편집 유형 · 옵션 기능 편집 스킬 진짜 꼼꼼하게 기록」)
+- **기준 영상 교체 기록**: `edition_lock.json` 1.3 — ED-SIMPLE golden G350 v13 → G350 버전 1(v0.5.0 사용자 결정을 규칙 파일에 반영)
+- 시트 사본 스크립트 `catalog/export_rules_sheet.py`(규칙 json 7개 → 40~46 탭) 추가. 단일 매뉴얼 시트를 1Puhko… 하나로 정하고 옛 사본(1c-OdKZ…)은 갱신 중단 표시
+- 결과 영상 변화 없음
+
 ## v0.5.0 · 2026-11-23
 
 - **G350 버전 1 확정**: 에이전트들과 함께 개선할 기준 영상. v13 + 규칙 위반 3곳 수정 — ① 3,500kg 큰 숫자가 번호판 위 → 자막 자리로 내리고 말 자막 숨김(`BIG_LOW`) ② 견인고리 칩이 번호판을 덮던 0.75초 → 칩 지연(`CHIP_DELAY`) ③ 칩 좌우 여백 24 → 40px(`SAFE_X`). check_be·edit_gate 모두 통과. 배포 `public/shortform-samples/g350-v1/`, 공용 문서 `docs/shortform/g350-v1-agent-handoff.md` — 사용자(「수정하고 배포해라 … 최종판을 에이전트들과 같이 개선할 버전 1 영상으로 하자」)
