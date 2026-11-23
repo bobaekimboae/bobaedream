@@ -326,7 +326,8 @@ for t0,t1,c in SEG:
         for k2,(B3,BL,tb) in enumerate(BIG):
             y3=int(H*0.12) if key!='c15' else int(H*0.24)
             if Cimg is not None and av is None: y3=max(y3,YB+Cimg.getbbox()[3]+20)
-            if key in BIG_LOW: y3=CAPY-100; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb
+            if key in BIG_LOW: y3=CAPY-100
+            HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # r11: 큰 숫자가 떠 있는 동안 말 자막 숨김(매뉴얼 — 모든 큰 숫자)
             B3=cnt(BIGS[k2],180 if key!='c15' else 210,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
             if t>=tb+0.4 and (key,k2) not in BIGS_SEEN:   # r03: 큰 숫자 상자 기록(번호판 검사용)
