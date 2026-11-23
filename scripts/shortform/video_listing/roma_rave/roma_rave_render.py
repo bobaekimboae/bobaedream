@@ -113,22 +113,19 @@ PARTPIN = {'lamp': {'풀 LED 헤드램프': (0.47, 0.41)}, 'steer': {'마네티�
 # 화살표 대신 다른 방식으로 부위를 보여 주는 칩(사유를 plan.json에 남김)
 NOTRACK = {'트렁크': '부위가 화면 가득(트렁크 공간 전체)', '듀얼 콕핏': '부위가 화면 가득(운전석·조수석 전체)',
            '노란색 캘리퍼': '손가락 터치 + 부위 색·외곽선 효과(PFX)로 캘리퍼를 직접 표시'}
+import hand_arrow as _HA
+HARROW = _HA.HandArrow(R['color']['yellow'], length=160)
+PINLAY = {}
 def pin_fx(cv, x, y, u, name):
-    # 스카우트식: 부위 바로 위에 짧은 노랑 화살표(끝이 부위를 가리킴) + 그 위 붓칠 칩. 흰 선 없음
+    # 스카우트식: 손글씨 굵은 화살표(노션 원본 SVG)가 칩 아래 모서리에서 부위로 비스듬히 꽂힘. 칩은 화면 가운데 쪽
     if u < 0: return cv
-    L = gchip(PINTXT.get(name, name)); bb_ = L.getbbox(); cw = bb_[2] - bb_[0]
-    AL = 110; below = False
-    if y - 8 - AL - 6 - (bb_[3] - bb_[1]) < 330: AL = 70
-    if y - 8 - AL - 6 - (bb_[3] - bb_[1]) < 150: below = True
-    A_, p_ = arrimg(AL, below); bob = 6 * math.sin(u * 2 * math.pi * 1.4) * min(1.0, u / 0.3)
-    if not below:
-        ay = y - 8 - (p_ + AL) + bob; cy = ay + p_ - 6 - bb_[3]
-    else:
-        ay = y + 8 - p_ + bob; cy = ay + p_ + AL + 6 - bb_[1]
-    ax = x - A_.width / 2; cx = min(W - 40 - bb_[2], max(40 - bb_[0], x - (bb_[0] + bb_[2]) / 2))
-    pop(cv, A_, (int(ax), int(ay)), u, 0.0, 0.16)
-    pop(cv, L, (int(cx), int(cy)), u, 0.1, 0.2)
-    PINBOX[name] = [int(cx) + bb_[0], int(cy) + bb_[1], int(cx) + bb_[2], int(cy) + bb_[3]]
+    L = gchip(PINTXT.get(name, name)); bb_ = L.getbbox(); cw, ch = bb_[2] - bb_[0], bb_[3] - bb_[1]
+    if name not in PINLAY or u < 0.05:   # 처음 자리(위/아래·왼/오) 정하고, 그 뒤엔 칩이 부위를 따라 같이 움직임
+        cx, cy, deg, _ = HARROW.layout(x, y, cw, ch, W, H); PINLAY[name] = (cx - x, cy - y, deg)
+    ox, oy, deg = PINLAY[name]; cx = min(W - 40 - cw, max(40, x + ox)); cy = y + oy
+    HARROW.draw(cv, x, y, deg, u)
+    pop(cv, L, (int(cx - bb_[0]), int(cy - bb_[1])), u, 0.12, 0.2)
+    PINBOX[name] = [int(cx), int(cy), int(cx) + cw, int(cy) + ch]
     return cv
 PINBOX = {}
 def part_glow(cv, x, y, u, R=300):
@@ -282,11 +279,18 @@ def chrome_behind(cv, raw, mask, t, z, ccx, ccy):
     tw = min(1300.0, max(760.0, cwid * 1.02)); base = top + 0.16 * tw
     pv = _TXT.get('s')
     if pv is not None: tw, cxm, base = [p * 0.75 + q * 0.25 for p, q in zip(pv, (tw, cxm, base))]   # 부드럽게
+    if t >= 0.9 and pv is not None: tw, cxm, base = pv   # 다 세워진 뒤엔 자리 고정(차가 다가와도 글자가 짓눌리지 않게)
     _TXT['s'] = (tw, cxm, base)
-    fa = 1.0
+    # 퇴장: 이름 → 연식 자막으로 넘어갈 때 글자가 카메라 쪽으로 커지며 위로 빠지고 흐려지며 사라짐(0.5초)
+    ex = min(1.0, max(0.0, (t - 1.3) / 0.5)); exe = ex * ex * (3 - 2 * ex)
+    if ex >= 1.0: return cv
+    fa = 1.0 - exe
     k = min(len(CHR) - 1, int(max(0.0, t - 0.08) * 30)); im = CHR[k]; sc = tw / CHR[-1].width
+    y_ = max(int(base - CHR[-1].height * sc), 575); hc = y_ + CHR[-1].height * sc / 2   # 글자 가운데 높이(퇴장 때 이 점 기준으로 커짐)
+    sc *= 1 + 0.22 * exe
     im = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.LANCZOS)
-    y = max(int(base - CHR[-1].height * sc), 575); x = int(cxm - im.width / 2)   # 제목 줄과 겹치면 아래로 밀어 차 뒤로 더 숨김
+    if exe > 0: im = im.filter(ImageFilter.GaussianBlur(10 * exe))
+    y = int(hc - im.height / 2 - 120 * exe) if exe > 0 else y_; x = int(cxm - im.width / 2)   # 제목 줄과 겹치면 아래로 밀어 차 뒤로 더 숨김
     lay = Image.new('RGBA', (W, H))
     gl = Image.new('RGBA', im.size, (255, 40, 30, 0)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.2)))   # 붉은 후광
     _acx(lay, gl.filter(ImageFilter.GaussianBlur(44)), x, y)
@@ -383,7 +387,7 @@ for t0, t1, c in SEG:
         yk = YB; cur = None
         for (s, w), tc in zip(chips, ctimes):
             if t >= tc: cur = (s, tc)
-        if cur:
+        if cur and not any(t >= tp_ for _, tp_, _, _ in PP):   # 같은 장면에 부위 화살표 이름표가 뜨면 위쪽 칩은 내림(겹침 방지)
             Ci = gchip(cur[0]); bb = Ci.getbbox(); x = (W - (bb[2] - bb[0])) // 2 - bb[0]
             pop(cv, Ci, (x, YB), t, cur[1]); yk = YB + bb[3] + 14
             if t >= cur[1] + 0.2 and cur[0] not in chip_seen:

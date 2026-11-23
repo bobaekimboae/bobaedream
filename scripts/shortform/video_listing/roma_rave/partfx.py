@@ -154,7 +154,8 @@ def holes(cv, key, G, k, ccx, ccy, z, tip):
     cs = [c for c in cs if 1200 < cv2.contourArea(c) < 60000]
     if not cs: return cv, None
     cen = [c[:, 0, :].mean(0) for c in cs]; dist = [float(np.hypot(*(q - np.array(tip)))) for q in cen]
-    near = cs[int(np.argmin(dist))][:, 0, :]; top = near[int(np.argmin(near[:, 1]))]; anchor = (float(top[0]), float(top[1])) if k < 2 else None   # 고정점은 처음에 한 번만
+    okc = [i for i, q in enumerate(cen) if 140 < q[0] < W - 140 and q[1] > 330] or list(range(len(cs)))   # 화면 가장자리 구멍은 화살표 자리로 안 씀
+    i0 = min(okc, key=lambda i: dist[i]); anchor = (float(cen[i0][0]), float(cen[i0][1])) if k < 2 else None   # 손끝 가까운 구멍 한가운데, 처음에 한 번만
     if fade <= 0: return cv, anchor
     arr = np.zeros((H, W, 4), np.uint8); surf = skia.Surface(arr); c = surf.getCanvas()
     for cc, dd in zip(cs, dist):
@@ -196,6 +197,11 @@ def recolor(cv, key, G, k, ccx, ccy, z, tip):
     ok_ = (big[:, 0] > 40) & (big[:, 0] < W - 40) & (big[:, 1] > 330) & (big[:, 1] < H - 40)
     cand = big[ok_] if ok_.sum() > 5 else big
     top = cand[int(np.argmin(cand[:, 1] + 0.15 * np.abs(cand[:, 0] - cand[:, 0].mean())))]; anchor = (float(top[0]), float(top[1]))
+    _m = mf > 0.5; _m[:330] = False; _m[:, :60] = False; _m[:, W - 60:] = False
+    _ys = np.nonzero(_m.any(1))[0]
+    if len(_ys) > 10:   # 화살표 끝은 부위 테두리 말고 안쪽(위에서 22% 내려온 줄의 가운데)
+        _y = int(_ys.min() + 0.22 * (_ys.max() - _ys.min())); _xs = np.nonzero(_m[_y])[0]
+        if len(_xs): anchor = (float(np.median(_xs)), float(_y))
     e = _env(u, n) if k < n else 0.0
     if e <= 0.01: return cv, anchor
     m = np.clip(cv2.GaussianBlur(mf, (0, 0), 1.5), 0, 1) * (1 - np.clip(hm, 0, 1))
@@ -235,6 +241,7 @@ STYLE = _os.environ.get('PART_STYLE', 'recolor')
 
 def fx(cv, key, G, k, ccx, ccy, z, tip):
     if key == 'grille': return holes(cv, key, G, k, ccx, ccy, z, tip)
+    if key == 'top': return outline(cv, key, G, k, ccx, ccy, z, tip)   # 패브릭 탑: 흰색으로 칠하면 도장면처럼 보여 외곽선만(원래 천 색 유지)
     if key == 'wheel':   # 타이어 터치: 캘리퍼 색 + 휠·타이어 외곽선
         cv, an = recolor(cv, key, G, k, ccx, ccy, z, tip); cv, _ = outline(cv, 'wheelfull', G, k, ccx, ccy, z, tip); return cv, an
     return (recolor if STYLE == 'recolor' else outline)(cv, key, G, k, ccx, ccy, z, tip)
