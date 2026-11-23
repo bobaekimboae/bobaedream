@@ -237,3 +237,15 @@ r12는 **86점 / 100점**(r11 79점에서 +7)이다. 숫자 위치, ✓ 목록, 
 ![원본 대 우리](work-roma-spider/brush_frame_orig_vs_ours.png)
 
 ![배지](work-roma-spider/brush_frame_badge.png) ![끝 화면](work-roma-spider/brush_frame_card.png)
+
+## 노랑 붓 뒤 인물 컷아웃(리싱마크트) — 딜러 정장 상반신 (2026-11-24)
+- 사용자: 「정장 입혀」 「리싱마크트가 더 낫지 않나」 → 노션 「스카우트24 테마별」 › 노랑 붓 뒤 인물 컷아웃_1000_842(독일 리싱마크트, BE 사용: 사용).
+- 판단: 원형 프로필(얼굴만)보다 상반신 정장 누끼가 끝 화면에서 사람이 크게 보이고 딜러다움(정장)이 산다. 리싱마크트 쪽을 기본 끝 화면 후보로 둔다. 원형은 작은 칸(목록·알약)용으로 남긴다.
+- 코드: `scripts/shortform/brush_stroke_cutout.py` — 노션 원본 PNG(수정 없음)에서 노랑 칠만 떼어 쓰고(원본도 #F4F000 근처라 #F5F200으로 맞춤), 원본 인물 자리에 딜러 누끼(rembg u2net_human_seg)를 같은 크기로 놓음. 끝 화면에서는 인물 아래 70px을 부드럽게 사라지게 함.
+- 움직임: 인물이 먼저 나타나고(0.15초) 뒤에서 칠이 왼→오로 그어짐. 칠만 먼저 보이면 원본 인물에 가려졌던 칠 구멍이 드러나서 순서를 바꿈.
+- 정장 사진: 딜러 사진이 얼굴뿐이라 ElevenLabs gpt-image-2.5로 상반신·정장까지 늘린 AI 그림 4장 중 1장(약 433크레딧 × 4). 원래 사진도 AI 프로필이라 실제 딜러 사진으로 바꿔야 함.
+- 번호판: 배지 윗선 220(아래 끝 1062) · 이름 1220 — 로마 번호판(y 1080~1160)을 덮지 않음.
+
+![배지](work-roma-spider/brush_cutout_badge.png) ![끝 화면](work-roma-spider/brush_cutout_card.png)
+
+![움직임 0.1·0.4·0.7초](work-roma-spider/brush_cutout_anim.png)
