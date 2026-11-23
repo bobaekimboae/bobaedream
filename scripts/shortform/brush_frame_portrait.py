@@ -27,7 +27,9 @@ FONT = os.path.join(HERE, 'fonts')
 YEL, DISC, INK = (0xF5, 0xF2, 0x00), (0xED, 0xEF, 0xF2), (0x22, 0x22, 0x22)
 W, H, FPS = 1080, 1920, 30
 TOP = 300  # 배지 윗선. 원본 영상 번호판(로마 y 1080~1160)을 칠이 덮지 않는 자리 — 차가 바뀌면 번호판 위치를 보고 정함
-NAME_Y = 1220  # 이름 줄 윗선 — 번호판 아래(이름·소속도 번호판을 덮지 않음)
+NAME_Y = 1220  # 배지 바로 아래에 이름이 들어가지 않을 때만 쓰는 자리 — 번호판 아래
+PLATE_TOP = 1080  # 원본 영상 번호판 윗선(로마). 이름·소속 글자 아래 끝이 이 위 24px 안에 들어오면 배지 바로 아래에 붙임
+GAP_BADGE, GAP_LINE = 36, 22  # 배지 보이는 아래 끝 → 이름 글자 윗선, 이름 글자 아래 끝 → 소속 글자 윗선
 
 
 ORIG = os.path.join(REPO, 'public', 'assets', 'shortform', 'brush-frame-portrait', 'as24_0701_brush_frame_portrait.png')
@@ -128,6 +130,11 @@ def pop(t):  # 0→1.08→1
     return 1.08 * ease(t / 0.7) if t < 0.7 else 1.08 - 0.08 * ease((t - 0.7) / 0.3)
 
 
+@functools.lru_cache(maxsize=8)
+def _badge_bottom(photo, face):
+    return badge(photo, face=face).getbbox()[3]
+
+
 def card(photo, name, org, bg_img, t, face=0.86):
     f = bg_img.copy()
     f = Image.blend(f, Image.new('RGB', f.size, (0, 0, 0)), 0.55).convert('RGBA')
@@ -138,10 +145,19 @@ def card(photo, name, org, bg_img, t, face=0.86):
         dr = ImageDraw.Draw(f)
         f1 = ImageFont.truetype(os.path.join(FONT, 'Pretendard-ExtraBold.otf'), 84)
         f2 = ImageFont.truetype(os.path.join(FONT, 'Pretendard-SemiBold.otf'), 48)
-        y = max(TOP + b.height + 10, NAME_Y) + round(30 * (1 - k)); al = round(255 * k)
-        for txt, fnt, yy in ((name, f1, y), (org, f2, y + 110)):
-            tw = dr.textlength(txt, font=fnt)
-            dr.text(((W - tw) / 2, yy), txt, font=fnt, fill=(255, 255, 255, al))
+        # 글자 자리: 배지(움직임이 끝난 크기) 보이는 아래 끝 바로 밑에 이름·소속을 한 묶음으로 가운데 정렬. 번호판에 걸리면 번호판 아래로
+        bb = _badge_bottom(photo, face)
+        n_box, o_box = dr.textbbox((0, 0), name, font=f1), dr.textbbox((0, 0), org, font=f2)
+        y_name = TOP + bb + GAP_BADGE - n_box[1]
+        y_org = y_name + n_box[3] + GAP_LINE - o_box[1]
+        if y_org + o_box[3] > PLATE_TOP - 24:
+            y_name = NAME_Y - n_box[1]; y_org = y_name + n_box[3] + GAP_LINE - o_box[1]
+        dy = round(24 * (1 - k)); al = round(255 * k)
+        for txt, fnt, yy, box in ((name, f1, y_name, n_box), (org, f2, y_org, o_box)):
+            tw = box[2] - box[0]
+            x = (W - tw) / 2 - box[0]
+            dr.text((x, yy + dy + 3), txt, font=fnt, fill=(0, 0, 0, round(al * 0.45)))  # 차 위에서도 읽히게 옅은 그림자
+            dr.text((x, yy + dy), txt, font=fnt, fill=(255, 255, 255, al))
     return f.convert('RGB')
 
 
