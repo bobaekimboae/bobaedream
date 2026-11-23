@@ -1,0 +1,190 @@
+{
+ "cuts": [
+  {
+   "key": "c1",
+   "t0": 0.0,
+   "t1": 2.97,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c2",
+   "t0": 2.97,
+   "t1": 4.65,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c3",
+   "t0": 4.65,
+   "t1": 6.41,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c4",
+   "t0": 6.41,
+   "t1": 8.37,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c5",
+   "t0": 8.37,
+   "t1": 10.69,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c6",
+   "t0": 10.69,
+   "t1": 13.29,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c7",
+   "t0": 13.29,
+   "t1": 15.08,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c8",
+   "t0": 15.08,
+   "t1": 17.15,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c9",
+   "t0": 17.15,
+   "t1": 19.45,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c10",
+   "t0": 19.45,
+   "t1": 21.61,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c11",
+   "t0": 21.61,
+   "t1": 24.26,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c12",
+   "t0": 24.26,
+   "t1": 26.35,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c13",
+   "t0": 26.35,
+   "t1": 31.68,
+   "options": [],
+   "chip": null,
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 44,
+     "value": "58,176km",
+     "at": 28.98
+    }
+   ]
+  },
+  {
+   "key": "c15",
+   "t0": 31.68,
+   "t1": 34.36,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c16",
+   "t0": 34.36,
+   "t1": 37.1,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c17",
+   "t0": 37.1,
+   "t1": 38.91,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c18",
+   "t0": 38.91,
+   "t1": 41.34,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c19",
+   "t0": 41.34,
+   "t1": 44.52,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c20",
+   "t0": 44.52,
+   "t1": 46.23,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c21",
+   "t0": 46.23,
+   "t1": 49.06,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c22",
+   "t0": 49.06,
+   "t1": 51.77,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "c23",
+   "t0": 51.77,
+   "t1": 54.34,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  }
+ ],
+ "summary": {
+  "T04": 1
+ }
+}
