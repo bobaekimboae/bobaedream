@@ -156,7 +156,13 @@ W_IN=text3d('20인치',h=170); W_TY=text3d_all('앞 245 · 뒤 285',h=110)
 T1=text3d('255L',h=180); T1L=ipill(as24('trunk-as24.svg',50),'지붕 닫았을 때',58)
 S_MAT=text3d('베이지 가죽',h=130); S_SUB=white('레드 카펫',58)
 EP=[ipill(as24('engine.svg',54),'최대토크 77.5kg·m',58),ipill(as24('gearbox.svg',54),'8단 듀얼클러치',58),ipill(flu('23f1',60),'제로백 3.4초',58)]
-_ck=Image.new('RGBA',(80,80)); ImageDraw.Draw(_ck).text((40,40),'✓',font=BK(64),fill=INK,anchor='mm'); _ck=_ck.crop(_ck.getbbox())
+# r13 「노션 붓칠 원본 쓰고 예쁘게」: ✓ 글자 대신 노션 「스카우트24 테마별」 노랑 체크 원(checkmark_in_yellow_circle) 원본 그대로, 크기만 rsvg 배율
+_CKSVG=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','..','public','assets','shortform','brush-fill','as24-theme-v2','check_circle_yellow.svg')
+if os.path.exists(_CKSVG) and os.environ.get('CHECK_GLYPH')!='1':
+    from io import BytesIO as _BIO
+    _ck=Image.open(_BIO(subprocess.run(['rsvg-convert','-h','56',_CKSVG],capture_output=True).stdout)).convert('RGBA')
+else:
+    _ck=Image.new('RGBA',(80,80)); ImageDraw.Draw(_ck).text((40,40),'✓',font=BK(64),fill=INK,anchor='mm'); _ck=_ck.crop(_ck.getbbox())
 _ckc={}
 def ckpill(s):
     if s not in _ckc: _ckc[s]=ipill(_ck,s,58,left=True)
