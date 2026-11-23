@@ -268,7 +268,7 @@ for t0,t1,c in SEG:
                 cx,cy,L=M-10,YB,0; _b=Cimg.getbbox(); _ax=min(max(tx,cx+_b[0]+90),cx+_b[2]-90); _ay=cy+_b[3]-34; _d=math.hypot(tx-_ax,ty-_ay)
                 if _d>260 and t>=tc+0.12:
                     _g=0.4+0.6*ease((t-tc-0.12)/0.22); _bob=6*math.sin(t*6); _ex,_ey=tx-(tx-_ax)/_d*100,ty-(ty-_ay)/_d*100+_bob
-                    _w=max(60,int(min(400,math.hypot(_ex-_ax,_ey-_ay))*_g/6)*6); _an=math.atan2(_ey-_ay,_ex-_ax); _A=_doodle('hand_arrow_469_264.svg',_w,-round(math.degrees(_an)))
+                    _w=max(60,int(min(int(os.environ.get('BE_LINK_MAX','210')),math.hypot(_ex-_ax,_ey-_ay))*_g/6)*6); _an=math.atan2(_ey-_ay,_ex-_ax); _A=_doodle('hand_arrow_469_264.svg',_w,-round(math.degrees(_an)))
                     cv.alpha_composite(_A,(int(_ax+math.cos(_an)*_w/2-_A.width/2),int(_ay+math.sin(_an)*_w/2-_A.height/2)))
             elif av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
                 av=None
@@ -282,7 +282,7 @@ for t0,t1,c in SEG:
                 if bl: tail=ty+TG+L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail-Lc-bob-offc)))
                 else: tail=ty-TG-L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail+bob-offc)))
             pop(cv,Cimg,(cx,cy),t,tc)
-            if LINK and t>=tc+0.12: _q=_quote(92); _b=Cimg.getbbox(); pop(cv,_q,(cx+_b[0]-34,cy+_b[1]-62),t,tc+0.12)   # 칩 = 방금 말한 낱말
+            if os.environ.get('BE_QUOTE') and t>=tc+0.12: _q=_quote(92); _b=Cimg.getbbox(); pop(cv,_q,(cx+_b[0]-34,cy+_b[1]-62),t,tc+0.12)   # 칩 = 방금 말한 낱말
             if t>=tc+0.2 and key not in {c_['key'] for c_ in CHIPS_LOG}:   # 다 나타난 뒤 한 번 기록(검사는 이 순간 상자를 잼)
                 _bb=Cimg.getbbox(); CHIPS_LOG.append({'key':key,'label':clab,'kind':'point' if av is None else 'callout','t0':round(t0+tc,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['font_px'],'y':int(cy),'box':[int(cx+_bb[0]),int(cy+_bb[1]),int(cx+_bb[2]),int(cy+_bb[3])]})
             if Simg is not None:
