@@ -1,0 +1,257 @@
+{
+  "version": "1.0",
+  "updated": "2026-11-24",
+  "_what": "실촬영 매물 숏폼(ED-SIMPLE) 편집 기본 설정. 고정값이 아니다 — 지시가 없으면 이 값으로 만들고, 바꾸면 작업 파일(job overrides)에 이유를 남긴다. 사용자: 「편집 매뉴얼 체크리스트 기본 먼저 만들어봐. 자꾸 틀려. 단 고정값이 아닌 기본 설정이라고」(2026-11-24).",
+  "_vs_locked": "숫자 잠금(색·칩 크기·자막 높이·효과음 수)은 be_locked_rules.json, 판·렌더러·필수 기법은 edition_lock.json — 이 파일에서 바꾸지 않는다(locked_ref가 있는 항목은 참고용). 그 밖은 모두 바꿀 수 있는 기본값.",
+  "_check": "렌더 전: python3 scripts/shortform/edit_preflight.py [작업.json]  ·  렌더 후: python3 scripts/shortform/release_checklist.py 영상.mp4",
+  "stages": [
+    {
+      "id": "facts",
+      "ko": "1. 사실",
+      "items": [
+        {
+          "id": "facts.source",
+          "item": "들어가는 사실",
+          "default": "매물 정보 + 화면에 보이는 것만. 제원 수치는 같은 세대·트림 공식 자료만, 출처를 facts._spec_sources에",
+          "why": "지어낸 수치·말하지 않은 요약어(「엔진 제원」) 칩"
+        },
+        {
+          "id": "facts.banned",
+          "item": "쓰지 않는 말",
+          "default": "「무사고」, 할부·월 납입 금액, 차량번호, 개인 전화번호, 꾸밈말(넉넉한·고급스러운)",
+          "why": "사실 확인 안 된 표현"
+        },
+        {
+          "id": "facts.codename",
+          "item": "코드네임",
+          "default": "BMW·벤츠·포르쉐만. 그 밖은 모델명(페라리 로마 스파이더)",
+          "why": "사용자 기본 규칙"
+        },
+        {
+          "id": "facts.dealer",
+          "item": "딜러 표기",
+          "default": "「단지 상사 이름 딜러」(서울오토갤러리 레이브 강성경 딜러). 연락처는 넣지 않음",
+          "why": "개인정보"
+        }
+      ]
+    },
+    {
+      "id": "script",
+      "ko": "2. 대본",
+      "items": [
+        {
+          "id": "script.unit",
+          "item": "문장 단위",
+          "default": "한 문장 = 한 부위 = 그 부위 장면 = 칩 1개",
+          "why": "말하는 부위와 화면 부위가 어긋남"
+        },
+        {
+          "id": "script.ending",
+          "item": "말끝",
+          "default": "합니다체와 해요체를 섞음 — 대략 합니다 6 : 요 4, 같은 말끝이 세 번 넘게 이어지지 않게. 사실·수치 문장은 「~입니다/~합니다」, 이어지는 설명은 「~고요/~이에요/~있어요」",
+          "why": "「니다와 에요 적절하게 섞으라니까」(r16) — 한쪽만 쓰면 딱딱하거나 가벼움"
+        },
+        {
+          "id": "script.order",
+          "item": "부위 순서",
+          "default": "첫 화면(연식·차명) → 바깥(램프·휠·타이어) → 실내(시트·콕핏·핸들·패들·계기판·조수석 화면·센터 화면·셀렉터) → 지붕 개폐 → 뒤(램프·머플러·트렁크) → 엔진·제원 → 딜러 문의",
+          "why": "기준 G350 v13 흐름"
+        },
+        {
+          "id": "script.length",
+          "item": "길이",
+          "default": "기준 영상 G350 v13(70초) ±10% — 63~77초",
+          "locked_ref": "release_checklist.py length",
+          "why": "길이 검사 실패"
+        }
+      ]
+    },
+    {
+      "id": "voice",
+      "ko": "3. 음성",
+      "items": [
+        {
+          "id": "voice.character",
+          "item": "목소리",
+          "default": "젊은 남성 · 쇼츠 톤 · 표준 발음 · 힘 있게. 후보: KKC Shorts(mgugV8tLa3KQE4mfYTw5, 2026-11-24 시험 중). 확정되면 이 값을 바꿈",
+          "why": "「힘이 없어」「젊은 친구로」「발음 안 좋아」「더 역동적이게」 — 태형(느림)·뚝상·한국피터(발음) 탈락"
+        },
+        {
+          "id": "voice.model",
+          "item": "모델",
+          "default": "ElevenLabs eleven_v3",
+          "why": "감정 표시([excited] 등)를 알아들음"
+        },
+        {
+          "id": "voice.tts_text",
+          "item": "읽기용 글",
+          "default": "자막용 대본과 따로 만든다. 숫자는 한글로 풀어 씀(2024 → 이천이십사, 245 → 이백사십오, 8.4 → 팔 점 사, 77.5 → 칠십칠 점 오), 영문은 한국식 소리(LED → 엘이디, V8 → 브이에잇, km → 킬로). 자막·칩은 원래 표기",
+          "why": "숫자·영문 발음이 뭉개짐"
+        },
+        {
+          "id": "voice.energy",
+          "item": "힘",
+          "default": "대목마다 감정 표시([excited] 처음 · [enthusiastic] 실내 · [powerful] 엔진 · [confident] 끝 안내), 핵심 숫자·문장 끝에 느낌표, 긴 문장은 쉼표로 짧게",
+          "why": "「힘이 없어」「더 역동적이게」"
+        },
+        {
+          "id": "voice.generate",
+          "item": "생성 횟수",
+          "default": "한 번 만들고 들어 본다. 다시 만들기는 사용자가 말할 때만",
+          "why": "크레딧(500~600/회)"
+        },
+        {
+          "id": "voice.prep",
+          "item": "음성 다듬기",
+          "default": "쉬는 구간 0.32초 이하로 줄임 · 빠르기는 목소리 따라(느린 목소리 1.1배, 빠른 목소리 1.0배) · 받아쓰기는 시각만, 글자는 대본 글자 (roma_voice_prep.py)",
+          "why": "태형 74.6초로 길어짐"
+        }
+      ]
+    },
+    {
+      "id": "scene",
+      "ko": "4. 장면",
+      "items": [
+        {
+          "id": "scene.pick",
+          "item": "장면 고르기",
+          "default": "문장마다 그 부위가 보이는 원본 구간을 골라 붙임. 순서 재배치 허용, 말 없는 구간은 버림. 원본 순서·길이 그대로 금지",
+          "locked_ref": "edition_lock.json ED-SIMPLE order",
+          "why": "원본 순서 그대로 두기"
+        },
+        {
+          "id": "scene.first",
+          "item": "첫 화면",
+          "default": "차 전체(정면·3/4). 노랑 브랜드 판(판 자체 기울기, 글자 수평) + 흰 큰 모델명 + 아래 「연식 · 연료」 한 줄",
+          "why": "첫 화면 사실 빠짐"
+        },
+        {
+          "id": "scene.edit",
+          "item": "원본 손대기",
+          "default": "자르기·이동·확대·흐린 채움만. 보정·배경 바꾸기·번호판 가리기 안 함",
+          "why": "반사기 원칙"
+        }
+      ]
+    },
+    {
+      "id": "display",
+      "ko": "5. 칩·글자 표시",
+      "items": [
+        {
+          "id": "display.chip_text",
+          "item": "칩 글자",
+          "default": "그 컷에서 말한 낱말 그대로",
+          "locked_ref": "manual §10-1",
+          "why": "말하지 않은 요약어 칩"
+        },
+        {
+          "id": "display.chip_time",
+          "item": "칩 등장",
+          "default": "그 낱말 시작 0.06초 전, 그 부위 설명 컷 끝까지",
+          "locked_ref": "be_locked_rules.json chip",
+          "why": "1.6초 일찍 뜸"
+        },
+        {
+          "id": "display.method",
+          "item": "표시 방식",
+          "default": "부위·옵션 이름 = 붓칠 칩 + 화살표 / 그 부위 숫자 = 부위 옆 3D 숫자 / 차 전체 숫자 = 위 가운데 3D 큰 숫자 / 시트 재질 = 등받이 위 3D 글자 / 다른 부위 색 = 부위 옆 흰 알약(안 보이면 생략) / 이어지는 제원 = ✓ 목록",
+          "locked_ref": "manual §11",
+          "why": "휠·시트·타이어 글자가 위쪽 띠에 고정돼 부위와 따로 놂"
+        },
+        {
+          "id": "display.track",
+          "item": "부위 따라가기",
+          "default": "OWLv2 · 추적 점으로 따라감. 못 따라가면 이유 기록(no_track_reason · no_anchor_reason), 위 가운데로",
+          "why": "조용히 위쪽 고정"
+        },
+        {
+          "id": "display.cover",
+          "item": "가리지 않기",
+          "default": "칩·글자가 부위·손가락·번호판을 덮지 않음. 아래 20% 비움",
+          "why": "8.4인치 화면 윗부분 덮음 · 타이어 글자가 캘리퍼 덮음"
+        }
+      ]
+    },
+    {
+      "id": "caption",
+      "ko": "6. 말 자막",
+      "items": [
+        {
+          "id": "caption.style",
+          "item": "모양",
+          "default": "흰 글자 + 그림자, 말하는 낱말만 노랑 #F5F200, 뜻 단위 1~3낱말, 컷 뒤 0.3초 비움, 칠 없음",
+          "locked_ref": "be_locked_rules.json caption",
+          "why": "자막에 칠"
+        },
+        {
+          "id": "caption.hide",
+          "item": "숨길 때",
+          "default": "큰 숫자가 떠 있는 동안만 숨김",
+          "why": "포인트 칩 대사가 자막에서 빠짐"
+        }
+      ]
+    },
+    {
+      "id": "sound",
+      "ko": "7. 소리",
+      "items": [
+        {
+          "id": "sound.bgm",
+          "item": "배경음",
+          "default": "보배드림 쇼룸 배경음(bobae_showroom_v1.mp3), 목소리 나오면 줄임",
+          "why": "남의 음원 금지"
+        },
+        {
+          "id": "sound.sfx",
+          "item": "효과음",
+          "default": "자체 효과음(딩·쿵·휙·팝), 구역이 바뀌는 컷에 휙, 끝 화면엔 없음",
+          "locked_ref": "be_locked_rules.json sfx",
+          "why": ""
+        },
+        {
+          "id": "sound.loud",
+          "item": "음량",
+          "default": "−14 LUFS ±1, TP −1.5",
+          "locked_ref": "be_locked_rules.json audio",
+          "why": ""
+        }
+      ]
+    },
+    {
+      "id": "end",
+      "ko": "8. 끝 화면",
+      "items": [
+        {
+          "id": "end.kind",
+          "item": "끝 화면",
+          "default": "딜러 정보가 있으면 딜러 명함 카드, 없으면 보배드림 로고 커짐",
+          "why": "「딜러 카드로 엔딩」 — 둘 중 무엇을 쓰든 edition_lock.json(end_logo|end_dealer_card) 안"
+        }
+      ]
+    },
+    {
+      "id": "deliver",
+      "ko": "9. 검사·전달",
+      "items": [
+        {
+          "id": "deliver.check",
+          "item": "전달 조건",
+          "default": "release_checklist.py 종료 코드 0 + v13 나란히 시트를 눈으로 봄. 이 둘이 끝나야 「품질 통과」",
+          "why": "검사 하나 빼먹고 「통과」 보고"
+        },
+        {
+          "id": "deliver.deploy",
+          "item": "배포",
+          "default": "커밋·푸시는 해도 됨. 병합·배포는 사용자가 「배포해」라고 할 때만",
+          "why": ""
+        },
+        {
+          "id": "deliver.record",
+          "item": "기록",
+          "default": "회차마다 노션 기준 문서에 바꾼 것·검사 결과, 보고서 reports/에 나란히 캡처",
+          "why": ""
+        }
+      ]
+    }
+  ]
+}
