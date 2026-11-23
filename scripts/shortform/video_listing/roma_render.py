@@ -127,7 +127,11 @@ place_chip_y_cap=H*0.58
 SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24px라 칩 3개가 벗어났음
 BIG_LOW=set()   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
 HIDE_SUB=[False]
-BIGS_LOG=[]; BIGS_SEEN=set()
+BIGS_LOG=[]; BIGS_SEEN=set(); LABELS_LOG={}
+def label_log(lab,kind,anchor,pt,pos,img,t,tin,reason=None):   # r15: 부위에 붙는 글자(숫자·재질·색)의 기준 부위 점과 화면 상자 — check_be §11 검사가 읽음
+    if t<tin+0.3 or lab in LABELS_LOG: return   # 다 나타난 뒤 한 번 기록
+    b=img.getbbox(); LABELS_LOG[lab]={'label':lab,'kind':kind,'anchor':anchor,'pt':[int(pt[0]),int(pt[1])] if pt else None,
+        'box':[int(pos[0]+b[0]),int(pos[1]+b[1]),int(pos[0]+b[2]),int(pos[1]+b[3])],'t_box':round(CUR.get('T',0),3),**({'no_anchor_reason':reason} if reason and not pt else {})}
 CHIP_DELAY={}
 NOTRACK={'c5':'fills_frame','c8':'fills_frame','c11':'fills_frame','c7':'not_found','c10b':'not_found'}   # c7·c10b: OWLv2가 0.2초 간격 23·11칸 중 3칸만 찾음(오검출) → 틀린 화살표보다 위쪽 가운데   # r14: 부위가 화면을 가득 채워 화살표가 의미 없는 컷만(매뉴얼 v4.1 §10-4)
 cxc=lambda img:int(W/2-(img.getbbox()[0]+img.getbbox()[2])/2)   # 칠 기준 가로 가운데   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
@@ -211,17 +215,34 @@ def special(key,cv,t,t0):
             P=d['pts']; i=min(len(P)-1,int(round((st-d['s0'])*30)))
             return tomap(*P[i]) if P[i] else None
         hub=_at('c3'); tire=_at('c3t')
-        # r12 크로스체크: 숫자가 휠·캘리퍼를 덮던 문제 → v13처럼 휠 위 빈 곳에 「20인치 / 앞 245 · 뒤 285」를 쌓고, 가로만 휠을 따라감
+        if tire is None and 'c3t' in TR and st<TR['c3t']['s0']:   # 타이어 추적 시작 전엔 추적 첫 점(같은 화면 변환)
+            _p=next((q for q in TR['c3t']['pts'] if q),None); tire=tomap(*_p) if _p else None
         WR=int(W*0.40)   # 이 원본 휠 반지름(화면 폭의 약 40%)
         tb=WS[W_IN_J][1]-t0-0.22; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # 숫자가 떠 있는 동안 말 자막 숨김
-        blk=W_IN.height+10+W_TY.height
-        y=int(H*0.075)   # r12 2차: 원본 휠이 화면 폭보다 커서 휠 위 빈 곳이 거의 없음 → 높이는 위 띠에 고정(휠 위쪽 펜더 자리), 가로만 휠을 따라감
-        x0=int(min(W-W_TY.width/2-30,max(W_TY.width/2+30,hub[0]))) if hub else W//2
-        pop(cv,W_IN,(int(x0-W_IN.width/2),y),t,tb,0.3)
-        pop(cv,W_TY,(int(x0-W_TY.width/2),y+W_IN.height+10),t,WS[W_TY_J][1]-t0-0.22,0.3)
+        y=int(max(150,min(CAPY-120-W_IN.height-10-W_TY.height,hub[1]-WR-60-W_IN.height))) if hub else int(H*0.075)   # r15(§11): 휠 인치는 휠 윗선 바로 위에 붙어 휠을 따라 위아래로도 움직임(r12~r14는 위 띠 고정)
+        x0=int(min(W-W_IN.width/2-30,max(W_IN.width/2+30,hub[0]))) if hub else W//2
+        pop(cv,W_IN,(int(x0-W_IN.width/2),y),t,tb,0.3); label_log('20인치','num_part','c3',(hub[0],hub[1]-WR) if hub else None,(int(x0-W_IN.width/2),y),W_IN,t,tb)
+        # r15(매뉴얼 §11): 타이어 규격은 타이어 옆면 추적(c3t)에 붙임 — r12~r14는 20인치 밑 위 띠에 쌓여 손가락이 가리키는 옆면과 따로 놀았음
+        ty0=WS[W_TY_J][1]-t0-0.22
+        if tire:
+            tx_=int(min(W-W_TY.width/2-SAFE_X,max(W_TY.width/2+SAFE_X,tire[0]))); ty_=int(tire[1]-W_TY.height-60)   # 옆면 점 바로 위(점·손가락을 덮지 않음)
+            ty_=max(y+W_IN.height+10,min(ty_,CAPY-120-W_TY.height))
+        else: tx_,ty_=x0,y+W_IN.height+10
+        pop(cv,W_TY,(int(tx_-W_TY.width/2),ty_),t,ty0,0.3); label_log('앞 245 · 뒤 285','num_part','c3t',tire,(int(tx_-W_TY.width/2),ty_),W_TY,t,ty0)
     if key=='c4':
-        y=int(H*0.12); pop(cv,S_MAT,((W-S_MAT.width)//2,y),t,WS[MAT_J][1]-t0-0.06,0.3)
-        pop(cv,S_SUB,((W-S_SUB.width)//2,y+S_MAT.height+8),t,WS[SUB_J][1]-t0-0.06)
+        st,tomap=CUR['st'],CUR['tomap']   # r15(매뉴얼 §11): 시트 재질 = 등받이 위, 카펫 색 = 바닥 카펫 옆(OWLv2 추적 c4s·c4c)
+        def _at4(k):
+            if k not in TR or not (TR[k]['s0']<=st<=TR[k]['s1']): return None
+            P=TR[k]['pts']; q=P[min(len(P)-1,int(round((st-TR[k]['s0'])*30)))]; return tomap(*q) if q else None
+        bk=_at4('c4s'); cp=_at4('c4c')
+        if bk: mx,my=int(min(W-S_MAT.width/2-SAFE_X,max(S_MAT.width/2+SAFE_X,bk[0]))),int(max(150,min(bk[1]-S_MAT.height/2,CAPY-120-S_MAT.height)))
+        else: mx,my=W//2,int(H*0.12)
+        pop(cv,S_MAT,(mx-S_MAT.width//2,my),t,WS[MAT_J][1]-t0-0.06,0.3); label_log('베이지 가죽','material','c4s',bk,(mx-S_MAT.width//2,my),S_MAT,t,WS[MAT_J][1]-t0-0.06)
+        if cp:   # 매뉴얼 §11: 부위가 화면에 있을 때만 그 옆에 흰 알약. 「레드 카펫」은 말할 때 화면이 등받이로 올라가 카펫이 안 보임 → 띄우지 않음(말 자막이 맡음, r14는 재질 글자 밑에 떠서 카펫과 무관했음)
+            sx,sy=int(min(W-S_SUB.width/2-SAFE_X,max(S_SUB.width/2+SAFE_X,cp[0]))),int(cp[1]-S_SUB.height-20)
+            if sy+S_SUB.height>CAPY-80 and sy<CAPY+140: sy=CAPY+140
+            sy=min(sy,int(H*0.80)-S_SUB.height)
+            pop(cv,S_SUB,(sx-S_SUB.width//2,sy),t,WS[SUB_J][1]-t0-0.06); label_log('레드 카펫','color','c4c',cp,(sx-S_SUB.width//2,sy),S_SUB,t,WS[SUB_J][1]-t0-0.06)
     if key=='c14':
         y=int(H*0.10); tb=WS[L255_J][1]-t0-0.22; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # r12: 255L가 뜨면 「255리터」 자막과 겹치지 않게 말 자막 숨김
         pop(cv,T1L,((W-T1L.width)//2,y),t,WS[ROOF_J][1]-t0-0.06); _i=cnt('255L',180,t,tb+0.05); pop(cv,_i,((W-_i.width)//2,y+T1L.height),t,tb,0.3)
@@ -341,7 +362,7 @@ for t0,t1,c in SEG:
                 BIGS_SEEN.add((key,k2)); _b=B3.getbbox() or (0,0,B3.width,B3.height); _x=(W-B3.width)//2; _y1=y3+_b[3]
                 if BL: _lb=BL.getbbox() or (0,0,BL.width,BL.height); _y1=max(_y1,y3+B3.height+6+_lb[3])
                 BIGS_LOG.append({'key':key,'label':str(BIGS[k2]),'kind':'big','t_box':round(nfr/FPS,3),'box':[_x+_b[0],y3+_b[1],_x+_b[2],int(_y1)]})
-        CUR['st']=st; CUR['tomap']=tomap; special(key,cv,t,t0)
+        CUR['st']=st; CUR['tomap']=tomap; CUR['T']=nfr/FPS; special(key,cv,t,t0)
         draw_sub(cv,nfr/FPS) if not HIDE_SUB[0] else None
         HIDE_SUB[0]=False
         proc.stdin.write(cv.convert('RGB').tobytes()); nfr+=1; last=fr[fi]
@@ -413,6 +434,6 @@ if acc: _TECH.add('sfx_rules')
 _TECH|={e['id'] for c in _PLAN['cuts'] for e in c['techniques']}
 json.dump({'bigs':BIGS_LOG,'edition':'feature_video','edition_code':'ED-SIMPLE','renderer':'roma_render.py','order':'picked','voice':os.path.basename(VOICEF),
            'frame':[W,H],'words':os.environ.get('ROMA_WORDS',G+'words_clean.json'),'techniques':sorted(_TECH),'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
-           'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,
+           'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,'labels':list(LABELS_LOG.values()),
            'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH)}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
 print(OUT,TOTAL)

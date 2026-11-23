@@ -54,6 +54,7 @@
    "checks": [
     "video_listing/job_fact_check.py (렌더 전, job.json ↔ facts.json)",
     "edit_gate.py post [--plates]",
+    "release_checklist.py 영상.mp4 (위 검사 + v13 나란히를 한 번에 돌려 매뉴얼 항목표를 남김, 종료 코드 0이어야 전달·배포 — 매뉴얼 v4.2 §12)",
     "check_be.py",
     "기준 영상 비교: public/shortform-samples/g350-v13 같은 시각 화면 나란히(shortform-kit/SKILLS-INDEX.md 6장)"
    ],
