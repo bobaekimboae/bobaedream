@@ -22,18 +22,18 @@ for c in car['cuts']:
     if cov<0.6:
         c['arrow']=False; rep.append((k,c['chip'],'화살표 끔(부위를 또렷이 못 찾음)',round(cov,2),round(ms,2))); continue
     c['src']=[round(w0,2),round(w0+dur,2)]
-    good=[r for r in rr if ok(r)]; pts=[(r[0],(r[2]+r[4])/2,(r[3]+r[5])/2) for r in good]
+    good=[r for r in rr if ok(r)]; pts=[(r[0],(r[2]+r[4])/2,(r[3]+r[5])/2,(r[5]-r[3])/2) for r in good]
     mx=statistics.median(p[1] for p in pts); my=statistics.median(p[2] for p in pts)
     keep=[p for p in pts if abs(p[1]-mx)<0.3 and abs(p[2]-my)<0.3] or pts   # 한두 장 튀는 검출 버림
-    n=int(round(dur*30))+1; out=[]
+    n=int(round(dur*30))+1; out=[]; hy=[]
     for i in range(n):
         t=w0+i/30
-        if t<=keep[0][0]: out.append([keep[0][1],keep[0][2]]); continue
-        if t>=keep[-1][0]: out.append([keep[-1][1],keep[-1][2]]); continue
+        if t<=keep[0][0]: out.append([keep[0][1],keep[0][2]]); hy.append(keep[0][3]); continue
+        if t>=keep[-1][0]: out.append([keep[-1][1],keep[-1][2]]); hy.append(keep[-1][3]); continue
         for p,q in zip(keep,keep[1:]):
             if p[0]<=t<=q[0]:
-                u=(t-p[0])/max(1e-6,q[0]-p[0]); out.append([p[1]+(q[1]-p[1])*u,p[2]+(q[2]-p[2])*u]); break
-    tracks[k]={'s0':c['src'][0],'s1':c['src'][1],'pts':out}; c['track']=[round(keep[0][0],2),round(keep[0][1],3),round(keep[0][2],3)]
+                u=(t-p[0])/max(1e-6,q[0]-p[0]); out.append([p[1]+(q[1]-p[1])*u,p[2]+(q[2]-p[2])*u]); hy.append(p[3]+(q[3]-p[3])*u); break
+    tracks[k]={'s0':c['src'][0],'s1':c['src'][1],'pts':out,'hy':hy}; c['track']=[round(keep[0][0],2),round(keep[0][1],3),round(keep[0][2],3)]
     rep.append((k,c['chip'],c['src'],'표본 %d/%d'%(len(keep),len(rr)),round(ms,2)))
 json.dump(car,open(sys.argv[3],'w',encoding='utf-8'),ensure_ascii=False,indent=1); json.dump(tracks,open(sys.argv[4],'w'))
 for r in rep: print(*r)

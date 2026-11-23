@@ -98,12 +98,30 @@ def subimg(ch,act):
         for w in l:
             d.text((x,y),w,font=BLK,fill=YC if ch[n]==act else (255,255,255),anchor='lm'); n+=1; x+=BLK.getlength(w+' ')
     _sc[k]=im; return im
+_CHL=(CAR or {}).get('caption_hl'); _HLT={}
+def HLT(j):
+    """낱말 강조가 켜지는 시각. caption_hl이 있으면 덩어리 안에서 너무 짧은 낱말(받아쓰기 0.08초 등) 때문에 강조가 깜빡이지 않게 최소 유지 시간을 준다."""
+    if not _CHL: return WS[j][1]
+    if not _HLT:
+        m0=_CHL.get('min_hold',0.26)
+        for ch in CH:
+            s0=WS[ch[0]][1]; e=max(WS[ch[-1]][2],s0+0.1); n=len(ch); m=min(m0,(e-s0)/n)
+            syl=[max(1,len(re.sub(r'[^0-9A-Za-z가-힣]','',WS[j][0]))) for j in ch]; tot=sum(syl); acc=0; on=[]
+            for i,j in enumerate(ch):
+                prop=s0+(e-s0)*acc/tot; acc+=syl[i]; on.append(0.5*WS[j][1]+0.5*prop if i else s0)   # 받아쓰기 시각과 글자 수 비례 시각의 가운데
+            for i in range(1,n): on[i]=max(on[i],on[i-1]+m)
+            for i in range(n-1,0,-1): on[i]=min(on[i],e-m*(n-i)); 
+            for i,j in enumerate(ch): _HLT[j]=on[i]
+    return _HLT.get(j,WS[j][1])
 def draw_sub(c,t):
     for q,ch in enumerate(CH):
         a=WS[ch[0]][1]-0.05; b=(WS[CH[q+1][0]][1]-0.05) if q+1<len(CH) else TOTAL
         if a<=t<b:
-            act=max([j for j in ch if WS[j][1]<=t+0.02] or [ch[0]])
-            im=subimg(ch,act); x=(W-im.width)//2; y=CAPY-im.height//2; c.alpha_composite(im,(x,y))
+            act=max([j for j in ch if HLT(j)<=t+0.02] or [ch[0]])
+            im=subimg(ch,act)
+            if _CHL and act!=ch[0] and t-HLT(act)<_CHL.get('fade',0.1):   # 강조가 옆 낱말로 넘어갈 때 짧게 겹쳐 바꿈(뚝뚝 끊김 방지)
+                im=Image.blend(subimg(ch,ch[ch.index(act)-1]),im,max(0.0,min(1.0,(t-HLT(act)+0.02)/_CHL.get('fade',0.1))))
+            x=(W-im.width)//2; y=CAPY-im.height//2; c.alpha_composite(im,(x,y))
             if LOGON: b=im.getbbox(); _LOG.append(['sub',globals().get('nfr'),globals().get('key'),x+b[0],y+b[1],x+b[2],y+b[3],a])
             return
 def smooth(pts,k=7):
@@ -138,8 +156,14 @@ def slot_place(key,Cimg,tx,ty,pts,lens):
     if key not in SLOT:
         x0,x1,y1=(cx+b[0]-60)/W,(cx+b[2]+60)/W,(YB+b[3]+TG+AMIN+30)/H   # T줄 칩 + 화살표 최소 자리
         hit=any(x0<=px<=x1 and py<=y1 for px,py in pts) or (cx+b[0]-60<=tx<=cx+b[2]+60 and ty<=YB+b[3]+TG+AMIN+30)
-        SLOT[key]='B' if (lens or hit) else 'T'
-        SLOTBL[key]=(ty-TG-AMIN-CG<YB+b[3]) if SLOT[key]=='T' else (ty+TG+AMIN+CG<=YB2+b[1])
+        if str(DECO.get('arrow','')).startswith('hand'):   # 손그림 화살표(길이 고정): 부위가 칩 자리 바로 밑에 깔릴 때만 B줄, 방향은 컷 전체의 가운데 높이로 한 번 정함
+            La=int(DECO.get('arrow_len',180)); my=float(np.median([p[1] for p in pts]))*H
+            hit=any(x0<=px<=x1 and py*H<=YB+b[3]+40 for px,py in pts)
+            SLOT[key]='B' if (lens or hit) else 'T'
+            SLOTBL[key]=(my-70-La<YB+b[3]+10) if SLOT[key]=='T' else (my+70+La<=YB2+b[1])
+        else:
+            SLOT[key]='B' if (lens or hit) else 'T'
+            SLOTBL[key]=(ty-TG-AMIN-CG<YB+b[3]) if SLOT[key]=='T' else (ty+TG+AMIN+CG<=YB2+b[1])
     bl=SLOTBL[key]
     if SLOT[key]=='T': cy=YB; L=ALEN if bl else int(max(AMIN,min(ALEN,ty-TG-CG-(cy+b[3]))))
     else: cy=YB2; L=int(max(AMIN,min(ALEN,(cy+b[1])-CG-TG-ty))) if bl else ALEN
@@ -292,7 +316,8 @@ for t0,t1,c in SEG:
     if key=='mem': rate=min(1.0,rate)   # 컨트롤러가 보이는 동안만 재생, 이후 정지+확대
     fr=frames(s0,s1)
     frA=frames(*T01['action_src']) if T01 else None
-    pts=smooth(TR[key]['pts'],k=21) if key in TR and key!='c5' else None   # v7: 0.7초 평활로 칩 흔들림 줄임 · 2분할 컷은 추적 안 씀
+    pts=smooth(TR[key]['pts'],k=int((CAR or {}).get('track_smooth',21))) if key in TR and key!='c5' else None   # v7: 0.7초 평활로 칩 흔들림 줄임 · 2분할 컷은 추적 안 씀
+    HY=(smooth([[v,v] for v in TR[key]['hy']],k=int((CAR or {}).get('track_smooth',21)))[:,0] if key in TR and TR[key].get('hy') else None)   # 부위 상자 반높이(화살표가 가장자리를 짚게)
     CHIPLAB[key]=clab; Cimg=gchip(clab) if clab else None; Simg=white(sub[0],58) if sub else None
     BIG=[(text3d(b,h=180 if key!='c15' else 210),white(l,58) if l else None,WS[j][1]-t0-0.22) for b,l,j in bigs]; BIGS=[b for b,l,j in bigs]
     _metak=[k for it in MET['items'] for k in it['keywords']]
@@ -367,10 +392,24 @@ for t0,t1,c in SEG:
             else: cx,cy,L,bl=slot_place(key,Cimg,tx,ty,pts,bool(PL.get(key,{}).get('T06'))) if SLOTS else place(Cimg,tx,ty,bl)
             if av and av[0]<=st<=av[1] and t>=tc+0.18:
                 g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*abs(math.sin((t-tc-0.43)*5))) if t>tc+0.43 else 0
-                A,off=(arrimg_hand if str(DECO.get('arrow','')).startswith('hand') else arrimg)(L,bl); A=A.resize(((max(4,round(A.width*Lc/L)) if str(DECO.get('arrow','')).startswith('hand') else A.width),round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
-                if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,L,Lc,bob,cx,cy,Cimg.getbbox()])
-                if bl: tail=ty+TG+L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail-Lc-bob-offc)))
-                else: tail=ty-TG-L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail+bob-offc)))
+                if str(DECO.get('arrow','')).startswith('hand'):   # 노션 손그림 화살표: 길이 고정 · 부위 윗(아랫)가장자리를 짚음 · 칩 쪽으로 기울임
+                    La=int(DECO.get('arrow_len',180)); Lc=max(20,round(La*(0.6+0.4*g)))
+                    A,off=arrimg_hand(La,bl); A=A.resize((max(4,round(A.width*Lc/La)),round(A.height*Lc/La))) if Lc!=La else A
+                    hh=HY[pi]*H if HY is not None else 0; edge=min(float(DECO.get('arrow_edge_max',60)),0.5*hh)   # 상자 가운데에서 가장자리 쪽으로
+                    _cb=Cimg.getbbox(); ang=max(-26.0,min(26.0,((cx+(_cb[0]+_cb[2])/2)-tx)/W*70))*(-1 if not bl else 1)
+                    tipx,tipy=tx,(ty+edge+TG*0.4+bob) if bl else (ty-edge-TG*0.4-bob)
+                    pad=A.height; Bx=Image.new('RGBA',(A.width+2*pad,A.height*2+2*pad),(0,0,0,0))   # 끝점을 가운데 두고 돌림
+                    tip_local=(pad+A.width//2,pad+A.height)
+                    if bl: Bx.alpha_composite(A,(pad,pad+A.height-round(off*Lc/La)))      # 끝이 위: 끝점 아래로 몸통
+                    else: Bx.alpha_composite(A,(pad,pad+round(off*Lc/La)))                 # 끝이 아래: 끝점 위로 몸통
+                    Bx=Bx.rotate(ang,resample=Image.BICUBIC,center=tip_local)
+                    if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,La,Lc,bob,cx,cy,Cimg.getbbox()])
+                    cv.alpha_composite(Bx,(int(tipx-tip_local[0]),int(tipy-tip_local[1])))
+                else:
+                    A,off=arrimg(L,bl); A=A.resize((A.width,round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
+                    if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,L,Lc,bob,cx,cy,Cimg.getbbox()])
+                    if bl: tail=ty+TG+L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail-Lc-bob-offc)))
+                    else: tail=ty-TG-L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail+bob-offc)))
             pop(cv,Cimg,(cx,cy),t,tc)
             if t>=tc+0.2 and key not in {c_['key'] for c_ in CHIPS_LOG}:   # 다 나타난 뒤 한 번 기록(검사는 이 순간 상자를 잼)
                 _bb=Cimg.getbbox(); CHIPS_LOG.append({'key':key,'label':clab,'kind':'point' if av is None else 'callout','t0':round(t0+tc,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['font_px'],'y':int(cy),'box':[int(cx+_bb[0]),int(cy+_bb[1]),int(cx+_bb[2]),int(cy+_bb[3])]})
