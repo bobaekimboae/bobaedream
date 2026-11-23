@@ -51,19 +51,19 @@ C=[('c1',214.5,219.0,0,None,None,None,None,[]),
  ('c2',10.3,12.8,_i('헤드램프'),'풀 LED 헤드램프',_i('헤드램프'),None,(10.4,12.5),[]),
  ('c3',13.5,17.5,_i('휠은'),None,None,None,None,[]),
  ('c4',37.0,42.3,_i('실내는'),None,None,None,None,[]),
- ('c5',48.0,50.8,_i('운전석과'),'듀얼 콕핏',_i('운전석과'),None,None,[]),
- ('c6',51.0,55.5,_i('스티어링'),'마네티노',_i('스티어링'),None,(51.5,55.0),[]),
+ ('c5',48.0,50.8,_i('운전석과'),'듀얼 콕핏',_i('듀얼'),None,None,[]),
+ ('c6',51.0,55.5,_i('스티어링'),'마네티노',_i('마네티노'),None,(51.5,55.0),[]),
  ('c7',66.0,70.5,_i('카본'),'카본 패들 시프트',_i('카본'),None,None,[]),
  ('c8',72.5,78.0,_c8,'디지털 계기판',_c8,None,None,[]),
  ('c9',79.5,83.5,_i('조수석',_c8),'조수석 디스플레이',_i('조수석',_c8),None,(80.0,83.5),[]),
- ('c10',84.6,86.6,_i('가운데'),'8.4인치 세로형 화면',_i('가운데'),None,(84.7,86.6),[]),
- ('c10b',86.8,88.8,_i('아래에'),'기어 셀렉터',_i('아래에'),None,None,[]),
+ ('c10',84.6,86.6,_i('가운데'),'8.4인치 세로 화면',_i('8.4인치'),None,(84.7,86.6),[]),
+ ('c10b',86.8,88.8,_i('아래에'),'기어 셀렉터',_i('기어',_i('아래에')),None,None,[]),
  ('c11',167.0,172.0,_i('소프트탑은'),'소프트탑',_i('소프트탑은'),None,None,[('13.5초','시속 60km 이하 개폐',_i('13.5'))]),
- ('c12',172.5,179.0,_i('후면은'),'LED 테일램프',_i('후면은'),None,None,[]),
+ ('c12',172.5,179.0,_i('후면은'),'LED 테일램프',_i('LED',_i('후면은')),None,(172.5,179.0),[]),   # r14: OWLv2 추적 33/33
  ('c13',125.5,128.5,_i('머플러'),'머플러 4개',_i('머플러'),None,(126.0,128.5),[]),
  ('c14',118.5,122.5,_i('트렁크'),None,None,None,None,[]),
- ('c15',200.3,203.3,_i('엔진은'),'3.9 V8 트윈터보',_i('엔진은'),None,None,[('620마력',None,_i('620'))]),
- ('c16',203.5,208.0,_i('최대'),'엔진 제원',_i('최대'),None,None,[('320km','최고 속도',_i('320'))]),   # r12: 흰 칩 3줄 → 칩+✓ 목록(T02), 계획의 320km 카운트업을 실제로 그림
+ ('c15',200.3,203.3,_i('엔진은'),'3.9 V8 트윈터보',_i('3.9'),None,None,[('620마력',None,_i('620'))]),
+ ('c16',203.5,208.0,_i('최대'),'최대 토크',_i('최대'),None,None,[('320km','최고 속도',_i('320'))]),   # r12: 흰 칩 3줄 → 칩+✓ 목록(T02), 계획의 320km 카운트업을 실제로 그림
 ]
 W_IN_J,W_TY_J,MAT_J,SUB_J,ROOF_J,L255_J=_i('20인치'),_i('245'),_i('베이지'),_i('레드'),_i('지붕'),_i('255')
 EP_J=[_i('토크'),_i('8단'),_i('제로백')]
@@ -128,7 +128,9 @@ SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24
 BIG_LOW=set()   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
 HIDE_SUB=[False]
 BIGS_LOG=[]; BIGS_SEEN=set()
-CHIP_DELAY={}   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
+CHIP_DELAY={}
+NOTRACK={'c5':'fills_frame','c8':'fills_frame','c11':'fills_frame','c7':'not_found','c10b':'not_found'}   # c7·c10b: OWLv2가 0.2초 간격 23·11칸 중 3칸만 찾음(오검출) → 틀린 화살표보다 위쪽 가운데   # r14: 부위가 화면을 가득 채워 화살표가 의미 없는 컷만(매뉴얼 v4.1 §10-4)
+cxc=lambda img:int(W/2-(img.getbbox()[0]+img.getbbox()[2])/2)   # 칠 기준 가로 가운데   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
 def place(Cimg,tx,ty,below):
     bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(SAFE_X-bx0,min(W-SAFE_X-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)
     if below:
@@ -196,7 +198,7 @@ def ring(cv,x,y,t,t_in):   # 부위 표시 고리: 노랑 한 색(사용자 확�
     d.ellipse((x-r,y-r,x+r,y+r),outline=(0,0,0,110),width=12); d.ellipse((x-r,y-r,x+r,y+r),outline=(245,242,0,int(255*g)),width=7)
 def special(key,cv,t,t0):
     for e in PL.get(key,{}).get('T02',[]):   # T02 ✓ 목록: 칩 바로 아래, 칩 왼쪽 선에 맞춰 쌓음
-        cb=gchip(CHIPLAB[key]).getbbox(); x0=M-10+cb[0]; yk=YB+cb[3]+14
+        _g=gchip(CHIPLAB[key]); cb=_g.getbbox(); x0=cxc(_g)+cb[0]; yk=YB+cb[3]+14   # r14: 가운데 칩의 칠 왼쪽 끝
         for r in e['rows']:
             im=ckpill(r['item']+SUFFIX.get(e.get('option','diff_lock'),' 잠금')); b=im.getbbox()
             pop(cv,im,(x0-b[0],yk-b[1]),t,r['at']-t0); yk+=b[3]-b[1]+TP['T02']['row_gap_px']
@@ -313,7 +315,7 @@ for t0,t1,c in SEG:
             bl=BL0
             if av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
                 av=None
-                cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
+                cx,cy=cxc(Cimg),YB   # r14(매뉴얼 v4.1 §10-5): 포인트 칩은 위쪽 300px 가로 가운데 — 큰 숫자와 같은 축(r13은 왼쪽 M-10에 붙어 어정쩡)
                 L=0
             else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
             if av and av[0]<=st<=av[1] and t>=tc+0.18 and TS0<=st<=TS1 and VALID[tix(st)]:
@@ -324,7 +326,7 @@ for t0,t1,c in SEG:
                 else: tail=ty-TG-L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail+bob-offc)))
             pop(cv,Cimg,(cx,cy),t,tc)
             if t>=tc+0.2 and key not in {c_['key'] for c_ in CHIPS_LOG}:   # 다 나타난 뒤 한 번 기록(검사는 이 순간 상자를 잼)
-                _bb=Cimg.getbbox(); CHIPS_LOG.append({'key':key,'label':clab,'kind':'point' if av is None else 'callout','t0':round(t0+tc,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['font_px'],'y':int(cy),'box':[int(cx+_bb[0]),int(cy+_bb[1]),int(cx+_bb[2]),int(cy+_bb[3])]})
+                _bb=Cimg.getbbox(); CHIPS_LOG.append({'key':key,'label':clab,'kind':'point' if av is None else 'callout',**({'no_track_reason':NOTRACK[key]} if av is None and key in NOTRACK else {}),'t0':round(t0+tc,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['font_px'],'y':int(cy),'box':[int(cx+_bb[0]),int(cy+_bb[1]),int(cx+_bb[2]),int(cy+_bb[3])]})
             if Simg is not None:
                 ts=WS[sub[1]][1]-t0-0.06; pop(cv,Simg,(cx+Cimg.width//2-Simg.width//2,cy+Cimg.height-4) if bl else (cx+Cimg.width//2-Simg.width//2,cy-Simg.height+6),t,ts)
         for k2,(B3,BL,tb) in enumerate(BIG):
@@ -410,7 +412,7 @@ if any(c['kind']=='callout' for c in CHIPS_LOG): _TECH.add('callout_arrow')
 if acc: _TECH.add('sfx_rules')
 _TECH|={e['id'] for c in _PLAN['cuts'] for e in c['techniques']}
 json.dump({'bigs':BIGS_LOG,'edition':'feature_video','edition_code':'ED-SIMPLE','renderer':'roma_render.py','order':'picked','voice':os.path.basename(VOICEF),
-           'frame':[W,H],'techniques':sorted(_TECH),'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
+           'frame':[W,H],'words':os.environ.get('ROMA_WORDS',G+'words_clean.json'),'techniques':sorted(_TECH),'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
            'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,
            'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH)}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
 print(OUT,TOTAL)

@@ -210,7 +210,8 @@ def check_chip_mapping(path, P):
             if not first or n_ok < (len(toks) + 1) // 2:
                 bad(f'칩 글자가 말한 낱말이 아님: 「{lab}」 {c["t0"]:.2f}초 (규칙 text_is_spoken_word)')
             else:
-                ws = min(first, key=lambda t: abs(t - c['t0'])); d = c['t0'] - ws
+                # 칩 글자의 낱말 중 가장 먼저 말한 낱말 기준(「헤드램프는 풀 LED」처럼 어순이 칩과 다를 수 있음)
+                ws = min(min(hit(tk), key=lambda t: abs(t - c['t0'])) for tk in toks if hit(tk)); d = c['t0'] - ws
                 (ok if -lead - tol <= d <= tol else bad)(f'칩 등장 시각 「{lab}」 {d:+.2f}초 (낱말 {ws:.2f}초 기준, 규칙 {-lead:.2f}초 ±{tol}초)')
         is_part = any(pw in lab for pw in PART_WORDS)
         if is_part and k == 'point' and not c.get('no_track_reason'):
