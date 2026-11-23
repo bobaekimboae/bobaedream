@@ -245,26 +245,32 @@ _IM = {}
 
 
 def car_matte(G, fi, frame=None):
+    """인트로 차 윤곽: SAM 2.1 마스크(매끈·프레임 간 일관, 유리 포함)를 기준으로 원본 가장자리에 가이드 필터로 붙임.
+    IS-Net은 어두운 소프트탑·유리에서 프레임마다 들쭉날쭉해서 v9부터 쓰지 않음"""
+    if 'al' not in _IM:   # v10: SAM 2.1 → 트라이맵 → ViTMatte 경계 투명도(pseg/intro_alpha.npz)가 있으면 그대로 씀
+        try: _IM['al'] = np.load(G + 'pseg/intro_alpha.npz')['a']
+        except FileNotFoundError: _IM['al'] = None
+    if _IM['al'] is not None:
+        al = _IM['al']; m = al[min(fi, len(al) - 1)].astype(np.float32) / 255
+        pv = _IM.get('prev')
+        if pv is not None and pv[0] == fi - 1: m = m * 0.8 + pv[1] * 0.2
+        _IM['prev'] = (fi, m); return Image.fromarray((m * 255).astype(np.uint8))
     if 'd' not in _IM:
-        try: _IM['d'] = (np.load(G + 'pseg/intro_sam.npz')['m'], np.load(G + 'pseg/intro_bir.npz')['a'])
+        try: _IM['d'] = np.load(G + 'pseg/intro_sam.npz')['m']
         except FileNotFoundError: _IM['d'] = None
     if _IM['d'] is None: return None
-    sm, ba = _IM['d']; i = min(fi, len(sm) - 1, len(ba) - 1)
-    s = cv2.dilate(cv2.resize(sm[i], (W, H), interpolation=cv2.INTER_NEAREST), np.ones((35, 35), np.uint8)).astype(np.float32)
-    s = cv2.GaussianBlur(s, (0, 0), 6)
-    a = cv2.resize(ba[i], (W, H), interpolation=cv2.INTER_CUBIC).astype(np.float32) / 255
-    m = np.clip(a * s, 0, 1)
-    n, lab, st, _ = cv2.connectedComponentsWithStats((m > 0.5).astype(np.uint8), 8)
-    if n > 1: keep = lab == (1 + int(np.argmax(st[1:, 4]))); m = m * cv2.dilate(keep.astype(np.uint8), np.ones((9, 9), np.uint8))
-    hole = (m < 0.5).astype(np.uint8); nh, lh, sh, _ = cv2.connectedComponentsWithStats(hole, 4)   # 차 안쪽 구멍(유리 등) 메우기
+    sm = _IM['d']; i = min(fi, len(sm) - 1)
+    m = cv2.resize(sm[i].astype(np.float32), (W, H), interpolation=cv2.INTER_LINEAR)
+    m = cv2.GaussianBlur(m, (0, 0), 2.5)
+    hole = (m < 0.5).astype(np.uint8); nh, lh, sh, _ = cv2.connectedComponentsWithStats(hole, 4)
     for j in range(1, nh):
         x_, y_, w_, h_, ar = sh[j]
         if x_ > 0 and y_ > 0 and x_ + w_ < W and y_ + h_ < H and ar < 60000: m[lh == j] = 1.0
-    if frame is not None:   # 가이드 필터: 원본 프레임 가장자리에 윤곽을 붙임(선명·정확)
-        m = cv2.ximgproc.guidedFilter(guide=frame, src=m.astype(np.float32), radius=5, eps=2e-3)
-        m = np.clip((m - 0.5) * 1.8 + 0.5, 0, 1)
+    if frame is not None:
+        m = cv2.ximgproc.guidedFilter(guide=frame, src=m, radius=8, eps=1e-3)
+    m = np.clip((m - 0.5) * 2.2 + 0.5, 0, 1)
     pv = _IM.get('prev')
-    if pv is not None and pv[0] == fi - 1: m = m * 0.7 + pv[1] * 0.3   # 프레임 간 떨림 줄이기
+    if pv is not None and pv[0] == fi - 1: m = m * 0.65 + pv[1] * 0.35
     _IM['prev'] = (fi, m)
     return Image.fromarray((m * 255).astype(np.uint8))
 
@@ -274,7 +280,7 @@ def rim(cv, mz, t):
     a = np.array(mz).astype(np.float32) / 255
     edge = np.clip(a - cv2.erode(a, np.ones((5, 5), np.uint8)), 0, 1)
     glow = cv2.GaussianBlur(edge, (0, 0), 6) * 1.6
-    base = 0.35 * ease(t / 0.3)
+    base = 0.18 * ease(t / 0.3)
     xx = np.arange(W)[None, :]; sx = -200 + (W + 400) * ease((t - 0.25) / 0.85)
     sweep = np.exp(-((xx - sx) / 140.0) ** 2) if 0.25 < t < 1.2 else 0
     k = np.clip((edge * 1.0 + glow * 0.6) * (base + 1.4 * sweep), 0, 1)

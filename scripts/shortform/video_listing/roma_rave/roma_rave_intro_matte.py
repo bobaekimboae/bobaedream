@@ -13,7 +13,7 @@ if 'sam' in sys.argv:
     from transformers import Sam2VideoModel, Sam2VideoProcessor
     M = Sam2VideoModel.from_pretrained('facebook/sam2.1-hiera-tiny').eval(); P = Sam2VideoProcessor.from_pretrained('facebook/sam2.1-hiera-tiny')
     small = [cv2.resize(f, (540, 960)) for f in fr]; st = P.init_video_session(video=small, inference_device='cpu', dtype=torch.float32)
-    pos = [(450, 990), (540, 870), (750, 1082), (660, 722)]; neg = [(60, 812), (540, 1589)]
+    pos = [(450, 990), (540, 870), (750, 1082), (660, 722)]; neg = [(60, 812), (540, 1589), (680, 650), (700, 720)]   # 뒤 기둥(D6) 제외
     P.add_inputs_to_inference_session(inference_session=st, frame_idx=0, obj_ids=[1], input_points=[[[[x / 2, y / 2] for x, y in pos + neg]]], input_labels=[[[1] * len(pos) + [0] * len(neg)]])
     out = {}
     with torch.no_grad():

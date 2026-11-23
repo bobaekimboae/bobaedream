@@ -44,3 +44,9 @@
 - 인트로 ROMA 글자를 차 윤곽에 맞춰 따라가게(제목 줄과 겹치면 아래로)
 - 사진 매물용 나세르 인트로 생성기 `nasser_intro.py` + 4대 샘플(피스타·STO·G63·911 터보 S)
 - check_be 통과(로마 v8)
+
+## v9 (2026-11-24)
+- 원인: 로마만 영상 프레임마다 저해상도(540×960) 마스크를 2배 키워 가장자리로 그대로 써서 지붕·유리 경계가 떨리고, SAM이 뒤 기둥을 차로 잡기도 함(사진 인트로는 한 장이라 문제 없음)
+- 해결: SAM 2.1(기둥 제외 점) → 트라이맵 → ViTMatte(Apache-2.0)로 경계 투명도 계산, 글자 뒤 붉은 빛 줄임
+- 비상업이라 제외: MatAnyone(NTU S-Lab), RMBG-2.0
+- check_be 통과 · 확인 링크(병합 후): https://bobaekimboae.github.io/bobaedream/shortform-samples/roma-spider-rave-v9/

@@ -73,6 +73,7 @@ if CH:
         b = im.getbbox()
         if b: bb = b if bb is None else (min(bb[0], b[0]), min(bb[1], b[1]), max(bb[2], b[2]), max(bb[3], b[3]))
     CH = [im.crop(bb) for im in CH]
+    for im in CH: im.putalpha(im.getchannel('A').point(lambda v: 0 if v < 24 else v))   # 옅은 알파 제거(글자 뒤 사각형 방지)
 
 # 제목(로마와 같은 규칙: 노랑 붓칠 브랜드 + 흰 모델명 + 사실 줄)
 HB = chip(BRAND, R['chip']['title_font_px'], title=True); hs = 104; HM = white(MODEL, hs)
@@ -122,7 +123,7 @@ for f in range(int(round(TOTAL * FPS))):
             im = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.LANCZOS)
             y = max(int(bs - CH[-1].height * sc), 575); x = int(cxm - im.width / 2)   # 제목 줄과 겹치면 아래로
             lay = Image.new('RGBA', (W, H))
-            gl = Image.new('RGBA', im.size, GLOW + (0,)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.32))); acx(lay, gl.filter(ImageFilter.GaussianBlur(44)), x, y)
+            gl = Image.new('RGBA', im.size, GLOW + (0,)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.2))); acx(lay, gl.filter(ImageFilter.GaussianBlur(44)), x, y)
             sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 160), (0, 0), im.getchannel('A')); acx(lay, sh.filter(ImageFilter.GaussianBlur(12)), x + 6, y + 16)
             acx(lay, im, x, y)
             a = np.array(lay.getchannel('A')).astype(float) * (1 - np.array(mz).astype(float) / 255); lay.putalpha(Image.fromarray(a.astype(np.uint8)))

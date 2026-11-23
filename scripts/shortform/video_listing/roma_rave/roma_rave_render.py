@@ -243,6 +243,7 @@ _cb = None
 for _im in CHR:
     _b = _im.getbbox(); _cb = _b if _cb is None else (min(_cb[0], _b[0]), min(_cb[1], _b[1]), max(_cb[2], _b[2]), max(_cb[3], _b[3]))
 CHR = [im.crop(_cb) for im in CHR] if CHR else CHR
+for _im in CHR: _im.putalpha(_im.getchannel('A').point(lambda v: 0 if v < 24 else v))   # 블렌더 빈 배경의 옅은 알파 제거(글자 뒤 사각형 원인)
 _mk = {}
 def carmask(fi, frame):
     if fi not in _mk:
@@ -280,7 +281,7 @@ def chrome_behind(cv, raw, mask, t, z, ccx, ccy):
     im = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.LANCZOS)
     y = max(int(base - CHR[-1].height * sc), 575); x = int(cxm - im.width / 2)   # 제목 줄과 겹치면 아래로 밀어 차 뒤로 더 숨김
     lay = Image.new('RGBA', (W, H))
-    gl = Image.new('RGBA', im.size, (255, 40, 30, 0)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.32)))   # 붉은 후광
+    gl = Image.new('RGBA', im.size, (255, 40, 30, 0)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.2)))   # 붉은 후광
     _acx(lay, gl.filter(ImageFilter.GaussianBlur(44)), x, y)
     sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 160), (0, 0), im.getchannel('A')); _acx(lay, sh.filter(ImageFilter.GaussianBlur(12)), x + 6, y + 16)
     _acx(lay, im, x, y)
