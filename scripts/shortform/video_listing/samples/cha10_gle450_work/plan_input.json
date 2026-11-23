@@ -1,0 +1,186 @@
+{
+ "words": "/home/claude/work/gle450/words_clean.json",
+ "src": "/home/claude/work/gle450/src.mp4",
+ "cuts": [
+  {
+   "key": "g1",
+   "start_word": 0,
+   "src": [
+    0.0,
+    2.75
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g2",
+   "start_word": 4,
+   "src": [
+    2.85,
+    4.6
+   ],
+   "tracked": true,
+   "part_box_frac": 0.05
+  },
+  {
+   "key": "g3",
+   "start_word": 9,
+   "src": [
+    5.4,
+    7.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g4",
+   "start_word": 17,
+   "src": [
+    8.2,
+    10.65
+   ],
+   "tracked": true,
+   "part_box_frac": 0.2
+  },
+  {
+   "key": "g5",
+   "start_word": 23,
+   "src": [
+    10.75,
+    13.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g6",
+   "start_word": 27,
+   "src": [
+    15.2,
+    17.4
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g7",
+   "start_word": 31,
+   "src": [
+    17.5,
+    18.6
+   ],
+   "tracked": true,
+   "part_box_frac": 0.06
+  },
+  {
+   "key": "g8",
+   "start_word": 37,
+   "src": [
+    26.85,
+    29.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g9",
+   "start_word": 45,
+   "src": [
+    23.6,
+    25.4
+   ],
+   "tracked": true,
+   "part_box_frac": 0.05
+  },
+  {
+   "key": "g10",
+   "start_word": 49,
+   "src": [
+    20.5,
+    21.8
+   ],
+   "tracked": true,
+   "part_box_frac": 0.08
+  },
+  {
+   "key": "g11",
+   "start_word": 53,
+   "src": [
+    41.7,
+    42.7
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g12",
+   "start_word": 59,
+   "src": [
+    34.85,
+    35.5
+   ],
+   "tracked": true,
+   "part_box_frac": 0.04
+  },
+  {
+   "key": "g13",
+   "start_word": 65,
+   "src": [
+    35.5,
+    36.15
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g14",
+   "start_word": 68,
+   "src": [
+    25.5,
+    26.75
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g15",
+   "start_word": 72,
+   "src": [
+    37.6,
+    40.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g16",
+   "start_word": 74,
+   "src": [
+    43.7,
+    48.1
+   ],
+   "tracked": true,
+   "part_box_frac": 0.07
+  },
+  {
+   "key": "g17",
+   "start_word": 82,
+   "src": [
+    53.0,
+    55.3
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "g18",
+   "start_word": 87,
+   "src": [
+    55.3,
+    57.2
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  }
+ ]
+}

@@ -14,9 +14,13 @@ def pop(cv,img,pos,t,t_in,dur=0.2):   # 검수 기록: 다 나타난 글자·그
         b=img.getbbox(); g=globals(); _LOG.append(['pop',g.get('nfr'),g.get('key'),pos[0]+b[0],pos[1]+b[1],pos[0]+b[2],pos[1]+b[3],round(t_in,3)])
 G=os.environ.get('G350_DIR','/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/g350/')
 ASSET=A
+# 2026-11-24 다른 차(CAR): 차 값(제목·컷·칩·큰 숫자·정보 알약)은 입력 파일 samples/<차>_car.json에서 읽는다. CAR이 없으면 G350 그대로(그림 변화 없음)
+CAR=json.load(open(os.environ['CAR'],encoding='utf-8')) if os.environ.get('CAR') else None
+CARX={c['key']:c for c in CAR['cuts']} if CAR else {}
 CAPY=R['caption']['center_y_px']   # 규칙 파일(옛 67% 직접 쓰기 폐지)
-WD=json.load(open(G+'words5.json'))[:120]   # 120번 이후는 받아쓰기가 지어낸 낱말
+WD=json.load(open(G+'words5.json'))[:None if CAR else 120]   # 120번 이후는 받아쓰기가 지어낸 낱말
 FIX={'라기':'락이','헛더라도':'헛돌아도','나눠줘서':'나눠 줘서','블루텟':'블루텍','주관':'주간등','밝혀져요.':'밝혀 줘요.','위의':'위','썬루프가':'선루프가','3500kg까지':'3,500kg까지','480L,':'480L,','2250L까지':'2,250L까지','넵이':'내비,','공존은':'공조는','디제이,':'디젤,','.1초입니다.':'.1초입니다.','주관등까지':'주간등까지','팬더':'펜더','썰루프도':'선루프도','집':'짐','고급스럽구요,':'고급스럽고요,','네비,':'내비,','자동의':'자동에','55kgm.':'55kg·m.','보베드림':'보배드림','블루텍!':'블루텍','토큰은':'토크는','55kgm,':'55kg·m,','주관등이':'주간등이','헛도라도':'헛돌아도','3,500km까지':'3,500kg까지','2,250리터까지':'2,250L까지','480리터,':'480L,','견인고리,':'견인고리,','디퍼렌셜락이':'디퍼렌셜 락이'}
+if CAR: FIX={}   # 다른 차: 낱말은 대본 글자 그대로(받아쓰기 교정표는 G350 전용)
 WS=[]
 i=0
 while i<len(WD):
@@ -50,7 +54,7 @@ RULESF=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'f
 TP={t['id']:t['params'] for t in RULESF['techniques']}
 SUFFIX={o['key']:o.get('item_suffix','') for o in RULESF['options']}
 # (키, 원본시작, 원본끝, 첫단어, 칩, 칩단어, 보조, 화살표 유효(원본시각 범위), 큰숫자들)
-C=[('c1',108.0,113.0,0,None,None,None,None,[]),
+C=[(c['key'],c['src'][0],c['src'][1],c['start_word'],c.get('chip'),c.get('chip_word'),None,(0,999) if c.get('arrow') else None,[tuple(b) for b in c.get('bigs',[])]) for c in CAR['cuts']] if CAR else [('c1',108.0,113.0,0,None,None,None,None,[]),
  ('c2',100.4,103.2,idx('제논'),'제논 헤드램프',idx('제논'),('LED 주간등',idx('LED')),(0,999),[]),
  ('c3',104.6,107.0,idx('펜더'),'펜더 깜빡이',idx('펜더'),None,(0,999),[]),
  ('c4',10.4,12.2,idx('휠은'),None,None,None,None,[]),
@@ -120,10 +124,11 @@ def gchip(s,size=70):
     return _chips[(s,size)]
 H3={}
 # 첫 화면(벨기에식): 노랑 붓띠 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄
-HB=chip('벤츠',R['chip']['title_font_px'],title=True); HM=white('G350 블루텍',104)
+_T=CAR['title'] if CAR else {'brand':'벤츠','model':'G350 블루텍','sub':'2013년식 · 디젤 · W463'}; TITLE_KEY=C[0][0]
+HB=chip(_T['brand'],R['chip']['title_font_px'],title=True); HM=white(_T['model'],104)
 _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
-while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white('G350 블루텍',_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
-HS=white('2013년식 · 디젤 · W463',58)
+while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white(_T['model'],_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
+HS=white(_T['sub'],58)
 place_chip_y_cap=H*0.58
 SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24px라 칩 3개가 벗어났음
 BIG_LOW={'c7'}   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
@@ -192,7 +197,11 @@ del _yy,_xx,_rr
 def spot(cv,tx,ty,a):
     x0=int(W-tx); y0=int(H-ty); m=(SPOT[y0:y0+H,x0:x0+W]*a).astype('uint8')
     ov=Image.new('RGBA',(W,H),(0,0,0,255)); ov.putalpha(Image.fromarray(m)); return Image.alpha_composite(cv,ov)
+_cpill={}
 def special(key,cv,t,t0):
+    for it in CARX.get(key,{}).get('pills',[]):   # 다른 차: 흰 정보 알약(오토스카우트24 아이콘 + 글자), 말하는 낱말에 맞춰 나옴
+        if it['text'] not in _cpill: _cpill[it['text']]=ipill(as24(it['icon'],54),it['text'],58)
+        im=_cpill[it['text']]; b=im.getbbox(); pop(cv,im,((W-im.width)//2,it['y']-b[1]),t,WS[it['word']][1]-t0-0.06)
     for e in PL.get(key,{}).get('T02',[]):   # T02 ✓ 목록: 칩 바로 아래, 칩 왼쪽 선에 맞춰 쌓음
         cb=gchip(CHIPLAB[key]).getbbox(); x0=M-10+cb[0]; yk=YB+cb[3]+14
         for r in e['rows']:
@@ -285,13 +294,14 @@ for t0,t1,c in SEG:
             cv=Image.new('RGBA',(W,H)); cv.paste(top,(0,0)); cv.paste(bot,(0,H//2))
             ImageDraw.Draw(cv).rectangle((0,H//2-4,W,H//2+3),fill=(255,255,255,255))
         tomap=lambda fx,fy,_x=ccx,_y=ccy,_z=z:((fx*W-_x)*_z+W/2,(fy*H-_y)*_z+H/2)
-        if key=='c1':
+        if key==TITLE_KEY:
             cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,90)))
             pop(cv,HB,(M-10,YB),t,0.08)
-            if not any(c_['kind']=='title' for c_ in CHIPS_LOG) and t>=0.28: _bb=HB.getbbox(); CHIPS_LOG.append({'key':'c1','label':'벤츠','kind':'title','t0':round(t0+0.08,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['title_font_px'],'y':YB,'box':[M-10+_bb[0],YB+_bb[1],M-10+_bb[2],YB+_bb[3]]})
+            if not any(c_['kind']=='title' for c_ in CHIPS_LOG) and t>=0.28: _bb=HB.getbbox(); CHIPS_LOG.append({'key':TITLE_KEY,'label':_T['brand'],'kind':'title','t0':round(t0+0.08,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['title_font_px'],'y':YB,'box':[M-10+_bb[0],YB+_bb[1],M-10+_bb[2],YB+_bb[3]]})
             _hb=HB.getbbox(); pop(cv,HM,(M-10+_hb[2]+6,YB+(_hb[1]+_hb[3]-HM.height)//2),t,0.28); pop(cv,HS,(M-4,YB+_hb[3]+16),t,0.5)   # 칠이 실제로 끝나는 곳 기준(투명 여백 제외)
         if key in('c15',) : cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,70)))
         if key=='c8': cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,40)))
+        if CARX.get(key,{}).get('dim'): cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,CARX[key]['dim'])))
         if Cimg is not None:
             if pts is not None:
                 pi=min(len(pts)-1,int(round((st-s0)*30))); tx,ty=tomap(*pts[pi])
@@ -389,6 +399,7 @@ subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.joi
 # 출고 검사용 계획(check_be.py 영상 검사가 읽음)
 # 2026-11-23 r02: edit_gate.py post가 읽는 판 코드·렌더러·쓴 기법을 기록(그림은 바꾸지 않음). 기법은 이 코드가 실제로 그린 것만.
 _TECH={'bgm','caption_chunks','end_logo','loudness_rule','slow_push','title_brand_chip','big_number_3d','seat_material_3d'}
+if CAR: _TECH-={'seat_material_3d'}; _TECH-=set() if BIGS_LOG else {'big_number_3d'}   # 다른 차: 실제로 그린 것만 기록
 _TECH|={'point_chip' if c['kind']=='point' else 'callout_chip' for c in CHIPS_LOG if c['kind'] in ('point','callout')}
 if any(c['kind']=='callout' for c in CHIPS_LOG): _TECH.add('callout_arrow')
 if acc: _TECH.add('sfx_rules')

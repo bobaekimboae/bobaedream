@@ -1,0 +1,221 @@
+{
+ "cuts": [
+  {
+   "key": "g1",
+   "t0": 0.0,
+   "t1": 3.78,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g2",
+   "t0": 3.78,
+   "t1": 6.47,
+   "options": [
+    "headlight"
+   ],
+   "chip": "헤드램프",
+   "techniques": [
+    {
+     "id": "T05",
+     "option": "headlight",
+     "glow": 116.0,
+     "at": 4.25,
+     "fade_out_at": null
+    }
+   ]
+  },
+  {
+   "key": "g3",
+   "t0": 6.47,
+   "t1": 13.02,
+   "options": [
+    "engine"
+   ],
+   "chip": "엔진 제원",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 10,
+     "value": "2,999cc",
+     "at": 6.8
+    }
+   ]
+  },
+  {
+   "key": "g4",
+   "t0": 13.02,
+   "t1": 16.99,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g5",
+   "t0": 16.99,
+   "t1": 19.26,
+   "options": [
+    "power_tailgate",
+    "trunk"
+   ],
+   "chip": "전동 트렁크",
+   "techniques": []
+  },
+  {
+   "key": "g6",
+   "t0": 19.26,
+   "t1": 21.9,
+   "options": [
+    "sunroof"
+   ],
+   "chip": "전동 선루프",
+   "techniques": []
+  },
+  {
+   "key": "g7",
+   "t0": 21.9,
+   "t1": 25.42,
+   "options": [
+    "climate"
+   ],
+   "chip": "공조 다이얼",
+   "techniques": [
+    {
+     "id": "T08",
+     "option": "climate",
+     "at": 23.35
+    }
+   ]
+  },
+  {
+   "key": "g8",
+   "t0": 25.42,
+   "t1": 30.08,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g9",
+   "t0": 30.08,
+   "t1": 32.51,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g10",
+   "t0": 32.51,
+   "t1": 35.47,
+   "options": [
+    "controller"
+   ],
+   "chip": "커맨드 컨트롤러",
+   "techniques": [
+    {
+     "id": "T08",
+     "option": "controller",
+     "at": 33.83
+    }
+   ]
+  },
+  {
+   "key": "g11",
+   "t0": 35.47,
+   "t1": 38.13,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g12",
+   "t0": 38.13,
+   "t1": 40.57,
+   "options": [
+    "seat_adjust"
+   ],
+   "chip": "전동 시트 조절",
+   "techniques": []
+  },
+  {
+   "key": "g13",
+   "t0": 40.57,
+   "t1": 43.04,
+   "options": [
+    "seat_memory"
+   ],
+   "chip": "메모리 시트",
+   "techniques": [
+    {
+     "id": "T06",
+     "option": "seat_memory",
+     "at": 40.78
+    }
+   ]
+  },
+  {
+   "key": "g14",
+   "t0": 43.04,
+   "t1": 45.56,
+   "options": [
+    "ambient"
+   ],
+   "chip": "앰비언트 라이트",
+   "techniques": [
+    {
+     "id": "T05",
+     "option": "ambient",
+     "glow": 108.2,
+     "at": 43.69,
+     "fade_out_at": null
+    }
+   ]
+  },
+  {
+   "key": "g15",
+   "t0": 45.56,
+   "t1": 48.9,
+   "options": [],
+   "chip": null,
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 73,
+     "value": "20,885km",
+     "at": 46.12
+    }
+   ]
+  },
+  {
+   "key": "g16",
+   "t0": 48.9,
+   "t1": 52.82,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g17",
+   "t0": 52.82,
+   "t1": 57.13,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g18",
+   "t0": 57.13,
+   "t1": 62.32,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  }
+ ],
+ "summary": {
+  "T04": 2,
+  "T05": 2,
+  "T06": 1,
+  "T08": 2
+ }
+}

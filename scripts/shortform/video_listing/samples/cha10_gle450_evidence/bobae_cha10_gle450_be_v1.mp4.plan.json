@@ -1,0 +1,411 @@
+{
+ "bigs": [
+  {
+   "key": "g3",
+   "label": "2,999cc",
+   "kind": "big",
+   "t_box": 7.167,
+   "box": [
+    192,
+    230,
+    888,
+    524
+   ]
+  },
+  {
+   "key": "g15",
+   "label": "20,885km",
+   "kind": "big",
+   "t_box": 46.5,
+   "box": [
+    115,
+    230,
+    965,
+    524
+   ]
+  },
+  {
+   "key": "g18",
+   "label": "7,990만원",
+   "kind": "big",
+   "t_box": 58.133,
+   "box": [
+    175,
+    230,
+    905,
+    524
+   ]
+  }
+ ],
+ "edition": "feature_video",
+ "edition_code": "ED-SIMPLE",
+ "renderer": "g350_v8_render.py",
+ "order": "picked",
+ "voice": "voice5.wav",
+ "frame": [
+  1080,
+  1920
+ ],
+ "techniques": [
+  "T04",
+  "T05",
+  "T06",
+  "T08",
+  "bgm",
+  "big_number_3d",
+  "callout_arrow",
+  "callout_chip",
+  "caption_chunks",
+  "end_logo",
+  "loudness_rule",
+  "point_chip",
+  "sfx_rules",
+  "slow_push",
+  "title_brand_chip"
+ ],
+ "music": true,
+ "total": 64.02,
+ "cuts": [
+  3.78,
+  6.47,
+  13.02,
+  16.99,
+  19.26,
+  21.9,
+  25.42,
+  30.08,
+  32.51,
+  35.47,
+  38.13,
+  40.57,
+  43.04,
+  45.56,
+  48.9,
+  52.82,
+  57.133
+ ],
+ "sfx": [
+  {
+   "t": 0.06,
+   "kind": "title",
+   "sound": "ding"
+  },
+  {
+   "t": 4.25,
+   "kind": "emphasis",
+   "sound": "impact"
+  },
+  {
+   "t": 6.73,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 16.91,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 17.45,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 19.18,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 23.37,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 33.21,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 38.57,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 40.78,
+   "kind": "emphasis",
+   "sound": "impact"
+  },
+  {
+   "t": 43.69,
+   "kind": "emphasis",
+   "sound": "impact"
+  },
+  {
+   "t": 46.05,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 49.53,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 52.74,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 57.69,
+   "kind": "big_number",
+   "sound": "ding"
+  }
+ ],
+ "chips": [
+  {
+   "key": "g1",
+   "label": "벤츠",
+   "kind": "title",
+   "t0": 0.08,
+   "t1": 3.78,
+   "t_box": 0.3,
+   "px": 74,
+   "y": 300,
+   "box": [
+    65,
+    320,
+    250,
+    423
+   ]
+  },
+  {
+   "key": "g2",
+   "label": "LED 헤드램프",
+   "kind": "callout",
+   "t0": 4.349,
+   "t1": 6.47,
+   "t_box": 4.567,
+   "px": 70,
+   "y": 622,
+   "box": [
+    298,
+    654,
+    813,
+    801
+   ]
+  },
+  {
+   "key": "g4",
+   "label": "AMG 휠",
+   "kind": "callout",
+   "t0": 13.35,
+   "t1": 16.99,
+   "t_box": 13.567,
+   "px": 70,
+   "y": 559,
+   "box": [
+    419,
+    589,
+    845,
+    726
+   ]
+  },
+  {
+   "key": "g5",
+   "label": "전동 트렁크",
+   "kind": "point",
+   "t0": 17.47,
+   "t1": 19.26,
+   "t_box": 17.7,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    331,
+    493,
+    467
+   ]
+  },
+  {
+   "key": "g6",
+   "label": "파노라마 선루프",
+   "kind": "point",
+   "t0": 19.87,
+   "t1": 21.9,
+   "t_box": 20.1,
+   "px": 70,
+   "y": 300,
+   "box": [
+    105,
+    332,
+    627,
+    480
+   ]
+  },
+  {
+   "key": "g7",
+   "label": "뒷좌석 공조",
+   "kind": "callout",
+   "t0": 23.39,
+   "t1": 25.42,
+   "t_box": 23.6,
+   "px": 70,
+   "y": 463,
+   "box": [
+    287,
+    494,
+    715,
+    630
+   ]
+  },
+  {
+   "key": "g8",
+   "label": "와이드 디스플레이",
+   "kind": "point",
+   "t0": 28.5,
+   "t1": 30.08,
+   "t_box": 28.7,
+   "px": 70,
+   "y": 300,
+   "box": [
+    66,
+    331,
+    713,
+    468
+   ]
+  },
+  {
+   "key": "g9",
+   "label": "내비게이션",
+   "kind": "callout",
+   "t0": 30.83,
+   "t1": 32.51,
+   "t_box": 31.033,
+   "px": 70,
+   "y": 792,
+   "box": [
+    298,
+    822,
+    724,
+    959
+   ]
+  },
+  {
+   "key": "g10",
+   "label": "터치패드 컨트롤러",
+   "kind": "callout",
+   "t0": 33.23,
+   "t1": 35.47,
+   "t_box": 33.433,
+   "px": 70,
+   "y": 642,
+   "box": [
+    238,
+    673,
+    885,
+    810
+   ]
+  },
+  {
+   "key": "g11",
+   "label": "컵홀더",
+   "kind": "point",
+   "t0": 36.27,
+   "t1": 38.13,
+   "t_box": 36.5,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    330,
+    491,
+    467
+   ]
+  },
+  {
+   "key": "g12",
+   "label": "전동 시트 조절",
+   "kind": "callout",
+   "t0": 38.59,
+   "t1": 40.57,
+   "t_box": 38.8,
+   "px": 70,
+   "y": 750,
+   "box": [
+    40,
+    782,
+    555,
+    929
+   ]
+  },
+  {
+   "key": "g13",
+   "label": "메모리 시트 3개",
+   "kind": "callout",
+   "t0": 40.63,
+   "t1": 43.04,
+   "t_box": 40.833,
+   "px": 70,
+   "y": 701,
+   "box": [
+    40,
+    733,
+    562,
+    881
+   ]
+  },
+  {
+   "key": "g14",
+   "label": "앰비언트 라이트",
+   "kind": "point",
+   "t0": 43.79,
+   "t1": 45.56,
+   "t_box": 44.0,
+   "px": 70,
+   "y": 300,
+   "box": [
+    105,
+    332,
+    627,
+    480
+   ]
+  },
+  {
+   "key": "g16",
+   "label": "서라운드 뷰",
+   "kind": "callout",
+   "t0": 49.55,
+   "t1": 52.82,
+   "t_box": 49.767,
+   "px": 70,
+   "y": 510,
+   "box": [
+    300,
+    541,
+    728,
+    677
+   ]
+  },
+  {
+   "key": "g17",
+   "label": "24년06월 등록",
+   "kind": "point",
+   "t0": 54.37,
+   "t1": 57.133,
+   "t_box": 54.6,
+   "px": 70,
+   "y": 300,
+   "box": [
+    105,
+    332,
+    627,
+    480
+   ]
+  }
+ ],
+ "caption": {
+  "center_y_px": 1283,
+  "font_px": 60,
+  "chunks": 55
+ }
+}
