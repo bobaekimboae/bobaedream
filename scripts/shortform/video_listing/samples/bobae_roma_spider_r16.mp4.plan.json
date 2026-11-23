@@ -1,0 +1,475 @@
+{
+ "bigs": [
+  {
+   "key": "c11",
+   "label": "13.5초",
+   "kind": "big",
+   "t_box": 37.167,
+   "box": [
+    288,
+    485,
+    792,
+    743
+   ]
+  },
+  {
+   "key": "c15",
+   "label": "620마력",
+   "kind": "big",
+   "t_box": 49.4,
+   "box": [
+    223,
+    487,
+    857,
+    685
+   ]
+  },
+  {
+   "key": "c16",
+   "label": "320km",
+   "kind": "big",
+   "t_box": 57.2,
+   "box": [
+    277,
+    998,
+    803,
+    1256
+   ]
+  }
+ ],
+ "edition": "feature_video",
+ "edition_code": "ED-SIMPLE",
+ "renderer": "roma_render.py",
+ "order": "picked",
+ "voice": "voice16f.wav",
+ "frame": [
+  1080,
+  1920
+ ],
+ "words": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/roma/words16.json",
+ "techniques": [
+  "T02",
+  "T03",
+  "T04",
+  "T05",
+  "T06",
+  "T07",
+  "T08",
+  "bgm",
+  "big_number_3d",
+  "callout_arrow",
+  "callout_chip",
+  "caption_chunks",
+  "end_dealer_card",
+  "loudness_rule",
+  "point_chip",
+  "seat_material_3d",
+  "sfx_rules",
+  "slow_push",
+  "title_brand_chip"
+ ],
+ "music": true,
+ "total": 63.42,
+ "cuts": [
+  5.18,
+  7.02,
+  12.04,
+  14.64,
+  17.8,
+  20.56,
+  23.18,
+  25.66,
+  28.66,
+  32.08,
+  34.16,
+  39.1,
+  40.84,
+  43.4,
+  46.0,
+  50.5
+ ],
+ "sfx": [
+  {
+   "t": 0.06,
+   "kind": "title",
+   "sound": "ding"
+  },
+  {
+   "t": 5.38,
+   "kind": "emphasis",
+   "sound": "impact"
+  },
+  {
+   "t": 11.96,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 18.01,
+   "kind": "emphasis",
+   "sound": "impact"
+  },
+  {
+   "t": 18.48,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 23.22,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 32.72,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 34.08,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 36.74,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 39.64,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 40.88,
+   "kind": "emphasis",
+   "sound": "impact"
+  },
+  {
+   "t": 44.6,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 49.523,
+   "kind": "metaphor",
+   "sound": "horse_neigh_el"
+  },
+  {
+   "t": 50.54,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 54.203,
+   "kind": "metaphor",
+   "sound": "stopwatch"
+  },
+  {
+   "t": 56.76,
+   "kind": "big_number",
+   "sound": "ding"
+  }
+ ],
+ "chips": [
+  {
+   "key": "c1",
+   "label": "페라리",
+   "kind": "title",
+   "t0": 0.08,
+   "t1": 5.18,
+   "t_box": 0.3,
+   "px": 74,
+   "y": 300,
+   "box": [
+    65,
+    315,
+    318,
+    455
+   ]
+  },
+  {
+   "key": "c2",
+   "label": "풀 LED 헤드램프",
+   "kind": "callout",
+   "t0": 5.24,
+   "t1": 7.02,
+   "t_box": 5.467,
+   "px": 70,
+   "y": 492,
+   "box": [
+    398,
+    523,
+    1040,
+    659
+   ]
+  },
+  {
+   "key": "c5",
+   "label": "듀얼 콕핏",
+   "kind": "point",
+   "no_track_reason": "fills_frame",
+   "t0": 16.28,
+   "t1": 17.8,
+   "t_box": 16.5,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "c6",
+   "label": "마네티노",
+   "kind": "callout",
+   "t0": 18.5,
+   "t1": 20.56,
+   "t_box": 18.7,
+   "px": 70,
+   "y": 243,
+   "box": [
+    367,
+    273,
+    793,
+    410
+   ]
+  },
+  {
+   "key": "c7",
+   "label": "카본 패들 시프트",
+   "kind": "point",
+   "no_track_reason": "not_found",
+   "t0": 20.62,
+   "t1": 23.18,
+   "t_box": 20.833,
+   "px": 70,
+   "y": 300,
+   "box": [
+    219,
+    331,
+    861,
+    467
+   ]
+  },
+  {
+   "key": "c8",
+   "label": "디지털 계기판",
+   "kind": "point",
+   "no_track_reason": "fills_frame",
+   "t0": 23.24,
+   "t1": 25.66,
+   "t_box": 23.467,
+   "px": 70,
+   "y": 300,
+   "box": [
+    284,
+    332,
+    795,
+    477
+   ]
+  },
+  {
+   "key": "c9",
+   "label": "조수석 디스플레이",
+   "kind": "callout",
+   "t0": 25.72,
+   "t1": 28.66,
+   "t_box": 25.933,
+   "px": 70,
+   "y": 522,
+   "box": [
+    40,
+    553,
+    682,
+    689
+   ]
+  },
+  {
+   "key": "c10",
+   "label": "8.4인치 세로 화면",
+   "kind": "callout",
+   "t0": 29.34,
+   "t1": 32.08,
+   "t_box": 29.567,
+   "px": 70,
+   "y": 683,
+   "box": [
+    181,
+    714,
+    823,
+    850
+   ]
+  },
+  {
+   "key": "c10b",
+   "label": "기어 셀렉터",
+   "kind": "point",
+   "no_track_reason": "not_found",
+   "t0": 32.74,
+   "t1": 34.16,
+   "t_box": 32.967,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ]
+  },
+  {
+   "key": "c11",
+   "label": "소프트탑",
+   "kind": "point",
+   "no_track_reason": "fills_frame",
+   "t0": 34.22,
+   "t1": 39.1,
+   "t_box": 34.433,
+   "px": 70,
+   "y": 300,
+   "box": [
+    330,
+    330,
+    749,
+    465
+   ]
+  },
+  {
+   "key": "c12",
+   "label": "LED 테일램프",
+   "kind": "callout",
+   "t0": 39.66,
+   "t1": 40.84,
+   "t_box": 39.867,
+   "px": 70,
+   "y": 389,
+   "box": [
+    297,
+    421,
+    808,
+    566
+   ]
+  },
+  {
+   "key": "c13",
+   "label": "머플러 4개",
+   "kind": "callout",
+   "t0": 40.9,
+   "t1": 43.4,
+   "t_box": 41.1,
+   "px": 70,
+   "y": 579,
+   "box": [
+    251,
+    609,
+    677,
+    746
+   ]
+  },
+  {
+   "key": "c15",
+   "label": "3.9 V8 트윈터보",
+   "kind": "point",
+   "t0": 46.46,
+   "t1": 50.5,
+   "t_box": 46.667,
+   "px": 70,
+   "y": 300,
+   "box": [
+    219,
+    331,
+    861,
+    467
+   ]
+  },
+  {
+   "key": "c16",
+   "label": "최대 토크",
+   "kind": "point",
+   "t0": 50.56,
+   "t1": 58.32,
+   "t_box": 50.767,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "end",
+   "label": "서울오토갤러리",
+   "kind": "end",
+   "t0": 58.37,
+   "t1": 63.42,
+   "t_box": 58.633,
+   "px": 70,
+   "y": 576,
+   "box": [
+    280,
+    608,
+    799,
+    754
+   ]
+  }
+ ],
+ "labels": [
+  {
+   "label": "20인치",
+   "kind": "num_part",
+   "anchor": "c3",
+   "pt": [
+    586,
+    907
+   ],
+   "box": [
+    367,
+    682,
+    805,
+    847
+   ],
+   "t_box": 7.467
+  },
+  {
+   "label": "앞 245 · 뒤 285",
+   "kind": "num_part",
+   "anchor": "c3t",
+   "pt": [
+    930,
+    1227
+   ],
+   "box": [
+    262,
+    1032,
+    1040,
+    1163
+   ],
+   "t_box": 9.7
+  },
+  {
+   "label": "베이지 가죽",
+   "kind": "material",
+   "anchor": "c4s",
+   "pt": [
+    409,
+    989
+   ],
+   "box": [
+    99,
+    914,
+    720,
+    1063
+   ],
+   "t_box": 12.8
+  }
+ ],
+ "caption": {
+  "center_y_px": 1283,
+  "font_px": 60,
+  "chunks": 54
+ }
+}
