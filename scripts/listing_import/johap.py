@@ -177,11 +177,11 @@ def _title_of(fam: str, h: str, L: list[str]):
     if fam == 'generic':
         for i, l in enumerate(L[:-1]):  # 깨끗한자동차: '[현대]' 한 줄 다음 줄이 '모델 등급'
             m = re.fullmatch(r'\[([^\]]{1,12})\]', l)
-            if m and len(L[i + 1].split()) >= 1 and not L[i + 1].startswith(('판매', '차량')):
+            if m and len(L[i + 1].split()) >= 1 and not L[i + 1].startswith(('판매', '차량', '#')) and m.group(1) not in ('한줄광고', '안내사항', '장착', '미장착', 'TIP'):
                 mo, tr = split_model(L[i + 1].split())
                 return f'{m.group(1)} {L[i + 1]}', m.group(1), mo, tr
         for i, l in enumerate(L[2:], start=2):  # 대전오토몰: '현대 스타리아  (21년~현재) / 디젤 2WD 카고 3인승 / 2022년 10월(2023년식)'
-            if re.match(r'^\d{4}년\s*\d{1,2}월', l) and len(L[i - 2].split()) >= 2 and not re.search(r'\d{4}년', L[i - 2]):
+            if re.match(r'^\d{2,4}년\s*\d{1,2}월', l) and len(L[i - 2].split()) >= 2 and not re.search(r'\d{2,4}년', L[i - 2]):  # KC월드카프라자: 'BMW X6 (G06) / M50i / 21년 02월'
                 head = re.sub(r'\s*\([^)]*\)', '', L[i - 2]).split()
                 mo, tr = split_model(head[1:])
                 tr = ' '.join(x for x in [tr, L[i - 1]] if x) or None
@@ -307,6 +307,11 @@ def read(url: str):
         if not dealer and '매장대표' in L:  # 대전오토몰: '최용석 / 매장대표'
             i = L.index('매장대표')
             dealer = L[i - 1] if re.fullmatch(r'[가-힣]{2,4}', L[i - 1]) else None
+        if '판매자사진' in L:  # KC월드카프라자: '판매자사진 / 239,268호, 뉴히트,히트모터스 / 김재은'
+            i = L.index('판매자사진')
+            if i + 2 < len(L):
+                shop = re.split(r'\s*,\s*', L[i + 1])[-1] or shop
+                dealer = L[i + 2] if re.fullmatch(r'[가-힣]{2,4}', L[i + 2]) else dealer
         if '판매자 다른 매물 보기' in L:  # 대전오토몰: '2F 216 (주)서희디오토'
             i = L.index('판매자 다른 매물 보기')
             if i + 1 < len(L):

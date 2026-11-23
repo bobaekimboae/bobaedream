@@ -623,9 +623,12 @@
    "federation": "",
    "region_short": "경남",
    "builder": "",
-   "family": "unknown",
-   "status": "상세 화면 주소 미확인 · /Car/번호 주소가 첫 화면으로 돌아감(재확인 필요)",
-   "home": "http://kcplaza.co.kr/"
+   "family": "generic",
+   "status": "가동(실매물 확인) · https 주소로 읽음",
+   "home": "https://kcplaza.co.kr/",
+   "detail": "/Car/Info/\\d+/\\d+",
+   "photo": "https://image\\.carffice\\.co\\.kr/api/Image/Car/(\\d+)/1/\\d+(?=[\"\\'])",
+   "photo_group": "most"
   },
   {
    "domain": "mplaza.co.kr",
