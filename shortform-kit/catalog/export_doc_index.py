@@ -1,4 +1,4 @@
-"""클로드가 관리·기재하는 숏폼 깃허브 문서 전체 목록(구글 시트 「문서_목록」 탭 사본).
+"""클로드가 관리·기재하는 숏폼 깃허브 문서 전체 목록(구글 시트 「01_문서_목록」 탭 사본).
 
 python3 shortform-kit/catalog/export_doc_index.py > 문서.json
 출력: [[머리줄...], [행...], ...] — 구분 / 파일 / 제목 / 무엇에 쓰나 / 줄 수 / 마지막 커밋 / 깃허브 링크 / 배포 링크
@@ -9,6 +9,11 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 G = 'https://github.com/bobaekimboae/bobaedream/blob/main/'
 P = 'https://bobaekimboae.github.io/bobaedream/'
 USE = {
+    'shortform-kit/PIPELINE.md': '가장 먼저 여는 문서: 제작 단계 · 버전 체계 · 문서 체계 · 시트 탭 지도',
+    'shortform-kit/EDIT-SPEC.md': '편집 유형 4가지 · 옵션 기능 편집 T01~T08 · 옵션 표시 · 편집 방법 전체의 모든 값(규칙 파일에서 자동 생성)',
+    'shortform-kit/catalog/export_edit_spec.py': 'EDIT-SPEC.md 만들기',
+    'shortform-kit/catalog/export_rules_sheet.py': '규칙 json 7개 → 시트 40~46 탭 표',
+    'scripts/shortform/photo_listing/card_routine_rules.json': '카드 컷 루틴 규칙',
     'shortform-kit/SKILLS-INDEX.md': '영상 만들기 전 먼저 여는 표: 기준 영상·스킬 13개·규칙 파일',
     'shortform-kit/README.md': '숏폼 키트 운영 규칙(버전 번호·폴더 구조)',
     'shortform-kit/CHANGELOG.md': '유일한 버전 기록(규칙·기법·영상 변경)',
@@ -83,7 +88,7 @@ def main():
         rows.append([cat, f, title(f), USE.get(f, ''), n, last(f), G + f, deploy])
 
     g = lambda p: sorted(os.path.relpath(x, ROOT) for x in glob.glob(os.path.join(ROOT, p), recursive=True))
-    for f in ['shortform-kit/SKILLS-INDEX.md', 'shortform-kit/README.md', 'shortform-kit/CHANGELOG.md', 'shortform-kit/LESSONS.md',
+    for f in ['shortform-kit/PIPELINE.md', 'shortform-kit/SKILLS-INDEX.md', 'shortform-kit/EDIT-SPEC.md', 'shortform-kit/README.md', 'shortform-kit/CHANGELOG.md', 'shortform-kit/LESSONS.md',
               'shortform-kit/ROADMAP.md', 'shortform-kit/TOOLS.md']: add('① 운영 문서', f)
     add('① 운영 문서', 'public/shortform-kit/index.html', P + 'shortform-kit/')
     for f in ['shortform-kit/catalog/CATALOG.md', 'shortform-kit/catalog/techniques.json'] + g('shortform-kit/catalog/*.py'): add('② 편집 카탈로그', f)

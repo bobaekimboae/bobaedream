@@ -2,7 +2,8 @@
 
 딜러 매물의 사진·촬영 영상으로 세로 숏폼(인스타 릴스 · 유튜브 쇼츠 · 틱톡)을 **누가, 어떤 매물로 만들어도 같은 편집이 나오게** 하는 기준이다.
 
-- 현재 버전: **v0.4.6** (2026-11-22) — 버전 기록은 [`CHANGELOG.md`](CHANGELOG.md) 하나뿐이다.
+- 현재 버전: **v0.5.1** (2026-11-23) — 버전 기록은 [`CHANGELOG.md`](CHANGELOG.md) 하나뿐이다.
+- **먼저 읽기**: [`PIPELINE.md`](PIPELINE.md)(제작 단계 · 버전 체계 · 문서 체계) → [`SKILLS-INDEX.md`](SKILLS-INDEX.md)(기준 영상 · 스킬) → [`EDIT-SPEC.md`](EDIT-SPEC.md)(편집 유형 · 옵션 기능 편집 T01~T08 · 옵션 표시의 모든 값, 규칙 파일에서 자동 생성)
 - 고치는 곳: 이 깃허브 폴더(`shortform-kit/`)와 규칙 파일(3장)만. 노션·구글 시트·매뉴얼 화면은 보기용 사본이다.
 - 보기 화면: https://bobaekimboae.github.io/bobaedream/shortform-kit/ (`catalog/export_html.py`로 만듦)
 
@@ -88,6 +89,8 @@
 유형마다 고정된 컷: 사진판 1번째 컷 엠블럼, 2번째 컷 기본 정보 카드(2026-11-22 확정), 모든 유형의 끝은 딜러 명함 + 보배드림 로고.
 
 ## 5. 만드는 흐름
+
+> 판별 실행 명령 · 통과 조건 · 걸리는 시간은 [`PIPELINE.md`](PIPELINE.md) 2장이 기준이다. 아래는 부품 구조 설명.
 
 캡컷의 「편집 → 저장 → 업로드」를 부품으로 나눴다. 부품마다 입력 · 출력이 파일(JSON)로 정해져 있어 도구를 바꿔도 나머지는 그대로 돈다. 도구 후보와 판단은 [`TOOLS.md`](TOOLS.md).
 
@@ -195,6 +198,8 @@
 
 | 문서 | 내용 |
 |---|---|
+| [`PIPELINE.md`](PIPELINE.md) | **제작 단계 · 버전 체계 · 문서 체계 · 시트 탭 지도 — 가장 먼저 연다** |
+| [`EDIT-SPEC.md`](EDIT-SPEC.md) | **편집 유형 4가지 · 옵션 기능 편집 T01~T08 · 옵션 표시 · 편집 방법 전체 — 모든 값(자동 생성)** |
 | [`SKILLS-INDEX.md`](SKILLS-INDEX.md) | **편집 스킬 전수 목록 · 기준 영상 · 기술스택 — 영상 전 먼저 연다** |
 | [`skills/`](skills/) | claude.ai 편집 스킬 원문 사본(버전 기록) |
 | [`CHANGELOG.md`](CHANGELOG.md) | 유일한 버전 기록 |
@@ -205,7 +210,8 @@
 | [`research/`](research/) | 조사 기록(무료 효과음 · 배경음 사이트 등) |
 | `docs/shortform/as24-nl-be-edit-manual-v4.md` 외 | AS24 분석 근거 자료(값은 규칙 파일이 우선) |
 | 노션 「숏폼 자동 편집 최종 작업 계획서 · 체크리스트」 | 작업 추적 사본(1-11 · 1-12 · 12~14는 아직 노션에 없음) |
-| 구글 시트 「숏폼 자동 편집 매뉴얼 (깃허브 사본)」 | 표 사본(v0.2.4 기준, v0.3.x는 아직 안 올림) — https://docs.google.com/spreadsheets/d/1c-OdKZMS3OvZK1rfFSIDoTVFy7tYdq3dX_yq7GFafwo/edit |
+| 구글 시트 「보배드림 숏폼 편집 자동 제작 매뉴얼」 | **단일 매뉴얼 시트**(탭 지도는 PIPELINE 5장) — https://docs.google.com/spreadsheets/d/1Puhko4cgmSWMHMELaS1pB4HMj33_6V1iT8t5E4rKCt8/edit |
+| 구글 시트 「숏폼 자동 편집 매뉴얼 (깃허브 사본)」 | 옛 사본(v0.2.4, 2026-11-23부터 갱신 안 함 — 위 단일 시트를 쓴다) — https://docs.google.com/spreadsheets/d/1c-OdKZMS3OvZK1rfFSIDoTVFy7tYdq3dX_yq7GFafwo/edit |
 
 ### 도구 명령
 
@@ -214,6 +220,10 @@ python3 shortform-kit/catalog/build.py          # 사전 검사 + CATALOG.md 만
 python3 shortform-kit/catalog/identify.py 차폴더  # 만든 영상에 쓴 기법을 used_techniques.json으로 기록
 python3 shortform-kit/catalog/export_html.py    # 매뉴얼 화면(public/shortform-kit/index.html) 다시 만들기
 python3 shortform-kit/catalog/export_xlsx.py 출력.xlsx  # 시트 사본용 xlsx
+python3 shortform-kit/catalog/export_edit_spec.py   # EDIT-SPEC.md 다시 만들기(규칙 파일을 바꾼 뒤 꼭)
+python3 shortform-kit/catalog/export_attr_table.py  # 시트 30~33 탭 표
+python3 shortform-kit/catalog/export_rules_sheet.py # 시트 40~46 탭 표
+python3 shortform-kit/catalog/export_doc_index.py  # 시트 01_문서_목록 표
 ```
 
 ## 12. 하루 천 대로 가는 개선 목록 (2026-11-22 크로스체크)

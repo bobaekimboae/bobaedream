@@ -1,5 +1,5 @@
 {
- "version": "1.2",
+ "version": "1.3",
  "updated": "2026-11-23",
  "_what": "판(에디션)마다 쓸 렌더러 하나와 반드시 들어갈 편집 기법을 고정한다. 즉흥 편집 방지 장치(2026-11-22 사용자: 「매뉴얼 없는 즉흥적 편집 방식 대책」). 색·크기·효과음 숫자는 be_locked_rules.json, 이 파일은 '무엇을 쓰는가'만. 사용자가 말할 때만 고친다.",
  "_check": "edit_gate.py pre <판> <렌더러> (렌더 전) · edit_gate.py post <영상.mp4> (렌더 후, .plan.json의 판·렌더러·기법을 이 파일과 대조) · check_be.py <영상.mp4> (색·칩·자막·효과음 숫자)",
@@ -15,9 +15,11 @@
    "order": "picked",
    "_order": "말하는 부위 장면을 골라 잘라 붙이고 순서를 다시 놓는다(기준 G350 v13, 70초). 2026-11-23 사용자: 「기존 잘 작업했던 벤츠 g350 영상 편집 매뉴얼 따른 작업」 → 11-22 「원본 순서·원본 길이 고정」을 되돌림. listing_video_render.py(원본 순서판)는 장면 고르기를 넣기 전까지 비교용",
    "golden": {
-    "name": "G350 v13",
-    "commit": "771f02708",
-    "renderer": "scripts/shortform/video_listing/g350_v8_render.py"
+    "name": "G350 버전 1",
+    "commit": "b9cbc85ba",
+    "renderer": "scripts/shortform/video_listing/g350_v8_render.py",
+    "page": "public/shortform-samples/g350-v1/",
+    "previous": "G350 v13 (771f02708) — 기록"
    },
    "required": [
     "bgm",
@@ -54,7 +56,7 @@
     "video_listing/job_fact_check.py (렌더 전, job.json ↔ facts.json)",
     "edit_gate.py post [--plates]",
     "check_be.py",
-    "기준 영상 비교: public/shortform-samples/g350-v13 같은 시각 화면 나란히(shortform-kit/SKILLS-INDEX.md 6장)"
+    "기준 영상 비교: public/shortform-samples/g350-v1 같은 시각 화면 나란히(shortform-kit/SKILLS-INDEX.md 6장)"
    ],
    "_prep": "make_job.py: facts.json + scenes.json(원본 장면·구역·부위·보이는 것) → job.json 초안(장면 길이 안에 읽히는 문장만, 끝 자동 사실 검사). 사람이 다듬어도 사실 검사·관문을 다시 통과해야 함",
    "renderer_auto_wip": "scripts/shortform/video_listing/listing_video_render.py"
@@ -112,5 +114,8 @@
   "scripts/shortform/dealer_narration_sample.py": "기법 샘플",
   "scripts/shortform/vlog_auto/render.py": "브이로그(별도 판, 아직 판 코드 없음)",
   "scripts/shortform/video_listing/listing_video_render.py": "2026-11-23: 원본 순서·길이 고정판 — 장면 고르기가 빠져 G350 1회차가 v13보다 나빠짐(LESSONS L37). 장면 고르기를 넣고 v13 비교를 통과하기 전까지 비교용"
- }
+ },
+ "_history": [
+  "1.3 (2026-11-23): ED-SIMPLE 기준 영상을 G350 v13 → G350 버전 1로 교체 — 사용자 「최종판을 에이전트들과 같이 개선할 버전 1 영상으로 하자」"
+ ]
 }
