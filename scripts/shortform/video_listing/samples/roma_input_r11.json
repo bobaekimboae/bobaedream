@@ -1,0 +1,176 @@
+{
+ "words": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/roma/words11.json",
+ "src": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/roma/src.mp4",
+ "cuts": [
+  {
+   "key": "c1",
+   "start_word": 0,
+   "src": [
+    214.5,
+    219.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c2",
+   "start_word": 9,
+   "src": [
+    10.3,
+    12.8
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c3",
+   "start_word": 14,
+   "src": [
+    13.5,
+    17.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c4",
+   "start_word": 22,
+   "src": [
+    37.0,
+    42.3
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c5",
+   "start_word": 28,
+   "src": [
+    48.0,
+    50.8
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c6",
+   "start_word": 34,
+   "src": [
+    51.0,
+    55.5
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c7",
+   "start_word": 40,
+   "src": [
+    66.0,
+    70.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c8",
+   "start_word": 46,
+   "src": [
+    72.5,
+    78.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c9",
+   "start_word": 52,
+   "src": [
+    79.5,
+    83.5
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c10",
+   "start_word": 58,
+   "src": [
+    84.6,
+    86.6
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c10b",
+   "start_word": 64,
+   "src": [
+    86.8,
+    88.8
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c11",
+   "start_word": 68,
+   "src": [
+    167.0,
+    172.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c12",
+   "start_word": 76,
+   "src": [
+    172.5,
+    179.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c13",
+   "start_word": 79,
+   "src": [
+    125.5,
+    128.5
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c14",
+   "start_word": 84,
+   "src": [
+    118.5,
+    122.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c15",
+   "start_word": 88,
+   "src": [
+    200.3,
+    203.3
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c16",
+   "start_word": 95,
+   "src": [
+    203.5,
+    208.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  }
+ ]
+}

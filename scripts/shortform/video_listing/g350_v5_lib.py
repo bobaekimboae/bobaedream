@@ -65,12 +65,26 @@ def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, **_):
             score = abs(pad - hi) if pad >= lo else 1e6 + (lo - pad)   # 여백이 모자라면 맨 뒤 후보
             if best is None or score < best[0]: best = (score, name, sc)
     _, name, sc = best; a = _shape(name, sc); top, bot, x0, x1 = _paint_box(a)
-    m = max(0, top - 20); a = a.crop((0, m, a.width, min(a.height, bot + 21))); top, bot = top - m, bot - m   # 칠 윗선을 늘 같은 높이에(원본 판마다 위 여백이 달라 칩이 위아래로 튀던 것 방지)
+    if not TT:   # r06(2026-11-23 「벨기에 매뉴얼대로 붓칠과 글자 위아래 간격」): 칠 높이·글자 자리를 글자가 놓이는 열들의 실제 칠 위·아래로 잰다(가운데 30~70% 열 대신). 기운 판·들쭉날쭉한 끝에서도 칠 높이 = 글자 × 2.0, 글자 = 칠 가운데에서 글자 높이 6% 위
+        def _band(al):
+            t_, b_, l_, r_ = _paint_box(al); xl = l_ + ((r_ - l_) - cw) // 2
+            m_ = np.array(al)[:, max(0, xl):xl + cw] > 128; cols = [np.where(m_[:, i])[0] for i in range(m_.shape[1])]
+            cols = [c for c in cols if len(c)]
+            return (float(np.median([c.min() for c in cols])), float(np.median([c.max() for c in cols]))) if cols else (t_, b_)
+        bt_, bb_ = _band(a); sc = sc * want_h / max(1.0, bb_ - bt_ + 1); a = _shape(name, sc); top, bot, x0, x1 = _paint_box(a)
+        bt_, bb_ = _band(a)
+    m = max(0, top - 20); a = a.crop((0, m, a.width, min(a.height, bot + 21))); top, bot = top - m, bot - m
+    if not TT: bt_, bb_ = bt_ - m, bb_ - m   # 칠 윗선을 늘 같은 높이에(원본 판마다 위 여백이 달라 칩이 위아래로 튀던 것 방지)
     w, h = a.size; dy = 20 - top   # 칠 윗선을 상자 위 35px에 고정
     im = Image.new('RGBA', (w + 30, h + 30 + dy)); fill = Image.new('RGBA', (w, h), color + (255,)); fill.putalpha(a)
     im.alpha_composite(fill, (15, 15 + dy))
     d = ImageDraw.Draw(im); cx = 15 + x0 + (round(TT['side_pad_ink'][0] * th) if TT else ((x1 - x0) - cw) // 2)
     ty = 15 + dy + top + ((bot - top) - th) // 2 - round(FF['text_lift_ink'] * th)
+    if not TT: ty = 15 + dy + round((bt_ + bb_ + 1 - th) / 2 - FF['text_lift_ink'] * th)
+    if not TT:   # 가로도 글자 줄 높이의 칠 안쪽(줄마다 왼·오른 끝 중 가장 안쪽) 가운데에 둔다(판 끝이 파인 곳에 글자가 걸치지 않게)
+        _m = np.array(a) > 128; _rows = [np.where(_m[y])[0] for y in range(max(0, ty - 15 - dy), min(_m.shape[0], ty - 15 - dy + th))]
+        _rows = [r for r in _rows if len(r)]
+        if _rows: _l = max(r.min() for r in _rows); _r = min(r.max() for r in _rows); cx = 15 + _l + ((_r - _l) - cw) // 2
     tx = cx + (iw + gap if icon_left else 0)
     d.text((tx - b[0], ty - b[1]), s, font=f, fill=INK)
     if icon is not None: im.alpha_composite(icon, (cx if icon_left else cx + tw + gap, ty + (th - icon.height) // 2))

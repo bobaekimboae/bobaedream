@@ -173,6 +173,52 @@ def check_video(path):
     if cols:
         mc = np.array(cols).mean(0)
         (ok if np.abs(mc - np.array(YEL)).sum() < 45 else bad)(f'칩 노랑 실측 {tuple(int(x) for x in mc)} (규칙 {RULES["color"]["yellow"]})')
+    if fv: check_chip_mapping(path, P)
+
+
+# ── 옵션 칩 매핑·위치 검사 (2026-11-24 r13 재발 방지, 매뉴얼 v4 §10) ──
+PART_WORDS = ('헤드램프', '테일램프', '램프', '패들', '시프트', '계기판', '디스플레이', '화면', '셀렉터', '기어', '머플러',
+              '다이얼', '마네티노', '콕핏', '휠', '시트', '핸들', '스티어링', '트렁크', '루프', '소프트탑', '엔진', '브레이크', '캘리퍼')
+_norm = lambda s: re.sub(r'[^0-9A-Za-z가-힣.]', '', s)
+
+
+def _words_for(path, P):
+    for a in sys.argv[1:]:
+        if a.startswith('--words='): return json.load(open(a.split('=', 1)[1]))
+    cand = [P.get('words')] + [os.path.join(os.path.dirname(path), n) for n in
+            ((os.path.splitext(P.get('voice') or 'voice')[0] + '_words.json'), 'words.json')]
+    for c in cand:
+        if c and os.path.exists(c): return json.load(open(c))
+    return None
+
+
+def check_chip_mapping(path, P):
+    """칩 글자 = 말한 낱말 · 칩은 그 낱말 시작 근처에 뜸 · 부위 낱말은 화살표 이름표 · 포인트 칩은 가운데."""
+    CH = RULES['chip']; W = (P.get('frame') or [1080, 1920])[0]
+    lead = CH.get('appear_before_word_s', 0.06); tol = 0.3
+    words = _words_for(path, P)
+    W_ = [(_norm(w[0] if isinstance(w, (list, tuple)) else w['word']), float(w[1] if isinstance(w, (list, tuple)) else w['start'])) for w in words] if words else None
+    if W_ is None: bad('낱말 시각 파일 없음 — 칩 글자·시각을 말과 대조 못 함(plan.json에 words 경로를 남기거나 --words=)')
+    for c in P['chips']:
+        k = c.get('kind', 'point'); lab = c['label']
+        if k in ('title', 'end', 'dealer', 'logo'): continue
+        toks = [_norm(t) for t in lab.split() if _norm(t)]
+        if W_ is not None and toks:
+            near = [(w, t) for w, t in W_ if abs(t - c['t0']) < 4]
+            hit = lambda tk: [t for w, t in near if w.startswith(tk[:max(2, min(len(tk), 3))]) or tk.startswith(w[:3] if len(w) >= 3 else '~')]
+            first = hit(toks[0]); n_ok = sum(1 for tk in toks if hit(tk))
+            if not first or n_ok < (len(toks) + 1) // 2:
+                bad(f'칩 글자가 말한 낱말이 아님: 「{lab}」 {c["t0"]:.2f}초 (규칙 text_is_spoken_word)')
+            else:
+                # 칩 글자의 낱말 중 가장 먼저 말한 낱말 기준(「헤드램프는 풀 LED」처럼 어순이 칩과 다를 수 있음)
+                ws = min(min(hit(tk), key=lambda t: abs(t - c['t0'])) for tk in toks if hit(tk)); d = c['t0'] - ws
+                (ok if -lead - tol <= d <= tol else bad)(f'칩 등장 시각 「{lab}」 {d:+.2f}초 (낱말 {ws:.2f}초 기준, 규칙 {-lead:.2f}초 ±{tol}초)')
+        is_part = any(pw in lab for pw in PART_WORDS)
+        if is_part and k == 'point' and not c.get('no_track_reason'):
+            bad(f'부위 낱말 칩이 화살표 없이 위쪽에 고정됨: 「{lab}」 (부위를 찾아 callout으로, 화면 가득·못 찾음이면 no_track_reason 기록)')
+        if k == 'point' and c.get('box'):
+            x0, _, x1, _ = c['box']; off = (x0 + x1) / 2 - W / 2
+            (ok if abs(off) <= 40 else bad)(f'포인트 칩 가운데 정렬 「{lab}」 중심 {off:+.0f}px (규칙 align center, ±40px)')
 
 
 if __name__ == '__main__':

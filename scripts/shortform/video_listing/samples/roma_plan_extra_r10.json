@@ -1,0 +1,46 @@
+{
+ "_what": "r10 새 대사 기준 낱말 번호",
+ "add": [
+  {
+   "key": "c2",
+   "id": "T05",
+   "from_cut_start": true,
+   "fade_out_word": 15
+  },
+  {
+   "key": "c5",
+   "id": "T03",
+   "step_words": [
+    33,
+    36
+   ]
+  },
+  {
+   "key": "c7",
+   "id": "T03",
+   "step_words": [
+    46,
+    48
+   ]
+  },
+  {
+   "key": "c9",
+   "id": "T08",
+   "word": 61
+  },
+  {
+   "key": "c12",
+   "id": "T03",
+   "step_words": [
+    83,
+    84
+   ]
+  },
+  {
+   "key": "c13",
+   "id": "T05",
+   "from_cut_start": true,
+   "fade_out_word": 92
+  }
+ ]
+}
