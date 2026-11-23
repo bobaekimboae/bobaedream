@@ -1,0 +1,259 @@
+{
+ "edition": "feature_video",
+ "edition_code": "ED-FEATURE",
+ "renderer": "be_skeleton_render.py",
+ "renderer_version": "1.0",
+ "order": "edit",
+ "techniques": [
+  "T04",
+  "bgm",
+  "big_number_3d",
+  "callout_arrow",
+  "callout_chip",
+  "caption_chunks",
+  "end_logo",
+  "loudness_rule",
+  "point_chip",
+  "seat_material_3d",
+  "sfx_rules",
+  "slow_push",
+  "title_brand_chip"
+ ],
+ "bigs": [
+  {
+   "key": "c7",
+   "text": "40,208km",
+   "label": "주행거리",
+   "t": 17.5,
+   "src_t": 27.564,
+   "src_end": 29.0
+  },
+  {
+   "key": "c11",
+   "text": "2,690만원",
+   "label": "가격",
+   "t": 27.233,
+   "src_t": 4.315,
+   "src_end": 6.5
+  }
+ ],
+ "src": "src.mp4",
+ "voice": "voice5.wav",
+ "frame": [
+  1080,
+  1920
+ ],
+ "music": true,
+ "total": 33.78,
+ "cuts": [
+  2.91,
+  5.61,
+  8.88,
+  10.91,
+  13.18,
+  15.55,
+  20.13,
+  22.0,
+  24.42,
+  26.98
+ ],
+ "sfx": [
+  {
+   "t": 0.06,
+   "kind": "title",
+   "sound": "ding"
+  },
+  {
+   "t": 8.8,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 9.29,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 15.91,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 17.45,
+   "kind": "big_number",
+   "sound": "ding"
+  },
+  {
+   "t": 24.46,
+   "kind": "chip",
+   "sound": "ding"
+  },
+  {
+   "t": 26.9,
+   "kind": "part_change",
+   "sound": "whoosh"
+  },
+  {
+   "t": 27.21,
+   "kind": "big_number",
+   "sound": "ding"
+  }
+ ],
+ "chips": [
+  {
+   "key": "c1",
+   "label": "볼보",
+   "kind": "title",
+   "t0": 0.08,
+   "t1": 2.91,
+   "t_box": 0.3,
+   "px": 74,
+   "y": 300,
+   "box": [
+    65,
+    320,
+    250,
+    423
+   ]
+  },
+  {
+   "key": "c2",
+   "label": "브론즈 휠",
+   "kind": "callout",
+   "t0": 3.65,
+   "t1": 5.61,
+   "t_box": 3.867,
+   "px": 70,
+   "y": 520,
+   "box": [
+    314,
+    550,
+    746,
+    689
+   ]
+  },
+  {
+   "key": "c3",
+   "label": "볼보 로고 조명",
+   "kind": "point",
+   "t0": 6.91,
+   "t1": 8.88,
+   "t_box": 7.133,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    332,
+    580,
+    479
+   ]
+  },
+  {
+   "key": "c4",
+   "label": "블랙 인테리어",
+   "kind": "point",
+   "t0": 9.31,
+   "t1": 10.91,
+   "t_box": 9.533,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    332,
+    580,
+    479
+   ]
+  },
+  {
+   "key": "c6",
+   "label": "뒷좌석 송풍구",
+   "kind": "point",
+   "t0": 13.73,
+   "t1": 15.55,
+   "t_box": 13.933,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    332,
+    580,
+    479
+   ]
+  },
+  {
+   "key": "c7",
+   "label": "디지털 계기판",
+   "kind": "point",
+   "t0": 15.93,
+   "t1": 20.13,
+   "t_box": 16.133,
+   "px": 70,
+   "y": 300,
+   "box": [
+    65,
+    332,
+    580,
+    479
+   ]
+  },
+  {
+   "key": "c8",
+   "label": "자동 변속기",
+   "kind": "callout",
+   "t0": 20.19,
+   "t1": 22.0,
+   "t_box": 20.4,
+   "px": 70,
+   "y": 165,
+   "box": [
+    214,
+    196,
+    642,
+    332
+   ]
+  },
+  {
+   "key": "c9",
+   "label": "세로형 화면",
+   "kind": "callout",
+   "t0": 22.41,
+   "t1": 24.42,
+   "t_box": 22.633,
+   "px": 70,
+   "y": 410,
+   "box": [
+    267,
+    441,
+    695,
+    577
+   ]
+  },
+  {
+   "key": "c10",
+   "label": "후방 카메라",
+   "kind": "callout",
+   "t0": 24.48,
+   "t1": 26.98,
+   "t_box": 24.7,
+   "px": 70,
+   "y": 757,
+   "box": [
+    340,
+    788,
+    768,
+    924
+   ]
+  }
+ ],
+ "caption": {
+  "center_y_px": 1283,
+  "font_px": 60,
+  "chunks": 17,
+  "box": [
+   142,
+   1242,
+   944,
+   1341
+  ]
+ }
+}

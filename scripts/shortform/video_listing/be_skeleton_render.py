@@ -72,12 +72,14 @@ def subimg(ch,act):
         for w in l:
             d.text((x,y),w,font=BLK,fill=YC if ch[n]==act else (255,255,255),anchor='lm'); n+=1; x+=BLK.getlength(w+' ')
     _sc[k]=im; return im
+CAPBOX=[10**9,10**9,0,0]; BIGS_LOG=[]; USED={'title_brand_chip','caption_chunks','slow_push','end_logo','bgm','loudness_rule'}
 def draw_sub(c,t):
     for q,ch in enumerate(CH):
         a=WS[ch[0]][1]-0.05; b=(WS[CH[q+1][0]][1]-0.05) if q+1<len(CH) else TOTAL
         if a<=t<b:
             act=max([j for j in ch if WS[j][1]<=t+0.02] or [ch[0]])
             im=subimg(ch,act); x=(W-im.width)//2; y=CAPY-im.height//2; c.alpha_composite(im,(x,y))
+            _b2=im.getbbox(); CAPBOX[:]=[min(CAPBOX[0],x+_b2[0]),min(CAPBOX[1],y+_b2[1]),max(CAPBOX[2],x+_b2[2]),max(CAPBOX[3],y+_b2[3])]
             if LOGON: b=im.getbbox(); _LOG.append(['sub',globals().get('nfr'),globals().get('key'),x+b[0],y+b[1],x+b[2],y+b[3],a])
             return
 def smooth(pts,k=7):
@@ -162,7 +164,8 @@ def special(key,cv,t,t0):
             im=ckpill(r['item']+SUFFIX.get(e.get('option','diff_lock'),' 잠금')); b=im.getbbox()
             pop(cv,im,(x0-b[0],yk-b[1]),t,r['at']-t0); yk+=b[3]-b[1]+TP['T02']['row_gap_px']
     cd=CUTD[key]
-    if cd.get('mat'):   # 시트 재질 3D 글자(option_visual_rules: 시트 묶음)
+    if cd.get('mat'):
+        USED.add('seat_material_3d')   # 시트 재질 3D 글자(option_visual_rules: 시트 묶음)
         im=_mat(cd['mat'][0]); pop(cv,im,((W-im.width)//2,int(H*0.50)-im.height-30),t,WS[cd['mat'][1]][1]-t0-0.06,0.3)
     y=int(H*0.12)
     for txt,j in cd.get('pills',[]):
@@ -266,6 +269,7 @@ for t0,t1,c in SEG:
         for k2,(B3,BL,tb) in enumerate(BIG):
             y3=int(H*0.12)
             if Cimg is not None and av is None: y3=max(y3,YB+Cimg.getbbox()[3]+20)
+            if t>=tb and not any(x['key']==key and x['text']==BIGS[k2] for x in BIGS_LOG): BIGS_LOG.append({'key':key,'text':BIGS[k2],'label':bigs[k2][1] or '','t':round(nfr/FPS,3),'src_t':round(st,3),'src_end':round(s1,3)}); USED.add('big_number_3d')
             B3=cnt(BIGS[k2],180,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
         special(key,cv,t,t0)
@@ -323,7 +327,12 @@ LN2=LN+f":measured_I={_j['input_i']}:measured_TP={_j['input_tp']}:measured_LRA={
 fl.append(''.join(mx)+f"amix=inputs={len(mx)}:normalize=0:duration=longest,{LN2},aresample=48000[a]")
 subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.join(fl),'-map','0:v','-map','[a]','-c:v','copy','-c:a','aac','-b:a','192k','-t',str(TOTAL),OUT],check=True)
 # 출고 검사용 계획(check_be.py 영상 검사가 읽음)
-json.dump({'edition':'feature_video','music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
+for _c in CHIPS_LOG:
+    if _c['kind']=='point': USED.add('point_chip')
+    if _c['kind']=='callout': USED.update({'callout_chip','callout_arrow'})
+if acc: USED.add('sfx_rules')
+USED.update(e['id'] for c in _PLAN['cuts'] for e in c['techniques'] if e['id'] in ('T03','T04','T05','T06','T08'))
+json.dump({'edition':'feature_video','edition_code':'ED-FEATURE','renderer':'be_skeleton_render.py','renderer_version':'1.0','order':'edit','techniques':sorted(USED),'bigs':BIGS_LOG,'src':'src.mp4','voice':'voice5.wav','frame':[W,H],'music':True,'total':round(TOTAL,3),'cuts':[round(a,3) for a,b,c in SEG[1:]],
            'sfx':[{'t':a[0],'kind':a[1],'sound':a[2]} for a in acc],'chips':CHIPS_LOG,
-           'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH)}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
+           'caption':{'center_y_px':CAPY,'font_px':R['caption']['font_px'],'chunks':len(CH),'box':CAPBOX if CAPBOX[2] else None}},open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)
 print(OUT,TOTAL)

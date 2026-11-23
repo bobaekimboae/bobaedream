@@ -1,0 +1,57 @@
+[
+ {
+  "key": "c1",
+  "look": "the front of a whole car in a showroom",
+  "need": 2.9
+ },
+ {
+  "key": "c2",
+  "look": "a close-up photo of a car wheel rim",
+  "need": 2.5
+ },
+ {
+  "key": "c3",
+  "look": "a logo light projected on the floor",
+  "need": 2.0
+ },
+ {
+  "key": "c4",
+  "look": "a car dashboard and steering wheel seen from the back seat",
+  "need": 2.0
+ },
+ {
+  "key": "c5",
+  "look": "a car front seat seen through an open door",
+  "need": 2.3
+ },
+ {
+  "key": "c6",
+  "look": "rear seat air vents on the center console",
+  "need": 1.5
+ },
+ {
+  "key": "c7",
+  "look": "a close-up of a car instrument cluster with speedometer",
+  "need": 2.5
+ },
+ {
+  "key": "c8",
+  "look": "a close-up of a car gear shift lever",
+  "need": 2.0
+ },
+ {
+  "key": "c9",
+  "look": "a car touchscreen showing a navigation map",
+  "need": 2.5
+ },
+ {
+  "key": "c10",
+  "look": "a car touchscreen showing a rear view camera",
+  "need": 2.5
+ },
+ {
+  "key": "c11",
+  "look": "the side of a car exterior",
+  "need": 2.5
+ }
+]

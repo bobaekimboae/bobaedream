@@ -152,7 +152,9 @@ def check_video(path):
                     for x_ in range(int(a_ + 0.2 * w_), int(b_ - 0.2 * w_)):
                         r_ = np.where(band[:, x_])[0]
                         if len(r_) >= 5: X_.append(x_); tp_.append(r_.min()); bt_.append(r_.max())
-                if len(X_) > 10:
+                if len(X_) > 10:   # 2026-11-24: 윗선이 중앙값 직선에서 6px 넘게 벗어난 열(글자 위 얇은 칠이 끊긴 곳)은 뺌 — 볼보 10.1° 오탐(칩 그림 자체 6.6°)
+                    _X, _t, _b = np.array(X_), np.array(tp_), np.array(bt_); _k = np.polyfit(_X, _b, 1)[0]; _r = _t - _k * _X; _keep = np.abs(_r - np.median(_r)) <= 6
+                    X_, tp_, bt_ = list(_X[_keep]), list(_t[_keep]), list(_b[_keep])
                     ang = float(np.degrees(-np.arctan((np.polyfit(X_, tp_, 1)[0] + np.polyfit(X_, bt_, 1)[0]) / 2)))
                     want, tol = CH['title_plate_edge_deg_check']
                     (ok if abs(ang - want) <= tol else bad)(f'첫 컷 브랜드 칩 칠 기울기 실측 {ang:.1f}° (벨기에 원본 {want}° ±{tol}°, 판 {CH["title_plate"]["shape"]})')

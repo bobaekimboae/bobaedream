@@ -97,6 +97,58 @@
     "caption_paint",
     "non_yellow_accent"
    ]
+  },
+  "ED-FEATURE": {
+   "ko": "실촬영 영상 매물 · 기준 영상 G350 v13 방식(문장마다 부위 장면을 골라 붙임)",
+   "input": "촬영 영상 + 매물 정보",
+   "renderer": "scripts/shortform/video_listing/be_skeleton_render.py",
+   "prep": [
+    "auto/vlm.py(SigLIP 2 장면 고르기)",
+    "OWLv2 + VitTrack(부위 찾기·추적)"
+   ],
+   "order": "edit",
+   "_order": "2026-11-24 사용자: 「V13 처럼 하고」 — 문장마다 그 부위가 보이는 원본 구간을 골라 붙임(재배치 허용). 원본 순서 판은 ED-SIMPLE 그대로 둠",
+   "golden": {
+    "name": "G350 v13",
+    "commit": "771f02708",
+    "renderer": "scripts/shortform/video_listing/g350_v8_render.py"
+   },
+   "required": [
+    "title_brand_chip",
+    "caption_chunks",
+    "slow_push",
+    "end_logo",
+    "bgm",
+    "loudness_rule"
+   ],
+   "required_if": {
+    "point_chip|callout_chip": "job.cuts에 chip이 하나라도 있으면",
+    "callout_arrow": "chip에 part가 있고 부위를 찾았으면",
+    "big_number_3d": "job.cuts에 bigs가 있으면",
+    "seat_material_3d": "job.cuts에 material이 있으면",
+    "T04": "계획기가 카운트업을 골랐으면",
+    "T08": "계획기가 부위 당기기를 골랐으면",
+    "sfx_rules": "효과음 후보가 하나라도 있으면"
+   },
+   "forbidden": [
+    "emoji_sticker_floating",
+    "chip_tilt",
+    "caption_paint",
+    "non_yellow_accent"
+   ],
+   "voice": {
+    "provider": "ElevenLabs",
+    "model": "eleven_v3",
+    "voice": "Taehyung",
+    "takes": 1,
+    "speech": "합니다체"
+   },
+   "words": "대본 글자(받아쓰기 글자 금지 — 받아쓰기는 시각만)",
+   "checks": [
+    "edit_gate.py post [--plates]",
+    "check_be.py",
+    "v13 비교"
+   ]
   }
  },
  "compare_only": {
