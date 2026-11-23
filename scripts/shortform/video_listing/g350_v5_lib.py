@@ -23,6 +23,12 @@ def _font(n, s):
 def BD(s): return _font('Bold', s)
 def XB(s): return _font('ExtraBold', s)
 def BK(s): return _font('Black', s)
+FA = os.environ.get('BBM_FONT_ACCENT_DIR')   # 섞어 쓰기 시안: 큰 숫자·첫 화면 제목만 다른 글꼴(없으면 기본 글꼴 그대로)
+def ABK(s):
+    if not FA: return BK(s)
+    k = ('accent', s)
+    if k not in _fc: _fc[k] = ImageFont.truetype(os.path.join(FA, 'Accent-Bold.ttf'), s)
+    return _fc[k]
 def tsize(s, f): return f.getbbox(s)
 def ease(x):
     x = max(0.0, min(1.0, x)); return x * x * (3 - 2 * x)
@@ -79,7 +85,7 @@ def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, **_):
 def chip(s, size=CHIP_PX, icon=None, title=False):
     """노랑 칩: 노션 원본 칠 판(fill_fit) + 검정 글자. 기울기는 규칙 값(2026-11-22부터 0).
     title=True(첫 컷 브랜드 칩)만 벨기에 원본 판 chip.title_plate(430_239, 판 자체 기울기)·좌우 여백 좁게, 글자는 수평."""
-    im = brush_box(s, XB(size), YEL, icon, title_plate=title)
+    im = brush_box(s, ABK(size) if title else XB(size), YEL, icon, title_plate=title)
     return im.rotate(TILT, resample=Image.BICUBIC, expand=True) if TILT else im
 
 def info_pill(s, size, icon=None, icon_left=False):
@@ -89,8 +95,8 @@ def info_pill(s, size, icon=None, icon_left=False):
     out = Image.new('RGBA', im.size); out.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7))); out.alpha_composite(im)
     return out
 
-def white(s, size):
-    f = BK(size); b = tsize(s, f); pad = 14
+def white(s, size, accent=False):
+    f = ABK(size) if accent else BK(size); b = tsize(s, f); pad = 14
     im = Image.new('RGBA', (b[2] - b[0] + pad * 2 + 8, b[3] - b[1] + pad * 2 + 8)); sh = Image.new('RGBA', im.size)
     ImageDraw.Draw(sh).text((pad + 3 - b[0], pad + 5 - b[1]), s, font=f, fill=(0, 0, 0, 230), stroke_width=4, stroke_fill=(0, 0, 0, 230))
     im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
@@ -102,7 +108,7 @@ def text3d(txt, h=180, face=None, side=(58, 52, 0), split=True):
     face = face or YEL
     m = re.match(r'^([\d.,+~]+)\s*(.*)$', txt) if split else None
     parts = [(m.group(1), 1.0), (m.group(2), 0.62)] if m and m.group(2) else [(txt, 1.0)]
-    fs = [BK(int(h * k)) for _, k in parts]; bbs = [f.getbbox(p, anchor='ls') for (p, _), f in zip(parts, fs)]   # 글자 바닥선 기준
+    fs = [ABK(int(h * k)) for _, k in parts]; bbs = [f.getbbox(p, anchor='ls') for (p, _), f in zip(parts, fs)]   # 글자 바닥선 기준
     depth = max(4, int(h * 0.06)); gap = int(h * 0.04)
     tw = sum(b[2] - b[0] for b in bbs) + gap * (len(parts) - 1); top = min(b[1] for b in bbs); base = max(b[3] for b in bbs)
     im = Image.new('RGBA', (tw + depth + 40, base - top + depth + 40)); sh = Image.new('RGBA', im.size)

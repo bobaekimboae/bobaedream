@@ -144,9 +144,9 @@ def gchip(s,size=70):
 H3={}
 # 첫 화면(벨기에식): 노랑 붓띠 제조사 + 같은 줄 흰 큰 모델명 + 아래 한 줄
 _T=CAR['title'] if CAR else {'brand':'벤츠','model':'G350 블루텍','sub':'2013년식 · 디젤 · W463'}; TITLE_KEY=C[0][0]
-HB=chip(_T['brand'],R['chip']['title_font_px'],title=True); HM=white(_T['model'],104)
+HB=chip(_T['brand'],R['chip']['title_font_px'],title=True); HM=white(_T['model'],104,accent=True)
 _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
-while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white(_T['model'],_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
+while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white(_T['model'],_hs,accent=True)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
 HS=white(_T['sub'],58)
 place_chip_y_cap=H*0.58
 # 2026-11-24 칩 슬롯 규격(다른 차 입력 chip_layout="slots"일 때만): 모든 칩은 같은 왼쪽 선(M-10), 세로는 T줄(YB) 또는 B줄(YB2) 두 자리뿐.

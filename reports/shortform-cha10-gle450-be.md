@@ -156,3 +156,10 @@
 - 참고 릴스(마이바흐 브랜드센터, DgEpLPUzKtt) 자막은 G마켓 산스 Bold로 판단.
 - 검증: 비교용이라 check_be · edit_gate는 돌리지 않았다. 듣기 검수 안 함.
 ![글꼴 비교](shortform-cha10-gle450-be/font_compare_v1.jpg)
+
+## 글꼴 섞어 쓰기 시안(2026-11-24)
+- 한 일: v9 편집 그대로, 큰 숫자(3D)와 첫 화면 제목(브랜드 판 글자 · 모델명)만 G마켓 산스 Bold로 바꾼 `bobae_cha10_gle450_be_v9_fontmix.mp4`(64초). 말 자막 · 칩 · 알약 · 제목 아래 사실 줄은 프리텐다드 그대로.
+- 코드: `g350_v5_lib.py`에 `BBM_FONT_ACCENT_DIR`(없으면 기존과 같음), `g350_v8_render.py` 제목 모델명에 적용. 규칙 값은 바꾸지 않았다.
+- 검증: check_be 통과, edit_gate post --plates 통과(규칙 통과). v13 비교는 v6에서 한 것과 편집이 같아 다시 하지 않았다. 듣기 검수 안 함(소리는 v9와 같음).
+- 남은 것: G마켓 산스 파일은 저장소에 넣지 않았다(채택되면 라이선스 글과 함께 fonts 폴더에 추가).
+![섞어 쓰기](shortform-cha10-gle450-be/fontmix_v1.jpg)
