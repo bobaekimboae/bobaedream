@@ -181,3 +181,9 @@ r12는 **86점 / 100점**(r11 79점에서 +7)이다. 숫자 위치, ✓ 목록, 
   - 번호판 「머플러 4개」 오탐 — 43.9초 화면을 직접 봐서 번호판 없음 확인
 
 ![r13(위) · r14(아래)](work-roma-spider/r13_vs_r14.png)
+
+## 끝 화면 결정 (2026-11-24)
+
+- 사용자 결정: 「딜러 카드로 엔딩」
+- `edition_lock.json` v1.3에서 ED-SIMPLE 필수 기법을 `end_logo|end_dealer_card`(둘 중 하나)로 바꿨다. `edit_gate.py`가 「a|b」 표기를 읽는다.
+- r14 edit_gate post 결과: 실패 1건만 남음 — 렌더러 미등록(`roma_render.py`). 번호판 경고(--plates)는 오탐으로 확인했다.
