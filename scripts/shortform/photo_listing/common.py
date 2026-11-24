@@ -441,6 +441,7 @@ def fit_frame(n, img, fx, z):
     dx0, dy0 = max(0, x0), max(0, y0)
     ww = min(fg.shape[1] - sx0, W - dx0); hh = min(fg.shape[0] - sy0, H - dy0)
     out[dy0:dy0 + hh, dx0:dx0 + ww] = fg[sy0:sy0 + hh, sx0:sx0 + ww]
+    AFF[n] = (fw / w, fh / h, x0, y0, w, h)   # 2026-11-24: FIT 사진도 변환 기록 — 없으면 부위 스티커(시트 아이콘·휠 인치)가 통째로 빠졌음
     return out
 
 
@@ -1750,7 +1751,11 @@ def _sfx_plan():
     if _isfx:                                                     # v1.7: 자동 아이콘(열선·통풍·마사지·메모리·공조 등) 톡 나올 때 작은 팝
         for sk in STICKERS_R:
             if sk.get('auto') and sk.get('emo') and sk.get('appear', 'pop') == 'pop':
-                ev.append(('icon', onset(sk['w']) - 0.07, _isfx['vol']))
+                own = sk.get('sfx')   # 2026-11-24 사용자 「통풍 열선 마사지 개별 효과음」: 시트 아이콘은 기능마다 자기 소리
+                if own and own != 'pop' and os.path.exists(f'{ASSET}/sfx/{own}.wav'):
+                    ev.append(('seat:' + own, onset(sk['w']) - 0.05, sk.get('sfx_vol', 0.42)))
+                else:
+                    ev.append(('icon', onset(sk['w']) - 0.07, _isfx['vol']))
     for ci, c in enumerate(CUTS):                                 # 단계 공개(체크 한 줄 켜짐)에 팝
         if ci and c[5] == 'reveal':
             ev.append(('pop', FW[ci][1] - 0.04 if ci in FW else starts[ci], .42))
@@ -1771,6 +1776,8 @@ def _sfx_plan():
             if e[0] in _metaphor_names():
                 out[-1] = e
                 continue
+            if e[0].startswith('seat:') and out[-1][0].startswith('seat:'):
+                out.append(e); continue   # 시트 아이콘 소리끼리는 서로 다른 소리라 둘 다 남김(같은 소리 간격 규칙은 아래에서 따로 봄)
             if (e[0] != 'whoosh' and out[-1][0] == 'whoosh') or (e[0] not in ('whoosh', 'icon') and out[-1][0] == 'icon'):
                 out[-1] = e   # 칩·딩이 휙·아이콘 팝보다 우선
             continue
@@ -1778,13 +1785,14 @@ def _sfx_plan():
     _same = _BE['sfx'].get('same_sound_min_gap_s', 0.6)   # 2026-11-24 같은 소리(팝·팝)가 규칙 간격보다 붙으면 뒤 것을 뺌(짧은 카드 공개 컷·아이콘)
     _o2 = []
     for e in out:
-        _p = [x for x in _o2 if ('pop' if x[0] == 'icon' else x[0]) == ('pop' if e[0] == 'icon' else e[0])]
+        _nm = lambda q: 'pop' if q == 'icon' else q.split(':')[-1]
+        _p = [x for x in _o2 if _nm(x[0]) == _nm(e[0])]
         if _p and e[1] - _p[-1][1] < _same:
             continue
         _o2.append(e)
     out = _o2
     g = float(os.environ.get('BBM_SFX_GAIN') or getattr(C, 'SFX_GAIN', 1.6))  # 2026-11-17 사용자: 효과음(틱·팝) 더 크게 — 기본 1.6배(약 +4dB)
-    return [('pop' if n == 'icon' else n, max(0.0, t), min(1.0, v * g)) for n, t, v in out]
+    return [('pop' if n == 'icon' else n.split(':')[-1], max(0.0, t), min(1.0, v * g)) for n, t, v in out]
 
 
 def mix_audio():

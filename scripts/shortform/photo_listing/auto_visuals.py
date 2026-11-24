@@ -179,7 +179,9 @@ def _seat_bundle(C, words, cuts, opts, lay, report):
     if ci is None:
         report.append('시트 사진 없음: 시트 묶음 생략')
         return []
-    sb = lay['seat_bundle']
+    sb = dict(lay['seat_bundle'])
+    if getattr(C, 'SEAT_ICON_FIT', None):   # 2026-11-24 사용자 「시트는 나세르처럼」: 차량별로 아이콘을 더 크게(등받이 폭 비율, 최소, 최대 px)
+        sb['icon_fit'] = list(C.SEAT_ICON_FIT)
     photo, a = cuts[ci][0], cuts[ci][2]
     b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1
     rules = {r['id']: r for r in RULES['options']}
@@ -202,7 +204,7 @@ def _seat_bundle(C, words, cuts, opts, lay, report):
         if wi is None:
             wi = min(a + k, b)   # 말하지 않은 기능(대본 수정 전)은 컷 첫머리부터 하나씩 톡
             k += 1
-        out.append({**common, 'w': wi, 'auto': oid + '@seat', 'emo': r['visual']['emo'], 'h': 130,
+        out.append({**common, 'w': wi, 'auto': oid + '@seat', 'emo': r['visual']['emo'], 'h': 130, 'sfx': r.get('sfx'),
                     'fit': tuple(sb['icon_fit']) + ('w',), 'seat_idx': idx})
     mat = (opts.get('seat_material') or {}).get('material')
     if 'seat_material' in opts and not mat:
