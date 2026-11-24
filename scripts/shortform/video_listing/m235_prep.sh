@@ -14,3 +14,4 @@ P
 case "$2" in http*) curl -s -o voice_raw.mp3 "$2";; *) cp "$2" voice_raw.mp3;; esac
 python3 $H/place_voice.py $D
 python3 -c "import json;w=json.load(open('words.json'));json.dump([x[:3] for x in w],open('words_clean.json','w'),ensure_ascii=False)"
+python3 $H/feature_edit_planner.py $H/samples/m235_input.json --out $D/plan_auto.json

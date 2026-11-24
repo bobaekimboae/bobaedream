@@ -63,7 +63,7 @@ C=[]
 for k,(key,w0,lab,cw,bg) in enumerate(_CT):
     s0=_st[k]; s1=_st[k+1] if k+1<len(_CT) else VOICE+1.7
     cwi=_i(cw,_fw[k]) if cw else None
-    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 and key not in NOTRACK else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
+    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 and key not in ('c7','c11','c13') else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
 ENDT=WS[_i('자세한')][1]-0.12; TOTAL=VOICE+1.7
 starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]

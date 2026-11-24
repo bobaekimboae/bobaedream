@@ -108,11 +108,12 @@ def av_sync(video, P, max_ms=40):
         bad(f'음성 싱크: 음성 파일 없음 {os.path.basename(vp)}'); return
     sr, hop = 8000, 80                                  # 10ms 단위 곡선
     env = lambda x: np.sqrt(np.convolve(x * x, np.ones(hop) / hop, 'same')[::hop] + 1e-9)
-    a, b = env(_pcm(vp, sr, 30)), env(_pcm(video, sr, 30))
-    n = min(len(a), len(b)); a, b = np.log(a[:n]), np.log(b[:n]); a -= a.mean(); b -= b.mean()
-    lags = range(-100, 101)                             # ±1초
-    cc = [float(np.dot(a[max(0, -k):n - max(0, k)], b[max(0, k):n - max(0, -k)])) for k in lags]
-    lag_ms = lags[int(np.argmax(cc))] * 10
+    # 2026-11-24: 소리 크기 곡선은 배경음이 크면 엉뚱한 자리를 잡음(M235i 실측: 배경음 0이면 0ms, 0.3이면 +930/-550ms).
+    # 영상 소리에는 voice.wav가 그대로 섞여 있으므로 파형 자체를 맞대어(FFT 교차상관) 배경음이 있어도 같은 자리를 찾는다.
+    x, y = _pcm(vp, sr, 30), _pcm(video, sr, 30); n = min(len(x), len(y)); x, y = x[:n] - x[:n].mean(), y[:n] - y[:n].mean()
+    m = 1 << int(np.ceil(np.log2(2 * n))); cc = np.fft.irfft(np.conj(np.fft.rfft(x, m)) * np.fft.rfft(y, m), m)
+    lim = sr                                            # ±1초
+    cand = np.concatenate([cc[m - lim:], cc[:lim + 1]]); lag_ms = int(round((int(np.argmax(np.abs(cand))) - lim) / sr * 1000))
     (ok if abs(lag_ms) <= max_ms else bad)(f'음성↔자막 시간축 어긋남 {lag_ms:+d}ms (규칙 ±{max_ms}ms)')
 
 
