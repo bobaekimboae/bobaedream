@@ -52,7 +52,7 @@ _i=idx
 _cut=lambda k:(_i(k),)
 # (키, 원본시작, 원본끝, 첫단어, 칩, 칩단어, 보조, 화살표 유효(원본시각), 큰숫자) — 원본 시간축 = 목소리 시간축
 _CT=[('c1',None,None,None,[]),('c2','앞에는','LED 헤드램프','LED',[]),('c3','휠','블루 캘리퍼','블루',[]),('c4','뒤에는','듀얼 머플러','듀얼',[]),
- ('c5','4륜구동','xDrive 4륜구동','xDrive',[]),('c6','문을','M 퍼포먼스 로고','퍼포먼스',[]),('c7','도어','도어 스텝','도어',[]),('c8','실내는','레드 가죽 시트','레드',[]),
+ ('c5','4륜구동','4륜구동 xDrive','4륜구동',[]),('c6','문을','M 퍼포먼스 로고','퍼포먼스',[]),('c7','도어','도어 스텝','도어',[]),('c8','실내는','레드 가죽 시트','레드',[]),
  ('c9','도어엔','앰비언트 라이트','앰비언트',[]),('c10','뒷좌석까지','레드 가죽 뒷좌석','뒷좌석까지',[]),('c11','핸들엔','크루즈 컨트롤','크루즈',[]),
  ('c12','주행거리는',None,None,[('16,665km','주행거리','16,665km')]),('c13','헤드업','헤드업 디스플레이','헤드업',[]),('c14','후방','후방 카메라','후방',[]),
  ('c15','주행','주행 모드','주행',[]),('c16','보닛','M 퍼포먼스 엔진','퍼포먼스',[]),('c17','보배드림',None,None,[])]
@@ -63,7 +63,7 @@ C=[]
 for k,(key,w0,lab,cw,bg) in enumerate(_CT):
     s0=_st[k]; s1=_st[k+1] if k+1<len(_CT) else VOICE+1.7
     cwi=_i(cw,_fw[k]) if cw else None
-    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
+    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 and key not in NOTRACK else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
 ENDT=WS[_i('자세한')][1]-0.12; TOTAL=VOICE+1.7
 starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]
@@ -130,7 +130,7 @@ def label_log(lab,kind,anchor,pt,pos,img,t,tin,reason=None):   # r15: 부위에 
     b=img.getbbox(); LABELS_LOG[lab]={'label':lab,'kind':kind,'anchor':anchor,'pt':[int(pt[0]),int(pt[1])] if pt else None,
         'box':[int(pos[0]+b[0]),int(pos[1]+b[1]),int(pos[0]+b[2]),int(pos[1]+b[3])],'t_box':round(CUR.get('T',0),3),**({'no_anchor_reason':reason} if reason and not pt else {})}
 CHIP_DELAY={}
-NOTRACK={k:'fills_frame' for k in ('c5','c10','c14','c15','c16')}; NOTRACK.update({'c11':'not_found','c13':'not_found'})   # OWLv2가 핸들 버튼 대신 계기판, HUD 대신 빈 유리를 잡음 → 틀린 화살표 대신 위쪽 칩
+NOTRACK={k:'fills_frame' for k in ('c5','c10','c14','c15','c16')}; NOTRACK.update({'c11':'not_found','c13':'not_found','c7':'fills_frame'})   # OWLv2가 핸들 버튼 대신 계기판, HUD 대신 빈 유리를 잡음 → 틀린 화살표 대신 위쪽 칩
 cxc=lambda img:int(W/2-(img.getbbox()[0]+img.getbbox()[2])/2)   # 칠 기준 가로 가운데   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
 def place(Cimg,tx,ty,below):
     bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(SAFE_X-bx0,min(W-SAFE_X-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)
@@ -140,6 +140,8 @@ def place(Cimg,tx,ty,below):
     if not below:
         y=ty-TG-L-CG-by1
         if y+by0<150: L=max(AMIN,int(L-(150-(y+by0)))); y=ty-TG-L-CG-by1
+        _cap=CAPY-62-by1   # r01: 부위가 낮으면(머플러) 칩이 말 자막 띠(자막 중심-60)로 내려오지 않게 칩을 올리고 화살표를 늘림
+        if y>_cap: y=_cap; L=int(ty-TG-CG-by1-y)
     return x,int(y),L,below
 
 FL='/home/claude/bobaedream/scripts/shortform/photo_listing/fluent3d/'
