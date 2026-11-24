@@ -279,7 +279,7 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
     for ci, c in enumerate(cuts):
         if ci == 0 and NUM['skip_first_cut']:
             continue
-        if c[0] in getattr(C, 'CARD_PHOTOS', ()):   # 2026-11-24 독립 카드 컷(차량 정보 등)은 카드 칸이 숫자를 이미 보여 줌
+        if c[0] in getattr(C, 'CARD_PHOTOS', ()) or c[0] in getattr(C, 'NUM_SKIP_PHOTOS', ()):   # 2026-11-24 독립 카드 컷(차량 정보 등)은 카드 칸이 숫자를 이미 보여 줌 · NUM_SKIP_PHOTOS = 카드에 이미 나온 숫자(배기량) 컷
             continue
         a = c[2]
         b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1

@@ -70,7 +70,7 @@ mo = bpy.data.objects.new('tm', me); sc.collection.objects.link(mo); sc.collecti
 me.materials.append(face); me.materials.append(side)
 for pl in me.polygons: pl.material_index = 0 if pl.normal.z > 0.55 else 1
 bpy.context.view_layer.update()
-s = min(10.2 / mo.dimensions.x, 4.4 / mo.dimensions.y); mo.scale = (s, s, s)   # 2026-11-24 짧은 이름(Q8)도 화면 안에(높이 상한)
+s = min(float(os.environ.get("BL_TW", 10.2)) / mo.dimensions.x, 4.4 / mo.dimensions.y); mo.scale = (s, s, s)   # 2026-11-24 짧은 이름(Q8)도 화면 안에(높이 상한)
 os.makedirs(OUT, exist_ok=True)
 
 

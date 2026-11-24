@@ -120,7 +120,7 @@ starts = [0.0] + [onset(c[2]) - 0.12 for c in CUTS[1:]]
 
 def _bgm_beats():
     """배경음 박자 시각(초). 처음 한 번 librosa로 재고 bgm 폴더 옆 json에 저장(배경음은 0초부터 깔림, atrim=0)"""
-    src = f'{ASSET}/bgm/bobae_showroom_v1.mp3'
+    src = f'{ASSET}/bgm/' + getattr(C, 'BGM', 'bobae_showroom_v1.mp3')   # 2026-11-24 cfg BGM으로 배경음 바꿈(역동적: orshot_sports_highlights_bed_v1.mp3)
     cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bgm_beats.json')
     db_ = json.load(open(cache)) if os.path.exists(cache) else {}
     key = os.path.basename(src) + ':' + str(os.path.getsize(src))
@@ -281,6 +281,8 @@ for c in CAPS:  # 문장 마지막 자막도 페이드 시작 전에 내려감
         # 문장 사이 쉼이 없어 말이 페이드 안까지 이어지면(쉼 0.15초 미만) 자막을 페이드 끝까지 남김 — 말하는데 자막이 비지 않게
         tight = b - a <= 0.30
         c['e'] = max(c['s'] + 0.3, min(c['e'], b - 0.03) if tight else a)
+    elif ci + 1 < len(CUTS) and ci + 1 not in FW and c['e'] > starts[ci + 1]:   # 2026-11-24 휙·확대 넘김: 앞 문장 자막이 다음 사진 위에 남지 않게 컷 시작에서 내림
+        c['e'] = max(c['s'] + 0.3, starts[ci + 1])
 
 # ── 3) 사진 그리기(켄번스) ──
 PH = {}
@@ -892,7 +894,8 @@ def footer_layer(ov, T):
         return
     ci = _cut_at(T)
     def card(i):
-        return 20 <= CUTS[i][0] < 60
+        cp = getattr(C, 'CARD_PHOTOS', None)   # 2026-11-24 카드 컷 번호를 적어 두면 그것만(실사진 p20~59에서 딜러 줄이 깜빡이지 않게)
+        return CUTS[i][0] in cp if cp is not None else 20 <= CUTS[i][0] < 60
     a = 1.0
     if card(ci):
         a = 0.0
@@ -1788,7 +1791,7 @@ def mix_audio():
     # ── 5) 소리: 목소리 + 배경음(살짝, 목소리 나오면 줄임) + 효과음 → -14 LUFS ──
     SFX = sfx_plan()
     print('sfx', [(n, round(t, 2)) for n, t, v in SFX])
-    ins = ['-i', 'voice.wav', '-i', f'{ASSET}/bgm/bobae_showroom_v1.mp3']
+    ins = ['-i', 'voice.wav', '-i', f'{ASSET}/bgm/' + getattr(C, 'BGM', 'bobae_showroom_v1.mp3')]
     ALT = getattr(C, 'BGM_ALT', None)  # 자료(카탈로그) 컷 동안 다른 배경음으로 바꿈: (파일, [(첫 어절, 끝 어절), ...])
     segs = [(max(0, onset(a) - 0.35), onset(b) - 0.1) for a, b in ALT[1]] if ALT else []
     g = '+'.join(f'clip(min((t-{a:.2f})/0.45,({b:.2f}-t)/0.45),0,1)' for a, b in segs) or '0'
@@ -1802,7 +1805,7 @@ def mix_audio():
         sf += f'[{j + k0}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={vol},adelay={int(t * 1000)}|{int(t * 1000)}[s{j}];'
     sf += ''.join(f'[s{j}]' for j in range(len(SFX))) + f'amix=inputs={len(SFX)}:normalize=0[fx];'
     af = (f'[0:a]aformat=sample_rates=48000:channel_layouts=stereo,highpass=f=70,acompressor=threshold=-18dB:ratio=2.5:attack=5:release=120,apad=whole_dur={TOTAL}[vo];'
-          f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={R.STYLE['bgm_vol']},volume='1-({g})':eval=frame,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.4}:d=1.4[m0];"
+          f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={getattr(C, 'BGM_VOL', R.STYLE['bgm_vol'])},volume='1-({g})':eval=frame,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.4}:d=1.4[m0];"
           + (f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={ALT[2] if len(ALT) > 2 else R.STYLE['bgm_vol']},volume='{g}':eval=frame[m1];[m0][m1]amix=inputs=2:normalize=0[m];" if ALT else '[m0]anull[m];')
           + sf + '[vo]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
           f'[v2][md][fx]amix=inputs=3:normalize=0:duration=first,@LN@,aresample=192000,alimiter=limit=0.8:level=false,aresample=48000,atrim=0:{TOTAL}[a]')
