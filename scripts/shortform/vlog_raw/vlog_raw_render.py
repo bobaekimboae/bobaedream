@@ -4,7 +4,7 @@
 #  - 자막: 받아쓰기(faster-whisper) 낱말 시각 그대로, 흰 글자 + 검은 테두리. 지어낸 말 없음(받아쓰기 오탈자만 고침)
 #  - 날짜·장소 작은 글씨(파일 이름의 촬영일), 장 제목은 큰 흰 글자 한 줄만. 붓칠·칩·노랑 없음(벨기에판 아님)
 #  실행: python3 vlog_raw_render.py edl.json stt.json drive_files.json out.mp4
-import os, sys, json, subprocess, shutil
+import os, sys, json, subprocess, shutil, hashlib
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -87,7 +87,7 @@ for k, it in enumerate(edl['cuts']):
     if it.get('stamp'):
         p = f'{TMP}/s{k:02d}.png'; text_png(p, it['stamp'].split('\n'), 38, weight='SemiBold', stroke=3, align_top=150, x=60)
         ov.append((p, 0, min(dur, it.get('stamp_t', 3.5))))
-    seg = f'{TMP}/seg{k:02d}.mp4'
+    seg = f"{TMP}/seg_{hashlib.md5((json.dumps(it, sort_keys=True, ensure_ascii=False) + json.dumps(FIX, ensure_ascii=False)).encode()).hexdigest()[:12]}.mp4"   # 같은 컷은 다시 굽지 않음
     src = it.get('file', url.get(clip)); off = float(it.get('off', 0))   # file: 원본 일부를 잘라 둔 파일(off = 그 파일의 원본 시작 초)
     inputs = ['-ss', f'{a - off:.3f}', '-t', f'{dur:.3f}', '-i', src]
     for p, _, _ in ov: inputs += ['-i', p]
@@ -101,10 +101,10 @@ for k, it in enumerate(edl['cuts']):
     for i, (p, t0, t1) in enumerate(ov):
         vf += f';[{last}][{i+1}:v]overlay=0:0:enable=\'between(t,{t0:.3f},{t1:.3f})\'[v{i+1}]'; last = f'v{i+1}'
     af = f'[0:a]aresample=48000,aformat=channel_layouts=stereo,volume={it.get("gain", 1.0)},afade=t=in:d=0.04,afade=t=out:st={max(0, dur-0.06):.3f}:d=0.06[a]'
-    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', *inputs, '-filter_complex', vf + ';' + af, '-map', f'[{last}]', '-map', '[a]',
+    if not os.path.exists(seg): subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', *inputs, '-filter_complex', vf + ';' + af, '-map', f'[{last}]', '-map', '[a]',
                     '-t', f'{dur:.3f}', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', str(FPS),
                     '-c:a', 'pcm_s16le', seg], check=True)
-    segs.append({'file': seg, 't': round(T, 3), 'dur': dur, 'bgm': it.get('bgm', 0.0), 'clip': clip, 'a': a, 'b': b, 'note': it.get('note', '')})
+    segs.append({'file': seg, 't': round(T, 3), 'dur': dur, 'bgm': it.get('bgm', edl.get('bgm_default', 0.0)), 'clip': clip, 'a': a, 'b': b, 'note': it.get('note', '')})
     T += dur
     print(f'{k:02d} {clip} {a:7.2f}-{b:7.2f} ({dur:5.2f}s) total {T:6.1f}', flush=True)
 
