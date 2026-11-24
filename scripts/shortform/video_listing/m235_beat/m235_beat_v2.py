@@ -14,7 +14,7 @@ import partfx as PFX
 from shots import read_shot, TOUCH
 
 G = '/home/claude/shorts/m235/'; V = G + 'v2/'
-OUT = G + 'bobae_beat_m235i_v2.mp4'
+OUT = G + os.environ.get('M235_OUT', 'bobae_beat_m235i_v2.mp4')
 MOFF0 = 50.55
 RB = [b - MOFF0 for b in json.load(open(G + 'beats.json'))['beats'] if b >= MOFF0 - 0.05]; RB[0] = 0.0
 SK = RB[4]; MOFF = MOFF0 + SK; RB = [b - SK for b in RB[4:]]   # 빌드 앞 4비트를 건너뜀(드롭이 3.5초)
@@ -22,7 +22,7 @@ CUT_A = 34.133 - SK; CUT_B = CUT_A + 4 * 0.418   # 브레이크 가운데 4비�
 CUT_D = CUT_B - CUT_A
 BEATS = [b for b in RB if b < CUT_A] + [b - CUT_D for b in RB if b >= CUT_B]
 B_DROP1, B_BREAK, B_DROP2 = 5.155 - SK, 32.461 - SK, 39.427 - SK - CUT_D
-HERO_V = G + 'nas/hero_v2.mp4'; HERO_IN = 0.3
+HERO_V = G + os.environ.get('M235_HERO', 'nas/hero_v2.mp4'); HERO_IN = 0.3
 CAPY = R['caption']['center_y_px']; CAPPX = R['caption']['font_px']; CUTGAP = R['caption']['cut_gap_s']
 CY0 = (2336 - 1920) // 2
 random.seed(7)

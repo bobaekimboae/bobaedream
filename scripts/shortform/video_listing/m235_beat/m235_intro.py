@@ -40,7 +40,8 @@ def cover(im, z=1.0):   # 9:16 꽉 채우기(가운데 자르기) + 확대
 
 # ── 히어로: 사진 배치(차 폭이 화면 폭에 맞게) + 차 윤곽 ──
 hero = load(HERO)
-pm = np.array(remove(hero, session=new_session('isnet-general-use'), only_mask=True)).astype(np.float32) / 255   # 사진에서 차 윤곽
+_MK = os.environ.get('NAS_MASK')   # 미리 만든 이 차만의 마스크(SAM 점 지정 ∩ isnet) — 옆 차가 섞이지 않게
+pm = (np.load(_MK).astype(np.float32) / 255) if _MK else np.array(remove(hero, session=new_session('isnet-general-use'), only_mask=True)).astype(np.float32) / 255   # 사진에서 차 윤곽
 n, lab, st, cen = cv2.connectedComponentsWithStats((pm > 0.5).astype(np.uint8), 8)
 if n > 1:   # 사진 가운데에 가장 가까운 큰 덩어리 = 이 차
     sc_ = [st[i, 4] / (1 + np.hypot(cen[i, 0] - hero.width / 2, cen[i, 1] - hero.height / 2) / 200) for i in range(1, n)]
@@ -50,6 +51,7 @@ else: bx, by, bw, bh = 0, 0, hero.width, hero.height
 s0 = min(960 / bw, 600 / bh);   # 키 큰 차는 높이 기준으로 줄여 뒤 글자가 보이게
 HW, HH = int(hero.width * s0), int(hero.height * s0)
 OX = int(W / 2 - (bx + bw / 2) * s0); OY = int(1390 - (by + bh) * s0)   # 차 가운데 = 화면 가운데, 차 바닥 = 1390px
+if os.environ.get('NAS_STUDIO') and bx + bw >= hero.width - 2 and OX + HW < W: OX = W - HW   # 차가 사진 오른쪽 끝에 닿으면 화면 끝까지 붙여 잘린 면이 안 보이게
 hero_l = hero.resize((HW, HH), Image.LANCZOS)
 base = Image.new('RGB', (W, H)); base.paste(cover(hero, 1.0).filter(ImageFilter.GaussianBlur(18)), (0, 0))
 base.paste(hero_l, (OX, OY)); base_np = np.array(base)
@@ -68,6 +70,37 @@ b_ = np.clip((yy - 1380) / 540.0, 0, 1) ** 1.2   # 아래쪽 바닥 어둡게
 sk[..., 3] = np.clip(190 * g_ + 200 * r_ + 200 * b_, 0, 255); SKY = Image.fromarray(sk)
 BGI = cover(hero, 1.15).filter(ImageFilter.GaussianBlur(22)).convert('RGBA')   # 사진 테두리가 비치지 않게 꽉 채운 흐림만; BGI = Image.alpha_composite(BGI, Image.new('RGBA', (W, H), (0, 0, 0, 125))); BGI = Image.alpha_composite(BGI, SKY)
 SHARP = base.convert('RGBA')
+if os.environ.get('NAS_STUDIO'):   # 배경만 스튜디오로 교체(차 픽셀은 원본 그대로): 차콜 벽 + 위 조명 + 광택 바닥 + 반사 + 바닥 그림자
+    HZ = 1240.0   # 벽과 바닥이 만나는 높이
+    wall = np.clip(1 - np.hypot((xx - W / 2) / 760, (yy - 560) / 720), 0, 1) ** 1.5
+    fl_ = np.clip((yy - HZ) / (H - HZ), 0, 1)
+    floor_l = np.clip(1 - np.hypot((xx - W / 2) / 820, (yy - 1420) / 380), 0, 1) ** 1.3
+    st_ = np.zeros((H, W, 3), np.float32)
+    for c in range(3):
+        bw_ = [20, 22, 26][c] + [44, 46, 52][c] * wall
+        bf_ = [16, 17, 20][c] + [40, 42, 48][c] * floor_l * (1 - 0.5 * fl_)
+        bl_ = np.clip((yy - HZ + 60) / 120.0, 0, 1)   # 벽→바닥 부드러운 이음(사이클로라마)
+        st_[..., c] = bw_ * (1 - bl_) + bf_ * bl_
+    r2 = np.clip(1 - np.hypot((xx - W / 2) / 600, (yy - 900) / 330), 0, 1) ** 2   # 차 뒤 브랜드색 은은한 후광
+    for c in range(3): st_[..., c] += GLOW[c] * 0.22 * r2
+    car = base_np.astype(np.float32); mm = m.copy()
+    # 반사: 열마다 차 바닥선을 기준으로 위아래 뒤집기
+    ref = np.zeros_like(st_); ra = np.zeros((H, W), np.float32); RL = 260
+    cols = np.nonzero(mm.max(0) > 0.5)[0]
+    for x in cols:
+        ys = np.nonzero(mm[:, x] > 0.5)[0]; yb = ys.max(); d = np.arange(1, RL)
+        yd = yb + d; ysrc = yb - d; ok = (yd < H) & (ysrc >= 0)
+        ref[yd[ok], x] = car[ysrc[ok], x]; ra[yd[ok], x] = mm[ysrc[ok], x] * 0.30 * (1 - d[ok] / RL) ** 1.6
+    ref = cv2.GaussianBlur(ref, (0, 0), 3); ra = cv2.GaussianBlur(ra, (0, 0), 3)
+    st_ = st_ * (1 - ra[..., None]) + ref * ra[..., None]
+    # 바닥에 닿는 그림자
+    bot = np.zeros((H, W), np.float32)
+    for x in cols:
+        ys = np.nonzero(mm[:, x] > 0.5)[0]; yb = ys.max(); bot[max(0, yb - 30):min(H, yb + 6), x] = 1
+    sh_ = cv2.GaussianBlur(bot, (0, 0), 18) * 0.85
+    st_ = st_ * (1 - np.clip(sh_, 0, 0.85)[..., None])
+    BGI = Image.fromarray(np.clip(st_, 0, 255).astype(np.uint8)).convert('RGBA')
+    base_np2 = (car * mm[..., None] + st_ * (1 - mm[..., None])); SHARP = Image.fromarray(np.clip(base_np2, 0, 255).astype(np.uint8)).convert('RGBA')
 
 # 3D 글자 프레임
 CH = [Image.open(p).convert('RGBA') for p in sorted(glob.glob(J + f'bl/{HDIR}/*.png'))]
