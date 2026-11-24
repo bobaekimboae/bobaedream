@@ -122,6 +122,21 @@ _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
 while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white('M235i 그란쿠페',_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
 HS=white('2021년식 · 가솔린 · F44',58)
 place_chip_y_cap=H*0.58
+# r05 「벨기에처럼 붓칠이 첫 컷에서 우측으로」: AS24 벨기에 원본(STpXdz6tyiQ, 60fps) 제목 판을 프레임마다 잰 움직임 —
+# 왼쪽 밖에서 휙 들어와 오른쪽으로 지나쳤다가(+164px) 되돌아오며 흔들리고(-5~+12°) 0.4초에 자리 잡음. 판·글자·아래 줄이 한 덩어리로 움직임
+_TK=[(0.00,-330,-70,1.25,12.0),(0.10,164,-27,1.18,5.0),(0.167,-86,17,1.08,-5.6),(0.233,1,21,1.04,-6.5),(0.30,-10,9,1.015,-3.1),(0.40,0,0,1.0,0.0)]
+_TG=[None]
+def _ttl(cv,t):
+    if _TG[0] is None:
+        _hb=HB.getbbox(); g=Image.new('RGBA',(W,H)); g.alpha_composite(HB,(M-10,YB)); g.alpha_composite(HM,(M-10+_hb[2]+6,YB+(_hb[1]+_hb[3]-HM.height)//2)); g.alpha_composite(HS,(M-4,YB+_hb[3]+16))
+        bb=g.getbbox(); _TG[0]=(g.crop(bb),bb)
+    im,bb=_TG[0]
+    if t>=_TK[-1][0]: cv.alpha_composite(im,(bb[0],bb[1])); return
+    k=max(i for i in range(len(_TK)) if _TK[i][0]<=t); a,b=_TK[k],_TK[k+1]; u=(t-a[0])/(b[0]-a[0])
+    dx,dy,sc,rt=[a[j]+(b[j]-a[j])*u for j in (1,2,3,4)]
+    w2=im.resize((max(1,round(im.width*sc)),max(1,round(im.height*sc))),Image.BICUBIC).rotate(rt,resample=Image.BICUBIC,expand=True)
+    if t<0.17: w2=w2.filter(ImageFilter.BoxBlur(3))   # 원본도 들어오는 순간 움직임 흐림
+    cx=(bb[0]+bb[2])/2+dx; cy=(bb[1]+bb[3])/2+dy; cv.alpha_composite(w2,(int(cx-w2.width/2),int(cy-w2.height/2)))
 SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24px라 칩 3개가 벗어났음
 BIG_LOW=set()   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
 HIDE_SUB=[False]
@@ -371,9 +386,8 @@ for t0,t1,c in SEG:
         tomap=lambda fx,fy,_x=ccx,_y=ccy,_z=z:((fx*W-_x)*_z+W/2,(fy*H-_y)*_z+H/2)
         if key=='c1':
             cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,90)))
-            pop(cv,HB,(M-10,YB),t,0.08)
-            if not any(c_['kind']=='title' for c_ in CHIPS_LOG) and t>=0.28: _bb=HB.getbbox(); CHIPS_LOG.append({'key':'c1','label':'BMW','kind':'title','t0':round(t0+0.08,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['title_font_px'],'y':YB,'box':[M-10+_bb[0],YB+_bb[1],M-10+_bb[2],YB+_bb[3]]})
-            _hb=HB.getbbox(); pop(cv,HM,(M-10+_hb[2]+6,YB+(_hb[1]+_hb[3]-HM.height)//2),t,0.28); pop(cv,HS,(M-4,YB+_hb[3]+16),t,0.5)   # 칠이 실제로 끝나는 곳 기준(투명 여백 제외)
+            _ttl(cv,t)
+            if not any(c_['kind']=='title' for c_ in CHIPS_LOG) and t>=0.45: _bb=HB.getbbox(); CHIPS_LOG.append({'key':'c1','label':'BMW','kind':'title','t0':round(t0+0.08,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['title_font_px'],'y':YB,'box':[M-10+_bb[0],YB+_bb[1],M-10+_bb[2],YB+_bb[3]]})
         if key in('__',) : cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,70)))
         if key in('c3','c6','c9'): cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,40)))
         outline(cv,key,st,tomap)
