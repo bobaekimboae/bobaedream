@@ -209,3 +209,10 @@
 - 원본에 엔진룸 장면이 없어 엔진·48V 칩이 앞모습·헤드램프 위에 뜸. 381마력 숫자에는 딩이 빠짐(말 울음 대체 규칙을 끈 영향).
 ⑦ 다음: 폴로 원본 파일을 받으면 초 단위로 맞춤, 칩 모양 결정, 네덜란드판 전용 검사 추가.
 ⑧ 캡처: ![v11nl](shortform-cha10-gle450-be/v11nl_sheet.jpg)
+
+## 무료 소리 비교 (2026-11-24)
+
+- 한 일: Wyzowl SFX Kit(CC0, GitHub)와 OpenGameArt CC0 배경음 3곡을 받아 v10s 영상에 소리만 바꿔 끼움. 비교 영상 `bobae_sound_compare_v1.mp4`(110초: 지금 소리 → Funky House → Midnight Cruiser → Chill Lofi).
+- 렌더러: `BBM_BGM` · `BBM_SFX_DIR` 환경 변수로 소리만 교체(안 주면 기존 그대로). 음량 −14.7~−14.8 LUFS.
+- v10s에는 효과음이 딩뿐이라 휙·쿵·팝은 이번 비교에 나오지 않음. 듣기 검수는 하지 않음(사용자 판단 필요).
+- 출처·라이선스: docs/shortform/oss-audio-candidates.md. 음원 파일은 채택 전이라 저장소에 넣지 않음.

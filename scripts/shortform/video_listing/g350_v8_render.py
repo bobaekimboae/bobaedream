@@ -509,10 +509,12 @@ for t,k,nm,v in sorted(allc,key=lambda x:(PRI[x[1]],x[0])):
 acc.sort()
 print('효과음',[(a[0],a[2]) for a in acc])
 _BGMV=NLP.get('bgm',0.12) if NL else 0.16
-inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',ASSET+'bgm/bobae_showroom_v1.mp3']
+# 2026-11-24 소리 비교용: BBM_BGM(배경음 파일) · BBM_SFX_DIR(효과음 폴더, 같은 파일 이름)를 주면 그 소리로 섞는다. 안 주면 보배드림 자체 소리 그대로.
+_BGMF=os.environ.get('BBM_BGM') or ASSET+'bgm/bobae_showroom_v1.mp3'; _SFXD=(os.environ.get('BBM_SFX_DIR') or ASSET+'sfx').rstrip('/')+'/'
+inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',_BGMF]
 fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120[v]',f'[2:a]atrim=0:{TOTAL},volume={_BGMV},afade=t=out:st={TOTAL-1.5}:d=1.5[b]']; mx=['[v]','[b]']
 for j,(tc,k,nm,v) in enumerate(acc):
-    inp+=['-i',ASSET+'sfx/'+nm+'.wav']; fl.append(f'[{len(inp)//2-1}:a]volume={v},adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
+    inp+=['-i',_SFXD+nm+'.wav']; fl.append(f'[{len(inp)//2-1}:a]volume={v},adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
 A_=R['audio']; LN=f"loudnorm=I={A_['loudness_lufs']}:TP={A_['true_peak_db']}:LRA=11"
 # 음량 2단계: 1차로 재고 2차에 그 값으로 고르게(linear) 맞춤 — 1단계만 쓰면 목표에서 1dB 넘게 빗나감
 _m=subprocess.run(['ffmpeg','-hide_banner',*inp,'-filter_complex',';'.join(fl+[''.join(mx)+f'amix=inputs={len(mx)}:normalize=0:duration=longest,{LN}:print_format=json[a]']),'-map','[a]','-t',str(TOTAL),'-f','null','-'],capture_output=True,text=True).stderr
