@@ -72,7 +72,7 @@ C=[(c['key'],c['src'][0],c['src'][1],c['start_word'],c.get('chip'),c.get('chip_w
  ('c14',124.0,126.0,idx('문'),'조명 도어 스텝',idx('조명'),None,(0,999),[]),
  ('c15',112.6,117.4,idx('3.0'),'3.0 V6 디젤',idx('3.0'),None,None,[('211마력',None,idx('211'))]),
 ]
-ENDT=WS[idx('자세한')][1]-0.12; TOTAL=VOICE+1.7
+ENDT=(WS[idx('자세한')][1]-0.12) if any(w[0].startswith('자세한') for w in WS) else VOICE+0.15; TOTAL=VOICE+1.7   # 끝 안내 문장이 없는 짧은 샘플은 말이 끝난 뒤 로고
 starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]
 for k,c in enumerate(C):
@@ -344,6 +344,10 @@ for t0,t1,c in SEG:
     while nfr<round(t1*FPS):
         t=nfr/FPS-t0; st=min(s1,s0+t*rate); fi=min(len(fr)-1,int(round((st-s0)*30)))
         z=1.0+0.045*ease(t/dur)
+        _DY=(CAR or {}).get('dyn')   # 나세르식 역동 컷(입력 dyn이 있을 때만): 컷이 바뀔 때 툭 다가가거나(in) 툭 물러남(out), 이후 천천히 흐름
+        if _DY:
+            _mv=CARX[key].get('move') or ('in' if C.index(c)%2==0 else 'out'); _g=1-(1-min(1.0,t/_DY.get('punch_s',0.22)))**3; _p=_DY.get('punch',0.12); _d=_DY.get('drift',0.05)*t/max(0.1,dur)
+            z=(1.0+_p*_g+_d) if _mv=='in' else ((1.0+_p+_DY.get('drift',0.05))-_p*_g-_d if _mv=='out' else 1.0+0.045*ease(t/dur)); z=max(1.0,z)   # move='none'은 기존 느린 다가가기 그대로
         for e in PL.get(key,{}).get('T03',[]):   # T03 점프컷: 제원 낱말마다 확대 단계가 툭 바뀜
             z=1.0
             for st_ in e['steps']:
@@ -433,7 +437,7 @@ for t0,t1,c in SEG:
                 BIGS_SEEN.add((key,k2)); _b=B3.getbbox() or (0,0,B3.width,B3.height); _x=(W-B3.width)//2; _y1=y3+_b[3]
                 if BL: _lb=BL.getbbox() or (0,0,BL.width,BL.height); _y1=max(_y1,y3+B3.height+6+_lb[3])
                 BIGS_LOG.append({'key':key,'label':str(BIGS[k2]),'kind':'big','t_box':round(nfr/FPS,3),'box':[_x+_b[0],y3+_b[1],_x+_b[2],int(_y1)]})
-            if PL.get(key,{}).get('T07'): _wf=cnt(BIGS[k2],210,99,0).width; pop(cv,HORSE,(min(W-HORSE.width-24,(W+_wf)//2-HORSE.width+20),y3-HORSE.height-6),t,WS[idx('211')][2]-t0-0.1,0.3)   # v7: 숫자 칠 위 오른쪽, 겹침 없음
+            if PL.get(key,{}).get('T07'): _wf=cnt(BIGS[k2],210,99,0).width; pop(cv,HORSE,(min(W-HORSE.width-24,(W+_wf)//2-HORSE.width+20),y3-HORSE.height-6),t,WS[bigs[k2][2]][2]-t0-0.1,0.3)   # v7: 숫자 칠 위 오른쪽, 겹침 없음
         special(key,cv,t,t0)
         if key=='mem' and t>=tc: pop(cv,MEMI,(cx+Cimg.width-10,cy-MEMI.height//2+Cimg.height//2-10),t,tc+0.08)
         draw_sub(cv,nfr/FPS) if not HIDE_SUB[0] else None

@@ -1,0 +1,233 @@
+{
+ "_what": "차란차 10번 GLE450 나세르식 역동 컷 샘플(v10s). 제원 = 매물정보 + 신차 제원 기사(381마력 · 직렬 6기통 3.0 터보 · 48V · 제로백 5.6초 · 9단 · 4MATIC)",
+ "id": "cha10",
+ "out": "bobae_cha10_gle450_nasser_v10s.mp4",
+ "chip_layout": "slots",
+ "slot_b_y": 1030,
+ "deco": {
+  "emphasis": true,
+  "arrow": "hand_yellow",
+  "arrow_len": 180
+ },
+ "map_source": {
+  "model": "iSEE-Laboratory/llmdet_base",
+  "method": "0.3초 간격 재검출(추적기 없음)",
+  "spec": "samples/cha10_gle450_work/ground_spec.json"
+ },
+ "title": {
+  "brand": "벤츠",
+  "model": "GLE450 4MATIC",
+  "sub": "2024년식 · 가솔린+전기 · W167"
+ },
+ "caption_hl": {
+  "min_hold": 0.26,
+  "fade": 0.1,
+  "number_yellow": true
+ },
+ "track_smooth": 9,
+ "dyn": {
+  "punch": 0.13,
+  "punch_s": 0.2,
+  "drift": 0.05
+ },
+ "cuts": [
+  {
+   "key": "a1",
+   "src": [
+    0.0,
+    2.07
+   ],
+   "start_word": 0,
+   "move": "none"
+  },
+  {
+   "key": "a2",
+   "src": [
+    5.0,
+    6.0
+   ],
+   "start_word": 3,
+   "bigs": [
+    [
+     "381마력",
+     "최고출력",
+     3
+    ]
+   ],
+   "dim": 50
+  },
+  {
+   "key": "a3",
+   "src": [
+    6.0,
+    6.9
+   ],
+   "start_word": 4
+  },
+  {
+   "key": "a4",
+   "src": [
+    4.0,
+    5.0
+   ],
+   "start_word": 6,
+   "chip": "직렬 6기통 3.0 터보",
+   "chip_word": 6,
+   "arrow": false
+  },
+  {
+   "key": "a5",
+   "src": [
+    7.0,
+    8.0
+   ],
+   "start_word": 10
+  },
+  {
+   "key": "a6",
+   "src": [
+    3.0,
+    4.4
+   ],
+   "start_word": 12,
+   "chip": "48V 마일드 하이브리드",
+   "chip_word": 12,
+   "arrow": false
+  },
+  {
+   "key": "a7",
+   "src": [
+    8.2,
+    9.4
+   ],
+   "start_word": 16,
+   "bigs": [
+    [
+     "5.6초",
+     "제로백",
+     17
+    ]
+   ],
+   "dim": 50,
+   "no_emphasis": true
+  },
+  {
+   "key": "g4",
+   "src": [
+    8.2,
+    10.6
+   ],
+   "start_word": 18,
+   "chip": "4MATIC 사륜",
+   "chip_word": 20,
+   "arrow": true,
+   "pills": [
+    {
+     "icon": "gearbox.svg",
+     "text": "9단 자동",
+     "word": 18,
+     "y": 300
+    }
+   ]
+  },
+  {
+   "key": "g5",
+   "src": [
+    10.9,
+    13.5
+   ],
+   "start_word": 25,
+   "chip": "전동 트렁크",
+   "chip_word": 26,
+   "arrow": true
+  },
+  {
+   "key": "b1",
+   "src": [
+    25.0,
+    26.6
+   ],
+   "start_word": 28
+  },
+  {
+   "key": "g8",
+   "src": [
+    27.5,
+    28.5
+   ],
+   "start_word": 33,
+   "chip": "와이드 디스플레이",
+   "chip_word": 33,
+   "arrow": false
+  },
+  {
+   "key": "g10",
+   "src": [
+    22.0,
+    23.8
+   ],
+   "start_word": 35,
+   "chip": "터치패드",
+   "chip_word": 35,
+   "arrow": true
+  },
+  {
+   "key": "g15",
+   "src": [
+    38.9,
+    40.0
+   ],
+   "start_word": 37,
+   "bigs": [
+    [
+     "20,885km",
+     "주행거리",
+     38
+    ]
+   ],
+   "dim": 50,
+   "no_emphasis": true,
+   "move": "none"
+  },
+  {
+   "key": "b5",
+   "src": [
+    53.2,
+    54.2
+   ],
+   "start_word": 39
+  },
+  {
+   "key": "g18",
+   "src": [
+    55.2,
+    57.0
+   ],
+   "start_word": 40,
+   "bigs": [
+    [
+     "7,990만원",
+     "가격",
+     40
+    ]
+   ],
+   "pills": [
+    {
+     "icon": "year.svg",
+     "text": "2024년식",
+     "word": 40,
+     "y": 560,
+     "check": true
+    },
+    {
+     "icon": "mileage.svg",
+     "text": "20,885km",
+     "word": 40,
+     "y": 660,
+     "check": true
+    }
+   ],
+   "dim": 60
+  }
+ ]
+}
