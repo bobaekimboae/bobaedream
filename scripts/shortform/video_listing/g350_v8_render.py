@@ -18,6 +18,9 @@ ASSET=A
 CAR=json.load(open(os.environ['CAR'],encoding='utf-8')) if os.environ.get('CAR') else None
 CARX={c['key']:c for c in CAR['cuts']} if CAR else {}
 CAPY=R['caption']['center_y_px']   # 규칙 파일(옛 67% 직접 쓰기 폐지)
+# 2026-11-24 네덜란드판(입력 style="nl"일 때만, 값은 입력 nl{} · 근거 docs/shortform/as24-nl-be-edit-manual-v4.md §3~§5): 테두리 자막 62% · 검정 상자 노랑 글자 칩 · 평면 노랑 큰 숫자(그동안 말 자막 숨김) · 보통 컷 · 딩 위주
+NL=bool(CAR and CAR.get('style')=='nl'); NLP=(CAR or {}).get('nl',{}) if NL else {}
+if NL: CAPY=int(NLP.get('cap_y',1190))
 WD=json.load(open(G+'words5.json'))[:None if CAR else 120]   # 120번 이후는 받아쓰기가 지어낸 낱말
 FIX={'라기':'락이','헛더라도':'헛돌아도','나눠줘서':'나눠 줘서','블루텟':'블루텍','주관':'주간등','밝혀져요.':'밝혀 줘요.','위의':'위','썬루프가':'선루프가','3500kg까지':'3,500kg까지','480L,':'480L,','2250L까지':'2,250L까지','넵이':'내비,','공존은':'공조는','디제이,':'디젤,','.1초입니다.':'.1초입니다.','주관등까지':'주간등까지','팬더':'펜더','썰루프도':'선루프도','집':'짐','고급스럽구요,':'고급스럽고요,','네비,':'내비,','자동의':'자동에','55kgm.':'55kg·m.','보베드림':'보배드림','블루텍!':'블루텍','토큰은':'토크는','55kgm,':'55kg·m,','주관등이':'주간등이','헛도라도':'헛돌아도','3,500km까지':'3,500kg까지','2,250리터까지':'2,250L까지','480리터,':'480L,','견인고리,':'견인고리,','디퍼렌셜락이':'디퍼렌셜 락이'}
 if CAR: FIX={}   # 다른 차: 낱말은 대본 글자 그대로(받아쓰기 교정표는 G350 전용)
@@ -72,7 +75,7 @@ C=[(c['key'],c['src'][0],c['src'][1],c['start_word'],c.get('chip'),c.get('chip_w
  ('c14',124.0,126.0,idx('문'),'조명 도어 스텝',idx('조명'),None,(0,999),[]),
  ('c15',112.6,117.4,idx('3.0'),'3.0 V6 디젤',idx('3.0'),None,None,[('211마력',None,idx('211'))]),
 ]
-ENDT=(WS[idx('자세한')][1]-0.12) if any(w[0].startswith('자세한') for w in WS) else VOICE+0.15; TOTAL=VOICE+1.7   # 끝 안내 문장이 없는 짧은 샘플은 말이 끝난 뒤 로고
+_EW=(CAR or {}).get('end_word','자세한'); ENDT=(WS[idx(_EW)][1]-0.12) if any(w[0].startswith(_EW) for w in WS) else VOICE+0.15; TOTAL=VOICE+1.7   # 끝 안내 문장이 없는 짧은 샘플은 말이 끝난 뒤 로고
 starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]
 for k,c in enumerate(C):
@@ -93,11 +96,12 @@ def subimg(ch,act):
     lh=80; tw=max(BLK.getlength(' '.join(l)) for l in lines)
     im=Image.new('RGBA',(int(tw+80),lh*len(lines)+40)); sh=Image.new('RGBA',im.size); sd=ImageDraw.Draw(sh)
     for i,l in enumerate(lines): sd.text((im.width/2+3,20+lh*i+lh/2+5),' '.join(l),font=BLK,fill=(0,0,0,220),anchor='mm',stroke_width=4,stroke_fill=(0,0,0,220))
-    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6))); d=ImageDraw.Draw(im); n=0
+    if not NL: im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6)))
+    d=ImageDraw.Draw(im); n=0; _sw=int(NLP.get('cap_stroke',7)) if NL else 0
     for i,l in enumerate(lines):
         x=(im.width-BLK.getlength(' '.join(l)))/2; y=20+lh*i+lh/2
         for w in l:
-            d.text((x,y),w,font=BLK,fill=YC if (ch[n]==act or (_NUMY and re.search(r'\d',w))) else (255,255,255),anchor='lm'); n+=1; x+=BLK.getlength(w+' ')
+            d.text((x,y),w,font=BLK,fill=YC if (ch[n]==act or (_NUMY and re.search(r'\d',w))) else (255,255,255),anchor='lm',stroke_width=_sw,stroke_fill=(0,0,0,255)); n+=1; x+=BLK.getlength(w+' ')
     _sc[k]=im; return im
 _CHL=(CAR or {}).get('caption_hl'); _HLT={}
 def HLT(j):
@@ -122,7 +126,9 @@ def draw_sub(c,t):
             im=subimg(ch,act)
             if _CHL and act!=ch[0] and t-HLT(act)<_CHL.get('fade',0.1):   # 강조가 옆 낱말로 넘어갈 때 짧게 겹쳐 바꿈(뚝뚝 끊김 방지)
                 im=Image.blend(subimg(ch,ch[ch.index(act)-1]),im,max(0.0,min(1.0,(t-HLT(act)+0.02)/_CHL.get('fade',0.1))))
-            x=(W-im.width)//2; y=CAPY-im.height//2; c.alpha_composite(im,(x,y))
+            x=(W-im.width)//2; y=CAPY-im.height//2
+            if NL and t-a<0.12: _pop(c,im,(x,y),t,a,0.12)   # 네덜란드: 덩어리가 톡 나타남
+            else: c.alpha_composite(im,(x,y))
             if LOGON: b=im.getbbox(); _LOG.append(['sub',globals().get('nfr'),globals().get('key'),x+b[0],y+b[1],x+b[2],y+b[3],a])
             return
 def smooth(pts,k=7):
@@ -138,7 +144,13 @@ def frames(s0,s1):
         fr.append(cv2.cvtColor(f,cv2.COLOR_BGR2RGB))
     return fr
 _chips={}; CHIPLAB={}
+def nlbox(s,size=64,pad=(34,20),rad=18):
+    f=BK(size); b=f.getbbox(s); w=b[2]-b[0]; h=b[3]-b[1]; im=Image.new('RGBA',(w+pad[0]*2,h+pad[1]*2)); d=ImageDraw.Draw(im)
+    d.rounded_rectangle((0,0,im.width-1,im.height-1),rad,fill=(0,0,0,255)); d.text((pad[0]-b[0],pad[1]-b[1]),s,font=f,fill=YEL+(255,)); return im
 def gchip(s,size=70):
+    if NL and NLP.get('chip','box')=='box':
+        if (s,'nl') not in _chips: _chips[(s,'nl')]=nlbox(s,int(NLP.get('chip_px',64)))
+        return _chips[(s,'nl')]
     if (s,size) not in _chips: _chips[(s,size)]=chip(s,size)
     return _chips[(s,size)]
 H3={}
@@ -148,6 +160,7 @@ HB=chip(_T['brand'],R['chip']['title_font_px'],title=True); HM=white(_T['model']
 _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
 while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white(_T['model'],_hs,accent=True)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
 HS=white(_T['sub'],58)
+if NL: HB=nlbox(_T['brand']+' '+_T['model'],int(NLP.get('title_px',92)),(44,28),24)
 place_chip_y_cap=H*0.58
 # 2026-11-24 칩 슬롯 규격(다른 차 입력 chip_layout="slots"일 때만): 모든 칩은 같은 왼쪽 선(M-10), 세로는 T줄(YB) 또는 B줄(YB2) 두 자리뿐.
 # 화살표는 칩에서 떼어 부위 옆에 붙임(칩은 고정, 화살표만 부위를 따라감). 정보 알약은 칩 왼쪽 선에 맞춰 칩 아래(B줄은 위)에 쌓음.
@@ -241,6 +254,13 @@ def ckpill(s):
     return _ckc[s]   # v5 기법 1: ✓ 목록, 말할 때마다 한 줄씩
 DW1=ipill(flu('1f6de',60),'바퀴 하나가 헛돌아도',58); DW2=ipill(flu('2744',56),'진흙길 · 눈길 탈출',58)
 _cn={}
+def _nl3d(txt,h=180,face=None,side=None,split=True):
+    m=re.match(r'^([\d.,+~]+)\s*(.*)$',txt) if split else None; parts=[(m.group(1),1.0),(m.group(2),0.62)] if m and m.group(2) else [(txt,1.0)]
+    fs=[BK(int(h*k)) for _,k in parts]; bb=[f.getbbox(p,anchor='ls') for (p,_),f in zip(parts,fs)]; sw=max(6,int(h*0.055)); gap=int(h*0.04)
+    tw=sum(b[2]-b[0] for b in bb)+gap*(len(parts)-1); top=min(b[1] for b in bb); base=max(b[3] for b in bb); im=Image.new('RGBA',(tw+4*sw+20,base-top+4*sw+20)); d=ImageDraw.Draw(im); x=2*sw+10
+    for (p,_),f,b in zip(parts,fs,bb): d.text((x-b[0],2*sw+10-top),p,font=f,fill=YEL+(255,),stroke_width=sw,stroke_fill=(0,0,0,255),anchor='ls'); x+=b[2]-b[0]+gap
+    return im.crop(im.getbbox())
+if NL: text3d=_nl3d
 def cnt(txt,h,t,tb,dur=0.45,split=True):   # v6 기법 4: 숫자 카운트업 — 0에서 실제 값까지 0.45초에 올라감
     m=re.match(r'^([\d,]+)(.*)$',txt); k=max(0.0,min(1.0,(t-tb)/dur)) if txt in COUNT else 1.0   # v8: 계획에 있는 값만 올라감
     if not m or k>=1: s2=txt
@@ -306,6 +326,7 @@ def special(key,cv,t,t0):
 SFXT=[]; ICONT=[]; EV=[]; CHIPS_LOG=[]; REMIX=bool(os.environ.get('REMIX'))   # EV = [(시각, 종류)] 효과음 후보
 ZONE=_CK.get('zones',{}); _prevzone=None
 MET=json.load(open(os.path.join(REPO,'scripts/shortform/photo_listing/option_visual_rules.json')))['layout']['metaphor_sfx']; SX=R['sfx']
+if NL: SX=dict(SX,**NLP.get('sfx',{})); MET=dict(MET,max_per_video=0)   # 네덜란드: 딩 위주 · 영상당 약 5번 · 간격 1초(규칙 파일은 그대로, 입력으로만 덮음)
 HORSE=flu('1f40e',180)
 proc=subprocess.Popen(['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-','-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',G+('nov8_dummy.mp4' if REMIX else 'nov8.mp4')],stdin=subprocess.PIPE)
 last=None; nfr=0
@@ -375,9 +396,12 @@ for t0,t1,c in SEG:
         tomap=lambda fx,fy,_x=ccx,_y=ccy,_z=z:((fx*W-_x)*_z+W/2,(fy*H-_y)*_z+H/2)
         if key==TITLE_KEY:
             cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,90)))
-            pop(cv,HB,(M-10,YB),t,0.08)
+            if NL: pop(cv,HB,((W-HB.width)//2,int(H*float(NLP.get('title_y',0.2)))),t,0.08)
+            else: pop(cv,HB,(M-10,YB),t,0.08)
             if not any(c_['kind']=='title' for c_ in CHIPS_LOG) and t>=0.28: _bb=HB.getbbox(); CHIPS_LOG.append({'key':TITLE_KEY,'label':_T['brand'],'kind':'title','t0':round(t0+0.08,3),'t1':round(t1,3),'t_box':round(nfr/FPS,3),'px':R['chip']['title_font_px'],'y':YB,'box':[M-10+_bb[0],YB+_bb[1],M-10+_bb[2],YB+_bb[3]]})
-            _hb=HB.getbbox(); pop(cv,HM,(M-10+_hb[2]+6,YB+(_hb[1]+_hb[3]-HM.height)//2),t,0.28); pop(cv,HS,(M-4,YB+_hb[3]+16),t,0.5)   # 칠이 실제로 끝나는 곳 기준(투명 여백 제외)
+            _hb=HB.getbbox()
+            if NL: pop(cv,HS,((W-HS.width)//2,int(H*float(NLP.get('title_y',0.2)))+HB.height+18),t,0.4)
+            else: pop(cv,HM,(M-10+_hb[2]+6,YB+(_hb[1]+_hb[3]-HM.height)//2),t,0.28); pop(cv,HS,(M-4,YB+_hb[3]+16),t,0.5) if not NL else None   # 칠이 실제로 끝나는 곳 기준(투명 여백 제외)
         if key in('c15',) : cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,70)))
         if key=='c8': cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,40)))
         if CARX.get(key,{}).get('dim'): cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,CARX[key]['dim'])))
@@ -394,7 +418,7 @@ for t0,t1,c in SEG:
             bl=BL0
             if av is None or pts is None:   # 화살표 없는 칩(부위 추적이 없는 컷 포함, v7): 위쪽 띠
                 av=None
-                cx,cy=M-10,YB   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
+                cx,cy=((W-Cimg.width)//2 if NL else M-10),(int(NLP.get('chip_y',YB)) if NL else YB)   # 포인트 칩은 늘 같은 위쪽 자리(사용자 확정 · 위아래로 움직이지 않음), 큰 숫자가 칩 아래로 비켜남
                 L=0
             else: cx,cy,L,bl=slot_place(key,Cimg,tx,ty,pts,bool(PL.get(key,{}).get('T06'))) if SLOTS else place(Cimg,tx,ty,bl)
             if av and av[0]<=st<=av[1] and t>=tc+0.18:
@@ -427,6 +451,7 @@ for t0,t1,c in SEG:
             y3=int(H*0.12) if key!='c15' else int(H*0.24)
             if Cimg is not None and av is None: y3=max(y3,YB+Cimg.getbbox()[3]+20)
             if key in BIG_LOW: y3=CAPY-100; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb
+            if NL: y3=max(y3,int(H*float(NLP.get('big_y',0.27)))); HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # 네덜란드: 큰 숫자가 뜨면 말 자막 숨김
             B3=cnt(BIGS[k2],180 if key!='c15' else 210,t,tb+0.05); pop(cv,B3,((W-B3.width)//2,y3),t,tb,0.3)
             if BL: pop(cv,BL,((W-BL.width)//2,y3+B3.height+6),t,tb+0.12)
             _PTOP[key]=max(_PTOP.get(key,0),y3+B3.height+6+(BL.height if BL else 0))   # 슬롯 규격: 알약은 큰 숫자 묶음 아래부터 쌓음
@@ -474,7 +499,7 @@ cand=[(t,k) for t,k in EV if k not in ('chip','big_number')]+_ratio(sorted(x for
 pc=sorted(x for x in cand if x[1]=='part_change')[:SX['part_change_max']]; cand=[x for x in cand if x[1]!='part_change']+pc
 PRI={k:n for n,k in enumerate(SX['priority'])}; SND={k:SX['kinds'][k] for k in SX['kinds'] if k!='metaphor'}
 allc=[(t,'metaphor',nm,v) for t,nm,v in _met]+[(t,k,SND[k],SX['volume'][SND[k]]) for t,k in cand]
-cap_n=int(SX['max_per_30s']*TOTAL/30); acc=[]
+cap_n=int(SX.get('max_per_video') or SX['max_per_30s']*TOTAL/30); acc=[]
 for t,k,nm,v in sorted(allc,key=lambda x:(PRI[x[1]],x[0])):
     if t<0 or t>ENDT-0.2: continue   # 끝 로고 구간에는 넣지 않음
     if any(abs(t-a[0])<SX['min_gap_s'] for a in acc): continue
@@ -483,8 +508,9 @@ for t,k,nm,v in sorted(allc,key=lambda x:(PRI[x[1]],x[0])):
     acc.append((round(t,3),k,nm,v))
 acc.sort()
 print('효과음',[(a[0],a[2]) for a in acc])
+_BGMV=NLP.get('bgm',0.12) if NL else 0.16
 inp=['-i',G+'nov8.mp4','-i',G+'voice5.wav','-i',ASSET+'bgm/bobae_showroom_v1.mp3']
-fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120[v]',f'[2:a]atrim=0:{TOTAL},volume=0.16,afade=t=out:st={TOTAL-1.5}:d=1.5[b]']; mx=['[v]','[b]']
+fl=['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120[v]',f'[2:a]atrim=0:{TOTAL},volume={_BGMV},afade=t=out:st={TOTAL-1.5}:d=1.5[b]']; mx=['[v]','[b]']
 for j,(tc,k,nm,v) in enumerate(acc):
     inp+=['-i',ASSET+'sfx/'+nm+'.wav']; fl.append(f'[{len(inp)//2-1}:a]volume={v},adelay={int(tc*1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
 A_=R['audio']; LN=f"loudnorm=I={A_['loudness_lufs']}:TP={A_['true_peak_db']}:LRA=11"

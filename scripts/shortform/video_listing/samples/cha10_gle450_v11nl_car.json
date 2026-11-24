@@ -1,0 +1,220 @@
+{
+ "_what": "차란차 10번 GLE450 네덜란드판 샘플(v11nl). 순서: 차명 → 가격 → 주행거리 → 힘 → 옵션 → 댓글 유도. 모양 근거 docs/shortform/as24-nl-be-edit-manual-v4.md §3~§5(원본 네덜란드: 검정 상자 노랑 글자 칩 · 테두리 자막 · 평면 노랑 큰 숫자)",
+ "id": "cha10",
+ "out": "bobae_cha10_gle450_nl_v11.mp4",
+ "style": "nl",
+ "nl": {
+  "cap_y": 1190,
+  "cap_stroke": 7,
+  "chip": "box",
+  "chip_px": 64,
+  "chip_y": 300,
+  "big_y": 0.27,
+  "title_y": 0.2,
+  "title_px": 92,
+  "bgm": 0.12,
+  "sfx": {
+   "chip_ratio": 0.43,
+   "big_number_ratio": 1.0,
+   "part_change_max": 0,
+   "min_gap_s": 1.0,
+   "max_per_video": 6,
+   "title_ding": true
+  }
+ },
+ "deco": {
+  "emphasis": false
+ },
+ "title": {
+  "brand": "벤츠",
+  "model": "GLE450",
+  "sub": "2024년식 · 가솔린+전기 · W167"
+ },
+ "caption_hl": {
+  "min_hold": 0.26,
+  "fade": 0.1,
+  "number_yellow": true
+ },
+ "end_word": "궁금한",
+ "cuts": [
+  {
+   "key": "n1",
+   "src": [
+    0.0,
+    2.07
+   ],
+   "start_word": 0
+  },
+  {
+   "key": "n2",
+   "src": [
+    55.2,
+    57.0
+   ],
+   "start_word": 3,
+   "bigs": [
+    [
+     "7,990만원",
+     "가격",
+     4
+    ]
+   ],
+   "dim": 50
+  },
+  {
+   "key": "n3",
+   "src": [
+    38.9,
+    40.0
+   ],
+   "start_word": 5,
+   "bigs": [
+    [
+     "20,885km",
+     "주행거리",
+     6
+    ]
+   ],
+   "dim": 50
+  },
+  {
+   "key": "n4",
+   "src": [
+    4.0,
+    5.0
+   ],
+   "start_word": 7,
+   "chip": "직렬 6기통 3.0 터보",
+   "chip_word": 8,
+   "arrow": false
+  },
+  {
+   "key": "n5",
+   "src": [
+    3.0,
+    4.4
+   ],
+   "start_word": 12,
+   "chip": "48V 전기 모터",
+   "chip_word": 12,
+   "arrow": false
+  },
+  {
+   "key": "n6",
+   "src": [
+    5.0,
+    6.0
+   ],
+   "start_word": 15,
+   "bigs": [
+    [
+     "381마력",
+     "최고출력",
+     15
+    ]
+   ],
+   "dim": 50
+  },
+  {
+   "key": "n7",
+   "src": [
+    7.0,
+    8.0
+   ],
+   "start_word": 16,
+   "bigs": [
+    [
+     "5.6초",
+     "제로백",
+     17
+    ]
+   ],
+   "dim": 50
+  },
+  {
+   "key": "n8",
+   "src": [
+    8.2,
+    10.6
+   ],
+   "start_word": 18,
+   "chip": "9단 자동 · 사륜",
+   "chip_word": 18,
+   "arrow": false
+  },
+  {
+   "key": "n9",
+   "src": [
+    10.9,
+    13.5
+   ],
+   "start_word": 21,
+   "chip": "전동 트렁크",
+   "chip_word": 22,
+   "arrow": false
+  },
+  {
+   "key": "n10",
+   "src": [
+    15.2,
+    17.4
+   ],
+   "start_word": 24,
+   "chip": "파노라마 선루프",
+   "chip_word": 25,
+   "arrow": false
+  },
+  {
+   "key": "n11",
+   "src": [
+    25.0,
+    26.6
+   ],
+   "start_word": 27
+  },
+  {
+   "key": "n12",
+   "src": [
+    27.3,
+    28.7
+   ],
+   "start_word": 32,
+   "chip": "와이드 디스플레이",
+   "chip_word": 32,
+   "arrow": false
+  },
+  {
+   "key": "n13",
+   "src": [
+    22.0,
+    23.8
+   ],
+   "start_word": 34,
+   "chip": "터치패드",
+   "chip_word": 34,
+   "arrow": false
+  },
+  {
+   "key": "n14",
+   "src": [
+    34.85,
+    36.15
+   ],
+   "start_word": 36,
+   "chip": "메모리 시트 3개",
+   "chip_word": 37,
+   "arrow": false
+  },
+  {
+   "key": "n15",
+   "src": [
+    43.7,
+    48.1
+   ],
+   "start_word": 41,
+   "chip": "서라운드 뷰",
+   "chip_word": 43,
+   "arrow": false
+  }
+ ]
+}
