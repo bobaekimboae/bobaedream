@@ -6,7 +6,7 @@
 - 라이선스는 2026-11-08 기준으로 확인했다. 설치하기 전에 다시 확인한다.
 - 새 도구를 넣거나 판단을 바꾸면 `CHANGELOG.md`에 한 줄 적는다.
 - 원칙 5(2026-11-22): 이미지 생성 스티커 · 3D 아이콘(TL22 · TL26)은 시험용. 사용자가 세트를 승인해 자산으로 등록한 것만 영상에 쓴다.
-- 숫자 값(음량 · 크기 등)은 여기 적힌 것보다 규칙 파일이 우선이다. ✅는 「쓰기로 정함」이고, 지금 실제로 돌아가는 것은 README 5장 「지금 쓰는 것」 칸이 기준이다(예: 받아쓰기는 지금 faster-whisper).
+- 숫자 값(음량 · 크기 등)은 여기 적힌 것보다 규칙 파일이 우선이다. ✅는 「쓰기로 정함」이고, 지금 실제로 돌아가는 것은 README 5장 「지금 쓰는 것」 칸이 기준이다(예: 받아쓰기는 지금 faster-whisper, 대본 있는 내레이션 시각은 2026-11-25부터 Qwen3-ForcedAligner).
 
 ## P01 매물 사실
 | 번호 | 도구 | 구분 | 비고 |
@@ -40,6 +40,7 @@
 | TL11 | 일레븐랩스 받아쓰기(Scribe) | ✅ | TTS와 같은 회사, 낱말 시각 |
 | TL12 | faster-whisper · WhisperX | ✅ 대안 | MIT · BSD-2, 서버 설치형 |
 | TL13 | trim_voice.py(우리) | ✅ | 다시 녹음 없이 구절 잘라 길이 맞춤 |
+| TL67 | Qwen3-ForcedAligner-0.6B(qwen-asr 0.0.6) | ✅ 2026-11-25 | Apache-2.0. 대본 있는 ElevenLabs 내레이션 전용(`align_script.py`). 대본 글자 그대로 시각만 붙임, 첫 낱말 오차 중앙값 100ms → 20ms. transformers 4.57.6 고정이라 별도 가상환경 `/opt/qwen-align` |
 
 ## P06 컷 고르기
 | 번호 | 도구 | 구분 | 비고 |
@@ -96,13 +97,14 @@
 |---|---|---|---|
 | TL36 | 일레븐랩스 음악 생성 | ✅ | 110~120 BPM 곡 몇 개를 만들어 돌려 씀 |
 | TL37 | ACE-Step 1.5 | 🧪 | Apache-2.0(2026-02), 자체 서버 생성. 결과물 조건은 원문 재확인 |
-| TL38 | Beat This! · librosa | 🧪 | 박자 · 마디 |
+| TL38 | Beat This! 1.1.0 | ✅ 2026-11-25 | MIT, `dbn=False`. 박자 + 마디 첫 박 → BEAT_SNAP 강박. 오케스트라 곡 제외. torchaudio 대신 `lib/torchaudio_shim` |
+| TL68 | DeepFilterNet3(deep-filter 0.5.6) | ✅ 2026-11-25 | 딜러 원본 목소리만 섞기 직전 잡음 제거(`lib/dealer_voice.py`). ElevenLabs 음성 · 받아쓰기 전처리에는 쓰지 않음 |
 | TL39 | Pixabay 음악 | 💡 | 유튜브 Content ID 걸림 위험 |
 
 ## P13 합치기 · 음량 · mp4 저장
 | 번호 | 도구 | 구분 | 비고 |
 |---|---|---|---|
-| TL40 | FFmpeg(필요 시 GPU 인코딩 NVENC) | ✅ | 한 번에 합치기 |
+| TL40 | FFmpeg(필요 시 GPU 인코딩 NVENC) | ✅ | 한 번에 합치기. 서버(Laravel 12)는 pbmedia/laravel-ffmpeg 8.10 기준(2026-11-25) |
 | TL41 | loudnorm · pyloudnorm | ✅ | −14 LUFS |
 | TL42 | Laravel 큐 + 영상 서버 여러 대 | ✅ | 하루 수천 대. 실측(2026-11-22): 사진판 41초 영상 1편 116초/2코어 → 서버 1대 하루 약 745편. 2026-11-22: 매물 2대 동시 렌더 98초 → 서버 1대(2코어) 하루 약 1,700편(렌더만) |
 | TL43 | Shotstack · Creatomate · JSON2Video(유료 렌더 API) | 💡 | 분당 약 0.1~0.25달러. 서버 운영 대신 쓸 수 있는 대안 |
@@ -112,6 +114,7 @@
 |---|---|---|---|
 | TL44 | 규격 검사기(음량 · 길이 · 자막 위치 · 컷 길이) | ✅ | 규격 벗어나면 출고 막음 |
 | TL45 | PaddleOCR | 🧪 | Apache-2.0. 자막 위치 실측 |
+| TL69 | RapidOCR 한글 엔진(korean_PP-OCRv5_mobile_rec) | ✅ 2026-11-25 | 숫자는 PP-OCRv6 그대로, 한글 줄에만. 한글 오류율 88% → 18%. `report_cut.py --read` |
 | TL46 | Picsart · Gemini 자동 검수 | 🧪 | 「효과음 안 들림」 같은 걸 잡음 |
 
 ## P15 업로드(인스타 릴스 · 틱톡 · 유튜브 쇼츠)
@@ -141,7 +144,7 @@
 | TL60 | beat_this · CLAP · SAM 2 | ⏸ | 그래픽카드 필요. Thinkbook은 Intel 내장(메모리 64GB)이라 보류 |
 | TL62 | auto-editor 29.3.1 (Unlicense) | ✅ | 무음 후보만 표시: `--edit audio:threshold=0.04 --export v1` → chunks 속도 99999 = 자를 후보. 시동음·문 닫힘 보호 먼저 |
 | TL63 | audio-separator 0.48.0 (MIT, UVR 모델) | 🧪 | torch 2.15 CPU와 함께 설치. rea-video stems와 비교용 |
-| TL64 | librosa 1.0.0 (ISC) | ✅ | 박자 시각 추출. keyandbpm(AGPL, 박자 시각 없음) 대신 |
+| TL64 | librosa 1.0.0 (ISC) | ⛔ 박자용은 2026-11-25부터 Beat This!(TL38) | 박자 시각 추출(예전). keyandbpm(AGPL, 박자 시각 없음) 대신 |
 | TL65 | Ollama + Qwen2.5-VL 7B | ⏸ | 노트북 네트워크에서 설치 파일 다운로드 504. 재시도 필요 |
 | TL66 | 스킬 `bobae-video-tools` | ✅ | 도구별 명령·주의점. 노트북 `문서\tools\bobae-video-tools`, 클로드·코덱스·agents 스킬 폴더에 연결 |
 | TL61 | Raea | ⏸ | FSL 라이선스(경쟁 사용 제한) · canary 버전이라 보류 |

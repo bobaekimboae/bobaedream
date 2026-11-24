@@ -1,0 +1,65 @@
+{
+ "_what": "r12 대사 기준 낱말 번호",
+ "add": [
+  {
+   "key": "c2",
+   "id": "T05",
+   "from_cut_start": true,
+   "fade_out_word": 12
+  },
+  {
+   "key": "c5",
+   "id": "T03",
+   "step_words": [
+    27,
+    29
+   ]
+  },
+  {
+   "key": "c7",
+   "id": "T03",
+   "step_words": [
+    39,
+    41
+   ]
+  },
+  {
+   "key": "c9",
+   "id": "T08",
+   "word": 51
+  },
+  {
+   "key": "c12",
+   "id": "T03",
+   "step_words": [
+    75,
+    76
+   ]
+  },
+  {
+   "key": "c13",
+   "id": "T05",
+   "from_cut_start": true,
+   "fade_out_word": 82
+  },
+  {
+   "key": "c16",
+   "id": "T02",
+   "option": "engine",
+   "rows": [
+    [
+     "최대토크 77.5kg·m",
+     94
+    ],
+    [
+     "8단 듀얼클러치",
+     96
+    ],
+    [
+     "제로백 3.4초",
+     98
+    ]
+   ]
+  }
+ ]
+}

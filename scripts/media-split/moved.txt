@@ -83,3 +83,17 @@ videos/bmw-x5-photo-sample/bmw-x5-60s-v2.mp4
 videos/bmw-x5-photo-sample/bmw-x5-60s-v3.mp4
 videos/bmw-x5-photo-sample/sample-v2.mp4
 videos/charancha-x5-motion/bmw-x5-charancha-60s-v2.mp4
+shortform-samples/munjh-photo-v1/bobae_be_munjh_e53.mp4
+shortform-samples/munjh-photo-v1/bobae_be_munjh_q8.mp4
+shortform-samples/munjh-photo-v7/bobae_be_munjh_e53_v7.mp4
+shortform-samples/munjh-photo-v7/bobae_be_munjh_q8_v7.mp4
+shortform-samples/nasser-intros-v1/nasser_intro_g63.mp4
+shortform-samples/nasser-intros-v1/nasser_intro_p911ts.mp4
+shortform-samples/nasser-intros-v1/nasser_intro_pista.mp4
+shortform-samples/nasser-intros-v1/nasser_intro_sto.mp4
+shortform-samples/nasser-intros-v1/nasser_intros_reel.mp4
+shortform-samples/roma-spider-rave-v10/roma-spider-rave-v10.mp4
+shortform-samples/roma-spider-rave-v11/roma-spider-rave-v11.mp4
+shortform-samples/roma-spider-rave-v12/roma-spider-rave-v12.mp4
+shortform-samples/roma-spider-rave-v13/roma-spider-rave-v13.mp4
+shortform-samples/roma-spider-rave-v9/roma-spider-rave-v9.mp4

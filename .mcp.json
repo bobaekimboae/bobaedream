@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "bobae-music": {
+      "command": "python3",
+      "args": ["scripts/shortform/music_mcp/server.py"]
+    },
+    "earshot": {
+      "command": "bash",
+      "args": ["-c", "${EARSHOT_BIN:-$HOME/.venv-earshot/bin/earshot} mcp"]
+    }
+  }
+}

@@ -8,3 +8,6 @@
 
 - `bobae_supercar_v1.mp3`: 일레븐랩스 음악(eleven_music_v2_5) 2026-11-22. 45초, 약 124BPM 강한 전자음, 목소리 없음(받아쓰기 확인). 슈퍼카·스포츠카용. 프로 요금제 상업 이용.
 - `bobae_luxury_v1.mp3`: 일레븐랩스 음악(eleven_music_v2_5) 2026-11-22. 45초, 약 100BPM 잔잔한 로파이 하우스, 목소리 없음(받아쓰기 확인). 고급 세단·SUV용. 프로 요금제 상업 이용.
+
+- `orshot_epic_milestone_bed_v1.mp3`: Orshot 무료 음원 라이브러리 「Epic milestone」(stock://orshot/music/3291, 128BPM, 17.4초)를 반복 구간(3.75~15초, 박자 맞춤)으로 이어 붙여 약 85초로 늘린 것. 2026-11-23 「무료 mcp에서 받어」. Orshot 표기: 상업 이용 무료 · 출처 표기 의무 없음. 로마 스파이더(roma_render.py, `ROMA_BGM`)에서 사용.
+- `orshot_sports_highlights_bed_v1.mp3`: Orshot 무료 음원 라이브러리 「Sports highlights」(약 136BPM, 역동적인 스포츠 비트)를 반복 구간으로 이어 붙여 약 92초로 늘린 것. 2026-11-23 「음악 역동적인걸로」. Orshot 표기: 상업 이용 무료 · 출처 표기 의무 없음. 로마 스파이더 r05(`ROMA_BGM`)에서 사용.

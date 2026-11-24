@@ -1,0 +1,166 @@
+{
+ "words": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/roma/words_clean.json",
+ "src": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/roma/src.mp4",
+ "cuts": [
+  {
+   "key": "c1",
+   "start_word": 0,
+   "src": [
+    214.5,
+    219.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c2",
+   "start_word": 9,
+   "src": [
+    10.0,
+    13.0
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c3",
+   "start_word": 12,
+   "src": [
+    13.5,
+    17.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c4",
+   "start_word": 20,
+   "src": [
+    37.0,
+    42.3
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c5",
+   "start_word": 27,
+   "src": [
+    48.0,
+    50.8
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c6",
+   "start_word": 33,
+   "src": [
+    51.0,
+    55.5
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c7",
+   "start_word": 39,
+   "src": [
+    66.0,
+    70.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c8",
+   "start_word": 45,
+   "src": [
+    72.5,
+    78.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c9",
+   "start_word": 51,
+   "src": [
+    79.5,
+    83.5
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c10",
+   "start_word": 57,
+   "src": [
+    84.0,
+    88.8
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c11",
+   "start_word": 67,
+   "src": [
+    167.0,
+    172.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c12",
+   "start_word": 76,
+   "src": [
+    172.5,
+    179.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c13",
+   "start_word": 79,
+   "src": [
+    125.5,
+    128.5
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c14",
+   "start_word": 84,
+   "src": [
+    118.5,
+    122.5
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c15",
+   "start_word": 88,
+   "src": [
+    200.3,
+    203.3
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c16",
+   "start_word": 93,
+   "src": [
+    203.5,
+    208.0
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  }
+ ]
+}

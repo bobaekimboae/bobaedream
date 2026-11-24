@@ -1,7 +1,7 @@
 """딜러 내레이션형 숏폼 샘플: 매물 사진 + 매물 정보 -> 대본 -> TTS(어절 시각) -> 컷 맞춤 -> 자막·그래픽 -> mp4."""
 import asyncio, json, math, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import voice_source  # edge-tts(비공식 접속) 대신: 일레븐랩스 블록 파일(VOICE_DIR) 또는 MeloTTS
+import voice_source  # 블록 음성은 설정값(VOICE_DIR)으로만 받음
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 OUT = os.environ.get('OUT_DIR', os.path.join(os.getcwd(), 'shortform-out'))

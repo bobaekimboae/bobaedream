@@ -1,14 +1,12 @@
 """블록별 내레이션 음성 + 낱말 시각.
 
-edge-tts(마이크로소프트 비공식 접속, 서비스 약관 위험)를 쓰지 않으려고 만든 공용 부품이다(2026-11-24).
+비공식 음성 접속을 쓰지 않으려고 만든 공용 부품이다(2026-11-24). 음성 엔진은 실험 중이라 코드에 고정하지 않는다(2026-11-25 최종 지시 v2).
 
-음성 만드는 방법(VOICE_ENGINE):
-- file(기본): 미리 만든 블록별 음성 파일을 쓴다. 일레븐랩스로 블록마다 한 번씩만 만들고(다시 만들지 않음)
-  VOICE_DIR 폴더에 b00.mp3, b01.mp3 … 처럼 블록 번호 순서로 넣는다. wav도 된다.
-- melo: MeloTTS-Korean(MIT, 상용 가능)으로 기기 안에서 만든다. `pip install melotts` 후
-  `python -m unidic download` 가 필요하다. 속도는 MELO_SPEED(기본 1.1), 화자는 MELO_SPEAKER(기본 KR).
+음성: 설정값으로만 받는다. VOICE_DIR 폴더에 미리 만든 블록별 음성(b00.mp3, b01.mp3 …, wav도 됨)을 넣는다.
+어떤 목소리·모델로 만들지는 설정 쪽에서 정한다(일레븐랩스는 블록마다 한 번만 생성). 설정이 없으면 렌더를 멈추고 알린다.
+MeloTTS는 2026-11-25 「쓰지 않는 것」에 들어가 뺐다.
 
-낱말 시각은 두 방법 모두 faster-whisper(MIT)로 받아쓴 뒤, 글자 단위로 대본 낱말에 맞춘다.
+낱말 시각은 faster-whisper(MIT)로 받아쓴 뒤, 글자 단위로 대본 낱말에 맞춘다.
 받아쓴 글자가 아니라 대본 글자를 화면에 쓰므로 받아쓰기 오타는 자막에 나오지 않는다.
 받아쓰기에서 빠진 낱말(r11의 제로백처럼)은 align_ko.py(WhisperX식 강제 정렬, wav2vec2 한국어)로 채운다.
 VOICE_ALIGN=off면 예전처럼 앞뒤 낱말 사이로 나눠 채운다.
@@ -22,10 +20,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-ENGINE = os.environ.get('VOICE_ENGINE', 'file')
 VOICE_DIR = os.environ.get('VOICE_DIR', '')
 _WHISPER = None
-_MELO = None
 
 
 def _norm(t):
@@ -103,8 +99,7 @@ def words_of(audio_path, text):
 
 def _file_voice(idx, path):
     if not VOICE_DIR:
-        raise SystemExit('⛔ VOICE_DIR가 비어 있습니다. 일레븐랩스로 블록마다 한 번 만든 음성을 b00.mp3, b01.mp3 … 로 넣은 폴더를 지정하세요. '
-                         '(edge-tts는 비공식 접속이라 더 이상 쓰지 않습니다)')
+        raise SystemExit('⛔ VOICE_DIR가 비어 있습니다. 일레븐랩스로 블록마다 한 번 만든 음성을 b00.mp3, b01.mp3 … 로 넣은 폴더를 지정하세요. ')
     for ext in ('mp3', 'wav', 'm4a'):
         src = os.path.join(VOICE_DIR, f'b{idx:02d}.{ext}')
         if os.path.exists(src):
@@ -116,27 +111,8 @@ def _file_voice(idx, path):
     raise SystemExit(f'⛔ {VOICE_DIR}/b{idx:02d}.mp3(또는 wav)가 없습니다. 블록 {idx}의 음성을 먼저 만들어 넣으세요.')
 
 
-def _melo_voice(text, path):
-    global _MELO
-    try:
-        from melo.api import TTS
-    except ImportError:
-        raise SystemExit('⛔ MeloTTS가 없습니다. `pip install melotts` 와 `python -m unidic download` 후 다시 실행하세요.')
-    if _MELO is None:
-        _MELO = TTS(language='KR', device='cpu')
-    spk = _MELO.hps.data.spk2id[os.environ.get('MELO_SPEAKER', 'KR')]
-    wav = os.path.splitext(path)[0] + '.melo.wav'
-    _MELO.tts_to_file(text, spk, wav, speed=float(os.environ.get('MELO_SPEED', '1.1')), quiet=True)
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', wav, path], check=True)
-    os.remove(wav)
-
 
 def synth_words(text, path, idx):
     """블록 idx의 음성을 path에 놓고 [(시작, 끝, 대본 낱말)]을 돌려준다."""
-    if ENGINE == 'melo':
-        _melo_voice(text, path)
-    elif ENGINE == 'file':
-        _file_voice(idx, path)
-    else:
-        raise SystemExit(f'⛔ VOICE_ENGINE={ENGINE}는 없습니다. file 또는 melo를 쓰세요.')
+    _file_voice(idx, path)
     return words_of(path, text)

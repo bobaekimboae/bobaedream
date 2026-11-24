@@ -6,7 +6,7 @@
      → 코드로 만든 배경음악 + 목소리 자동 덕킹 → -14 LUFS → 1080×1920 30fps mp4.
 
 실행: python3 scripts/shortform/sag_reel_v1.py <원본.mp4> <출력폴더>
-TTS: 블록 음성은 voice_source.py가 만든다(VOICE_ENGINE=file: 일레븐랩스 블록 파일, melo: MeloTTS-Korean). edge-tts는 2026-11-24부터 쓰지 않는다.
+TTS: 블록 음성은 voice_source.py가 설정값(VOICE_DIR)으로만 받는다. 없으면 렌더를 멈춘다.
 """
 import asyncio, json, math, os, re, subprocess, sys, time
 import numpy as np
@@ -27,7 +27,7 @@ BOLD = os.path.join(FONTS, 'Pretendard-Bold.otf')
 SEMI = os.path.join(FONTS, 'Pretendard-SemiBold.otf')
 MED = os.path.join(FONTS, 'Pretendard-Medium.otf')
 YELLOW = (255, 214, 10)
-# 음성: voice_source.py(일레븐랩스 블록 파일 또는 MeloTTS-Korean). 외부 통음성은 SAG_VOICE_FILE + SAG_VOICE_WORDS
+# 음성: voice_source.py(설정값 VOICE_DIR의 블록 파일). 외부 통음성은 SAG_VOICE_FILE + SAG_VOICE_WORDS
 # 릴스·쇼츠·틱톡 공통 세이프존(1080×1920): 위·아래 240, 오른쪽 216(버튼 줄), 좌우 끝 54 — 자막은 이 안의 가운데
 SAFE_TOP, SAFE_BOTTOM, SAFE_L, SAFE_R = 240, 1920 - 240, 54, 1080 - 216
 PLATE_COVER = os.environ.get('SAG_PLATE_COVER', '0') == '1'
@@ -111,7 +111,7 @@ for _b in BLOCKS:
 KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|보배드림|테일램프|옆태)')
 
 
-# ── 1. TTS ── (edge-tts 비공식 접속 사용 중지 2026-11-24: 블록 음성은 voice_source가 일레븐랩스 파일 또는 MeloTTS로 만든다)
+# ── 1. TTS ── (비공식 음성 접속 사용 중지 2026-11-24: 블록 음성은 voice_source가 설정값으로만 받는다)
 import voice_source  # noqa: E402
 
 

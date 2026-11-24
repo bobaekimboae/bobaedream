@@ -28,7 +28,7 @@
 |---|---|---|
 | ① 원본 맞추기 · ⑤ 렌더 · ⑥ 확인 | 로컬 Python + FFmpeg | 같음. 저장소만 있으면 됨 |
 | ③ 음성 | ElevenLabs MCP `creative_generate_speech` | 일레븐랩스 웹(elevenlabs.io)에서 같은 목소리로 만들어 mp3 저장, 또는 일레븐랩스 API 키로 직접 호출(키는 노트북 환경변수 `ELEVENLABS_API_KEY`, 채팅에 붙여넣지 않음) |
-| ④ 낱말 시각 | ElevenLabs MCP `creative_transcribe_audio` | 일레븐랩스 Speech to Text(Scribe) 웹·API, 또는 오픈소스 faster-whisper(단어 시각 켜기) |
+| ④ 낱말 시각 | 대본 있는 내레이션은 `photo_listing/align_script.py`(Qwen3-ForcedAligner, 2026-11-25~), 그 밖은 ElevenLabs MCP `creative_transcribe_audio` | 일레븐랩스 Speech to Text(Scribe) 웹·API, 또는 오픈소스 faster-whisper(단어 시각 켜기) |
 | ④-1 부위 찾기 | `part_anchor.py`(OWLv2, 로컬) | 같음 |
 | 레퍼런스 학습 | Claude in Chrome(로그인된 크롬) · 구글 드라이브 `SNS레퍼런스_원본영상`(나세르 원본) | 사람이 캡처를 넘겨줌 |
 | ⑦ 배포 | gh CLI(REST API) | 같음. 병합은 사용자가 「배포해」라고 했을 때만 |

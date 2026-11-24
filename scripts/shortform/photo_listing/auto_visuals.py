@@ -179,7 +179,9 @@ def _seat_bundle(C, words, cuts, opts, lay, report):
     if ci is None:
         report.append('시트 사진 없음: 시트 묶음 생략')
         return []
-    sb = lay['seat_bundle']
+    sb = dict(lay['seat_bundle'])
+    if getattr(C, 'SEAT_ICON_FIT', None):   # 2026-11-24 사용자 「시트는 나세르처럼」: 차량별로 아이콘을 더 크게(등받이 폭 비율, 최소, 최대 px)
+        sb['icon_fit'] = list(C.SEAT_ICON_FIT)
     photo, a = cuts[ci][0], cuts[ci][2]
     b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1
     rules = {r['id']: r for r in RULES['options']}
@@ -202,7 +204,7 @@ def _seat_bundle(C, words, cuts, opts, lay, report):
         if wi is None:
             wi = min(a + k, b)   # 말하지 않은 기능(대본 수정 전)은 컷 첫머리부터 하나씩 톡
             k += 1
-        out.append({**common, 'w': wi, 'auto': oid + '@seat', 'emo': r['visual']['emo'], 'h': 130,
+        out.append({**common, 'w': wi, 'auto': oid + '@seat', 'emo': r['visual']['emo'], 'h': 130, 'sfx': r.get('sfx'),
                     'fit': tuple(sb['icon_fit']) + ('w',), 'seat_idx': idx})
     mat = (opts.get('seat_material') or {}).get('material')
     if 'seat_material' in opts and not mat:
@@ -279,10 +281,12 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
     for ci, c in enumerate(cuts):
         if ci == 0 and NUM['skip_first_cut']:
             continue
+        if c[0] in getattr(C, 'CARD_PHOTOS', ()) or c[0] in getattr(C, 'NUM_SKIP_PHOTOS', ()):   # 2026-11-24 독립 카드 컷(차량 정보 등)은 카드 칸이 숫자를 이미 보여 줌 · NUM_SKIP_PHOTOS = 카드에 이미 나온 숫자(배기량) 컷
+            continue
         a = c[2]
         b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1
         shown = ' '.join([c[4][0] if c[4] else ''] + [t for t, wi in getattr(C, 'EXTRA_CHIPS', []) if a <= wi <= b] + sk_txt.get(c[0], []))
-        have = [v for v in _vals_in(shown) if v]
+        have = [v for v in _vals_in(shown) if v is not None]  # 0(「보험 이력 0건」)도 칩에 있는 값
         def _wt(i):   # 받아쓰기가 「57」「,998km」로 나눈 숫자는 이어 붙인다(2026-11-22 K9: 「57」만 크게 뜸)
             t = words[i][2]
             if i + 1 < len(words) and re.match(r'^[,.]\d', words[i + 1][2]):
@@ -311,7 +315,10 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
                 groups[-1].append((i, t))
             else:
                 groups.append([(i, t)])
-        for g in groups[:NUM['max_per_cut']]:
+        _prev = None
+        for gi, g in enumerate(groups):
+            if gi >= NUM['max_per_cut'] and not (_prev and _prev.get('place') == 'inside'):
+                break   # 2026-11-24: 한 부위 안(트렁크 605L → 1,755L)에서 이어 말한 숫자만 같은 자리에서 바꿔 보여 줌
             parts = [_label(t) for _, t in g]
             raw = [t.rstrip('.,!?') for _, t in g]
             ratio_bare = len(g) >= 3 and all(not p[1] and re.fullmatch(re.escape(p[0]) + r'(으로|로)?', r) for r, p in zip(raw, parts))   # v1.8.3: 「사십, 이십, 사십으로」(단위 없는 숫자 3개 연속) = 분할 비율
@@ -345,6 +352,11 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
             else:
                 sk.update(x=540, y=0, under_chip=True)
                 where = '칩 아래(부위 낱말 없음)'
+            if gi >= NUM['max_per_cut']:
+                if sk.get('part') != _prev.get('part'):
+                    break
+                _prev['until_w'] = g[0][0]   # 앞 숫자는 다음 숫자를 말할 때 내려감
             out.append(sk)
+            _prev = sk
             report.append(f"숫자 화면 표기: 컷 {c[0]}({c[1]}) 「{' '.join(raw)}」 → {txt} · {where}")
     return out
