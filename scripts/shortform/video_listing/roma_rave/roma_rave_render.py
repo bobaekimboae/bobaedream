@@ -89,6 +89,33 @@ def track(fr, i0, x, y):
         if resp > 0.05 and abs(dx) < 30 and abs(dy) < 30: px += dx * 4; py += dy * 4
         pts[i] = (px, py); prev = cur
     return pts
+def lk_track(fr, i0, x, y, mask=None, R=150):
+    """부위에 붙는 점 추적: 부위 위 특징점(LK 광류, 앞뒤 검사) 이동량의 중앙값만큼 점을 옮김. 손·배경 움직임은 이상치로 버림"""
+    s = 0.5; g = [None] * len(fr)
+    G_ = lambda i: g[i] if g[i] is not None else g.__setitem__(i, cv2.cvtColor(cv2.resize(fr[i], (540, 960)), cv2.COLOR_BGR2GRAY)) or g[i]
+    def feats(i, cx, cy, m=None):
+        win = np.zeros((960, 540), np.uint8); cv2.circle(win, (int(cx * s), int(cy * s)), int(R * s), 255, -1)
+        if m is not None: win &= m
+        p = cv2.goodFeaturesToTrack(G_(i), 80, 0.01, 6, mask=win)
+        return p if p is not None else np.zeros((0, 1, 2), np.float32)
+    m0 = None
+    if mask is not None: m0 = (cv2.resize(mask.astype(np.uint8), (540, 960), interpolation=cv2.INTER_NEAREST) > 0).astype(np.uint8) * 255
+    pts = {i0: (x, y)}; px, py = x, y; p = feats(i0, x, y, m0)
+    if len(p) < 6: p = feats(i0, x, y)
+    for i in range(i0 + 1, len(fr)):
+        if len(p) >= 4:
+            q, st, _ = cv2.calcOpticalFlowPyrLK(G_(i - 1), G_(i), p, None, winSize=(21, 21), maxLevel=3)
+            r, st2, _ = cv2.calcOpticalFlowPyrLK(G_(i), G_(i - 1), q, None, winSize=(21, 21), maxLevel=3)
+            ok_ = (st[:, 0] == 1) & (st2[:, 0] == 1) & (np.linalg.norm((r - p)[:, 0], axis=1) < 1.0)
+            d = (q - p)[:, 0][ok_]
+            if len(d) >= 4:
+                md = np.median(d, 0); dev = np.linalg.norm(d - md, axis=1); keep = dev < max(1.5, 2.5 * np.median(dev))
+                md = np.median(d[keep], 0); px += md[0] / s; py += md[1] / s
+                p = q[ok_][keep].reshape(-1, 1, 2)
+            else: p = p[:0]
+        if len(p) < 8: p = feats(i, px, py)   # 점이 모자라면 지금 자리에서 다시 뽑음
+        pts[i] = (px, py)
+    return pts
 LZ = [Image.open(p).convert('RGBA') for p in sorted(glob.glob(G + 'laser_fx/*.png'))]
 TL = json.load(open(G + 'touch_lines.json'))
 def _resample(P, step=6):
@@ -119,6 +146,7 @@ PINLAY = {}
 def pin_fx(cv, x, y, u, name):
     # 스카우트식: 손글씨 굵은 화살표(노션 원본 SVG)가 칩 아래 모서리에서 부위로 비스듬히 꽂힘. 칩은 화면 가운데 쪽
     if u < 0: return cv
+    if not (40 < x < W - 40 and 200 < y < H - 260): return cv   # 부위가 화면 밖으로 나가면 이름표도 내림(허공 가리킴 방지)
     L = gchip(PINTXT.get(name, name)); bb_ = L.getbbox(); cw, ch = bb_[2] - bb_[0], bb_[3] - bb_[1]
     if name not in PINLAY or u < 0.05:   # 처음 자리(위/아래·왼/오) 정하고, 그 뒤엔 칩이 부위를 따라 같이 움직임
         cx, cy, deg, _ = HARROW.layout(x, y, cw, ch, W, H); PINLAY[name] = (cx - x, cy - y, deg)
@@ -337,7 +365,7 @@ for t0, t1, c in SEG:
     PP = []
     for s_, w_, (fx_, fy_) in ppins:
         tp_ = ST(w_) - t0 + 0.05; fi_ = min(len(fr) - 1, int(round((min(s1, s0 + tp_ * rate) - s0) * 30)))
-        PP.append((s_, tp_, fi_, track(fr, fi_, fx_ * W, fy_ * H)))
+        PP.append((s_, tp_, fi_, lk_track(fr, fi_, fx_ * W, fy_ * H)))
     ctimes = [ST(w) - t0 + 0.05 for _, w in chips]; btimes = [ST(w) - t0 - 0.22 for _, w, _ in bigs]
     chip_seen = set(); big_seen = set()
     while nfr < round(t1 * FPS):
@@ -363,10 +391,14 @@ for t0, t1, c in SEG:
                 T = ((pts[ti0][0] + ox - ccx) * z + W / 2, (pts[ti0][1] + oy - ccy) * z + H / 2)
                 if touch[4]:
                     cv, an = PFX.fx(cv, key, G, k, ccx, ccy, z, T)
-                    if an: ANC[key] = ((an[0] - W / 2) / z + ccx, (an[1] - H / 2) / z + ccy, fi)   # 원본 좌표로 기억
+                    if an and key not in ANC:   # 처음 잡힌 부위 점(원본 좌표)을 부위 위 특징점으로 끝까지 추적 → 화살표가 부위에 붙어 다님
+                        sx_, sy_ = (an[0] - W / 2) / z + ccx, (an[1] - H / 2) / z + ccy
+                        _D = PFX.load(key, G); _pm = None
+                        if _D is not None: _j = min(k, len(_D[0]) - 1); _pm = (_D[0][_j] > 0.5) & (_D[1][_j] == 0)
+                        ANC[key] = lk_track(fr, fi, sx_, sy_, _pm)
                     if key in ANC:
-                        sx_, sy_, f_ = ANC[key]; qx, qy = pts.get(fi, pts[max(pts)]); rx, ry = pts.get(f_, pts[max(pts)])
-                        PIN.append(((sx_ + qx - rx - ccx) * z + W / 2, (sy_ + qy - ry - ccy) * z + H / 2, k / 30, touch[4]))
+                        qx, qy = ANC[key].get(fi, ANC[key][max(ANC[key])])
+                        PIN.append(((qx - ccx) * z + W / 2, (qy - ccy) * z + H / 2, k / 30, touch[4]))
                 elif PFX.load(key, G) is not None: cv, _ = PFX.fx(cv, key, G, k, ccx, ccy, z, T)   # 라벨 없는 장면도 부위 색 바꾸기
                 else: cv = tap_fx(cv, T[0], T[1], k / 30)
         if key == 'c1':

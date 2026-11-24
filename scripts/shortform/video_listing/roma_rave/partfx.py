@@ -178,7 +178,7 @@ def holes(cv, key, G, k, ccx, ccy, z, tip):
 # ── 나세르식 부위 색 바꾸기: 질감(밝기)은 두고 색만 흰색/부위색으로 + 얇은 테두리 + 빛 쓸기 ──
 STR = {'defl': 0.45, 'top': 0.6}
 NOBORDER = {'wheel'}   # 캘리퍼는 바퀴살 사이로 보여 테두리가 복잡 → 색만   # 넓은 부위는 색을 옅게
-TINT = {'exh': 'white', 'sill': 'white', 'grille': 'white', 'paddle': (225, 30, 45), 'defl': (225, 30, 45), 'pdisp': (40, 200, 255), 'wheel': (255, 214, 0), 'top': 'white', 'eng': (225, 30, 45)}
+TINT = {'tire': 'white', 'exh': 'white', 'sill': 'white', 'grille': 'white', 'paddle': (225, 30, 45), 'defl': (225, 30, 45), 'pdisp': (40, 200, 255), 'wheel': (255, 214, 0), 'top': 'white', 'eng': (225, 30, 45)}
 
 
 def _env(u, n):
@@ -243,6 +243,8 @@ def fx(cv, key, G, k, ccx, ccy, z, tip):
     if key == 'grille': return holes(cv, key, G, k, ccx, ccy, z, tip)
     if key == 'top': return outline(cv, key, G, k, ccx, ccy, z, tip)   # 패브릭 탑: 흰색으로 칠하면 도장면처럼 보여 외곽선만(원래 천 색 유지)
     if key == 'wheel':   # 타이어 터치: 캘리퍼 색 + 휠·타이어 외곽선
+        if load('tire', G) is not None:   # 타이어 면도 색(흰 칠 + 빛 쓸기 + 얇은 테두리) → 캘리퍼 노랑과 함께 휠 전체가 그래픽으로
+            cv, _ = recolor(cv, 'tire', G, k, ccx, ccy, z, tip); cv, an = recolor(cv, key, G, k, ccx, ccy, z, tip); return cv, an
         cv, an = recolor(cv, key, G, k, ccx, ccy, z, tip); cv, _ = outline(cv, 'wheelfull', G, k, ccx, ccy, z, tip); return cv, an
     return (recolor if STYLE == 'recolor' else outline)(cv, key, G, k, ccx, ccy, z, tip)
 
