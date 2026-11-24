@@ -118,26 +118,47 @@ PHOTO_BOTTOM = CAP_TOP - CAP_GAP   # 가로 사진(상자 맞춤) 아랫선 — 
 starts = [0.0] + [onset(c[2]) - 0.12 for c in CUTS[1:]]
 
 
+# 2026-11-25 박자 맞춤에서 빼는 배경음(박자 찾기가 두 방식 34%만 일치 — 박이 흐린 오케스트라 곡)
+BEAT_SNAP_EXCLUDE = ('cazz_orchestral_beat',)
+
+
 def _bgm_beats():
-    """배경음 박자 시각(초). 처음 한 번 librosa로 재고 bgm 폴더 옆 json에 저장(배경음은 0초부터 깔림, atrim=0)"""
-    src = f'{ASSET}/bgm/bobae_showroom_v1.mp3'
+    """배경음 박자·마디 첫 박 시각(초). 처음 한 번 Beat This!(MIT, final0, dbn=False)로 재고 bgm 폴더 옆 json에 저장.
+    2026-11-25 librosa beat_track → Beat This!: librosa 「4박마다 강박」 추정은 실제 마디 첫 박과 6곡 중 5곡에서 0~4%만 맞았다.
+    madmom DBN은 쓰지 않는다(특허·비상업). 키 끝 ':bt' = Beat This! 결과(옛 librosa 키와 섞이지 않게).
+    BGM_START(초)로 배경음을 앞에서 잘라 깔면 박자·마디 첫 박도 같이 당긴다."""
+    src = f'{ASSET}/bgm/' + getattr(C, 'BGM', 'bobae_showroom_v1.mp3')   # 2026-11-24 cfg BGM으로 배경음 바꿈(역동적: orshot_sports_highlights_bed_v1.mp3)
     cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bgm_beats.json')
     db_ = json.load(open(cache)) if os.path.exists(cache) else {}
-    key = os.path.basename(src) + ':' + str(os.path.getsize(src))
+    key = os.path.basename(src) + ':' + str(os.path.getsize(src)) + ':bt'
     if key not in db_:
-        import librosa
-        y_, sr_ = librosa.load(src, sr=22050, mono=True)
-        tempo_, fr_ = librosa.beat.beat_track(y=y_, sr=sr_)
-        db_[key] = {'tempo': float(np.atleast_1d(tempo_)[0]), 'beats': [round(float(t), 3) for t in librosa.frames_to_time(fr_, sr=sr_)]}
+        try:
+            import torchaudio  # noqa: F401  정식판이 있으면 그것
+        except ImportError:   # torch 2.15용 torchaudio가 아직 없음 — MelSpectrogram 같은 계산의 대체 모듈
+            sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'lib', 'torchaudio_shim'))
+        from beat_this.inference import File2Beats
+        b_, d_ = File2Beats(checkpoint_path='final0', device='cpu', dbn=False)(src)
+        b_ = [round(float(t), 3) for t in b_]; d_ = [round(float(t), 3) for t in d_]
+        iv = np.diff(b_) if len(b_) > 1 else np.array([0.5])
+        db_[key] = {'tempo': round(60.0 / float(np.median(iv)), 2), 'beats': b_, 'downbeats': d_, 'tool': 'beat_this 1.1.0 final0 dbn=False'}
         json.dump(db_, open(cache, 'w'), indent=1)
-    return db_[key]
+    r = dict(db_[key])
+    off = float(getattr(C, 'BGM_START', 0) or 0)
+    if off:
+        r['beats'] = [round(t - off, 3) for t in r['beats'] if t >= off]
+        r['downbeats'] = [round(t - off, 3) for t in r['downbeats'] if t >= off]
+    return r
 
 
-if getattr(C, 'BEAT_SNAP', False):
+_BGM_NAME = getattr(C, 'BGM', 'bobae_showroom_v1.mp3')
+if getattr(C, 'BEAT_SNAP', False) and any(x in _BGM_NAME for x in BEAT_SNAP_EXCLUDE):
+    print(f'  [박자 맞춤] {_BGM_NAME}: 박이 흐린 곡이라 박자 맞춤에서 뺌(BEAT_SNAP_EXCLUDE)')
+elif getattr(C, 'BEAT_SNAP', False):
     # 2026-11-22 캡컷 가이드 박자 맞춤(docs/shortform/capcut-guide-survey-v1.md): 컷 경계를 배경음 박자에 붙인다.
-    # 말 싱크를 지키려고 컷은 앞 낱말이 끝난 뒤 ~ 그 컷 첫 낱말 소리 시작 0.04초 전(최대 0.45초 전) 안에서만 움직인다. 구간 경계(WHOOSH_AT)는 강박(4박마다) 먼저.
+    # 말 싱크를 지키려고 컷은 앞 낱말이 끝난 뒤 ~ 그 컷 첫 낱말 소리 시작 0.04초 전(최대 0.45초 전) 안에서만 움직인다. 구간 경계(WHOOSH_AT)는 강박 먼저.
+    # 2026-11-25 강박 = Beat This!가 잰 실제 마디 첫 박(downbeats). 옛 「beats[::4]」는 곡 첫 박이 1~2초 늦게 잡혀 마디와 거의 안 맞았다.
     _bt = _bgm_beats(); _beats = np.array(_bt['beats'])
-    _strong = _beats[::4] if len(_beats) else _beats
+    _strong = np.array(_bt.get('downbeats', []))
     _moved = []
     for _i in range(1, len(starts)):
         _on = onset(CUTS[_i][2]); _hi = _on - 0.04
@@ -150,7 +171,9 @@ if getattr(C, 'BEAT_SNAP', False):
                 _pick = float(_c[np.argmin(np.abs(_c - starts[_i]))]); break
         if _pick is not None:
             _moved.append(round(float(_pick - starts[_i]), 3)); starts[_i] = _pick
-    print(f"  [박자 맞춤] 템포 {_bt['tempo']:.0f}BPM · 컷 {len(starts) - 1}개 중 {len(_moved)}개 박자에 붙임 · 이동 {_moved}")
+    _wa = sorted(set(getattr(C, 'WHOOSH_AT', [])))
+    _on_db = [i for i in _wa if 0 < i < len(starts) and len(_strong) and float(np.min(np.abs(_strong - starts[i]))) < 0.02]
+    print(f"  [박자 맞춤] 템포 {_bt['tempo']:.0f}BPM · 마디 첫 박 {len(_strong)}개 · 컷 {len(starts) - 1}개 중 {len(_moved)}개 박자에 붙임 · 구간 경계 {len(_on_db)}/{len(_wa)}개 마디 첫 박 · 이동 {_moved}")
 BODY = VOICE_LEN + TAIL
 ends = starts[1:] + [BODY]
 if getattr(C, 'AUTO_ZOOM', False):   # 매뉴얼 14장 — 부위 당기기(키프레임 자동), 규칙은 part_zoom_rules.json
@@ -159,6 +182,8 @@ if getattr(C, 'AUTO_ZOOM', False):   # 매뉴얼 14장 — 부위 당기기(키�
     CUTS = [tuple(c[:6]) + (_zk[i],) + tuple(c[7:]) if i in _zk else c for i, c in enumerate(CUTS)]
     for _l in _zr:
         print('  [부위 당기기]', _l)
+INTRO = getattr(C, 'INTRO_CLIP', None)  # 2026-11-24 나세르식 인트로 영상(소리 없음)을 첫 컷 바탕으로 — 첫 컷 제목(HOOK)은 인트로가 대신함
+INTRO_HERO_AT = getattr(C, 'INTRO_HERO_AT', 0.9)  # 인트로 몽타주가 끝나고 히어로가 뜨는 시각(쿵)
 END_CARD = getattr(C, 'END_CARD', True)  # False = 끝 보배드림 화면 없이 마지막 장면을 0.8초 어둡게 닫음
 if not END_CARD:
     END_S = 0.8
@@ -223,18 +248,21 @@ def chip_start(wi):
 
 
 CHIPS = []
+_BR = json.load(open(os.path.join(REPO, 'be_locked_rules.json')))   # 단일 기준: 칩 유지 시간·끝 로고 효과음
+_HOLD = _BR['chip'].get('hold_s', 1.8)
 for ci, c in enumerate(CUTS):
     if c[4]:
-        CHIPS.append((c[4][0], max(starts[ci] + 0.05, chip_start(c[4][1])), ends[ci] - 0.08))
+        _t0 = max(starts[ci] + 0.05, chip_start(c[4][1])); CHIPS.append((c[4][0], _t0, min(ends[ci] - 0.08, _t0 + _HOLD)))
 for txt, wi in EXTRA_CHIPS:
     t0 = chip_start(wi)
     ci_ = max(i for i in range(len(CUTS)) if starts[i] <= t0)
-    CHIPS.append((txt, t0, ends[ci_] - 0.08))
+    CHIPS.append((txt, t0, min(ends[ci_] - 0.08, t0 + _HOLD)))
 if getattr(C, 'DEALER_FOOTER', False):  # 딜러는 아래 띠가 맡으므로 딜러 이름 칩은 겹치지 않게 뺌
     _dl = getattr(C, 'DEALER_CHIP_LINES', [getattr(C, 'DEALER_CHIP', '')])
     CHIPS = [c for c in CHIPS if c[0] not in _dl]
 # 같은 컷 두 칩: 앞 칩은 두 번째 칩이 뜨면 내려감
 CHIPS = sorted(CHIPS, key=lambda c: c[1])
+CHIP_BOX = {}   # 칩 번호 → 화면 상자(렌더 중 기록, plan.json에 남김)
 for k in range(len(CHIPS) - 1):
     if CHIPS[k][2] > CHIPS[k + 1][1]:
         CHIPS[k] = (CHIPS[k][0], CHIPS[k][1], CHIPS[k + 1][1])
@@ -277,6 +305,8 @@ for c in CAPS:  # 문장 마지막 자막도 페이드 시작 전에 내려감
         # 문장 사이 쉼이 없어 말이 페이드 안까지 이어지면(쉼 0.15초 미만) 자막을 페이드 끝까지 남김 — 말하는데 자막이 비지 않게
         tight = b - a <= 0.30
         c['e'] = max(c['s'] + 0.3, min(c['e'], b - 0.03) if tight else a)
+    elif ci + 1 < len(CUTS) and ci + 1 not in FW and c['e'] > starts[ci + 1]:   # 2026-11-24 휙·확대 넘김: 앞 문장 자막이 다음 사진 위에 남지 않게 컷 시작에서 내림
+        c['e'] = max(c['s'] + 0.3, starts[ci + 1])
 
 # ── 3) 사진 그리기(켄번스) ──
 PH = {}
@@ -435,6 +465,7 @@ def fit_frame(n, img, fx, z):
     dx0, dy0 = max(0, x0), max(0, y0)
     ww = min(fg.shape[1] - sx0, W - dx0); hh = min(fg.shape[0] - sy0, H - dy0)
     out[dy0:dy0 + hh, dx0:dx0 + ww] = fg[sy0:sy0 + hh, sx0:sx0 + ww]
+    AFF[n] = (fw / w, fh / h, x0, y0, w, h)   # 2026-11-24: FIT 사진도 변환 기록 — 없으면 부위 스티커(시트 아이콘·휠 인치)가 통째로 빠졌음
     return out
 
 
@@ -888,7 +919,8 @@ def footer_layer(ov, T):
         return
     ci = _cut_at(T)
     def card(i):
-        return 20 <= CUTS[i][0] < 60
+        cp = getattr(C, 'CARD_PHOTOS', None)   # 2026-11-24 카드 컷 번호를 적어 두면 그것만(실사진 p20~59에서 딜러 줄이 깜빡이지 않게)
+        return CUTS[i][0] in cp if cp is not None else 20 <= CUTS[i][0] < 60
     a = 1.0
     if card(ci):
         a = 0.0
@@ -1089,6 +1121,8 @@ def sticker_layer(ov, T):
         t0 = onset(sk['w']) - 0.05
         ci = _cut_at(max(t0, 0))
         t1 = ends[ci] - 0.12
+        if sk.get('until_w') is not None:   # 2026-11-24: 같은 자리 다음 숫자가 나오면 내려감(605L → 1,755L)
+            t1 = min(t1, onset(sk['until_w']) - 0.05)
         if not (t0 <= T < t1):
             continue
         key = (sk.get('text3d') or sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
@@ -1176,16 +1210,31 @@ def sticker_layer(ov, T):
                 rw = n_ * gap / 2
                 xc = min(max((bx0 + bx1) / 2, rw + 60), W - 60 - rw)
                 vis0, vis1 = max(by0, getattr(C, 'CHIP_Y', 285) + 110), min(by1, H - 400)   # v1.8.3: 아래 딜러 띠와 최소 60px 더 띄움(컷 7 🔥❄️가 딜러 칩에 붙던 일)
-                yc = by0 + sk.get('row_v', 0.35) * (by1 - by0)
-                yc = min(max(yc, vis0 + ih / 2), vis1 - ih / 2) if vis1 - vis0 > ih else (vis0 + vis1) / 2
-                c0, c1 = CAP_TOP - 20, CAP_TOP + 150   # 말 자막 띠를 피함: 위에 자리가 있으면 위, 없으면 아래
-                if yc + ih / 2 > c0 and yc - ih / 2 < c1:   # 시트는 화면 아래쪽에 있으므로 자막 아래 칸을 먼저(그 칸이 등받이 안일 때)
-                    below, above = c1 + ih / 2 + 8, c0 - ih / 2 - 8
-                    yc = above if above - ih / 2 >= vis0 - 4 else (below if below + ih / 2 <= vis1 + 4 else above)   # v1.8.3: 자막 위 칸 먼저(아래 칸은 딜러 띠와 붙음)
-                if 'seat_idx' in sk:
-                    x, y = xc + (k_ - (n_ - 1) / 2) * gap, yc
-                else:   # 재질 3D 글자: 아이콘 줄 바로 위
-                    x, y = xc, yc - ih / 2 - half - 10
+                band = photo_band(T)
+                if band:   # 2026-11-24: 상자 맞춤 사진이면 자막은 사진 밑 → 사진 안에서는 자막을 피할 필요 없고, 사진 밖으로만 안 나가게
+                    vis0, vis1 = max(vis0, band[0] + 16), min(by1, band[1] - 16)
+                # 2026-11-24 사용자 「시트는 나세르처럼, 시트에 노출」: 한 줄이 등받이 폭을 넘으면(콘솔·문 위로 삐져나옴) 등받이 몸통에 세로로 쌓음
+                col = getattr(C, 'SEAT_ICON_LAYOUT', 'auto') == 'column' or (getattr(C, 'SEAT_ICON_LAYOUT', 'auto') == 'auto' and band and n_ * gap > (bx1 - bx0) * 1.02)
+                if col:
+                    ch = n_ * gap
+                    cx_ = min(max((bx0 + bx1) / 2 + (bx1 - bx0) * getattr(C, 'SEAT_ICON_DX', 0.0), ih / 2 + 60), W - 60 - ih / 2)
+                    top = by0 + getattr(C, 'SEAT_ICON_TOP', 0.30) * (by1 - by0)   # 머리받침 아래 등받이 몸통부터
+                    top = min(max(top, vis0), max(vis0, vis1 - ch))
+                    if 'seat_idx' in sk:
+                        x, y = cx_, top + (k_ + .5) * gap
+                    else:   # 재질 3D 글자: 세로 줄 바로 위
+                        x, y = cx_, top - half - 6
+                else:
+                    yc = by0 + sk.get('row_v', 0.35) * (by1 - by0)
+                    yc = min(max(yc, vis0 + ih / 2), vis1 - ih / 2) if vis1 - vis0 > ih else (vis0 + vis1) / 2
+                    c0, c1 = (CAP_TOP - 20, CAP_TOP + 150) if not band else (-9, -9)   # 말 자막 띠를 피함: 위에 자리가 있으면 위, 없으면 아래
+                    if yc + ih / 2 > c0 and yc - ih / 2 < c1:   # 시트는 화면 아래쪽에 있으므로 자막 아래 칸을 먼저(그 칸이 등받이 안일 때)
+                        below, above = c1 + ih / 2 + 8, c0 - ih / 2 - 8
+                        yc = above if above - ih / 2 >= vis0 - 4 else (below if below + ih / 2 <= vis1 + 4 else above)   # v1.8.3: 자막 위 칸 먼저(아래 칸은 딜러 띠와 붙음)
+                    if 'seat_idx' in sk:
+                        x, y = xc + (k_ - (n_ - 1) / 2) * gap, yc
+                    else:   # 재질 3D 글자: 아이콘 줄 바로 위
+                        x, y = xc, yc - ih / 2 - half - 10
             elif sk.get('above') and sk.get('box'):   # v1.5: 3D 글자는 부위 바로 위(화면 2% 띄움), 위에 자리가 없으면 부위 가운데
                 ya = sk['box'][1] * ph * ay + oy - half - 0.02 * H
                 if ya - half > 250:
@@ -1553,11 +1602,60 @@ def dim_layer(ov, T):
         R.paste(ov, im.resize((w2, h2), Image.LANCZOS), x - w2 / 2, y - h2 / 2, fade * min(1.0, k2 * 3))
 
 
+_TL = {}
+
+
+def trunk_line_layer(ov, T):
+    """2026-11-24 사용자 「트렁크는 나세르처럼 트렁크라인 선 따버려」: 트렁크 사진 컷에서 입구 테두리를 노랑 선으로 그려 나감(0.8초),
+    그다음 컷 끝까지 유지. 선 자리는 trunk_line.py(GrabCut)가 찾은 사진 좌표 → 이번 프레임 사진 변환(AFF)을 따라감. 사진은 고치지 않음."""
+    if not getattr(C, 'TRUNK_LINE', True):
+        return
+    for ci, c in enumerate(CUTS):
+        if '트렁크' not in c[1] or not (starts[ci] <= T < ends[ci] - 0.12):
+            continue
+        n = c[0]
+        if n not in _TL:
+            import trunk_line
+            _TL[n] = trunk_line.load(f'src2/p{n:02d}.png')
+        d = _TL[n]
+        if not d.get('ok') or n not in AFF:
+            continue
+        ax, ay, ox, oy, pw, ph = AFF[n]
+        P = [(u * pw * ax + ox, v * ph * ay + oy) for u, v in d['pts']]
+        t0 = onset(c[2]) + 0.05
+        k = min(1.0, max(0.0, (T - t0) / 0.8))
+        if k <= 0:
+            continue
+        k = 1 - (1 - k) ** 2   # 빨리 시작해 부드럽게 닫힘
+        # 아래 가운데에서 시작해 시계 방향으로 한 바퀴(둘레 길이 비율 k만큼)
+        st = max(range(len(P)), key=lambda i: P[i][1] - abs(P[i][0] - sum(p[0] for p in P) / len(P)) * 0.3)
+        P = P[st:] + P[:st] + [P[st]]
+        seg = [math.dist(P[i], P[i + 1]) for i in range(len(P) - 1)]
+        L, acc, pts = sum(seg) * k, 0.0, [P[0]]
+        for i, sl in enumerate(seg):
+            if acc + sl >= L:
+                r = (L - acc) / max(sl, 1e-6); pts.append((P[i][0] + (P[i + 1][0] - P[i][0]) * r, P[i][1] + (P[i + 1][1] - P[i][1]) * r)); break
+            acc += sl; pts.append(P[i + 1])
+        fade = min(1.0, max(0.0, (ends[ci] - 0.12 - T) / .15))
+        y_, wd = _BE['color']['yellow'], 10
+        col = tuple(int(y_.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4)) if isinstance(y_, str) else tuple(y_)
+        g = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dg = ImageDraw.Draw(g)
+        dg.line(pts, fill=col + (int(170 * fade),), width=wd + 16, joint='curve')
+        g = g.filter(ImageFilter.GaussianBlur(10))   # 빛 번짐
+        dl = ImageDraw.Draw(g)
+        dl.line([(x + 2, y + 3) for x, y in pts], fill=(0, 0, 0, int(110 * fade)), width=wd, joint='curve')
+        dl.line(pts, fill=col + (int(255 * fade),), width=wd, joint='curve')
+        if k < 1:   # 그려 나가는 붓 끝에 밝은 점
+            x, y = pts[-1]; dl.ellipse((x - 9, y - 9, x + 9, y + 9), fill=(255, 255, 255, int(235 * fade)))
+        ov.alpha_composite(g)
+
+
 def overlay(T):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     ov.alpha_composite(LOGO, LOGO_XY)
     footer_layer(ov, T)
     official_layer(ov, T)
+    trunk_line_layer(ov, T)
     sticker_layer(ov, T)
     dim_layer(ov, T)
     section_layer(ov, T)
@@ -1565,7 +1663,7 @@ def overlay(T):
     HE = FW[1][0] if 1 in FW else starts[1]  # 첫 페이드가 시작되기 전에 제목을 내림
     if getattr(C, 'HOOK_HOLD', False) and 1 in FW:  # 2026-11-17: 제목을 넘김 끝 직전까지(약 2초) 유지
         HE = FW[1][1] - 0.08
-    if HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
+    if not INTRO and HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
         T0 = T; T = T - HD
         e = R.back(T / .28)
         # 2026-11-17 원본 BE(Tesla Model Y 첫 화면) 대조: 브랜드 띠 글자 = 모델 흰 글자 같은 크기·같은 줄,
@@ -1647,6 +1745,8 @@ def overlay(T):
                 if band:
                     y = min(y, band[0] - 36 - full.height)
             R.paste(ov, im, x + (full.width - im.width) / 2, y + (full.height - im.height) / 2, out)
+            if i not in CHIP_BOX and T >= st + 0.3 - 0.5 / FPS:   # 2026-11-25 check_be가 칩 상자 안만 재게(사진 속 노랑을 칩으로 잘못 재던 일)
+                CHIP_BOX[i] = [int(x), int(y), int(x + full.width), int(y + full.height)]
     for o in getattr(C, 'OVERLAYS', []):  # 오버레이(사진 속 자료 카드): 매물 사진은 그대로, 자료를 카드로 겹침
         st = onset(o['w0']) - 0.05
         en = (onset(o['w1']) - 0.08) if o.get('w1') is not None else ends[[c[2] for c in CUTS].index(max(c[2] for c in CUTS if c[2] <= o['w0']))]
@@ -1733,21 +1833,51 @@ def _sfx_plan():
     big = set(getattr(C, 'SFX_CHIPS', []))
     ev = [('whoosh', 0.0, .30)]                                   # 엠블럼 확대 시작
     hz = getattr(C, 'HOOK_DELAY', 0.0)
-    ev.append(('pop', max(0.05, hz - 0.02), .42))                 # 타이틀 올라옴
+    if INTRO:
+        ev.append(('impact', INTRO_HERO_AT, .50))                 # 인트로 히어로 등장(쿵)
+    else:
+        ev.append(('pop', max(0.05, hz - 0.02), .42))             # 타이틀 올라옴
     for (txt, st, en) in CHIPS:                                   # 칩: 큰 숫자 딩, 나머지 팝(벨기에 띠)
         ev.append(('ding' if txt in big else 'pop', st - 0.02, .45 if txt in big else .40))
     _isfx = (_av_rules() or {}).get('layout', {}).get('icon_sfx')
     if _isfx:                                                     # v1.7: 자동 아이콘(열선·통풍·마사지·메모리·공조 등) 톡 나올 때 작은 팝
         for sk in STICKERS_R:
             if sk.get('auto') and sk.get('emo') and sk.get('appear', 'pop') == 'pop':
-                ev.append(('icon', onset(sk['w']) - 0.07, _isfx['vol']))
+                own = sk.get('sfx')   # 2026-11-24 사용자 「통풍 열선 마사지 개별 효과음」: 시트 아이콘은 기능마다 자기 소리
+                if own and own != 'pop' and os.path.exists(f'{ASSET}/sfx/{own}.wav'):
+                    ev.append(('seat:' + own, onset(sk['w']) - 0.05, sk.get('sfx_vol', 0.42)))
+                else:
+                    ev.append(('icon', onset(sk['w']) - 0.07, _isfx['vol']))
+    _csfx = getattr(C, 'CARD_SFX', None)   # 2026-11-24 사용자 「카드 정보 효과음 부릉 소리, 신박한 아이디어」: 카드 줄마다 그 내용 소리(시동·달력·주행거리·주유·기어·엔진·스프레이)
+    _cr = (_av_rules() or {}).get('layout', {}).get('card_sfx')
+    _cp = list(getattr(C, 'CARD_PHOTOS', ()))
+    def _card_sound(ci, c):   # cfg CARD_SFX가 있으면 그것, 없으면 규칙(option_visual_rules.json layout.card_sfx)으로 자막 낱말을 보고 고름
+        if _csfx is not None:
+            return _csfx.get(c[0])
+        if not _cr or c[0] not in _cp:
+            return None
+        i0 = next(i for i, cc in enumerate(CUTS) if cc[0] == _cp[0])   # 처음 이어진 카드 묶음(차량 정보)만 — 엔딩 카드(「오토갤러리」의 「오토」)에 기어 소리가 붙던 일
+        j = i0
+        while j + 1 < len(CUTS) and CUTS[j + 1][0] in _cp:
+            j += 1
+        if not (i0 <= ci <= j):
+            return None
+        if c[0] == _cp[0]:
+            return _cr['header']
+        txt = ' '.join(w[0] for w in c[3] if isinstance(w, tuple))
+        return next((r['sfx'] for r in _cr['rows'] if any(k in txt for k in r['keywords'])), None)
     for ci, c in enumerate(CUTS):                                 # 단계 공개(체크 한 줄 켜짐)에 팝
+        own = _card_sound(ci, c)
+        if own and os.path.exists(f'{ASSET}/sfx/{own}.wav'):
+            t_ = (FW[ci][1] - 0.04 if ci in FW else starts[ci]) if c[5] == 'reveal' else starts[ci] - 0.02
+            ev.append(('card:' + own, max(0.05, t_), getattr(C, 'CARD_SFX_VOL', (_cr or {}).get('vol', 0.45))))
+            continue
         if ci and c[5] == 'reveal':
             ev.append(('pop', FW[ci][1] - 0.04 if ci in FW else starts[ci], .42))
     for ci, c in enumerate(CUTS):                                 # 큰 전환에 부드러운 휙
         if ci and c[5] in ('fade_long', 'dip_black', 'dip_white') and (getattr(C, 'WHOOSH_CUTS', None) is None or ci in C.WHOOSH_CUTS):  # 2026-11-18 휙은 30초당 3~4번(WHOOSH_CUTS로 고른 컷만)
             ev.append(('whoosh', (FW[ci][0] if ci in FW else starts[ci]) - 0.05, .24))
-    if END_CARD:
+    if END_CARD and _BR['sfx'].get('end_logo', False):   # 규칙 파일 end_logo=false면 끝 로고에 소리 없음
         ev.append(('ding', BODY + 0.15, .40))                     # 끝 로고
     hz = _metaphor_sfx()                                          # 2026-11-22 비유 효과음(겹치면 비유 소리 우선)
     if hz:
@@ -1761,19 +1891,34 @@ def _sfx_plan():
             if e[0] in _metaphor_names():
                 out[-1] = e
                 continue
+            if ':' in e[0] and ':' in out[-1][0]:
+                out.append(e); continue   # 시트 아이콘 소리끼리는 서로 다른 소리라 둘 다 남김(같은 소리 간격 규칙은 아래에서 따로 봄)
+            if ':' in e[0]:
+                out[-1] = e; continue   # 카드·시트 제 소리가 휙·팝보다 우선
+            if ':' in out[-1][0]:
+                continue
             if (e[0] != 'whoosh' and out[-1][0] == 'whoosh') or (e[0] not in ('whoosh', 'icon') and out[-1][0] == 'icon'):
                 out[-1] = e   # 칩·딩이 휙·아이콘 팝보다 우선
             continue
         out.append(e)
+    _same = _BE['sfx'].get('same_sound_min_gap_s', 0.6)   # 2026-11-24 같은 소리(팝·팝)가 규칙 간격보다 붙으면 뒤 것을 뺌(짧은 카드 공개 컷·아이콘)
+    _o2 = []
+    for e in out:
+        _nm = lambda q: 'pop' if q == 'icon' else q.split(':')[-1]
+        _p = [x for x in _o2 if _nm(x[0]) == _nm(e[0])]
+        if _p and e[1] - _p[-1][1] < _same:
+            continue
+        _o2.append(e)
+    out = _o2
     g = float(os.environ.get('BBM_SFX_GAIN') or getattr(C, 'SFX_GAIN', 1.6))  # 2026-11-17 사용자: 효과음(틱·팝) 더 크게 — 기본 1.6배(약 +4dB)
-    return [('pop' if n == 'icon' else n, max(0.0, t), min(1.0, v * g)) for n, t, v in out]
+    return [('pop' if n == 'icon' else n.split(':')[-1], max(0.0, t), min(1.0, v * g)) for n, t, v in out]
 
 
 def mix_audio():
     # ── 5) 소리: 목소리 + 배경음(살짝, 목소리 나오면 줄임) + 효과음 → -14 LUFS ──
     SFX = sfx_plan()
     print('sfx', [(n, round(t, 2)) for n, t, v in SFX])
-    ins = ['-i', 'voice.wav', '-i', f'{ASSET}/bgm/bobae_showroom_v1.mp3']
+    ins = ['-i', 'voice.wav', '-i', f'{ASSET}/bgm/' + getattr(C, 'BGM', 'bobae_showroom_v1.mp3')]
     ALT = getattr(C, 'BGM_ALT', None)  # 자료(카탈로그) 컷 동안 다른 배경음으로 바꿈: (파일, [(첫 어절, 끝 어절), ...])
     segs = [(max(0, onset(a) - 0.35), onset(b) - 0.1) for a, b in ALT[1]] if ALT else []
     g = '+'.join(f'clip(min((t-{a:.2f})/0.45,({b:.2f}-t)/0.45),0,1)' for a, b in segs) or '0'
@@ -1787,7 +1932,7 @@ def mix_audio():
         sf += f'[{j + k0}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={vol},adelay={int(t * 1000)}|{int(t * 1000)}[s{j}];'
     sf += ''.join(f'[s{j}]' for j in range(len(SFX))) + f'amix=inputs={len(SFX)}:normalize=0[fx];'
     af = (f'[0:a]aformat=sample_rates=48000:channel_layouts=stereo,highpass=f=70,acompressor=threshold=-18dB:ratio=2.5:attack=5:release=120,apad=whole_dur={TOTAL}[vo];'
-          f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={R.STYLE['bgm_vol']},volume='1-({g})':eval=frame,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.4}:d=1.4[m0];"
+          f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={getattr(C, 'BGM_VOL', R.STYLE['bgm_vol'])},volume='1-({g})':eval=frame,afade=t=in:d=0.4,afade=t=out:st={TOTAL - 1.4}:d=1.4[m0];"
           + (f"[2:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{TOTAL},volume={ALT[2] if len(ALT) > 2 else R.STYLE['bgm_vol']},volume='{g}':eval=frame[m1];[m0][m1]amix=inputs=2:normalize=0[m];" if ALT else '[m0]anull[m];')
           + sf + '[vo]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
           f'[v2][md][fx]amix=inputs=3:normalize=0:duration=first,@LN@,aresample=192000,alimiter=limit=0.8:level=false,aresample=48000,atrim=0:{TOTAL}[a]')
@@ -1815,13 +1960,14 @@ def write_edition_plan(SFX):
     칩 기울기가 0이 아니면 chip_tilt(금지 기법)를 적어 관문에서 걸리게 한다."""
     T = {'kenburns', 'bgm', 'loudness_rule'}
     if getattr(C, 'HOOK', None): T.add('title_brand_chip')
+    if INTRO: T.add('nasser_intro')
     if CHIPS: T.update({'card_basic', 'point_chip'})
     if END_CARD and (getattr(C, 'DEALER_CHIP', None) or (_lgp and os.path.exists(_lgp))): T.add('end_dealer')
     if SFX: T.add('sfx_rules')
     tilts = [*JITTER, getattr(C, 'DEALER_CHIP_TILT', 0.0), getattr(C, 'HOOK_TILT', 0.0)]
     if any(abs(float(x)) > 1e-6 for x in tilts): T.add('chip_tilt')
     json.dump({'edition': 'photo_listing', 'edition_code': 'ED-PHOTO', 'renderer': 'common.py', 'order': 'script', 'total': round(TOTAL, 3),
-               'techniques': sorted(T), 'chips': [{'label': a, 't0': round(b, 2), 't1': round(e, 2), 't_box': round(b + 0.3, 2), 'kind': 'point'} for a, b, e in CHIPS],
+               'techniques': sorted(T), 'chips': [dict({'label': a, 't0': round(b, 2), 't1': round(e, 2), 't_box': round(b + 0.3, 2), 'kind': 'point'}, **({'box': CHIP_BOX[k]} if k in CHIP_BOX else {})) for k, (a, b, e) in enumerate(CHIPS) if e > b],   # 화면에 한 번도 안 뜨는 칩(시작 ≥ 끝)은 계획에서 뺌
                'sfx': [{'sound': n, 't': round(t, 3)} for n, t, v in SFX], 'cuts': [round(x, 3) for x in starts]},
               open(OUT_FILE + '.plan.json', 'w'), ensure_ascii=False, indent=1)
     print('계획 파일:', OUT_FILE + '.plan.json')
@@ -1845,9 +1991,18 @@ if __name__ == '__main__':
     endc = R.end_card()
     nb = int(round(BODY * FPS))
     last = None
+    ip = None; ifr = None
+    if INTRO:   # 인트로 영상 프레임을 차례로 읽어 첫 컷 바탕으로 씀(넘김 직전 0.15초부터는 원래 첫 컷 사진 → 다음 컷 넘김)
+        ip = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', os.path.join(SC, INTRO), '-vf', f'scale={W}:{H},fps={FPS}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
     for fi in range(nb):
         T = fi / FPS
-        base = Image.fromarray(base_frame(T)).convert('RGBA')
+        if ip is not None and T < starts[1] - 0.15:
+            raw = ip.stdout.read(W * H * 3)
+            if len(raw) == W * H * 3:
+                ifr = Image.frombytes('RGB', (W, H), raw)
+            base = ifr.convert('RGBA')
+        else:
+            base = Image.fromarray(base_frame(T)).convert('RGBA')
         last = base.copy()
         base.alpha_composite(overlay(T))
         enc.stdin.write(base.convert('RGB').tobytes())
@@ -1871,5 +2026,7 @@ if __name__ == '__main__':
         fr.alpha_composite(LOGO, ((W - LOGO.width) // 2, int(H * .70)))
         enc.stdin.write(fr.convert('RGB').tobytes())
     enc.stdin.close(); enc.wait()
+    if ip is not None:
+        ip.kill()
     mix_audio()
 

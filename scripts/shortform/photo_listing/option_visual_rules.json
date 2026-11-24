@@ -130,7 +130,8 @@
   "icon_sfx": {
    "note": "자동 아이콘(Fluent 3D 이모지)이 톡 나타날 때 팝. 칩 팝(0.40)보다 작게, 0.45초 안에 다른 소리가 있으면 생략. 사진 쇼츠만(SFX_RICH). 2026-11-18 사용자",
    "name": "pop",
-   "vol": 0.3
+   "vol": 0.3,
+   "seat_note": "2026-11-24 사용자 「시트는 나세르처럼, 통풍·열선·마사지 이모지 + 개별 효과음」: 시트 아이콘은 options[].sfx의 자기 소리(통풍 얼음 ice_clink · 열선 장작 fire_crackle · 마사지 진동 seat_massage · 메모리 저장음 beep_on · 전동 모터 seat_motor), 아이콘이 톡 나오는 0.05초 전, 크기 0.42. 다른 자동 아이콘은 그대로 pop"
   },
   "mileage_circle": {
    "note": "2026-11-18 사용자 규칙(v1.7.2 고침): 원은 칩이 아니라 사진 속 진짜 계기판 주행거리 숫자에 친다. 컷에 쓰는 사진을 글자 인식(RapidOCR)으로 읽어 매물 주행거리와 같은 숫자(어림 값은 ±2%)가 보일 때만, 그 사진 컷에서 주행거리를 말하는 순간(그 컷에서 말하지 않으면 컷 시작 0.4초 뒤) 0.15초 뒤 0.4초 동안 시계 방향 손 그림, 끝 20° 겹침. 사진에서 안 읽히면 원 없음. 칩에는 원을 치지 않는다(손가락은 그대로) — odometer.py",
@@ -206,6 +207,73 @@
      "what": "얼음 달그랑"
     }
    ]
+  },
+  "card_sfx": {
+   "note": "2026-11-24 사용자 「카드 정보 효과음 부릉, 신박한 아이디어」→「효과음 카드 확정하게 정리」: 차량 정보 카드(CARD_PHOTOS) 컷마다 그 줄의 내용을 소리로. 머리(첫 카드)는 시동 부릉, 줄은 컷 자막 낱말로 고름(위에서부터 먼저 맞는 것). 칸이 켜지는 순간 0.04초 전, 크기 0.45. 차량 cfg CARD_SFX로 덮어쓸 수 있음. 한 영상에 같은 소리 반복 없음. earshot(CLAP) 판정 = 전부 strong",
+   "vol": 0.45,
+   "header": "card_engine_start",
+   "rows": [
+    {
+     "sfx": "card_page_flip",
+     "keywords": [
+      "등록",
+      "연식",
+      "년식",
+      "년"
+     ],
+     "what": "달력 넘김"
+    },
+    {
+     "sfx": "card_odometer",
+     "keywords": [
+      "주행",
+      "km"
+     ],
+     "what": "계기판 숫자 촤라락"
+    },
+    {
+     "sfx": "card_fuel",
+     "keywords": [
+      "가솔린",
+      "휘발유",
+      "디젤",
+      "경유",
+      "LPG",
+      "하이브리드",
+      "연료"
+     ],
+     "what": "주유기 딸깍 + 주유"
+    },
+    {
+     "sfx": "card_gear_shift",
+     "keywords": [
+      "변속기",
+      "오토",
+      "수동",
+      "자동"
+     ],
+     "what": "기어 철컥"
+    },
+    {
+     "sfx": "card_engine_rev",
+     "keywords": [
+      "배기량",
+      "cc"
+     ],
+     "what": "엔진 부웅"
+    },
+    {
+     "sfx": "card_spray",
+     "keywords": [
+      "외장",
+      "색",
+      "컬러",
+      "시트"
+     ],
+     "what": "스프레이 칙"
+    }
+   ],
+   "electric_note": "전기차 연료 줄은 card_fuel 대신 충전 소리가 필요(아직 없음 — 전기차 카드 때 추가)"
   }
  },
  "options": [
@@ -277,7 +345,7 @@
    "v_pct": 45,
    "w_pct": 30,
    "appear": "pop",
-   "sfx": "pop"
+   "sfx": "fire_crackle"
   },
   {
    "id": "seat_vent",
@@ -298,7 +366,7 @@
    "v_pct": 50,
    "w_pct": 30,
    "appear": "pop",
-   "sfx": "pop"
+   "sfx": "ice_clink"
   },
   {
    "id": "seat_massage",
@@ -318,7 +386,7 @@
    "v_pct": 45,
    "w_pct": 30,
    "appear": "pop",
-   "sfx": "pop"
+   "sfx": "seat_massage"
   },
   {
    "id": "seat_memory",
@@ -331,14 +399,15 @@
    "part": "backrest",
    "visual": {
     "type": "sticker",
-    "emo": "💾",
+    "emo": "🔢",
     "label": "메모리"
    },
    "nasser_method": "통계 없음(사용자 지시 2026-11-18로 추가)",
    "v_pct": 45,
    "w_pct": 30,
    "appear": "pop",
-   "sfx": "pop"
+   "sfx": "beep_on",
+   "emo_note": "2026-11-24 사용자 「메모리 이모지 바꾸고」: 💾(플로피 디스크) → 🔢(숫자 버튼 = 메모리 1·2·3 버튼)"
   },
   {
    "id": "seat_power",
@@ -358,7 +427,7 @@
    "v_pct": 45,
    "w_pct": 30,
    "appear": "pop",
-   "sfx": "pop"
+   "sfx": "seat_motor"
   },
   {
    "id": "seat_material",
@@ -635,7 +704,7 @@
   "rule": "대본에서 숫자로 시작하는 낱말은 그 컷 화면에 3D 글자로 띄운다. 그 컷의 칩·자동 그림에 같은 값(±5%, 「3만 2천」≈32,770 포함)이 있으면 생략.",
   "skip_first_cut": true,
   "skip_first_cut_note": "첫 컷은 제목 카드(제조사·모델·등록월)가 맡음",
-  "skip_token_re": "^\\d+(세대|년|월|일|시|분|번째)$",
+  "skip_token_re": "^\\d+(세대|년|월|일|시|분|번째|매틱)$",
   "skip_note": "세대·날짜·순서는 표기 안 함. V6·G80처럼 글자로 시작하는 모델명도 안 함(숫자로 시작하는 낱말만)",
   "count_suffix": [
    "개",

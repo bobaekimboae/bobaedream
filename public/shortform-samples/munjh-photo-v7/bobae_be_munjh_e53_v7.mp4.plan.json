@@ -1,0 +1,196 @@
+{
+ "edition": "photo_listing",
+ "edition_code": "ED-PHOTO",
+ "renderer": "common.py",
+ "order": "script",
+ "total": 57.046,
+ "techniques": [
+  "bgm",
+  "card_basic",
+  "end_dealer",
+  "kenburns",
+  "loudness_rule",
+  "nasser_intro",
+  "point_chip",
+  "sfx_rules",
+  "title_brand_chip"
+ ],
+ "chips": [
+  {
+   "label": "정식 출고",
+   "t0": 17.17,
+   "t1": 18.47,
+   "t_box": 17.47,
+   "kind": "point"
+  },
+  {
+   "label": "435마력",
+   "t0": 21.3,
+   "t1": 23.1,
+   "t_box": 21.6,
+   "kind": "point"
+  },
+  {
+   "label": "20인치",
+   "t0": 26.93,
+   "t1": 28.73,
+   "t_box": 27.23,
+   "kind": "point"
+  },
+  {
+   "label": "레드 안전벨트",
+   "t0": 32.86,
+   "t1": 34.66,
+   "t_box": 33.16,
+   "kind": "point"
+  },
+  {
+   "label": "AMG 다이얼",
+   "t0": 35.91,
+   "t1": 37.71,
+   "t_box": 36.21,
+   "kind": "point"
+  },
+  {
+   "label": "디지털 클러스터",
+   "t0": 40.34,
+   "t1": 41.46,
+   "t_box": 40.64,
+   "kind": "point"
+  },
+  {
+   "label": "터빈 송풍구",
+   "t0": 41.74,
+   "t1": 43.54,
+   "t_box": 42.04,
+   "kind": "point"
+  },
+  {
+   "label": "헤드업 디스플레이",
+   "t0": 47.16,
+   "t1": 48.96,
+   "t_box": 47.46,
+   "kind": "point"
+  },
+  {
+   "label": "쿼드 배기구",
+   "t0": 49.46,
+   "t1": 50.96,
+   "t_box": 49.76,
+   "kind": "point"
+  }
+ ],
+ "sfx": [
+  {
+   "sound": "whoosh",
+   "t": 0.0
+  },
+  {
+   "sound": "impact",
+   "t": 0.9
+  },
+  {
+   "sound": "card_engine_start",
+   "t": 5.27
+  },
+  {
+   "sound": "card_page_flip",
+   "t": 7.01
+  },
+  {
+   "sound": "card_odometer",
+   "t": 8.64
+  },
+  {
+   "sound": "card_fuel",
+   "t": 10.26
+  },
+  {
+   "sound": "card_gear_shift",
+   "t": 11.28
+  },
+  {
+   "sound": "card_engine_rev",
+   "t": 11.97
+  },
+  {
+   "sound": "card_spray",
+   "t": 13.96
+  },
+  {
+   "sound": "pop",
+   "t": 17.15
+  },
+  {
+   "sound": "horse_neigh_el",
+   "t": 21.2
+  },
+  {
+   "sound": "pop",
+   "t": 26.91
+  },
+  {
+   "sound": "ice_clink",
+   "t": 30.57
+  },
+  {
+   "sound": "seat_motor",
+   "t": 31.44
+  },
+  {
+   "sound": "beep_on",
+   "t": 32.06
+  },
+  {
+   "sound": "pop",
+   "t": 32.84
+  },
+  {
+   "sound": "pop",
+   "t": 35.89
+  },
+  {
+   "sound": "pop",
+   "t": 40.32
+  },
+  {
+   "sound": "pop",
+   "t": 41.72
+  },
+  {
+   "sound": "pop",
+   "t": 47.14
+  },
+  {
+   "sound": "pop",
+   "t": 49.44
+  },
+  {
+   "sound": "pop",
+   "t": 51.61
+  }
+ ],
+ "cuts": [
+  0.0,
+  5.29,
+  7.059,
+  8.545,
+  10.23,
+  11.25,
+  11.94,
+  13.93,
+  17.043,
+  18.553,
+  24.8,
+  29.33,
+  32.69,
+  35.55,
+  39.056,
+  41.54,
+  44.536,
+  47.044,
+  49.041,
+  51.037,
+  51.58
+ ]
+}
