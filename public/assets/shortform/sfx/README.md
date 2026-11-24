@@ -3,6 +3,7 @@
 | 파일 | 출처 | 라이선스 | 손본 것 |
 |---|---|---|---|
 | ding.wav · pop.wav · whoosh.wav · click.wav | 자체 제작 | 보배드림 | — |
+| check.wav | 자체 제작(코드 합성, 2026-11-24: 1318Hz→1760Hz 두 음 + 짧은 잔향), 용도: ✓ 체크마크 등장 | 보배드림 | 최고 -3dB |
 | horse_neigh.wav | Freesound 521246 "Horse" by poodaddy69 (https://freesound.org/people/poodaddy69/sounds/521246/) | CC0 1.0 (표기 의무 없음) | 앞뒤 무음 자름, 최고 -1dB, 끝 0.15초 페이드. 2026-11-22 (예비, 기본은 horse_neigh_el) |
 | horse_neigh_el.wav | 일레븐랩스 효과음(eleven_text_to_sound_v3) 생성, 2026-11-22, 용도: 말 울음(마력, 기본) | 프로 요금제 상업 이용. **다른 소리와 섞은 영상으로만 사용, 파일 단독 배포·앱에 파일로 싣기 금지**(일레븐랩스 효과음 약관) | 앞뒤 무음 자름, 최고 -1dB |
 | stopwatch.wav | 일레븐랩스 효과음(eleven_text_to_sound_v3) 생성, 2026-11-22, 용도: 스톱워치(제로백) | 프로 요금제 상업 이용. **다른 소리와 섞은 영상으로만 사용, 파일 단독 배포·앱에 파일로 싣기 금지**(일레븐랩스 효과음 약관) | 앞뒤 무음 자름, 최고 -1dB |

@@ -366,6 +366,8 @@ for t0, t1, c in SEG:
     for s_, w_, (fx_, fy_) in ppins:
         tp_ = ST(w_) - t0 + 0.05; fi_ = min(len(fr) - 1, int(round((min(s1, s0 + tp_ * rate) - s0) * 30)))
         PP.append((s_, tp_, fi_, lk_track(fr, fi_, fx_ * W, fy_ * H)))
+    for s_, w_, ck_ in pills:
+        if ck_: EVS.append((ST(w_) - 0.03, 'check', 0.55))   # ✓ 체크마크가 뜨는 순간 「띵-딩」
     ctimes = [ST(w) - t0 + 0.05 for _, w in chips]; btimes = [ST(w) - t0 - 0.22 for _, w, _ in bigs]
     chip_seen = set(); big_seen = set()
     while nfr < round(t1 * FPS):
@@ -462,7 +464,7 @@ while nfr < round(TOTAL * FPS):
     put(cv)
 proc.stdin.close(); proc.wait()
 # ── 효과음 고르기: 간격·같은 소리 간격·개수 상한(be_locked_rules.json sfx) ──
-PRI = ['impact', 'engine_start', 'horse_neigh_el', 'stopwatch', 'whoosh', 'ding', 'beep_on']
+PRI = ['impact', 'engine_start', 'horse_neigh_el', 'stopwatch', 'whoosh', 'check', 'ding', 'beep_on']
 cap_n = int(SX['max_per_30s'] * TOTAL / 30); acc = []
 for t, nm, v in sorted(EVS, key=lambda x: (PRI.index(x[1]), x[0])):
     if t < 0 or t > TOTAL - 0.5: continue
