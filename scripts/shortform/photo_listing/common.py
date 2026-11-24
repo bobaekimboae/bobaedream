@@ -223,13 +223,15 @@ def chip_start(wi):
 
 
 CHIPS = []
+_BR = json.load(open(os.path.join(REPO, 'be_locked_rules.json')))   # 단일 기준: 칩 유지 시간·끝 로고 효과음
+_HOLD = _BR['chip'].get('hold_s', 1.8)
 for ci, c in enumerate(CUTS):
     if c[4]:
-        CHIPS.append((c[4][0], max(starts[ci] + 0.05, chip_start(c[4][1])), ends[ci] - 0.08))
+        _t0 = max(starts[ci] + 0.05, chip_start(c[4][1])); CHIPS.append((c[4][0], _t0, min(ends[ci] - 0.08, _t0 + _HOLD)))
 for txt, wi in EXTRA_CHIPS:
     t0 = chip_start(wi)
     ci_ = max(i for i in range(len(CUTS)) if starts[i] <= t0)
-    CHIPS.append((txt, t0, ends[ci_] - 0.08))
+    CHIPS.append((txt, t0, min(ends[ci_] - 0.08, t0 + _HOLD)))
 if getattr(C, 'DEALER_FOOTER', False):  # 딜러는 아래 띠가 맡으므로 딜러 이름 칩은 겹치지 않게 뺌
     _dl = getattr(C, 'DEALER_CHIP_LINES', [getattr(C, 'DEALER_CHIP', '')])
     CHIPS = [c for c in CHIPS if c[0] not in _dl]
@@ -1747,7 +1749,7 @@ def _sfx_plan():
     for ci, c in enumerate(CUTS):                                 # 큰 전환에 부드러운 휙
         if ci and c[5] in ('fade_long', 'dip_black', 'dip_white') and (getattr(C, 'WHOOSH_CUTS', None) is None or ci in C.WHOOSH_CUTS):  # 2026-11-18 휙은 30초당 3~4번(WHOOSH_CUTS로 고른 컷만)
             ev.append(('whoosh', (FW[ci][0] if ci in FW else starts[ci]) - 0.05, .24))
-    if END_CARD:
+    if END_CARD and _BR['sfx'].get('end_logo', False):   # 규칙 파일 end_logo=false면 끝 로고에 소리 없음
         ev.append(('ding', BODY + 0.15, .40))                     # 끝 로고
     hz = _metaphor_sfx()                                          # 2026-11-22 비유 효과음(겹치면 비유 소리 우선)
     if hz:
