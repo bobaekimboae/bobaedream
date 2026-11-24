@@ -20,14 +20,18 @@ def frames(s0, s1):
         fr.append(cv2.cvtColor(cv2.resize(f, (SW, SH)), cv2.COLOR_BGR2RGB))
     return fr
 
+HAND_MODEL = os.environ.get('HAND_MODEL', os.path.join(os.path.dirname(G.rstrip('/')), '..', 'hand_landmarker.task'))
+# 모델: https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task (Apache-2.0, 7.8MB, 저장소에 넣지 않음)
 def fingertips(fr):
     import mediapipe as mp
+    from mediapipe.tasks.python import vision, BaseOptions
+    opt = vision.HandLandmarkerOptions(base_options=BaseOptions(model_asset_path=HAND_MODEL), running_mode=vision.RunningMode.VIDEO,
+                                       num_hands=2, min_hand_detection_confidence=0.4)
     out = []
-    with mp.solutions.hands.Hands(static_image_mode=False, max_num_hands=2, min_detection_confidence=0.4) as h:
-        for f in fr:
-            r = h.process(f); pts = []
-            for lm in (r.multi_hand_landmarks or []): p = lm.landmark[8]; pts.append((p.x, p.y))
-            out.append(pts)
+    with vision.HandLandmarker.create_from_options(opt) as h:
+        for i, f in enumerate(fr):
+            r = h.detect_for_video(mp.Image(image_format=mp.ImageFormat.SRGB, data=np.ascontiguousarray(f)), int(i * 1000 / 30))
+            out.append([(lm[8].x, lm[8].y) for lm in (r.hand_landmarks or [])])
     return out
 
 def sam_track(fr, box, start):
