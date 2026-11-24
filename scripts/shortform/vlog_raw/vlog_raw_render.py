@@ -16,7 +16,8 @@ TMP = os.environ.get('VLOG_TMP', '/dev/shm/vlog_raw')
 os.makedirs(TMP, exist_ok=True)
 edl = json.load(open(EDL)); stt = json.load(open(STT))
 url = {f['name'].split('_')[2]: f['url'] for f in json.load(open(FILES))}
-FIX = edl.get('fix', {})          # 받아쓰기 오탈자 고침(예: 태국수 → 칼국수)
+FIX = edl.get('fix', {})
+FILLER = set(edl.get('filler', ['응', '아하', '에휴', '하하', '아...', '오...', '네네네네']))          # 받아쓰기 오탈자 고침(예: 태국수 → 칼국수)
 BGM = edl.get('bgm', os.path.join(REPO, 'public/assets/shortform/bgm/bobae_luxury_v1.mp3'))
 _fc = {}
 def font(n, s):
@@ -45,7 +46,7 @@ def chunks(clip, a, b, skip=()):
     out = []
     for si, seg in enumerate(stt.get(clip, [])):
         if (clip, si) in skip or any(seg['s'] >= x0 and seg['e'] <= x1 for x0, x1 in edl.get('nocap', {}).get(clip, [])): continue
-        ws = [w for w in seg['w'] if w[1] >= a - 0.05 and w[2] <= b + 0.3]
+        ws = [w for w in seg['w'] if w[1] >= a - 0.05 and w[2] <= b + 0.3 and w[0].strip(' .,?!') not in FILLER]
         if not ws: continue
         cur, n = [], 0
         for w in ws:
@@ -87,7 +88,8 @@ for k, it in enumerate(edl['cuts']):
         p = f'{TMP}/s{k:02d}.png'; text_png(p, it['stamp'].split('\n'), 38, weight='SemiBold', stroke=3, align_top=150, x=60)
         ov.append((p, 0, min(dur, it.get('stamp_t', 3.5))))
     seg = f'{TMP}/seg{k:02d}.mp4'
-    inputs = ['-ss', f'{a:.3f}', '-t', f'{dur:.3f}', '-i', url[clip]]
+    src = it.get('file', url.get(clip)); off = float(it.get('off', 0))   # file: 원본 일부를 잘라 둔 파일(off = 그 파일의 원본 시작 초)
+    inputs = ['-ss', f'{a - off:.3f}', '-t', f'{dur:.3f}', '-i', src]
     for p, _, _ in ov: inputs += ['-i', p]
     vf = f'[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1'
     if it.get('zoom'):   # 날것 편집의 「훅 당기기」: 중심 1.15배 확대(자르기)
@@ -126,7 +128,15 @@ bgf = f'{TMP}/bgm.f32'; bg.astype(np.float32).tofile(bgf)
 fc = ('[0:a]asplit=2[va][vk];'
       f'[1:a]aformat=sample_rates={sr}:channel_layouts=stereo[bg];'
       '[bg][vk]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[bgd];'
-      '[va][bgd]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]')
+      '[va][bgd]amix=inputs=2:normalize=0[mx];[mx]%s[a]')
+mixw = f'{TMP}/mix.wav'   # 음량 2번 재기(1번에 맞추면 −16 LUFS 근처로 모자람)
+subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', body, '-f', 'f32le', '-ar', str(sr), '-ac', '2', '-i', bgf,
+                '-filter_complex', fc % 'anull', '-map', '[a]', '-c:a', 'pcm_s16le', mixw], check=True)
+ms = subprocess.run(['ffmpeg', '-hide_banner', '-i', mixw, '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-'], capture_output=True, text=True).stderr
+mj = json.loads(ms[ms.rfind('{'):ms.rfind('}') + 1])
+ln = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={mj['input_i']}:measured_TP={mj['input_tp']}:measured_LRA={mj['input_lra']}"
+      f":measured_thresh={mj['input_thresh']}:offset={mj['target_offset']}:linear=true,alimiter=limit=0.84")
+fc = fc % ln
 subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', body, '-f', 'f32le', '-ar', str(sr), '-ac', '2', '-i', bgf,
                 '-filter_complex', fc, '-map', '0:v', '-map', '[a]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '21', '-pix_fmt', 'yuv420p',
                 '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-t', f'{T:.3f}', OUT], check=True)
