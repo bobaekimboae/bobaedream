@@ -15,3 +15,9 @@
 - 길이: Q8 58.0초 · E53 57.8초. check_cfg · check_be · check_render 통과.
 
 - 수정(같은 날): 아이콘 한 줄이 등받이 폭을 넘어 콘솔·문 위로 삐져나가던 것을 등받이 몸통에 세로로 쌓도록 바꿈(❄️ → ⚡ → 💾, 말한 순서로 위에서 아래). 상자 맞춤 사진에서는 자막이 사진 밑에 있으므로 사진 안 자막 피하기를 끔.
+
+## v5 (2026-11-24) 경쾌한 배경음
+- 배경음을 오픈소스 음원으로 교체: "Upbeat Corporate" by Soundrider/Dope (Jamendo, CC BY 3.0, 117BPM). 영상 설명에 저작자 표시 필요: `Music: "Upbeat Corporate" by Soundrider/Dope (jamendo.com/track/1670486), CC BY 3.0`
+- 찾기·받기: 새 MCP 서버 bobae-music(`scripts/shortform/music_mcp/server.py`, Openverse API) · 고르기: earshot(MIT) MCP — 저장소 `.mcp.json`에 둘 다 등록.
+- 후보 8곡 중 earshot 「경쾌·신나는 연주곡」 1위(strong z+4.3), 보컬 없음.
+- Q8 58.0초 · E53 57.8초, check_be · check_render 통과.
