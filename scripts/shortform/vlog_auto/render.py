@@ -4,6 +4,7 @@ import os,sys,json,subprocess
 import cv2
 HERE=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,HERE)
 from draw_base import *
+sys.path.insert(0,os.path.join(os.path.dirname(HERE),'video_listing')); import g350_v5_lib as GL   # 칩은 현행 벨기에 규칙(노션 원본 fill_fit 판·기울기 0)으로 그림
 SF=os.path.dirname(HERE)
 BE=json.load(open(os.path.join(SF,'be_locked_rules.json')))
 _hx=lambda h:tuple(int(h[k:k+2],16) for k in (1,3,5))
@@ -31,6 +32,7 @@ ENDD=2.2; TOTAL=t+ENDD
 import difflib,re
 def _norm(c): return c if re.match(r'[0-9A-Za-z가-힣]',c) else ''
 for it in ITEMS:
+    if not it['txt'].strip(): it['caps']=[]; continue   # 말 없는 컷(인트로·풍경)은 자막 없음
     ws=[(w.strip(),s0,e0) for x in STT[it['clip']] for (w,s0,e0) in x['w'] if s0>=it['s']-0.1 and s0<it['e']]
     src=[];stm=[]
     for w,s0,e0 in ws:
@@ -150,7 +152,7 @@ def wtimes(a,b,s):   # 덩어리 안 어절 시각: 말 구간을 글자 수 비
 # 칩·첫 화면
 ICO=META.get('icons',{})
 import numpy as _np
-_chip0=chip; _ji=[0]
+_chip0=lambda label,size,tl=0: GL.chip(label,size); _ji=[0]
 def chip(label,size,tilt=None):   # 규칙 파일: 붓칠 노랑·반시계 기울기·흔들림
     j=BE['chip']['tilt_jitter_deg']; tl=BE['chip']['tilt_ccw_deg']+j[_ji[0]%len(j)]; _ji[0]+=1
     im=_chip0(label,size,tl); a=_np.array(im).astype(_np.float32); r,g,b=a[...,0],a[...,1],a[...,2]
@@ -163,7 +165,7 @@ def chipi(label,size):   # 노랑 붓칠 칩 + 오른쪽 끝에 마이크로소�
     ic=Image.open(ICONS+f'{n}.png').convert('RGBA'); h=round(c.height*0.82); ic=ic.resize((h,h),Image.LANCZOS)
     im=Image.new('RGBA',(c.width+round(h*0.92),max(c.height,h)+4)); y0=(im.height-c.height)//2
     im.alpha_composite(c,(0,y0)); im.alpha_composite(ic,(c.width-round(h*0.10),(im.height-h)//2)); return im
-HB=chipi(META['title_chip'],BE['chip']['title_font_px']); HM=white(META['title'],104); HS=white(META['subtitle'],52)
+HB=GL.chip(META['title_chip'],BE['chip']['title_font_px'],title=True); HM=white(META['title'],104); HS=white(META['subtitle'],52)
 CH={it['k']:chipi(it['chip'],CHIP_PX) for it in ITEMS if it['chip'] and it['fx']!='title'}
 LG=Image.open(ASSET+'bobae_logo_600.png').convert('RGBA'); LG.thumbnail((500,500)); E1=white(META.get('end_text','다음 브이로그도 기대해 주세요!'),56)
 # 사진 카드(폴라로이드: 흰 테두리 + 아래 이름) · 낙엽 뿌리기 — 사용자가 요청한 영상에서만(meta.photo_cards / meta.leaves)
@@ -211,50 +213,51 @@ def frames(path):
         if not ok: break
         yield cv2.cvtColor(f,cv2.COLOR_BGR2RGB)
 OUTV=V+f'nov_{VER}.mp4'
-proc=subprocess.Popen(['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r','30','-i','-','-c:v','libx264','-preset','veryfast','-crf','23','-pix_fmt','yuv420p',OUTV],stdin=subprocess.PIPE)
-POP=[];WH=[];last=None
-for n_it,it in enumerate(ITEMS):
-    if it['k'] in CH: POP.append(it['t0']+0.12)
-    if it['fx']=='whoosh' and n_it>0: WH.append(max(0,it['t0']-0.12))
-    if it['fx']=='title': POP+= [0.15,0.45]
-    for fi,fr in enumerate(frames(V+f"seg/{it['k']}.mp4")):
-        t=fi/30; T=it['t0']+t
-        im=Image.fromarray(fr)
-        z=1.0+0.03*ease(t/max(it['dur'],0.1))
-        if it['fx']=='zoom': z=1.0+0.13*ease(min(1,max(0,(t-0.25)/0.35)))   # 웃긴 말에 화면 당기기
-        if z>1.0001:
-            cw,ch_=W/z,H/z; im=im.resize((W,H),box=((W-cw)/2,(H-ch_)/2*0.8,(W+cw)/2,(H-ch_)/2*0.8+ch_))
-        if it['fx']=='whoosh' and n_it>0 and t<0.22:   # 휙 넘김: 옆에서 밀려 들어옴 + 흐림
-            u=ease(t/0.22); off=int(W*0.35*(1-u)); im=im.filter(ImageFilter.BoxBlur(int(14*(1-u))+1))
-            base=Image.new('RGB',(W,H)); base.paste(im,(off,0)); base.paste(im.transpose(Image.FLIP_LEFT_RIGHT),(off-W,0)); im=base
-        cv=im.convert('RGBA')
-        if it['fx']=='title' and t<META.get('title_s',1e9):   # title_s: 한 장면 원본일 때 첫 화면 제목을 몇 초만
-            cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,60)))
-            pop(cv,HB,((W-HB.width)//2,YB),t,0.1); pop(cv,HM,((W-HM.width)//2,YB+HB.height+6),t,0.4); pop(cv,HS,((W-HS.width)//2,YB+HB.height+HM.height+20),t,0.7)
-        draw_overlays(cv,T)
-        _pt=any(t0s<=T<t0s+dd for t0s,_rc,dd,_n in STKEV); _num=any(t0s-0.07<=T<t0s+dd and _n for t0s,_rc,dd,_n in STKEV)   # 포인트 칩이 뜨는 동안은 장소 칩 자리를 비워 같은 자리에
-        if it['k'] in CH and t<min(it['dur'],0.1+CHIP_HOLD) and not _pt:
-            pop(cv,CH[it['k']],((W-CH[it['k']].width)//2,YB),t,0.1)
-        for a,b,s,wt in it['caps']:
-            if a<=T<b and not (it['fx']=='title' and t<1.0) and not (t<BE['caption']['cut_gap_s'] or (_num and BE['caption']['hide_while_number_chip'])):
-                act=max([j for j,w in enumerate(wt) if T+0.04>=w] or [0])
-                ci=be3(s,act); cv.alpha_composite(ci,((W-ci.width)//2,CAP_TOP-20)); break
-        for t0s,rc,dd,_n in STKEV:
-            if t0s<=T<t0s+dd:
-                k2=T-t0s; sc=0.6+0.4*ease(min(1,k2/.18)); al=1.0 if T<t0s+dd-.22 else max(0,(t0s+dd-T)/.22)
-                w2,h2=round(rc.width*sc),round(rc.height*sc); im2=rc.resize((w2,h2),Image.LANCZOS)
-                if al<1: im2.putalpha(im2.getchannel('A').point(lambda v,al=al:int(v*al)))
-                cv.alpha_composite(im2,((W-w2)//2,BE['chip']['y_top_px']+(rc.height-h2)//2))
-        proc.stdin.write(cv.convert('RGB').tobytes()); last=fr
-# 끝 화면
-base=Image.fromarray(last).convert('RGBA'); nE=round(ENDD*30)
-for f in range(nE):
-    t=f/30; cv=Image.alpha_composite(base,Image.new('RGBA',(W,H),(0,0,0,int(190*min(1,t/0.3)))))
-    s=0.7+0.3*ease(t/0.6); lw=round(LG.width*s); L2=LG.resize((lw,round(LG.height*s))); cv.alpha_composite(L2,((W-lw)//2,620-(L2.height-LG.height)//2))
-    pop(cv,E1,((W-E1.width)//2,1180),t,0.35)
-    draw_overlays(cv,TOTAL-ENDD+t)
-    proc.stdin.write(cv.convert('RGB').tobytes())
-proc.stdin.close(); proc.wait()
+if not (os.environ.get('AUDIO_ONLY') and os.path.exists(OUTV)):   # 화면은 그대로 두고 소리만 다시 만들 때
+  proc=subprocess.Popen(['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r','30','-i','-','-c:v','libx264','-preset','veryfast','-crf','23','-pix_fmt','yuv420p',OUTV],stdin=subprocess.PIPE)
+  POP=[];WH=[];last=None
+  for n_it,it in enumerate(ITEMS):
+      if it['k'] in CH: POP.append(it['t0']+0.12)
+      if it['fx']=='whoosh' and n_it>0: WH.append(max(0,it['t0']-0.12))
+      if it['fx']=='title': POP+= [0.15,0.45]
+      for fi,fr in enumerate(frames(V+f"seg/{it['k']}.mp4")):
+          t=fi/30; T=it['t0']+t
+          im=Image.fromarray(fr)
+          z=1.0+0.03*ease(t/max(it['dur'],0.1))
+          if it['fx']=='zoom': z=1.0+0.13*ease(min(1,max(0,(t-0.25)/0.35)))   # 웃긴 말에 화면 당기기
+          if z>1.0001:
+              cw,ch_=W/z,H/z; im=im.resize((W,H),box=((W-cw)/2,(H-ch_)/2*0.8,(W+cw)/2,(H-ch_)/2*0.8+ch_))
+          if it['fx']=='whoosh' and n_it>0 and t<0.22:   # 휙 넘김: 옆에서 밀려 들어옴 + 흐림
+              u=ease(t/0.22); off=int(W*0.35*(1-u)); im=im.filter(ImageFilter.BoxBlur(int(14*(1-u))+1))
+              base=Image.new('RGB',(W,H)); base.paste(im,(off,0)); base.paste(im.transpose(Image.FLIP_LEFT_RIGHT),(off-W,0)); im=base
+          cv=im.convert('RGBA')
+          if it['fx']=='title' and t<META.get('title_s',1e9):   # title_s: 한 장면 원본일 때 첫 화면 제목을 몇 초만
+              cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,60)))
+              pop(cv,HB,((W-HB.width)//2,YB),t,0.1); pop(cv,HM,((W-HM.width)//2,YB+HB.height+6),t,0.4); pop(cv,HS,((W-HS.width)//2,YB+HB.height+HM.height+20),t,0.7)
+          draw_overlays(cv,T)
+          _pt=any(t0s<=T<t0s+dd for t0s,_rc,dd,_n in STKEV); _num=any(t0s-0.07<=T<t0s+dd and _n for t0s,_rc,dd,_n in STKEV)   # 포인트 칩이 뜨는 동안은 장소 칩 자리를 비워 같은 자리에
+          if it['k'] in CH and t<min(it['dur'],0.1+CHIP_HOLD) and not _pt:
+              pop(cv,CH[it['k']],((W-CH[it['k']].width)//2,YB),t,0.1)
+          for a,b,s,wt in it['caps']:
+              if a<=T<b and not (it['fx']=='title' and t<1.0) and not (t<BE['caption']['cut_gap_s'] or (_num and BE['caption']['hide_while_number_chip'])):
+                  act=max([j for j,w in enumerate(wt) if T+0.04>=w] or [0])
+                  ci=be3(s,act); cv.alpha_composite(ci,((W-ci.width)//2,CAP_TOP-20)); break
+          for t0s,rc,dd,_n in STKEV:
+              if t0s<=T<t0s+dd:
+                  k2=T-t0s; sc=0.6+0.4*ease(min(1,k2/.18)); al=1.0 if T<t0s+dd-.22 else max(0,(t0s+dd-T)/.22)
+                  w2,h2=round(rc.width*sc),round(rc.height*sc); im2=rc.resize((w2,h2),Image.LANCZOS)
+                  if al<1: im2.putalpha(im2.getchannel('A').point(lambda v,al=al:int(v*al)))
+                  cv.alpha_composite(im2,((W-w2)//2,BE['chip']['y_top_px']+(rc.height-h2)//2))
+          proc.stdin.write(cv.convert('RGB').tobytes()); last=fr
+  # 끝 화면
+  base=Image.fromarray(last).convert('RGBA'); nE=round(ENDD*30)
+  for f in range(nE):
+      t=f/30; cv=Image.alpha_composite(base,Image.new('RGBA',(W,H),(0,0,0,int(190*min(1,t/0.3)))))
+      s=0.7+0.3*ease(t/0.6); lw=round(LG.width*s); L2=LG.resize((lw,round(LG.height*s))); cv.alpha_composite(L2,((W-lw)//2,620-(L2.height-LG.height)//2))
+      pop(cv,E1,((W-E1.width)//2,1180),t,0.35)
+      draw_overlays(cv,TOTAL-ENDD+t)
+      proc.stdin.write(cv.convert('RGB').tobytes())
+  proc.stdin.close(); proc.wait()
 # 소리: 원본 말소리 이어 붙이기(구간마다 짧은 페이드) + 명랑 배경음(말할 때 자동으로 줄임) + 팝·휙
 lst=V+f'alist_{VER}.txt'; open(lst,'w').write(''.join(f"file '{V}seg/{it['k']}.mp4'\n" for it in ITEMS))
 sp=V+f'speech_{VER}.wav'
@@ -272,16 +275,24 @@ else:
  '[1:a]highpass=f=80,acompressor=threshold=-22dB:ratio=3:attack=6:release=120,volume=1.6,asplit=2[v][key]',
  f'[2:a]atrim=0:{TOTAL:.2f},asetpts=PTS-STARTPTS,volume=0.22,afade=t=in:d=0.6,afade=t=out:st={TOTAL-2.0:.2f}:d=2.0[b0]',
  '[b0][key]sidechaincompress=threshold=0.02:ratio=10:attack=20:release=350[b]']; mx=['[v]','[b]']
-POP+=[max(0,e[0]-0.02) for e in STKEV]
-POP=[0.15][:BE['sfx']['with_music_per_video']]; WH=[]
+POP=[]; WH=[]
+SFX=BE['sfx']   # 현행 효과음 규칙: 첫 화면 딩 · 칩 약 40%에 딩 · 구역 바뀜 휙(최대 part_change_max) · 간격 min_gap_s
+DING=[0.15] if SFX.get('title_ding') else []
+_cht=sorted(it['t0']+0.1 for it in ITEMS if it['k'] in CH)
+_step=max(1,round(1/max(SFX.get('chip_ratio',0.4),0.01))); DING+=[t-0.02 for t in _cht[::_step]]
+WH=[max(0,it['t0']-0.12) for n_it,it in enumerate(ITEMS) if it['fx']=='whoosh' and n_it>0 and it['k'] in CH][:SFX.get('part_change_max',4)]
+_all=[];
+for tt,kd in sorted([(t,'d') for t in DING]+[(t,'w') for t in WH]):
+    if not _all or tt-_all[-1][0]>=SFX.get('min_gap_s',0.3): _all.append((tt,kd))
+POP=[t for t,kd in _all if kd=='d']; WH=[t for t,kd in _all if kd=='w']
 # 검사용 계획 파일(check_be.py가 읽음): 칩 시각·글자 크기·자리, 효과음, 컷
-_pl=dict(rules_version=BE['version'],chips=[],sfx=sorted(POP+WH+([TOTAL-ENDD+0.3] if BE['sfx']['end_logo'] else [])),cuts=[it['t0'] for it in ITEMS],music=True)
+_pl=dict(rules_version=BE['version'],chips=[],sfx=sorted([dict(t=t,sound='ding') for t in POP]+[dict(t=t,sound='whoosh') for t in WH],key=lambda x:x['t']),total=TOTAL,cuts=[it['t0'] for it in ITEMS],music=True)
 for it in ITEMS:
     if it['k'] in CH: _pl['chips'].append(dict(t0=it['t0']+0.1,t1=it['t0']+min(it['dur'],0.1+CHIP_HOLD),label=it['chip'],px=CHIP_PX,y=BE['chip']['y_top_px'],kind='place'))
 for t0s,_rc,dd,_n in STKEV: _pl['chips'].append(dict(t0=t0s,t1=t0s+dd,label='point',px=CHIP_PX,y=BE['chip']['y_top_px'],kind='number' if _n else 'point'))
 json.dump(_pl,open(OUT+'.plan.json','w'),ensure_ascii=False,indent=1)   # 매뉴얼 v4 §9-3: 음악 있는 벨기에판 효과음 1번
-for tt in POP: inp+=['-i',ASSET+'sfx/pop.wav']; f2.append(f'[{len(inp)//2-1}:a]volume=0.45,adelay={int(tt*1000)}:all=1[s{len(mx)}]'); mx.append(f'[s{len(mx)}]')
-for tt in WH: inp+=['-i',ASSET+'sfx/whoosh.wav']; f2.append(f'[{len(inp)//2-1}:a]volume=0.35,adelay={int(tt*1000)}:all=1[s{len(mx)}]'); mx.append(f'[s{len(mx)}]')
+for tt in POP: inp+=['-i',ASSET+'sfx/ding.wav']; f2.append(f'[{len(inp)//2-1}:a]volume={SFX["volume"]["ding"]},adelay={int(tt*1000)}:all=1[s{len(mx)}]'); mx.append(f'[s{len(mx)}]')
+for tt in WH: inp+=['-i',ASSET+'sfx/whoosh.wav']; f2.append(f'[{len(inp)//2-1}:a]volume={SFX["volume"]["whoosh"]},adelay={int(tt*1000)}:all=1[s{len(mx)}]'); mx.append(f'[s{len(mx)}]')
 if BE['sfx']['end_logo']: inp+=['-i',ASSET+'sfx/ding.wav']; f2.append(f'[{len(inp)//2-1}:a]volume=0.45,adelay={int((TOTAL-ENDD+0.3)*1000)}:all=1[sd]'); mx.append('[sd]') if BE['sfx']['end_logo'] else None
 f2.append(''.join(mx)+f'amix=inputs={len(mx)}:normalize=0:duration=first,loudnorm=I={BE['audio']['loudness_lufs']}:TP={BE['audio']['true_peak_db']}:LRA=11,aresample=48000[a]')
 subprocess.run(['ffmpeg','-y','-v','error',*inp,'-filter_complex',';'.join(f2),'-map','0:v','-map','[a]','-c:v','copy','-c:a','aac','-b:a','192k','-t',f'{TOTAL:.2f}',OUT],check=True)
