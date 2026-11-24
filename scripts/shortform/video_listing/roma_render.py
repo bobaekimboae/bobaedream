@@ -161,11 +161,19 @@ def ipill(icon,s,size=50,left=False):   # 흰 정보 알약 = 칩과 같은 노�
 text3d_all=lambda txt,h=180: text3d(txt,h,split=False)
 W_IN=text3d('20인치',h=170); W_TY=text3d_all('앞 245 · 뒤 285',h=110)
 T1=text3d('255L',h=180); T1L=ipill(as24('trunk-as24.svg',50),'지붕 닫았을 때',58)
-S_MAT=text3d('베이지 가죽',h=130); S_SUB=white('레드 카펫',58)
+S_MAT=gchip('베이지 가죽',R['chip']['font_px']) if os.environ.get('SEAT_3D')!='1' else text3d('베이지 가죽',h=130);   # r19 「시트 쪽에 붓칠 씌워야」: 재질도 노랑 붓칠 칩(노션 원본 칠), SEAT_3D=1이면 이전 3D 글자
+S_SUB=white('레드 카펫',58)
 EP=[ipill(as24('engine.svg',54),'최대토크 77.5kg·m',58),ipill(as24('gearbox.svg',54),'8단 듀얼클러치',58),ipill(flu('23f1',60),'제로백 3.4초',58)]
 # r13 「노션 붓칠 원본 쓰고 예쁘게」: ✓ 글자 대신 노션 「스카우트24 테마별」 노랑 체크 원(checkmark_in_yellow_circle) 원본 그대로, 크기만 rsvg 배율
 _CKSVG=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','..','public','assets','shortform','brush-fill','as24-theme-v2','check_circle_yellow.svg')
-if os.path.exists(_CKSVG) and os.environ.get('CHECK_GLYPH')!='1':
+# r19 「체크마크 원보다 그냥 체크마크, 손글씨 원본 쓰자」: 노션 「스카우트24 테마별」 손그림 체크(Hand-drawn Checkmark)_민트_51x41 원본 PNG, 모양 그대로 색만 노랑 + 화살표와 같은 진한 테두리. CHECK_STYLE=circle이면 이전 노랑 체크 원
+_HCK=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','..','public','assets','shortform','brush-fill','as24-theme-v2','hand_drawn_checkmark_51_41.png')
+if os.path.exists(_HCK) and os.environ.get('CHECK_STYLE','hand')=='hand' and os.environ.get('CHECK_GLYPH')!='1':
+    _h=Image.open(_HCK).convert('RGBA'); _hs=46/_h.height; _h=_h.resize((round(_h.width*_hs),46),Image.LANCZOS)
+    _ha=_h.getchannel('A'); _ly=Image.new('RGBA',_h.size,YEL+(0,)); _ly.putalpha(_ha)
+    _p=4; _ck=Image.new('RGBA',(_h.width+2*_p,_h.height+2*_p),(0,0,0,0)); _ob=Image.new('L',_ck.size,0); _ob.paste(_ha,(_p,_p)); _ob=_ob.filter(ImageFilter.MaxFilter(5))
+    _ol=Image.new('RGBA',_ck.size,INK+(0,)); _ol.putalpha(_ob); _ck.alpha_composite(_ol); _ck.alpha_composite(_ly,(_p,_p))
+elif os.path.exists(_CKSVG) and os.environ.get('CHECK_GLYPH')!='1':
     from io import BytesIO as _BIO
     _ck=Image.open(_BIO(subprocess.run(['rsvg-convert','-h','56',_CKSVG],capture_output=True).stdout)).convert('RGBA')
 else:
@@ -373,13 +381,18 @@ if REMIX: proc.stdin.close(); proc.wait()
 # 끝 화면(로마, 사용자 지시 2026-11-23): 보배드림 로고 없이 딜러 카드 — 서울오토갤러리 · 레이브 · 강성경 딜러, 차 정면 3/4 장면 위
 EC=chip('서울오토갤러리',R['chip']['font_px']); EN=white('레이브 · 강성경 딜러',72); ES=white('2024 페라리 로마 스파이더',50)
 efr=frames(0.0,3.2) if not REMIX else []
+# r19 「강성경 딜러 카드에 얼굴도 없고」: ROMA_DEALER_PHOTO(실제 딜러 사진 경로, 저장소에 커밋하지 않음)가 있으면 브러시 프레임 프로필 끝 화면 — 사진 원형 + 노랑 붓칠(노션 원본 칠) + 이름·소속
+_DPH=os.environ.get('ROMA_DEALER_PHOTO')
+if _DPH:
+    sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)),'..')); import brush_frame_portrait as _bfp
 while not REMIX and nfr<round(TOTAL*FPS):
     t=nfr/FPS-ENDT; st=min(3.2,t*3.2/max(0.1,TOTAL-ENDT)); fi=min(len(efr)-1,int(round(st*30)))
     z=1.0+0.04*ease(t/(TOTAL-ENDT)); im=Image.fromarray(efr[fi]); cw_=W/z; ch_=H/z
     cv=im.resize((W,H),box=(W/2-cw_/2,H/2-ch_/2,W/2+cw_/2,H/2+ch_/2)).convert('RGBA')
-    cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,int(150*min(1,t/0.3)))))
+    if not _DPH: cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,int(150*min(1,t/0.3)))))   # 프로필 카드는 card()가 어둡게 함
     _eb=EC.getbbox(); ey=int(H*0.30)
-    pop(cv,EC,((W-(_eb[0]+_eb[2]))//2,ey),t,0.05); pop(cv,EN,((W-EN.width)//2,ey+_eb[3]+24),t,0.25); pop(cv,ES,((W-ES.width)//2,ey+_eb[3]+24+EN.height+10),t,0.45)
+    if _DPH: cv=_bfp.card(_DPH,'강성경 딜러','서울오토갤러리 레이브',cv.convert('RGB'),t).convert('RGBA')   # 배지 + 이름·소속(브러시 프레임 프로필, 사진 보정 없음)
+    else: pop(cv,EC,((W-(_eb[0]+_eb[2]))//2,ey),t,0.05); pop(cv,EN,((W-EN.width)//2,ey+_eb[3]+24),t,0.25); pop(cv,ES,((W-ES.width)//2,ey+_eb[3]+24+EN.height+10),t,0.45)
     if t>=0.3 and not any(c_['kind']=='end' for c_ in CHIPS_LOG): CHIPS_LOG.append({'key':'end','label':'서울오토갤러리','kind':'end','t0':round(ENDT+0.05,3),'t1':round(TOTAL,3),'t_box':round(nfr/FPS,3),'px':R['chip']['font_px'],'y':ey,'box':[(W-(_eb[0]+_eb[2]))//2+_eb[0],ey+_eb[1],(W-(_eb[0]+_eb[2]))//2+_eb[2],ey+_eb[3]]})
     draw_sub(cv,nfr/FPS) if nfr/FPS<VOICE else None
     proc.stdin.write(cv.convert('RGB').tobytes()); nfr+=1
