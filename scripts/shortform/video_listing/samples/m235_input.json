@@ -1,0 +1,176 @@
+{
+ "words": "/dev/shm/m235/job/words_clean.json",
+ "src": "/dev/shm/m235/job/src.mp4",
+ "cuts": [
+  {
+   "key": "c1",
+   "start_word": 0,
+   "src": [
+    0.0,
+    4.03
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c2",
+   "start_word": 5,
+   "src": [
+    4.03,
+    6.29
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c3",
+   "start_word": 8,
+   "src": [
+    6.29,
+    8.33
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c4",
+   "start_word": 12,
+   "src": [
+    8.33,
+    10.33
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c5",
+   "start_word": 15,
+   "src": [
+    10.33,
+    12.62
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c6",
+   "start_word": 17,
+   "src": [
+    12.62,
+    15.36
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c7",
+   "start_word": 23,
+   "src": [
+    15.36,
+    18.02
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c8",
+   "start_word": 26,
+   "src": [
+    18.02,
+    20.62
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c9",
+   "start_word": 31,
+   "src": [
+    20.62,
+    22.66
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c10",
+   "start_word": 34,
+   "src": [
+    22.66,
+    24.84
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c11",
+   "start_word": 37,
+   "src": [
+    24.84,
+    26.86
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c12",
+   "start_word": 41,
+   "src": [
+    26.86,
+    29.98
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c13",
+   "start_word": 43,
+   "src": [
+    29.98,
+    32.12
+   ],
+   "tracked": true,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c14",
+   "start_word": 45,
+   "src": [
+    32.12,
+    34.28
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c15",
+   "start_word": 49,
+   "src": [
+    34.28,
+    37.72
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c16",
+   "start_word": 55,
+   "src": [
+    37.72,
+    40.14
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  },
+  {
+   "key": "c17",
+   "start_word": 60,
+   "src": [
+    40.14,
+    44.64
+   ],
+   "tracked": false,
+   "part_box_frac": 0.0144
+  }
+ ]
+}
