@@ -216,3 +216,12 @@
 - 렌더러: `BBM_BGM` · `BBM_SFX_DIR` 환경 변수로 소리만 교체(안 주면 기존 그대로). 음량 −14.7~−14.8 LUFS.
 - v10s에는 효과음이 딩뿐이라 휙·쿵·팝은 이번 비교에 나오지 않음. 듣기 검수는 하지 않음(사용자 판단 필요).
 - 출처·라이선스: docs/shortform/oss-audio-candidates.md. 음원 파일은 채택 전이라 저장소에 넣지 않음.
+
+## 하이퍼프레임(HyperFrames)으로 같은 네덜란드판 만들기 (2026-11-24)
+
+- 한 일: HeyGen의 오픈소스 HTML → 영상 도구 HyperFrames 0.9.88을 작업 환경에 설치하고, v11nl과 같은 입력(car · edit · words JSON)으로 같은 34.1초 영상을 만듦. 결과 `bobae_cha10_gle450_nl_hyperframes_v1.mp4`.
+- 방식: `scripts/shortform/hyperframes/build_nl.mjs`가 ① 원본에서 그래픽 없는 바탕 영상을 같은 컷 시각으로 잘라 붙이고 ② 제목 상자 · 칩 · 큰 숫자 · 말 자막 · 끝 로고를 HTML/CSS + GSAP 타임라인으로 만든 뒤 ③ `hyperframes render`가 화면 없는 크롬으로 구움. 소리는 v11nl 완성본의 소리를 그대로 씀.
+- 걸린 시간: 렌더 약 157초(그래픽카드 없는 환경). 파이썬 렌더러는 약 90~120초.
+- 같은 점: 글꼴(프리텐다드) · 색 · 자리 · 컷 시각. 다른 점: 바탕 영상의 느린 다가가기가 없음, 부위 화살표 추적 · 번호판 검사 · 효과음 배치는 하이퍼프레임에 없어 기존 파이썬 쪽 결과를 가져와야 함.
+- 검사: lint 오류 0(구조 권고 39건). check_be · edit_gate는 돌리지 않음(비교 시안).
+- 비교 캡처(왼쪽 파이썬, 오른쪽 하이퍼프레임, 첫 렌더 기준): ![비교](shortform-cha10-gle450-be/hyperframes_compare.jpg)
