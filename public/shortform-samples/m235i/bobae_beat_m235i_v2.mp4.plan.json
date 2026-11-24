@@ -1,0 +1,480 @@
+{
+ "words": "/home/claude/shorts/m235/voice_placed_v2_words.json",
+ "bigs": [
+  {
+   "key": "P4",
+   "label": "306마력",
+   "kind": "big",
+   "t0": 21.824,
+   "t1": 23.15
+  },
+  {
+   "key": "P5",
+   "label": "430L",
+   "kind": "big",
+   "t0": 24.088,
+   "t1": 27.005
+  },
+  {
+   "key": "P10",
+   "label": "16,665km",
+   "kind": "big",
+   "t0": 40.843,
+   "t1": 43.328
+  },
+  {
+   "key": "P12",
+   "label": "4.9초",
+   "kind": "big",
+   "t0": 48.116,
+   "t1": 49.342
+  },
+  {
+   "key": "P13",
+   "label": "45.9kg·m",
+   "kind": "big",
+   "t0": 50.112,
+   "t1": 54.033
+  }
+ ],
+ "edition": "feature_video",
+ "edition_code": "ED-SIMPLE",
+ "style": "beat_edit",
+ "renderer": "m235_beat_v2.py (g350_v5_lib)",
+ "voice": "voice_placed_v2.wav",
+ "frame": [
+  1080,
+  1920
+ ],
+ "techniques": [
+  "beat_cut",
+  "bgm",
+  "big_number_3d",
+  "blender_horse_3d",
+  "camera_shake",
+  "caption_chunks",
+  "count_up",
+  "dealer_profile_card",
+  "end_logo",
+  "intro_flash_montage",
+  "loudness_rule",
+  "music_edit_break",
+  "nasser_hero_3d_text",
+  "point_chip",
+  "rgb_split",
+  "sfx_rules",
+  "slow_motion",
+  "speed_ramp",
+  "stutter",
+  "title_brand_chip",
+  "touch_outline_sam",
+  "whip_pan",
+  "white_flash",
+  "zoom_punch"
+ ],
+ "music": true,
+ "music_credit": "Hardstyle night (Original mix) — DJane Nickie Anne (Jamendo), CC BY 3.0",
+ "music_edit": {
+  "cut_s": [
+   32.4148820861678,
+   34.0868820861678
+  ]
+ },
+ "horse_model": "three.js examples/models/gltf/Horse.glb (MIT), Blender Cycles 금속 재질",
+ "spec_source": "ADAC Autokatalog 315767 (M235i Gran Coupé xDrive Steptronic 09/20-03/24)",
+ "total": 59.263,
+ "cuts": [
+  0.441,
+  0.859,
+  1.277,
+  1.695,
+  1.916,
+  2.136,
+  2.357,
+  2.577,
+  2.786,
+  2.995,
+  3.216,
+  3.437,
+  7.709,
+  8.15,
+  8.568,
+  11.564,
+  12.005,
+  12.423,
+  14.582,
+  15.0,
+  19.296,
+  19.714,
+  23.15,
+  23.568,
+  27.005,
+  27.423,
+  30.348,
+  30.743,
+  33.181,
+  36.037,
+  38.173,
+  43.328,
+  45.906,
+  49.342,
+  54.033,
+  57.263
+ ],
+ "touch_fx": [
+  {
+   "key": "led",
+   "label": "LED 헤드램프",
+   "t0": 8.668
+  },
+  {
+   "key": "xd",
+   "label": "xDrive 사륜구동",
+   "t0": 16.0
+  },
+  {
+   "key": "trunk",
+   "label": "트렁크",
+   "t0": 24.368
+  },
+  {
+   "key": "wl",
+   "label": "웰컴 라이트",
+   "t0": 28.523
+  },
+  {
+   "key": "amb",
+   "label": "앰비언트 라이트",
+   "t0": 33.281
+  },
+  {
+   "key": "mb",
+   "label": "M 버튼",
+   "t0": 36.637
+  },
+  {
+   "key": "gear",
+   "label": "8단 스텝트로닉",
+   "t0": 46.906
+  },
+  {
+   "key": "eng",
+   "label": "최대토크",
+   "t0": 49.542
+  }
+ ],
+ "dealer_card": {
+  "label": "문제현 대표",
+  "t0": 54.433,
+  "t1": 57.263,
+  "photo": "450395-1.webp"
+ },
+ "sfx": [
+  {
+   "t": 0.02,
+   "kind": "whoosh",
+   "sound": "whoosh"
+  },
+  {
+   "t": 3.437,
+   "kind": "impact",
+   "sound": "impact"
+  },
+  {
+   "t": 3.887,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 7.709,
+   "kind": "whoosh",
+   "sound": "whoosh"
+  },
+  {
+   "t": 8.748,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 21.774,
+   "kind": "horse_neigh_el",
+   "sound": "horse_neigh_el"
+  },
+  {
+   "t": 24.088,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 29.163,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 33.511,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 36.037,
+   "kind": "impact",
+   "sound": "impact"
+  },
+  {
+   "t": 40.843,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 43.508,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 48.116,
+   "kind": "stopwatch",
+   "sound": "stopwatch"
+  },
+  {
+   "t": 50.112,
+   "kind": "ding",
+   "sound": "ding"
+  }
+ ],
+ "chips": [
+  {
+   "key": "title",
+   "label": "BMW",
+   "kind": "title",
+   "t0": 3.887,
+   "t1": 7.709,
+   "t_box": 4.187,
+   "px": 74,
+   "y": 300,
+   "box": [
+    65,
+    315,
+    304,
+    448
+   ]
+  },
+  {
+   "key": "P1",
+   "label": "LED 헤드램프",
+   "kind": "point",
+   "t0": 8.748,
+   "t1": 11.564,
+   "t_box": 8.998,
+   "px": 70,
+   "y": 300,
+   "box": [
+    285,
+    332,
+    796,
+    477
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P2",
+   "label": "블루 캘리퍼",
+   "kind": "point",
+   "t0": 12.603,
+   "t1": 14.582,
+   "t_box": 12.853,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P3",
+   "label": "xDrive 사륜구동",
+   "kind": "point",
+   "t0": 15.18,
+   "t1": 19.296,
+   "t_box": 15.43,
+   "px": 70,
+   "y": 300,
+   "box": [
+    219,
+    331,
+    861,
+    467
+   ]
+  },
+  {
+   "key": "P4",
+   "label": "2.0 터보",
+   "kind": "point",
+   "t0": 20.494,
+   "t1": 23.15,
+   "t_box": 20.744,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "P5",
+   "label": "트렁크",
+   "kind": "point",
+   "t0": 23.758,
+   "t1": 27.005,
+   "t_box": 24.008,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P6",
+   "label": "웰컴 라이트",
+   "kind": "point",
+   "t0": 29.163,
+   "t1": 30.348,
+   "t_box": 29.413,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ]
+  },
+  {
+   "key": "P7",
+   "label": "레드 마그마 시트",
+   "kind": "point",
+   "t0": 31.493,
+   "t1": 33.181,
+   "t_box": 31.743,
+   "px": 70,
+   "y": 300,
+   "box": [
+    219,
+    331,
+    861,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P8",
+   "label": "앰비언트 라이트",
+   "kind": "point",
+   "t0": 33.511,
+   "t1": 36.037,
+   "t_box": 33.761,
+   "px": 70,
+   "y": 300,
+   "box": [
+    281,
+    332,
+    800,
+    478
+   ]
+  },
+  {
+   "key": "P9",
+   "label": "M 버튼",
+   "kind": "point",
+   "t0": 36.217,
+   "t1": 38.173,
+   "t_box": 36.467,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "P10",
+   "label": "라이브 콕핏",
+   "kind": "point",
+   "t0": 38.353,
+   "t1": 43.328,
+   "t_box": 38.603,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ],
+   "no_track_reason": "화면 가득 계기판(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P11",
+   "label": "헤드업 디스플레이",
+   "kind": "point",
+   "t0": 43.508,
+   "t1": 45.906,
+   "t_box": 43.758,
+   "px": 70,
+   "y": 300,
+   "box": [
+    219,
+    331,
+    861,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P12",
+   "label": "8단 스텝트로닉",
+   "kind": "point",
+   "t0": 46.086,
+   "t1": 49.342,
+   "t_box": 46.336,
+   "px": 70,
+   "y": 300,
+   "box": [
+    281,
+    332,
+    800,
+    478
+   ]
+  },
+  {
+   "key": "P13",
+   "label": "최대토크",
+   "kind": "point",
+   "t0": 49.522,
+   "t1": 54.033,
+   "t_box": 49.772,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  }
+ ],
+ "caption": {
+  "center_y_px": 1283,
+  "font_px": 60
+ }
+}
