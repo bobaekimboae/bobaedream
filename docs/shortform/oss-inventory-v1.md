@@ -68,7 +68,19 @@
 - **Remotion:** 리액트 전용이고, 회사 규모에 따라 유료 라이선스가 필요하다.
 - **Supertonic 1:** 모델이 OpenRAIL-M이고 영어 전용이다. 한국어를 지원하는 2·3판은 확인이 필요하다.
 
-## 4. 다음 순서
+## 4. 처리 결과 (2026-11-24 「모두 수정해」)
+
+| 항목 | 처리 |
+|---|---|
+| edge-tts | `sag_reel_v1.py` · `dealer_narration_sample.py`에서 뺐다. 새 공용 부품 `scripts/shortform/voice_source.py`가 블록 음성을 만든다. 음성은 설정값(`VOICE_DIR/b00.mp3…`)으로만 받고, 없으면 렌더를 멈춘다(2026-11-25 최종 지시 v2에 맞춰 MeloTTS 경로도 뺌). 낱말 시각은 faster-whisper로 받아쓴 뒤 대본 글자에 맞춘다(로마 음성 9초로 시험 통과) |
+| nuxt-shootkit 버전 | nuxt 4.6.2 · vue 3.5.33(overrides 포함)으로 고쳤다. `pnpm build`와 `pnpm typecheck` 모두 통과 |
+| onnxruntime-web | 1.30.0 정식판으로 바꿨다. 쇼룸 배경의 wasm 주소도 같은 버전으로 맞췄다. 부위 나누기(transformers.js)는 자기 안의 실행기를 그대로 쓴다 |
+| 장면 후보·손 가림(1순위) | `scripts/shortform/video_listing/scene_candidates.py` 추가. PySceneDetect 0.6.7 + MediaPipe Hand Landmarker(모델 `scripts/shortform/models/hand_landmarker.task`, Apache-2.0) + 선명도. 로마 원본 222초 → 장면 39개(쓸만함 21 · 손 가림 1 · 흐림 17), r12 「최대 토크」 원본 구간(204.95초)의 손을 찾아냈다 |
+| pyloudnorm | 설치함(검사 스크립트 정리 때 사용) |
+| 2순위(WhisperX · SAM 2 · 번호판 미세조정) | 아직 하지 않았다. 모델이 크고(수 GB) 작업 환경 저장 공간이 모자라 별도 작업으로 진행한다 |
+| MeloTTS | 2026-11-25 「쓰지 않는 것」으로 정해져 연결을 뺐다 |
+
+## 5. 다음 순서
 1. edge-tts를 빼고 MeloTTS-Korean을 시험한다(샘플 1개, 음질 비교).
 2. PySceneDetect와 MediaPipe Hands로 「장면 후보 + 손 가림 제외」를 만들어 로마 r13 장면 고르기에 쓴다.
 3. nuxt-shootkit 버전 정리(vue 3.5.33, onnxruntime-web 1.30.0)는 촬영 키트 담당 작업창에 넘긴다.
@@ -76,3 +88,4 @@
 ## 변경 이력
 
 - 2026-11-25: 스택 변경 반영 — Beat This!(박자) · RapidOCR 한글 엔진 · DeepFilterNet3(딜러 육성) · Qwen3-ForcedAligner(대본 낱말 시각) 추가, 서버 laravel-ffmpeg 8.10. 상세 `shortform-kit/CHANGELOG.md` v0.6.0
+- 2026-11-25: edge-tts 제거 마무리(scripts 안 0건) · MeloTTS 연결 제거 — PR #1229

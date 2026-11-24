@@ -12,7 +12,7 @@ export const SHOWROOM_STYLES: { key: ShowroomStyle; label: string; desc: string 
 ];
 
 const MODEL_URL = "https://huggingface.co/BritishWerewolf/U-2-Netp/resolve/main/onnx/model.onnx";
-const ORT_CDN = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0-dev.20250409-89f8206ba4/dist/";
+const ORT_CDN = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.30.0/dist/";
 const S = 320;
 const MAX_SIDE = 1600;
 

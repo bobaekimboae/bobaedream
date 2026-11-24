@@ -6,7 +6,7 @@
      → 코드로 만든 배경음악 + 목소리 자동 덕킹 → -14 LUFS → 1080×1920 30fps mp4.
 
 실행: python3 scripts/shortform/sag_reel_v1.py <원본.mp4> <출력폴더>
-TTS: GOOGLE_TTS=1 이고 GOOGLE_APPLICATION_CREDENTIALS(또는 GOOGLE_TTS_API_KEY)가 있으면 구글 Chirp3-HD 음성, 없으면 edge-tts 임시 음성.
+TTS: 블록 음성은 voice_source.py가 설정값(VOICE_DIR)으로만 받는다. 없으면 렌더를 멈춘다.
 """
 import asyncio, json, math, os, re, subprocess, sys, time
 import numpy as np
@@ -27,8 +27,7 @@ BOLD = os.path.join(FONTS, 'Pretendard-Bold.otf')
 SEMI = os.path.join(FONTS, 'Pretendard-SemiBold.otf')
 MED = os.path.join(FONTS, 'Pretendard-Medium.otf')
 YELLOW = (255, 214, 10)
-# 음성: edge-tts 현수(멀티링구얼, 인준보다 억양이 자연스러움). 구글 Chirp 3: HD 키가 생기면 이 자리만 바꾼다
-VOICE, VOICE_RATE = os.environ.get('SAG_VOICE', 'ko-KR-HyunsuMultilingualNeural'), os.environ.get('SAG_VOICE_RATE', '+8%')
+# 음성: voice_source.py(설정값 VOICE_DIR의 블록 파일). 외부 통음성은 SAG_VOICE_FILE + SAG_VOICE_WORDS
 # 릴스·쇼츠·틱톡 공통 세이프존(1080×1920): 위·아래 240, 오른쪽 216(버튼 줄), 좌우 끝 54 — 자막은 이 안의 가운데
 SAFE_TOP, SAFE_BOTTOM, SAFE_L, SAFE_R = 240, 1920 - 240, 54, 1080 - 216
 PLATE_COVER = os.environ.get('SAG_PLATE_COVER', '0') == '1'
@@ -112,20 +111,8 @@ for _b in BLOCKS:
 KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|보배드림|테일램프|옆태)')
 
 
-# ── 1. TTS ──
-async def edge(text, path):
-    import certifi
-    certifi.where = lambda: '/root/.ccr/ca-bundle.crt'
-    import edge_tts
-    c = edge_tts.Communicate(text, VOICE, rate=VOICE_RATE, boundary='WordBoundary')
-    words = []
-    with open(path, 'wb') as f:
-        async for ch in c.stream():
-            if ch['type'] == 'audio':
-                f.write(ch['data'])
-            elif ch['type'] == 'WordBoundary':
-                words.append((ch['offset'] / 1e7, (ch['offset'] + ch['duration']) / 1e7, ch['text']))
-    return words
+# ── 1. TTS ── (비공식 음성 접속 사용 중지 2026-11-24: 블록 음성은 voice_source가 설정값으로만 받는다)
+import voice_source  # noqa: E402
 
 
 def dur(p):
@@ -181,7 +168,7 @@ def build_voice():
     parts = []
     for i, b in enumerate(BLOCKS):
         p = os.path.join(OUT, f'v{i}.mp3')
-        words = asyncio.run(edge(b['tts'], p))
+        words = voice_source.synth_words(b['tts'], p, i)
         d = words[-1][1] + 0.12 if words else dur(p)
         b['t0'], b['t1'] = t, t + d
         b['words'] = [(t + s, t + e, SHOW.get(w, w)) for s, e, w in words]
