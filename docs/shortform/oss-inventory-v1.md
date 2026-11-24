@@ -17,6 +17,7 @@
 | 물체 추적 | OpenCV Zoo VitTrack | 2023sep | Apache-2.0 | 부위 따라가기 |
 | 번호판 찾기 | OpenCV Zoo LPD-YuNet | 2023mar int8 | Apache-2.0 | 영상 편집 가림·오탐 검사 |
 | 계기판 글자 읽기 | RapidOCR(PP-OCRv6) | 3.10 | Apache-2.0 | 주행거리 확인 |
+| 한국어 글자 읽기(성능지·스티커·화면) | RapidOCR(PP-OCRv5 한국어) `auto/ocr_text.py` | 3.10 | Apache-2.0 | v6에는 한국어 모델 없음 — 30줄 글자 오류율 v6 87.7% / v5 한국어 17.6% (2026-11-25) |
 | 효과음 고르기 | LAION CLAP | larger_clap_general | Apache-2.0 | 효과음 채점 |
 | 효과음 원본 | Openverse | — | CC0만 받음 | 효과음 라이브러리 |
 | 소리 분석 | librosa · soundfile | 1.0 · 0.14 | ISC · BSD-3 | 박자·자르기 |

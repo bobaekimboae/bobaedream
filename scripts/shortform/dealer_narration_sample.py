@@ -1,8 +1,9 @@
-"""딜러 내레이션형 숏폼 샘플: 매물 사진 + 매물 정보 -> 대본 -> TTS(어절 시각) -> 컷 맞춤 -> 자막·그래픽 -> mp4."""
-import asyncio, json, math, os, re, subprocess, sys
-import certifi
-certifi.where = lambda: '/root/.ccr/ca-bundle.crt'
-import edge_tts
+"""딜러 내레이션형 숏폼 샘플: 매물 사진 + 매물 정보 -> 대본 -> 음성(어절 시각) -> 컷 맞춤 -> 자막·그래픽 -> mp4.
+
+음성: VOICE_FILE(대본 전체를 읽은 음성 파일) + VOICE_WORDS(받아쓰기 낱말 시각 JSON [{text,start,end}])를 넘긴다.
+비공식 무료 음성은 2026-11-25 제거. 목소리는 실험 중이라 코드에 고정하지 않는다.
+"""
+import difflib, json, math, os, re, subprocess, sys
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 OUT = os.environ.get('OUT_DIR', os.path.join(os.getcwd(), 'shortform-out'))
@@ -10,7 +11,6 @@ os.makedirs(OUT, exist_ok=True)
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 PH = os.path.join(ROOT, 'public', 'assets', 'cars', 'seoul-autogallery-v01', 'rr', 'rr-%02d.jpg')
 W, H, FPS = 1080, 1920, 30
-VOICE, RATE = 'ko-KR-InJoonNeural', '+18%'
 SANS = '/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc'
 SANS_B = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
 SERIF = '/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc'
@@ -38,41 +38,52 @@ BLOCKS = [
 HIGHLIGHT = re.compile(r'(\d|V8|SV|슈퍼차저|롱휠베이스|롱바디|퀼팅|우드|헤드업|어라운드|디지털|윗급|두)')
 
 
-async def tts(text, path):
-    c = edge_tts.Communicate(text, VOICE, rate=RATE, boundary='WordBoundary')
-    words = []
-    with open(path, 'wb') as f:
-        async for ch in c.stream():
-            if ch['type'] == 'audio':
-                f.write(ch['data'])
-            elif ch['type'] == 'WordBoundary':
-                words.append((ch['offset'] / 1e7, (ch['offset'] + ch['duration']) / 1e7, ch['text']))
-    return words
-
-
 def dur(path):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', path]))
 
 
 def build_audio():
-    t, gap, timeline, parts = 0.3, 0.18, [], []
-    for i, b in enumerate(BLOCKS):
-        p = os.path.join(OUT, f'b{i}.mp3')
-        words = asyncio.run(tts(b['text'], p))
-        d = (words[-1][1] + 0.15) if words else dur(p)
-        b['start'], b['end'] = t, t + d
-        b['words'] = [(t + s, t + e, w) for s, e, w in words]
-        parts.append((p, t))
-        t += d + gap
-    total = t + (2.6 if BLOCKS[-1].get('end') else 0.4)
-    # 블록 음성을 시각에 맞게 겹치지 않게 놓기
-    inputs, filt = [], []
-    for k, (p, st) in enumerate(parts):
-        inputs += ['-i', p]
-        filt.append(f'[{k}:a]adelay={int(st*1000)}|{int(st*1000)},aformat=channel_layouts=stereo[a{k}]')
-    mix = ''.join(f'[a{k}]' for k in range(len(parts)))
-    filt.append(f'{mix}amix=inputs={len(parts)}:normalize=0,apad=whole_dur={total}[v]')
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *inputs, '-filter_complex', ';'.join(filt), '-map', '[v]',
+    """외부 음성 1개 + 받아쓰기 낱말 시각을 대본 블록·어절에 글자 단위로 맞춘다(표기가 달라도 따라감)."""
+    vf, wj = os.environ.get('VOICE_FILE'), os.environ.get('VOICE_WORDS')
+    if not (vf and wj and os.path.exists(vf) and os.path.exists(wj)):
+        raise SystemExit('음성 파일이 없습니다. VOICE_FILE(음성)과 VOICE_WORDS(받아쓰기 낱말 시각 JSON)를 넘겨 주세요. 목소리는 실험 중이라 고정하지 않습니다.')
+    norm = lambda t: re.sub(r'[^0-9A-Za-z가-힣]', '', t)
+    sc, st = [], []
+    for w in json.load(open(wj)):
+        t = norm(w['text'])
+        for k, ch in enumerate(t):
+            sc.append(ch); st.append(w['start'] + (w['end'] - w['start']) * k / max(1, len(t)))
+    bc, owner = [], []
+    for bi, b in enumerate(BLOCKS):
+        for wi, w in enumerate(b['text'].split()):
+            for ch in norm(w):
+                bc.append(ch); owner.append((bi, wi))
+    mp = [None] * len(bc)
+    for a0, b0, n in difflib.SequenceMatcher(None, ''.join(bc), ''.join(sc), autojunk=False).get_matching_blocks():
+        for k in range(n):
+            mp[a0 + k] = st[b0 + k]
+    known = [i for i, v in enumerate(mp) if v is not None]
+    if not known:
+        raise SystemExit('받아쓰기와 대본이 하나도 맞지 않습니다. 같은 대본을 읽은 음성인지 확인해 주세요.')
+    for i in range(len(mp)):
+        if mp[i] is None:
+            lo = max([k for k in known if k < i], default=None); hi = min([k for k in known if k > i], default=None)
+            mp[i] = mp[hi] if lo is None else (mp[lo] + 0.08 * (i - lo) if hi is None else mp[lo] + (mp[hi] - mp[lo]) * (i - lo) / (hi - lo))
+    first = {}
+    for i, o in enumerate(owner):
+        first.setdefault(o, i)
+    d = dur(vf)
+    for bi, b in enumerate(BLOCKS):
+        ws = b['text'].split()
+        idx = [wi for wi in range(len(ws)) if (bi, wi) in first]  # 글자 없는 기호만 있는 어절은 뺌
+        starts = [mp[first[(bi, wi)]] for wi in idx]
+        nxt = [first[o] for o in first if o[0] == bi + 1]
+        nb = mp[min(nxt)] if nxt else d
+        ends = starts[1:] + [min(nb - 0.05, starts[-1] + 0.6 + 0.07 * len(ws[idx[-1]]))]
+        b['start'], b['end'] = starts[0], min(ends[-1] + 0.15, nb)
+        b['words'] = [(s_, e_, ws[wi]) for s_, e_, wi in zip(starts, ends, idx)]
+    total = d + (2.6 if BLOCKS[-1].get('end') else 0.4)
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', vf, '-af', f'aformat=channel_layouts=stereo,apad=whole_dur={total}',
                     '-t', f'{total}', '-ar', '44100', os.path.join(OUT, 'voice.wav')], check=True)
     return total
 

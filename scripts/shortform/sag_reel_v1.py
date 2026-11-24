@@ -6,9 +6,9 @@
      → 코드로 만든 배경음악 + 목소리 자동 덕킹 → -14 LUFS → 1080×1920 30fps mp4.
 
 실행: python3 scripts/shortform/sag_reel_v1.py <원본.mp4> <출력폴더>
-TTS: GOOGLE_TTS=1 이고 GOOGLE_APPLICATION_CREDENTIALS(또는 GOOGLE_TTS_API_KEY)가 있으면 구글 Chirp3-HD 음성, 없으면 edge-tts 임시 음성.
+음성: SAG_VOICE_FILE(미리 만든 음성 파일) + SAG_VOICE_WORDS(받아쓰기 낱말 시각 JSON)를 꼭 넘긴다. 음성은 실험 중이라 코드에 목소리를 고정하지 않는다(2026-11-25).
 """
-import asyncio, json, math, os, re, subprocess, sys, time
+import json, math, os, re, subprocess, sys, time
 import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -27,8 +27,7 @@ BOLD = os.path.join(FONTS, 'Pretendard-Bold.otf')
 SEMI = os.path.join(FONTS, 'Pretendard-SemiBold.otf')
 MED = os.path.join(FONTS, 'Pretendard-Medium.otf')
 YELLOW = (255, 214, 10)
-# 음성: edge-tts 현수(멀티링구얼, 인준보다 억양이 자연스러움). 구글 Chirp 3: HD 키가 생기면 이 자리만 바꾼다
-VOICE, VOICE_RATE = os.environ.get('SAG_VOICE', 'ko-KR-HyunsuMultilingualNeural'), os.environ.get('SAG_VOICE_RATE', '+8%')
+# 음성: 비공식 무료 음성(약관 위험)은 2026-11-25 제거. 목소리는 실험 중이라 고정하지 않고, 만든 음성 파일을 SAG_VOICE_FILE로 받는다
 # 릴스·쇼츠·틱톡 공통 세이프존(1080×1920): 위·아래 240, 오른쪽 216(버튼 줄), 좌우 끝 54 — 자막은 이 안의 가운데
 SAFE_TOP, SAFE_BOTTOM, SAFE_L, SAFE_R = 240, 1920 - 240, 54, 1080 - 216
 PLATE_COVER = os.environ.get('SAG_PLATE_COVER', '0') == '1'
@@ -112,20 +111,9 @@ for _b in BLOCKS:
 KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|보배드림|테일램프|옆태)')
 
 
-# ── 1. TTS ──
-async def edge(text, path):
-    import certifi
-    certifi.where = lambda: '/root/.ccr/ca-bundle.crt'
-    import edge_tts
-    c = edge_tts.Communicate(text, VOICE, rate=VOICE_RATE, boundary='WordBoundary')
-    words = []
-    with open(path, 'wb') as f:
-        async for ch in c.stream():
-            if ch['type'] == 'audio':
-                f.write(ch['data'])
-            elif ch['type'] == 'WordBoundary':
-                words.append((ch['offset'] / 1e7, (ch['offset'] + ch['duration']) / 1e7, ch['text']))
-    return words
+# ── 1. 음성(외부에서 만든 파일만 받음) ──
+VOICE_HELP = ('음성 파일이 없습니다. SAG_VOICE_FILE(음성 mp3/wav)과 SAG_VOICE_WORDS(받아쓰기 낱말 시각 JSON: [{text,start,end}])를 넘겨 주세요. '
+              '목소리는 실험 중이라 코드에 고정하지 않습니다.')
 
 
 def dur(p):
@@ -172,28 +160,6 @@ def align_external(path, words_json):
         b['t0'], b['t1'] = starts[0], ends[-1]
     total = max(d, BLOCKS[-1]['t1'] + 0.35) + STYLE.get('end_tail_s', 2.8 - 0.35) if STYLE.get('end_tail_s') else d + 2.8
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', path, '-af', f'aformat=sample_rates=48000:channel_layouts=stereo,apad=whole_dur={total}',
-                    '-t', f'{total:.3f}', os.path.join(OUT, 'voice.wav')], check=True)
-    return total
-
-
-def build_voice():
-    t, gap = 0.25, 0.12
-    parts = []
-    for i, b in enumerate(BLOCKS):
-        p = os.path.join(OUT, f'v{i}.mp3')
-        words = asyncio.run(edge(b['tts'], p))
-        d = words[-1][1] + 0.12 if words else dur(p)
-        b['t0'], b['t1'] = t, t + d
-        b['words'] = [(t + s, t + e, SHOW.get(w, w)) for s, e, w in words]
-        parts.append((p, t))
-        t += d + gap
-    total = t + 2.8  # 끝 카드
-    ins, fl = [], []
-    for k, (p, st) in enumerate(parts):
-        ins += ['-i', p]
-        fl.append(f'[{k}:a]adelay={int(st*1000)}|{int(st*1000)},aformat=sample_rates=48000:channel_layouts=stereo[a{k}]')
-    fl.append(''.join(f'[a{k}]' for k in range(len(parts))) + f'amix=inputs={len(parts)}:normalize=0,apad=whole_dur={total}[v]')
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ins, '-filter_complex', ';'.join(fl), '-map', '[v]',
                     '-t', f'{total:.3f}', os.path.join(OUT, 'voice.wav')], check=True)
     return total
 
@@ -1770,8 +1736,10 @@ def vignette(img):
 
 def main():
     t_start = time.time()
-    ext = os.environ.get('SAG_VOICE_FILE')
-    total = align_external(ext, os.environ['SAG_VOICE_WORDS']) if ext else build_voice()
+    ext, wj = os.environ.get('SAG_VOICE_FILE'), os.environ.get('SAG_VOICE_WORDS')
+    if not (ext and wj and os.path.exists(ext) and os.path.exists(wj)):
+        raise SystemExit(VOICE_HELP)
+    total = align_external(ext, wj)
     {'spy': build_bgm_spy, 'file': build_bgm_file}.get(STYLE.get('bgm'), build_bgm)(total)
     build_phrases()
     build_sfx(total)

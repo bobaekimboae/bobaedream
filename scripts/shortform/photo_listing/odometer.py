@@ -1,7 +1,8 @@
 """계기판 사진에서 실제 주행거리 숫자 찾기 (2026-11-18 사용자 규칙).
 
 「주행거리 동그라미는 진짜 계기판 주행거리 숫자에 친다. 사진에 안 보이면 치지 않는다.」
-- 컷에 쓰는 사진마다 글자 인식(RapidOCR 3.x · PP-OCRv6, Apache-2.0)으로 숫자를 읽는다.
+- 컷에 쓰는 사진마다 글자 인식(RapidOCR 3.x · PP-OCRv6, Apache-2.0)으로 숫자를 읽는다. 숫자 전용 —
+  v6에는 한국어 모델이 없으므로 한국어 글자는 auto/ocr_text.py의 PP-OCRv5 한국어를 쓴다(2026-11-25: 계기판 숫자 v6 17/21, v5 한국어 13/21).
 - 매물 주행거리와 같은 숫자(쉼표·km 무시)를 찾는다. 「3만 2천」처럼 매물 값이 어림이면 ±2% 안.
 - 찾으면 {'photo': n, 'box': [u0, v0, u1, v1]}(사진 비율 좌표), 못 찾으면 None → 원을 그리지 않음.
 - 결과는 src2/pNN.odo.json 에 저장(다음 렌더는 다시 읽지 않음).
@@ -22,7 +23,7 @@ def km_value(txt):
 
 
 def _ocr(path):
-    """RapidOCR 3.x(PP-OCRv6, Apache-2.0)로 글자 상자를 읽는다. 2026-11-22 rapidocr-onnxruntime 1.2.3(구판) → rapidocr 3.10."""
+    """RapidOCR 3.x(PP-OCRv6, Apache-2.0)로 숫자 글자 상자를 읽는다(한국어 글자는 읽지 않음). 2026-11-22 rapidocr-onnxruntime 1.2.3(구판) → rapidocr 3.10."""
     global _O
     try:
         _O

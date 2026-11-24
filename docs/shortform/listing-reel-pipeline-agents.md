@@ -70,7 +70,7 @@ SAG_VOICE_FILE=voice.mp3 SAG_VOICE_WORDS=words.json python3 scripts/shortform/sa
 python3 scripts/shortform/photo_listing/common.py <차 폴더>          # 사진 매물
 ```
 - 결과: `out/sag_reel_v1.mp4` · `out/meta.json`. 약 4분.
-- `SAG_VOICE_FILE`이 없으면 edge-tts 임시 음성으로 만든다(서비스용으로 쓰지 않음).
+- `SAG_VOICE_FILE`·`SAG_VOICE_WORDS`가 없으면 렌더를 멈춘다(2026-11-25 비공식 무료 음성 경로 제거. 목소리는 실험 중이라 고정하지 않음).
 - 끝나면 `scripts/shortform/__pycache__` 삭제(커밋하지 않음).
 
 ### ⑥ 확인
