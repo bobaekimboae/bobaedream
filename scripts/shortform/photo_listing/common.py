@@ -1184,16 +1184,31 @@ def sticker_layer(ov, T):
                 rw = n_ * gap / 2
                 xc = min(max((bx0 + bx1) / 2, rw + 60), W - 60 - rw)
                 vis0, vis1 = max(by0, getattr(C, 'CHIP_Y', 285) + 110), min(by1, H - 400)   # v1.8.3: 아래 딜러 띠와 최소 60px 더 띄움(컷 7 🔥❄️가 딜러 칩에 붙던 일)
-                yc = by0 + sk.get('row_v', 0.35) * (by1 - by0)
-                yc = min(max(yc, vis0 + ih / 2), vis1 - ih / 2) if vis1 - vis0 > ih else (vis0 + vis1) / 2
-                c0, c1 = CAP_TOP - 20, CAP_TOP + 150   # 말 자막 띠를 피함: 위에 자리가 있으면 위, 없으면 아래
-                if yc + ih / 2 > c0 and yc - ih / 2 < c1:   # 시트는 화면 아래쪽에 있으므로 자막 아래 칸을 먼저(그 칸이 등받이 안일 때)
-                    below, above = c1 + ih / 2 + 8, c0 - ih / 2 - 8
-                    yc = above if above - ih / 2 >= vis0 - 4 else (below if below + ih / 2 <= vis1 + 4 else above)   # v1.8.3: 자막 위 칸 먼저(아래 칸은 딜러 띠와 붙음)
-                if 'seat_idx' in sk:
-                    x, y = xc + (k_ - (n_ - 1) / 2) * gap, yc
-                else:   # 재질 3D 글자: 아이콘 줄 바로 위
-                    x, y = xc, yc - ih / 2 - half - 10
+                band = photo_band(T)
+                if band:   # 2026-11-24: 상자 맞춤 사진이면 자막은 사진 밑 → 사진 안에서는 자막을 피할 필요 없고, 사진 밖으로만 안 나가게
+                    vis0, vis1 = max(vis0, band[0] + 16), min(by1, band[1] - 16)
+                # 2026-11-24 사용자 「시트는 나세르처럼, 시트에 노출」: 한 줄이 등받이 폭을 넘으면(콘솔·문 위로 삐져나옴) 등받이 몸통에 세로로 쌓음
+                col = getattr(C, 'SEAT_ICON_LAYOUT', 'auto') == 'column' or (getattr(C, 'SEAT_ICON_LAYOUT', 'auto') == 'auto' and band and n_ * gap > (bx1 - bx0) * 1.02)
+                if col:
+                    ch = n_ * gap
+                    cx_ = min(max((bx0 + bx1) / 2 + (bx1 - bx0) * getattr(C, 'SEAT_ICON_DX', 0.0), ih / 2 + 60), W - 60 - ih / 2)
+                    top = by0 + getattr(C, 'SEAT_ICON_TOP', 0.30) * (by1 - by0)   # 머리받침 아래 등받이 몸통부터
+                    top = min(max(top, vis0), max(vis0, vis1 - ch))
+                    if 'seat_idx' in sk:
+                        x, y = cx_, top + (k_ + .5) * gap
+                    else:   # 재질 3D 글자: 세로 줄 바로 위
+                        x, y = cx_, top - half - 6
+                else:
+                    yc = by0 + sk.get('row_v', 0.35) * (by1 - by0)
+                    yc = min(max(yc, vis0 + ih / 2), vis1 - ih / 2) if vis1 - vis0 > ih else (vis0 + vis1) / 2
+                    c0, c1 = (CAP_TOP - 20, CAP_TOP + 150) if not band else (-9, -9)   # 말 자막 띠를 피함: 위에 자리가 있으면 위, 없으면 아래
+                    if yc + ih / 2 > c0 and yc - ih / 2 < c1:   # 시트는 화면 아래쪽에 있으므로 자막 아래 칸을 먼저(그 칸이 등받이 안일 때)
+                        below, above = c1 + ih / 2 + 8, c0 - ih / 2 - 8
+                        yc = above if above - ih / 2 >= vis0 - 4 else (below if below + ih / 2 <= vis1 + 4 else above)   # v1.8.3: 자막 위 칸 먼저(아래 칸은 딜러 띠와 붙음)
+                    if 'seat_idx' in sk:
+                        x, y = xc + (k_ - (n_ - 1) / 2) * gap, yc
+                    else:   # 재질 3D 글자: 아이콘 줄 바로 위
+                        x, y = xc, yc - ih / 2 - half - 10
             elif sk.get('above') and sk.get('box'):   # v1.5: 3D 글자는 부위 바로 위(화면 2% 띄움), 위에 자리가 없으면 부위 가운데
                 ya = sk['box'][1] * ph * ay + oy - half - 0.02 * H
                 if ya - half > 250:
