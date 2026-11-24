@@ -223,6 +223,22 @@ def spot(cv,tx,ty,a):
     x0=int(W-tx); y0=int(H-ty); m=(SPOT[y0:y0+H,x0:x0+W]*a).astype('uint8')
     ov=Image.new('RGBA',(W,H),(0,0,0,255)); ov.putalpha(Image.fromarray(m)); return Image.alpha_composite(cv,ov)
 CUR={}
+OUTL=json.load(open(G+'outline.json')) if os.path.exists(G+'outline.json') and os.environ.get('OUTLINE','1')!='0' else {}   # r02: 손 닿는 순간 부위 윤곽선(touch_outline.py)
+def outline(cv,key,st,tomap):
+    o=OUTL.get(key)
+    if not o or st<o['touch_s']: return
+    i=min(len(o['polys'])-1,max(0,int(round((st-o['s0'])*30)))); P=o['polys'][i]
+    if not P: return
+    pts=[tomap(x,y) for x,y in P]+[tomap(*P[0])]
+    seg=[math.hypot(pts[k+1][0]-pts[k][0],pts[k+1][1]-pts[k][1]) for k in range(len(pts)-1)]; tot=sum(seg) or 1
+    g=ease(min(1.0,(st-o['touch_s'])/0.3)); keep=tot*g; out=[pts[0]]; acc=0
+    for k,d in enumerate(seg):   # 손이 닿은 자리부터 0.3초에 걸쳐 한 바퀴 그려짐
+        if acc+d<=keep: out.append(pts[k+1]); acc+=d
+        else:
+            r=(keep-acc)/d if d else 0; out.append((pts[k][0]+(pts[k+1][0]-pts[k][0])*r,pts[k][1]+(pts[k+1][1]-pts[k][1])*r)); break
+    if len(out)<2: return
+    dr=ImageDraw.Draw(cv); q=[(round(x),round(y)) for x,y in out]
+    dr.line(q,fill=INK+(150,),width=13,joint='curve'); dr.line(q,fill=YEL+(255,),width=7,joint='curve')
 def ring(cv,x,y,t,t_in):   # 부위 표시 고리: 노랑 한 색(사용자 확정), 0.2초에 커지며 나타남
     if t<t_in: return
     g=min(1.0,(t-t_in)/0.2); r=int(46*(0.6+0.4*g)); d=ImageDraw.Draw(cv)
@@ -313,6 +329,7 @@ for t0,t1,c in SEG:
         if not any(k in WS[j][0] for k in _metak): EV.append((t0+tb-0.02,'big_number'))   # 비유 효과음이 있는 숫자(마력 등)는 그 소리가 대신함
     if clab: EV.append((t0+((WS[cw][1]-t0-0.06) if cw is not None else 0)+CHIP_DELAY.get(key,0)-0.02,'chip'))
     for e in PL.get(key,{}).get('T05',[])+PL.get(key,{}).get('T06',[]): EV.append((e['at'],'emphasis'))
+    if key in OUTL: EV.append((OUTL[key]['touch_s']-0.02,'emphasis'))   # 원본 시간축 = 목소리 시간축
     if ZONE.get(key)!=_prevzone and _prevzone is not None: EV.append((t0-0.08,'part_change'))
     _prevzone=ZONE.get(key,_prevzone)
     tc=((WS[cw][1]-t0-0.06) if cw is not None else 0)+CHIP_DELAY.get(key,0)
@@ -358,6 +375,7 @@ for t0,t1,c in SEG:
             _hb=HB.getbbox(); pop(cv,HM,(M-10+_hb[2]+6,YB+(_hb[1]+_hb[3]-HM.height)//2),t,0.28); pop(cv,HS,(M-4,YB+_hb[3]+16),t,0.5)   # 칠이 실제로 끝나는 곳 기준(투명 여백 제외)
         if key in('__',) : cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,70)))
         if key in('c3','c6','c9'): cv=Image.alpha_composite(cv,Image.new('RGBA',(W,H),(0,0,0,40)))
+        outline(cv,key,st,tomap)
         if Cimg is not None:
             if pts is not None:
                 pi=tix(st); tx,ty=tomap(*pts[pi])
@@ -457,7 +475,7 @@ fl.append(''.join(mx)+f"amix=inputs={len(mx)}:normalize=0:duration=longest,{LN2}
 subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex',';'.join(fl),'-map','0:v','-map','[a]','-c:v','copy','-c:a','aac','-b:a','192k','-t',str(TOTAL),OUT],check=True)
 # 출고 검사용 계획(check_be.py 영상 검사가 읽음)
 # 2026-11-23 r02: edit_gate.py post가 읽는 판 코드·렌더러·쓴 기법을 기록(그림은 바꾸지 않음). 기법은 이 코드가 실제로 그린 것만.
-_TECH={'bgm','caption_chunks','end_logo','loudness_rule','slow_push','title_brand_chip','big_number_3d'}
+_TECH={'bgm','caption_chunks','end_logo',*(['touch_outline'] if OUTL else []),'loudness_rule','slow_push','title_brand_chip','big_number_3d'}
 _TECH|={'point_chip' if c['kind']=='point' else 'callout_chip' for c in CHIPS_LOG if c['kind'] in ('point','callout')}
 if any(c['kind']=='callout' for c in CHIPS_LOG): _TECH.add('callout_arrow')
 if acc: _TECH.add('sfx_rules')
