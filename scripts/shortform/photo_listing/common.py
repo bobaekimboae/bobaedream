@@ -1097,6 +1097,8 @@ def sticker_layer(ov, T):
         t0 = onset(sk['w']) - 0.05
         ci = _cut_at(max(t0, 0))
         t1 = ends[ci] - 0.12
+        if sk.get('until_w') is not None:   # 2026-11-24: 같은 자리 다음 숫자가 나오면 내려감(605L → 1,755L)
+            t1 = min(t1, onset(sk['until_w']) - 0.05)
         if not (t0 <= T < t1):
             continue
         key = (sk.get('text3d') or sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
@@ -1576,11 +1578,60 @@ def dim_layer(ov, T):
         R.paste(ov, im.resize((w2, h2), Image.LANCZOS), x - w2 / 2, y - h2 / 2, fade * min(1.0, k2 * 3))
 
 
+_TL = {}
+
+
+def trunk_line_layer(ov, T):
+    """2026-11-24 사용자 「트렁크는 나세르처럼 트렁크라인 선 따버려」: 트렁크 사진 컷에서 입구 테두리를 노랑 선으로 그려 나감(0.8초),
+    그다음 컷 끝까지 유지. 선 자리는 trunk_line.py(GrabCut)가 찾은 사진 좌표 → 이번 프레임 사진 변환(AFF)을 따라감. 사진은 고치지 않음."""
+    if not getattr(C, 'TRUNK_LINE', True):
+        return
+    for ci, c in enumerate(CUTS):
+        if '트렁크' not in c[1] or not (starts[ci] <= T < ends[ci] - 0.12):
+            continue
+        n = c[0]
+        if n not in _TL:
+            import trunk_line
+            _TL[n] = trunk_line.load(f'src2/p{n:02d}.png')
+        d = _TL[n]
+        if not d.get('ok') or n not in AFF:
+            continue
+        ax, ay, ox, oy, pw, ph = AFF[n]
+        P = [(u * pw * ax + ox, v * ph * ay + oy) for u, v in d['pts']]
+        t0 = onset(c[2]) + 0.05
+        k = min(1.0, max(0.0, (T - t0) / 0.8))
+        if k <= 0:
+            continue
+        k = 1 - (1 - k) ** 2   # 빨리 시작해 부드럽게 닫힘
+        # 아래 가운데에서 시작해 시계 방향으로 한 바퀴(둘레 길이 비율 k만큼)
+        st = max(range(len(P)), key=lambda i: P[i][1] - abs(P[i][0] - sum(p[0] for p in P) / len(P)) * 0.3)
+        P = P[st:] + P[:st] + [P[st]]
+        seg = [math.dist(P[i], P[i + 1]) for i in range(len(P) - 1)]
+        L, acc, pts = sum(seg) * k, 0.0, [P[0]]
+        for i, sl in enumerate(seg):
+            if acc + sl >= L:
+                r = (L - acc) / max(sl, 1e-6); pts.append((P[i][0] + (P[i + 1][0] - P[i][0]) * r, P[i][1] + (P[i + 1][1] - P[i][1]) * r)); break
+            acc += sl; pts.append(P[i + 1])
+        fade = min(1.0, max(0.0, (ends[ci] - 0.12 - T) / .15))
+        y_, wd = _BE['color']['yellow'], 10
+        col = tuple(int(y_.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4)) if isinstance(y_, str) else tuple(y_)
+        g = Image.new('RGBA', (W, H), (0, 0, 0, 0)); dg = ImageDraw.Draw(g)
+        dg.line(pts, fill=col + (int(170 * fade),), width=wd + 16, joint='curve')
+        g = g.filter(ImageFilter.GaussianBlur(10))   # 빛 번짐
+        dl = ImageDraw.Draw(g)
+        dl.line([(x + 2, y + 3) for x, y in pts], fill=(0, 0, 0, int(110 * fade)), width=wd, joint='curve')
+        dl.line(pts, fill=col + (int(255 * fade),), width=wd, joint='curve')
+        if k < 1:   # 그려 나가는 붓 끝에 밝은 점
+            x, y = pts[-1]; dl.ellipse((x - 9, y - 9, x + 9, y + 9), fill=(255, 255, 255, int(235 * fade)))
+        ov.alpha_composite(g)
+
+
 def overlay(T):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     ov.alpha_composite(LOGO, LOGO_XY)
     footer_layer(ov, T)
     official_layer(ov, T)
+    trunk_line_layer(ov, T)
     sticker_layer(ov, T)
     dim_layer(ov, T)
     section_layer(ov, T)
@@ -1771,7 +1822,13 @@ def _sfx_plan():
                     ev.append(('seat:' + own, onset(sk['w']) - 0.05, sk.get('sfx_vol', 0.42)))
                 else:
                     ev.append(('icon', onset(sk['w']) - 0.07, _isfx['vol']))
+    _csfx = getattr(C, 'CARD_SFX', {})   # 2026-11-24 사용자 「카드 정보 효과음 부릉 소리, 신박한 아이디어」: 카드 줄마다 그 내용 소리(시동·달력·주행거리·주유·기어·엔진·스프레이)
     for ci, c in enumerate(CUTS):                                 # 단계 공개(체크 한 줄 켜짐)에 팝
+        own = _csfx.get(c[0])
+        if own and os.path.exists(f'{ASSET}/sfx/{own}.wav'):
+            t_ = (FW[ci][1] - 0.04 if ci in FW else starts[ci]) if c[5] == 'reveal' else starts[ci] - 0.02
+            ev.append(('card:' + own, max(0.05, t_), getattr(C, 'CARD_SFX_VOL', 0.45)))
+            continue
         if ci and c[5] == 'reveal':
             ev.append(('pop', FW[ci][1] - 0.04 if ci in FW else starts[ci], .42))
     for ci, c in enumerate(CUTS):                                 # 큰 전환에 부드러운 휙
@@ -1791,8 +1848,12 @@ def _sfx_plan():
             if e[0] in _metaphor_names():
                 out[-1] = e
                 continue
-            if e[0].startswith('seat:') and out[-1][0].startswith('seat:'):
+            if ':' in e[0] and ':' in out[-1][0]:
                 out.append(e); continue   # 시트 아이콘 소리끼리는 서로 다른 소리라 둘 다 남김(같은 소리 간격 규칙은 아래에서 따로 봄)
+            if ':' in e[0]:
+                out[-1] = e; continue   # 카드·시트 제 소리가 휙·팝보다 우선
+            if ':' in out[-1][0]:
+                continue
             if (e[0] != 'whoosh' and out[-1][0] == 'whoosh') or (e[0] not in ('whoosh', 'icon') and out[-1][0] == 'icon'):
                 out[-1] = e   # 칩·딩이 휙·아이콘 팝보다 우선
             continue

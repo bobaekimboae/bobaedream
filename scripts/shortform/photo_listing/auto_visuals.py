@@ -315,7 +315,10 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
                 groups[-1].append((i, t))
             else:
                 groups.append([(i, t)])
-        for g in groups[:NUM['max_per_cut']]:
+        _prev = None
+        for gi, g in enumerate(groups):
+            if gi >= NUM['max_per_cut'] and not (_prev and _prev.get('place') == 'inside'):
+                break   # 2026-11-24: 한 부위 안(트렁크 605L → 1,755L)에서 이어 말한 숫자만 같은 자리에서 바꿔 보여 줌
             parts = [_label(t) for _, t in g]
             raw = [t.rstrip('.,!?') for _, t in g]
             ratio_bare = len(g) >= 3 and all(not p[1] and re.fullmatch(re.escape(p[0]) + r'(으로|로)?', r) for r, p in zip(raw, parts))   # v1.8.3: 「사십, 이십, 사십으로」(단위 없는 숫자 3개 연속) = 분할 비율
@@ -349,6 +352,11 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
             else:
                 sk.update(x=540, y=0, under_chip=True)
                 where = '칩 아래(부위 낱말 없음)'
+            if gi >= NUM['max_per_cut']:
+                if sk.get('part') != _prev.get('part'):
+                    break
+                _prev['until_w'] = g[0][0]   # 앞 숫자는 다음 숫자를 말할 때 내려감
             out.append(sk)
+            _prev = sk
             report.append(f"숫자 화면 표기: 컷 {c[0]}({c[1]}) 「{' '.join(raw)}」 → {txt} · {where}")
     return out

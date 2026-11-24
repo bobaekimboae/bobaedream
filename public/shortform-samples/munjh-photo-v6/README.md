@@ -21,3 +21,9 @@
 - 찾기·받기: 새 MCP 서버 bobae-music(`scripts/shortform/music_mcp/server.py`, Openverse API) · 고르기: earshot(MIT) MCP — 저장소 `.mcp.json`에 둘 다 등록.
 - 후보 8곡 중 earshot 「경쾌·신나는 연주곡」 1위(strong z+4.3), 보컬 없음.
 - Q8 58.0초 · E53 57.8초, check_be · check_render 통과.
+
+## v6 (2026-11-24) 트렁크 라인 · 카드 효과음 · 메모리 아이콘
+- 메모리 아이콘 💾 → 🔢(메모리 1·2·3 버튼).
+- 트렁크 컷 추가(어라운드뷰 컷 자리): 트렁크 입구 테두리를 노랑 선으로 그려 나감(trunk_line.py, OpenCV GrabCut) + 안쪽 3D 숫자. Q8 「605L → 1,755L」 같은 자리에서 바뀜, E53 「425L」. 용량은 제조사 공식 제원.
+- 차량 정보 카드 효과음: 머리 부릉(시동) · 연식 달력 넘김 · 주행거리 촤라락(래칫) · 연료 주유 꿀렁 · 변속기 기어 철컥 · 배기량 엔진 부웅 · 색상 스프레이 칙. CC0 6개는 bobae-music MCP(Openverse)로 찾고 earshot으로 확인, 주유 소리 1개는 자체 합성.
+- Q8 속도 1.18 → 1.21(60초 안). Q8 58.8초 · E53 58.0초, check_be · check_render 통과.
