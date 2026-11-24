@@ -130,7 +130,7 @@ def label_log(lab,kind,anchor,pt,pos,img,t,tin,reason=None):   # r15: 부위에 
     b=img.getbbox(); LABELS_LOG[lab]={'label':lab,'kind':kind,'anchor':anchor,'pt':[int(pt[0]),int(pt[1])] if pt else None,
         'box':[int(pos[0]+b[0]),int(pos[1]+b[1]),int(pos[0]+b[2]),int(pos[1]+b[3])],'t_box':round(CUR.get('T',0),3),**({'no_anchor_reason':reason} if reason and not pt else {})}
 CHIP_DELAY={}
-NOTRACK={k:'fills_frame' for k in ('c5','c10','c14','c15','c16')}
+NOTRACK={k:'fills_frame' for k in ('c5','c10','c14','c15','c16')}; NOTRACK.update({'c11':'not_found','c13':'not_found'})   # OWLv2가 핸들 버튼 대신 계기판, HUD 대신 빈 유리를 잡음 → 틀린 화살표 대신 위쪽 칩
 cxc=lambda img:int(W/2-(img.getbbox()[0]+img.getbbox()[2])/2)   # 칠 기준 가로 가운데   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
 def place(Cimg,tx,ty,below):
     bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(SAFE_X-bx0,min(W-SAFE_X-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)
