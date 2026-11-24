@@ -50,7 +50,7 @@ if n > 1:   # 사진 가운데에 가장 가까운 큰 덩어리 = 이 차
 else: bx, by, bw, bh = 0, 0, hero.width, hero.height
 s0 = min(960 / bw, 600 / bh);   # 키 큰 차는 높이 기준으로 줄여 뒤 글자가 보이게
 HW, HH = int(hero.width * s0), int(hero.height * s0)
-OX = int(W / 2 - (bx + bw / 2) * s0); OY = int(1390 - (by + bh) * s0)   # 차 가운데 = 화면 가운데, 차 바닥 = 1390px
+OX = int(W / 2 - (bx + bw / 2) * s0); CB = int(os.environ.get('NAS_CAR_BOTTOM', 1390)); DYC = CB - 1390; OY = int(CB - (by + bh) * s0)   # 차 가운데 = 화면 가운데, 차 바닥 = 1390px
 if os.environ.get('NAS_STUDIO') and bx + bw >= hero.width - 2 and OX + HW < W: OX = W - HW   # 차가 사진 오른쪽 끝에 닿으면 화면 끝까지 붙여 잘린 면이 안 보이게
 hero_l = hero.resize((HW, HH), Image.LANCZOS)
 base = Image.new('RGB', (W, H)); base.paste(cover(hero, 1.0).filter(ImageFilter.GaussianBlur(18)), (0, 0))
@@ -71,17 +71,17 @@ sk[..., 3] = np.clip(190 * g_ + 200 * r_ + 200 * b_, 0, 255); SKY = Image.fromar
 BGI = cover(hero, 1.15).filter(ImageFilter.GaussianBlur(22)).convert('RGBA')   # 사진 테두리가 비치지 않게 꽉 채운 흐림만; BGI = Image.alpha_composite(BGI, Image.new('RGBA', (W, H), (0, 0, 0, 125))); BGI = Image.alpha_composite(BGI, SKY)
 SHARP = base.convert('RGBA')
 if os.environ.get('NAS_STUDIO'):   # 배경만 스튜디오로 교체(차 픽셀은 원본 그대로): 차콜 벽 + 위 조명 + 광택 바닥 + 반사 + 바닥 그림자
-    HZ = 1240.0   # 벽과 바닥이 만나는 높이
-    wall = np.clip(1 - np.hypot((xx - W / 2) / 760, (yy - 560) / 720), 0, 1) ** 1.5
+    HZ = 1240.0 + DYC   # 벽과 바닥이 만나는 높이
+    wall = np.clip(1 - np.hypot((xx - W / 2) / 760, (yy - 560 - DYC) / 720), 0, 1) ** 1.5
     fl_ = np.clip((yy - HZ) / (H - HZ), 0, 1)
-    floor_l = np.clip(1 - np.hypot((xx - W / 2) / 820, (yy - 1420) / 380), 0, 1) ** 1.3
+    floor_l = np.clip(1 - np.hypot((xx - W / 2) / 820, (yy - 1420 - DYC) / 380), 0, 1) ** 1.3
     st_ = np.zeros((H, W, 3), np.float32)
     for c in range(3):
         bw_ = [20, 22, 26][c] + [44, 46, 52][c] * wall
         bf_ = [16, 17, 20][c] + [40, 42, 48][c] * floor_l * (1 - 0.5 * fl_)
         bl_ = np.clip((yy - HZ + 60) / 120.0, 0, 1)   # 벽→바닥 부드러운 이음(사이클로라마)
         st_[..., c] = bw_ * (1 - bl_) + bf_ * bl_
-    r2 = np.clip(1 - np.hypot((xx - W / 2) / 600, (yy - 900) / 330), 0, 1) ** 2   # 차 뒤 브랜드색 은은한 후광
+    r2 = np.clip(1 - np.hypot((xx - W / 2) / 600, (yy - 900 - DYC) / 330), 0, 1) ** 2   # 차 뒤 브랜드색 은은한 후광
     for c in range(3): st_[..., c] += GLOW[c] * 0.22 * r2
     car = base_np.astype(np.float32); mm = m.copy()
     # 반사: 열마다 차 바닥선을 기준으로 위아래 뒤집기
@@ -143,6 +143,8 @@ if os.environ.get('NAS_EMB'):   # 가운데 제조사 로고(나세르식) — �
     sh = Image.new('RGBA', EMB.size); sh.paste((0, 0, 0, 170), (pad + 6, pad + 14), _e.getchannel('A')); EMB.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)))
     EMB.alpha_composite(_e, (pad, pad))
 EMB_Y = int(os.environ.get('NAS_EMB_Y', 40))
+YT = YB + int(os.environ.get('NAS_TITLE_DY', 0))   # 인스타 위쪽 가림(약 250px) 피하려 첫 컷 제목 묶음만 내림
+TXT_MIN_Y = int(os.environ.get('NAS_TXT_MIN_Y', 575 + int(os.environ.get('NAS_TITLE_DY', 0))))
 LOCK_Y = int(os.environ.get('NAS_LOCKUP_Y', 150))
 
 
@@ -186,7 +188,7 @@ for f in range(int(round(TOTAL * FPS))):
             TS['s'] = (tw, cxm, bs)
             ki = min(len(CH) - 1, int(max(0.0, th - 0.08) * 30)); im = CH[ki]; sc = tw / CH[-1].width
             im = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.LANCZOS)
-            y = max(int(bs - CH[-1].height * sc), 575); x = int(cxm - im.width / 2)   # 제목 줄과 겹치면 아래로
+            y = max(int(bs - CH[-1].height * sc), TXT_MIN_Y); x = int(cxm - im.width / 2)   # 제목 줄과 겹치면 아래로
             lay = Image.new('RGBA', (W, H))
             gl = Image.new('RGBA', im.size, GLOW + (0,)); gl.putalpha(im.getchannel('A').point(lambda v: int(v * 0.2))); acx(lay, gl.filter(ImageFilter.GaussianBlur(44)), x, y)
             sh = Image.new('RGBA', im.size); sh.paste((0, 0, 0, 160), (0, 0), im.getchannel('A')); acx(lay, sh.filter(ImageFilter.GaussianBlur(12)), x + 6, y + 16)
@@ -199,8 +201,8 @@ for f in range(int(round(TOTAL * FPS))):
             k = ease((th - 0.18) / 0.35); im = LOCK.copy(); im.putalpha(Image.fromarray((np.array(im.getchannel('A')) * k).astype('uint8')))
             cv.alpha_composite(im, (M - 16, int(LOCK_Y - 24 * (1 - k))))
         if EMB is not None: slam(cv, EMB, ((W - EMB.width) // 2, EMB_Y), th, 0.16, dur=0.28)
-        slam(cv, HB, (M - 10, YB), th, 0.45); hb = HB.getbbox()
-        slam(cv, HM, (M - 10 + hb[2] + 6, YB + (hb[1] + hb[3] - HM.height) // 2), th, 0.6); pop(cv, HS, (M - 4, YB + hb[3] + 16), th, 0.85)
+        slam(cv, HB, (M - 10, YT), th, 0.45); hb = HB.getbbox()
+        slam(cv, HM, (M - 10 + hb[2] + 6, YT + (hb[1] + hb[3] - HM.height) // 2), th, 0.6); pop(cv, HS, (M - 4, YT + hb[3] + 16), th, 0.85)
     proc.stdin.write(cv.convert('RGB').tobytes())
 proc.stdin.close(); proc.wait()
 if os.environ.get('NAS_OUT_V'):   # 소리 없는 영상만(사진 숏폼 렌더러가 첫 컷 바탕으로 씀)

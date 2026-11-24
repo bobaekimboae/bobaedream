@@ -22,6 +22,7 @@ CUT_A = 34.133 - SK; CUT_B = CUT_A + 4 * 0.418   # 브레이크 가운데 4비�
 CUT_D = CUT_B - CUT_A
 BEATS = [b for b in RB if b < CUT_A] + [b - CUT_D for b in RB if b >= CUT_B]
 B_DROP1, B_BREAK, B_DROP2 = 5.155 - SK, 32.461 - SK, 39.427 - SK - CUT_D
+TDY = int(os.environ.get('M235_TITLE_DY', 160))   # 히어로 영상 만들 때 NAS_TITLE_DY와 같은 값
 HERO_V = G + os.environ.get('M235_HERO', 'nas/hero_v3.mp4'); HERO_IN = 0.3
 CAPY = R['caption']['center_y_px']; CAPPX = R['caption']['font_px']; CUTGAP = R['caption']['cut_gap_s']
 CY0 = (2336 - 1920) // 2
@@ -52,15 +53,13 @@ SCRIPT = [   # v3 대본(화면 자막 글자) — 낱말 시각은 받아쓰기
     '서울오토갤러리, 문제현 딜러 매물입니다.',
 ]
 WW = json.load(open(V + 'voice_a_words.json'))
-def align_words(i, a, b):   # 구간 안 받아쓰기 낱말들의 시작 시각을 글자 비율로 대본 낱말에 나눠 줌
-    sw = SCRIPT[i].split(); ws = [(WS[k], len(w[2])) for k, w in enumerate(WW) if a - 0.05 <= WS[k] < b - 0.05]
-    tot = sum(l for _, l in ws) or 1; cum = []; c = 0
-    for t, l in ws: cum.append((c / tot, t)); c += l
-    stot = sum(len(w) for w in sw); out = []; c = 0
-    for w in sw:
-        f = c / stot; c += len(w)
-        out.append((w, min(cum, key=lambda p: abs(p[0] - f))[1] if cum else a))
-    return out
+IDX = [   # 대본 낱말 → 받아쓰기 낱말 번호(v3/voice_a_words.json, 1.1배 음성을 다시 받아쓴 것). 첫 낱말은 소리 시작으로 맞춤
+    [0, 1, 2, 3], [5, 6, 7], [8, 9, 10, 11, 12], [13, 15, 17, 18, 19, 20, 21], [22, 23, 25, 26, 27],
+    [28, 29, 30, 31, 32, 33], [34, 35, 36, 37, 38], [39, 40, 41, 42], [43, 44, 45, 46], [47, 47, 48, 49, 50, 51],
+    [52, 53, 54, 55, 56], [58, 59, 60, 61], [62, 63, 64, 66], [68, 70, 72, 74], [75, 78, 79, 80]]
+def align_words(i, a, b):
+    sw = SCRIPT[i].split(); ix = IDX[i]; assert len(sw) == len(ix), (i, sw, ix)
+    return [(w, WS[k]) for w, k in zip(sw, ix)]
 TXT = None
 PH = {}
 for i, (a, s, b) in enumerate(PHR):
@@ -248,7 +247,7 @@ for si, (kind, t0, t1, src, sp, o) in enumerate(plan):
     if kind == 'hero':
         HB = chip('BMW', R['chip']['title_font_px'], title=True); bb = HB.getbbox()
         CHIPS.append({'key': 'title', 'label': 'BMW', 'kind': 'title', 't0': round(t0 + 0.45, 3), 't1': round(t1, 3), 't_box': round(t0 + 0.75, 3),
-                      'px': R['chip']['title_font_px'], 'y': YB, 'box': [M - 10 + bb[0], YB + bb[1], M - 10 + bb[2], YB + bb[3]]})
+                      'px': R['chip']['title_font_px'], 'y': YB + TDY, 'box': [M - 10 + bb[0], YB + TDY + bb[1], M - 10 + bb[2], YB + TDY + bb[3]], 'note': '첫 컷 제목 묶음만 인스타 위쪽 가림을 피해 아래로'})
     if kind == 'dealer': DEALER = {'label': '문제현 대표', 't0': round(t0 + 0.4, 3), 't1': round(t1, 3), 'photo': '450395-1.webp'}
     shake_t = [x for x in [big_t0] if x is not None] + ([t0] if (kind == 'hero' or o.get('glitch')) else [])
     for j in range(n):
