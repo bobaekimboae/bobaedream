@@ -9,9 +9,9 @@
 | card_engine_start.wav | Freesound "Car Engine Starting" by Grasopt (https://freesound.org/people/Grasopt/sounds/479351), Openverse·bobae-music MCP로 찾음 | CC0 1.0 | 앞 무음 자름, 0.6~1.4초로 자름, 끝 0.15초 페이드, -16 LUFS, 모노 48kHz (2026-11-24 차량 정보 카드 효과음) |
 | card_gear_shift.wav | Freesound "Column Gear Select Up (mono).wav" by E-Audio (https://freesound.org/people/E-Audio/sounds/118243), Openverse·bobae-music MCP로 찾음 | CC0 1.0 | 앞 무음 자름, 0.6~1.4초로 자름, 끝 0.15초 페이드, -16 LUFS, 모노 48kHz (2026-11-24 차량 정보 카드 효과음) |
 | card_odometer.wav | Freesound "Ratchet Wind Down" by adh.dreaming (https://freesound.org/people/adh.dreaming/sounds/614622), Openverse·bobae-music MCP로 찾음 | CC0 1.0 | 앞 무음 자름, 0.6~1.4초로 자름, 끝 0.15초 페이드, -16 LUFS, 모노 48kHz (2026-11-24 차량 정보 카드 효과음) |
-| card_page_flip.wav | Freesound "Page Flip" by qubodup (https://freesound.org/people/qubodup/sounds/454707), Openverse·bobae-music MCP로 찾음 | CC0 1.0 | 앞 무음 자름, 0.6~1.4초로 자름, 끝 0.15초 페이드, -16 LUFS, 모노 48kHz (2026-11-24 차량 정보 카드 효과음) |
+| card_page_flip.wav | Freesound "paper flip 2.wav" by gynation (https://freesound.org/people/gynation/), Openverse·bobae-music MCP로 찾음 (2026-11-24 교체: 이전 qubodup 「Page Flip」은 earshot plausible, 이것은 strong 3.8) | CC0 1.0 | 앞 무음 자름, 0.6초, 끝 0.15초 페이드, -16 LUFS |
 | card_spray.wav | Freesound "Spray" by Soundkrampf (https://freesound.org/people/Soundkrampf/sounds/414025), Openverse·bobae-music MCP로 찾음 | CC0 1.0 | 앞 무음 자름, 0.6~1.4초로 자름, 끝 0.15초 페이드, -16 LUFS, 모노 48kHz (2026-11-24 차량 정보 카드 효과음) |
-| card_fuel.wav | 자체 제작(코드 합성, 2026-11-24: 주유 노즐 딸깍 + 꿀렁 기포 3개 0.8초), 용도: 차량 정보 카드 「가솔린」 | 보배드림 | 최고 -1dB |
+| card_fuel.wav | 일레븐랩스 효과음(eleven_text_to_sound_v3) 생성, 2026-11-24, 용도: 차량 정보 카드 「연료」 주유기 딸깍 + 기름 넣는 소리 (자체 합성본은 earshot no match라 교체, 이것은 strong 4.3) | 프로 요금제 상업 이용. **다른 소리와 섞은 영상으로만 사용, 파일 단독 배포·앱에 파일로 싣기 금지** | 앞 무음 자름, 1.0초, -16 LUFS |
 | check.wav | 자체 제작(코드 합성, 2026-11-24: 1318Hz→1760Hz 두 음 + 짧은 잔향), 용도: ✓ 체크마크 등장 | 보배드림 | 최고 -3dB |
 | horse_neigh.wav | Freesound 521246 "Horse" by poodaddy69 (https://freesound.org/people/poodaddy69/sounds/521246/) | CC0 1.0 (표기 의무 없음) | 앞뒤 무음 자름, 최고 -1dB, 끝 0.15초 페이드. 2026-11-22 (예비, 기본은 horse_neigh_el) |
 | horse_neigh_el.wav | 일레븐랩스 효과음(eleven_text_to_sound_v3) 생성, 2026-11-22, 용도: 말 울음(마력, 기본) | 프로 요금제 상업 이용. **다른 소리와 섞은 영상으로만 사용, 파일 단독 배포·앱에 파일로 싣기 금지**(일레븐랩스 효과음 약관) | 앞뒤 무음 자름, 최고 -1dB |

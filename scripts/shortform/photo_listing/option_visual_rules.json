@@ -207,6 +207,73 @@
      "what": "얼음 달그랑"
     }
    ]
+  },
+  "card_sfx": {
+   "note": "2026-11-24 사용자 「카드 정보 효과음 부릉, 신박한 아이디어」→「효과음 카드 확정하게 정리」: 차량 정보 카드(CARD_PHOTOS) 컷마다 그 줄의 내용을 소리로. 머리(첫 카드)는 시동 부릉, 줄은 컷 자막 낱말로 고름(위에서부터 먼저 맞는 것). 칸이 켜지는 순간 0.04초 전, 크기 0.45. 차량 cfg CARD_SFX로 덮어쓸 수 있음. 한 영상에 같은 소리 반복 없음. earshot(CLAP) 판정 = 전부 strong",
+   "vol": 0.45,
+   "header": "card_engine_start",
+   "rows": [
+    {
+     "sfx": "card_page_flip",
+     "keywords": [
+      "등록",
+      "연식",
+      "년식",
+      "년"
+     ],
+     "what": "달력 넘김"
+    },
+    {
+     "sfx": "card_odometer",
+     "keywords": [
+      "주행",
+      "km"
+     ],
+     "what": "계기판 숫자 촤라락"
+    },
+    {
+     "sfx": "card_fuel",
+     "keywords": [
+      "가솔린",
+      "휘발유",
+      "디젤",
+      "경유",
+      "LPG",
+      "하이브리드",
+      "연료"
+     ],
+     "what": "주유기 딸깍 + 주유"
+    },
+    {
+     "sfx": "card_gear_shift",
+     "keywords": [
+      "변속기",
+      "오토",
+      "수동",
+      "자동"
+     ],
+     "what": "기어 철컥"
+    },
+    {
+     "sfx": "card_engine_rev",
+     "keywords": [
+      "배기량",
+      "cc"
+     ],
+     "what": "엔진 부웅"
+    },
+    {
+     "sfx": "card_spray",
+     "keywords": [
+      "외장",
+      "색",
+      "컬러",
+      "시트"
+     ],
+     "what": "스프레이 칙"
+    }
+   ],
+   "electric_note": "전기차 연료 줄은 card_fuel 대신 충전 소리가 필요(아직 없음 — 전기차 카드 때 추가)"
   }
  },
  "options": [

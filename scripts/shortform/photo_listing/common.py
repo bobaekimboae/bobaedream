@@ -1822,12 +1822,29 @@ def _sfx_plan():
                     ev.append(('seat:' + own, onset(sk['w']) - 0.05, sk.get('sfx_vol', 0.42)))
                 else:
                     ev.append(('icon', onset(sk['w']) - 0.07, _isfx['vol']))
-    _csfx = getattr(C, 'CARD_SFX', {})   # 2026-11-24 사용자 「카드 정보 효과음 부릉 소리, 신박한 아이디어」: 카드 줄마다 그 내용 소리(시동·달력·주행거리·주유·기어·엔진·스프레이)
+    _csfx = getattr(C, 'CARD_SFX', None)   # 2026-11-24 사용자 「카드 정보 효과음 부릉 소리, 신박한 아이디어」: 카드 줄마다 그 내용 소리(시동·달력·주행거리·주유·기어·엔진·스프레이)
+    _cr = (_av_rules() or {}).get('layout', {}).get('card_sfx')
+    _cp = list(getattr(C, 'CARD_PHOTOS', ()))
+    def _card_sound(ci, c):   # cfg CARD_SFX가 있으면 그것, 없으면 규칙(option_visual_rules.json layout.card_sfx)으로 자막 낱말을 보고 고름
+        if _csfx is not None:
+            return _csfx.get(c[0])
+        if not _cr or c[0] not in _cp:
+            return None
+        i0 = next(i for i, cc in enumerate(CUTS) if cc[0] == _cp[0])   # 처음 이어진 카드 묶음(차량 정보)만 — 엔딩 카드(「오토갤러리」의 「오토」)에 기어 소리가 붙던 일
+        j = i0
+        while j + 1 < len(CUTS) and CUTS[j + 1][0] in _cp:
+            j += 1
+        if not (i0 <= ci <= j):
+            return None
+        if c[0] == _cp[0]:
+            return _cr['header']
+        txt = ' '.join(w[0] for w in c[3] if isinstance(w, tuple))
+        return next((r['sfx'] for r in _cr['rows'] if any(k in txt for k in r['keywords'])), None)
     for ci, c in enumerate(CUTS):                                 # 단계 공개(체크 한 줄 켜짐)에 팝
-        own = _csfx.get(c[0])
+        own = _card_sound(ci, c)
         if own and os.path.exists(f'{ASSET}/sfx/{own}.wav'):
             t_ = (FW[ci][1] - 0.04 if ci in FW else starts[ci]) if c[5] == 'reveal' else starts[ci] - 0.02
-            ev.append(('card:' + own, max(0.05, t_), getattr(C, 'CARD_SFX_VOL', 0.45)))
+            ev.append(('card:' + own, max(0.05, t_), getattr(C, 'CARD_SFX_VOL', (_cr or {}).get('vol', 0.45))))
             continue
         if ci and c[5] == 'reveal':
             ev.append(('pop', FW[ci][1] - 0.04 if ci in FW else starts[ci], .42))
