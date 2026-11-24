@@ -9,6 +9,7 @@ from PIL import Image,ImageDraw,ImageFont,ImageFilter
 # G350 v6 = v5 + 기법 4개(숫자 카운트업 · 돋보기 원 c10 · 스포트라이트 c2 · 마력 흔들림 c15) + 말 울음
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from g350_v5_lib import *
+ALEN,AMIN=int(os.environ.get('M235_ALEN','120')),56   # r04 「화살표 커 밸런스」: 손글씨 화살표는 길이에 비례해 폭도 커짐 → 170→120(폭 약 70%)
 LOGON=bool(os.environ.get('LOG')); _LOG=[]; _pop=pop
 def pop(cv,img,pos,t,t_in,dur=0.2):   # 검수 기록: 다 나타난 글자·그림의 실제 칠 상자
     _pop(cv,img,pos,t,t_in,dur)
@@ -141,7 +142,7 @@ def place(Cimg,tx,ty,below):
         y=ty-TG-L-CG-by1
         if y+by0<150: L=max(AMIN,int(L-(150-(y+by0)))); y=ty-TG-L-CG-by1
         _cap=CAPY-62-by1   # r01: 부위가 낮으면(머플러) 칩이 말 자막 띠(자막 중심-60)로 내려오지 않게 칩을 올리고 화살표를 늘림
-        if y>_cap: y=_cap; L=int(ty-TG-CG-by1-y)
+        if y>_cap: y=_cap; L=min(int(ALEN*1.3),int(ty-TG-CG-by1-y)); y=int(ty-TG-L-CG-by1) if ty-TG-L-CG-by1<_cap else y   # 화살표가 너무 길어지지 않게 1.3배까지만
     return x,int(y),L,below
 
 FL='/home/claude/bobaedream/scripts/shortform/photo_listing/fluent3d/'
