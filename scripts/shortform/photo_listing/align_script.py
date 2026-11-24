@@ -11,6 +11,10 @@ python3 align_script.py <차 폴더> [대본.txt]     # 기본 대본: 차 폴�
   이 파일을 작업공간 기본 파이썬으로 실행하면 가상환경 파이썬으로 자기 자신을 다시 실행한다. 설치: bash ../lib/install_qwen_align.sh
 - 모델은 낱말을 soynlp로 쪼개 시각을 주므로(「정보 입니다」), 여기서 대본 어절(띄어쓰기) 단위로 다시 묶는다.
 - 길이 5분 이하.
+- 쉼 맞춤(2026-11-25 클로드코드, 기본 켬 · ALIGN_SNAP=0이면 끔): 모델은 문장 끝 어절을 짧게 자르고(「원이었습니다.」 0.16초인데
+  실제 소리 0.7초) 쉼을 다음 어절 시작에 붙인다. 소리 크기로 찾은 말 구간에 맞춰 ① 쉼 안에서 시작하는 어절은 다음 말소리 시작으로
+  ② 문장부호로 끝나는 어절은 끝을 그 말 구간 소리 끝, 다음 어절 시작을 다음 말소리 시작으로 ③ 말 구간 마지막 어절 끝을 구간 소리 끝으로.
+  0.03초 미만 어절은 다음 어절 시작까지 늘린다. 매물 3건(rs3·e450·x6m) 쉼 경계 오차: 최대 0.28~0.68초 → 0.05~0.12초(-40dB 기준).
 """
 import json
 import os
@@ -56,6 +60,69 @@ def regroup(items, script):
     return out
 
 
+def speech_segments(x, sr=16000, hop=160, rel_db=-40, gap=0.15, min_len=0.06):
+    """소리 크기로 말 구간 [(시작, 끝)] — gap초 미만 쉼은 이어 붙인다."""
+    import numpy as np
+    fr = len(x) // hop
+    rms = np.sqrt(np.mean(x[:fr * hop].reshape(fr, hop) ** 2, 1) + 1e-12)
+    sp = 20 * np.log10(rms / rms.max()) > rel_db
+    segs, i = [], 0
+    while i < fr:
+        if sp[i]:
+            j = i
+            while j < fr and sp[j]:
+                j += 1
+            if segs and (i - segs[-1][1]) * hop / sr < gap:
+                segs[-1][1] = j
+            else:
+                segs.append([i, j])
+            i = j
+        else:
+            i += 1
+    return [(a * hop / sr, b * hop / sr) for a, b in segs if (b - a) * hop / sr >= min_len]
+
+
+def snap(W, segs, move=0.8, move_punct=1.2):
+    """[[시작, 끝, 어절]]을 말 구간에 맞춘다(위 「쉼 맞춤」)."""
+    def seg_of(t):
+        for k, (a, b) in enumerate(segs):
+            if a - 0.02 <= t <= b + 0.02:
+                return k
+        return None
+    for w in W:  # ① 쉼 안 시작
+        if seg_of(w[0]) is None:
+            nxt = [a for a, b in segs if a > w[0]]
+            if nxt and nxt[0] - w[0] <= move:
+                w[1] = max(w[1], nxt[0] + 0.03); w[0] = nxt[0]
+    for i in range(len(W) - 1):  # ② 문장부호 어절
+        w, nx = W[i], W[i + 1]
+        k = seg_of(w[0])
+        if not re.search(r'[.,?!…]$', w[2]) or k is None or k + 1 >= len(segs):
+            continue
+        off, on = segs[k][1], segs[k + 1][0]
+        if off - w[1] <= move_punct and nx[0] < on <= nx[0] + move_punct:
+            w[1] = off; nx[0] = on; nx[1] = max(nx[1], on + 0.03)
+    for i, w in enumerate(W):  # ③ 말 구간 마지막 어절
+        k = seg_of(w[0])
+        if k is not None and (i + 1 == len(W) or seg_of(W[i + 1][0]) != k) and abs(segs[k][1] - w[1]) <= move:
+            w[1] = segs[k][1]
+        if i + 1 < len(W):
+            w[1] = min(w[1], W[i + 1][0])
+    for i, w in enumerate(W):  # 0초 어절
+        if w[1] - w[0] < 0.03:
+            w[1] = W[i + 1][0] if i + 1 < len(W) and W[i + 1][0] - w[0] >= 0.03 else w[0] + 0.06
+    for w in W:
+        w[0], w[1] = round(w[0], 3), round(w[1], 3)
+    return W
+
+
+def load16k(audio):
+    import numpy as np
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', audio, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+
+
 def align(audio, script):
     import numpy as np
     import torch
@@ -81,8 +148,10 @@ def main(car, script_path=None):
     script = ' '.join(script.split())
     items = align(os.path.join(car, 'voice_a.mp3'), script)
     W = regroup(items, script)
+    if os.environ.get('ALIGN_SNAP', '1') != '0':
+        W = snap(W, speech_segments(load16k(os.path.join(car, 'voice_a.mp3'))))
     json.dump(W, open(os.path.join(car, 'voice_a_words.json'), 'w'), ensure_ascii=False)
-    print('==', car, len(W), '어절 · 도구 Qwen3-ForcedAligner-0.6B')
+    print('==', car, len(W), '어절 · 도구 Qwen3-ForcedAligner-0.6B', '+ 쉼 맞춤' if os.environ.get('ALIGN_SNAP', '1') != '0' else '')
     print(' '.join(f'{i}:{w[2]}' for i, w in enumerate(W)))
 
 
