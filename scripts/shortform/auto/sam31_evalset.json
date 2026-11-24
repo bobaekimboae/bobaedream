@@ -1,0 +1,265 @@
+{
+ "version": "2026-11-25.1",
+ "note": "SAM 3.1(Meta Model API) 30컷 평가 세트. 원본은 M235i 실촬영(파트너 딜러 테스트 매물, 1080x2336·30fps). 시각은 원본 기준 초. 프롬프트는 짧은 영어 명사구 하나. alt는 같은 부위 다른 표현(애매한 부위만).",
+ "source": {
+  "m235": "M235i 원본 src.mp4 (환경변수 SAM_EVAL_SRC_M235 또는 --src m235=경로)"
+ },
+ "budget_usd_per_1000_frames": 0.2,
+ "clip": {
+  "width": 540,
+  "height": 960,
+  "fps": 30
+ },
+ "cuts": [
+  {
+   "id": "e1_hood_emblem",
+   "group": "emblem",
+   "src": "m235",
+   "t0": 2.0,
+   "t1": 5.0,
+   "prompt": "BMW logo"
+  },
+  {
+   "id": "e2_center_cap",
+   "group": "emblem",
+   "src": "m235",
+   "t0": 16.0,
+   "t1": 19.5,
+   "prompt": "wheel center cap logo"
+  },
+  {
+   "id": "e3_trunk_roundel",
+   "group": "emblem",
+   "src": "m235",
+   "t0": 37.0,
+   "t1": 40.0,
+   "prompt": "BMW logo"
+  },
+  {
+   "id": "e4_m235i_badge",
+   "group": "emblem",
+   "src": "m235",
+   "t0": 40.0,
+   "t1": 44.0,
+   "prompt": "M235i badge"
+  },
+  {
+   "id": "e5_steering_logo",
+   "group": "emblem",
+   "src": "m235",
+   "t0": 93.0,
+   "t1": 96.0,
+   "prompt": "BMW logo"
+  },
+  {
+   "id": "w1_front_wheel",
+   "group": "wheel",
+   "src": "m235",
+   "t0": 13.5,
+   "t1": 17.0,
+   "prompt": "car wheel"
+  },
+  {
+   "id": "w2_wheel_pan",
+   "group": "wheel",
+   "src": "m235",
+   "t0": 20.0,
+   "t1": 24.0,
+   "prompt": "car wheel"
+  },
+  {
+   "id": "w3_rear_wheel",
+   "group": "wheel",
+   "src": "m235",
+   "t0": 25.5,
+   "t1": 29.0,
+   "prompt": "car wheel"
+  },
+  {
+   "id": "w4_caliper",
+   "group": "wheel",
+   "src": "m235",
+   "t0": 17.0,
+   "t1": 21.0,
+   "prompt": "brake caliper"
+  },
+  {
+   "id": "w5_tire",
+   "group": "wheel",
+   "src": "m235",
+   "t0": 13.5,
+   "t1": 17.0,
+   "prompt": "tire"
+  },
+  {
+   "id": "h1_led",
+   "group": "hand",
+   "src": "m235",
+   "t0": 9.5,
+   "t1": 12.5,
+   "prompt": "headlight",
+   "note": "손이 떨어져서 가리킴(기존 방식 실패 컷)"
+  },
+  {
+   "id": "h2_xdrive",
+   "group": "hand",
+   "src": "m235",
+   "t0": 35.5,
+   "t1": 38.5,
+   "prompt": "xDrive badge"
+  },
+  {
+   "id": "h3_ambient",
+   "group": "hand",
+   "src": "m235",
+   "t0": 80.0,
+   "t1": 83.0,
+   "prompt": "ambient light strip",
+   "alt": "glowing light strip on door panel"
+  },
+  {
+   "id": "h4_m_button",
+   "group": "hand",
+   "src": "m235",
+   "t0": 91.5,
+   "t1": 94.5,
+   "prompt": "red M button on steering wheel",
+   "alt": "steering wheel button"
+  },
+  {
+   "id": "h5_gear_buttons",
+   "group": "hand",
+   "src": "m235",
+   "t0": 138.5,
+   "t1": 141.5,
+   "prompt": "buttons next to gear shifter",
+   "alt": "center console button"
+  },
+  {
+   "id": "h6_engine_cover",
+   "group": "hand",
+   "src": "m235",
+   "t0": 145.5,
+   "t1": 148.5,
+   "prompt": "engine cover"
+  },
+  {
+   "id": "z1_headlight_in",
+   "group": "zoom",
+   "src": "m235",
+   "t0": 4.0,
+   "t1": 8.0,
+   "prompt": "headlight"
+  },
+  {
+   "id": "z2_rear_pan",
+   "group": "zoom",
+   "src": "m235",
+   "t0": 28.0,
+   "t1": 33.0,
+   "prompt": "tail light"
+  },
+  {
+   "id": "z3_mirror",
+   "group": "zoom",
+   "src": "m235",
+   "t0": 53.0,
+   "t1": 57.0,
+   "prompt": "side mirror"
+  },
+  {
+   "id": "z4_hud",
+   "group": "zoom",
+   "src": "m235",
+   "t0": 103.0,
+   "t1": 108.0,
+   "prompt": "head-up display",
+   "alt": "projected speed on windshield"
+  },
+  {
+   "id": "z5_engine_open",
+   "group": "zoom",
+   "src": "m235",
+   "t0": 148.5,
+   "t1": 153.0,
+   "prompt": "engine"
+  },
+  {
+   "id": "a1_sill_plate",
+   "group": "ambiguous",
+   "src": "m235",
+   "t0": 66.0,
+   "t1": 70.0,
+   "prompt": "door sill plate",
+   "alt": "M235i lettering on door sill"
+  },
+  {
+   "id": "a2_puddle_light",
+   "group": "ambiguous",
+   "src": "m235",
+   "t0": 61.5,
+   "t1": 65.0,
+   "prompt": "logo projected on the ground",
+   "alt": "puddle light projection"
+  },
+  {
+   "id": "a3_infotainment",
+   "group": "ambiguous",
+   "src": "m235",
+   "t0": 112.0,
+   "t1": 116.0,
+   "prompt": "infotainment screen"
+  },
+  {
+   "id": "a4_cupholder_ring",
+   "group": "ambiguous",
+   "src": "m235",
+   "t0": 132.0,
+   "t1": 135.5,
+   "prompt": "illuminated cup holder ring",
+   "alt": "orange light ring"
+  },
+  {
+   "id": "a5_front_seat",
+   "group": "ambiguous",
+   "src": "m235",
+   "t0": 70.0,
+   "t1": 74.0,
+   "prompt": "seat headrest",
+   "alt": "car seat"
+  },
+  {
+   "id": "o1_wheel_buttons",
+   "group": "owl_hard",
+   "src": "m235",
+   "t0": 87.5,
+   "t1": 91.5,
+   "prompt": "steering wheel buttons",
+   "note": "GLE450 OWLv2 오탐 컷은 bobae_auto 세션 원본에서 따로"
+  },
+  {
+   "id": "o2_climate",
+   "group": "owl_hard",
+   "src": "m235",
+   "t0": 128.0,
+   "t1": 131.5,
+   "prompt": "climate control buttons"
+  },
+  {
+   "id": "o3_camera_view",
+   "group": "owl_hard",
+   "src": "m235",
+   "t0": 122.0,
+   "t1": 126.0,
+   "prompt": "rear view camera image on screen"
+  },
+  {
+   "id": "o4_cluster",
+   "group": "owl_hard",
+   "src": "m235",
+   "t0": 96.0,
+   "t1": 100.0,
+   "prompt": "digital instrument cluster"
+  }
+ ]
+}
