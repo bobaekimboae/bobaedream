@@ -135,6 +135,14 @@ def bobae_lockup(h=86):
     fin = Image.new('RGBA', (out.width + 30, out.height + 30)); fin.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)), (10, 16)); fin.alpha_composite(out, (6, 4))
     return fin
 LOCK = bobae_lockup() if os.environ.get('NAS_LOCKUP') else None
+EMB = None
+if os.environ.get('NAS_EMB'):   # 가운데 제조사 로고(나세르식) — 영상에 찍힌 실제 엠블럼을 잘라 씀(그래픽 로고 아님)
+    _e = Image.open(os.environ['NAS_EMB']).convert('RGBA'); ES = int(os.environ.get('NAS_EMB_PX', 190))
+    _e = _e.resize((ES, ES), Image.LANCZOS); pad = 70; EMB = Image.new('RGBA', (ES + pad * 2, ES + pad * 2))
+    gl = Image.new('RGBA', EMB.size); gl.paste(GLOW + (150,), (pad, pad), _e.getchannel('A')); EMB.alpha_composite(gl.filter(ImageFilter.GaussianBlur(26)))
+    sh = Image.new('RGBA', EMB.size); sh.paste((0, 0, 0, 170), (pad + 6, pad + 14), _e.getchannel('A')); EMB.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)))
+    EMB.alpha_composite(_e, (pad, pad))
+EMB_Y = int(os.environ.get('NAS_EMB_Y', 40))
 LOCK_Y = int(os.environ.get('NAS_LOCKUP_Y', 150))
 
 
@@ -190,6 +198,7 @@ for f in range(int(round(TOTAL * FPS))):
         if LOCK is not None and th >= 0.18:   # 위 로고: 위에서 살짝 내려오며 나타남
             k = ease((th - 0.18) / 0.35); im = LOCK.copy(); im.putalpha(Image.fromarray((np.array(im.getchannel('A')) * k).astype('uint8')))
             cv.alpha_composite(im, (M - 16, int(LOCK_Y - 24 * (1 - k))))
+        if EMB is not None: slam(cv, EMB, ((W - EMB.width) // 2, EMB_Y), th, 0.16, dur=0.28)
         slam(cv, HB, (M - 10, YB), th, 0.45); hb = HB.getbbox()
         slam(cv, HM, (M - 10 + hb[2] + 6, YB + (hb[1] + hb[3] - HM.height) // 2), th, 0.6); pop(cv, HS, (M - 4, YB + hb[3] + 16), th, 0.85)
     proc.stdin.write(cv.convert('RGB').tobytes())
