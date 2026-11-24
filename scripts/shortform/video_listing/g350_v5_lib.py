@@ -46,6 +46,15 @@ def _paint_box(a):
     rows = np.where(m[:, int(W * 0.3):int(W * 0.7)].mean(1) > 0.5)[0]; top, bot = int(rows.min()), int(rows.max())
     xs = np.where(m[(top + bot) // 2])[0]; return top, bot, int(xs.min()), int(xs.max())
 
+def _slice_w(a, x0, x1, want, end=0.22):
+    """칠 알파 a의 칠 폭(x0~x1)을 want로: 왼·오른 끝 end 비율은 그대로, 가운데 띠만 가로로 늘이거나 줄임(세로는 그대로)."""
+    pw = x1 - x0 + 1
+    if want <= pw * 2 * end + 4: return a
+    e = int(pw * end); L = a.crop((0, 0, x0 + e, a.height)); M = a.crop((x0 + e, 0, x1 - e + 1, a.height)); Rr = a.crop((x1 - e + 1, 0, a.width, a.height))
+    mw = want - 2 * e; M = M.resize((max(1, mw), a.height), Image.LANCZOS)
+    out = Image.new('L', (L.width + M.width + Rr.width, a.height)); out.paste(L, (0, 0)); out.paste(M, (L.width, 0)); out.paste(Rr, (L.width + M.width, 0))
+    return out
+
 def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, **_):
     """칠 규칙(be_locked_rules.json chip.fill_fit): 노션 원본 칠 중 좌우 여백이 맞는 것을 골라 같은 배율로만 키움.
     칠 높이 = 글자 높이 × band_to_ink, 글자는 칠 가운데에서 text_lift_ink만큼 위."""
@@ -73,6 +82,9 @@ def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, **_):
             return (float(np.median([c.min() for c in cols])), float(np.median([c.max() for c in cols]))) if cols else (t_, b_)
         bt_, bb_ = _band(a); sc = sc * want_h / max(1.0, bb_ - bt_ + 1); a = _shape(name, sc); top, bot, x0, x1 = _paint_box(a)
         bt_, bb_ = _band(a)
+        if FF.get('slice_pad_ink'):   # 칠 가로 늘이기(양 끝 붓결은 원본 그대로, 가운데만 가로로 늘림): 좌우 여백 = 글자 높이 × slice_pad_ink
+            a = _slice_w(a, x0, x1, int(cw + 2 * FF['slice_pad_ink'] * th), FF.get('slice_end', 0.22)); top, bot, x0, x1 = _paint_box(a)
+            bt_, bb_ = _band(a)
     m = max(0, top - 20); a = a.crop((0, m, a.width, min(a.height, bot + 21))); top, bot = top - m, bot - m
     if not TT: bt_, bb_ = bt_ - m, bb_ - m   # 칠 윗선을 늘 같은 높이에(원본 판마다 위 여백이 달라 칩이 위아래로 튀던 것 방지)
     w, h = a.size; dy = 20 - top   # 칠 윗선을 상자 위 35px에 고정
