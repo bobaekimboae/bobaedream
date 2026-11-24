@@ -1,6 +1,6 @@
 {
- "words": "/dev/shm/m235/job/words_clean.json",
- "src": "/dev/shm/m235/job/src.mp4",
+ "words": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/m235/job/words_clean.json",
+ "src": "/tmp/claude-0/-home-claude/9795e62c-2b83-5ed5-9b9a-75716025bfc2/scratchpad/m235/job/src.mp4",
  "cuts": [
   {
    "key": "c1",

@@ -14,7 +14,7 @@ def pop(cv,img,pos,t,t_in,dur=0.2):   # 검수 기록: 다 나타난 글자·그
     _pop(cv,img,pos,t,t_in,dur)
     if LOGON and img is not None and t>=t_in+dur:
         b=img.getbbox(); g=globals(); _LOG.append(['pop',g.get('nfr'),g.get('key'),pos[0]+b[0],pos[1]+b[1],pos[0]+b[2],pos[1]+b[3],round(t_in,3)])
-G=os.environ.get('M235_DIR','/dev/shm/m235/job/')
+G=os.path.join(os.environ.get('M235_DIR','/dev/shm/m235/job/'),'')
 ASSET=A
 CAPY=R['caption']['center_y_px']   # 규칙 파일(옛 67% 직접 쓰기 폐지)
 WS=json.load(open(os.environ.get('ROMA_WORDS',G+'words_clean.json')))   # 로마: 받아쓰기 시각 + 대본 글자로 정리한 낱말(병합·오인식 교정 끝난 것)

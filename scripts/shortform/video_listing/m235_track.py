@@ -1,6 +1,6 @@
 """M235i r01 부위 추적: roma_owl_track.run(OWLv2, 0.2초 간격)을 M235i 컷 표로 돌린다. 원본 = 목소리 시간축으로 줄인 src.mp4."""
 import json, os, sys, cv2
-os.environ.setdefault('ROMA_DIR', os.environ.get('M235_DIR', '/dev/shm/m235/job/'))
+os.environ['ROMA_DIR'] = os.path.join(os.environ.get('M235_DIR', '/dev/shm/m235/job/'), '')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import roma_owl_track as R
 G = os.environ['ROMA_DIR']
