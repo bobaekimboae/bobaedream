@@ -159,7 +159,7 @@ def ipill(icon,s,size=50,left=False):   # 흰 정보 알약 = 칩과 같은 노�
     return info_pill(s,size,icon,left)
 # 휠: 인치 3D + 타이어 규격 3D, 화면 고정 자리(휠 상자 높이 약 800px 기준 0.19배 / 0.12배로 키움 — 사용자: 작으니 교정)
 text3d_all=lambda txt,h=180: text3d(txt,h,split=False)
-W_IN=text3d('20인치',h=170); W_TY=text3d_all('앞 245 · 뒤 285',h=110)
+W_IN=text3d('20인치',h=170); W_IN_ST={}; _WIN_ONCE=os.environ.get('WIN_ONCE','1')!='0'; W_TY=text3d_all('앞 245 · 뒤 285',h=110)
 T1=text3d('255L',h=180); T1L=ipill(as24('trunk-as24.svg',50),'지붕 닫았을 때',58)
 S_MAT=gchip('베이지 가죽',R['chip']['font_px']) if os.environ.get('SEAT_3D')!='1' else text3d('베이지 가죽',h=130);   # r19 「시트 쪽에 붓칠 씌워야」: 재질도 노랑 붓칠 칩(노션 원본 칠), SEAT_3D=1이면 이전 3D 글자
 S_SUB=white('레드 카펫',58)
@@ -250,12 +250,21 @@ def special(key,cv,t,t0):
         tb=WS[W_IN_J][1]-t0-0.22; HIDE_SUB[0]=HIDE_SUB[0] or t>=tb   # 숫자가 떠 있는 동안 말 자막 숨김
         y=int(max(150,min(CAPY-120-W_IN.height-10-W_TY.height,hub[1]-WR-60-W_IN.height))) if hub else int(H*0.075)   # r15(§11): 휠 인치는 휠 윗선 바로 위에 붙어 휠을 따라 위아래로도 움직임(r12~r14는 위 띠 고정)
         x0=int(min(W-W_IN.width/2-30,max(W_IN.width/2+30,hub[0]))) if hub else W//2
-        pop(cv,W_IN,(int(x0-W_IN.width/2),y),t,tb,0.3); label_log('20인치','num_part','c3',(hub[0],hub[1]-WR) if hub else None,(int(x0-W_IN.width/2),y),W_IN,t,tb)
-        # r15(매뉴얼 §11): 타이어 규격은 타이어 옆면 추적(c3t)에 붙임 — r12~r14는 20인치 밑 위 띠에 쌓여 손가락이 가리키는 옆면과 따로 놀았음
+        # r24 「20인치가 두 번 중복 매핑 어설프다」: 20인치는 휠 전체가 보이는(휠 추적이 잡히는) 동안만. 타이어 근접으로 넘어가 휠을 놓치거나
+        # 타이어 규격이 뜨면 그 자리에서 0.2초 사라짐 → 타이어 근접 화면에 위 띠로 떠 있는 두 번째 20인치 없음. WIN_ONCE=0이면 이전처럼 계속 표시
         ty0=WS[W_TY_J][1]-t0-0.22
+        _ws=W_IN_ST.setdefault('s',{'off':None,'pos':None})
+        if _WIN_ONCE and t>=tb and _ws['off'] is None and (hub is None or t>=ty0): _ws['off']=t
+        win_on=(not _WIN_ONCE) or _ws['off'] is None
+        if win_on:
+            _ws['pos']=(int(x0-W_IN.width/2),y)
+            pop(cv,W_IN,_ws['pos'],t,tb,0.3); label_log('20인치','num_part','c3',(hub[0],hub[1]-WR) if hub else None,_ws['pos'],W_IN,t,tb)
+        elif _ws['pos'] and t-_ws['off']<0.2:
+            _fa=1-(t-_ws['off'])/0.2; _im=W_IN.copy(); _im.putalpha(_im.getchannel('A').point(lambda v:int(v*_fa))); cv.alpha_composite(_im,_ws['pos'])
+        # r15(매뉴얼 §11): 타이어 규격은 타이어 옆면 추적(c3t)에 붙임 — r12~r14는 20인치 밑 위 띠에 쌓여 손가락이 가리키는 옆면과 따로 놀았음
         if tire:
             tx_=int(min(W-W_TY.width/2-SAFE_X,max(W_TY.width/2+SAFE_X,tire[0]))); ty_=int(tire[1]-W_TY.height-60)   # 옆면 점 바로 위(점·손가락을 덮지 않음)
-            ty_=max(y+W_IN.height+10,min(ty_,CAPY-120-W_TY.height))
+            ty_=max((y+W_IN.height+10) if win_on else 150,min(ty_,CAPY-120-W_TY.height))
         else: tx_,ty_=x0,y+W_IN.height+10
         pop(cv,W_TY,(int(tx_-W_TY.width/2),ty_),t,ty0,0.3); label_log('앞 245 · 뒤 285','num_part','c3t',tire,(int(tx_-W_TY.width/2),ty_),W_TY,t,ty0)
     if key=='c4':
