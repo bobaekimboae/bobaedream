@@ -129,6 +129,12 @@ def _bgm_beats():
         y_, sr_ = librosa.load(src, sr=22050, mono=True)
         tempo_, fr_ = librosa.beat.beat_track(y=y_, sr=sr_)
         db_[key] = {'tempo': float(np.atleast_1d(tempo_)[0]), 'beats': [round(float(t), 3) for t in librosa.frames_to_time(fr_, sr=sr_)]}
+        try:   # 마디 첫 박(강박)은 Beat This!(MIT)로 잰다. 없으면 저장하지 않고 아래에서 4박마다로 대신한다
+            from beat_this.inference import Audio2Beats
+            _b, _d = Audio2Beats(checkpoint_path='final0', device='cpu', dbn=False)(y_, sr_)
+            db_[key]['downbeats'] = [round(float(t), 3) for t in _d]
+        except Exception as _e:
+            print('  [박자] Beat This! 없음 → 강박은 4박마다로 대신:', type(_e).__name__)
         json.dump(db_, open(cache, 'w'), indent=1)
     return db_[key]
 
@@ -137,7 +143,8 @@ if getattr(C, 'BEAT_SNAP', False):
     # 2026-11-22 캡컷 가이드 박자 맞춤(docs/shortform/capcut-guide-survey-v1.md): 컷 경계를 배경음 박자에 붙인다.
     # 말 싱크를 지키려고 컷은 앞 낱말이 끝난 뒤 ~ 그 컷 첫 낱말 소리 시작 0.04초 전(최대 0.45초 전) 안에서만 움직인다. 구간 경계(WHOOSH_AT)는 강박(4박마다) 먼저.
     _bt = _bgm_beats(); _beats = np.array(_bt['beats'])
-    _strong = _beats[::4] if len(_beats) else _beats
+    # 2026-11-25 강박 = 실제 마디 첫 박(Beat This! 측정값). 이전 _beats[::4]는 첫 박을 한 박 늦게 잡아 27개 중 0개만 맞았다
+    _strong = np.array(_bt['downbeats']) if _bt.get('downbeats') else (_beats[::4] if len(_beats) else _beats)
     _moved = []
     for _i in range(1, len(starts)):
         _on = onset(CUTS[_i][2]); _hi = _on - 0.04
