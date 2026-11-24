@@ -113,6 +113,8 @@ def white(s, size):
 
 def text3d(txt, h=180, face=None, side=(58, 52, 0), split=True):
     """숫자·단위 3D 글자: 노랑 앞면 + 진한 옆면(깊이 h×0.06) + 그림자. 숫자 앞부분만 크게, 단위는 0.62배."""
+    if face is None and os.environ.get('BIG_STYLE') == 'gold' and R['color'].get('gold_exception'):
+        return gold3d(txt, h, split)
     face = face or YEL
     m = re.match(r'^([\d.,+~]+)\s*(.*)$', txt) if split else None
     parts = [(m.group(1), 1.0), (m.group(2), 0.62)] if m and m.group(2) else [(txt, 1.0)]
@@ -134,6 +136,43 @@ def text3d(txt, h=180, face=None, side=(58, 52, 0), split=True):
             x += b[2] - b[0] + gap
         if layer == 'shadow':
             im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)))
+    return im.crop(im.getbbox())
+
+def gold3d(txt, h=180, split=True):
+    """2026-11-24 예외 규정(be_locked_rules color.gold_exception): 큰 3D 숫자만 금속 금색. 어두운 청동 앞면 + 밝은 금 테두리(빗면) + 진한 옆면 + 그림자. 색 값은 규칙 파일에서만."""
+    G = R['color']['gold_exception']; hx = lambda k: tuple(int(G[k][i:i + 2], 16) for i in (1, 3, 5))
+    m = re.match(r'^([\d.,+~]+)\s*(.*)$', txt) if split else None
+    parts = [(m.group(1), 1.0), (m.group(2), 0.62)] if m and m.group(2) else [(txt, 1.0)]
+    fs = [BK(int(h * k)) for _, k in parts]; bbs = [f.getbbox(p, anchor='ls') for (p, _), f in zip(parts, fs)]
+    depth = max(5, int(h * 0.07)); gap = int(h * 0.04); rim = max(5, int(h * 0.06))
+    tw = sum(b[2] - b[0] for b in bbs) + gap * (len(parts) - 1); top = min(b[1] for b in bbs); base = max(b[3] for b in bbs)
+    pad = 24 + rim; Wd, Hd = tw + depth + 2 * pad, base - top + depth + 2 * pad
+    mask = Image.new('L', (Wd, Hd), 0); dm = ImageDraw.Draw(mask); x = pad
+    for (p, _), f, b in zip(parts, fs, bbs):
+        dm.text((x - b[0], pad - top), p, font=f, fill=255, anchor='ls'); x += b[2] - b[0] + gap
+    outer = mask.filter(ImageFilter.MaxFilter(2 * (rim // 2) + 1))   # 금 테두리 바깥선
+    olin = outer.filter(ImageFilter.MaxFilter(5))                     # 그 밖 진한 외곽선
+    yy = np.linspace(0, 1, Hd)[:, None] * np.ones((1, Wd))
+    def grad(stops):   # 위→아래 색 띠
+        out = np.zeros((Hd, Wd, 3)); ks = [k for k, _ in stops]
+        for c in range(3): out[..., c] = np.interp(yy, ks, [col[c] for _, col in stops])
+        return Image.fromarray(out.astype('uint8'), 'RGB').convert('RGBA')
+    rim_img = grad([(0, hx('rim_hi')), (0.3, hx('rim_mid')), (0.5, hx('rim_lo')), (0.62, hx('rim_hi')), (1, hx('rim_mid'))])
+    face_img = grad([(0, hx('face_top')), (0.55, hx('face_top')), (1, hx('face_bottom'))])
+    side_img = grad([(0, hx('rim_lo')), (1, hx('side'))])
+    im = Image.new('RGBA', (Wd, Hd)); sh = Image.new('RGBA', (Wd, Hd))
+    for k in range(depth, 0, -1):   # 옆면(오른쪽 아래로 밀어 쌓음, 금빛에서 어둡게)
+        im.paste(side_img if k < depth * 0.35 else Image.new('RGBA', (Wd, Hd), hx('side') + (255,)), (k, k), olin)
+    shm = Image.new('L', (Wd, Hd), 0); shm.paste(olin, (depth + 4, depth + 8)); sh.paste((0, 0, 0, 180), (0, 0), shm)
+    im = Image.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)), im)
+    im.paste(hx('side') + (255,), (0, 0), olin)          # 진한 외곽선
+    im.paste(rim_img, (0, 0), outer)                     # 금 테두리(빗면)
+    im.paste(hx('side') + (255,), (0, 0), mask)          # 빗면과 앞면 사이 진한 선
+    inner = mask.filter(ImageFilter.MinFilter(5))
+    im.paste(face_img, (0, 0), inner)                    # 청동 앞면
+    edge = Image.fromarray((np.array(inner).astype(int) - np.array(inner.filter(ImageFilter.MinFilter(5))).astype(int)).clip(0, 255).astype('uint8'))
+    hi = Image.fromarray((np.array(edge) * 0.55 * (1 - yy) ** 1.2).astype('uint8'))   # 앞면 윗가장자리 은은한 반짝임
+    im.paste(hx('spec') + (255,), (0, 0), hi)
     return im.crop(im.getbbox())
 
 def pop(cv, img, pos, t, t_in, dur=0.2):

@@ -123,7 +123,7 @@ H3={}
 HB=chip('페라리',R['chip']['title_font_px'],title=True); HM=white('로마 스파이더',104)
 _room=W-24-(M-10+HB.getbbox()[2]+6); _hs=104
 while HM.getbbox()[2]>_room and _hs>60: _hs-=4; HM=white('로마 스파이더',_hs)   # 모델명이 화면 안에 들어오게(짧은 제조사도 칠 판은 같은 배율이라 넓음)
-HS=white('2024년식 · 가솔린 · V8',58)
+HS=white('2024년식 · 가솔린 · '+os.environ.get('ROMA_TITLE_TAIL','765km'),58)   # r21: 계기판 원본 화면의 주행거리(odo 765km, 다른 에이전트 판에서 확인). ROMA_TITLE_TAIL=V8이면 이전
 place_chip_y_cap=H*0.58
 SAFE_X=40   # r03: 칩 칠 좌우 안전영역 40px(edit_gate 규칙). v13은 24px라 칩 3개가 벗어났음
 BIG_LOW=set()   # r03: 번호판이 화면 위쪽을 채우는 컷 — 큰 숫자를 자막 자리로 내리고 그동안 말 자막을 숨김(AS24 큰 숫자 규칙)
