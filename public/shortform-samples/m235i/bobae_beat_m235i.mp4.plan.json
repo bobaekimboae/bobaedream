@@ -1,0 +1,441 @@
+{
+ "words": "/home/claude/shorts/m235/voice_placed_words.json",
+ "bigs": [
+  {
+   "key": "P4",
+   "label": "306마력",
+   "kind": "big",
+   "t0": 20.813,
+   "t1": 24.009
+  },
+  {
+   "key": "P5",
+   "label": "430L",
+   "kind": "big",
+   "t0": 25.548,
+   "t1": 27.423
+  },
+  {
+   "key": "P10",
+   "label": "16,665km",
+   "kind": "big",
+   "t0": 41.936,
+   "t1": 44.141
+  },
+  {
+   "key": "P12",
+   "label": "4.9초",
+   "kind": "big",
+   "t0": 47.638,
+   "t1": 49.296
+  },
+  {
+   "key": "P13",
+   "label": "45.9kg·m",
+   "kind": "big",
+   "t0": 50.166,
+   "t1": 51.85
+  }
+ ],
+ "edition": "feature_video",
+ "edition_code": "ED-SIMPLE",
+ "style": "beat_edit",
+ "renderer": "m235_beat.py (g350_v5_lib)",
+ "voice": "voice_placed.wav",
+ "frame": [
+  1080,
+  1920
+ ],
+ "techniques": [
+  "beat_cut",
+  "bgm",
+  "big_number_3d",
+  "camera_shake",
+  "caption_chunks",
+  "count_up",
+  "dealer_profile_card",
+  "end_logo",
+  "intro_flash_montage",
+  "loudness_rule",
+  "nasser_hero_3d_text",
+  "point_chip",
+  "rgb_split",
+  "sfx_rules",
+  "slow_motion",
+  "speed_ramp",
+  "stutter",
+  "title_brand_chip",
+  "whip_pan",
+  "white_flash",
+  "zoom_punch"
+ ],
+ "music": true,
+ "music_credit": "Hardstyle night (Original mix) — DJane Nickie Anne (Jamendo), CC BY 3.0",
+ "total": 58.65,
+ "cuts": [
+  0.418,
+  0.859,
+  1.277,
+  1.718,
+  2.159,
+  2.577,
+  2.995,
+  3.413,
+  3.634,
+  3.854,
+  4.075,
+  4.296,
+  4.505,
+  4.713,
+  4.934,
+  5.155,
+  8.568,
+  9.009,
+  9.427,
+  10.286,
+  12.864,
+  13.282,
+  13.723,
+  16.3,
+  16.718,
+  17.159,
+  19.714,
+  20.155,
+  20.573,
+  24.009,
+  24.427,
+  24.868,
+  27.423,
+  27.864,
+  28.282,
+  30.859,
+  31.277,
+  31.672,
+  32.067,
+  32.461,
+  35.735,
+  39.427,
+  41.146,
+  44.141,
+  45.859,
+  46.277,
+  46.718,
+  49.296,
+  51.85,
+  53.15,
+  56.65
+ ],
+ "sfx": [
+  {
+   "t": 0.02,
+   "kind": "whoosh",
+   "sound": "whoosh"
+  },
+  {
+   "t": 5.155,
+   "kind": "impact",
+   "sound": "impact"
+  },
+  {
+   "t": 5.605,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 8.568,
+   "kind": "whoosh",
+   "sound": "whoosh"
+  },
+  {
+   "t": 10.526,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 20.763,
+   "kind": "horse_neigh_el",
+   "sound": "horse_neigh_el"
+  },
+  {
+   "t": 25.548,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 28.532,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 36.165,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 39.427,
+   "kind": "impact",
+   "sound": "impact"
+  },
+  {
+   "t": 41.936,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 44.421,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 47.638,
+   "kind": "stopwatch",
+   "sound": "stopwatch"
+  },
+  {
+   "t": 50.166,
+   "kind": "ding",
+   "sound": "ding"
+  }
+ ],
+ "chips": [
+  {
+   "key": "title",
+   "label": "BMW",
+   "kind": "title",
+   "t0": 5.605,
+   "t1": 8.568,
+   "t_box": 5.905,
+   "px": 74,
+   "y": 300,
+   "box": [
+    65,
+    315,
+    304,
+    448
+   ]
+  },
+  {
+   "key": "P1",
+   "label": "LED 헤드램프",
+   "kind": "point",
+   "t0": 10.526,
+   "t1": 12.864,
+   "t_box": 10.776,
+   "px": 70,
+   "y": 300,
+   "box": [
+    285,
+    332,
+    796,
+    477
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P2",
+   "label": "블루 캘리퍼",
+   "kind": "point",
+   "t0": 13.983,
+   "t1": 16.3,
+   "t_box": 14.233,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P3",
+   "label": "xDrive 사륜구동",
+   "kind": "point",
+   "t0": 17.419,
+   "t1": 19.714,
+   "t_box": 17.669,
+   "px": 70,
+   "y": 300,
+   "box": [
+    219,
+    331,
+    861,
+    467
+   ]
+  },
+  {
+   "key": "P4",
+   "label": "2.0 터보",
+   "kind": "point",
+   "t0": 21.643,
+   "t1": 24.009,
+   "t_box": 21.893,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "P5",
+   "label": "트렁크",
+   "kind": "point",
+   "t0": 25.118,
+   "t1": 27.423,
+   "t_box": 25.368,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P6",
+   "label": "웰컴 라이트",
+   "kind": "point",
+   "t0": 28.532,
+   "t1": 30.859,
+   "t_box": 28.782,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ]
+  },
+  {
+   "key": "P7",
+   "label": "레드 시트",
+   "kind": "point",
+   "t0": 32.871,
+   "t1": 35.735,
+   "t_box": 33.121,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P8",
+   "label": "앰비언트 라이트",
+   "kind": "point",
+   "t0": 36.165,
+   "t1": 39.427,
+   "t_box": 36.415,
+   "px": 70,
+   "y": 300,
+   "box": [
+    281,
+    332,
+    800,
+    478
+   ]
+  },
+  {
+   "key": "P9",
+   "label": "M 버튼",
+   "kind": "point",
+   "t0": 39.707,
+   "t1": 41.146,
+   "t_box": 39.957,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "P10",
+   "label": "주행거리",
+   "kind": "point",
+   "t0": 41.406,
+   "t1": 44.141,
+   "t_box": 41.656,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "P11",
+   "label": "헤드업 디스플레이",
+   "kind": "point",
+   "t0": 44.421,
+   "t1": 45.859,
+   "t_box": 44.671,
+   "px": 70,
+   "y": 300,
+   "box": [
+    219,
+    331,
+    861,
+    467
+   ],
+   "no_track_reason": "화면 가득 근접 장면(부위가 화면 전체라 화살표 대상 없음)"
+  },
+  {
+   "key": "P12",
+   "label": "제로백",
+   "kind": "point",
+   "t0": 46.948,
+   "t1": 49.296,
+   "t_box": 47.198,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "P13",
+   "label": "최대토크",
+   "kind": "point",
+   "t0": 49.556,
+   "t1": 51.85,
+   "t_box": 49.806,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  }
+ ],
+ "caption": {
+  "center_y_px": 1283,
+  "font_px": 60
+ },
+ "dealer_card": {
+  "label": "문제현 대표",
+  "t0": 53.55,
+  "t1": 56.65,
+  "photo": "450395-1.webp"
+ }
+}
