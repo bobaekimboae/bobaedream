@@ -15,8 +15,8 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')
 SFX = os.path.join(REPO, 'public', 'assets', 'shortform', 'sfx')
 W, H, FPS = 1080, 1920, 30
 FLASH = [14.5, 201.0, 52.5, 173.5]   # 휠 · 엔진 · 운전석 · 뒷모습 (원본 초)
-FN = 7                                # 컷당 7프레임 = 0.23초
-ROMA_T0, ROMA_N = 217.6, 21           # 차 전체 장면 0.7초
+FN = int(os.environ.get('INTRO_FN', 14))   # r25 「첫 인트로가 너무 빨라」: 컷당 14프레임 = 0.47초(r23·r24는 7프레임 0.23초)
+ROMA_T0, ROMA_N = 217.6, int(os.environ.get('INTRO_ROMA_N', 36))   # 차 전체 장면 1.2초(이전 0.7초)
 WORD = os.environ.get('INTRO_WORD', 'ROMA')
 
 def grab(t, n):
@@ -37,7 +37,7 @@ frames = []
 for t in FLASH:
     for i, f in enumerate(grab(t, FN)):
         f = punch(f, 1.08 - 0.08 * min(1, i / (FN - 1)))
-        if i < 2: f = (f * (1 - (0.75, 0.35)[i]) + 255 * (0.75, 0.35)[i]).astype('uint8')
+        if i < 3: f = (f * (1 - (0.7, 0.4, 0.15)[i]) + 255 * (0.7, 0.4, 0.15)[i]).astype('uint8')   # 섬광 3프레임으로 부드럽게
         frames.append(f)
 
 sess = new_session('u2netp'); fs = grab(ROMA_T0, ROMA_N)
@@ -59,7 +59,7 @@ for i, f in enumerate(fs):
     nn, lb, stt, _ = cv2.connectedComponentsWithStats((mr > 128).astype('uint8')); bi = 1 + int(np.argmax(stt[1:, 4]))
     m = np.where((lb == bi) & CAR0, mr, 0).astype(np.float32) / 255.0   # 이 차만(뒤에 선 다른 차는 글자를 가리지 않음)
     m = cv2.GaussianBlur(m, (5, 5), 0)[..., None]
-    k = 1.25 - 0.25 * min(1, i / 4)   # 0.13초에 쾅 내려앉음
+    k = 1.25 - 0.25 * min(1, i / 7)   # 0.23초에 쾅 내려앉음(이전 0.13초)
     t2 = txt.resize((int(W * k), int(H * k)), Image.LANCZOS); cx, cy = W // 2, base_y + th // 2
     lay = Image.new('RGBA', (W, H)); lay.alpha_composite(t2, (int(cx - cx * k), int(cy - cy * k)))
     a = min(1.0, (i + 1) / 3)
