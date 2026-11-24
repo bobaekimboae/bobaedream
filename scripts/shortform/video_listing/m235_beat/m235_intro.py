@@ -119,6 +119,25 @@ fs = 58; HS = white(FACT, fs)
 while HS.getbbox()[2] > W - 2 * (M - 4) and fs > 36: fs -= 2; HS = white(FACT, fs)
 
 
+# 위 로고(벨기에 AS24 로고 방식): 보배드림 엠블럼 + 오른쪽 노랑 붓칠(노션 원본 432_227 = AS24 로고 «Auto» 뒤 칠, 파일 그대로) 위 검정 「보배드림」
+def bobae_lockup(h=86):
+    sys.path.insert(0, REPO + '/scripts/shortform'); import brushfill as BF
+    lg = Image.open(REPO + '/public/assets/shortform/bobae_logo_600.png').convert('RGBA')
+    em = lg.crop((0, 0, lg.height, lg.height)); em = em.crop(em.getbbox()).resize((h, h), Image.LANCZOS)
+    f = XB(int(h * 0.56)); tb = tsize('보배드림', f); tw, th_ = tb[2] - tb[0], tb[3] - tb[1]
+    bh = int(h * 0.96); bw = int(tw + h * 0.62)
+    m = BF.theme_mask_sliced(bw, bh, '432_227')
+    br = Image.new('RGBA', (bw, bh), YEL + (0,)); br.putalpha(m)
+    ImageDraw.Draw(br).text(((bw - tw) // 2 - tb[0], (bh - th_) // 2 - tb[1] - 2), '보배드림', font=f, fill=INK)
+    gap = int(h * 0.16); out = Image.new('RGBA', (h + gap + bw, h))
+    out.alpha_composite(em, (0, 0)); out.alpha_composite(br, (h + gap, (h - bh) // 2))
+    sh = Image.new('RGBA', out.size); sh.paste((0, 0, 0, 150), (0, 0), out.getchannel('A'))
+    fin = Image.new('RGBA', (out.width + 30, out.height + 30)); fin.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)), (10, 16)); fin.alpha_composite(out, (6, 4))
+    return fin
+LOCK = bobae_lockup() if os.environ.get('NAS_LOCKUP') else None
+LOCK_Y = int(os.environ.get('NAS_LOCKUP_Y', 150))
+
+
 def slam(cv, img, pos, t, t_in, dur=0.22):
     if t < t_in: return
     k = min(1.0, (t - t_in) / dur); s = 1.6 - 0.6 * (1 - (1 - k) ** 3)
@@ -168,6 +187,9 @@ for f in range(int(round(TOTAL * FPS))):
             cv = Image.alpha_composite(cv, lay)
         cv = PFX.rim(cv, mz, th)
         if th < 0.12: cv = Image.alpha_composite(cv, Image.new('RGBA', (W, H), (255, 255, 255, int(230 * (1 - th / 0.12)))))
+        if LOCK is not None and th >= 0.18:   # 위 로고: 위에서 살짝 내려오며 나타남
+            k = ease((th - 0.18) / 0.35); im = LOCK.copy(); im.putalpha(Image.fromarray((np.array(im.getchannel('A')) * k).astype('uint8')))
+            cv.alpha_composite(im, (M - 16, int(LOCK_Y - 24 * (1 - k))))
         slam(cv, HB, (M - 10, YB), th, 0.45); hb = HB.getbbox()
         slam(cv, HM, (M - 10 + hb[2] + 6, YB + (hb[1] + hb[3] - HM.height) // 2), th, 0.6); pop(cv, HS, (M - 4, YB + hb[3] + 16), th, 0.85)
     proc.stdin.write(cv.convert('RGB').tobytes())
