@@ -107,6 +107,9 @@ def check_video(path):
     if not os.path.exists(plan_p):
         bad('계획 파일(.plan.json) 없음 — 칩·효과음 검사를 못 함'); return
     P = json.load(open(plan_p))
+    if 'caption_gaps' in P:   # 2026-11-25 렌더 후 점검(check_render)이 경고만 하던 「말하는데 자막 없음」을 여기서 실패로 셈
+        cg = P['caption_gaps']
+        (ok if not cg else bad)('말하는 동안 자막 빈 곳 없음' if not cg else f'말하는데 자막 없음 {len(cg)}곳: ' + ', '.join(f'{a}~{b}초' for a, b in cg))
     S, CH, C = RULES['sfx'], RULES['chip'], RULES['caption']
     fv = P.get('edition') == 'feature_video'
     SF = [x if isinstance(x, dict) else {'t': x, 'sound': '?'} for x in P['sfx']]
