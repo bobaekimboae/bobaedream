@@ -288,8 +288,9 @@ for si, (kind, t0, t1, src, sp, o) in enumerate(plan):
         if o.get('horse') and big_t0 is not None: horse_layer(cv, t - big_t0 + 0.05)
         if chip_t0 is not None and t >= chip_t0: ci = chip_c(o['chip']); pop(cv, ci, chip_xy(ci), t, chip_t0)
         if big_t0 is not None and t >= big_t0:
-            kk = min(1.0, (t - big_t0) / 0.5); lab = count_label(o['big'], kk)
-            bimg = big_c(o['big']) if kk >= 1 else text3d(lab, 190); fin = big_c(o['big']); y = YB + 175
+            # T04 롤링 카운트업(캡컷식 「숫자 쫘르륵」, feature_edit_rules.json T04): 숫자만 굴러 올라가고 단위는 제자리, 끝에 착지 펀치
+            rd = min(1.0, max(0.4, (t1 - big_t0) - 0.45))   # 끝 숫자가 컷 끝 전에 최소 0.45초 또렷하게 남도록
+            bimg = roll_count(o['big'], t - big_t0, 190, rd); fin = big_c(o['big']); y = YB + 175
             pop(cv, bimg, (W // 2 - bimg.width // 2, y + (fin.height - bimg.height) // 2), t, big_t0, 0.18)
             if sub_t0 is not None and t >= sub_t0: pop(cv, SUBI, (W // 2 - SUBI.width // 2, y + fin.height + 18), t, sub_t0)
         if ph and kind not in ('hero', 'dealer') and (big_t0 is None or t < big_t0):

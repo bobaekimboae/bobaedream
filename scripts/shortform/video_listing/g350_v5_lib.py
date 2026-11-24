@@ -159,3 +159,79 @@ def arrimg(L, below):
     else: poly = [(cx, p + L), (cx + w // 2, p + L - hd), (cx + sw // 2, p + L - hd), (cx + sw // 2, p), (cx - sw // 2, p), (cx - sw // 2, p + L - hd), (cx - w // 2, p + L - hd)]
     d.polygon(poly, fill=YEL + (255,), outline=INK + (255,), width=4)
     _ac[k] = (im, p); return _ac[k]
+
+# ── T04 숫자 롤링 카운트업(캡컷식 「숫자 쫘르륵」) ─────────────────────────────
+# 캡컷 가이드(시작 숫자를 몇 프레임마다 복제해 값을 조금씩 올림 → 컴파운드 클립 → 모션 블러 약 50,
+# 속도 곡선으로 처음 빠르고 끝 느리게, 마지막 숫자는 길게 남김)를 코드로 고정한 것.
+# 값: feature_edit_rules.json T04 params(없으면 아래 기본값).
+def _t04():
+    try:
+        p = json.load(open(os.path.join(REPO, 'scripts/shortform/video_listing/feature_edit_rules.json')))
+        return next(t['params'] for t in p['techniques'] if t['id'] == 'T04')
+    except Exception:
+        return {}
+_ROLL_CACHE = {}
+def _num_parts(lab):
+    m = re.match(r'^([\d,]+)(\.\d+)?(.*)$', lab)
+    if not m: return None
+    whole = int(m.group(1).replace(',', '')); dec = m.group(2) or ''
+    return whole + (float(dec) if dec else 0), len(dec) - 1 if dec else 0, ',' in m.group(1), m.group(3)
+def _fmt(v, nd, comma, unit):
+    s = f'{v:.{nd}f}' if nd else (f'{int(v):,}' if comma else str(int(v)))
+    return s + unit
+def _t3(s, h):
+    k = (s, h)
+    if k not in _ROLL_CACHE: _ROLL_CACHE[k] = text3d(s, h)
+    return _ROLL_CACHE[k]
+def _unit_x(lab, h):
+    """끝 숫자 그림에서 단위 글자가 시작하는 열(숫자만 그린 그림과 처음 달라지는 열)."""
+    k = ('ux', lab, h)
+    if k in _ROLL_CACHE: return _ROLL_CACHE[k]
+    pr = _num_parts(lab); num = lab[:len(lab) - len(pr[3])] if pr and pr[3] else None
+    if not num: _ROLL_CACHE[k] = None; return None
+    fin, D = _t3(lab, h), text3d(num, h, split=False)
+    a = np.asarray(fin.getchannel('A')).astype(int); b = np.zeros_like(a); db = np.asarray(D.getchannel('A')).astype(int)
+    b[:min(a.shape[0], db.shape[0]), :min(a.shape[1], db.shape[1])] = db[:a.shape[0], :a.shape[1]]
+    cols = np.where((np.abs(a - b) > 120).sum(0) > 3)[0]
+    _ROLL_CACHE[k] = (int(cols.min()) - 2 if len(cols) else None, D.width); return _ROLL_CACHE[k]
+def _digits(s, h):
+    k = ('d', s, h)
+    if k not in _ROLL_CACHE: _ROLL_CACHE[k] = text3d(s, h, split=False)
+    return _ROLL_CACHE[k]
+def roll_count(lab, u, h=190, dur=None):
+    """u = 숫자 등장 뒤 지난 초. 숫자만 굴러 올라가고 단위는 제자리(끝 숫자와 같은 가운데 기준 캔버스)."""
+    P = _t04(); dur = dur or P.get('roll_dur_s', 1.0); stepf = P.get('step_frames', 2); pw = P.get('ease_pow', 4)
+    blur0 = P.get('motion_blur_px', 42); roll = P.get('roll_h', 0.55); flick = P.get('flick', 0.6)
+    land = P.get('land_scale', 1.10); land_s = P.get('land_s', 0.12)
+    fin = _t3(lab, h); pr = _num_parts(lab); ux = _unit_x(lab, h) if pr else None
+    cw, ch = int(fin.width * 1.25) + 40, fin.height + 24; ox, oy = (cw - fin.width) // 2, (ch - fin.height) // 2
+    cv = Image.new('RGBA', (cw, ch))
+    if pr is None or u >= dur:   # 끝 숫자: 착지 펀치(살짝 커졌다 제자리) 뒤 그대로 남김
+        k = (u - dur) / land_s if pr is not None else 1.0
+        s = 1.0 + (land - 1.0) * math.sin(k * math.pi) if 0 <= k < 1 else 1.0
+        im = fin if s == 1.0 else fin.resize((round(fin.width * s), round(fin.height * s)), Image.LANCZOS)
+        cv.alpha_composite(im, ((cw - im.width) // 2, (ch - im.height) // 2)); return cv
+    v, nd, comma, unit = pr
+    step = stepf / FPS; i = int(u / step); ph = (u - i * step) / step
+    def val(j):
+        k = min(1.0, j * step / dur); return v * (1 - (1 - k) ** pw)
+    num = lambda x: _fmt(x, nd, comma, '')
+    a_s, b_s = num(val(i)), num(val(i + 1))
+    e = 1.0 if a_s == b_s else min(1.0, ph / flick); e = e * e * (3 - 2 * e)
+    right = ox + (ux[1] if ux else fin.width)   # 숫자 그림 오른쪽 끝을 끝 숫자 자리에 맞춤
+    dig = Image.new('RGBA', (cw, ch)); dy = int(fin.height * roll)
+    for s_, off, show in ((a_s, -e * dy, e < 1), (b_s, (1 - e) * dy, e > 0)):   # 흐리게 겹치지 않고 둘 다 불투명, 창 밖은 잘림
+        if not show: continue
+        im = _digits(s_, h); dig.alpha_composite(im, (right - im.width, int(oy + off)))
+    k = u / dur; L = int(blur0 * (1 - k) ** (pw - 1)) if a_s != b_s else 0   # 속도에 비례하는 세로 모션 블러(처음 강하고 끝 0)
+    if L >= 2:
+        arr = np.asarray(dig).astype(np.float32); arr[..., :3] *= arr[..., 3:4] / 255.0
+        c = np.cumsum(np.pad(arr, ((L, L), (0, 0), (0, 0))), axis=0)
+        arr = (c[2 * L:] - c[:-2 * L])[:ch] / (2 * L)
+        a = arr[..., 3:4]; arr[..., :3] = np.where(a > 0, arr[..., :3] * 255.0 / np.maximum(a, 1e-3), 0)
+        dig = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8), 'RGBA')
+    yy = np.arange(ch); win = np.clip(np.minimum(yy - (oy - 6), (oy + fin.height + 6) - yy) / (fin.height * P.get('window_fade', 0.10)), 0, 1)   # 슬롯 창: 숫자 높이 밖은 잘림
+    dig.putalpha(Image.fromarray((np.asarray(dig.getchannel('A')).astype(np.float32) * win[:, None]).astype(np.uint8)))
+    if ux and ux[0]: cv.alpha_composite(fin.crop((ux[0], 0, fin.width, fin.height)), (ox + ux[0], oy))   # 단위는 제자리
+    cv.alpha_composite(dig)
+    return cv
