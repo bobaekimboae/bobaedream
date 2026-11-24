@@ -118,26 +118,47 @@ PHOTO_BOTTOM = CAP_TOP - CAP_GAP   # 가로 사진(상자 맞춤) 아랫선 — 
 starts = [0.0] + [onset(c[2]) - 0.12 for c in CUTS[1:]]
 
 
+# 2026-11-25 박자 맞춤에서 빼는 배경음(박자 찾기가 두 방식 34%만 일치 — 박이 흐린 오케스트라 곡)
+BEAT_SNAP_EXCLUDE = ('cazz_orchestral_beat',)
+
+
 def _bgm_beats():
-    """배경음 박자 시각(초). 처음 한 번 librosa로 재고 bgm 폴더 옆 json에 저장(배경음은 0초부터 깔림, atrim=0)"""
+    """배경음 박자·마디 첫 박 시각(초). 처음 한 번 Beat This!(MIT, final0, dbn=False)로 재고 bgm 폴더 옆 json에 저장.
+    2026-11-25 librosa beat_track → Beat This!: librosa 「4박마다 강박」 추정은 실제 마디 첫 박과 6곡 중 5곡에서 0~4%만 맞았다.
+    madmom DBN은 쓰지 않는다(특허·비상업). 키 끝 ':bt' = Beat This! 결과(옛 librosa 키와 섞이지 않게).
+    BGM_START(초)로 배경음을 앞에서 잘라 깔면 박자·마디 첫 박도 같이 당긴다."""
     src = f'{ASSET}/bgm/' + getattr(C, 'BGM', 'bobae_showroom_v1.mp3')   # 2026-11-24 cfg BGM으로 배경음 바꿈(역동적: orshot_sports_highlights_bed_v1.mp3)
     cache = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bgm_beats.json')
     db_ = json.load(open(cache)) if os.path.exists(cache) else {}
-    key = os.path.basename(src) + ':' + str(os.path.getsize(src))
+    key = os.path.basename(src) + ':' + str(os.path.getsize(src)) + ':bt'
     if key not in db_:
-        import librosa
-        y_, sr_ = librosa.load(src, sr=22050, mono=True)
-        tempo_, fr_ = librosa.beat.beat_track(y=y_, sr=sr_)
-        db_[key] = {'tempo': float(np.atleast_1d(tempo_)[0]), 'beats': [round(float(t), 3) for t in librosa.frames_to_time(fr_, sr=sr_)]}
+        try:
+            import torchaudio  # noqa: F401  정식판이 있으면 그것
+        except ImportError:   # torch 2.15용 torchaudio가 아직 없음 — MelSpectrogram 같은 계산의 대체 모듈
+            sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'lib', 'torchaudio_shim'))
+        from beat_this.inference import File2Beats
+        b_, d_ = File2Beats(checkpoint_path='final0', device='cpu', dbn=False)(src)
+        b_ = [round(float(t), 3) for t in b_]; d_ = [round(float(t), 3) for t in d_]
+        iv = np.diff(b_) if len(b_) > 1 else np.array([0.5])
+        db_[key] = {'tempo': round(60.0 / float(np.median(iv)), 2), 'beats': b_, 'downbeats': d_, 'tool': 'beat_this 1.1.0 final0 dbn=False'}
         json.dump(db_, open(cache, 'w'), indent=1)
-    return db_[key]
+    r = dict(db_[key])
+    off = float(getattr(C, 'BGM_START', 0) or 0)
+    if off:
+        r['beats'] = [round(t - off, 3) for t in r['beats'] if t >= off]
+        r['downbeats'] = [round(t - off, 3) for t in r['downbeats'] if t >= off]
+    return r
 
 
-if getattr(C, 'BEAT_SNAP', False):
+_BGM_NAME = getattr(C, 'BGM', 'bobae_showroom_v1.mp3')
+if getattr(C, 'BEAT_SNAP', False) and any(x in _BGM_NAME for x in BEAT_SNAP_EXCLUDE):
+    print(f'  [박자 맞춤] {_BGM_NAME}: 박이 흐린 곡이라 박자 맞춤에서 뺌(BEAT_SNAP_EXCLUDE)')
+elif getattr(C, 'BEAT_SNAP', False):
     # 2026-11-22 캡컷 가이드 박자 맞춤(docs/shortform/capcut-guide-survey-v1.md): 컷 경계를 배경음 박자에 붙인다.
-    # 말 싱크를 지키려고 컷은 앞 낱말이 끝난 뒤 ~ 그 컷 첫 낱말 소리 시작 0.04초 전(최대 0.45초 전) 안에서만 움직인다. 구간 경계(WHOOSH_AT)는 강박(4박마다) 먼저.
+    # 말 싱크를 지키려고 컷은 앞 낱말이 끝난 뒤 ~ 그 컷 첫 낱말 소리 시작 0.04초 전(최대 0.45초 전) 안에서만 움직인다. 구간 경계(WHOOSH_AT)는 강박 먼저.
+    # 2026-11-25 강박 = Beat This!가 잰 실제 마디 첫 박(downbeats). 옛 「beats[::4]」는 곡 첫 박이 1~2초 늦게 잡혀 마디와 거의 안 맞았다.
     _bt = _bgm_beats(); _beats = np.array(_bt['beats'])
-    _strong = _beats[::4] if len(_beats) else _beats
+    _strong = np.array(_bt.get('downbeats', []))
     _moved = []
     for _i in range(1, len(starts)):
         _on = onset(CUTS[_i][2]); _hi = _on - 0.04
@@ -150,7 +171,9 @@ if getattr(C, 'BEAT_SNAP', False):
                 _pick = float(_c[np.argmin(np.abs(_c - starts[_i]))]); break
         if _pick is not None:
             _moved.append(round(float(_pick - starts[_i]), 3)); starts[_i] = _pick
-    print(f"  [박자 맞춤] 템포 {_bt['tempo']:.0f}BPM · 컷 {len(starts) - 1}개 중 {len(_moved)}개 박자에 붙임 · 이동 {_moved}")
+    _wa = sorted(set(getattr(C, 'WHOOSH_AT', [])))
+    _on_db = [i for i in _wa if 0 < i < len(starts) and len(_strong) and float(np.min(np.abs(_strong - starts[i]))) < 0.02]
+    print(f"  [박자 맞춤] 템포 {_bt['tempo']:.0f}BPM · 마디 첫 박 {len(_strong)}개 · 컷 {len(starts) - 1}개 중 {len(_moved)}개 박자에 붙임 · 구간 경계 {len(_on_db)}/{len(_wa)}개 마디 첫 박 · 이동 {_moved}")
 BODY = VOICE_LEN + TAIL
 ends = starts[1:] + [BODY]
 if getattr(C, 'AUTO_ZOOM', False):   # 매뉴얼 14장 — 부위 당기기(키프레임 자동), 규칙은 part_zoom_rules.json

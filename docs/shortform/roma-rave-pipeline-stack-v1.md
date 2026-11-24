@@ -88,3 +88,20 @@
 플래시 몽타주(사진 3장 × 0.3초) → 정면 사진 히어로 3.7초. 사진에서 차 윤곽(IS-Net + 가운데 덩어리 + 가이드 필터) → 차 폭 960px·높이 600px 이하로 맞춰 가운데 배치 → 배경은 꽉 채운 흐림 + 어둡게 + 위 밤하늘 + 브랜드색 후광 + 아래 바닥 어둡게 → 블렌더 3D 모델명(`bl_hero_text.py`, 18프레임)이 차 윤곽 크기·자리를 따라 솟아오름(제목 줄 575px 아래) → 노랑 붓칠 브랜드 + 흰 모델명 + 사실 줄 → 실루엣 흰 빛. 차 한 대 렌더 약 1분(블렌더 글자 별도 약 5~8분).
 
 샘플: 페라리 488 피스타 스파이더 · 람보르기니 우라칸 STO · 벤츠 G63 AMG · 포르쉐 911 터보 S 카브리올레 (`public/shortform-samples/nasser-intros-v1/`)
+
+## 8. 스택 변경 (2026-11-25, 9차 재조사 반영 — 지시: 클로드코드 Opus 5.5 · 반영: 시안 마스터)
+
+| 순위 | 대상 | 전 | 후 | 근거 |
+| --- | --- | --- | --- | --- |
+| 1 | 배경음 박자·강박 `photo_listing/common.py` `_bgm_beats()`·`BEAT_SNAP` | librosa beat_track, 강박 = `beats[::4]` | **Beat This!**(MIT, `final0`, `dbn=False`) 박자 + 마디 첫 박(downbeats), 강박 = downbeats | 옛 강박은 실제 마디 첫 박과 6곡 중 5곡에서 0~4%만 일치, 곡 첫 박 1~2초 늦음 |
+| 2 | 계기판·성능지 한글 `photo_listing/odometer.py` `read_lines()` · `report_cut.py --read` | PP-OCRv6 하나(한국어 없음) | 숫자 = PP-OCRv6 그대로, 한글 줄 = **korean_PP-OCRv5_mobile_rec** 두 번째 엔진 | 한글 오류율 88% → 18%, 숫자 v6 7/8 · v5 6/8 |
+| 3 | 딜러 육성 `lib/dealer_voice.py` · `listing_video_render.py` job `dealer_voice` | 처리 없음 | **DeepFilterNet3**(deep-filter 0.5.6 공식 실행 파일), 섞기 직전에만 | 말 없는 구간 잡음 약 40dB 감소 |
+| 4 | 서버 영상 처리(Laravel 12) | 미정 | **pbmedia/laravel-ffmpeg 8.10** | Laravel 12·13, PHP 8.3+ 정식 지원 |
+| 5 | 대본 있는 내레이션 낱말 시각 `photo_listing/align_script.py` | faster-whisper로 다시 받아씀(tr.py) | **Qwen3-ForcedAligner-0.6B**(별도 가상환경 /opt/qwen-align) | 첫 낱말 오차 중앙값 100ms → 20ms, 대본 글자 그대로 |
+
+- **박자**: `bgm_beats.json` 키 끝 `:bt` = Beat This! 결과(`beats`, `downbeats`, `tempo`, `tool`). 저장소 배경음 7곡 미리 계산해 둠. torch 2.15용 torchaudio가 아직 없어 `scripts/shortform/lib/torchaudio_shim/`(load + MelSpectrogram, torch.stft + librosa 멜 필터)로 돌린다 — 정식 torchaudio가 있으면 그것을 쓴다. `BGM_START`(초)로 배경음을 앞에서 잘라 깔면 박자·마디 첫 박도 같이 당긴다. 박이 흐린 오케스트라 곡 `cazz_orchestral_beat`는 `BEAT_SNAP_EXCLUDE`로 박자 맞춤에서 뺀다(두 방식 34%만 일치). 로그 `[박자 맞춤] … 구간 경계 N/M개 마디 첫 박`: 컷은 말 싱크 창(첫 낱말 0.45초 전 ~ 0.04초 전) 안에서만 움직이므로, 창 안에 마디 첫 박이 없으면 일반 박에 붙는다.
+- **한글 인식**: `odometer._ocr()`(v6) 결과·캐시 형식은 그대로라 주행거리 동그라미 찾기는 바뀌지 않는다. `odometer.read_lines(사진)` = 한글 줄(한국어 엔진) + 한글 줄과 숫자가 다른 v6 숫자 줄. `report_cut.py <차 폴더> --read [파일]`은 성능지 원본 글자를 줄 단위로 보여 주는 대조용(차량번호·차대번호처럼 보이는 줄은 가림) — 칸에 넣는 말은 사람이 확인한 사실만.
+- **딜러 육성**: `dealer_voice.denoise(입력, atten_db=None)` → 48kHz wav. 너무 깨끗해 어색하면 `atten_db=18`. ElevenLabs 음성·받아쓰기 전처리에는 쓰지 않는다. 설치 `lib/install_deep_filter.sh`. 음량은 섞은 뒤 `be_locked_rules.json` loudnorm.
+- **서버(Laravel 12)**: 영상 자르기·이어 붙이기·인코딩·썸네일은 `pbmedia/laravel-ffmpeg` 8.10(`FFMpeg::fromDisk()->open()->export()->toDisk()->inFormat(new X264)`), 무거운 렌더는 큐 작업으로. 리액트·Remotion 금지. Python 워커(렌더러·Beat This!·OCR·deep-filter·Qwen 정렬)는 큐에서 프로세스로 부르고 결과 파일만 주고받는다.
+- **낱말 시각**: `python3 align_script.py <차 폴더> [대본]`(기본 tts.txt → script.txt, `[calm]` 같은 태그는 뺌) → `voice_a_words.json` `[[시작, 끝, 어절]]`(tr.py와 같은 형식, 대본 띄어쓰기 어절로 다시 묶음). qwen-asr 0.0.6이 transformers 4.57.6을 고정 요구해 `/opt/qwen-align`(`--system-site-packages`, torch는 공유)에서 돌고, 기본 파이썬으로 실행하면 알아서 그 가상환경으로 다시 실행한다. 설치 `lib/install_qwen_align.sh`. 5분 이하. **대본 없는 딜러 육성은 tr.py(faster-whisper) 유지.**
+- **쓰지 않는 것**: Supertonic 3 · MeloTTS · Chatterbox · F5-TTS · XTTS v2 · EXAONE 3.5/4.0 · YOLOE/YOLO-World/Ultralytics · Stable Audio 3 · Hunyuan3D · madmom DBN · Remotion.
