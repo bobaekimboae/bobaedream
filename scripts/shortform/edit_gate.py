@@ -23,7 +23,8 @@ def pre(ed, renderer):
     want = norm(LOCK['editions'][ed]['renderer'])
     if norm(renderer) in {norm(k) for k in LOCK['compare_only'] if not k.startswith('_')}:
         bad(f'{norm(renderer)}는 비교용(출고 금지) — {LOCK["compare_only"].get("scripts/shortform/" + norm(renderer), "")}')
-    (ok if norm(renderer) == want else bad)(f'판 {ed}의 렌더러는 {want} (요청 {norm(renderer)})')
+    copies = {norm(x) for x in LOCK['editions'][ed].get('renderer_copies', [])}
+    (ok if norm(renderer) == want or norm(renderer) in copies else bad)(f'판 {ed}의 렌더러는 {want}' + (f' 또는 복사본 {len(copies)}개' if copies else '') + f' (요청 {norm(renderer)})')
 
 
 def post(video):
@@ -36,7 +37,8 @@ def post(video):
     if not ed or ed not in LOCK['editions']:
         bad(f'판 코드 없음/모름: {ed!r} — 렌더러가 판을 적지 않음(옛 렌더러로 만든 영상일 수 있음)'); return
     E = LOCK['editions'][ed]
-    (ok if norm(P.get('renderer', '')) == norm(E['renderer']).split('/')[-1] or norm(E['renderer']).endswith(P.get('renderer', '?')) else bad)(
+    _cp = [norm(x).split('/')[-1] for x in E.get('renderer_copies', [])]
+    (ok if norm(P.get('renderer', '')) == norm(E['renderer']).split('/')[-1] or norm(E['renderer']).endswith(P.get('renderer', '?')) or norm(P.get('renderer', '')) in _cp else bad)(
         f'렌더러 {P.get("renderer")} (판 {ed}는 {norm(E["renderer"])})')
     if E.get('order') == 'source':
         (ok if P.get('order') == 'source' else bad)(f'원본 순서·원본 길이 ({P.get("order")})')
