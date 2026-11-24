@@ -262,6 +262,7 @@ if getattr(C, 'DEALER_FOOTER', False):  # 딜러는 아래 띠가 맡으므로 �
     CHIPS = [c for c in CHIPS if c[0] not in _dl]
 # 같은 컷 두 칩: 앞 칩은 두 번째 칩이 뜨면 내려감
 CHIPS = sorted(CHIPS, key=lambda c: c[1])
+CHIP_BOX = {}   # 칩 번호 → 화면 상자(렌더 중 기록, plan.json에 남김)
 for k in range(len(CHIPS) - 1):
     if CHIPS[k][2] > CHIPS[k + 1][1]:
         CHIPS[k] = (CHIPS[k][0], CHIPS[k][1], CHIPS[k + 1][1])
@@ -1744,6 +1745,8 @@ def overlay(T):
                 if band:
                     y = min(y, band[0] - 36 - full.height)
             R.paste(ov, im, x + (full.width - im.width) / 2, y + (full.height - im.height) / 2, out)
+            if i not in CHIP_BOX and T >= st + 0.3 - 0.5 / FPS:   # 2026-11-25 check_be가 칩 상자 안만 재게(사진 속 노랑을 칩으로 잘못 재던 일)
+                CHIP_BOX[i] = [int(x), int(y), int(x + full.width), int(y + full.height)]
     for o in getattr(C, 'OVERLAYS', []):  # 오버레이(사진 속 자료 카드): 매물 사진은 그대로, 자료를 카드로 겹침
         st = onset(o['w0']) - 0.05
         en = (onset(o['w1']) - 0.08) if o.get('w1') is not None else ends[[c[2] for c in CUTS].index(max(c[2] for c in CUTS if c[2] <= o['w0']))]
@@ -1964,7 +1967,7 @@ def write_edition_plan(SFX):
     tilts = [*JITTER, getattr(C, 'DEALER_CHIP_TILT', 0.0), getattr(C, 'HOOK_TILT', 0.0)]
     if any(abs(float(x)) > 1e-6 for x in tilts): T.add('chip_tilt')
     json.dump({'edition': 'photo_listing', 'edition_code': 'ED-PHOTO', 'renderer': 'common.py', 'order': 'script', 'total': round(TOTAL, 3),
-               'techniques': sorted(T), 'chips': [{'label': a, 't0': round(b, 2), 't1': round(e, 2), 't_box': round(b + 0.3, 2), 'kind': 'point'} for a, b, e in CHIPS],
+               'techniques': sorted(T), 'chips': [dict({'label': a, 't0': round(b, 2), 't1': round(e, 2), 't_box': round(b + 0.3, 2), 'kind': 'point'}, **({'box': CHIP_BOX[k]} if k in CHIP_BOX else {})) for k, (a, b, e) in enumerate(CHIPS) if e > b],   # 화면에 한 번도 안 뜨는 칩(시작 ≥ 끝)은 계획에서 뺌
                'sfx': [{'sound': n, 't': round(t, 3)} for n, t, v in SFX], 'cuts': [round(x, 3) for x in starts]},
               open(OUT_FILE + '.plan.json', 'w'), ensure_ascii=False, indent=1)
     print('계획 파일:', OUT_FILE + '.plan.json')
