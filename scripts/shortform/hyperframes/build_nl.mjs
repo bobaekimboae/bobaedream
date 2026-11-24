@@ -15,8 +15,11 @@ fs.mkdirSync(path.join(out, 'assets'), { recursive: true })
 // 1) 바탕 영상: 컷마다 원본 구간을 말 길이에 맞춰 늘이거나 줄여 이어 붙임(그래픽 없음). 마지막 컷은 로고가 뜨는 끝까지 이어짐.
 const parts = []
 SEG.forEach((s, i) => {
-  const dur = (i + 1 < SEG.length ? s.t1 : TOTAL) - s.t0, [a, b] = s.c.src, rate = Math.min(2, (b - a) / dur), f = path.join(out, `assets/_c${i}.mp4`)
-  execFileSync('ffmpeg', ['-y', '-v', 'error', '-ss', String(a), '-t', String(dur * rate + 0.2), '-i', srcP, '-an', '-vf', `setpts=PTS/${rate.toFixed(5)},fps=${FPS},scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, '-t', dur.toFixed(4), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '14', '-pix_fmt', 'yuv420p', f])
+  // 파이썬 렌더러와 같은 규칙: 재생 속도 = 원본 길이 ÷ 말 길이(최대 2배), 프레임 경계는 round(t×30), 마지막 컷 뒤(로고 구간)는 마지막 프레임에서 멈춤
+  const last = i + 1 === SEG.length, n0 = Math.round(s.t0 * FPS), n1 = Math.round(s.t1 * FPS), nEnd = last ? Math.round(TOTAL * FPS) : n1
+  const dur = s.t1 - s.t0, [a, b] = s.c.src, rate = Math.min(2, (b - a) / dur), f = path.join(out, `assets/_c${i}.mp4`)
+  const hold = last ? `,tpad=stop_mode=clone:stop_duration=${((nEnd - n1) / FPS + 0.5).toFixed(3)}` : ''
+  execFileSync('ffmpeg', ['-y', '-v', 'error', '-ss', String(a), '-t', String(b - a + 0.05), '-i', srcP, '-an', '-vf', `setpts=(PTS-STARTPTS)/${rate.toFixed(6)},fps=${FPS}:round=near,trim=end_frame=${n1 - n0}${hold},scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, '-frames:v', String(nEnd - n0), '-g', String(FPS), '-c:v', 'libx264', '-preset', 'medium', '-crf', '12', '-pix_fmt', 'yuv420p', f])
   parts.push(`file '${path.basename(f)}'`)
 })
 fs.writeFileSync(path.join(out, 'assets/_list.txt'), parts.join('\n'))
@@ -29,6 +32,9 @@ fs.copyFileSync(path.join(repo, 'public/assets/shortform/bobae_logo_600.png'), p
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'), n3 = x => +x.toFixed(3)
 const els = [], tw = []   // tw = GSAP 줄
 const pop = (id, t, d = 0.14) => tw.push(`tl.fromTo("#${id}",{scale:0.6,opacity:0},{scale:1,opacity:1,duration:${d},ease:"back.out(2.2)"},${n3(t)});`)
+// 느린 다가가기: 파이썬 렌더러와 같은 1 + 0.045 × smoothstep(t ÷ 컷 길이). 로고 구간은 확대 없이 멈춘 프레임.
+SEG.forEach(s => tw.push(`tl.fromTo("#base",{scale:1},{scale:1.045,duration:${n3(s.t1 - s.t0)},ease:SS,immediateRender:false},${n3(s.t0)});`))
+tw.push(`tl.set("#base",{scale:1},${n3(ENDT)});`)
 // 첫 화면: 검정 상자 + 노랑 차명, 아래 한 줄
 const t1 = SEG[0].t1
 els.push(`<div id="title" class="clip top" style="top:${Math.round(H * (nl.title_y ?? 0.2))}px" data-start="0.08" data-duration="${n3(t1 - 0.08)}"><div class="box" style="font-size:${nl.title_px ?? 92}px;padding:26px 44px;border-radius:24px">${esc(car.title.brand + ' ' + car.title.model)}</div><div id="tsub" class="out sub">${esc(car.title.sub)}</div></div>`)
@@ -58,7 +64,7 @@ edit.chunks.forEach(([a, b], ci) => {
 })
 // 끝: 어두워지며 로고가 커짐
 els.push(`<div id="enddim" class="clip dim" style="opacity:0" data-start="${n3(ENDT)}" data-duration="${n3(TOTAL - ENDT)}"></div><img id="logo" class="clip" src="assets/logo.png" style="position:absolute;left:${(W - 520) / 2}px;top:560px;width:520px" data-start="${n3(ENDT)}" data-duration="${n3(TOTAL - ENDT)}">`)
-tw.push(`tl.fromTo("#enddim",{opacity:0},{opacity:0.55,duration:0.4},${n3(ENDT)});`, `tl.fromTo("#logo",{scale:0.5,opacity:0},{scale:1,opacity:1,duration:0.55,ease:"back.out(1.6)"},${n3(ENDT + 0.05)});`)
+tw.push(`tl.fromTo("#enddim",{opacity:0},{opacity:0.725,duration:0.3,ease:"none"},${n3(ENDT)});`, `tl.fromTo("#logo",{scale:0.5,opacity:0},{scale:1,opacity:1,duration:0.55,ease:"back.out(1.6)"},${n3(ENDT + 0.05)});`)
 const html = `<!doctype html>
 <html lang="ko" data-resolution="portrait"><head><meta charset="UTF-8"><meta name="viewport" content="width=${W}, height=${H}">
 <script src="assets/gsap.min.js"></script>
@@ -69,7 +75,7 @@ const html = `<!doctype html>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000;font-family:"PretendardBBM",sans-serif}
 #root{position:relative;width:${W}px;height:${H}px;overflow:hidden}
-#base{position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover}
+#base{position:absolute;inset:0;width:${W}px;height:${H}px;object-fit:cover;transform-origin:50% 50%}
 .dim{position:absolute;inset:0;background:#000}
 .top{position:absolute;left:0;width:${W}px;display:flex;flex-direction:column;align-items:center;transform-origin:50% 50%}
 .box{display:inline-block;background:#000;color:${YEL};font-weight:900;line-height:1.15;padding:18px 34px;border-radius:18px;white-space:nowrap;letter-spacing:-0.01em}
@@ -87,6 +93,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:#000;font-family
 ${els.join('\n')}
 </div>
 <script>
+const SS = x => x * x * (3 - 2 * x);
 const tl = gsap.timeline({ paused: true });
 ${tw.join('\n')}
 tl.to({}, { duration: ${TOTAL} }, 0);
