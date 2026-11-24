@@ -1,4 +1,4 @@
-# 숏폼 편집 기법 사전 v0.5.0
+# 숏폼 편집 기법 사전 v0.6.0
 
 > 이 파일은 `build.py`가 `techniques.json`으로 자동으로 만듭니다. 직접 고치지 마세요. 갱신: 2026-11-23
 
@@ -128,7 +128,7 @@
 | `FM-SEAT-HEAT` | 옵션 표시 | 열선 | seat_heat | 정보 | 🔥 + 「열선」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-VENT` | 옵션 표시 | 통풍 | seat_vent | 정보 | ❄️ + 「통풍」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-MASSAGE` | 옵션 표시 | 마사지 | seat_massage | 정보 | 💆 + 「마사지」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
-| `FM-SEAT-MEMORY` | 옵션 표시 | 메모리 시트 | seat_memory | 정보 | 💾 + 「메모리」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
+| `FM-SEAT-MEMORY` | 옵션 표시 | 메모리 시트 | seat_memory | 정보 | 🔢 + 「메모리」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-POWER` | 옵션 표시 | 전동 시트 | seat_power | 정보 | ⚡ + 「전동」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-SEAT-MATERIAL` | 옵션 표시 | 시트 재질 | seat_material | 정보 | 3D 글자 {material} | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |
 | `FM-CAMERA` | 옵션 표시 | 카메라 | camera | 정보 | 📷 + 「{camera}」 | ○ | ○ | ○ |  | 구현 | `scripts/shortform/photo_listing/auto_visuals.py:build` |

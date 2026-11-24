@@ -97,7 +97,7 @@
 | P02 | 소재 정리 | 사진: 부위 이름표(`mkcfg.py`) / 영상: 컷 시간표 · 부위 추적(`g350_track.py`) | 컷 목록, `tracks.json` |
 | P03 | 대본 | 사실 대조를 거친 대본(사진판 `option_visual_rules.json` `narration_rules`) | 대본 |
 | P04 | 음성 | 일레븐랩스 한국어 남성 목소리, 한 번 만들고 확인 | `voice.mp3` |
-| P05 | 낱말 시각 | faster-whisper large-v3-turbo(`tr.py`, `transcribe_words.py`) | 낱말 · 시각 JSON |
+| P05 | 낱말 시각 | 대본 있는 내레이션: Qwen3-ForcedAligner-0.6B(`align_script.py`, 대본 글자 그대로) / 대본 없는 딜러 육성: faster-whisper large-v3-turbo(`tr.py`, `transcribe_words.py`) | 낱말 · 시각 JSON(`voice_a_words.json`) |
 | P06 | 기법 고르기 | 영상판 `feature_edit_planner.py`(조건으로 T01~T08 선택), 사진판 `auto_visuals.py` · `part_zoom.py` | `plan.json` |
 | P07~P12 | 그리기 · 소리 섞기 | 렌더러(4-2) — 자막 · 칩 · 아이콘 · 움직임 · 효과음 · 배경음 | 영상 + `.plan.json` |
 | P13 | 합치기 · 음량 | FFmpeg, 음량 맞춤 | mp4 |
@@ -260,6 +260,7 @@ python3 shortform-kit/catalog/export_xlsx.py 출력.xlsx  # 시트 사본용 xls
 | 매물 준비 · 성능기록부 카드 · 대본 | `sag_auto.py prep` | 약 7초 | 없음 |
 | 음성 | 일레븐랩스 1회 | 대기 수 분 · 288 / 258 크레딧 | 생성 1회 승인 |
 | 낱말 시각 | `tr.py`(faster-whisper) | 약 27초(2대 53초) | 없음 |
+| 낱말 시각(대본 있음, 2026-11-25~) | `align_script.py`(Qwen3-ForcedAligner) | 91어절 약 24초 | 없음 |
 | cfg 자동 | `sag_auto.py cfg` | 0.05초 + 앞좌석 고르기 54초(처음 한 번, 캐시) | 없음 |
 | 사실 · 자막 · 문체 검사 | `check_cfg.py`(+ K1 `fact_check.py`) | 약 2초 | 실패할 때만 |
 | 렌더 | `common.py` | 단독 91~99초 · **2대 동시 98초**(처리량 약 1.9~2.2배) | 없음 |

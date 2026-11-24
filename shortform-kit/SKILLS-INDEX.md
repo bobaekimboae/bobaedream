@@ -88,14 +88,18 @@ G350 이전 판(v09 · v10 · v11)은 `public/shortform-samples/g350-v09~v11/`�
 | 장면 · 부위 이름표 | SigLIP 2 base(google) · transformers | transformers 5.24 · torch 2.15 · Apache-2.0 |
 | 부위 상자 찾기 | OWLv2 base ensemble | Apache-2.0 |
 | 부위 따라가기 | VitTrack(opencv_zoo 2023sep) · CSRT 대체 경로 | OpenCV 5.1.0.95 · Apache-2.0 |
-| 받아쓰기 · 낱말 시각 | faster-whisper large-v3-turbo | 1.2.1 · ctranslate2 4.9.1 · MIT |
-| 글자 인식 | RapidOCR(PP-OCRv6) · onnxruntime | 3.10.0 · 1.32 · Apache-2.0 |
+| 받아쓰기 · 낱말 시각(대본 없는 딜러 육성) | faster-whisper large-v3-turbo | 1.2.1 · ctranslate2 4.9.1 · MIT |
+| 낱말 시각(대본 있는 ElevenLabs 내레이션) | Qwen3-ForcedAligner-0.6B · qwen-asr 0.0.6(`align_script.py`, 별도 가상환경 `/opt/qwen-align`) | transformers 4.57.6 · Apache-2.0 · 2026-11-25 |
+| 글자 인식 | RapidOCR(숫자 PP-OCRv6 · 한글 줄 korean_PP-OCRv5_mobile_rec) · onnxruntime | 3.10.0 · 1.32 · Apache-2.0 |
+| 배경음 박자 · 마디 첫 박 | Beat This! final0(`dbn=False`) + torchaudio 대체(`lib/torchaudio_shim`) | 1.1.0 · MIT · 2026-11-25 |
+| 딜러 육성 잡음 제거 | DeepFilterNet3 · deep-filter(`lib/dealer_voice.py`) | 0.5.6 · MIT/Apache-2.0 · 섞기 직전에만 |
 | 음성 | ElevenLabs eleven_v3(Taehyung 등) | 유료 API, 한 번만 생성 |
 | 효과음 찾기 | Openverse API(익명, 쪽당 20개) → Freesound CC0 녹음 · uisfx(CC0) | `scripts/shortform/sfx_opensource/fetch_openverse.py` |
 | 효과음 '귀'(채점) | **earshot 1.0.0 `rank`·`describe`·`timeline`**(CLAP+AST, 322개 설명) · 1차 거르기는 CLAP 직접 | MIT · `earshot_check.sh` · strong(z ≥ 3.0)만 기본 후보 |
 | 그리기 | Pillow · numpy | 13 · 2.5.5 |
 | 영상 · 음량 | FFmpeg | 시스템 6.1.1 · 작업용 9.0.2 |
 | 실행 | Python | 3.13.18(시안 전용, 서비스는 Nuxt 4 · Laravel 12) |
+| 서버 영상 처리(예정) | pbmedia/laravel-ffmpeg | 8.10 · MIT · 리액트 · Remotion 금지 |
 
 ## 6. 운영 규칙
 

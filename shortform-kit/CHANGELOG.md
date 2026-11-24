@@ -6,6 +6,19 @@
 - 사전 `catalog/techniques.json`의 `version`은 맨 위 버전과 같아야 한다(`build.py`가 검사).
 - v0.0.1~v0.0.5는 예전 마스터 문서(`docs/shortform/shortform-master.md`)의 v1.0~v1.4를 2026-11-22에 옮긴 것이다.
 
+## v0.6.0 · 2026-11-25
+
+숏폼 파이프라인 스택 변경 5가지(노션 에이전트 의견 422ee9c4b60681f3a861e2ff4eb50c7c, 작성 클로드코드 · 반영 시안 마스터). 커밋 c155f3ed7 · 0aba0bb11, 브랜치 work/roma-rave-v5. 상세 `docs/shortform/roma-rave-pipeline-stack-v1.md` 8장 — 사용자(「숏폼 파이프라인 스택 변경 요청 … 순서대로 반영해 줘」)
+
+- **배경음 박자 = Beat This! 1.1.0**(MIT, `dbn=False`): `common.py _bgm_beats()`가 librosa 대신 박자와 마디 첫 박(downbeats)을 함께 저장하고, BEAT_SNAP의 강박을 `_beats[::4]` → 실제 마디 첫 박으로 바꿈. 옛 「4박마다 강박」은 6곡 중 5곡에서 실제 마디 첫 박과 0~4%만 맞았음. 오케스트라 곡 `cazz_orchestral_beat`는 박자 맞춤에서 뺌(`BEAT_SNAP_EXCLUDE`). 곡별 결과는 `bgm_beats.json`에 미리 저장(배경음 7곡). torch 2.15용 torchaudio가 없어 `scripts/shortform/lib/torchaudio_shim`(소리 읽기 · 멜 스펙트로그램)으로 대신함. 시험(파비스 트럭): 컷 13개 중 9개가 박자에 붙음
+- **한글 글자 인식 2번째 엔진**: `odometer.py`·`report_cut.py`에서 숫자는 RapidOCR(PP-OCRv6) 그대로, 한글 줄에만 korean_PP-OCRv5_mobile_rec. 한글 오류율 88% → 18%. 새 명령 `report_cut.py --read`(성능기록부 사진 글자 줄 뽑기, 차량번호 · 차대번호 모양 줄은 가림)
+- **딜러 육성 잡음 제거 = DeepFilterNet3**(deep-filter 0.5.6, `lib/dealer_voice.py`): 딜러 원본 목소리를 섞기 직전에만, `.dfn.wav`로 저장해 재사용. 말 없는 구간 잡음 약 40dB 감소. ElevenLabs 음성 · 받아쓰기 전처리에는 쓰지 않음. 렌더러 job `dealer_voice` 칸
+- **대본 있는 내레이션 낱말 시각 = Qwen3-ForcedAligner-0.6B**(Apache-2.0, `align_script.py`, 별도 가상환경 `/opt/qwen-align` · transformers 4.57.6): 대본 글자 그대로 시각만 붙여 `voice_a_words.json`으로 넘김(렌더러 수정 없음). 첫 낱말 오차 중앙값 100ms → 20ms. 대본 없는 딜러 육성은 faster-whisper(`tr.py`) 유지
+- **서버 기준 = pbmedia/laravel-ffmpeg 8.10**(Laravel 12). 리액트 · Remotion 금지
+- 쓰지 않는 것(확정): Supertonic 3 · MeloTTS · Chatterbox · F5-TTS · XTTS v2 · EXAONE 3.5/4.0 · YOLOE · YOLO-World · Ultralytics · Stable Audio 3 · Hunyuan3D · madmom DBN · Remotion
+- 함께 고친 것: 사진판 계획 파일에 칩 상자(`box`) 기록 · 한 번도 안 나오는 칩 제외(check_be 「칩 칠 높이」 실패 원인), 빠져 있던 Fluent 3D ⛽(26fd) 공식 파일 추가
+- 검사: check_be 통과(−14.2 LUFS, 칩 윗선 396~408). v13 같은 시각 비교는 아직 안 함 — 「규칙 통과」까지만
+
 ## v0.5.0 · 2026-11-23
 
 - **G350 버전 1 확정**: 에이전트들과 함께 개선할 기준 영상. v13 + 규칙 위반 3곳 수정 — ① 3,500kg 큰 숫자가 번호판 위 → 자막 자리로 내리고 말 자막 숨김(`BIG_LOW`) ② 견인고리 칩이 번호판을 덮던 0.75초 → 칩 지연(`CHIP_DELAY`) ③ 칩 좌우 여백 24 → 40px(`SAFE_X`). check_be·edit_gate 모두 통과. 배포 `public/shortform-samples/g350-v1/`, 공용 문서 `docs/shortform/g350-v1-agent-handoff.md` — 사용자(「수정하고 배포해라 … 최종판을 에이전트들과 같이 개선할 버전 1 영상으로 하자」)

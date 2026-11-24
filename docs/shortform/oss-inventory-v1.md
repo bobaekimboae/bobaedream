@@ -7,7 +7,8 @@
 
 | 할 일 | 오픈소스 | 버전 | 라이선스 | 쓰는 곳 |
 |---|---|---|---|---|
-| 낱말 시각 받아쓰기 | faster-whisper · CTranslate2 | 1.2.1 · 4.9.1 | MIT | 영상·사진 숏폼 전부 |
+| 낱말 시각 받아쓰기 | faster-whisper · CTranslate2 | 1.2.1 · 4.9.1 | MIT | 대본 없는 딜러 육성 |
+| 대본 낱말 시각 맞춤(2026-11-25) | Qwen3-ForcedAligner-0.6B · qwen-asr | 0.0.6 | Apache-2.0 | ElevenLabs 내레이션(별도 가상환경) |
 | 영상 자르기·합치기·인코딩 | FFmpeg | 6.1.1 | GPL 빌드(libx264·x265) | 서버 렌더 |
 | 이미지 그리기·글자 | Pillow · NumPy | 13.0 · 2.5 | MIT-CMU · BSD | 칩·자막·카드 |
 | 영상 프레임 처리 | OpenCV | 5.1 | Apache-2.0 | 추적·자르기 |
@@ -16,10 +17,12 @@
 | 점 추적 | TAPNet(BootsTAPIR) | — | Apache-2.0 | 로마 화살표 칩 |
 | 물체 추적 | OpenCV Zoo VitTrack | 2023sep | Apache-2.0 | 부위 따라가기 |
 | 번호판 찾기 | OpenCV Zoo LPD-YuNet | 2023mar int8 | Apache-2.0 | 영상 편집 가림·오탐 검사 |
-| 계기판 글자 읽기 | RapidOCR(PP-OCRv6) | 3.10 | Apache-2.0 | 주행거리 확인 |
+| 계기판 글자 읽기 | RapidOCR(숫자 PP-OCRv6 · 한글 줄 korean_PP-OCRv5_mobile_rec) | 3.10 | Apache-2.0 | 주행거리 확인 · 성능기록부 읽기 |
+| 딜러 육성 잡음 제거(2026-11-25) | DeepFilterNet3 · deep-filter | 0.5.6 | MIT/Apache-2.0 | 딜러 원본 목소리, 섞기 직전 |
 | 효과음 고르기 | LAION CLAP | larger_clap_general | Apache-2.0 | 효과음 채점 |
 | 효과음 원본 | Openverse | — | CC0만 받음 | 효과음 라이브러리 |
-| 소리 분석 | librosa · soundfile | 1.0 · 0.14 | ISC · BSD-3 | 박자·자르기 |
+| 배경음 박자·마디 첫 박(2026-11-25) | Beat This! | 1.1.0 | MIT | BEAT_SNAP |
+| 소리 분석 | librosa · soundfile | 1.0 · 0.14 | ISC · BSD-3 | 자르기 · 멜 계산(박자는 Beat This!) |
 | 손·몸 찾기 | MediaPipe | 0.10.32 | Apache-2.0 | 설치만 됨 |
 | 모델 실행 | PyTorch · transformers · onnxruntime | 2.15 · 5.24 · 1.32 | BSD/Apache · Apache · MIT | 공통 |
 | 글꼴 | Pretendard | — | OFL | 자막·칩 |
@@ -69,3 +72,7 @@
 1. edge-tts를 빼고 MeloTTS-Korean을 시험한다(샘플 1개, 음질 비교).
 2. PySceneDetect와 MediaPipe Hands로 「장면 후보 + 손 가림 제외」를 만들어 로마 r13 장면 고르기에 쓴다.
 3. nuxt-shootkit 버전 정리(vue 3.5.33, onnxruntime-web 1.30.0)는 촬영 키트 담당 작업창에 넘긴다.
+
+## 변경 이력
+
+- 2026-11-25: 스택 변경 반영 — Beat This!(박자) · RapidOCR 한글 엔진 · DeepFilterNet3(딜러 육성) · Qwen3-ForcedAligner(대본 낱말 시각) 추가, 서버 laravel-ffmpeg 8.10. 상세 `shortform-kit/CHANGELOG.md` v0.6.0
