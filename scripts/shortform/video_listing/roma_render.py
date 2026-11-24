@@ -195,9 +195,29 @@ def lens(cv,base,tx,ty,cx,cy,t,t_in,D=320,Z=2.2):   # v6 기법 5: 돋보기 원
     g=ease((t-t_in)/0.25); d=max(20,int(D*(0.6+0.4*g))); r=D/Z/2
     reg=base.crop((int(tx-r),int(ty-r),int(tx+r),int(ty+r))).resize((d,d),Image.LANCZOS)
     mk=Image.new('L',(d,d),0); ImageDraw.Draw(mk).ellipse((0,0,d-1,d-1),fill=255); reg.putalpha(mk)
-    dr=ImageDraw.Draw(cv); dr.line((cx,cy,tx,ty),fill=(255,255,255,int(230*g)),width=5)
+    dr=ImageDraw.Draw(cv)
+    if _LENS_OLD: dr.line((cx,cy,tx,ty),fill=(255,255,255,int(230*g)),width=5)
     sh=Image.new('RGBA',(d+40,d+40)); ImageDraw.Draw(sh).ellipse((20,26,d+20,d+26),fill=(0,0,0,150)); cv.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)),(int(cx-d/2-20),int(cy-d/2-20)))
-    cv.alpha_composite(reg,(int(cx-d/2),int(cy-d/2))); dr.ellipse((cx-d/2,cy-d/2,cx+d/2,cy+d/2),outline=(255,255,255,255),width=7)
+    cv.alpha_composite(reg,(int(cx-d/2),int(cy-d/2)))
+    if _LENS_OLD: dr.ellipse((cx-d/2,cy-d/2,cx+d/2,cy+d/2),outline=(255,255,255,255),width=7)
+    else: hr=hand_ring(d); cv.alpha_composite(hr,(int(cx-hr.width/2),int(cy-hr.height/2)))
+# r20 「모든 요소는 손글씨(이모지 제외)」: 돋보기 테두리를 기계 원 대신 손으로 그은 고리(겹쳐 그은 끝·굵기 변화)로, 노랑 + 화살표·체크와 같은 진한 테두리. 노션 DB에 손그림 원 원본이 없어 같은 붓 결로 그림. 이어 긋던 흰 직선은 뺌(화살표가 부위를 가리킴). LENS_STYLE=old면 이전 흰 원+직선
+_LENS_OLD=os.environ.get('LENS_STYLE')=='old'; _hrc={}
+def hand_ring(d):
+    if d in _hrc: return _hrc[d]
+    S=3; pad=24; n=d+2*pad; big=Image.new('L',(n*S,n*S),0); dw=ImageDraw.Draw(big); rng=np.random.default_rng(7)
+    a0=math.radians(-118); a1=a0+math.radians(400); m=900
+    ph=rng.uniform(0,6.3,3)
+    for i in range(m+1):
+        u=i/m; a=a0+(a1-a0)*u
+        rr=d/2*(1.02+0.035*math.sin(2*a+ph[0])+0.02*math.sin(3*a+ph[1])+0.07*u)   # 끝으로 갈수록 살짝 바깥으로 겹쳐 지남
+        w=(5+9*math.sin(math.pi*min(1,u*1.1))**0.5)   # 시작·끝 가늘고 가운데 굵게
+        x=(n/2+rr*math.cos(a))*S; y=(n/2+rr*math.sin(a))*S; r=w*S/2
+        dw.ellipse((x-r,y-r,x+r,y+r),fill=255)
+    al=big.resize((n,n),Image.LANCZOS)
+    out=Image.new('RGBA',(n,n),INK+(0,)); ob=al.filter(ImageFilter.MaxFilter(5)); out.putalpha(ob)
+    ly=Image.new('RGBA',(n,n),YEL+(0,)); ly.putalpha(al); out.alpha_composite(ly)
+    _hrc[d]=out; return out
 _yy,_xx=np.mgrid[0:2*H,0:2*W]; _rr=np.hypot(_xx-W,_yy-H)
 SPOT=np.clip((_rr-300)/200,0,1)   # v6 기법 6: 스포트라이트 — 부위 둘레 반지름 300 밝게, 200px에 걸쳐 어두워짐
 del _yy,_xx,_rr
