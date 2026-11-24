@@ -17,16 +17,19 @@ CARS = {
     'sto': ('람보르기니', '우라칸 STO', '2023년 5월 등록 · 가솔린 · 7,000km', 'p01', ['p02', 'p03', 'p09'], 'hero_sto', (40, 200, 80)),
     'g63': ('벤츠', 'G63 AMG', '2022년 9월 등록 · 가솔린 · W463 · 29,900km', 'p01', ['p02', 'p03', 'p07'], 'hero_g63', (120, 150, 255)),
     'p911ts': ('포르쉐', '911 터보 S 카브리올레', '2023년 2월 등록 · 가솔린 · 992 · 3,405km', 'p01', ['p02', 'p04', 'p06'], 'hero_p911ts', (230, 40, 30)),
+    # 2026-11-24 문제현 대표(서울오토갤러리) 사진 매물 — 사실 줄은 보배드림 매물 기본정보
+    'q8': ('아우디', 'Q8 55 TFSI', '2024년 9월 등록 · 가솔린 · 30,800km', 'p01', ['p09', 'p28', 'p03'], 'hero_q8', (60, 110, 255)),
+    'e53': ('벤츠', 'E53 AMG 쿠페', '2023년 1월식 · 가솔린 · 33,000km', 'p02', ['p09', 'p28', 'p03'], 'hero_e53', (230, 30, 30)),
 }
 key = sys.argv[1]; BRAND, MODEL, FACT, HERO, MONT, HDIR, GLOW = CARS[key]
 SRC = J + key + '/src/'; OUT = J + f'nas_intro/nasser_intro_{key}.mp4'
-FPS = 30; MT = 0.3; INTRO = MT * len(MONT); HERO_T = 3.7; TOTAL = INTRO + HERO_T
+FPS = 30; MT = 0.3; INTRO = MT * len(MONT); HERO_T = float(os.environ.get('NAS_HERO_T', 3.7)); TOTAL = INTRO + HERO_T   # 사진 숏폼 첫 컷에 쓸 때는 첫 문장 길이에 맞춤
 
 
 def ease(x): x = min(1.0, max(0.0, x)); return 1 - (1 - x) ** 3
 
 
-def load(n): return Image.open(SRC + n + '.webp').convert('RGB')
+def load(n): return Image.open(next(SRC + n + e for e in ('.webp', '.jpg', '.png') if os.path.exists(SRC + n + e))).convert('RGB')
 
 
 def cover(im, z=1.0):   # 9:16 꽉 채우기(가운데 자르기) + 확대
@@ -116,7 +119,8 @@ for f in range(int(round(TOTAL * FPS))):
             ma = np.array(mz) > 128; cols = np.nonzero(ma.mean(0) > 0.02)[0]
             x0, x1 = cols.min(), cols.max(); cxm = (x0 + x1) / 2; cwid = x1 - x0
             mid = ma[:, int(x0 + cwid * 0.25):int(x1 - cwid * 0.25)]; rows = np.nonzero(mid.mean(1) > 0.3)[0]; top = rows.min() if len(rows) else 800
-            tw = min(1250.0, max(720.0, cwid * 0.98)); bs = top + 0.17 * tw
+            tw = min(1250.0, max(720.0, cwid * 0.98)); tw = min(tw, float(os.environ.get('NAS_TXT_H', 430)) * CH[-1].width / CH[-1].height)   # 짧은 이름(Q8)이 화면을 넘지 않게 높이 상한
+            bs = top + 0.17 * tw
             if 's' in TS: tw, cxm, bs = [p * 0.75 + q * 0.25 for p, q in zip(TS['s'], (tw, cxm, bs))]
             TS['s'] = (tw, cxm, bs)
             ki = min(len(CH) - 1, int(max(0.0, th - 0.08) * 30)); im = CH[ki]; sc = tw / CH[-1].width
@@ -134,6 +138,8 @@ for f in range(int(round(TOTAL * FPS))):
         slam(cv, HM, (M - 10 + hb[2] + 6, YB + (hb[1] + hb[3] - HM.height) // 2), th, 0.6); pop(cv, HS, (M - 4, YB + hb[3] + 16), th, 0.85)
     proc.stdin.write(cv.convert('RGB').tobytes())
 proc.stdin.close(); proc.wait()
+if os.environ.get('NAS_OUT_V'):   # 소리 없는 영상만(사진 숏폼 렌더러가 첫 컷 바탕으로 씀)
+    import shutil; shutil.copy('/tmp/ni_v.mp4', os.environ['NAS_OUT_V']); print('영상만', os.environ['NAS_OUT_V'], round(TOTAL, 2)); sys.exit(0)
 
 # 소리: 배경음 + 휙(몽타주) + 쿵(히어로) → −14 LUFS
 A_ = R['audio']; BG = A + 'bgm/bobae_supercar_v1.mp3'

@@ -359,17 +359,17 @@ def overview_steps(car, spec, bg):
                 if not on:
                     icn = icn.copy(); icn.putalpha(icn.getchannel('A').point(lambda v: v * 30 // 100))
                 px = 36 if big else 28
-                im.alpha_composite(icn, (bx0 + px, by0 + (40 if big else 30)))
+                im.alpha_composite(icn, (bx0 + px, by0 + (32 if big else 30)))
                 d = ImageDraw.Draw(im)
-                d.text((bx0 + px, by0 + (188 if big else 128)), name, font=F(R.SEMI, 36 if big else 30), fill=GREY if on else (205, 201, 192), anchor='lm')
+                d.text((bx0 + px, by0 + (152 if big else 128)), name, font=F(R.SEMI, 36 if big else 30), fill=GREY if on else (205, 201, 192), anchor='lm')
                 fv = F(R.HEAVY, 58 if big else 46)
                 if d.textlength(val, font=fv) > bw - 70:
                     fv = F(R.HEAVY, 48 if big else 38)
                 col = INK if on else (205, 201, 192)
                 if on:
-                    bb = d.textbbox((bx0 + px, by1 - (52 if big else 36)), val, font=fv, anchor='lm')
+                    bb = d.textbbox((bx0 + px, by1 - (46 if big else 36)), val, font=fv, anchor='lm')
                     d.rectangle((bb[0] - 6, bb[3] - 20, bb[2] + 6, bb[3] + 4), fill=YEL)
-                d.text((bx0 + px, by1 - (52 if big else 36)), val, font=fv, fill=col, anchor='lm')
+                d.text((bx0 + px, by1 - (46 if big else 36)), val, font=fv, fill=col, anchor='lm')
         if ov.get('foot'):
             d.text((W // 2, y1 - 44), ov['foot'], font=F(R.MED, 26), fill=GREY, anchor='mm')
         outs.append(im)

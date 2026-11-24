@@ -279,10 +279,12 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
     for ci, c in enumerate(cuts):
         if ci == 0 and NUM['skip_first_cut']:
             continue
+        if c[0] in getattr(C, 'CARD_PHOTOS', ()):   # 2026-11-24 독립 카드 컷(차량 정보 등)은 카드 칸이 숫자를 이미 보여 줌
+            continue
         a = c[2]
         b = cuts[ci + 1][2] - 1 if ci + 1 < len(cuts) else len(words) - 1
         shown = ' '.join([c[4][0] if c[4] else ''] + [t for t, wi in getattr(C, 'EXTRA_CHIPS', []) if a <= wi <= b] + sk_txt.get(c[0], []))
-        have = [v for v in _vals_in(shown) if v]
+        have = [v for v in _vals_in(shown) if v is not None]  # 0(「보험 이력 0건」)도 칩에 있는 값
         def _wt(i):   # 받아쓰기가 「57」「,998km」로 나눈 숫자는 이어 붙인다(2026-11-22 K9: 「57」만 크게 뜸)
             t = words[i][2]
             if i + 1 < len(words) and re.match(r'^[,.]\d', words[i + 1][2]):

@@ -159,6 +159,8 @@ if getattr(C, 'AUTO_ZOOM', False):   # 매뉴얼 14장 — 부위 당기기(키�
     CUTS = [tuple(c[:6]) + (_zk[i],) + tuple(c[7:]) if i in _zk else c for i, c in enumerate(CUTS)]
     for _l in _zr:
         print('  [부위 당기기]', _l)
+INTRO = getattr(C, 'INTRO_CLIP', None)  # 2026-11-24 나세르식 인트로 영상(소리 없음)을 첫 컷 바탕으로 — 첫 컷 제목(HOOK)은 인트로가 대신함
+INTRO_HERO_AT = getattr(C, 'INTRO_HERO_AT', 0.9)  # 인트로 몽타주가 끝나고 히어로가 뜨는 시각(쿵)
 END_CARD = getattr(C, 'END_CARD', True)  # False = 끝 보배드림 화면 없이 마지막 장면을 0.8초 어둡게 닫음
 if not END_CARD:
     END_S = 0.8
@@ -1567,7 +1569,7 @@ def overlay(T):
     HE = FW[1][0] if 1 in FW else starts[1]  # 첫 페이드가 시작되기 전에 제목을 내림
     if getattr(C, 'HOOK_HOLD', False) and 1 in FW:  # 2026-11-17: 제목을 넘김 끝 직전까지(약 2초) 유지
         HE = FW[1][1] - 0.08
-    if HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
+    if not INTRO and HD <= T < HE:  # 첫 화면: 「페라리」 노랑 칩 + 같은 줄 흰 큰 글자 + 아래 한 줄
         T0 = T; T = T - HD
         e = R.back(T / .28)
         # 2026-11-17 원본 BE(Tesla Model Y 첫 화면) 대조: 브랜드 띠 글자 = 모델 흰 글자 같은 크기·같은 줄,
@@ -1735,7 +1737,10 @@ def _sfx_plan():
     big = set(getattr(C, 'SFX_CHIPS', []))
     ev = [('whoosh', 0.0, .30)]                                   # 엠블럼 확대 시작
     hz = getattr(C, 'HOOK_DELAY', 0.0)
-    ev.append(('pop', max(0.05, hz - 0.02), .42))                 # 타이틀 올라옴
+    if INTRO:
+        ev.append(('impact', INTRO_HERO_AT, .50))                 # 인트로 히어로 등장(쿵)
+    else:
+        ev.append(('pop', max(0.05, hz - 0.02), .42))             # 타이틀 올라옴
     for (txt, st, en) in CHIPS:                                   # 칩: 큰 숫자 딩, 나머지 팝(벨기에 띠)
         ev.append(('ding' if txt in big else 'pop', st - 0.02, .45 if txt in big else .40))
     _isfx = (_av_rules() or {}).get('layout', {}).get('icon_sfx')
@@ -1767,6 +1772,14 @@ def _sfx_plan():
                 out[-1] = e   # 칩·딩이 휙·아이콘 팝보다 우선
             continue
         out.append(e)
+    _same = _BE['sfx'].get('same_sound_min_gap_s', 0.6)   # 2026-11-24 같은 소리(팝·팝)가 규칙 간격보다 붙으면 뒤 것을 뺌(짧은 카드 공개 컷·아이콘)
+    _o2 = []
+    for e in out:
+        _p = [x for x in _o2 if ('pop' if x[0] == 'icon' else x[0]) == ('pop' if e[0] == 'icon' else e[0])]
+        if _p and e[1] - _p[-1][1] < _same:
+            continue
+        _o2.append(e)
+    out = _o2
     g = float(os.environ.get('BBM_SFX_GAIN') or getattr(C, 'SFX_GAIN', 1.6))  # 2026-11-17 사용자: 효과음(틱·팝) 더 크게 — 기본 1.6배(약 +4dB)
     return [('pop' if n == 'icon' else n, max(0.0, t), min(1.0, v * g)) for n, t, v in out]
 
@@ -1817,6 +1830,7 @@ def write_edition_plan(SFX):
     칩 기울기가 0이 아니면 chip_tilt(금지 기법)를 적어 관문에서 걸리게 한다."""
     T = {'kenburns', 'bgm', 'loudness_rule'}
     if getattr(C, 'HOOK', None): T.add('title_brand_chip')
+    if INTRO: T.add('nasser_intro')
     if CHIPS: T.update({'card_basic', 'point_chip'})
     if END_CARD and (getattr(C, 'DEALER_CHIP', None) or (_lgp and os.path.exists(_lgp))): T.add('end_dealer')
     if SFX: T.add('sfx_rules')
@@ -1847,9 +1861,18 @@ if __name__ == '__main__':
     endc = R.end_card()
     nb = int(round(BODY * FPS))
     last = None
+    ip = None; ifr = None
+    if INTRO:   # 인트로 영상 프레임을 차례로 읽어 첫 컷 바탕으로 씀(넘김 직전 0.15초부터는 원래 첫 컷 사진 → 다음 컷 넘김)
+        ip = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', os.path.join(SC, INTRO), '-vf', f'scale={W}:{H},fps={FPS}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
     for fi in range(nb):
         T = fi / FPS
-        base = Image.fromarray(base_frame(T)).convert('RGBA')
+        if ip is not None and T < starts[1] - 0.15:
+            raw = ip.stdout.read(W * H * 3)
+            if len(raw) == W * H * 3:
+                ifr = Image.frombytes('RGB', (W, H), raw)
+            base = ifr.convert('RGBA')
+        else:
+            base = Image.fromarray(base_frame(T)).convert('RGBA')
         last = base.copy()
         base.alpha_composite(overlay(T))
         enc.stdin.write(base.convert('RGB').tobytes())
@@ -1873,5 +1896,7 @@ if __name__ == '__main__':
         fr.alpha_composite(LOGO, ((W - LOGO.width) // 2, int(H * .70)))
         enc.stdin.write(fr.convert('RGB').tobytes())
     enc.stdin.close(); enc.wait()
+    if ip is not None:
+        ip.kill()
     mix_audio()
 
