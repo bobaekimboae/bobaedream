@@ -1,6 +1,8 @@
 #!/bin/bash
 # M235i 작업 폴더 다시 만들기(/dev/shm은 재시작하면 지워짐). 사용: m235_prep.sh <원본 mp4> <일레븐랩스 음성 mp3 주소 또는 파일>
 set -e
+# FFmpeg 9.0 사용(2026-11-25, 6.1과 비교 렌더 SSIM 0.993 · 검사 둘 다 통과)
+H0=$(cd "$(dirname "$0")" && pwd); bash $H0/../install_ffmpeg9.sh; export PATH=${FF9_DIR:-/opt/ff9}:$PATH
 D=${M235_DIR:-/dev/shm/m235/job}; H=$(cd "$(dirname "$0")" && pwd); mkdir -p $D; cd $D
 cp $H/samples/m235_job.json job.json
 python3 - "$1" <<'P'
