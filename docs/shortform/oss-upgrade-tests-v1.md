@@ -81,3 +81,8 @@
 - 우리 렌더 코드의 libx264 호출은 모두 -preset을 적고 있어, 샌드박스 6.1.1 실행기의 「preset 없으면 veryfast」 기능이 빠져도 속도 차 없음.
 - 설치: `/home/claude/tools/ffmpeg-9.1` + 감싸기 `/home/claude/tools/bin/{ffmpeg,ffprobe}`(9.1이 안 돌면 6.1.1로 넘어감). 6.1.1은 그대로 둠.
 - 기본 전환 완료(2026-11-25 12:37 사용자 승인): `/root/.profile`·`/root/.bashrc` 2번째 줄에 `/home/claude/tools/bin`을 PATH 맨 앞으로. 새로 여는 셸·파이썬 subprocess가 9.1을 씀. 되돌리기: 두 파일의 그 한 줄을 지우면 6.1.1.
+
+## T4 적용 (2026-11-25 12:45, 클로드 마스터 2, 사용자 「바꿔」)
+- OpenCV 5.1.0(contrib) · onnxruntime 1.32.0을 `/home/claude/tools/pylib`에 깔고 `/root/.profile`·`/root/.bashrc` 3번째 줄에서 PYTHONPATH 맨 앞으로. 시스템 판(5.0 · 1.29)은 그대로 둠.
+- 새 환경(FFmpeg 9.1 + OpenCV 5.1)으로 포드 GT 다시 렌더 → 9.1 + 5.0 렌더와 바이트까지 같음. 계기판 OCR `1778.3km` 같음. Qwen 정렬기(/opt/qwen-align, 시스템 패키지 같이 씀)도 결과 같음.
+- 되돌리기: 두 파일 3번째 줄 삭제.
