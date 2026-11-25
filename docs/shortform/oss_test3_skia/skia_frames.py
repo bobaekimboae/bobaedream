@@ -1,6 +1,6 @@
 import os, sys, time, subprocess, importlib, numpy as np
 from PIL import Image, ImageDraw
-REPO='/home/claude/bbm-align'; OUT=sys.argv[1]
+REPO=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','..')); OUT=sys.argv[1]
 sys.path.insert(0, REPO+'/scripts/shortform/video_listing')
 raw=subprocess.run(['ffmpeg','-v','error','-ss','8','-i',REPO+'/public/shortform-samples/g350-v13/g350-v13.mp4','-vf','fps=0.5,scale=1080:1920','-frames:v','30','-f','rawvideo','-pix_fmt','rgb24','-'],capture_output=True).stdout
 F=np.frombuffer(raw,np.uint8).reshape(-1,1920,1080,3); print('프레임',len(F))

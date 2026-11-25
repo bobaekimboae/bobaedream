@@ -5,10 +5,18 @@ PIL ImageDraw의 polygon·ellipse·line은 가장자리를 부드럽게(안티�
 - arrimg(L, below, fill, ink): g350_v5_lib.arrimg와 같은 꼭짓점·같은 이미지 크기·같은 위 여백 p를 돌려준다.
 - ring(cv, box, color, width) / seg(cv, xy0, xy1, color, width): lens()의 원 테두리·연결선.
 라이선스: skia-python BSD-3-Clause, Skia BSD-3-Clause.
+판 고정: skia-python==138.0 (lib/requirements-skia.txt). 시험 숫자는 이 판 기준이다. 144.1에서도 결과 영상은 같았지만
+원·선이 약 2배 느렸다(클로드 마스터 2 교차 검증). 다른 판이면 시작할 때 한 번 알린다.
 """
+import os
+import sys
 import numpy as np
 import skia
 from PIL import Image
+
+PINNED = '138.0'
+if getattr(skia, '__version__', '') != PINNED and not os.environ.get('BBM_SKIA_QUIET'):
+    print(f'[skia_draw] skia-python {getattr(skia, "__version__", "?")} — 고정판 {PINNED}과 다름 (lib/requirements-skia.txt)', file=sys.stderr)
 
 _ac = {}
 
