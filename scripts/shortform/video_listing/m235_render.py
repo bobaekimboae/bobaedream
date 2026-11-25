@@ -27,6 +27,9 @@ def ws(key):  # 단어 시작
     raise KeyError(key)
 idx=lambda key,after=0: next(j for j,(w,s,e) in enumerate(WS) if j>=after and w.replace(' ','').startswith(key))
 TR=json.load(open(G+'tracks.json')) if os.path.exists(G+'tracks.json') else {}
+# 11-25 「손 닿는 부분」 「화살표 버벅」: hand_point_track.py 결과(손끝 우선 · 튀는 값 버림 · σ3프레임 평활)가 있으면 그것으로 바꿈
+if os.environ.get('HAND','1')!='0' and os.path.exists(G+'hand_tracks.json'):
+    _HT=json.load(open(G+'hand_tracks.json')); TR={k:v for k,v in _HT.items() if k in TR or v.get('by','').startswith('hand')}
 TRK0=set(TR)
 _PLAN=json.load(open(os.environ.get('PLAN',G+'plan_auto.json')))   # v8: 자동 계획
 PL={c['key']:{} for c in _PLAN['cuts']}
@@ -64,7 +67,7 @@ C=[]
 for k,(key,w0,lab,cw,bg) in enumerate(_CT):
     s0=_st[k]; s1=_st[k+1] if k+1<len(_CT) else VOICE+1.7
     cwi=_i(cw,_fw[k]) if cw else None
-    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 and key not in ('c7','c11','c13','c8') else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
+    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 and (key not in ('c7','c11','c13','c8') or TR.get(key,{}).get('by','').startswith('hand')) else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
 ENDT=WS[_i('자세한')][1]-0.12; TOTAL=VOICE+1.7
 starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]
@@ -406,6 +409,9 @@ for t0,t1,c in SEG:
         if _ok: pts=smooth([_raw[min(_ok,key=lambda j:abs(j-i))] for i in range(len(_raw))],k=3)
     TS0,TS1=(TR[key]['s0'],TR[key]['s1']) if key in TR else (s0,s1)   # r06: 추적은 자기 시작 시각 기준(컷 시작과 다르면 화살표가 늦게 따라가던 문제)
     def tix(st_): return min(len(pts)-1,max(0,int(round((st_-TS0)*30))))
+    def ptf(st_):   # 프레임 사이 소수 보간(속도 바뀌는 컷에서 화살표가 계단처럼 걷던 문제)
+        f=min(len(pts)-1.0,max(0.0,(st_-TS0)*30)); i=int(f); j=min(len(pts)-1,i+1); u=f-i
+        return (pts[i][0]+(pts[j][0]-pts[i][0])*u, pts[i][1]+(pts[j][1]-pts[i][1])*u)
     CHIPLAB[key]=clab; Cimg=gchip(clab) if clab else None; Simg=white(sub[0],58) if sub else None
     BIG=[(text3d(b,h=180 if key!='__pw' else 210),white(l,58) if l else None,WS[j][1]-t0-0.22) for b,l,j in bigs]; BIGS=[b for b,l,j in bigs]
     _metak=[k for it in MET['items'] for k in it['keywords']]
@@ -466,7 +472,7 @@ for t0,t1,c in SEG:
         outline(cv,key,st,tomap)
         if Cimg is not None:
             if pts is not None:
-                pi=tix(st); tx,ty=tomap(*pts[pi])
+                tx,ty=tomap(*ptf(st))
             else: tx,ty=W/2,H*0.62
             for e in PL.get(key,{}).get('T05',[]):   # T05 스포트라이트(다음 부위 낱말에서 다시 밝게)
                 q=TP['T05']; a0=e['at']-t0; fo=(e['fade_out_at']-t0) if e.get('fade_out_at') else 1e9
@@ -481,7 +487,7 @@ for t0,t1,c in SEG:
                 L=0
             else: cx,cy,L,bl=place(Cimg,tx,ty,bl)
             if av and av[0]<=st<=av[1] and t>=tc+0.18 and TS0<=st<=TS1 and VALID[tix(st)]:
-                g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*abs(math.sin((t-tc-0.43)*5))) if t>tc+0.43 else 0
+                g=ease((t-tc-0.18)/0.25); Lc=max(20,round(L*(0.55+0.45*g))); bob=round(BOB*0.5*(1-math.cos((t-tc-0.43)*5))) if t>tc+0.43 else 0   # abs(sin)은 바닥에서 꺾여 튐 → 부드러운 오르내림
                 A,off=arrimg(L,bl); A=A.resize((A.width,round(A.height*Lc/L))) if Lc!=L else A; offc=round(off*Lc/L)
                 if LOGON: _LOG.append(['arr',nfr,key,round(tx),round(ty),bl,L,Lc,bob,cx,cy,Cimg.getbbox()])
                 if bl: tail=ty+TG+L; cv.alpha_composite(A,(int(tx-A.width/2),int(tail-Lc-bob-offc)))
