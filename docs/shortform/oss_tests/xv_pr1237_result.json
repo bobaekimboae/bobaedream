@@ -1,0 +1,22 @@
+{
+ "what": "마스터1 PR #1237 gap_check() 교차 검증 (클로드 마스터 2)",
+ "date": "2026-11-25",
+ "pr_head": "c811e780f",
+ "inputs": "시험 1 음성 3개(kkc_gwagen · taehyung_roma · hwan_huracan) + scripts.json, /opt/qwen-align",
+ "reproduced_pr_numbers": {"kkc_gwagen": 0.02, "taehyung_roma": 0.02, "hwan_huracan": 0.26, "note": "PR 본문 숫자와 같음, 경고 0건"},
+ "finding_1_zero_check_dead_with_snap": {
+   "fact": "snap() 마지막 단계가 0초 어절을 0.03~0.06초로 늘리므로 쉼 맞춤 켠 기본 경로에서는 zero_length가 항상 빈 목록",
+   "raw_zero_words_before_snap": {"taehyung_roma": ["페라리", "스티어링"], "hwan_huracan": ["있습니다."], "kkc_gwagen": []},
+   "post_snap_zero_reported": 0,
+   "fix": "0초 검사는 쉼 맞춤 전(정렬기 원값)에서 한다"
+ },
+ "finding_2_self_scoring": {
+   "fact": "snap()이 어절 시작을 말소리 시작으로 옮긴 뒤 같은 말소리 시작과 비교하므로 차이가 거의 0으로 나옴",
+   "big_snap_move": {"taehyung_roma": [["육백이십", 0.57]]},
+   "post_snap_diff_for_that_word": 0.02,
+   "fix": "쉼 맞춤이 어절을 0.30초 넘게 옮긴 곳도 경고(정렬기와 소리가 크게 어긋난 곳 = 사람 확인 대상)"
+ },
+ "finding_3_nearest_word_ok": {"injected_plus_0_5s": 18, "caught": 18, "note": "운영 경로(쉼 맞춤 켬)에서 가장 가까운 어절 방식도 문제없음"},
+ "finding_4_minor": ["segs[1:]라 음성 맨 앞 첫 어절은 검사 안 함", "json.dump(open(...)) 파일 안 닫음"],
+ "verdict": "경고 전용이라 병합해도 해 없음. 다만 지금 상태로는 0초 어절은 절대 안 잡히고 큰 보정도 안 보임 → 위 2가지 추가 권장"
+}

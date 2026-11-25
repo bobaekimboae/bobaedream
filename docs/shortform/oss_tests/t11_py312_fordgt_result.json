@@ -1,0 +1,19 @@
+{
+ "test": "T11 (순위표 6번) 워커 파이썬 3.13 → 3.12",
+ "by": "클로드 마스터 2 (Claude Code · Opus 5.5)",
+ "date": "2026-11-25",
+ "car": "fordgt (joy10 사진 매물, photo_listing/common.py, 코드 스냅샷 /home/claude/bobaedream 8348707d + 작업 중 수정본)",
+ "ffmpeg": "9.1 (직접 빌드, 두 번 모두 같음)",
+ "python": {"old": "3.13.18", "new": "3.12.3 (/usr/bin/python3.12, 별도 설치 없음)"},
+ "packages": {"numpy": "2.5.3", "pillow": "12.3.0", "onnxruntime": "1.32.0", "opencv-contrib": "5.1.0.95 (abi3, 공용)"},
+ "output_md5": {"py313": "8eaf4a9ac6357cafca4d7a0e6d220b8d", "py312": "8eaf4a9ac6357cafca4d7a0e6d220b8d"},
+ "bit_identical": true,
+ "ssim_all": 1.0, "frames": 1466, "frames_below_099": 0,
+ "duration_s": 48.867, "lufs": -14.0, "true_peak_db": -1.9,
+ "plan_json_identical": true,
+ "check_be": {"py313": "통과", "py312": "통과"},
+ "render_sec": {"py313": [54.3, 55.1], "py312": [64.4, 62.7]},
+ "speed_note": "3.12가 2회 모두 약 15% 느림(같은 기계, 순서 바꿔 2회). 출력은 바이트까지 같음",
+ "scope_limit": "디스크 여유 0.5GB라 requirements-lock 전체(torch·transformers·librosa·faster-whisper·rapidocr)는 3.12에 설치하지 않음. 이 렌더는 부위 위치·계기판·박자 캐시(src2/*.json, bgm_beats.json)를 써서 무거운 모듈을 부르지 않음. 받아쓰기·부위 찾기·OCR 단계의 3.12 동작은 미확인",
+ "verdict": "렌더 결과 동일 → 3.12로 통일해도 영상은 안 바뀜. 단 렌더 시간 약 15% 손해. 「requirements-lock 그대로 설치」 조건은 부분 통과"
+}
