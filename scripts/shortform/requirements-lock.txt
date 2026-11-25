@@ -1,18 +1,20 @@
 # 숏폼 워커 판 고정 (T4, 2026-11-25). 지금 이 환경에서 쓰는 판.
-# 2026-11-25 적용: opencv-contrib-python==5.1.0.95 · onnxruntime==1.32.0 (/home/claude/tools/pylib, PYTHONPATH 앞) — 아래 5.0·1.29는 시스템에 남은 예비판
+# 2026-11-25 적용: opencv-contrib-python==5.1.0.95 · onnxruntime==1.32.0 (/home/claude/tools/pylib, PYTHONPATH 앞). 시스템 예비판 5.0·1.29는 주석으로만 남김
+# 2026-11-25 추가: skia-python==138.0 (시험 3번 PR #1238, 마스터1 요청. 이 기계엔 지금 144.1 — 결과 같고 원·선 약 2배 느림)
 # FFmpeg 9.1 (공식 원본 직접 빌드, oss_tests/build_ffmpeg91.sh) — T2-b 통과, 설치 완료
 #   근거 docs/shortform/oss-upgrade-tests-v1.md T4 결과
 ctranslate2==4.9.1
 faster-whisper==1.2.1
 huggingface_hub==2.4.0
 numpy==2.5.3
-onnxruntime==1.29.0
-opencv-contrib-python==5.0.0.93
-opencv-python==5.0.0.93
-opencv-python-headless==5.0.0.93
+onnxruntime==1.32.0
+opencv-contrib-python==5.1.0.95
+# opencv-python==5.0.0.93 (예비판, contrib와 cv2가 겹치므로 설치하지 않음)
+# opencv-python-headless==5.0.0.93 (예비판, 위와 같음)
 pillow==12.3.0
 rapidocr==3.10.0
 scipy==1.18.1
+skia-python==138.0
 torch==2.15.0+cpu
 torchvision==0.29.2+cpu
 transformers==5.24.0
