@@ -1,0 +1,17 @@
+# 숏폼 워커 판 고정 (T4, 2026-11-25). 지금 이 환경에서 쓰는 판.
+# 시험 통과한 다음 판(사용자 승인 뒤 교체): opencv-*==5.1.0.95 · onnxruntime==1.32.0
+#   근거 docs/shortform/oss-upgrade-tests-v1.md T4 결과
+ctranslate2==4.9.1
+faster-whisper==1.2.1
+huggingface_hub==2.4.0
+numpy==2.5.3
+onnxruntime==1.29.0
+opencv-contrib-python==5.0.0.93
+opencv-python==5.0.0.93
+opencv-python-headless==5.0.0.93
+pillow==12.3.0
+rapidocr==3.10.0
+scipy==1.18.1
+torch==2.15.0+cpu
+torchvision==0.29.2+cpu
+transformers==5.24.0
