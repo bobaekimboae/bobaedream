@@ -1,0 +1,168 @@
+<title>자막 싱크 듣기 비교</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* 레이아웃: 위 안내 + 결과 막대, 아래 문장 카드 세로 목록. 카드 안 = 재생 줄 + 자막 A/B 두 줄 + 갈리는 낱말 판정 */
+:root{
+  --bg:#F3F4F6; --card:#FFFFFF; --fg:#1A1C20; --muted:#5E6470; --line:#E1E4E9;
+  --stage:#16181C; --yellow:#F5F200; --blue:#306BD9; --pick:#EAF0FB;
+  --font:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111317; --card:#1B1E24; --fg:#ECEEF2; --muted:#9AA1AD; --line:#2C3038; --stage:#08090B; --pick:#1E2C47; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111317; --card:#1B1E24; --fg:#ECEEF2; --muted:#9AA1AD; --line:#2C3038; --stage:#08090B; --pick:#1E2C47; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 120px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+h1{font-size:24px;font-weight:900;margin:0;text-wrap:balance}
+.intro{color:var(--muted);margin:0}
+.intro b{color:var(--fg)}
+.how{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.how p{margin:0}
+.speed{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{height:32px;padding:0 12px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--fg);font:500 14px var(--font);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.cid{font-size:13px;color:var(--muted)}
+.play{height:36px;padding:0 16px;border-radius:18px;border:0;background:var(--blue);color:#fff;font:700 14px var(--font);cursor:pointer}
+.stage{background:var(--stage);border-radius:10px;padding:14px 12px;display:flex;flex-direction:column;gap:12px}
+.track{display:flex;gap:10px;align-items:flex-start}
+.tag{flex:0 0 26px;height:26px;border-radius:6px;background:#fff;color:#111;font:900 14px var(--font);display:grid;place-items:center;margin-top:4px}
+.sub{flex:1;min-width:0;color:#fff;font-weight:900;font-size:20px;line-height:1.45;word-break:keep-all;
+  text-shadow:-1.5px 0 #000,1.5px 0 #000,0 -1.5px #000,0 1.5px #000,0 2px 6px rgba(0,0,0,.6)}
+.sub span{transition:none}
+.sub span.on{color:var(--yellow)}
+.sub span.dis{text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:5px}
+.bar{height:3px;background:#2C3038;border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--yellow)}
+.qs{display:flex;flex-direction:column;gap:10px}
+.q{display:flex;flex-wrap:wrap;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:10px}
+.q .w{font-weight:700;min-width:0;flex:1 1 140px}
+.q .w small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.q .chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.reveal{font-size:12px;color:var(--muted)}
+.dock{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);
+  padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dock .in{max-width:760px;margin:0 auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dock .cnt{flex:1;min-width:140px;font-size:14px}
+.dock .cnt b{font-variant-numeric:tabular-nums}
+textarea{width:100%;box-sizing:border-box;min-height:120px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:13px ui-monospace,monospace;padding:8px}
+.chip:focus-visible,.play:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <h1>자막 싱크 듣기 비교</h1>
+  <p class="intro">문장마다 자막이 두 줄 나옵니다. <b>A와 B 중 하나는 지금 기본(C, CTC 정렬), 다른 하나는 운영 방식(E, Qwen 전체 음성 + 쉼 맞춤)</b>입니다. 어느 쪽인지는 숨겨 두었습니다. 밑줄 친 낱말이 두 방식이 0.10초 넘게 갈리는 23곳입니다.</p>
+  <div class="how">
+    <p>1. <b>재생</b>을 누르고 노랑이 말소리와 함께 바뀌는지 봅니다. 느리게 들으면 차이가 잘 보입니다.</p>
+    <p>2. 갈리는 낱말마다 더 맞는 쪽을 고릅니다. 낱말 이름을 누르면 그 앞 1초부터 다시 재생합니다.</p>
+    <p>3. 다 고르면 아래 <b>결과 보기</b>로 A·B 정체와 집계를 확인하고, 복사해서 채팅에 붙여 주세요.</p>
+    <div class="speed" role="group" aria-label="재생 속도">
+      <span class="cid">재생 속도</span>
+      <button class="chip" data-rate="1" aria-pressed="false">1배</button>
+      <button class="chip" data-rate="0.75" aria-pressed="true">0.75배</button>
+      <button class="chip" data-rate="0.5" aria-pressed="false">0.5배</button>
+    </div>
+  </div>
+  <div id="list"></div>
+  <div id="result" class="card" hidden>
+    <div id="summary"></div>
+    <textarea id="out" readonly aria-label="복사할 결과"></textarea>
+    <div><button class="play" id="copy">결과 복사</button></div>
+  </div>
+</div>
+<div class="dock"><div class="in">
+  <div class="cnt">고른 낱말 <b id="done">0</b> / <b id="total">0</b></div>
+  <button class="chip" id="show">결과 보기</button>
+</div></div>
+
+<script>
+const DATA = /*DATA*/[];
+const audio = new Audio(); audio.preload = 'auto';
+let rate = 0.75, cur = null, raf = 0;
+const picks = {};
+try { Object.assign(picks, JSON.parse(localStorage.getItem('bbm-sync-picks') || '{}')); } catch (e) {}
+const save = () => { try { localStorage.setItem('bbm-sync-picks', JSON.stringify(picks)); } catch (e) {} };
+const list = document.getElementById('list');
+list.style.cssText = 'display:flex;flex-direction:column;gap:16px';
+let total = 0;
+DATA.forEach((d, si) => {
+  const card = document.createElement('section'); card.className = 'card';
+  const subs = ['A','B'].map(k => `<div class="track"><div class="tag">${k}</div><div class="sub" data-k="${k}">${
+    d.words.map((w, i) => `<span class="${d.dis.includes(i+1)?'dis':''}">${w}</span>`).join(' ')}</div></div>`).join('');
+  card.innerHTML = `<div class="head"><span class="cid">${si+1}. ${d.voice} · ${d.id}</span><button class="play">재생</button></div>
+    <div class="stage">${subs}<div class="bar"><i></i></div></div><div class="qs"></div>`;
+  const qs = card.querySelector('.qs');
+  d.dis.forEach(n => {
+    total++;
+    const key = d.id + '#' + n, w = d.words[n-1];
+    const q = document.createElement('div'); q.className = 'q';
+    q.innerHTML = `<button class="chip w-btn" title="앞 1초부터 재생">▶ ${w}</button>
+      <span class="w"><small>A ${d.A[n-1][0].toFixed(2)}초 · B ${d.B[n-1][0].toFixed(2)}초 시작</small></span>
+      <span role="group" aria-label="${w} 판정" style="display:flex;gap:6px;flex-wrap:wrap">
+      ${['A','B','같음'].map(v => `<button class="chip pick" data-v="${v}" aria-pressed="${picks[key]===v}">${v==='같음'?'비슷함':v+' 맞음'}</button>`).join('')}</span>`;
+    q.querySelector('.w-btn').onclick = () => play(si, Math.max(0, Math.min(d.A[n-1][0], d.B[n-1][0]) - 1));
+    q.querySelectorAll('.pick').forEach(b => b.onclick = () => {
+      picks[key] = b.dataset.v; save();
+      q.querySelectorAll('.pick').forEach(x => x.setAttribute('aria-pressed', x === b));
+      count();
+    });
+    qs.appendChild(q);
+  });
+  card.querySelector('.play').onclick = () => play(si, 0);
+  list.appendChild(card);
+  d.el = card;
+});
+document.getElementById('total').textContent = total;
+function count(){ document.getElementById('done').textContent = Object.keys(picks).filter(k => DATA.some(d => k.startsWith(d.id+'#'))).length; }
+count();
+document.querySelectorAll('[data-rate]').forEach(b => b.onclick = () => {
+  rate = +b.dataset.rate; audio.playbackRate = rate;
+  document.querySelectorAll('[data-rate]').forEach(x => x.setAttribute('aria-pressed', x === b));
+});
+function clear(d){ d.el.querySelectorAll('.sub span').forEach(s => s.classList.remove('on')); d.el.querySelector('.bar i').style.width = 0; d.el.querySelector('.play').textContent = '재생'; }
+function play(si, from){
+  const d = DATA[si];
+  if (cur !== null && cur !== si) { clear(DATA[cur]); }
+  if (cur === si && !audio.paused && from === 0) { audio.pause(); return; }
+  cur = si;
+  if (!audio.src.endsWith(d.file)) audio.src = d.file;
+  audio.playbackRate = rate;
+  const go = () => { audio.currentTime = from; audio.play().catch(() => {}); };
+  audio.readyState >= 1 ? go() : audio.addEventListener('loadedmetadata', go, { once: true });
+  d.el.querySelector('.play').textContent = '멈춤';
+  cancelAnimationFrame(raf); tick();
+}
+function tick(){
+  if (cur === null) return;
+  const d = DATA[cur], t = audio.currentTime;
+  ['A','B'].forEach(k => {
+    const spans = d.el.querySelectorAll(`.sub[data-k="${k}"] span`);
+    let on = -1; d[k].forEach((x, i) => { if (t >= x[0]) on = i; });
+    if (on >= 0 && t > d[k][on][1] + 0.25 && on === d[k].length - 1) on = -1;
+    spans.forEach((s, i) => s.classList.toggle('on', i === on));
+  });
+  if (audio.duration) d.el.querySelector('.bar i').style.width = (t / audio.duration * 100) + '%';
+  raf = requestAnimationFrame(tick);
+}
+audio.addEventListener('pause', () => { if (cur !== null) DATA[cur].el.querySelector('.play').textContent = '재생'; });
+audio.addEventListener('ended', () => { if (cur !== null) clear(DATA[cur]); cancelAnimationFrame(raf); });
+document.getElementById('show').onclick = () => {
+  let c = 0, e = 0, s = 0; const lines = ['문장\t낱말\t고름\tA정체\t맞다고 고른 방식'];
+  DATA.forEach(d => d.dis.forEach(n => {
+    const v = picks[d.id + '#' + n]; if (!v) return;
+    const real = v === '같음' ? '비슷함' : (v === 'A' ? d.aIs : (d.aIs === 'C' ? 'E' : 'C'));
+    real === 'C' ? c++ : real === 'E' ? e++ : s++;
+    lines.push([d.id, d.words[n-1], v, d.aIs, real].join('\t'));
+  }));
+  document.getElementById('summary').innerHTML = `<b>C(지금 기본) ${c} · E(운영 방식) ${e} · 비슷함 ${s}</b>`;
+  DATA.forEach(d => { if (!d.el.querySelector('.reveal')) d.el.querySelector('.head').insertAdjacentHTML('beforeend', `<span class="reveal">A = ${d.aIs} · B = ${d.aIs === 'C' ? 'E' : 'C'}</span>`); });
+  document.getElementById('out').value = lines.join('\n');
+  const r = document.getElementById('result'); r.hidden = false; r.scrollIntoView({ behavior: 'smooth' });
+};
+document.getElementById('copy').onclick = () => {
+  const t = document.getElementById('out');
+  navigator.clipboard.writeText(t.value).then(() => document.getElementById('copy').textContent = '복사했어요')
+    .catch(() => { t.focus(); t.select(); });
+};
+</script>
