@@ -203,6 +203,34 @@ def cmd_run(a):
         print(f"SAM {c['id']}: {len(res['frames'])}/{n} 프레임 · {res['seconds']}초 · ${spent:.2f} 누적")
 
 
+def cmd_runbox(a):
+    """글자로 못 잡은 컷을 상자+점 프롬프트(sam31_box_prompts.json)로 한 번씩만 다시 돌린다. 결과는 sam_box/ — 기존 sam/ 는 덮지 않음."""
+    sys.path.insert(0, HERE)
+    import sam31_api
+    if not os.environ.get('MODEL_API_KEY'):
+        raise SystemExit('⛔ MODEL_API_KEY 없음 — 키가 있는 세션에서 실행하세요(요금이 나가므로 재시도 금지)')
+    B = json.load(open(os.path.join(HERE, 'sam31_box_prompts.json')))
+    S = {c['id']: c for c in load_set()['cuts']}
+    od = os.path.join(a.work, 'sam_box')
+    os.makedirs(od, exist_ok=True)
+    spent = 0.0
+    for b in pick(B['cuts'], a.only):
+        out = os.path.join(od, b['id'] + '.json')
+        if os.path.exists(out) and not a.force:
+            continue
+        c = S[b['id']]
+        n = int(round((c['t1'] - c['t0']) * FPS))
+        cost = max(MIN_BILL, n) * PRICE
+        if spent + cost > a.budget:
+            raise SystemExit(f'⛔ 예산 ${a.budget} 도달(지금 ${spent:.2f}) — 멈춤')
+        r = sam31_api.segment(os.path.join(a.work, 'clips', b['id'] + '.mp4'), b['prompt'], conf=True,
+                              direction='both' if b['frame'] > 0 else None)
+        spent += cost
+        r.update({'n_frames': n, 'billed_frames': max(MIN_BILL, n), 'cost_usd': round(cost, 4), 'try': 0, 'box_prompt': b})
+        json.dump(r, open(out, 'w'), ensure_ascii=False)
+        print(f"SAM(상자) {b['id']}: {len(r['frames'])}/{n} 프레임 · {r['seconds']}초 · ${spent:.2f} 누적")
+
+
 # ---------- 4) 채점 ----------
 def track_of(js, method):
     """프레임 → 상자 하나. SAM은 가장 많이 나온 물체 번호 하나를 따라간다(신뢰도 0.4 미만 프레임은 숨김)."""
@@ -381,7 +409,7 @@ def cmd_render(a):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('step', choices=['clips', 'baseline', 'run', 'score', 'render'])
+    ap.add_argument('step', choices=['clips', 'baseline', 'run', 'runbox', 'score', 'render'])
     ap.add_argument('--work', default='sam31_work')
     ap.add_argument('--only')
     ap.add_argument('--src', action='append')
@@ -390,7 +418,7 @@ def main():
     ap.add_argument('--alt', action='store_true', help='빈 결과면 alt 프롬프트 한 번 더(비용 추가)')
     ap.add_argument('--out', default='sam31_compare.mp4')
     a = ap.parse_args()
-    {'clips': cmd_clips, 'baseline': cmd_baseline, 'run': cmd_run, 'score': cmd_score, 'render': cmd_render}[a.step](a)
+    {'clips': cmd_clips, 'baseline': cmd_baseline, 'run': cmd_run, 'runbox': cmd_runbox, 'score': cmd_score, 'render': cmd_render}[a.step](a)
 
 
 if __name__ == '__main__':
