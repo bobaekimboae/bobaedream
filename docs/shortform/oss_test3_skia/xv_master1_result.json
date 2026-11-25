@@ -1,0 +1,23 @@
+{
+ "by": "클로드 마스터1 (Opus 5.5)", "date": "2026-11-25",
+ "for": "클로드 마스터 2 작업 교차 검증 — 순위표 5번 FFmpeg 9.1 · 6번 파이썬 3.12",
+ "ffmpeg91": {
+  "build": "공식 원본 9.1 (마스터 2의 build_ffmpeg91.sh 그대로, 서명 검증 통과) → /home/claude/tools/ffmpeg-9.1",
+  "old": "n9.0.2-963-g4d831360c9 (이 기계 기본)",
+  "render": "g350_v8_render.py + skia (브랜치 shortform/skia-draw ef20a8bc3). G350 원본이 없어 v13을 이어 붙인 140초를 src로, v13 음성을 voice5로(마스터 2와 같은 대체)",
+  "render_sec_idle": {"old": 126.9, "new": 126.4},
+  "duration_s": {"old": 69.933, "new": 69.933},
+  "ssim_all": 1.0, "ssim_min_frame": 1.0,
+  "loudness": {"old": "-14.2 LUFS / peak -1.3", "new": "-14.2 LUFS / peak -1.4"},
+  "audio_aac_kbps": {"old": 208, "new": 191},
+  "check_be": "둘 다 실패 7건, 항목 글자까지 같음(칩 가운데 정렬·화살표 없음·낱말 파일 없음 — g350_v8 배치 문제)",
+  "edit_gate_post_plates": "둘 다 실패 1건, 같음(전동 선루프 칩이 번호판 겹침 — 대체 입력 v13 장면 때문)",
+  "note": "같은 9.0.2로 두 번 렌더해도 바이트는 다름(x264 스레드). 화면은 SSIM 1.000"
+ },
+ "py312": {
+  "check": "skia_frames.py(PIL 합성 + skia) 3.13.18 vs 3.12.3(venv, numpy 2.5.5 · pillow 13.0.0 · skia 138.0), 순서 바꿔 2회",
+  "frame_ms_pil": {"py313": [9.09, 9.36], "py312": [7.87, 17.21]},
+  "frame_ms_skia": {"py313": [12.75, 12.55], "py312": [11.93, 18.53]},
+  "note": "FFmpeg 빌드가 같이 돌던 때라 흔들림이 큼 — 15% 느림을 재현하지도 반박하지도 못함"
+ }
+}
