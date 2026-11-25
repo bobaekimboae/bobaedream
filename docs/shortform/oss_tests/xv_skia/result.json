@@ -1,0 +1,19 @@
+{
+ "what": "마스터1 PR #1238(skia, 커밋 b3a85f751) 교차 검증 — 클로드 마스터 2",
+ "date": "2026-11-25",
+ "skia_version_used": "144.1 (이 기계 설치본; README는 138.0) — requirements-lock에 skia-python 고정 없음",
+ "A1_scripts": {
+   "skia_cmp_BBM_DRAW_pil": {"soft_pil": 0, "soft_skia": 4080, "shape_diff_max_pct": 1.66, "arrow_ms_pil": 0.06, "arrow_ms_skia": [0.19, 0.21], "ring_seg_ms_pil": 0.02, "ring_seg_ms_skia": [1.28, 1.32]},
+   "skia_cmp_without_env": "PIL 열도 skia로 그려져 4080/4080·차이 0% — 스크립트가 BBM_DRAW=pil을 스스로 켜야 재현됨",
+   "skia_frames_ms_per_frame": {"pil": 3.99, "skia": 6.12},
+   "readme": {"soft": "0 / 4,080 일치", "shape_diff": "1.7% 이하 일치", "ring_seg_ms": "README 0.67ms, 여기 약 1.3ms (기계·skia 판 차이)"}
+ },
+ "A2_render": {
+   "job": "g350_v8_render.py + samples/g350_work(plan_auto·tracks·words5). 원본 src.mp4가 이 기계에 없어 g350-v13.mp4를 135초로 이어 붙여 대신 넣고 음성도 v13에서 뽑음 — 두 엔진에 같은 입력",
+   "frames": 2098, "frames_differ": 929, "ssim_all": 0.99817, "ssim_min": 0.9886,
+   "visual": "6장면 나란히: 화살표 위치·크기·노랑·검정 테 같음, skia는 대각선 가장자리 계단 없음, 노랑 테 비침(검정 테 밖 노랑) 없음"
+ },
+ "A3_checks": {"edit_gate_post": {"pil": "통과", "skia": "통과"}, "check_be": {"pil": "실패 7건", "skia": "실패 7건(항목 완전히 같음)", "cause": "칩 가운데 정렬 −262px·부위 칩 화살표 없음·낱말 파일 없음 등 렌더러 배치 vs 현행 규칙 문제 — 그리기 엔진과 무관"}},
+ "A4_time_sec": {"pil": [62.9, 62.3], "skia": [63.6, 64.2], "diff": "+1.3초(약 +2%)"},
+ "verdict": "통과(조건부): 새로 생긴 실패 없음·화질 좋아짐·시간 +2%. 조건 = requirements-lock에 skia-python 판 고정, skia_cmp.py가 BBM_DRAW=pil을 직접 켜기"
+}
