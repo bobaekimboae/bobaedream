@@ -195,9 +195,13 @@ def lens(cv, base, tx, ty, cx, cy, t, t_in, D=320, Z=2.2):   # T06 돋보기 원
     g = ease((t - t_in) / 0.25); d = max(20, int(D * (0.6 + 0.4 * g))); r = D / Z / 2
     reg = base.crop((int(tx - r), int(ty - r), int(tx + r), int(ty + r))).resize((d, d), Image.LANCZOS)
     mk = Image.new('L', (d, d), 0); ImageDraw.Draw(mk).ellipse((0, 0, d - 1, d - 1), fill=255); reg.putalpha(mk)
-    dr = ImageDraw.Draw(cv); dr.line((cx, cy, tx, ty), fill=(255, 255, 255, int(230 * g)), width=5)
+    dr = ImageDraw.Draw(cv)
+    if SKD is not None: SKD.seg(cv, (cx, cy), (tx, ty), (255, 255, 255, int(230 * g)), 5)
+    else: dr.line((cx, cy, tx, ty), fill=(255, 255, 255, int(230 * g)), width=5)
     sh = Image.new('RGBA', (d + 40, d + 40)); ImageDraw.Draw(sh).ellipse((20, 26, d + 20, d + 26), fill=(0, 0, 0, 150)); cv.alpha_composite(sh.filter(ImageFilter.GaussianBlur(8)), (int(cx - d / 2 - 20), int(cy - d / 2 - 20)))
-    cv.alpha_composite(reg, (int(cx - d / 2), int(cy - d / 2))); dr.ellipse((cx - d / 2, cy - d / 2, cx + d / 2, cy + d / 2), outline=(255, 255, 255, 255), width=7)
+    cv.alpha_composite(reg, (int(cx - d / 2), int(cy - d / 2)))
+    if SKD is not None: SKD.ring(cv, (cx - d / 2, cy - d / 2, cx + d / 2, cy + d / 2), (255, 255, 255, 255), 7)
+    else: dr.ellipse((cx - d / 2, cy - d / 2, cx + d / 2, cy + d / 2), outline=(255, 255, 255, 255), width=7)
 _yy, _xx = np.mgrid[0:2 * H, 0:2 * W]; SPOT = np.clip((np.hypot(_xx - W, _yy - H) - 300) / 200, 0, 1); del _yy, _xx
 def spot(cv, tx, ty, a):   # T05 스포트라이트(g350 v8과 같음)
     x0 = int(W - tx); y0 = int(H - ty); m = (SPOT[y0:y0 + H, x0:x0 + W] * a).astype('uint8')
