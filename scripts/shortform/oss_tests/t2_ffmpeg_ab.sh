@@ -15,7 +15,7 @@ NAME=$1; CMD=$2; OUT=$3; R=$W/t2/$NAME; mkdir -p $R
 for V in old new; do
   if [ $V = new ]; then P="$FF9:$PATH"; else P="$PATH"; fi
   S=$(date +%s.%N); PATH="$P" bash -c "$CMD" > $R/$V.log 2>&1; E=$(date +%s.%N)
-  cp "$OUT" $R/$V.mp4; echo "$V $(PATH="$P" ffmpeg -version | head -1 | cut -d' ' -f3) $(echo "$E - $S" | bc)초" | tee -a $R/times.txt
+  cp "$OUT" $R/$V.mp4; [ -f "$OUT.plan.json" ] && cp "$OUT.plan.json" $R/$V.mp4.plan.json; echo "$V $(PATH="$P" ffmpeg -version | head -1 | cut -d' ' -f3) $(echo "$E - $S" | bc)초" | tee -a $R/times.txt
 done
 ffmpeg -v error -i $R/old.mp4 -i $R/new.mp4 -lavfi "[0:v][1:v]ssim=stats_file=-" -f null - 2>&1 | tail -1 > $R/ssim_tail.txt || true
 ffmpeg -i $R/old.mp4 -i $R/new.mp4 -lavfi ssim -f null - 2>&1 | grep -o "All:[0-9.]*" | tee $R/ssim.txt

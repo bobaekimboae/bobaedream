@@ -1,0 +1,31 @@
+{
+ "test": "T2 ffmpeg 6.1.1 vs 9.0.2",
+ "car": "fordgt (joy10 사진 매물, photo_listing/common.py)",
+ "old": "6.1.1-3ubuntu5",
+ "new": "n9.0.2-963-g4d831360c9-20261124 (BtbN GPL 정적판)",
+ "render_sec": {
+  "old": 53.6,
+  "new": 54.7
+ },
+ "duration": {
+  "old": 48.867,
+  "new": 48.867
+ },
+ "ssim_all": 0.99698,
+ "ssim_min_frame": 0.99,
+ "frames_below_098": 0,
+ "frames": 1466,
+ "lufs": {
+  "old": -14.0,
+  "new": -14.0
+ },
+ "true_peak_db": {
+  "old": -1.7,
+  "new": -1.8
+ },
+ "check_be": {
+  "old": "통과",
+  "new": "통과"
+ },
+ "note": "인트로 클립은 6.1.1로 한 번 만든 같은 입력을 양쪽에 씀"
+}
