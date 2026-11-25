@@ -87,39 +87,51 @@ for c in PLAN['cuts']:
 COUNT = {e['value'] for c in PLAN['cuts'] for e in c['techniques'] if e['id'] == 'T04'}
 TP = {t['id']: t['params'] for t in FEP.RULES['techniques']}
 
-# ── 부위 찾기(OWLv2) + 추적(CSRT): 칩에 부위(part)가 있는 장면만 ──
+# ── 부위 찾기: SAM 3.1(기본, BBM_PART_ENGINE=sam) → 실패·키 없음만 OWLv2+VitTrack 예비 · 칩에 부위(part)가 있는 장면만 ──
 def grab(t):
     cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000); ok, f = cap.read(); return f if ok else None
-TR = {}
+TR, VIS = {}, {}   # VIS[key][i] = 그 프레임에 부위가 보이나(False면 칩·화살표·3D 숫자 숨김)
+PART_COST = None
 need = [(k, c) for k, c in enumerate(CUTS) if c.get('part') and c.get('chip')]
-if need:
+def owl_find(k, c):   # 예비: OWLv2 한 장 찾기 + VitTrack(2026-11-22 방식 그대로)
     sys.path.insert(0, os.path.join(REPO, 'scripts/shortform/photo_listing'))
     import part_anchor as PA
-    for k, c in need:
-        ti = min(c['src'][1] - 0.1, max(c['src'][0], WS[word(k, c['chip_word'])][1]))
-        f = grab(ti)
-        if f is None: continue
-        img = Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)); hits = PA.detect(img, [c['part']]).get(c['part'], [])
-        if not hits:
-            print(f"  부위 못 찾음 {c['key']} {c['part']} → 화살표 없이 위쪽 칩"); continue
-        sc_, (x0_, y0_, x1_, y1_) = max(hits)
-        fx, fy = (x0_ + x1_) / 2 / img.width, (y0_ + y1_) / 2 / img.height
-        s0, s1 = c['src']; SW, SH = 270, 480; fr = []
-        cap.set(cv2.CAP_PROP_POS_MSEC, s0 * 1000)
-        for _ in range(int(round((s1 - s0) * 30)) + 1):
-            ok, g = cap.read()
-            if not ok: break
-            fr.append(cv2.resize(g, (SW, SH)))
-        ii = min(len(fr) - 1, int(round((ti - s0) * 30))); bw, bh = int(SW * .16), int(SH * .09)
-        box = (int(fx * SW - bw / 2), int(fy * SH - bh / 2), bw, bh); res = [None] * len(fr); res[ii] = (fx, fy)
-        for seq in (range(ii + 1, len(fr)), range(ii - 1, -1, -1)):
-            tr = _tracker(); tr.init(fr[ii], box); last = (fx, fy)
-            for j in seq:
-                ok, b = tr.update(fr[j])
-                if ok and _track_ok(tr): last = ((b[0] + b[2] / 2) / SW, (b[1] + b[3] / 2) / SH)
-                res[j] = last
-        TR[c['key']] = res
-        print(f"  부위 {c['key']} {c['part']} ({fx:.2f},{fy:.2f}) 점수 {sc_:.2f}")
+    ti = min(c['src'][1] - 0.1, max(c['src'][0], WS[word(k, c['chip_word'])][1]))
+    f = grab(ti)
+    if f is None: return None
+    img = Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)); hits = PA.detect(img, [c['part']]).get(c['part'], [])
+    if not hits:
+        print(f"  부위 못 찾음 {c['key']} {c['part']} → 화살표 없이 위쪽 칩"); return None
+    sc_, (x0_, y0_, x1_, y1_) = max(hits)
+    fx, fy = (x0_ + x1_) / 2 / img.width, (y0_ + y1_) / 2 / img.height
+    s0, s1 = c['src']; SW, SH = 270, 480; fr = []
+    cap.set(cv2.CAP_PROP_POS_MSEC, s0 * 1000)
+    for _ in range(int(round((s1 - s0) * 30)) + 1):
+        ok, g = cap.read()
+        if not ok: break
+        fr.append(cv2.resize(g, (SW, SH)))
+    ii = min(len(fr) - 1, int(round((ti - s0) * 30))); bw, bh = int(SW * .16), int(SH * .09)
+    box = (int(fx * SW - bw / 2), int(fy * SH - bh / 2), bw, bh); res = [None] * len(fr); res[ii] = (fx, fy)
+    for seq in (range(ii + 1, len(fr)), range(ii - 1, -1, -1)):
+        tr = _tracker(); tr.init(fr[ii], box); last = (fx, fy)
+        for j in seq:
+            ok, b = tr.update(fr[j])
+            if ok and _track_ok(tr): last = ((b[0] + b[2] / 2) / SW, (b[1] + b[3] / 2) / SH)
+            res[j] = last
+    print(f"  부위 {c['key']} {c['part']} ({fx:.2f},{fy:.2f}) 점수 {sc_:.2f}")
+    return {'s0': s0, 's1': s1, 'pts': res, 'by': 'owlv2', 'part': c['part']}
+if need:
+    sys.path.insert(0, os.path.join(REPO, 'scripts/shortform/auto/sam31'))
+    import part_engine as PE
+    _kc = {c['key']: (k, c) for k, c in need}
+    _jobs = [{'key': c['key'], 's0': c['src'][0], 's1': c['src'][1], 'part': c['part'],
+              **({'hint': c['part_hint']} if c.get('part_hint') else {})} for k, c in need]
+    _res, PART_COST = PE.find_parts(SRC, _jobs, D + '_sam31', owl=lambda j: owl_find(*_kc[j['key']]))
+    for key, r in _res.items():
+        if not r.get('pts') or not any(p is not None for p in r['pts']): continue
+        VIS[key] = [p is not None for p in r['pts']]; TR[key] = PE.fill_nearest(r['pts'])
+        _lab = PE.chip_label(r['part'], _kc[key][1]['chip'])
+        if _lab != _kc[key][1]['chip']: print(f"  {key}: 애매한 부위 이름 → 칩 「{_lab}」"); _kc[key][1]['chip'] = _lab
 
 # ── 말 자막: 대본의 뜻 단위 덩어리(「/」) · 말하는 낱말 노랑(be_locked caption) ──
 BLK = ImageFont.truetype(F + '/Pretendard-Black.otf', R['caption']['font_px'])
@@ -219,6 +231,7 @@ for t0, t1, ci in SEG:
     c = CUTS[ci]; key = c['key']; s0, s1 = c['src']; dur = t1 - t0
     fr = frames(s0, min(s1, SRC_DUR))
     pts = smooth(TR[key]) if key in TR else None
+    vis = VIS.get(key)   # 부위가 안 보이는 프레임(False) = 오류 아님 → 그 프레임은 칩·화살표·3D 숫자 숨김
     clab = c.get('chip'); Cimg = gchip(clab) if clab else None
     tc = (WS[word(ci, c['chip_word'])][1] - t0 - 0.06) if clab else 0
     BIG = [(b['text'], white(b['label'], 58) if b.get('label') else None, WS[word(ci, b['word'])][1] - t0 - 0.22) for b in c.get('bigs', [])]
@@ -266,7 +279,8 @@ for t0, t1, ci in SEG:
                 _bb = HB.getbbox(); CHIPS_LOG.append({'key': key, 'label': TT['brand'], 'kind': 'title', 't0': round(t0 + 0.08, 3), 't1': round(t1, 3), 't_box': round(nfr / FPS, 3),
                                                      'px': R['chip']['title_font_px'], 'y': YB, 'box': [M - 10 + _bb[0], YB + _bb[1], M - 10 + _bb[2], YB + _bb[3]]})
             _hb = HB.getbbox(); pop(cv, HM, (M - 10 + _hb[2] + 6, YB + (_hb[1] + _hb[3] - HM.height) // 2), t, 0.28); pop(cv, HS, (M - 4, YB + _hb[3] + 16), t, 0.5)
-        if Cimg is not None:
+        _vis = True if (vis is None or pts is None) else vis[min(len(vis) - 1, fi)]
+        if Cimg is not None and _vis:
             if pts is not None:
                 pi = min(len(pts) - 1, fi); tx, ty = tomap(*pts[pi])
             else: tx, ty = W / 2, H * 0.62
@@ -293,6 +307,7 @@ for t0, t1, ci in SEG:
                 _bb = Cimg.getbbox(); CHIPS_LOG.append({'key': key, 'label': clab, 'kind': kind, 't0': round(t0 + tc, 3), 't1': round(t1, 3), 't_box': round(nfr / FPS, 3),
                                                        'px': R['chip']['font_px'], 'y': int(cy), 'box': [int(cx + _bb[0]), int(cy + _bb[1]), int(cx + _bb[2]), int(cy + _bb[3])]})
         for (txt, lab, tb), _bj in zip(BIG, c.get('bigs', [])):
+            if not _vis: continue
             if t >= tb and not any(x['key'] == key and x['text'] == txt for x in BIGS_LOG):   # 큰 숫자가 뜬 순간 원본 시각(주행거리 = 계기판 검사용)
                 BIGS_LOG.append({'key': key, 'text': txt, 'label': _bj.get('label', ''), 't': round(nfr / FPS, 3), 'src_t': round(st, 3), 'src_end': round(s1, 3)})
             y3 = int(H * 0.12)
@@ -367,7 +382,7 @@ for c in PLAN['cuts']:
         if e['id'] in ('T02', 'T07', 'T01'): print(f"  주의: 계획기 기법 {e['id']}({c['key']})는 이 렌더러 1.0에 아직 없음 — 쓰지 않음")
 json.dump({'edition': 'feature_video', 'edition_code': JOB['edition'], 'renderer': RENDERER, 'renderer_version': VERSION, 'order': JOB['order'],
            'music': True, 'total': round(TOTAL, 3), 'cuts': [round(a, 3) for a, b, c in SEG[1:]],
-           'techniques': sorted(USED), 'planner': PLAN['summary'],
+           'techniques': sorted(USED), 'part_engine': PART_COST, 'planner': PLAN['summary'],
            'sfx': [{'t': a[0], 'kind': a[1], 'sound': a[2]} for a in acc], 'chips': CHIPS_LOG,
            'bigs': BIGS_LOG, 'src': JOB['src'], 'voice': 'voice.wav', 'frame': [W, H],
            'caption': {'center_y_px': CAPY, 'font_px': R['caption']['font_px'], 'chunks': len(CH), 'box': CAPBOX if CAPBOX[2] else None}},
