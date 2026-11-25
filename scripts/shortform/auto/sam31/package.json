@@ -1,0 +1,7 @@
+{
+  "name": "bobae-sam31-tools",
+  "private": true,
+  "type": "module",
+  "description": "SAM 3.1 마스크 풀기·상자 프롬프트 만들기(decode_masks.mjs)",
+  "dependencies": { "@meta-sam/parser": "0.1.0" }
+}
