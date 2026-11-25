@@ -1,0 +1,251 @@
+{
+ "cuts": [
+  {
+   "key": "g1",
+   "t0": 0.0,
+   "t1": 4.93,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g2",
+   "t0": 4.93,
+   "t1": 8.44,
+   "options": [
+    "power"
+   ],
+   "chip": "마력",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 9,
+     "value": "306마력",
+     "at": 6.72
+    },
+    {
+     "id": "T07",
+     "word": 9,
+     "value": 306,
+     "at": 8.43
+    }
+   ]
+  },
+  {
+   "key": "g3",
+   "t0": 8.44,
+   "t1": 10.85,
+   "options": [
+    "headlight"
+   ],
+   "chip": "헤드램프",
+   "techniques": [
+    {
+     "id": "T05",
+     "option": "headlight",
+     "glow": 121.0,
+     "at": 8.89,
+     "fade_out_at": null
+    }
+   ]
+  },
+  {
+   "key": "g4",
+   "t0": 10.85,
+   "t1": 12.33,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g5",
+   "t0": 12.33,
+   "t1": 15.09,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g6",
+   "t0": 15.09,
+   "t1": 18.2,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g7",
+   "t0": 18.2,
+   "t1": 21.49,
+   "options": [
+    "trunk"
+   ],
+   "chip": "트렁크 용량",
+   "techniques": []
+  },
+  {
+   "key": "g8",
+   "t0": 21.49,
+   "t1": 24.26,
+   "options": [
+    "trunk"
+   ],
+   "chip": "트렁크 용량",
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 33,
+     "value": "430L",
+     "at": 22.2
+    }
+   ]
+  },
+  {
+   "key": "g9",
+   "t0": 24.26,
+   "t1": 26.86,
+   "options": [
+    "mirror_fold"
+   ],
+   "chip": "사이드미러 폴딩",
+   "techniques": []
+  },
+  {
+   "key": "g10",
+   "t0": 26.86,
+   "t1": 30.2,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g11",
+   "t0": 30.2,
+   "t1": 33.41,
+   "options": [
+    "door_step_light"
+   ],
+   "chip": "조명 도어 스텝",
+   "techniques": [
+    {
+     "id": "T05",
+     "option": "door_step_light",
+     "glow": 83.2,
+     "at": 30.16,
+     "fade_out_at": null
+    }
+   ]
+  },
+  {
+   "key": "g12",
+   "t0": 33.41,
+   "t1": 35.73,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g13",
+   "t0": 35.73,
+   "t1": 38.21,
+   "options": [
+    "ambient"
+   ],
+   "chip": "앰비언트 라이트",
+   "techniques": []
+  },
+  {
+   "key": "g14",
+   "t0": 38.21,
+   "t1": 40.69,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g15",
+   "t0": 40.69,
+   "t1": 43.25,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g16",
+   "t0": 43.25,
+   "t1": 46.83,
+   "options": [],
+   "chip": null,
+   "techniques": [
+    {
+     "id": "T04",
+     "word": 68,
+     "value": "16,665km",
+     "at": 43.8
+    }
+   ]
+  },
+  {
+   "key": "g17",
+   "t0": 46.83,
+   "t1": 49.51,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g18",
+   "t0": 49.51,
+   "t1": 51.77,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g19",
+   "t0": 51.77,
+   "t1": 55.5,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g20",
+   "t0": 55.5,
+   "t1": 58.08,
+   "options": [
+    "drive_mode"
+   ],
+   "chip": "드라이브 모드",
+   "techniques": [
+    {
+     "id": "T08",
+     "option": "drive_mode",
+     "at": 56.15
+    }
+   ]
+  },
+  {
+   "key": "g21",
+   "t0": 58.08,
+   "t1": 61.54,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  },
+  {
+   "key": "g22",
+   "t0": 61.54,
+   "t1": 66.96,
+   "options": [],
+   "chip": null,
+   "techniques": []
+  }
+ ],
+ "summary": {
+  "T04": 3,
+  "T05": 2,
+  "T07": 1,
+  "T08": 1
+ }
+}

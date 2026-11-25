@@ -1,0 +1,17 @@
+{"cuts":{
+"g3":{"scene":[7.5,12.5],"prompt":"a car headlight"},
+"g5":{"scene":[18.3,22.0],"prompt":"a blue brake caliper"},
+"g6":{"scene":[31.5,34.8],"prompt":"a car exhaust pipe"},
+"g7":{"scene":[35.0,38.8],"prompt":"a chrome badge lettering on a car trunk"},
+"g9":{"scene":[54.5,58.5],"prompt":"a car side mirror"},
+"g10":{"scene":[61.8,65.2],"prompt":"a logo projected on the floor"},
+"g11":{"scene":[66.2,69.4],"prompt":"a metal door sill plate"},
+"g12":{"scene":[69.8,74.0],"prompt":"a red car seat"},
+"g13":{"scene":[78.4,82.2],"prompt":"a blue light strip on a car door"},
+"g15":{"scene":[87.8,91.2],"prompt":"buttons on a steering wheel"},
+"g17":{"scene":[103.2,107.2],"prompt":"a head-up display projection"},
+"g18":{"scene":[112.8,116.6],"prompt":"a car navigation screen"},
+"g19":{"scene":[121.8,125.2],"prompt":"a car infotainment screen"},
+"g20":{"scene":[137.4,141.6],"prompt":"buttons next to a gear shifter"},
+"g21":{"scene":[144.2,148.2],"prompt":"an engine cover"}
+}}

@@ -1,0 +1,302 @@
+{
+ "g3": {
+  "prompt": "a car headlight",
+  "best_t": 12.1,
+  "score": 0.348,
+  "center": [
+   0.5,
+   0.423
+  ],
+  "frac": 0.3214,
+  "box": [
+   0.003,
+   0.262,
+   0.998,
+   0.585
+  ],
+  "good_range": [
+   7.6,
+   12.35
+  ]
+ },
+ "g5": {
+  "prompt": "a blue brake caliper",
+  "best_t": 21.9,
+  "score": 0.201,
+  "center": [
+   0.291,
+   0.526
+  ],
+  "frac": 0.0383,
+  "box": [
+   0.206,
+   0.414,
+   0.377,
+   0.638
+  ],
+  "good_range": [
+   19.65,
+   21.9
+  ]
+ },
+ "g6": {
+  "prompt": "a car exhaust pipe",
+  "best_t": 32.6,
+  "score": 0.449,
+  "center": [
+   0.203,
+   0.768
+  ],
+  "frac": 0.0092,
+  "box": [
+   0.105,
+   0.744,
+   0.301,
+   0.791
+  ],
+  "good_range": [
+   31.6,
+   34.6
+  ]
+ },
+ "g7": {
+  "prompt": "a chrome badge lettering on a car trunk",
+  "best_t": 35.6,
+  "score": 0.307,
+  "center": [
+   0.305,
+   0.037
+  ],
+  "frac": 0.0293,
+  "box": [
+   0.11,
+   0.0,
+   0.501,
+   0.075
+  ],
+  "good_range": [
+   35.6,
+   38.6
+  ]
+ },
+ "g9": {
+  "prompt": "a car side mirror",
+  "best_t": 57.1,
+  "score": 0.651,
+  "center": [
+   0.502,
+   0.668
+  ],
+  "frac": 0.3898,
+  "box": [
+   0.062,
+   0.447,
+   0.942,
+   0.89
+  ],
+  "good_range": [
+   54.6,
+   58.35
+  ]
+ },
+ "g10": {
+  "prompt": "a logo projected on the floor",
+  "best_t": 63.9,
+  "score": 0.26,
+  "center": [
+   0.453,
+   0.633
+  ],
+  "frac": 0.1764,
+  "box": [
+   0.061,
+   0.521,
+   0.845,
+   0.746
+  ],
+  "good_range": [
+   62.9,
+   64.65
+  ]
+ },
+ "g11": {
+  "prompt": "a metal door sill plate",
+  "best_t": 68.55,
+  "score": 0.321,
+  "center": [
+   0.42,
+   0.526
+  ],
+  "frac": 0.308,
+  "box": [
+   0.002,
+   0.342,
+   0.839,
+   0.71
+  ],
+  "good_range": [
+   66.3,
+   69.05
+  ]
+ },
+ "g12": {
+  "prompt": "a red car seat",
+  "best_t": 71.15,
+  "score": 0.28,
+  "center": [
+   0.68,
+   0.036
+  ],
+  "frac": 0.0298,
+  "box": [
+   0.476,
+   0.0,
+   0.884,
+   0.073
+  ],
+  "good_range": [
+   69.9,
+   73.9
+  ]
+ },
+ "g13": {
+  "prompt": "a blue light strip on a car door",
+  "best_t": 79.25,
+  "score": 0.325,
+  "center": [
+   0.577,
+   0.11
+  ],
+  "frac": 0.0711,
+  "box": [
+   0.158,
+   0.067,
+   0.995,
+   0.152
+  ],
+  "good_range": [
+   78.5,
+   82.0
+  ]
+ },
+ "g15": {
+  "prompt": "buttons on a steering wheel",
+  "best_t": 90.65,
+  "score": 0.382,
+  "center": [
+   0.873,
+   0.281
+  ],
+  "frac": 0.0433,
+  "box": [
+   0.745,
+   0.196,
+   1.0,
+   0.366
+  ],
+  "good_range": [
+   87.9,
+   91.15
+  ]
+ },
+ "g17": {
+  "prompt": "a head-up display projection",
+  "best_t": 105.55,
+  "score": 0.248,
+  "center": [
+   0.749,
+   0.007
+  ],
+  "frac": 0.0032,
+  "box": [
+   0.635,
+   0.0,
+   0.863,
+   0.014
+  ],
+  "good_range": [
+   103.3,
+   107.05
+  ]
+ },
+ "g18": {
+  "prompt": "a car navigation screen",
+  "best_t": 113.65,
+  "score": 0.599,
+  "center": [
+   0.494,
+   0.45
+  ],
+  "frac": 0.2435,
+  "box": [
+   0.005,
+   0.325,
+   0.983,
+   0.574
+  ],
+  "good_range": [
+   112.9,
+   116.4
+  ]
+ },
+ "g19": {
+  "prompt": "a car infotainment screen",
+  "best_t": 122.65,
+  "score": 0.415,
+  "center": [
+   0.5,
+   0.121
+  ],
+  "frac": 0.2326,
+  "box": [
+   0.005,
+   0.004,
+   0.995,
+   0.239
+  ],
+  "good_range": [
+   121.9,
+   125.15
+  ]
+ },
+ "g20": {
+  "prompt": "buttons next to a gear shifter",
+  "best_t": 138.0,
+  "score": 0.472,
+  "center": [
+   0.738,
+   0.498
+  ],
+  "frac": 0.0377,
+  "box": [
+   0.603,
+   0.429,
+   0.874,
+   0.568
+  ],
+  "good_range": [
+   137.5,
+   141.5
+  ]
+ },
+ "g21": {
+  "prompt": "an engine cover",
+  "best_t": 144.8,
+  "score": 0.29,
+  "center": [
+   0.5,
+   0.567
+  ],
+  "frac": 0.4865,
+  "box": [
+   0.001,
+   0.323,
+   1.0,
+   0.81
+  ],
+  "good_range": [
+   144.3,
+   148.05
+  ]
+ }
+}

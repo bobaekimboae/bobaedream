@@ -1,0 +1,381 @@
+{
+ "_what": "문제현 딜러(뉴삼일모터스) BMW M235i xDrive 그란쿠페(F44) — g350_v8_render.py CAR 입력. 사실 = 원본 파일 이름 + 원본 영상에 보이는 것 + BMW 공식 제원(306마력·430L). 차량번호·연락처·가격 없음",
+ "id": "m235",
+ "out": "bobae_m235_munjehyun_be_v1.mp4",
+ "chip_layout": "slots",
+ "slot_b_y": 1030,
+ "deco": {
+  "emphasis": true,
+  "arrow": "hand_yellow",
+  "arrow_len": 180
+ },
+ "map_source": {
+  "g3": "auto(OWLv2 0.35)",
+  "g5": "auto(OWLv2 0.20)",
+  "g6": "auto(OWLv2 0.45)",
+  "g7": "eye(자동은 화면 위쪽 다른 차를 잡음)",
+  "g9": "auto(OWLv2 0.65)",
+  "g10": "auto(OWLv2 0.26)",
+  "g11": "auto(OWLv2 0.32)",
+  "g12": "추적 없음(시트가 화면 전체라 화살표 불필요, 자동은 뒤쪽 시트 끝을 잡음)",
+  "g13": "추적 없음(추적이 손가락을 따라가 띠에서 벗어남 → 위쪽 칩만(딜러 손이 이미 가리킴))",
+  "g15": "eye(자동은 계기판을 잡음)",
+  "g17": "eye(자동은 천장 표지판을 잡음)",
+  "g18": "auto(OWLv2 0.60)",
+  "g19": "auto(OWLv2 0.41)",
+  "g20": "eye(자동은 다이얼을 잡음)",
+  "g21": "auto(OWLv2 0.29)"
+ },
+ "title": {
+  "brand": "BMW",
+  "model": "M235i 그란쿠페",
+  "sub": "2021년식 · 가솔린 · F44"
+ },
+ "cuts": [
+  {
+   "key": "g1",
+   "src": [
+    0.3,
+    4.3
+   ],
+   "start_word": 0
+  },
+  {
+   "key": "g2",
+   "src": [
+    4.3,
+    7.6
+   ],
+   "start_word": 5,
+   "bigs": [
+    [
+     "306마력",
+     "2.0 가솔린 터보",
+     9
+    ]
+   ],
+   "dim": 60,
+   "no_emphasis": true
+  },
+  {
+   "key": "g3",
+   "src": [
+    8.6,
+    11.2
+   ],
+   "start_word": 10,
+   "chip": "LED 헤드램프",
+   "chip_word": 11,
+   "arrow": true,
+   "track": [
+    11.1,
+    0.5,
+    0.423,
+    0.995,
+    0.323
+   ]
+  },
+  {
+   "key": "g4",
+   "src": [
+    15.6,
+    17.4
+   ],
+   "start_word": 14
+  },
+  {
+   "key": "g5",
+   "src": [
+    18.8,
+    21.6
+   ],
+   "start_word": 16,
+   "chip": "블루 캘리퍼",
+   "chip_word": 18,
+   "arrow": true,
+   "track": [
+    21.5,
+    0.291,
+    0.526,
+    0.171,
+    0.224
+   ]
+  },
+  {
+   "key": "g6",
+   "src": [
+    31.6,
+    34.7
+   ],
+   "start_word": 21,
+   "chip": "듀얼 머플러",
+   "chip_word": 22,
+   "arrow": true,
+   "track": [
+    32.6,
+    0.203,
+    0.768,
+    0.196,
+    0.047
+   ]
+  },
+  {
+   "key": "g7",
+   "src": [
+    35.2,
+    38.6
+   ],
+   "start_word": 27,
+   "chip": "xDrive 사륜구동",
+   "chip_word": 28,
+   "arrow": true,
+   "track": [
+    35.6,
+    0.5,
+    0.52,
+    0.4,
+    0.1
+   ]
+  },
+  {
+   "key": "g8",
+   "src": [
+    50.4,
+    53.4
+   ],
+   "start_word": 31,
+   "bigs": [
+    [
+     "430L",
+     "트렁크",
+     33
+    ]
+   ],
+   "dim": 50,
+   "no_emphasis": true
+  },
+  {
+   "key": "g9",
+   "src": [
+    55.2,
+    58.0
+   ],
+   "start_word": 34,
+   "chip": "그레이 미러 커버",
+   "chip_word": 35,
+   "arrow": true,
+   "track": [
+    57.1,
+    0.502,
+    0.668,
+    0.88,
+    0.443
+   ]
+  },
+  {
+   "key": "g10",
+   "src": [
+    61.9,
+    65.2
+   ],
+   "start_word": 38,
+   "chip": "M 퍼포먼스 로고",
+   "chip_word": 41,
+   "arrow": true,
+   "track": [
+    63.9,
+    0.453,
+    0.633,
+    0.784,
+    0.225
+   ]
+  },
+  {
+   "key": "g11",
+   "src": [
+    66.3,
+    69.4
+   ],
+   "start_word": 45,
+   "chip": "도어 스텝",
+   "chip_word": 45,
+   "arrow": true,
+   "track": [
+    68.55,
+    0.42,
+    0.526,
+    0.837,
+    0.368
+   ]
+  },
+  {
+   "key": "g12",
+   "src": [
+    70.4,
+    73.0
+   ],
+   "start_word": 50,
+   "chip": "레드 스포츠 시트",
+   "chip_word": 51,
+   "arrow": false
+  },
+  {
+   "key": "g13",
+   "src": [
+    78.8,
+    81.6
+   ],
+   "start_word": 54,
+   "chip": "앰비언트 라이트",
+   "chip_word": 55,
+   "arrow": false
+  },
+  {
+   "key": "g14",
+   "src": [
+    84.0,
+    86.6
+   ],
+   "start_word": 58
+  },
+  {
+   "key": "g15",
+   "src": [
+    88.2,
+    90.8
+   ],
+   "start_word": 62,
+   "chip": "크루즈 컨트롤",
+   "chip_word": 63,
+   "arrow": true,
+   "track": [
+    90.65,
+    0.72,
+    0.78,
+    0.3,
+    0.14
+   ]
+  },
+  {
+   "key": "g16",
+   "src": [
+    97.2,
+    100.8
+   ],
+   "start_word": 67,
+   "bigs": [
+    [
+     "16,665km",
+     "주행거리",
+     68
+    ]
+   ],
+   "dim": 50,
+   "no_emphasis": true
+  },
+  {
+   "key": "g17",
+   "src": [
+    103.6,
+    106.4
+   ],
+   "start_word": 69,
+   "chip": "헤드업 디스플레이",
+   "chip_word": 71,
+   "arrow": true,
+   "track": [
+    105.55,
+    0.6,
+    0.42,
+    0.22,
+    0.08
+   ]
+  },
+  {
+   "key": "g18",
+   "src": [
+    113.6,
+    116.0
+   ],
+   "start_word": 74,
+   "chip": "내비게이션",
+   "chip_word": 76,
+   "arrow": true,
+   "track": [
+    113.7,
+    0.494,
+    0.45,
+    0.978,
+    0.249
+   ]
+  },
+  {
+   "key": "g19",
+   "src": [
+    121.6,
+    125.2
+   ],
+   "start_word": 78,
+   "chip": "후방 카메라",
+   "chip_word": 80,
+   "arrow": true,
+   "track": [
+    122.65,
+    0.5,
+    0.121,
+    0.99,
+    0.235
+   ]
+  },
+  {
+   "key": "g20",
+   "src": [
+    138.0,
+    140.8
+   ],
+   "start_word": 86,
+   "chip": "주행 모드",
+   "chip_word": 88,
+   "arrow": true,
+   "track": [
+    138.0,
+    0.6,
+    0.76,
+    0.15,
+    0.2
+   ]
+  },
+  {
+   "key": "g21",
+   "src": [
+    144.4,
+    148.0
+   ],
+   "start_word": 92,
+   "chip": "M 퍼포먼스 엔진",
+   "chip_word": 94,
+   "arrow": true,
+   "track": [
+    144.8,
+    0.5,
+    0.567,
+    0.999,
+    0.487
+   ]
+  },
+  {
+   "key": "g22",
+   "src": [
+    28.0,
+    32.2
+   ],
+   "start_word": 99
+  }
+ ],
+ "caption_hl": {
+  "min_hold": 0.26,
+  "fade": 0.1,
+  "number_yellow": true
+ },
+ "track_smooth": 9
+}
