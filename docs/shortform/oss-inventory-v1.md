@@ -37,7 +37,7 @@
 1. **edge-tts 사용 중지**
    - 쓰는 곳: `sag_reel_v1.py` · `dealer_narration_sample.py`
    - 이유: 마이크로소프트 공식 API가 아닌 비공식 접속이다. 서비스에 쓰면 약관 위험이 있다(숏폼 도구 규칙에서 금지).
-   - 바꿀 것: 기본 음성은 지금처럼 일레븐랩스로 둔다. 무료 대안이 필요하면 MeloTTS-Korean(MIT, 상용 가능)을 쓴다.
+   - 바꿀 것: 음성은 설정값으로만 받는다(목소리·모델을 코드에 박지 않음, 2026-11-25 최종 지시 v2). MeloTTS는 「쓰지 않는 것」으로 정해졌다.
 2. **nuxt-shootkit 버전 고정 위반**
    - 지금 상태: nuxt 4.6.4 · vue 3.5.45로 되어 있다. 기술 스택 규칙은 nuxt 4.6.2 · vue 3.5.33이다.
    - 바꿀 것: overrides로 vue를 3.5.33으로 맞춘다.
@@ -61,12 +61,15 @@
 | 부위 모양 따라 추적·가림 판정 | SAM 2 | Apache-2.0 | 칩이 부위를 덮는지 자동 판정 | 2 |
 | 한국 번호판 검출 보강(YuNet은 한국 번호판 60장 중 40장 + 오탐) | 같은 라이선스 계열 모델 미세조정(RT-DETR 등, Apache-2.0) | Apache-2.0 | edit_gate 번호판 오탐 감소 | 2 |
 | 음량 측정 파이썬판 | pyloudnorm | MIT | 검사 스크립트 단순화(ffmpeg로도 가능) | 3 |
-| 무료 한국어 남성 음성 | MeloTTS-Korean | MIT | edge-tts 대체, 대량 샘플 무료 | 3 |
+| 무료 한국어 남성 음성 | (실험 중) OmniVoice · Ming-3.0-tts · Qwen3-TTS | Apache-2.0 · MIT · 확인 필요 | 같은 대본 3문장 사용자 청취 후 결정. MeloTTS는 제외 | 3 |
 
 ### 쓰지 말 것
 - **Ultralytics YOLO:** AGPL-3.0이라 서비스에 쓰면 소스 공개 의무가 생긴다.
 - **Remotion:** 리액트 전용이고, 회사 규모에 따라 유료 라이선스가 필요하다.
-- **Supertonic 1:** 모델이 OpenRAIL-M이고 영어 전용이다. 한국어를 지원하는 2·3판은 확인이 필요하다.
+- **Supertonic(1~3):** 1판은 OpenRAIL-M·영어 전용, 3판은 개발사 청산(2026-07)·서비스 종료로 쓰지 않는다.
+- **MatAnyone 2:** NTU S-Lab License 1.0 비상업 전용, 사람 매팅용. 가장자리는 SAM 마스크 + 자체 필터로 대신한다.
+- **HunyuanVideo-Foley · HunyuanVideo 1.5:** 텐센트 커뮤니티 라이선스가 한국·EU·영국을 적용 지역에서 뺀다. 한국 사용 불가.
+- **MusicGen 가중치(CC BY-NC) · CoTracker3 가중치(CC BY-NC) · MMS 정렬기(NC) · Raon-OpenTTS(영어 전용):** 상업 서비스에 쓰지 않는다.
 
 ## 4. 처리 결과 (2026-11-24 「모두 수정해」)
 
@@ -81,11 +84,24 @@
 | MeloTTS | 2026-11-25 「쓰지 않는 것」으로 정해져 연결을 뺐다 |
 
 ## 5. 다음 순서
-1. edge-tts를 빼고 MeloTTS-Korean을 시험한다(샘플 1개, 음질 비교).
+1. ~~edge-tts 제거~~(끝) · ~~MeloTTS 시험~~(제외로 바뀜).
 2. PySceneDetect와 MediaPipe Hands로 「장면 후보 + 손 가림 제외」를 만들어 로마 r13 장면 고르기에 쓴다.
 3. nuxt-shootkit 버전 정리(vue 3.5.33, onnxruntime-web 1.30.0)는 촬영 키트 담당 작업창에 넘긴다.
 
+## 6. 문서끼리 다른 값 — 맞춘 기준 (2026-11-25 노션 13-2)
+
+| 항목 | 서로 다르던 기록 | 기준 |
+|---|---|---|
+| 음성 | 스킬마다 KKC HQ · Taehyung · Hwan v4, Gemini 의견 Mr.J v4 | 설정값으로만 받는다. 기본 음성은 사용자가 청취로 고를 때까지 정하지 않는다 |
+| 낱말 시각 | 세팅표 wav2vec2 CTC 정본 / 최종 지시 v2 Qwen3-ForcedAligner | 20문장 A/B로 정할 때까지 「비교 중」. 지금 코드는 faster-whisper + wav2vec2 보충(`voice_source.py`), 사진판은 받아쓰기 시각 + 소리 골짜기 맞춤 |
+| 인스타 게시 한도 | 50 / 100 | 50으로 설계하고 매번 `content_publishing_limit`를 읽는다. 100 하드코딩 금지 |
+| 버전 고정 | 「HyperFrames 0.9.91 이상」 · OTIO 0.18.1 고정 | 정확한 판 번호 + lockfile. OTIO 0.18.1은 프리릴리스라 비교용(shadow)만 |
+| FFmpeg | 실측 6.1.1 · 후보 9.0.2 · 공식 최신 9.1 | 사용자 승인(최종 지시 v2 9번) 전까지 6.1.1. 문서에 실측판·권고판 두 열 |
+| 유튜브 시험 업로드 | 공개 범위 생략 | 2026-11-02부터 생략 시 공개로 올라감 → 시험 코드에 `private` 명시 |
+| Gemini 9-3 「도입」 목록 | ACE-Step · TAPNext++ 도입, librosa 박자, eleven_v4 | 보류·제외 목록과 충돌. 정본 아님(박자는 Beat This!, ACE-Step·TAPNext++는 보류) |
+
 ## 변경 이력
 
+- 2026-11-25: 제외 목록 추가(MatAnyone 2 · HunyuanVideo-Foley/1.5 · NC 가중치 · Supertonic 3), MeloTTS 대안 문구 정리, 「문서끼리 다른 값」 기준표(6절) 추가 — 노션 13-2
 - 2026-11-25: 스택 변경 반영 — Beat This!(박자) · RapidOCR 한글 엔진 · DeepFilterNet3(딜러 육성) · Qwen3-ForcedAligner(대본 낱말 시각) 추가, 서버 laravel-ffmpeg 8.10. 상세 `shortform-kit/CHANGELOG.md` v0.6.0
 - 2026-11-25: edge-tts 제거 마무리(scripts 안 0건) · MeloTTS 연결 제거 — PR #1229
