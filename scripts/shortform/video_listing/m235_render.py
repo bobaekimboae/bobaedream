@@ -326,13 +326,22 @@ open(_LOCK,'w').write(str(os.getpid())); import atexit; atexit.register(lambda: 
 proc=subprocess.Popen(['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-','-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',G+('nov8_dummy.mp4' if REMIX else 'nov8.mp4')],stdin=subprocess.PIPE)
 last=None; nfr=0
 DYN=os.environ.get('DYN')=='1'   # 2026-11-25 클로드 마스터1 「역동적으로」: 컷 첫머리 당김·휙 넘김·밀기 강화. 규칙 파일 값은 그대로
-DYN_PUNCH,DYN_PUNCH_S,DYN_WHIP_S,DYN_WHIP_PX=0.10,0.30,0.12,260; _whipdir=1
+DYN_PUNCH,DYN_PUNCH_S,DYN_WHIP_S,DYN_WHIP_PX=0.06,0.45,0.14,40; _whipdir=1   # 11-25 튀는 화면 수정: 당김 10%→6%·0.3→0.45초, 밀기는 화면 둘러 붙이기(roll) 대신 자르는 창만 옮김
 for t0,t1,c in SEG:
     key,s0,s1,fw,clab,cw,sub,av,bigs=c; dur=t1-t0; rate=min(2.0,(s1-s0)/dur); _whipdir=-_whipdir
     T01=PL.get(key,{}).get('T01',[None])[0]
     if T01 or PL.get(key,{}).get('T02'): av=None   # 2분할·✓ 목록 컷은 칩=위 띠 제목, 화살표 없음
     if T01: rate=min(TP['T01']['max_rate'],rate)
     fr=frames(s0,s1)
+    # 11-25 「화면 튀는거 잡어」: 원본 구간 끝(또는 첫머리)에 원본 자체의 장면 바뀜이 끼면, 앞 컷 칩·스포트라이트가 다음 장면 위에 몇 프레임 남았다가
+    # 사라져 화면이 번쩍 튐 → 원본 장면 바뀜 앞에서 자르고(끝은 마지막 프레임 유지, 첫머리는 바뀐 뒤부터) 칩·장면을 같이 넘김
+    if len(fr)>6:
+        _sm=[cv2.resize(f,(48,85),interpolation=cv2.INTER_AREA).astype(np.int16) for f in fr]
+        _d=[float(np.abs(_sm[i]-_sm[i-1]).mean()) for i in range(1,len(_sm))]
+        _hc=[i+1 for i,v in enumerate(_d) if v>28 and v>4*(np.median(_d)+1)]
+        _tail=[i for i in _hc if i>=len(fr)*0.6]; _head=[i for i in _hc if i<=len(fr)*0.3]
+        if _tail: print(f'[튐 방지] {key} 원본 끝 장면 바뀜 → {len(fr)-_tail[0]}프레임 잘라 마지막 장면 유지'); fr=fr[:_tail[0]]
+        if _head: print(f'[튐 방지] {key} 원본 첫머리 장면 바뀜 → 앞 {_head[-1]}프레임 버림'); fr=fr[_head[-1]:]; s0=s0+_head[-1]/30; rate=min(2.0,(s1-s0)/dur)   # 원본 시각도 같이 옮겨 추적 점이 어긋나지 않게
     frA=frames(*T01['action_src']) if T01 else None
     pts=VALID=None
     if key in TR:   # 매핑 v2(2026-11-23): 추적기가 이미 평활함 · 잃은 프레임(None)은 가장 가까운 정상 점으로 채우고 화살표는 숨김
@@ -361,7 +370,7 @@ for t0,t1,c in SEG:
     while nfr<round(t1*FPS):
         t=nfr/FPS-t0; st=min(s1,s0+t*rate); fi=min(len(fr)-1,int(round((st-s0)*30)))
         z=1.0+(0.08 if DYN else 0.045)*ease(t/dur)
-        if DYN and key!='c1' and t<DYN_PUNCH_S: z*=1+DYN_PUNCH*(1-ease(t/DYN_PUNCH_S))   # 역동: 컷 첫머리 툭 당겼다 풀림
+        if DYN and key!='c1' and t<DYN_PUNCH_S: z*=1+DYN_PUNCH*(1-t/DYN_PUNCH_S)**2   # 역동: 컷 첫머리 툭 당겼다 풀림
         for e in PL.get(key,{}).get('T03',[]):   # T03 점프컷: 제원 낱말마다 확대 단계가 툭 바뀜
             z=1.0
             for st_ in e['steps']:
@@ -378,11 +387,12 @@ for t0,t1,c in SEG:
                 g=ease(min(1.0,u/q['arrive_s'])); z=max(z,1+(q['zoom_to']-1)*g+q['hold_drift']*max(0.0,u-q['arrive_s'])/max(0.1,dur))
                 pj=tix(st); ccx=W/2+(pts[pj][0]*W-W/2)*q['center_bias']*g; ccy=H/2+(pts[pj][1]*H-H/2)*q['center_bias']*g
         im=Image.fromarray(fr[fi]); cw_=W/z; ch_=H/z
+        if DYN and key!='c1' and t<DYN_WHIP_S: dx+=DYN_WHIP_PX*(1-ease(t/DYN_WHIP_S))*_whipdir   # 휙: 자르는 창만 옆으로(가장자리 넘지 않음)
         ccx=min(W-cw_/2,max(cw_/2,ccx+dx)); ccy=min(H-ch_/2,max(ch_/2,ccy+dy))
         cv=im.resize((W,H),box=(ccx-cw_/2,ccy-ch_/2,ccx+cw_/2,ccy+ch_/2)).convert('RGBA')
         if DYN and key!='c1' and t<DYN_WHIP_S:   # 역동: 컷 넘김 휙(가로 밀기 + 가로 흐림, 0.12초). 원본 화소는 옮기고 흐리기만
-            g=1-ease(t/DYN_WHIP_S); sh=int(round(DYN_WHIP_PX*g*_whipdir)); k=max(1,int(61*g))|1
-            a=np.array(cv); a=np.roll(a,sh,axis=1); a=cv2.blur(a,(k,1)) if k>1 else a; cv=Image.fromarray(a)
+            g=1-ease(t/DYN_WHIP_S); k=max(1,int(31*g))|1
+            a=np.array(cv); a=cv2.blur(a,(k,1)) if k>1 else a; cv=Image.fromarray(a)
         if T01:    # T01 위아래 2분할
             ra=min(1.0,(T01['action_src'][1]-T01['action_src'][0])/dur); fa=min(len(frA)-1,int(round(t*ra*30)))
             top=Image.fromarray(frA[fa]).crop((0,int(H*0.45)-480,W,int(H*0.45)+480))
