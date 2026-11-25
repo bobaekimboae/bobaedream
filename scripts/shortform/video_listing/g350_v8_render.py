@@ -39,7 +39,18 @@ def onset(t):
         seg=aud[k:k+320]
         if len(seg) and 20*math.log10(np.sqrt((seg**2).mean())+1e-9)>-32: return k/16000
     return t
-for w in WS: w[1]=round(onset(w[1]),3) if w[1]>0 else 0
+# 2026-11-25 씽크 점수표(sync_score.py)에서 확인: 위 onset()은 말이 이어지는 낱말에서도 앞 낱말 소리를 「시작」으로 잡아 늘 0.15초 앞당긴다(노랑 전환이 말보다 0.15~0.2초 빠름).
+# 입력 onset="pause_only"면 쉼(조용함) 뒤에 소리가 시작되는 낱말만 파형으로 고치고, 이어지는 낱말은 받아쓰기 시각 그대로 둔다. 없으면 옛 동작 그대로(G350 등).
+def _onset_pause(t,_c={}):
+    if 'db' not in _c:
+        e=np.array([math.sqrt(float((aud[i:i+320]**2).mean())+1e-12) for i in range(0,max(1,len(aud)-320),80)]); _c['db']=20*np.log10(e+1e-9); _c['pk']=_c['db'].max()
+    db,pk=_c['db'],_c['pk']; best=None
+    for i in range(int(max(0,t-0.3)*200)+12,min(len(db),int((t+0.2)*200))):
+        if db[i]>pk-30 and (db[i-12:i-1]<pk-38).mean()>0.6:
+            if best is None or abs(i/200-t)<abs(best-t): best=i/200
+    return t if best is None else best
+_ONSET=(CAR or {}).get('onset')
+for w in WS: w[1]=(round(_onset_pause(w[1]),3) if _ONSET=='pause_only' else round(onset(w[1]),3)) if w[1]>0 else 0
 VOICE=round(WS[-1][2],2)
 if os.environ.get('DUMPWS'): json.dump(WS,open(G+'words_clean.json','w'),ensure_ascii=False); sys.exit(0)   # 계획기(feature_edit_planner) 입력용 정리된 낱말
 def ws(key):  # 단어 시작
