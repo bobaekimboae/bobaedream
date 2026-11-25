@@ -325,8 +325,10 @@ if os.path.exists(_LOCK):
 open(_LOCK,'w').write(str(os.getpid())); import atexit; atexit.register(lambda: os.path.exists(_LOCK) and os.remove(_LOCK))
 proc=subprocess.Popen(['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-','-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',G+('nov8_dummy.mp4' if REMIX else 'nov8.mp4')],stdin=subprocess.PIPE)
 last=None; nfr=0
+DYN=os.environ.get('DYN')=='1'   # 2026-11-25 클로드 마스터1 「역동적으로」: 컷 첫머리 당김·휙 넘김·밀기 강화. 규칙 파일 값은 그대로
+DYN_PUNCH,DYN_PUNCH_S,DYN_WHIP_S,DYN_WHIP_PX=0.10,0.30,0.12,260; _whipdir=1
 for t0,t1,c in SEG:
-    key,s0,s1,fw,clab,cw,sub,av,bigs=c; dur=t1-t0; rate=min(2.0,(s1-s0)/dur)
+    key,s0,s1,fw,clab,cw,sub,av,bigs=c; dur=t1-t0; rate=min(2.0,(s1-s0)/dur); _whipdir=-_whipdir
     T01=PL.get(key,{}).get('T01',[None])[0]
     if T01 or PL.get(key,{}).get('T02'): av=None   # 2분할·✓ 목록 컷은 칩=위 띠 제목, 화살표 없음
     if T01: rate=min(TP['T01']['max_rate'],rate)
@@ -358,7 +360,8 @@ for t0,t1,c in SEG:
     if REMIX: nfr=round(t1*FPS); continue
     while nfr<round(t1*FPS):
         t=nfr/FPS-t0; st=min(s1,s0+t*rate); fi=min(len(fr)-1,int(round((st-s0)*30)))
-        z=1.0+0.045*ease(t/dur)
+        z=1.0+(0.08 if DYN else 0.045)*ease(t/dur)
+        if DYN and key!='c1' and t<DYN_PUNCH_S: z*=1+DYN_PUNCH*(1-ease(t/DYN_PUNCH_S))   # 역동: 컷 첫머리 툭 당겼다 풀림
         for e in PL.get(key,{}).get('T03',[]):   # T03 점프컷: 제원 낱말마다 확대 단계가 툭 바뀜
             z=1.0
             for st_ in e['steps']:
@@ -377,6 +380,9 @@ for t0,t1,c in SEG:
         im=Image.fromarray(fr[fi]); cw_=W/z; ch_=H/z
         ccx=min(W-cw_/2,max(cw_/2,ccx+dx)); ccy=min(H-ch_/2,max(ch_/2,ccy+dy))
         cv=im.resize((W,H),box=(ccx-cw_/2,ccy-ch_/2,ccx+cw_/2,ccy+ch_/2)).convert('RGBA')
+        if DYN and key!='c1' and t<DYN_WHIP_S:   # 역동: 컷 넘김 휙(가로 밀기 + 가로 흐림, 0.12초). 원본 화소는 옮기고 흐리기만
+            g=1-ease(t/DYN_WHIP_S); sh=int(round(DYN_WHIP_PX*g*_whipdir)); k=max(1,int(61*g))|1
+            a=np.array(cv); a=np.roll(a,sh,axis=1); a=cv2.blur(a,(k,1)) if k>1 else a; cv=Image.fromarray(a)
         if T01:    # T01 위아래 2분할
             ra=min(1.0,(T01['action_src'][1]-T01['action_src'][0])/dur); fa=min(len(frA)-1,int(round(t*ra*30)))
             top=Image.fromarray(frA[fa]).crop((0,int(H*0.45)-480,W,int(H*0.45)+480))
