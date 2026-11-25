@@ -286,6 +286,9 @@ def cmd_render(a):
                             '-c:v', 'libx264', '-crf', '20', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', a.out],
                            stdin=subprocess.PIPE)
     tot = {'base_s': 0.0, 'sam_s': 0.0, 'base_found': 0, 'sam_found': 0, 'n': 0, 'cost': 0.0}
+    jp = os.path.join(a.work, 'judge.json')   # 눈으로 확인한 '맞은 장면'(8장면 표본). 상자를 띄웠는지(찾은 프레임)는 틀린 상자도 세므로 보조 지표
+    JD = json.load(open(jp)) if os.path.exists(jp) else {}
+    tot.update({'base_ok': 0, 'sam_ok': 0, 'ok_of': 0})
 
     def chip(d, box, txt, sx, sy, ox, oy):
         x1, y1, x2, y2 = box
@@ -312,6 +315,9 @@ def cmd_render(a):
         tot['sam_s'] += sj['seconds'] if sj else 0
         tot['cost'] += sj['cost_usd'] if sj else 0
         ko = KO.get(c['prompt'], c['prompt'])
+        jd = JD.get(c['id'])
+        if jd:
+            tot['base_ok'] += jd['base']; tot['sam_ok'] += jd['sam']; tot['ok_of'] += jd['of']
         for i, f in enumerate(fr):
             cv = Image.new('RGB', (OW, OH), (20, 20, 22))
             d = ImageDraw.Draw(cv)
@@ -334,8 +340,12 @@ def cmd_render(a):
                     d.rounded_rectangle([ox + 10, PY + 10, ox + 170, PY + 52], 8, fill=(200, 40, 40))
                     d.text((ox + 22, PY + 15), '놓침', font=fb(28), fill=WHT)
                 yy = PY + PH + 30
-                d.text((ox, yy), f'찾은 프레임 {stt["found_pct"]}%', font=fb(32), fill=WHT)
-                d.text((ox, yy + 48), f'끊김 {stt["dropouts"]} · 튐 {stt["jumps"]}', font=fb(30), fill=(200, 200, 205))
+                if jd:
+                    ok = jd['base' if k == 0 else 'sam']
+                    d.text((ox, yy), f'맞은 장면 {ok}/{jd["of"]}', font=fx(40), fill=YEL if ok >= jd['of'] - 1 else (255, 110, 110))
+                else:
+                    d.text((ox, yy), f'찾은 프레임 {stt["found_pct"]}%', font=fb(32), fill=WHT)
+                d.text((ox, yy + 52), f'상자 띄움 {stt["found_pct"]}% · 튐 {stt["jumps"]}', font=fb(28), fill=(200, 200, 205))
                 d.text((ox, yy + 92), f'처리 {sec:.1f}초' + (f' · ${sj["cost_usd"]:.3f}' if k == 1 else ' · CPU 2코어'), font=fb(30), fill=(200, 200, 205))
             enc.stdin.write(np.asarray(cv).tobytes())
     # 끝 요약 카드 3초
@@ -343,7 +353,8 @@ def cmd_render(a):
     d = ImageDraw.Draw(cv)
     d.text((60, 300), '요약', font=fx(80), fill=WHT)
     n = max(1, tot['n'])
-    lines = [('찾은 프레임', f"{100 * tot['base_found'] / n:.0f}%", f"{100 * tot['sam_found'] / n:.0f}%" if tot['sam_s'] else '-'),
+    lines = ([('맞은 장면', f"{100 * tot['base_ok'] / tot['ok_of']:.0f}%", f"{100 * tot['sam_ok'] / tot['ok_of']:.0f}%")] if tot['ok_of'] else []) + [
+             ('상자 띄움', f"{100 * tot['base_found'] / n:.0f}%", f"{100 * tot['sam_found'] / n:.0f}%" if tot['sam_s'] else '-'),
              ('부위 찾기 시간', f"{tot['base_s']:.0f}초", f"{tot['sam_s']:.0f}초" if tot['sam_s'] else '-'),
              ('비용', 'CPU', f"${tot['cost']:.2f}" if tot['sam_s'] else '-')]
     d.text((420, 470), '기존', font=fb(40), fill=(170, 170, 175))
@@ -353,7 +364,13 @@ def cmd_render(a):
         d.text((60, y), k, font=fb(44), fill=WHT)
         d.text((420, y), v1, font=fx(52), fill=WHT)
         d.text((730, y), v2, font=fx(52), fill=YEL)
-    d.text((60, 1000), f"{len(cuts)}컷 · {tot['n']}프레임 · 540x960", font=fb(32), fill=(150, 150, 155))
+    yb = 570 + len(lines) * 120 + 40
+    d.text((60, yb), f"{len(cuts)}컷 · {tot['n']}프레임 · 540x960", font=fb(32), fill=(150, 150, 155))
+    if JD:
+        ab = sum(v['base'] for v in JD.values()); asm = sum(v['sam'] for v in JD.values()); ao = sum(v['of'] for v in JD.values())
+        d.text((60, yb + 60), f"전체 {len(JD)}컷 맞은 장면  기존 {100 * ab / ao:.0f}% · SAM 3.1 {100 * asm / ao:.0f}%", font=fb(36), fill=WHT)
+        d.text((60, yb + 115), '맞은 장면 = 컷마다 8장면을 눈으로 확인(보이면 그 부위에 상자, 안 보이면 상자 없음)', font=fb(26), fill=(150, 150, 155))
+        d.text((60, yb + 155), '상자 띄움 = 틀린 곳에 띄운 상자도 셈(보조 지표)', font=fb(26), fill=(150, 150, 155))
     for _ in range(FPS * 3):
         enc.stdin.write(np.asarray(cv).tobytes())
     enc.stdin.close()

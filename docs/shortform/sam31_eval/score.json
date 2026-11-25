@@ -1,0 +1,671 @@
+{
+ "rows": [
+  {
+   "id": "e1_hood_emblem",
+   "group": "emblem",
+   "prompt": "BMW logo",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 55.17
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 5.4,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "e2_center_cap",
+   "group": "emblem",
+   "prompt": "wheel center cap logo",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 59.79
+   },
+   "sam": {
+    "found_pct": 24.8,
+    "longest_run_pct": 24.8,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 4.81,
+    "cost_usd": 0.021,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "e3_trunk_roundel",
+   "group": "emblem",
+   "prompt": "BMW logo",
+   "base": {
+    "found_pct": 90.0,
+    "longest_run_pct": 51.1,
+    "dropouts": 3,
+    "jumps": 0,
+    "seconds": 48.26
+   },
+   "sam": {
+    "found_pct": 24.4,
+    "longest_run_pct": 24.4,
+    "dropouts": 1,
+    "jumps": 8,
+    "seconds": 4.74,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "e4_m235i_badge",
+   "group": "emblem",
+   "prompt": "M235i badge",
+   "base": {
+    "found_pct": 91.7,
+    "longest_run_pct": 53.3,
+    "dropouts": 2,
+    "jumps": 0,
+    "seconds": 63.37
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 7.63,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "e5_steering_logo",
+   "group": "emblem",
+   "prompt": "BMW logo",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 47.39
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 7.89,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "w1_front_wheel",
+   "group": "wheel",
+   "prompt": "car wheel",
+   "base": {
+    "found_pct": 91.4,
+    "longest_run_pct": 71.4,
+    "dropouts": 1,
+    "jumps": 0,
+    "seconds": 60.11
+   },
+   "sam": {
+    "found_pct": 80.0,
+    "longest_run_pct": 80.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 20.96,
+    "cost_usd": 0.021,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "w2_wheel_pan",
+   "group": "wheel",
+   "prompt": "car wheel",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 67.86
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 18.67,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "w3_rear_wheel",
+   "group": "wheel",
+   "prompt": "car wheel",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 59.12
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 8.71,
+    "cost_usd": 0.021,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "w4_caliper",
+   "group": "wheel",
+   "prompt": "brake caliper",
+   "base": {
+    "found_pct": 25.0,
+    "longest_run_pct": 25.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 62.7
+   },
+   "sam": {
+    "found_pct": 16.7,
+    "longest_run_pct": 16.7,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 5.94,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "w5_tire",
+   "group": "wheel",
+   "prompt": "tire",
+   "base": {
+    "found_pct": 91.4,
+    "longest_run_pct": 71.4,
+    "dropouts": 1,
+    "jumps": 0,
+    "seconds": 58.01
+   },
+   "sam": {
+    "found_pct": 80.0,
+    "longest_run_pct": 80.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 16.11,
+    "cost_usd": 0.021,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "h1_led",
+   "group": "hand",
+   "prompt": "headlight",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 46.31
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 9.76,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "h2_xdrive",
+   "group": "hand",
+   "prompt": "xDrive badge",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 47.89
+   },
+   "sam": {
+    "found_pct": 88.9,
+    "longest_run_pct": 88.9,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 5.88,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "h3_ambient",
+   "group": "hand",
+   "prompt": "ambient light strip",
+   "base": {
+    "found_pct": 95.6,
+    "longest_run_pct": 93.3,
+    "dropouts": 1,
+    "jumps": 0,
+    "seconds": 55.52
+   },
+   "sam": {
+    "found_pct": 96.7,
+    "longest_run_pct": 96.7,
+    "dropouts": 1,
+    "jumps": 0,
+    "seconds": 6.98,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "h4_m_button",
+   "group": "hand",
+   "prompt": "red M button on steering wheel",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 56.48
+   },
+   "sam": {
+    "found_pct": 83.3,
+    "longest_run_pct": 83.3,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 6.39,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 1
+   }
+  },
+  {
+   "id": "h5_gear_buttons",
+   "group": "hand",
+   "prompt": "buttons next to gear shifter",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 49.29
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 6.28,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "h6_engine_cover",
+   "group": "hand",
+   "prompt": "engine cover",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 48.94
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 23.15,
+    "cost_usd": 0.018,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "z1_headlight_in",
+   "group": "zoom",
+   "prompt": "headlight",
+   "base": {
+    "found_pct": 90.8,
+    "longest_run_pct": 57.5,
+    "dropouts": 2,
+    "jumps": 0,
+    "seconds": 64.96
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 8.46,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "z2_rear_pan",
+   "group": "zoom",
+   "prompt": "tail light",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 81.24
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 10.72,
+    "cost_usd": 0.03,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "z3_mirror",
+   "group": "zoom",
+   "prompt": "side mirror",
+   "base": {
+    "found_pct": 86.7,
+    "longest_run_pct": 50.0,
+    "dropouts": 1,
+    "jumps": 0,
+    "seconds": 64.26
+   },
+   "sam": {
+    "found_pct": 63.3,
+    "longest_run_pct": 63.3,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 13.92,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "z4_hud",
+   "group": "zoom",
+   "prompt": "head-up display",
+   "base": {
+    "found_pct": 99.3,
+    "longest_run_pct": 61.3,
+    "dropouts": 1,
+    "jumps": 0,
+    "seconds": 79.75
+   },
+   "sam": {
+    "found_pct": 0.0,
+    "longest_run_pct": 0.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 5.55,
+    "cost_usd": 0.03,
+    "empty": true,
+    "try": 1
+   }
+  },
+  {
+   "id": "z5_engine_open",
+   "group": "zoom",
+   "prompt": "engine",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 78.95
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 64.19,
+    "cost_usd": 0.027,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "a1_sill_plate",
+   "group": "ambiguous",
+   "prompt": "door sill plate",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 61.03
+   },
+   "sam": {
+    "found_pct": 69.2,
+    "longest_run_pct": 69.2,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 7.38,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 1
+   }
+  },
+  {
+   "id": "a2_puddle_light",
+   "group": "ambiguous",
+   "prompt": "logo projected on the ground",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 54.57
+   },
+   "sam": {
+    "found_pct": 87.6,
+    "longest_run_pct": 87.6,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 9.86,
+    "cost_usd": 0.021,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "a3_infotainment",
+   "group": "ambiguous",
+   "prompt": "infotainment screen",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 60.09
+   },
+   "sam": {
+    "found_pct": 95.8,
+    "longest_run_pct": 95.8,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 10.82,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "a4_cupholder_ring",
+   "group": "ambiguous",
+   "prompt": "illuminated cup holder ring",
+   "base": {
+    "found_pct": 86.7,
+    "longest_run_pct": 81.0,
+    "dropouts": 2,
+    "jumps": 0,
+    "seconds": 55.63
+   },
+   "sam": {
+    "found_pct": 85.7,
+    "longest_run_pct": 85.7,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 7.09,
+    "cost_usd": 0.021,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "a5_front_seat",
+   "group": "ambiguous",
+   "prompt": "seat headrest",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 1,
+    "seconds": 60.58
+   },
+   "sam": {
+    "found_pct": 9.2,
+    "longest_run_pct": 9.2,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 4.74,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "o1_wheel_buttons",
+   "group": "owl_hard",
+   "prompt": "steering wheel buttons",
+   "base": {
+    "found_pct": 97.5,
+    "longest_run_pct": 91.7,
+    "dropouts": 1,
+    "jumps": 8,
+    "seconds": 60.99
+   },
+   "sam": {
+    "found_pct": 94.2,
+    "longest_run_pct": 94.2,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 8.31,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "o2_climate",
+   "group": "owl_hard",
+   "prompt": "climate control buttons",
+   "base": {
+    "found_pct": 98.1,
+    "longest_run_pct": 81.9,
+    "dropouts": 2,
+    "jumps": 0,
+    "seconds": 57.4
+   },
+   "sam": {
+    "found_pct": 0.0,
+    "longest_run_pct": 0.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 4.75,
+    "cost_usd": 0.021,
+    "empty": true,
+    "try": 0
+   }
+  },
+  {
+   "id": "o3_camera_view",
+   "group": "owl_hard",
+   "prompt": "rear view camera image on screen",
+   "base": {
+    "found_pct": 96.7,
+    "longest_run_pct": 83.3,
+    "dropouts": 1,
+    "jumps": 13,
+    "seconds": 63.27
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 15.27,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  },
+  {
+   "id": "o4_cluster",
+   "group": "owl_hard",
+   "prompt": "digital instrument cluster",
+   "base": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 61.9
+   },
+   "sam": {
+    "found_pct": 100.0,
+    "longest_run_pct": 100.0,
+    "dropouts": 0,
+    "jumps": 0,
+    "seconds": 18.32,
+    "cost_usd": 0.024,
+    "empty": false,
+    "try": 0
+   }
+  }
+ ],
+ "total": {
+  "base_s": 1790.8300000000002,
+  "sam_s": 348.67999999999995,
+  "cost": 0.6600000000000003,
+  "frames": 3300,
+  "n": 30
+ }
+}

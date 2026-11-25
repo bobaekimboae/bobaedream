@@ -1,0 +1,182 @@
+{
+ "e1_hood_emblem": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "e2_center_cap": {
+  "base": 1,
+  "sam": 8,
+  "of": 8,
+  "note": "캡은 끝 2장면에만 보임. 기존은 그 전부터 엉뚱한 곳에 상자"
+ },
+ "e3_trunk_roundel": {
+  "base": 1,
+  "sam": 8,
+  "of": 8,
+  "note": "로고는 중간에 잠깐 보임. 기존은 xDrive·M235i 배지를 잡음"
+ },
+ "e4_m235i_badge": {
+  "base": 0,
+  "sam": 8,
+  "of": 8,
+  "note": "기존은 번호판을 잡음"
+ },
+ "e5_steering_logo": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "w1_front_wheel": {
+  "base": 8,
+  "sam": 6,
+  "of": 8,
+  "note": "SAM은 첫 2장면(멀리서 본 휠) 놓침"
+ },
+ "w2_wheel_pan": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "w3_rear_wheel": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "w4_caliper": {
+  "base": 6,
+  "sam": 6,
+  "of": 8,
+  "note": "캘리퍼가 보이기 시작한 직후 2장면은 둘 다 놓침"
+ },
+ "w5_tire": {
+  "base": 8,
+  "sam": 6,
+  "of": 8,
+  "note": "SAM은 첫 2장면 놓침"
+ },
+ "h1_led": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "h2_xdrive": {
+  "base": 8,
+  "sam": 7,
+  "of": 8,
+  "note": "SAM 첫 장면 놓침"
+ },
+ "h3_ambient": {
+  "base": 7,
+  "sam": 7,
+  "of": 8,
+  "note": ""
+ },
+ "h4_m_button": {
+  "base": 0,
+  "sam": 8,
+  "of": 8,
+  "note": "기존은 BMW 로고·에어백을 잡음"
+ },
+ "h5_gear_buttons": {
+  "base": 0,
+  "sam": 0,
+  "of": 8,
+  "note": "기존=기어 레버, SAM=iDrive 다이얼. 손가락이 누르는 주행 모드 버튼은 둘 다 못 잡음(프롬프트 문제)"
+ },
+ "h6_engine_cover": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "z1_headlight_in": {
+  "base": 0,
+  "sam": 8,
+  "of": 8,
+  "note": "기존은 반대쪽 헤드라이트·엉뚱한 곳을 잡음"
+ },
+ "z2_rear_pan": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "z3_mirror": {
+  "base": 4,
+  "sam": 8,
+  "of": 8,
+  "note": "미러는 컷 뒤쪽 2/3에만 보임. 기존은 앞쪽에 엉뚱한 상자"
+ },
+ "z4_hud": {
+  "base": 2,
+  "sam": 1,
+  "of": 8,
+  "note": "둘 다 실패. 기존은 계기판·앞차 후미등을 잡음"
+ },
+ "z5_engine_open": {
+  "base": 2,
+  "sam": 8,
+  "of": 8,
+  "note": "기존은 흡기 호스·너무 큰 상자"
+ },
+ "a1_sill_plate": {
+  "base": 8,
+  "sam": 5,
+  "of": 8,
+  "note": "SAM은 앞쪽 3장면(비스듬한 스커프) 놓침"
+ },
+ "a2_puddle_light": {
+  "base": 7,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "a3_infotainment": {
+  "base": 7,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ },
+ "a4_cupholder_ring": {
+  "base": 1,
+  "sam": 8,
+  "of": 8,
+  "note": "기존은 위쪽 버튼을 잡음"
+ },
+ "a5_front_seat": {
+  "base": 1,
+  "sam": 3,
+  "of": 8,
+  "note": "일체형 스포츠 시트라 헤드레스트 구분이 애매. 둘 다 사실상 실패"
+ },
+ "o1_wheel_buttons": {
+  "base": 1,
+  "sam": 8,
+  "of": 8,
+  "note": "기존은 작은 상자가 계속 엉뚱한 곳"
+ },
+ "o2_climate": {
+  "base": 4,
+  "sam": 0,
+  "of": 8,
+  "note": "SAM 실패. 기존은 손가락이 가리키는 버튼 줄을 절반 정도 잡음"
+ },
+ "o3_camera_view": {
+  "base": 0,
+  "sam": 8,
+  "of": 8,
+  "note": "기존은 화면 속 작은 아이콘을 잡음"
+ },
+ "o4_cluster": {
+  "base": 8,
+  "sam": 8,
+  "of": 8,
+  "note": ""
+ }
+}
