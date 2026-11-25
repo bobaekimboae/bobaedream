@@ -53,7 +53,7 @@ _i=idx
 _cut=lambda k:(_i(k),)
 # (키, 원본시작, 원본끝, 첫단어, 칩, 칩단어, 보조, 화살표 유효(원본시각), 큰숫자) — 원본 시간축 = 목소리 시간축
 _CT=[('c1',None,None,None,[]),('c2','앞에는','LED 헤드램프','LED',[]),('c3','휠','블루 캘리퍼','블루',[]),('c4','뒤에는','듀얼 머플러','듀얼',[]),
- ('c5','4륜구동','4륜구동 xDrive','4륜구동',[]),('c6','문을','M 퍼포먼스 로고','퍼포먼스',[]),('c7','도어','도어 스텝','도어',[]),('c8','실내는','레드 가죽 시트','레드',[]),
+ ('c5','4륜구동','4륜구동 xDrive','4륜구동',[]),('c6','문을','M 퍼포먼스 로고','퍼포먼스',[]),('c7','도어','도어 스텝','도어',[]),('c8','실내는','스포츠 시트','스포츠',[]),
  ('c9','도어엔','앰비언트 라이트','앰비언트',[]),('c10','뒷좌석까지','레드 가죽 뒷좌석','뒷좌석까지',[]),('c11','핸들엔','크루즈 컨트롤','크루즈',[]),
  ('c12','주행거리는',None,None,[('16,665km','주행거리','16,665km')]),('c13','헤드업','헤드업 디스플레이','헤드업',[]),('c14','후방','후방 카메라','후방',[]),
  ('c15','주행','주행 모드','주행',[]),('c16','보닛','M 퍼포먼스 엔진','퍼포먼스',[]),('c17','보배드림',None,None,[])]
@@ -64,7 +64,7 @@ C=[]
 for k,(key,w0,lab,cw,bg) in enumerate(_CT):
     s0=_st[k]; s1=_st[k+1] if k+1<len(_CT) else VOICE+1.7
     cwi=_i(cw,_fw[k]) if cw else None
-    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 and key not in ('c7','c11','c13') else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
+    C.append((key,s0,s1,_fw[k],lab,cwi,None,(s0,s1) if key in TRK0 and key not in ('c7','c11','c13','c8') else None,[(b,l,_i(j,_fw[k])) for b,l,j in bg]))
 ENDT=WS[_i('자세한')][1]-0.12; TOTAL=VOICE+1.7
 starts=[0.0]+[WS[c[3]][1]-0.12 for c in C[1:]]
 SEG=[]
@@ -147,6 +147,7 @@ def label_log(lab,kind,anchor,pt,pos,img,t,tin,reason=None):   # r15: 부위에 
         'box':[int(pos[0]+b[0]),int(pos[1]+b[1]),int(pos[0]+b[2]),int(pos[1]+b[3])],'t_box':round(CUR.get('T',0),3),**({'no_anchor_reason':reason} if reason and not pt else {})}
 CHIP_DELAY={}
 NOTRACK={k:'fills_frame' for k in ('c5','c10','c14','c15','c16')}; NOTRACK.update({'c11':'not_found','c13':'not_found','c7':'fills_frame'})   # OWLv2가 핸들 버튼 대신 계기판, HUD 대신 빈 유리를 잡음 → 틀린 화살표 대신 위쪽 칩
+NOTRACK['c8']='not_found'   # 추적 점이 시트에서 문짝으로 미끄러짐(카메라가 시트를 훑음) — 시트 자리는 시트 묶음(OWLv2 등받이 상자)이 맡음
 cxc=lambda img:int(W/2-(img.getbbox()[0]+img.getbbox()[2])/2)   # 칠 기준 가로 가운데   # r03: 카메라가 번호판에서 견인고리로 내려오는 0.75초 동안 칩을 미룸(번호판 덮지 않음)
 def place(Cimg,tx,ty,below):
     bx0,by0,bx1,by1=Cimg.getbbox(); x=int(max(SAFE_X-bx0,min(W-SAFE_X-bx1,tx-(bx0+bx1)/2))); L=ALEN   # v7: 칩 칠이 화면 끝 24px 안까지(부위가 끝에 있어도 화살표가 칩 밑에 오게)
@@ -259,7 +260,63 @@ def ring(cv,x,y,t,t_in):   # 부위 표시 고리: 노랑 한 색(사용자 확�
     if t<t_in: return
     g=min(1.0,(t-t_in)/0.2); r=int(46*(0.6+0.4*g)); d=ImageDraw.Draw(cv)
     d.ellipse((x-r,y-r,x+r,y+r),outline=(0,0,0,110),width=12); d.ellipse((x-r,y-r,x+r,y+r),outline=(245,242,0,int(255*g)),width=7)
+_SB=json.load(open(G+'seat_boxes.json')) if os.path.exists(G+'seat_boxes.json') and os.environ.get('SEAT_BUNDLE','1')!='0' else None
+_SBR=json.load(open(os.path.join(REPO,'scripts/shortform/photo_listing/option_visual_rules.json')))
+_SBL=_SBR['layout']['seat_bundle']; _SBO={o['id']:o for o in _SBR['options']}
+SEAT_KEY=os.environ.get('SEAT_KEY','c8')
+SEAT_MAT=os.environ.get('SEAT_MAT','레드 가죽')   # 재질 = 대본·화면에 있는 값만(지어내지 않음)
+SEAT_ICONS=[x for x in os.environ.get('SEAT_ICONS','seat_power').split(',') if x]   # 매물·화면으로 확인된 기능만. M235i: 시트 옆 전동 스위치가 화면에 보임
+_SBC={}
+def seat_bundle(cv,t,t0):
+    """2026-11-25 「시트 이모지 규칙 왜 안해」: 매뉴얼 13-10 시트 묶음 — 재질 3D 글자 + 기능 아이콘(Fluent 3D) 한 줄.
+    자리·크기 = OWLv2 등받이 상자(seat_boxes.json, 원본 시각별) 기준 · 컷 안에서 고정(나세르식). 각 기능은 그 낱말을 말할 때 톡."""
+    if not _SB: return
+    if 'pos' not in _SBC:
+        sw=[j for j,(w,s,e) in enumerate(WS) if any(k in w for k in _SBO['seat_material']['keywords'])]
+        t_mat=min([WS[j][1] for j in sw if WS[j][1]>=t0],default=t0)   # 재질 낱말(가죽) 말할 때
+        bx=[b for tt,b in _SB if b and tt>=t_mat-0.3]
+        if not bx: _SBC['pos']=None; return
+        med=[sorted(v)[len(v)//2] for v in zip(*bx)]
+        st,tomap=CUR['st'],CUR['tomap']; (x0,y0),(x1,y1)=tomap(med[0],med[1]),tomap(med[2],med[3])
+        bw=x1-x0; f=_SBL['icon_fit']; mf=_SBL['material_fit']
+        ih=int(min(f[2],max(f[1],bw*f[0]))); mh=int(min(mf[2],max(mf[1],bw*mf[0])))
+        ics=[]
+        for oid in SEAT_ICONS:
+            o=_SBO[oid]; j=next((j for j,(w,s,e) in enumerate(WS) if WS[j][1]>=t0 and any(k in w for k in o['keywords'])),None)
+            if j is None: raise SystemExit(f"⛔ 시트 컷 대본에 「{o['keywords'][0]}」 없음 — 그림만 띄우지 않음(매뉴얼 13-10)")
+            ics.append((flu('%x'%ord(o['visual']['emo'][0]),ih),WS[j][1]-t0-0.06,o['name']))
+        MAT=text3d(SEAT_MAT,h=mh) if SEAT_MAT else None
+        gap=int(ih*(_SBR['layout'].get('row_spacing_ratio',1.15)-1)) if ics else 0
+        roww=sum(i.width for i,_,_ in ics)+gap*max(0,len(ics)-1)
+        ry=int(y0+_SBL['row_v']*(y1-y0))-ih//2
+        if ry+ih>CAPY-70 and ry<CAPY+90: ry=CAPY+90   # 말 자막 띠와 겹치면 자막 아래 칸
+        ry=min(ry,int(H*0.80)-ih); cx=int(min(W-roww/2-60,max(roww/2+60,(x0+x1)/2)))
+        my=ry-mh-12 if ics else ry
+        _SBC['pos']=(cx,ry,my,ics,MAT,roww,gap,t_mat-t0-0.06)
+        print(f'[시트 묶음] 등받이 폭 {bw:.0f}px · 아이콘 {ih}px · 재질 {mh}px · 줄 y {ry} · {SEAT_MAT} + '+' '.join(n for _,_,n in ics))
+    if not _SBC['pos']: return
+    cx,ry,my,ics,MAT,roww,gap,tm=_SBC['pos']
+    # 카메라가 시트를 훑으며 움직이므로 묶음 자리는 그 순간 등받이 상자를 따라감(원본 시각 보간 + 부드럽게, 크기는 고정)
+    st,tomap=CUR['st'],CUR['tomap']; ok=[(tt,b) for tt,b in _SB if b]
+    pr=[x for x in ok if x[0]<=st]; nx=[x for x in ok if x[0]>st]
+    if pr and nx: (ta,ba),(tb,bb)=pr[-1],nx[0]; u=(st-ta)/(tb-ta); b=[p+(q-p)*u for p,q in zip(ba,bb)]
+    else: b=(pr[-1] if pr else nx[0])[1]
+    (x0,y0),(x1,y1)=tomap(b[0],b[1]),tomap(b[2],b[3]); ih=ics[0][0].height if ics else 0
+    tx=min(W-roww/2-60,max(roww/2+60,(x0+x1)/2)); ty=int(y0+_SBL['row_v']*(y1-y0))-ih//2
+    if ty+ih>CAPY-70 and ty<CAPY+90: ty=CAPY+90
+    ty=max(YB+330,min(ty,int(H*0.80)-ih))   # 위 칩(약 YB~YB+130) + 재질 글자 높이만큼 아래 · 화면 80% 위
+    if 'sm' not in _SBC: _SBC['sm']=[tx,ty]
+    else: _SBC['sm']=[_SBC['sm'][0]+(tx-_SBC['sm'][0])*0.18,_SBC['sm'][1]+(ty-_SBC['sm'][1])*0.18]
+    cx,ry=int(_SBC['sm'][0]),int(_SBC['sm'][1]); my=ry-(MAT.height if MAT else 0)-12 if ics else ry
+    _bc=((x0+x1)/2,(y0+y1)/2)
+    if MAT: pop(cv,MAT,(cx-MAT.width//2,my),t,tm,0.3); label_log(SEAT_MAT,'material','seat_owlv2',_bc,(cx-MAT.width//2,my),MAT,t,tm)
+    x=cx-roww//2
+    for im,ti,nm in ics:
+        pop(cv,im,(x,ry),t,ti,0.25); label_log(nm,'icon','seat_owlv2',_bc,(x,ry),im,t,ti)
+        if abs(CUR['T']-(t0+ti))<0.5/FPS and (t0+ti) not in ICONT: ICONT.append(t0+ti)
+        x+=im.width+gap
 def special(key,cv,t,t0):
+    if key==SEAT_KEY: seat_bundle(cv,t,t0)
     for e in PL.get(key,{}).get('T02',[]):   # T02 ✓ 목록: 칩 바로 아래, 칩 왼쪽 선에 맞춰 쌓음
         _g=gchip(CHIPLAB[key]); cb=_g.getbbox(); x0=cxc(_g)+cb[0]; yk=YB+cb[3]+14   # r14: 가운데 칩의 칠 왼쪽 끝
         for r in e['rows']:
