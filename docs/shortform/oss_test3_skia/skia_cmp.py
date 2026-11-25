@@ -1,7 +1,14 @@
-import sys, time, numpy as np
-sys.path[:0]=['/home/claude/bbm-align/scripts/shortform/video_listing','/home/claude/bbm-align/scripts/shortform/lib']
+import os, sys, time, numpy as np
+# 「PIL」 열은 반드시 예전 방식이어야 한다: g350_v5_lib는 skia가 있으면 arrimg를 skia로 넘기므로
+# 가져오기 전에 BBM_DRAW=pil을 켠다(2026-11-25 클로드 마스터 2 지적 — 안 켜면 두 열 모두 skia, 차이 0%).
+os.environ['BBM_DRAW'] = 'pil'
+REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..'))
+sys.path[:0] = [REPO + '/scripts/shortform/video_listing', REPO + '/scripts/shortform/lib']
 from PIL import Image, ImageDraw
 import g350_v5_lib as G, skia_draw as S
+assert G.SKD is None, 'PIL 열이 skia로 그려지고 있음 — BBM_DRAW=pil이 먹지 않았다'
+import skia
+print('skia-python', skia.__version__, '· PIL 열 = 예전 방식(G.SKD 없음)')
 YEL, INK = G.YEL, G.INK
 def soft(im):  # 테두리 바깥 가장자리에서 중간 알파(1~254) 비율 = 부드러움
     a=np.array(im.getchannel('A')).astype(int); edge=(a>0)&(a<255); return edge.sum()
