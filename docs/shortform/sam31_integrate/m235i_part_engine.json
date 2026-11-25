@@ -1,0 +1,23 @@
+{
+ "engine": "sam",
+ "frames_sent": 500,
+ "usd": 0.1,
+ "cap_usd": 0.3,
+ "stopped_at_cap": false,
+ "requests": 7,
+ "fallback": [
+  "c3",
+  "c7"
+ ],
+ "by": {
+  "c2": "sam31-text",
+  "c3": "owlv2",
+  "c4": "sam31-text",
+  "c6": "sam31-text",
+  "c7": "owlv2",
+  "c8": "sam31-text",
+  "c9": "sam31-text"
+ },
+ "seconds": 58.4,
+ "clicks": 0
+}
