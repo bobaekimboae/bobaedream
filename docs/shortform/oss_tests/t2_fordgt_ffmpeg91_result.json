@@ -1,0 +1,23 @@
+{
+ "test": "T2 ffmpeg 6.1.1(샌드박스 실행기) vs 9.1 직접 빌드",
+ "car": "fordgt",
+ "render_sec": {
+  "old": 46.5,
+  "new": 48.5
+ },
+ "duration": 48.867,
+ "ssim_all": 0.99698,
+ "ssim_min": 0.99,
+ "frames_below_098": 0,
+ "frames": 1466,
+ "lufs": -14.0,
+ "true_peak_db": {
+  "old": -1.7,
+  "new": -1.9
+ },
+ "check_be": {
+  "old": "통과",
+  "new": "통과"
+ },
+ "build": "공식 원본 ffmpeg-9.1.tar.xz, 서명 확인, --enable-gpl --enable-libx264 --enable-libmp3lame"
+}
