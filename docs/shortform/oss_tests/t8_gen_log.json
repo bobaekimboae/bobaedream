@@ -1,0 +1,72 @@
+[
+ {
+  "sid": "s15_hwan_huracan",
+  "spk": "Sohee",
+  "sec": 32.8,
+  "audio": 5.76,
+  "rtf": 5.69
+ },
+ {
+  "sid": "s16_hwan_huracan",
+  "spk": "Sohee",
+  "sec": 34.6,
+  "audio": 6.48,
+  "rtf": 5.35
+ },
+ {
+  "sid": "s17_hwan_huracan",
+  "spk": "Sohee",
+  "sec": 31.1,
+  "audio": 5.2,
+  "rtf": 5.98
+ },
+ {
+  "sid": "s18_hwan_huracan",
+  "spk": "Sohee",
+  "sec": 40.7,
+  "audio": 7.84,
+  "rtf": 5.19
+ },
+ {
+  "sid": "s20_hwan_huracan",
+  "spk": "Sohee",
+  "sec": 27.9,
+  "audio": 5.6,
+  "rtf": 4.97
+ },
+ {
+  "sid": "s15_hwan_huracan",
+  "spk": "Ryan",
+  "sec": 24.4,
+  "audio": 4.72,
+  "rtf": 5.17
+ },
+ {
+  "sid": "s16_hwan_huracan",
+  "spk": "Ryan",
+  "sec": 36.2,
+  "audio": 6.88,
+  "rtf": 5.26
+ },
+ {
+  "sid": "s17_hwan_huracan",
+  "spk": "Ryan",
+  "sec": 44.5,
+  "audio": 8.08,
+  "rtf": 5.5
+ },
+ {
+  "sid": "s18_hwan_huracan",
+  "spk": "Ryan",
+  "sec": 35.4,
+  "audio": 6.48,
+  "rtf": 5.46
+ },
+ {
+  "sid": "s20_hwan_huracan",
+  "spk": "Ryan",
+  "sec": 27.2,
+  "audio": 4.88,
+  "rtf": 5.57
+ }
+]
