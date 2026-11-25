@@ -116,6 +116,34 @@ def snap(W, segs, move=0.8, move_punct=1.2):
     return W
 
 
+def gap_check(W, segs, out_path, limit=0.30):
+    """낱말 시각 경고(2026-11-25 클로드 마스터1, 오픈소스 교체 시험 1 확정 조건).
+    쉼(0.15초 이상) 뒤 말소리가 다시 시작되는 곳마다 가장 가까운 어절 시작과의 차이를 잰다.
+    limit초 넘게 어긋나면 경고를 출력하고 out_path(JSON)에 남긴다 — 렌더를 멈추지는 않는다(사람 확인용).
+    시험 1 근거: docs/shortform/oss_test1_aligner/README.md 「판정」."""
+    rows, warn = [], []
+    for a, _b in segs[1:]:
+        if not W:
+            break
+        i = min(range(len(W)), key=lambda k: abs(W[k][0] - a))
+        d = round(W[i][0] - a, 3)
+        rows.append({'onset': round(a, 3), 'word': W[i][2], 'start': W[i][0], 'diff': d})
+        if abs(d) > limit:
+            warn.append(rows[-1])
+    zero = [w[2] for w in W if w[1] - w[0] < 0.03]
+    rep = {'limit_s': limit, 'onsets': len(rows), 'warnings': warn, 'zero_length': zero,
+           'max_abs_diff': max((abs(r['diff']) for r in rows), default=0.0)}
+    json.dump(rep, open(out_path, 'w'), ensure_ascii=False, indent=1)
+    if warn or zero:
+        for r in warn:
+            print(f"⚠ 낱말 시각 {r['diff']:+.2f}초 어긋남: 「{r['word']}」 (말소리 시작 {r['onset']}초)")
+        for z in zero:
+            print(f'⚠ 길이 0초 어절: 「{z}」')
+    else:
+        print(f"낱말 시각 검사 통과: 쉼 뒤 시작 {len(rows)}곳 최대 {rep['max_abs_diff']:.2f}초(기준 {limit}초)")
+    return rep
+
+
 def load16k(audio):
     import numpy as np
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', audio, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'],
@@ -148,9 +176,11 @@ def main(car, script_path=None):
     script = ' '.join(script.split())
     items = align(os.path.join(car, 'voice_a.mp3'), script)
     W = regroup(items, script)
+    segs = speech_segments(load16k(os.path.join(car, 'voice_a.mp3')))
     if os.environ.get('ALIGN_SNAP', '1') != '0':
-        W = snap(W, speech_segments(load16k(os.path.join(car, 'voice_a.mp3'))))
+        W = snap(W, segs)
     json.dump(W, open(os.path.join(car, 'voice_a_words.json'), 'w'), ensure_ascii=False)
+    gap_check(W, segs, os.path.join(car, 'voice_a_words.check.json'))
     print('==', car, len(W), '어절 · 도구 Qwen3-ForcedAligner-0.6B', '+ 쉼 맞춤' if os.environ.get('ALIGN_SNAP', '1') != '0' else '')
     print(' '.join(f'{i}:{w[2]}' for i, w in enumerate(W)))
 
