@@ -1,0 +1,1 @@
+{"model": "sam-3.1", "prompt": "projected speed on windshield", "media": "z4_hud.mp4", "completed": true, "seconds": 5.55, "empty": true, "frames": {}, "n_frames": 150, "billed_frames": 150, "cost_usd": 0.03, "try": 1}
