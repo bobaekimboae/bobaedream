@@ -187,9 +187,21 @@ def pop(cv, img, pos, t, t_in, dur=0.2):
     if a < 1: im = im.copy(); im.putalpha(Image.fromarray((np.array(im.getchannel('A')) * a).astype('uint8')))
     cv.alpha_composite(im, (int(x), int(y)))
 
+# 그리기 엔진(오픈소스 교체 시험 3번, 2026-11-25): 기본 skia(가장자리 부드럽게), BBM_DRAW=pil이면 예전 PIL.
+try:
+    if os.environ.get('BBM_DRAW', 'skia') == 'pil':
+        raise ImportError
+    import sys as _sys
+    _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'lib'))
+    import skia_draw as SKD
+except ImportError:
+    SKD = None
+
 _ac = {}
 def arrimg(L, below):
     """노랑 화살표(검은 테두리). below=True면 끝이 위(칩이 부위 아래), False면 끝이 아래. (그림, 위 여백)."""
+    if SKD is not None:
+        return SKD.arrimg(L, below, YEL, INK)
     k = (L, below)
     if k in _ac: return _ac[k]
     if os.environ.get('BBM_ARROW', 'hand') == 'hand':   # 2026-11-24 「손글씨 화살표로 밸런스 맞게 교체」: 노션 원본 SVG(경로 무수정, 색만 노랑) + 검정 테두리
