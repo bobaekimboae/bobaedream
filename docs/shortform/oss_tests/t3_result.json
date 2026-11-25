@@ -1,0 +1,198 @@
+{
+ "totals": {
+  "masks": 3885,
+  "size_eq_box": 3885,
+  "tight": 3875,
+  "files": 37,
+  "fill_min": 0.157,
+  "fill_p5": 0.258,
+  "fill_median": 0.723
+ },
+ "files": [
+  {
+   "name": "sam_a1_sill_plate",
+   "masks": 83,
+   "frames": 83
+  },
+  {
+   "name": "sam_a2_puddle_light",
+   "masks": 105,
+   "frames": 105
+  },
+  {
+   "name": "sam_a3_infotainment",
+   "masks": 115,
+   "frames": 115
+  },
+  {
+   "name": "sam_a4_cupholder_ring",
+   "masks": 90,
+   "frames": 90
+  },
+  {
+   "name": "sam_a5_front_seat",
+   "masks": 11,
+   "frames": 11
+  },
+  {
+   "name": "sam_box_a1_sill_plate",
+   "masks": 120,
+   "frames": 120
+  },
+  {
+   "name": "sam_box_a5_front_seat",
+   "masks": 81,
+   "frames": 81
+  },
+  {
+   "name": "sam_box_h5_gear_buttons",
+   "masks": 90,
+   "frames": 90
+  },
+  {
+   "name": "sam_box_o2_climate",
+   "masks": 105,
+   "frames": 105
+  },
+  {
+   "name": "sam_box_w1_front_wheel",
+   "masks": 21,
+   "frames": 21
+  },
+  {
+   "name": "sam_box_w5_tire",
+   "masks": 21,
+   "frames": 21
+  },
+  {
+   "name": "sam_box_z4_hud",
+   "masks": 140,
+   "frames": 140
+  },
+  {
+   "name": "sam_e1_hood_emblem",
+   "masks": 131,
+   "frames": 90
+  },
+  {
+   "name": "sam_e2_center_cap",
+   "masks": 26,
+   "frames": 26
+  },
+  {
+   "name": "sam_e3_trunk_roundel",
+   "masks": 22,
+   "frames": 22
+  },
+  {
+   "name": "sam_e4_m235i_badge",
+   "masks": 120,
+   "frames": 120
+  },
+  {
+   "name": "sam_e5_steering_logo",
+   "masks": 90,
+   "frames": 90
+  },
+  {
+   "name": "sam_h1_led",
+   "masks": 90,
+   "frames": 90
+  },
+  {
+   "name": "sam_h2_xdrive",
+   "masks": 80,
+   "frames": 80
+  },
+  {
+   "name": "sam_h3_ambient",
+   "masks": 87,
+   "frames": 87
+  },
+  {
+   "name": "sam_h4_m_button",
+   "masks": 195,
+   "frames": 90
+  },
+  {
+   "name": "sam_h5_gear_buttons",
+   "masks": 90,
+   "frames": 90
+  },
+  {
+   "name": "sam_h6_engine_cover",
+   "masks": 90,
+   "frames": 90
+  },
+  {
+   "name": "sam_o1_wheel_buttons",
+   "masks": 563,
+   "frames": 113
+  },
+  {
+   "name": "sam_o2_climate",
+   "masks": 0,
+   "frames": 0
+  },
+  {
+   "name": "sam_o3_camera_view",
+   "masks": 157,
+   "frames": 120
+  },
+  {
+   "name": "sam_o4_cluster",
+   "masks": 120,
+   "frames": 120
+  },
+  {
+   "name": "sam_w1_front_wheel",
+   "masks": 105,
+   "frames": 105
+  },
+  {
+   "name": "sam_w2_wheel_pan",
+   "masks": 120,
+   "frames": 120
+  },
+  {
+   "name": "sam_w3_rear_wheel",
+   "masks": 130,
+   "frames": 105
+  },
+  {
+   "name": "sam_w4_caliper",
+   "masks": 20,
+   "frames": 20
+  },
+  {
+   "name": "sam_w5_tire",
+   "masks": 105,
+   "frames": 105
+  },
+  {
+   "name": "sam_z1_headlight_in",
+   "masks": 190,
+   "frames": 120
+  },
+  {
+   "name": "sam_z2_rear_pan",
+   "masks": 161,
+   "frames": 150
+  },
+  {
+   "name": "sam_z3_mirror",
+   "masks": 76,
+   "frames": 76
+  },
+  {
+   "name": "sam_z4_hud",
+   "masks": 0,
+   "frames": 0
+  },
+  {
+   "name": "sam_z5_engine_open",
+   "masks": 135,
+   "frames": 135
+  }
+ ]
+}
