@@ -1,0 +1,6 @@
+﻿sentence_id,word_no,word,D_start,E_start,onset_flux,D_err,E_err,closer,cut_clip
+s04_kkc_gwagen,8,있어요.,3.68,3.46,3.426,0.254,0.034,E,Y
+s11_taehyung_roma,2,이백오십오,0.96,0.78,1.016,0.056,0.236,D,
+s12_taehyung_roma,3,페라리,1.2,1.6,1.486,0.286,0.114,E,
+s16_hwan_huracan,2,오월,1.28,1.4,1.436,0.156,0.036,E,
+s19_hwan_huracan,5,디스플레이까지.,2.64,2.095,2.666,0.026,0.571,D,
