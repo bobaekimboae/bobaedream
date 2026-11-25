@@ -3,180 +3,224 @@
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "e2_center_cap": {
   "base": 1,
   "sam": 8,
   "of": 8,
-  "note": "캡은 끝 2장면에만 보임. 기존은 그 전부터 엉뚱한 곳에 상자"
+  "note": "캡은 끝 2장면에만 보임. 기존은 그 전부터 엉뚱한 곳에 상자",
+  "sam_best": 8
  },
  "e3_trunk_roundel": {
   "base": 1,
   "sam": 8,
   "of": 8,
-  "note": "로고는 중간에 잠깐 보임. 기존은 xDrive·M235i 배지를 잡음"
+  "note": "로고는 중간에 잠깐 보임. 기존은 xDrive·M235i 배지를 잡음",
+  "sam_best": 8
  },
  "e4_m235i_badge": {
   "base": 0,
   "sam": 8,
   "of": 8,
-  "note": "기존은 번호판을 잡음"
+  "note": "기존은 번호판을 잡음",
+  "sam_best": 8
  },
  "e5_steering_logo": {
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "w1_front_wheel": {
   "base": 8,
   "sam": 6,
   "of": 8,
-  "note": "SAM은 첫 2장면(멀리서 본 휠) 놓침"
+  "note": "SAM은 첫 2장면(멀리서 본 휠) 놓침",
+  "sam_best": 8,
+  "sam_box": 2,
+  "box_note": "처음 2장면만 잡고 확대되면 놓침 → 글자 결과와 합치면 8/8"
  },
  "w2_wheel_pan": {
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "w3_rear_wheel": {
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "w4_caliper": {
   "base": 6,
   "sam": 6,
   "of": 8,
-  "note": "캘리퍼가 보이기 시작한 직후 2장면은 둘 다 놓침"
+  "note": "캘리퍼가 보이기 시작한 직후 2장면은 둘 다 놓침",
+  "sam_best": 6
  },
  "w5_tire": {
   "base": 8,
   "sam": 6,
   "of": 8,
-  "note": "SAM은 첫 2장면 놓침"
+  "note": "SAM은 첫 2장면 놓침",
+  "sam_best": 8,
+  "sam_box": 2,
+  "box_note": "처음 2장면만 잡고 확대되면 놓침 → 글자 결과와 합치면 8/8"
  },
  "h1_led": {
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "h2_xdrive": {
   "base": 8,
   "sam": 7,
   "of": 8,
-  "note": "SAM 첫 장면 놓침"
+  "note": "SAM 첫 장면 놓침",
+  "sam_best": 7
  },
  "h3_ambient": {
   "base": 7,
   "sam": 7,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 7
  },
  "h4_m_button": {
   "base": 0,
   "sam": 8,
   "of": 8,
-  "note": "기존은 BMW 로고·에어백을 잡음"
+  "note": "기존은 BMW 로고·에어백을 잡음",
+  "sam_best": 8
  },
  "h5_gear_buttons": {
   "base": 0,
   "sam": 0,
   "of": 8,
-  "note": "기존=기어 레버, SAM=iDrive 다이얼. 손가락이 누르는 주행 모드 버튼은 둘 다 못 잡음(프롬프트 문제)"
+  "note": "기존=기어 레버, SAM=iDrive 다이얼. 손가락이 누르는 주행 모드 버튼은 둘 다 못 잡음(프롬프트 문제)",
+  "sam_best": 8,
+  "sam_box": 8,
+  "box_note": "SPORT·COMFORT·ECO PRO 버튼을 정확히 따라감"
  },
  "h6_engine_cover": {
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "z1_headlight_in": {
   "base": 0,
   "sam": 8,
   "of": 8,
-  "note": "기존은 반대쪽 헤드라이트·엉뚱한 곳을 잡음"
+  "note": "기존은 반대쪽 헤드라이트·엉뚱한 곳을 잡음",
+  "sam_best": 8
  },
  "z2_rear_pan": {
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "z3_mirror": {
   "base": 4,
   "sam": 8,
   "of": 8,
-  "note": "미러는 컷 뒤쪽 2/3에만 보임. 기존은 앞쪽에 엉뚱한 상자"
+  "note": "미러는 컷 뒤쪽 2/3에만 보임. 기존은 앞쪽에 엉뚱한 상자",
+  "sam_best": 8
  },
  "z4_hud": {
   "base": 2,
   "sam": 1,
   "of": 8,
-  "note": "둘 다 실패. 기존은 계기판·앞차 후미등을 잡음"
+  "note": "둘 다 실패. 기존은 계기판·앞차 후미등을 잡음",
+  "sam_best": 7,
+  "sam_box": 7,
+  "box_note": "상자로 HUD를 끝까지 따라감(손가락이 가린 1장면만 놓침)"
  },
  "z5_engine_open": {
   "base": 2,
   "sam": 8,
   "of": 8,
-  "note": "기존은 흡기 호스·너무 큰 상자"
+  "note": "기존은 흡기 호스·너무 큰 상자",
+  "sam_best": 8
  },
  "a1_sill_plate": {
   "base": 8,
   "sam": 5,
   "of": 8,
-  "note": "SAM은 앞쪽 3장면(비스듬한 스커프) 놓침"
+  "note": "SAM은 앞쪽 3장면(비스듬한 스커프) 놓침",
+  "sam_best": 8,
+  "sam_box": 8,
+  "box_note": "앞쪽 비스듬한 장면까지 다 잡음"
  },
  "a2_puddle_light": {
   "base": 7,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "a3_infotainment": {
   "base": 7,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  },
  "a4_cupholder_ring": {
   "base": 1,
   "sam": 8,
   "of": 8,
-  "note": "기존은 위쪽 버튼을 잡음"
+  "note": "기존은 위쪽 버튼을 잡음",
+  "sam_best": 8
  },
  "a5_front_seat": {
   "base": 1,
   "sam": 3,
   "of": 8,
-  "note": "일체형 스포츠 시트라 헤드레스트 구분이 애매. 둘 다 사실상 실패"
+  "note": "일체형 스포츠 시트라 헤드레스트 구분이 애매. 둘 다 사실상 실패",
+  "sam_best": 6,
+  "sam_box": 6,
+  "box_note": "시트 위쪽(일체형 헤드레스트)을 잡음. 프롬프트 자체가 애매"
  },
  "o1_wheel_buttons": {
   "base": 1,
   "sam": 8,
   "of": 8,
-  "note": "기존은 작은 상자가 계속 엉뚱한 곳"
+  "note": "기존은 작은 상자가 계속 엉뚱한 곳",
+  "sam_best": 8
  },
  "o2_climate": {
   "base": 4,
   "sam": 0,
   "of": 8,
-  "note": "SAM 실패. 기존은 손가락이 가리키는 버튼 줄을 절반 정도 잡음"
+  "note": "SAM 실패. 기존은 손가락이 가리키는 버튼 줄을 절반 정도 잡음",
+  "sam_best": 7,
+  "sam_box": 7,
+  "box_note": "공조 버튼 줄을 잡음. 버튼 줄이 화면 왼쪽 끝으로 밀린 장면은 작게 잡힘"
  },
  "o3_camera_view": {
   "base": 0,
   "sam": 8,
   "of": 8,
-  "note": "기존은 화면 속 작은 아이콘을 잡음"
+  "note": "기존은 화면 속 작은 아이콘을 잡음",
+  "sam_best": 8
  },
  "o4_cluster": {
   "base": 8,
   "sam": 8,
   "of": 8,
-  "note": ""
+  "note": "",
+  "sam_best": 8
  }
 }

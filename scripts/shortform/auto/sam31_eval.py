@@ -335,6 +335,13 @@ def cmd_render(a):
         sj = json.load(open(os.path.join(P['sam'], c['id'] + '.json'))) if os.path.exists(os.path.join(P['sam'], c['id'] + '.json')) else None
         bt, n = track_of(bj, 'base')
         st, _ = track_of(sj, 'sam') if sj else ({}, n)
+        if a.left == 'sam':   # 왼쪽 = SAM 글자 프롬프트, 오른쪽 = 글자 + 상자 프롬프트(글자가 놓친 프레임만 상자 결과로 채움)
+            xp = os.path.join(a.work, 'sam_box', c['id'] + '.json')
+            xj = json.load(open(xp)) if os.path.exists(xp) else None
+            xt = track_of(xj, 'sam')[0] if xj else {}
+            bt, bj = st, dict(sj, seconds=sj['seconds'])
+            st = ({**xt, **st}) if xj else st
+            sj = dict(sj, seconds=sj['seconds'] + (xj['seconds'] if xj else 0), cost_usd=sj['cost_usd'] + (xj['cost_usd'] if xj else 0))
         bs, ss = stats(bt, n), (stats(st, n) if sj else None)
         tot['n'] += n
         tot['base_found'] += len(bt)
@@ -345,7 +352,8 @@ def cmd_render(a):
         ko = KO.get(c['prompt'], c['prompt'])
         jd = JD.get(c['id'])
         if jd:
-            tot['base_ok'] += jd['base']; tot['sam_ok'] += jd['sam']; tot['ok_of'] += jd['of']
+            L, R = ('base', 'sam') if a.left == 'base' else ('sam', 'sam_best')
+            tot['base_ok'] += jd[L]; tot['sam_ok'] += jd[R]; tot['ok_of'] += jd['of']
         for i, f in enumerate(fr):
             cv = Image.new('RGB', (OW, OH), (20, 20, 22))
             d = ImageDraw.Draw(cv)
@@ -353,8 +361,9 @@ def cmd_render(a):
             d.text((60, 180), f'{ko}   ({c["id"]})', font=fb(40), fill=YEL)
             d.text((60, 250), f'프롬프트 「{c["prompt"]}」 · {n}프레임', font=fb(30), fill=(170, 170, 175))
             sm = Image.fromarray(f[:, :, ::-1]).resize((PW, PH))
-            for k, (ttl, tr, stt, sec) in enumerate([('기존 OWLv2 + VitTrack', bt, bs, bj['seconds']),
-                                                     ('SAM 3.1 (Meta API)', st, ss, sj['seconds'] if sj else None)]):
+            T = ('기존 OWLv2 + VitTrack', 'SAM 3.1 (Meta API)') if a.left == 'base' else ('SAM 3.1 글자 프롬프트', 'SAM 3.1 글자 + 첫 장면 상자')
+            for k, (ttl, tr, stt, sec) in enumerate([(T[0], bt, bs, bj['seconds']),
+                                                     (T[1], st, ss, sj['seconds'] if sj else None)]):
                 ox = PX[k]
                 cv.paste(sm, (ox, PY))
                 d.text((ox, PY - 60), ttl, font=fb(32), fill=WHT)
@@ -369,12 +378,12 @@ def cmd_render(a):
                     d.text((ox + 22, PY + 15), '놓침', font=fb(28), fill=WHT)
                 yy = PY + PH + 30
                 if jd:
-                    ok = jd['base' if k == 0 else 'sam']
+                    ok = jd[('base' if k == 0 else 'sam') if a.left == 'base' else ('sam' if k == 0 else 'sam_best')]
                     d.text((ox, yy), f'맞은 장면 {ok}/{jd["of"]}', font=fx(40), fill=YEL if ok >= jd['of'] - 1 else (255, 110, 110))
                 else:
                     d.text((ox, yy), f'찾은 프레임 {stt["found_pct"]}%', font=fb(32), fill=WHT)
                 d.text((ox, yy + 52), f'상자 띄움 {stt["found_pct"]}% · 튐 {stt["jumps"]}', font=fb(28), fill=(200, 200, 205))
-                d.text((ox, yy + 92), f'처리 {sec:.1f}초' + (f' · ${sj["cost_usd"]:.3f}' if k == 1 else ' · CPU 2코어'), font=fb(30), fill=(200, 200, 205))
+                d.text((ox, yy + 92), f'처리 {sec:.1f}초' + (f' · ${sj["cost_usd"]:.3f}' if k == 1 else (' · CPU 2코어' if a.left == 'base' else '')), font=fb(30), fill=(200, 200, 205))
             enc.stdin.write(np.asarray(cv).tobytes())
     # 끝 요약 카드 3초
     cv = Image.new('RGB', (OW, OH), (20, 20, 22))
@@ -384,9 +393,9 @@ def cmd_render(a):
     lines = ([('맞은 장면', f"{100 * tot['base_ok'] / tot['ok_of']:.0f}%", f"{100 * tot['sam_ok'] / tot['ok_of']:.0f}%")] if tot['ok_of'] else []) + [
              ('상자 띄움', f"{100 * tot['base_found'] / n:.0f}%", f"{100 * tot['sam_found'] / n:.0f}%" if tot['sam_s'] else '-'),
              ('부위 찾기 시간', f"{tot['base_s']:.0f}초", f"{tot['sam_s']:.0f}초" if tot['sam_s'] else '-'),
-             ('비용', 'CPU', f"${tot['cost']:.2f}" if tot['sam_s'] else '-')]
-    d.text((420, 470), '기존', font=fb(40), fill=(170, 170, 175))
-    d.text((730, 470), 'SAM 3.1', font=fb(40), fill=YEL)
+             ('비용', 'CPU' if a.left == 'base' else '-', f"${tot['cost']:.2f}" if tot['sam_s'] else '-')]
+    d.text((420, 470), '기존' if a.left == 'base' else '글자만', font=fb(40), fill=(170, 170, 175))
+    d.text((730, 470), 'SAM 3.1' if a.left == 'base' else '글자+상자', font=fb(40), fill=YEL)
     for j, (k, v1, v2) in enumerate(lines):
         y = 570 + j * 120
         d.text((60, y), k, font=fb(44), fill=WHT)
@@ -396,7 +405,8 @@ def cmd_render(a):
     d.text((60, yb), f"{len(cuts)}컷 · {tot['n']}프레임 · 540x960", font=fb(32), fill=(150, 150, 155))
     if JD:
         ab = sum(v['base'] for v in JD.values()); asm = sum(v['sam'] for v in JD.values()); ao = sum(v['of'] for v in JD.values())
-        d.text((60, yb + 60), f"전체 {len(JD)}컷 맞은 장면  기존 {100 * ab / ao:.0f}% · SAM 3.1 {100 * asm / ao:.0f}%", font=fb(36), fill=WHT)
+        abest = sum(v.get('sam_best', v['sam']) for v in JD.values())
+        d.text((60, yb + 60), f"전체 {len(JD)}컷 맞은 장면  기존 {100 * ab / ao:.0f}% · SAM 글자 {100 * asm / ao:.0f}% · 글자+상자 {100 * abest / ao:.0f}%", font=fb(34), fill=WHT)
         d.text((60, yb + 115), '맞은 장면 = 컷마다 8장면을 눈으로 확인(보이면 그 부위에 상자, 안 보이면 상자 없음)', font=fb(26), fill=(150, 150, 155))
         d.text((60, yb + 155), '상자 띄움 = 틀린 곳에 띄운 상자도 셈(보조 지표)', font=fb(26), fill=(150, 150, 155))
     for _ in range(FPS * 3):
@@ -417,6 +427,7 @@ def main():
     ap.add_argument('--budget', type=float, default=1.0, help='run 단계 달러 상한')
     ap.add_argument('--alt', action='store_true', help='빈 결과면 alt 프롬프트 한 번 더(비용 추가)')
     ap.add_argument('--out', default='sam31_compare.mp4')
+    ap.add_argument('--left', choices=['base', 'sam'], default='base', help='render 왼쪽 패널: base=기존 방식, sam=SAM 글자(오른쪽은 글자+상자)')
     a = ap.parse_args()
     {'clips': cmd_clips, 'baseline': cmd_baseline, 'run': cmd_run, 'runbox': cmd_runbox, 'score': cmd_score, 'render': cmd_render}[a.step](a)
 
