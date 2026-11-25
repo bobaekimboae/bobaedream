@@ -116,11 +116,15 @@ def snap(W, segs, move=0.8, move_punct=1.2):
     return W
 
 
-def gap_check(W, segs, out_path, limit=0.30):
+def gap_check(W, segs, out_path, limit=0.30, raw=None):
     """낱말 시각 경고(2026-11-25 클로드 마스터1, 오픈소스 교체 시험 1 확정 조건).
     쉼(0.15초 이상) 뒤 말소리가 다시 시작되는 곳마다 가장 가까운 어절 시작과의 차이를 잰다.
     limit초 넘게 어긋나면 경고를 출력하고 out_path(JSON)에 남긴다 — 렌더를 멈추지는 않는다(사람 확인용).
-    시험 1 근거: docs/shortform/oss_test1_aligner/README.md 「판정」."""
+    시험 1 근거: docs/shortform/oss_test1_aligner/README.md 「판정」.
+    raw(쉼 맞춤 전 원값)를 주면 두 가지를 더 본다(2026-11-25 클로드 마스터 2 교차 검증 권장):
+    ① 0초 어절은 원값에서 찾는다 — 쉼 맞춤이 먼저 늘려 버려 맞춤 뒤 값으로는 절대 안 걸린다.
+    ② 쉼 맞춤이 어절 시작을 limit초 넘게 옮긴 곳도 경고한다 — 맞춤 뒤 값만 보면 자기채점이 된다(예: 「육백이십」 0.57초 이동).
+    끝 시각을 늘린 것은 쉼 맞춤의 목적(문장 끝 어절 늘리기)이라 세지 않는다."""
     rows, warn = [], []
     for a, _b in segs[1:]:
         if not W:
@@ -130,15 +134,25 @@ def gap_check(W, segs, out_path, limit=0.30):
         rows.append({'onset': round(a, 3), 'word': W[i][2], 'start': W[i][0], 'diff': d})
         if abs(d) > limit:
             warn.append(rows[-1])
-    zero = [w[2] for w in W if w[1] - w[0] < 0.03]
+    base = raw if raw is not None else W
+    zero = [w[2] for w in base if w[1] - w[0] < 0.03]
+    moved = []
+    if raw is not None and len(raw) == len(W):
+        for r0, w in zip(raw, W):
+            d = round(w[0] - r0[0], 3)
+            if abs(d) > limit:
+                moved.append({'word': w[2], 'raw_start': r0[0], 'start': w[0], 'moved': d})
     rep = {'limit_s': limit, 'onsets': len(rows), 'warnings': warn, 'zero_length': zero,
+           'zero_from': 'raw' if raw is not None else 'final', 'snap_moved': moved,
            'max_abs_diff': max((abs(r['diff']) for r in rows), default=0.0)}
     json.dump(rep, open(out_path, 'w'), ensure_ascii=False, indent=1)
-    if warn or zero:
+    if warn or zero or moved:
         for r in warn:
             print(f"⚠ 낱말 시각 {r['diff']:+.2f}초 어긋남: 「{r['word']}」 (말소리 시작 {r['onset']}초)")
         for z in zero:
-            print(f'⚠ 길이 0초 어절: 「{z}」')
+            print(f"⚠ 길이 0초 어절{'(원값, 쉼 맞춤이 늘림)' if raw is not None else ''}: 「{z}」")
+        for m in moved:
+            print(f"⚠ 쉼 맞춤이 시작을 {m['moved']:+.2f}초 옮김: 「{m['word']}」 ({m['raw_start']} → {m['start']}초)")
     else:
         print(f"낱말 시각 검사 통과: 쉼 뒤 시작 {len(rows)}곳 최대 {rep['max_abs_diff']:.2f}초(기준 {limit}초)")
     return rep
@@ -177,10 +191,11 @@ def main(car, script_path=None):
     items = align(os.path.join(car, 'voice_a.mp3'), script)
     W = regroup(items, script)
     segs = speech_segments(load16k(os.path.join(car, 'voice_a.mp3')))
+    raw = [list(w) for w in W]   # snap()은 W를 제자리에서 고치므로 원값을 따로 둔다
     if os.environ.get('ALIGN_SNAP', '1') != '0':
         W = snap(W, segs)
     json.dump(W, open(os.path.join(car, 'voice_a_words.json'), 'w'), ensure_ascii=False)
-    gap_check(W, segs, os.path.join(car, 'voice_a_words.check.json'))
+    gap_check(W, segs, os.path.join(car, 'voice_a_words.check.json'), raw=raw)
     print('==', car, len(W), '어절 · 도구 Qwen3-ForcedAligner-0.6B', '+ 쉼 맞춤' if os.environ.get('ALIGN_SNAP', '1') != '0' else '')
     print(' '.join(f'{i}:{w[2]}' for i, w in enumerate(W)))
 
