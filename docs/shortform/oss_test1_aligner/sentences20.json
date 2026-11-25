@@ -1,0 +1,368 @@
+[
+ {
+  "id": "s01_kkc_gwagen",
+  "voice": "KKC HQ",
+  "source": "kkc_gwagen",
+  "clip_start_in_source": 0.0,
+  "clip_end_in_source": 4.24,
+  "text": "이천십삼년식 벤츠 지바겐, 지 삼오공 블루텍 디젤이에요.",
+  "words": [
+   "이천십삼년식",
+   "벤츠",
+   "지바겐,",
+   "지",
+   "삼오공",
+   "블루텍",
+   "디젤이에요."
+  ],
+  "clip_file": "clips/s01_kkc_gwagen.mp3"
+ },
+ {
+  "id": "s02_kkc_gwagen",
+  "voice": "KKC HQ",
+  "source": "kkc_gwagen",
+  "clip_start_in_source": 4.24,
+  "clip_end_in_source": 10.9,
+  "text": "제논 헤드램프에 엘이디 주간등까지 들어가 있고요, 펜더 위 방향지시등은 지바겐만의 상징이죠.",
+  "words": [
+   "제논",
+   "헤드램프에",
+   "엘이디",
+   "주간등까지",
+   "들어가",
+   "있고요,",
+   "펜더",
+   "위",
+   "방향지시등은",
+   "지바겐만의",
+   "상징이죠."
+  ],
+  "clip_file": "clips/s02_kkc_gwagen.mp3"
+ },
+ {
+  "id": "s03_kkc_gwagen",
+  "voice": "KKC HQ",
+  "source": "kkc_gwagen",
+  "clip_start_in_source": 10.9,
+  "clip_end_in_source": 13.22,
+  "text": "휠은 십팔인치 알로이예요.",
+  "words": [
+   "휠은",
+   "십팔인치",
+   "알로이예요."
+  ],
+  "clip_file": "clips/s03_kkc_gwagen.mp3"
+ },
+ {
+  "id": "s04_kkc_gwagen",
+  "voice": "KKC HQ",
+  "source": "kkc_gwagen",
+  "clip_start_in_source": 17.26,
+  "clip_end_in_source": 21.0,
+  "text": "견인고리도 있어서, 최대 삼천오백 킬로그램까지 끌 수 있어요.",
+  "words": [
+   "견인고리도",
+   "있어서,",
+   "최대",
+   "삼천오백",
+   "킬로그램까지",
+   "끌",
+   "수",
+   "있어요."
+  ],
+  "clip_file": "clips/s04_kkc_gwagen.mp3"
+ },
+ {
+  "id": "s05_kkc_gwagen",
+  "voice": "KKC HQ",
+  "source": "kkc_gwagen",
+  "clip_start_in_source": 21.0,
+  "clip_end_in_source": 25.34,
+  "text": "트렁크는 기본 사백팔십 리터고요, 시트는 브라운 가죽이에요.",
+  "words": [
+   "트렁크는",
+   "기본",
+   "사백팔십",
+   "리터고요,",
+   "시트는",
+   "브라운",
+   "가죽이에요."
+  ],
+  "clip_file": "clips/s05_kkc_gwagen.mp3"
+ },
+ {
+  "id": "s06_kkc_gwagen",
+  "voice": "KKC HQ",
+  "source": "kkc_gwagen",
+  "clip_start_in_source": 31.36,
+  "clip_end_in_source": 37.82,
+  "text": "공조는 다이얼로 간단하게 맞추고요, 가운데 버튼은 디퍼렌셜 락 세 개, 험로에서 진짜 힘을 써요.",
+  "words": [
+   "공조는",
+   "다이얼로",
+   "간단하게",
+   "맞추고요,",
+   "가운데",
+   "버튼은",
+   "디퍼렌셜",
+   "락",
+   "세",
+   "개,",
+   "험로에서",
+   "진짜",
+   "힘을",
+   "써요."
+  ],
+  "clip_file": "clips/s06_kkc_gwagen.mp3"
+ },
+ {
+  "id": "s07_kkc_gwagen",
+  "voice": "KKC HQ",
+  "source": "kkc_gwagen",
+  "clip_start_in_source": 37.82,
+  "clip_end_in_source": 45.81,
+  "text": "문을 열면 벤츠 조명 스텝이 반겨 주고요, 삼 쩜 영 브이식스 디젤, 이백십일 마력에 칠단 자동, 사륜구동이에요.",
+  "words": [
+   "문을",
+   "열면",
+   "벤츠",
+   "조명",
+   "스텝이",
+   "반겨",
+   "주고요,",
+   "삼",
+   "쩜",
+   "영",
+   "브이식스",
+   "디젤,",
+   "이백십일",
+   "마력에",
+   "칠단",
+   "자동,",
+   "사륜구동이에요."
+  ],
+  "clip_file": "clips/s07_kkc_gwagen.mp3"
+ },
+ {
+  "id": "s08_taehyung_roma",
+  "voice": "Taehyung",
+  "source": "taehyung_roma",
+  "clip_start_in_source": 0.0,
+  "clip_end_in_source": 3.03,
+  "text": "페라리 로마 스파이더, 이천이십사년식입니다.",
+  "words": [
+   "페라리",
+   "로마",
+   "스파이더,",
+   "이천이십사년식입니다."
+  ],
+  "clip_file": "clips/s08_taehyung_roma.mp3"
+ },
+ {
+  "id": "s09_taehyung_roma",
+  "voice": "Taehyung",
+  "source": "taehyung_roma",
+  "clip_start_in_source": 7.46,
+  "clip_end_in_source": 10.66,
+  "text": "휠은 이십 인치, 노란색 브레이크 캘리퍼.",
+  "words": [
+   "휠은",
+   "이십",
+   "인치,",
+   "노란색",
+   "브레이크",
+   "캘리퍼."
+  ],
+  "clip_file": "clips/s09_taehyung_roma.mp3"
+ },
+ {
+  "id": "s10_taehyung_roma",
+  "voice": "Taehyung",
+  "source": "taehyung_roma",
+  "clip_start_in_source": 10.66,
+  "clip_end_in_source": 15.54,
+  "text": "소프트톱은 십삼 점 오 초, 시속 육십 킬로미터까지 열고 닫습니다.",
+  "words": [
+   "소프트톱은",
+   "십삼",
+   "점",
+   "오",
+   "초,",
+   "시속",
+   "육십",
+   "킬로미터까지",
+   "열고",
+   "닫습니다."
+  ],
+  "clip_file": "clips/s10_taehyung_roma.mp3"
+ },
+ {
+  "id": "s11_taehyung_roma",
+  "voice": "Taehyung",
+  "source": "taehyung_roma",
+  "clip_start_in_source": 16.98,
+  "clip_end_in_source": 19.2,
+  "text": "트렁크는 이백오십오 리터.",
+  "words": [
+   "트렁크는",
+   "이백오십오",
+   "리터."
+  ],
+  "clip_file": "clips/s11_taehyung_roma.mp3"
+ },
+ {
+  "id": "s12_taehyung_roma",
+  "voice": "Taehyung",
+  "source": "taehyung_roma",
+  "clip_start_in_source": 19.2,
+  "clip_end_in_source": 21.44,
+  "text": "도어 스커프에는 페라리 레터링.",
+  "words": [
+   "도어",
+   "스커프에는",
+   "페라리",
+   "레터링."
+  ],
+  "clip_file": "clips/s12_taehyung_roma.mp3"
+ },
+ {
+  "id": "s13_taehyung_roma",
+  "voice": "Taehyung",
+  "source": "taehyung_roma",
+  "clip_start_in_source": 21.44,
+  "clip_end_in_source": 25.26,
+  "text": "베이지 가죽 시트에 레드 스티치, 바닥은 레드 카펫.",
+  "words": [
+   "베이지",
+   "가죽",
+   "시트에",
+   "레드",
+   "스티치,",
+   "바닥은",
+   "레드",
+   "카펫."
+  ],
+  "clip_file": "clips/s13_taehyung_roma.mp3"
+ },
+ {
+  "id": "s14_taehyung_roma",
+  "voice": "Taehyung",
+  "source": "taehyung_roma",
+  "clip_start_in_source": 30.02,
+  "clip_end_in_source": 32.48,
+  "text": "센터에는 세로형 터치스크린.",
+  "words": [
+   "센터에는",
+   "세로형",
+   "터치스크린."
+  ],
+  "clip_file": "clips/s14_taehyung_roma.mp3"
+ },
+ {
+  "id": "s15_hwan_huracan",
+  "voice": "Hwan (Warm Mature)",
+  "source": "hwan_huracan",
+  "clip_start_in_source": 0.0,
+  "clip_end_in_source": 3.48,
+  "text": "람보르기니 우라칸 에스티오, 육십 주년 기념 모델입니다!",
+  "words": [
+   "람보르기니",
+   "우라칸",
+   "에스티오,",
+   "육십",
+   "주년",
+   "기념",
+   "모델입니다!"
+  ],
+  "clip_file": "clips/s15_hwan_huracan.mp3"
+ },
+ {
+  "id": "s16_hwan_huracan",
+  "voice": "Hwan (Warm Mature)",
+  "source": "hwan_huracan",
+  "clip_start_in_source": 3.48,
+  "clip_end_in_source": 7.22,
+  "text": "이천이십삼년 오월 등록, 주행은 단 칠천 킬로미터.",
+  "words": [
+   "이천이십삼년",
+   "오월",
+   "등록,",
+   "주행은",
+   "단",
+   "칠천",
+   "킬로미터."
+  ],
+  "clip_file": "clips/s16_hwan_huracan.mp3"
+ },
+ {
+  "id": "s17_hwan_huracan",
+  "voice": "Hwan (Warm Mature)",
+  "source": "hwan_huracan",
+  "clip_start_in_source": 13.54,
+  "clip_end_in_source": 17.335,
+  "text": "레이스카 그대로의 거대한 리어윙과 카본 에어 벤트.",
+  "words": [
+   "레이스카",
+   "그대로의",
+   "거대한",
+   "리어윙과",
+   "카본",
+   "에어",
+   "벤트."
+  ],
+  "clip_file": "clips/s17_hwan_huracan.mp3"
+ },
+ {
+  "id": "s18_hwan_huracan",
+  "voice": "Hwan (Warm Mature)",
+  "source": "hwan_huracan",
+  "clip_start_in_source": 17.335,
+  "clip_end_in_source": 22.305,
+  "text": "실내는 블랙에 화이트 포인트, 시트마다 에스티오 레터링이 새겨져 있습니다.",
+  "words": [
+   "실내는",
+   "블랙에",
+   "화이트",
+   "포인트,",
+   "시트마다",
+   "에스티오",
+   "레터링이",
+   "새겨져",
+   "있습니다."
+  ],
+  "clip_file": "clips/s18_hwan_huracan.mp3"
+ },
+ {
+  "id": "s19_hwan_huracan",
+  "voice": "Hwan (Warm Mature)",
+  "source": "hwan_huracan",
+  "clip_start_in_source": 22.305,
+  "clip_end_in_source": 25.295,
+  "text": "레이싱 토글 스위치에 세로형 디스플레이까지.",
+  "words": [
+   "레이싱",
+   "토글",
+   "스위치에",
+   "세로형",
+   "디스플레이까지."
+  ],
+  "clip_file": "clips/s19_hwan_huracan.mp3"
+ },
+ {
+  "id": "s20_hwan_huracan",
+  "voice": "Hwan (Warm Mature)",
+  "source": "hwan_huracan",
+  "clip_start_in_source": 25.295,
+  "clip_end_in_source": 28.9,
+  "text": "신차 가격은 무려 사억 팔천팔백오십사만 원.",
+  "words": [
+   "신차",
+   "가격은",
+   "무려",
+   "사억",
+   "팔천팔백오십사만",
+   "원."
+  ],
+  "clip_file": "clips/s20_hwan_huracan.mp3"
+ }
+]
