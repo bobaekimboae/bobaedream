@@ -13,6 +13,7 @@ for P in $PRESETS; do
   python3 mux.py $O/card_${P}_silent.mp4 $O/card_${P}.mp4 $(cat $O/segments_${P}.txt)
 done
 node render.js $D $O each full
-for f in $O/card_[0-9]*_silent.mp4; do python3 mux.py $f ${f/_silent/} 3.6; done
+for f in $O/card_[0-9]*_silent.mp4; do python3 mux.py $f ${f/_silent/} $(cat ${f/_silent.mp4/.dur}); done
+rm -f $O/*.dur
 rm -f $O/*_silent.mp4
 echo BUILD_DONE

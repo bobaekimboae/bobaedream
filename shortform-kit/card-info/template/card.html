@@ -11,10 +11,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000;font-family
 #stage{position:absolute;inset:0;overflow:hidden}
 .bg{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(22px) brightness(.62) saturate(1.1);transform-origin:center}
 .vignette{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 70%,rgba(0,0,0,.55) 100%)}
-.top{position:absolute;left:70px;right:70px;top:150px;display:flex;align-items:center;gap:18px;color:#fff}
+.top{position:absolute;left:40px;right:40px;top:130px;display:flex;align-items:center;gap:18px;color:#fff}
 .idx{font-size:30px;font-weight:700;letter-spacing:2px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:8px 18px;border-radius:40px}
 .ttl{font-size:30px;font-weight:500;opacity:.92}
-.card{position:absolute;left:70px;width:940px;top:300px;background:#fff;border-radius:40px;box-shadow:0 30px 80px rgba(0,0,0,.35);padding:56px 56px 44px;overflow:hidden}
+.card{position:absolute;zoom:1.12;left:35.7px;width:893px;top:300px;background:#fff;border-radius:40px;box-shadow:0 30px 80px rgba(0,0,0,.35);padding:56px 56px 44px;overflow:hidden}
 .card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;background:var(--y)}
 .head{display:flex;align-items:center;gap:22px;margin-bottom:34px}
 .ic{width:84px;height:84px;border-radius:24px;background:var(--y);display:flex;align-items:center;justify-content:center;flex:none}
@@ -70,8 +70,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000;font-family
 .ev.pt .nd{background:var(--y)}
 .gap{display:inline-block;margin:0 0 6px 0;font-size:28px;font-weight:800;background:var(--y);padding:6px 16px;border-radius:12px}
 .foot{margin-top:30px;font-size:24px;color:var(--muted);line-height:1.45}
-.sub{position:absolute;left:60px;right:60px;top:1560px;display:flex;justify-content:center}
-.sub div{background:rgba(0,0,0,.72);color:#fff;font-size:52px;font-weight:800;letter-spacing:-1px;padding:20px 34px;border-radius:18px;text-align:center;line-height:1.3;max-width:960px}
+.sub{position:absolute;left:30px;right:30px;top:1500px;height:260px;display:flex;justify-content:center;align-items:flex-start}
+.sub div{position:absolute;background:rgba(0,0,0,.76);color:#fff;font-size:56px;font-weight:800;letter-spacing:-1px;padding:20px 36px;border-radius:20px;text-align:center;line-height:1.32;max-width:1000px;word-break:keep-all}
 .sub .y{color:var(--y)}
 /* intro/outro */
 .hero{position:absolute;left:70px;right:70px;top:330px;height:620px;border-radius:40px;background-size:150% auto;background-position:50% 92%;box-shadow:0 30px 80px rgba(0,0,0,.4)}
@@ -102,6 +102,7 @@ const ease=t=>1-Math.pow(1-clamp(t),3);
 const easeIn=t=>Math.pow(clamp(t),3);
 let SEG=null, PH='';
 function subHTML(parts){return parts.map(p=>p[1]==='hl'?`<span class="y">${p[0]}</span>`:p[0]).join('')}
+function scriptHTML(x,n){const sc=(x.script||[x.subtitle]).map(ch=>ch.map(p=>[p[0].replace('{n}',n),p[1]]));return sc.map(ch=>`<div class="ln">${subHTML(ch)}</div>`).join('')}
 function bgDiv(photo){return `<div class="bg" style="background-image:url('${PH}/${photo}')"></div><div class="vignette"></div>`}
 function cardHTML(c,i,n){
   let b='';
@@ -117,10 +118,10 @@ function cardHTML(c,i,n){
   if(c.rows) b+=`<div class="rows">${c.rows.map(r=>`<div class="row a"><span class="k">${r.k}</span><span class="v ${r.tone?'tone-'+r.tone:''}">${r.tone&&r.tone!=='neutral'?`<i class="bg-${r.tone}"></i>`:''}<span class="tx">${r.v}</span></span></div>`).join('')}</div>`;
   if(c.timeline) b+=`<div class="tl">${c.timeline.map(e=>`<div class="ev a ${e.point?'pt':''}"><span class="nd"></span><div class="dt ${e.date?'':'un'}">${e.date||'날짜 미공개'}</div><div class="et">${e.t}</div>${e.s?`<div class="es">${e.s}</div>`:''}${e.gap?`<span class="gap">${e.gap}</span>`:''}</div>`).join('')}</div>`;
   if(c.foot) b+=`<div class="foot a">${c.foot}</div>`;
-  return bgDiv(c.bg)+`<div class="top"><span class="idx">${String(i+1).padStart(2,'0')} / ${String(n).padStart(2,'0')}</span><span class="ttl">한눈에 보는 매물 카드</span></div><div class="card">${b}</div><div class="sub"><div>${subHTML(c.subtitle)}</div></div>`;
+  return bgDiv(c.bg)+`<div class="top"><span class="idx">${String(i+1).padStart(2,'0')} / ${String(n).padStart(2,'0')}</span><span class="ttl">한눈에 보는 매물 카드</span></div><div class="card">${b}</div><div class="sub">${scriptHTML(c,n)}</div>`;
 }
-function introHTML(x,n){x={...x,subtitle:x.subtitle.map(p=>[p[0].replace('{n}',n),p[1]])};return bgDiv(x.photo)+`<div class="hero" style="background-image:url('${PH}/${x.photo}')"></div><div class="heroTxt"><div class="e a">${x.eyebrow}</div><h1 class="a">${x.title}</h1><h2 class="a">${x.sub}</h2><div class="p a">${x.price}</div></div><div class="sub"><div>${subHTML(x.subtitle)}</div></div>`}
-function outroHTML(x,labels){return bgDiv(x.photo)+`<div class="hero" style="background-image:url('${PH}/${x.photo}')"></div><div class="heroTxt"><h1 class="a" style="font-size:96px">${x.title}</h1><h2 class="a">${x.sub}</h2><div class="toc">${labels.map(l=>`<span class="a">${l}</span>`).join('')}</div></div><div class="sub"><div>${subHTML(x.subtitle)}</div></div>`}
+function introHTML(x,n){x={...x,subtitle:x.subtitle.map(p=>[p[0].replace('{n}',n),p[1]])};return bgDiv(x.photo)+`<div class="hero" style="background-image:url('${PH}/${x.photo}')"></div><div class="heroTxt"><div class="e a">${x.eyebrow}</div><h1 class="a">${x.title}</h1><h2 class="a">${x.sub}</h2><div class="p a">${x.price}</div></div><div class="sub">${scriptHTML(x,n)}</div>`}
+function outroHTML(x,labels){return bgDiv(x.photo)+`<div class="hero" style="background-image:url('${PH}/${x.photo}')"></div><div class="heroTxt"><h1 class="a" style="font-size:96px">${x.title}</h1><h2 class="a">${x.sub}</h2><div class="toc">${labels.map(l=>`<span class="a">${l}</span>`).join('')}</div></div><div class="sub">${scriptHTML(x,0)}</div>`}
 // setup(segment): segment={kind,data,i,n,dur,photosUrl}
 window.setup=function(seg){
   SEG=seg; PH=seg.photos;
@@ -128,7 +129,7 @@ window.setup=function(seg){
   if(seg.kind==='card') st.innerHTML=cardHTML(seg.data,seg.i,seg.n);
   else if(seg.kind==='intro') st.innerHTML=introHTML(seg.data,seg.n);
   else st.innerHTML=outroHTML(seg.data,seg.labels);
-  const cd=st.querySelector('.card'); if(cd){const h=cd.offsetHeight; cd.style.top=Math.max(260,Math.round((250+1520)/2-h/2))+'px';}
+  const cd=st.querySelector('.card'); if(cd){const Z=1.12,h=cd.getBoundingClientRect().height; cd.style.top=(Math.max(230,Math.round((230+1460)/2-h/2))/Z)+'px';}
   return new Promise(r=>{const imgs=[...new Set([...st.innerHTML.matchAll(/url\('([^']+)'\)/g)].map(m=>m[1]))];let k=imgs.length;if(!k)return r();imgs.forEach(u=>{const im=new Image();im.onload=im.onerror=()=>{if(--k===0)r()};im.src=u})});
 };
 // render(t): deterministic frame at time t (sec) within segment
@@ -142,6 +143,7 @@ window.render=function(t){
   document.querySelectorAll('.a').forEach((el,k)=>{const p=ease((t-0.35-k*0.09)/0.35);el.style.opacity=p;el.style.transform=`translateY(${(1-p)*24}px)`;});
   // v2: 숫자 카운트업 제거 — 중간 가짜 값이 화면에 보이지 않게 최종값만 페이드
   document.querySelectorAll('.fl').forEach((el,k)=>{const p=ease((t-0.55-k*0.12)/0.7);el.style.width=(p*el.dataset.w)+'%';});
-  const sub=document.querySelector('.sub'); if(sub){const p=ease((t-0.25)/0.3);sub.style.opacity=p*(1-outT);sub.style.transform=`translateY(${(1-p)*20}px)`;}
+  const lns=[...document.querySelectorAll('.sub .ln')]; if(lns.length){const k=lns.length,t0=0.25,span=(D-0.35-t0)/k;
+    lns.forEach((el,j)=>{const a=t0+j*span,b=a+span;const pin=ease((t-a)/0.25),pout=j===k-1?outT:ease((t-b+0.12)/0.12);const o=t<a?0:pin*(1-pout);el.style.opacity=o;el.style.transform=`translateY(${(1-pin)*18}px)`;});}
 };
 </script></body></html>

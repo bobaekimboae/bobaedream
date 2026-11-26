@@ -7,6 +7,12 @@ const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const fs = require('fs'), path = require('path');
 const FPS = 30, DUR = { intro: 3.0, card: 3.6, outro: 3.0 };
+// v3: 대사 자막(script) 길이로 장면 시간 자동 — 글자수÷7 + 1.0초, 4.0~7.0초
+function durOf(x, base) {
+  if (!x.script) return base;
+  const chars = x.script.flat().map(p => p[0]).join('').replace(/\s/g, '').length;
+  return Math.round(Math.min(7, Math.max(4, chars / 7 + 1.0)) * 10) / 10;
+}
 
 function segments(data, presetName) {
   const pr = (data.meta.presets || {})[presetName] || { cards: data.cards.map(c => c.type), intro: true, outro: true };
@@ -14,9 +20,9 @@ function segments(data, presetName) {
   const order = data.meta.order || data.cards.map(c => c.type);
   const picked = order.filter(t => pr.cards.includes(t) && byType[t] && byType[t].available !== false).map(t => byType[t]);
   const n = picked.length, segs = [];
-  if (pr.intro) segs.push({ kind: 'intro', data: data.intro, n, dur: DUR.intro, name: '00_intro' });
-  picked.forEach((c, i) => segs.push({ kind: 'card', data: c, i, n, dur: DUR.card, name: `${String(i + 1).padStart(2, '0')}_${c.type}` }));
-  if (pr.outro) segs.push({ kind: 'outro', data: data.outro, labels: picked.map(c => c.label), dur: DUR.outro, name: '99_outro' });
+  if (pr.intro) segs.push({ kind: 'intro', data: data.intro, n, dur: durOf(data.intro, DUR.intro), name: '00_intro' });
+  picked.forEach((c, i) => segs.push({ kind: 'card', data: c, i, n, dur: durOf(c, DUR.card), name: `${String(i + 1).padStart(2, '0')}_${c.type}` }));
+  if (pr.outro) segs.push({ kind: 'outro', data: data.outro, labels: picked.map(c => c.label), dur: durOf(data.outro, DUR.outro), name: '99_outro' });
   return segs;
 }
 
@@ -55,12 +61,13 @@ async function renderSegs(page, segs, out, photos) {
   if (mode === 'preview') {
     for (const s of segs) {
       await page.evaluate(seg => window.setup(seg), { ...s, photos });
-      await page.evaluate(t => window.render(t), 2.2);
+      await page.evaluate(t => window.render(t), s.dur * 0.75);
       await page.screenshot({ path: path.join(outDir, s.name + '.png') });
     }
   } else if (mode === 'each') {
     for (const s of segs.filter(s => s.kind === 'card')) {
       await renderSegs(page, [s], path.join(outDir, `card_${s.name}_silent.mp4`), photos);
+      fs.writeFileSync(path.join(outDir, `card_${s.name}.dur`), String(s.dur));
       console.log('ok', s.name);
     }
   } else {
