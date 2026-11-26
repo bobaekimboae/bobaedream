@@ -28,7 +28,8 @@ FM = os.path.join(FONTS, 'Pretendard-Medium.otf')
 SFX = os.path.join(ROOT, 'public', 'assets', 'shortform', 'sfx')
 BGM = os.path.join(ROOT, 'public', 'assets', 'shortform', 'bgm', 'bobae_showroom_v1.mp3')
 ICON_DIRS = {'as24': os.path.join(ROOT, 'public', 'assets', 'shortform', 'card-info', 'as24-icons')}
-KEEP_COLOR = {'checkmark-sale'}  # 원본 색 그대로 쓰는 아이콘(채운 체크 원)
+KEEP_COLOR = {'checkmark-sale'}
+LAYOUT_OVERRIDE = {}  # --layout vehicle=grid2 처럼 실행 때 덮어쓰기  # 원본 색 그대로 쓰는 아이콘(채운 체크 원)
 
 
 def hexc(h, a=255):
@@ -220,7 +221,15 @@ class Card:
         cx, cw = S['card_x'], S['card_w']
         head_h = S['head_h']
         nrows = 3 if self.kind == 'price' else max(1, len(self.row_order()))
-        body_h = 500 if self.kind == 'price' else nrows * S['row_h'] + S['body_pad'] * 2
+        lay = self.layout()
+        if self.kind == 'price':
+            body_h = 500
+        elif lay == 'grid2':
+            body_h = math.ceil(nrows / 2) * S['tile_h'] + S['body_pad'] * 2
+        elif lay == 'quote':
+            body_h = S['dealer_h'] + nrows * S['row_h'] + S['body_pad'] * 3 + 40
+        else:
+            body_h = nrows * S['row_h'] + S['body_pad'] * 2
         card_h = head_h + body_h
         ctop = int(S['card_center_y'] - card_h / 2)
         a_in = ease(t / M['card_in_s'])
@@ -260,6 +269,10 @@ class Card:
         ld.line((ox + pad, oy + head_h - 6, ox + cw - pad, oy + head_h - 6), fill=hexc(S['line']), width=2)
         if self.kind == 'price':
             self._draw_price(ld, ox, oy + head_h, cw, pad, body_h, t)
+        elif lay == 'grid2':
+            self._draw_grid(layer, ld, ox, oy + head_h, cw, pad, t)
+        elif lay == 'quote':
+            self._draw_quote(layer, ld, ox, oy + head_h, cw, pad, t)
         else:
             rows = self.row_order()
             n = max(1, len(rows))
@@ -330,6 +343,65 @@ class Card:
             st, en, s, hi = cur
             ca = min(ease((t - st) / 0.12), 1 - ease((t - (en - 0.08)) / 0.08))
             caption(base, s, max(0.0, ca) * a, hi)
+
+    def layout(self):
+        return self.data.get('layout') or LAYOUT_OVERRIDE.get(self.kind) or self.rule.get('layout', 'list')
+
+    def _draw_grid(self, layer, ld, ox, oy, cw, pad, t):
+        """2열 타일(AS24 웹 상세 「Basisdaten」식): 아이콘 + 라벨(위, 회색) + 값(아래, 굵게)."""
+        rows, segs = self.row_order(), self.segs
+        th, gap = S['tile_h'], 24
+        tw = (cw - pad * 2 - gap) / 2
+        for i, x in enumerate(rows):
+            ra = ease((t - segs[i + 1][0]) / M['row_in_s'])
+            if ra <= 0:
+                continue
+            al = int(255 * ra)
+            col, row = i % 2, i // 2
+            tx0 = ox + pad + col * (tw + gap)
+            ty0 = oy + S['body_pad'] + row * th + (1 - ra) * M['row_in_rise_px']
+            ld.rounded_rectangle((tx0, ty0 + 8, tx0 + tw, ty0 + th - 8), 20, fill=hexc('#F5F6F8', al))
+            ri = icon(x[0], S['icon_px'], S['ink']) if x[0] else None
+            if ri:
+                layer.alpha_composite(fade(ri, ra), (int(tx0 + 22), int(ty0 + th / 2 - S['icon_px'] / 2)))
+            lx = tx0 + 22 + S['icon_px'] + 18
+            ld.text((lx, ty0 + th / 2 - 6), x[1], font=F(FS, S['tile_label_px']), fill=hexc(S['label'], al), anchor='ls')
+            v = x[2]
+            vf = F(FB, S['tile_value_px'])
+            while ld.textlength(v, font=vf) > tw - (lx - tx0) - 18 and vf.size > 26:
+                vf = F(FB, vf.size - 2)
+            ld.text((lx, ty0 + th / 2 + 6), v, font=vf, fill=hexc(S['ink'], al), anchor='lt')
+            if len(x) > 3 and x[3] == 'check':
+                cf = F(FS, 20); cwid = ld.textlength('확인 전', font=cf) + 18
+                bx = tx0 + tw - cwid - 14
+                ld.rounded_rectangle((bx, ty0 + 20, bx + cwid, ty0 + 50), 15, outline=hexc(S['sample_badge'], al), width=2)
+                ld.text((bx + cwid / 2, ty0 + 35), '확인 전', font=cf, fill=hexc(S['sample_badge'], al), anchor='mm')
+
+    def _draw_quote(self, layer, ld, ox, oy, cw, pad, t):
+        """판매자 카드: 딜러 줄 + 회색 말풍선 안 인용 줄."""
+        rows, segs, dl = self.row_order(), self.segs, self.data.get('dealer', {})
+        a0 = ease(t / M['card_in_s'])
+        y = oy + S['body_pad']
+        cyd = y + S['dealer_h'] / 2
+        ld.ellipse((ox + pad, cyd - 40, ox + pad + 80, cyd + 40), fill=hexc('#ECEDEF'))
+        pi = icon('person', 48, S['label'])
+        if pi:
+            layer.alpha_composite(pi, (int(ox + pad + 16), int(cyd - 24)))
+        ld.text((ox + pad + 104, cyd - 6), dl.get('name', '판매자'), font=F(FB, S['label_px']), fill=hexc(S['ink']), anchor='ls')
+        ld.text((ox + pad + 104, cyd + 8), dl.get('place', ''), font=F(FM, 28), fill=hexc(S['label']), anchor='lt')
+        if dl.get('stats'):
+            ld.text((ox + cw - pad, cyd), dl['stats'], font=F(FS, 26), fill=hexc(S['label']), anchor='rm')
+        by = y + S['dealer_h'] + S['body_pad']
+        bh = len(rows) * S['row_h'] + 40
+        ld.rounded_rectangle((ox + pad, by, ox + cw - pad, by + bh), 28, fill=hexc('#F5F6F8'))
+        ld.polygon([(ox + pad + 60, by), (ox + pad + 92, by), (ox + pad + 70, by - 22)], fill=hexc('#F5F6F8'))
+        ld.text((ox + pad + 28, by + 4), '“', font=F(FB, 96), fill=hexc(S['accent']), anchor='lt')
+        for i, x in enumerate(rows):
+            ra = ease((t - segs[i + 1][0]) / M['row_in_s'])
+            if ra <= 0:
+                continue
+            cy = by + 20 + i * S['row_h'] + S['row_h'] / 2 + (1 - ra) * M['row_in_rise_px']
+            ld.text((ox + pad + 100, cy), x[1], font=F(FB, S['value_px'] - 4), fill=hexc(S['ink'], int(255 * ra)), anchor='lm')
 
     def _draw_price(self, ld, ox, oy, cw, pad, body_h, t):
         dd, segs = self.data, self.segs
@@ -547,4 +619,7 @@ if __name__ == '__main__':
         _, cards = build(a[0])
         print(write_script(cards, a[1]))
     else:
+        if '--layout' in a:
+            for kv in a[a.index('--layout') + 1].split(','):
+                k, v = kv.split('='); LAYOUT_OVERRIDE[k] = v
         print(render(a[0], a[1], a[a.index('--voice') + 1], '--stills' in a))

@@ -40,6 +40,7 @@ def speak(s):
         t = t.replace(k, v)
     t = re.sub(r'(\d+)년 0?(\d+)월', lambda m: f"{num(m.group(1))}년 {num(m.group(2))}월", t)
     t = re.sub(r'(\d+)\.(\d+)L', lambda m: f"{num(m.group(1))} 점 {num(m.group(2))} 리터", t)
+    t = re.sub(r'(\d+)만\s?km', lambda m: num(m.group(1)) + '만 킬로미터', t)
     t = re.sub(r'([\d,]+)\s?km', lambda m: num(m.group(1).replace(',', '')) + ' 킬로미터', t)
     t = re.sub(r'(\d+)억 ([\d,]+)만원', lambda m: f"{num(m.group(1))}억 {num(m.group(2).replace(',', ''))}만 원", t)
     t = re.sub(r'([\d,]+)만원', lambda m: num(m.group(1).replace(',', '')) + '만 원', t)
