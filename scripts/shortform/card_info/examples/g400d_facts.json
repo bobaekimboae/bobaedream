@@ -1,0 +1,178 @@
+{
+ "source": "charancha",
+ "make": "벤츠",
+ "model": "G-클래스 W463b",
+ "trim": "G400d",
+ "reg": "21년05월",
+ "year": 2021,
+ "km": 33475,
+ "fuel": "디젤",
+ "transmission": "자동",
+ "cc": 2925,
+ "color": "흰색",
+ "body": "SUV",
+ "class": "대형",
+ "region": "경기",
+ "price_manwon": 13490,
+ "performance": {
+  "has": true,
+  "exchange_or_sheetmetal": true,
+  "_note": "차란차 화면 요약 「교환 · 판금 확인」. 부위별 상세는 외부 기록부 링크라 데이터에 없음"
+ },
+ "insurance": {
+  "myCarDamageCount": 1,
+  "otherCarDamageCount": 0,
+  "hasTotalLoss": false,
+  "hasFloodLoss": false,
+  "hasTheftLoss": false,
+  "ownerChangeCount": 1,
+  "carNumberChangeCount": 0
+ },
+ "new_car_save_pct": 16,
+ "main_options": [
+  [
+   "선루프",
+   true
+  ],
+  [
+   "LED헤드램프",
+   true
+  ],
+  [
+   "주차감지센서",
+   true
+  ],
+  [
+   "후방카메라",
+   true
+  ],
+  [
+   "가죽시트",
+   true
+  ],
+  [
+   "전동시트",
+   true
+  ],
+  [
+   "열선시트",
+   true
+  ],
+  [
+   "통풍시트",
+   false
+  ],
+  [
+   "스마트키",
+   true
+  ],
+  [
+   "열선 스티어링 휠",
+   true
+  ],
+  [
+   "자동에어컨",
+   true
+  ],
+  [
+   "내비게이션",
+   true
+  ]
+ ],
+ "option_groups": [
+  {
+   "name": "안전",
+   "count": 16,
+   "items": [
+    "에어백(운전석·동승석)",
+    "에어백(사이드)",
+    "에어백(커튼)",
+    "에어백(무릎)",
+    "브레이크 잠김 방지(ABS)",
+    "미끄럼 방지(TCS)",
+    "차체자세 제어장치(ESC)",
+    "타이어 공기압센서(TPMS)",
+    "차선이탈 경보 시스템(LDWS)",
+    "자동긴급제동(AEB)",
+    "주차감지센서(전방·후방)",
+    "후측방 경보 시스템",
+    "후방 카메라",
+    "어라운드뷰(AVM)"
+   ]
+  },
+  {
+   "name": "외관/내장",
+   "count": 14,
+   "items": [
+    "선루프(일반)",
+    "헤드램프(LED)",
+    "오토 라이트",
+    "무선도어 리모컨",
+    "레인센서 와이퍼",
+    "전동접이 사이드 미러",
+    "알루미늄 휠",
+    "ECM 룸미러",
+    "하이패스",
+    "블랙박스",
+    "스티어링 휠 리모컨",
+    "열선 스티어링 휠",
+    "전동 조절 스티어링 휠",
+    "패들 시프트"
+   ]
+  },
+  {
+   "name": "시트",
+   "count": 7,
+   "items": [
+    "가죽시트",
+    "열선시트(앞좌석·뒷좌석)",
+    "전동시트(운전석·동승석)",
+    "메모리시트(운전석·동승석)"
+   ]
+  },
+  {
+   "name": "편의/인포",
+   "count": 10,
+   "items": [
+    "스마트키",
+    "풀오토 에어컨",
+    "크루즈 컨트롤(어댑티브)",
+    "전자식 주차브레이크(EPB)",
+    "내비게이션",
+    "모니터(앞좌석)",
+    "유선케이블(USB)",
+    "블루투스",
+    "스마트폰 미러링",
+    "스마트폰 무선충전"
+   ]
+  }
+ ],
+ "choice_options": [],
+ "jato": {
+  "price_won": 160600000,
+  "hp": "330",
+  "torque_kgm": "71.4",
+  "zero100_s": "6.4",
+  "top_kmh": "210",
+  "combined_kml": "8.4",
+  "seats": "5",
+  "engine": "I6",
+  "length_mm": "4875",
+  "width_mm": "1985",
+  "height_mm": "1965",
+  "wheelbase_mm": "2890"
+ },
+ "market": {
+  "low": 9810,
+  "high": 14260,
+  "name": "벤츠 G-클래스 W463b"
+ },
+ "dealer": {
+  "name": "유광민",
+  "company": "차란차 주식회사 수원오토월드 지점",
+  "estate": "도이치오토월드",
+  "intro": "정직하고 친절한딜러",
+  "sale": 13,
+  "sold": 653
+ }
+}
