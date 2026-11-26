@@ -1,0 +1,139 @@
+{
+ "_source": "차란차 01a2161f 공개 매물 + 차량이력 조회 API(국토부·카히스토리, 2026-11-26). 사실만. 매물 원장 21번.",
+ "car": {
+  "maker": "기아",
+  "model": "스포티지 4세대 디젤 2.0 2WD 프레스티지",
+  "short": "기아 스포티지",
+  "meta": "16년12월 · 112,844km · 디젤",
+  "price": 1050
+ },
+ "cards": [
+  {
+   "id": "vehicle_info",
+   "label": "차량 기본정보",
+   "title": "한눈에 보는 기본 정보",
+   "bg": "p01.png",
+   "icon": "public/assets/bbm/detail-icons/maker-autoscout.svg",
+   "rows": [
+    {
+     "label": "연형",
+     "value": "2017년형",
+     "icon": "public/icons/dealer-profile/car-sale-as24.svg"
+    },
+    {
+     "label": "최초 등록",
+     "value": "16년12월",
+     "icon": "public/assets/bbm/detail-icons/year.svg"
+    },
+    {
+     "label": "주행거리",
+     "value": "112,844km",
+     "icon": "public/assets/bbm/detail-icons/mileage.svg"
+    },
+    {
+     "label": "연료 · 변속기",
+     "value": "디젤 · 자동",
+     "icon": "public/assets/bbm/detail-icons/fuel.svg"
+    },
+    {
+     "label": "판매가",
+     "value": "1,050만원",
+     "icon": "public/assets/bbm/detail-icons/price.svg"
+    }
+   ],
+   "note": "국토부 등록 제작사: 기아 · 제작 16년09월"
+  },
+  {
+   "id": "insurance",
+   "label": "보험 이력",
+   "title": "보험 사고 기록",
+   "bg": "p02.png",
+   "icon": "public/assets/shortform/icons-as24/liability-insurance.svg",
+   "rows": [
+    {
+     "label": "전손 · 침수 · 도난",
+     "value": "없음",
+     "state": "ok"
+    },
+    {
+     "label": "내 차 피해",
+     "value": "3회"
+    },
+    {
+     "label": "상대 차 피해",
+     "value": "1회"
+    },
+    {
+     "label": "렌트 · 영업 · 관용 이력",
+     "value": "없음",
+     "state": "ok"
+    }
+   ],
+   "note": "내 차 피해 수리비 합계 약 424만원 (보험금 지급 기준)"
+  },
+  {
+   "id": "timeline",
+   "label": "차량 이력",
+   "title": "국토부 이력 타임라인",
+   "bg": "p04.png",
+   "icon": "public/assets/shortform/icons-as24/car-tool.svg",
+   "style": "timeline",
+   "rows": [
+    {
+     "label": "16년12월",
+     "value": "최초 등록 · 자가용"
+    },
+    {
+     "label": "19년11월",
+     "value": "리어범퍼 수리"
+    },
+    {
+     "label": "22년10월",
+     "value": "리어범퍼 교환"
+    },
+    {
+     "label": "23년11월",
+     "value": "내 차·상대 차 보험 처리"
+    },
+    {
+     "label": "26년04월",
+     "value": "보험사 기록 104,955km"
+    },
+    {
+     "label": "26년11월",
+     "value": "소유자 변경 1회"
+    }
+   ],
+   "note": "출처: 국토부 자동차관리정보 · 보험개발원 (조회 2026-11-26)"
+  },
+  {
+   "id": "options",
+   "label": "안전장치",
+   "title": "안전장치 21개 중 7개",
+   "bg": "p15.png",
+   "icon": "public/assets/bbm/detail-icons/interior.svg",
+   "rows": [
+    {
+     "label": "후방카메라 · 주차후방센서",
+     "value": "있음",
+     "state": "ok"
+    },
+    {
+     "label": "후측방경고",
+     "value": "있음",
+     "state": "ok"
+    },
+    {
+     "label": "차체자세제어 · ABS",
+     "value": "있음",
+     "state": "ok"
+    },
+    {
+     "label": "차선이탈경고",
+     "value": "없음",
+     "state": "dim"
+    }
+   ]
+  }
+ ]
+}
