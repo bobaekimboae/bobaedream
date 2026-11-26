@@ -392,7 +392,7 @@ def frame_of(ci, T):
     if FADE and not full:
         return box_frame(n, img, fx0 + (fx1 - fx0) * u, fy, z)
     if n in FIT and not full:
-        return fit_frame(n, img, fx0 + (fx1 - fx0) * u, z)
+        return fit_frame(n, img, fx0 + (fx1 - fx0) * u, z, fy)
     sc = H / h * z
     vw, vh = W / sc, H / sc
     cx = min(max((fx0 + (fx1 - fx0) * u) * w, vw / 2), w - vw / 2)
@@ -445,7 +445,7 @@ def box_frame(n, img, fx, fy, z):
     return out
 
 
-def fit_frame(n, img, fx, z):
+def fit_frame(n, img, fx, z, fy=0.5):
     h, w = img.shape[:2]
     if n not in BG:
         sc = max(W / w, H / h)
@@ -461,7 +461,7 @@ def fit_frame(n, img, fx, z):
         if fh > H * .78:
             fh = H * .78; fw = fh * w / h
         zz = max(1.0, z); sw, sh = w / zz, h / zz
-        cx = min(max(fx * w, sw / 2), w - sw / 2); cy = h / 2
+        cx = min(max(fx * w, sw / 2), w - sw / 2); cy = min(max(fy * h, sh / 2), h - sh / 2)  # 2026-11-26 첫 컷 엠블럼 확대: 세로 목표도 따라감(1배면 가운데)
         M = np.float32([[fw / sw, 0, -(cx - sw / 2) * fw / sw], [0, fh / sh, -(cy - sh / 2) * fh / sh]])
         fg = cv2.warpAffine(img, M, (int(fw), int(fh)), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
         x0 = int((W - fw) / 2); y0 = int(_photo_y0(fh))
@@ -701,9 +701,56 @@ def be_chip(txt, size, tilt, tsc=1.0, mark_txt=None):
         emo = fluent_emoji(mark)  # 2026-11-17 사용자: 마이크로소프트 Fluent 3D 이모지 기본(MIT). 없으면 아래 Noto 글꼴로
     if mark and mark != '✓' and emo is None:  # 2026-11-18 사용자 규정: 이모지는 마이크로소프트 Fluent 3D만. 다른 글꼴로 대신하지 않고 멈춤
         raise SystemExit(f'⛔ Fluent 3D 이모지 파일 없음: {mark!r} ({" ".join(f"{ord(c):x}" for c in mark)}) — fluent3d/에 공식 3D PNG를 받아 넣고 다시 렌더')
-    # 2026-11-19 사용자: 첫 컷 브랜드·모델 외 타이틀 칩 = 노션 「리싱마크트 메인 사용 칩」(126_40) 칠
+    if getattr(C, 'CHIP_FILL_FIT', True):  # 2026-11-26 사용자 「옵션 포인트 칠 원본 버전과 또 바꼈다」: 벨기에 원본 판(be_locked_rules chip.fill_fit)으로 통일
+        out = be_chip_fillfit(txt, size, tilt, tsc, emo)
+        _BEC[k] = out
+        return out
+    # 2026-11-19 사용자: 첫 컷 브랜드·모델 외 타이틀 칩 = 노션 「리싱마크트 메인 사용 칩」(126_40) 칠 (CHIP_FILL_FIT=False일 때만, 옛 판 비교용)
     out = dealer_chip(txt, size, tilt, font=R.HEAVY, hr=getattr(C, 'CHIP_HR', 2.4), emo=emo, tsc=tsc, fill=getattr(C, 'CHIP_FILL', '126_40'))
     _BEC[k] = out
+    return out
+
+
+def be_chip_fillfit(txt, size, tilt, tsc, emo):
+    """영상판 G350 v13과 같은 칩: 노션 원본 칠 판 중 좌우 여백이 맞는 것을 같은 배율로만 키움(늘이기 없음),
+    칠 높이 = 글자 높이 × 2.0, 글자는 칠 가운데에서 글자 높이 6% 위, 기울기 0(be_locked_rules.json chip.fill_fit).
+    Fluent 3D 이모지는 기존처럼 흰 원 위에 얹어 글자 뒤(칠 안)에 둔다. tsc: 빈 칠 → 글자가 작게→크게(원본 등장)."""
+    _vl = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'video_listing')
+    if _vl not in sys.path:
+        sys.path.insert(0, _vl)
+    import g350_v5_lib as G
+    import numpy as _np
+    f = G.XB(size)
+    icon = None
+    if emo is not None:
+        th = G.tsize(txt, f)[3] - G.tsize(txt, f)[1]
+        bd = int(th * 1.42)
+        icon = Image.new('RGBA', (bd, bd), (0, 0, 0, 0))
+        ImageDraw.Draw(icon).ellipse((0, 0, bd - 1, bd - 1), fill=(255, 255, 255, 255))
+        eh = int(bd * 0.74)
+        e = emo.resize((max(1, int(emo.width * eh / emo.height)), eh), Image.LANCZOS)
+        if e.width > bd * 0.8:
+            e = e.resize((int(bd * 0.8), max(1, int(e.height * bd * 0.8 / e.width))), Image.LANCZOS)
+        icon.alpha_composite(e, ((bd - e.width) // 2, (bd - e.height) // 2))
+    full = G.brush_box(txt, f, G.YEL, icon)
+    if tsc >= 1:
+        out = full
+    else:
+        plate = G.brush_box(txt, f, G.YEL, icon, draw_text=False)
+        if tsc <= 0:
+            out = plate
+        else:
+            A, B = _np.asarray(full), _np.asarray(plate)
+            diff = _np.any(A != B, axis=2)
+            lay = _np.zeros_like(A); lay[diff] = A[diff]
+            tl = Image.fromarray(lay)
+            bb = tl.getbbox() or (0, 0, tl.width, tl.height)
+            cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
+            sm = tl.resize((max(1, int(tl.width * tsc)), max(1, int(tl.height * tsc))), Image.LANCZOS)
+            out = plate.copy()
+            out.alpha_composite(sm, (int(round(cx - cx * tsc)), int(round(cy - cy * tsc))))
+    if tilt:
+        out = out.rotate(-tilt, resample=Image.BICUBIC, expand=True)
     return out
 
 
@@ -1983,7 +2030,7 @@ def _sfx_plan():
         if ci and c[5] == 'reveal':
             ev.append(('pop', FW[ci][1] - 0.04 if ci in FW else starts[ci], .42))
     for ci, c in enumerate(CUTS):                                 # 큰 전환에 부드러운 휙
-        if ci and c[5] in ('fade_long', 'dip_black', 'dip_white') and (getattr(C, 'WHOOSH_CUTS', None) is None or ci in C.WHOOSH_CUTS):  # 2026-11-18 휙은 30초당 3~4번(WHOOSH_CUTS로 고른 컷만)
+        if ci and not FADE and (c[5] in ('fade_long', 'dip_black', 'dip_white', 'whip_l', 'whip_r', 'push_up', 'zoom') or ci in WHOOSH_AT) and (getattr(C, 'WHOOSH_CUTS', None) is None or ci in C.WHOOSH_CUTS):  # 2026-11-26 휙 누락 수정: 동적 넘김·WHOOSH_AT 컷도 휙(페이드판은 없음)  # 2026-11-18 휙은 30초당 3~4번(WHOOSH_CUTS로 고른 컷만)
             ev.append(('whoosh', (FW[ci][0] if ci in FW else starts[ci]) - 0.05, .24))
     if END_CARD and _BR['sfx'].get('end_logo', False):   # 규칙 파일 end_logo=false면 끝 로고에 소리 없음
         ev.append(('ding', BODY + 0.15, .40))                     # 끝 로고

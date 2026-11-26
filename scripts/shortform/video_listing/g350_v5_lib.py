@@ -46,7 +46,7 @@ def _paint_box(a):
     rows = np.where(m[:, int(W * 0.3):int(W * 0.7)].mean(1) > 0.5)[0]; top, bot = int(rows.min()), int(rows.max())
     xs = np.where(m[(top + bot) // 2])[0]; return top, bot, int(xs.min()), int(xs.max())
 
-def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, **_):
+def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, draw_text=True, **_):
     """칠 규칙(be_locked_rules.json chip.fill_fit): 노션 원본 칠 중 좌우 여백이 맞는 것을 골라 같은 배율로만 키움.
     칠 높이 = 글자 높이 × band_to_ink, 글자는 칠 가운데에서 text_lift_ink만큼 위."""
     FF = R['chip']['fill_fit']
@@ -86,6 +86,7 @@ def brush_box(s, f, color, icon=None, icon_left=False, title_plate=False, **_):
         _rows = [r for r in _rows if len(r)]
         if _rows: _l = max(r.min() for r in _rows); _r = min(r.max() for r in _rows); cx = 15 + _l + ((_r - _l) - cw) // 2
     tx = cx + (iw + gap if icon_left else 0)
+    if not draw_text: return im   # 2026-11-26 사진판 칩 등장(빈 칠 먼저 → 글자)용: 같은 크기·자리의 빈 칠만
     d.text((tx - b[0], ty - b[1]), s, font=f, fill=INK)
     if icon is not None: im.alpha_composite(icon, (cx if icon_left else cx + tw + gap, ty + (th - icon.height) // 2))
     return im
