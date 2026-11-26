@@ -1,0 +1,224 @@
+{
+  "version": "source-review-addendum-v1",
+  "status": "review_cases_only_not_pipeline_test_results",
+  "observed_at": "2026-11-26",
+  "base_sheet": "https://docs.google.com/spreadsheets/d/1AibOy5NMjJBHeBl6pMTQCrA_N-AAElDznkPdcObYuZA/edit",
+  "base_manual": "../README.ko.md",
+  "fact_update": {
+    "fact_id": "F26",
+    "field": "insurance_repair_cost",
+    "value": 839280,
+    "unit": "KRW",
+    "label": "수리(견적)비용",
+    "source_url": "https://charancha.com/insurance-history?carId=01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+    "source_date": "2026-11-12",
+    "event_date": "2022-02-09",
+    "checked_at": "2026-11-26"
+  },
+  "additional_facts": [
+    {
+      "fact_id": "F33",
+      "field": "inspection_trunklid_mark",
+      "value": "W · 판금 또는 용접",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "evidence": "⑬ 외판 1랭크의 accout_4 이미지 src=icon_w.png. W 범례 그대로; 교환(X) 아님.",
+      "source_date": "2026-10-30",
+      "checked_at": "2026-11-26"
+    },
+    {
+      "fact_id": "F34",
+      "field": "insurance_as_of",
+      "value": "2026-11-12",
+      "source_url": "https://charancha.com/insurance-history?carId=01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+      "evidence": "보험이력 페이지 하단 제공 날짜. 열람일과 구분.",
+      "source_date": "2026-11-12",
+      "checked_at": "2026-11-26"
+    },
+    {
+      "fact_id": "F35",
+      "field": "own_damage_event_date",
+      "value": "2022-02-09",
+      "source_url": "https://charancha.com/insurance-history?carId=01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+      "evidence": "내 차 피해 세부 이력의 분손 날짜. 수리·견적비 839,280원.",
+      "source_date": "2026-11-12",
+      "checked_at": "2026-11-26"
+    },
+    {
+      "fact_id": "F36",
+      "field": "insurance_amount_basis",
+      "value": "수리(견적)비용",
+      "source_url": "https://charancha.com/insurance-history?carId=01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+      "evidence": "실제 지급 보험금과 다를 수 있다고 원문 안내. 보험금·보험가액·판매가와 별개.",
+      "source_date": "2026-11-12",
+      "checked_at": "2026-11-26"
+    }
+  ],
+  "cases": [
+    {
+      "case": "insurance-repair-amount",
+      "facts": [
+        "F13",
+        "F26",
+        "F34",
+        "F35",
+        "F36"
+      ],
+      "accept": "보험이력 내차 피해 1회 · 수리·견적비 839,280원 · 자료 기준 2026.11.12",
+      "reject": [
+        "보험금 839,280원",
+        "보험사고 0건"
+      ],
+      "reason": "보험금과 수리·견적비를 구분; 횟수·기준일 보존"
+    },
+    {
+      "case": "trunklid-W",
+      "facts": [
+        "F33"
+      ],
+      "accept": "트렁크리드 W · 판금 또는 용접",
+      "reject": [
+        "트렁크 교환",
+        "골격사고 확인",
+        "트렁크 용접수리 확정"
+      ],
+      "reason": "원문 부호와 범례보다 구체적인 상태를 생성하지 않음"
+    },
+    {
+      "case": "condition-two-findings",
+      "facts": [
+        "F06",
+        "F16",
+        "F17",
+        "F18",
+        "F33"
+      ],
+      "accept": "2026.10.30 기록상 사고이력 없음 · 단순수리 있음; 수리 내역 함께 표시",
+      "reject": [
+        "무사고 · 수리 없음",
+        "성능점검 A등급"
+      ],
+      "reason": "사고판정과 단순수리를 동시 보존; 전체 등급 생성 금지"
+    },
+    {
+      "case": "dated-recall",
+      "facts": [
+        "F06",
+        "F19",
+        "F20"
+      ],
+      "accept": "2026.10.30 점검기록: 리콜 해당·미이행. 현재 완료 여부 확인 필요",
+      "reject": [
+        "현재 리콜 미이행 확정",
+        "리콜 완료"
+      ],
+      "reason": "과거 문서값을 현재 상태로 변환하지 않음"
+    },
+    {
+      "case": "mileage-observation-dates",
+      "facts": [
+        "F04",
+        "F05",
+        "F06"
+      ],
+      "accept": "점검 33,288km(2026.10.30) / 매물 표시 33,475km",
+      "reject": [
+        "주행거리 조작 확인",
+        "점검 주행거리 33,475km"
+      ],
+      "reason": "서로 다른 시점의 값을 같은 수치로 덮어쓰지 않음"
+    },
+    {
+      "case": "sale-price-vs-insurance-valuation",
+      "facts": [
+        "F09"
+      ],
+      "accept": "판매가격 13,490만원",
+      "reject": [
+        "판매가격 7,230만원",
+        "판매가격 1.3억원"
+      ],
+      "reason": "보험가액·반올림 가격을 실제 판매가로 쓰지 않음"
+    },
+    {
+      "case": "inactive-option",
+      "facts": [
+        "F24",
+        "F27"
+      ],
+      "accept": "비활성·미확인 옵션은 공개용 장착 설명에서 제외",
+      "reject": [
+        "통풍시트 장착 확인",
+        "프리미엄 패키지 기본 장착"
+      ],
+      "reason": "DOM에 이름 존재와 선택 상태를 별도 검증"
+    },
+    {
+      "case": "market-comparison",
+      "facts": [
+        "F09",
+        "F32"
+      ],
+      "accept": "판매가격만 안내; 유효한 비교 표본 확보 전 상대가격 평가는 보류",
+      "reject": [
+        "동급 상위 15%",
+        "동급보다 저렴",
+        "10,000만원 위젯만 근거로 고가 판정"
+      ],
+      "reason": "표본·기준일·모델을 검증하지 않은 비교를 생성하지 않음"
+    },
+    {
+      "case": "owner-change-count",
+      "facts": [
+        "F15"
+      ],
+      "accept": "공개 이력상 소유자 변경 1회",
+      "reject": [
+        "1인 신조",
+        "실사용자 두 명"
+      ],
+      "reason": "명의변경 횟수는 실사용자 수·1인 소유의 증거가 아님"
+    },
+    {
+      "case": "warranty-scopes",
+      "facts": [
+        "F25"
+      ],
+      "accept": "매물 표시: 제조사 보증 만료. 실제 적용 여부 재확인",
+      "reject": [
+        "성능점검 책임보험 없음",
+        "모든 보증 없음"
+      ],
+      "reason": "제조사 보증을 다른 보증·보험에 확대 적용하지 않음"
+    },
+    {
+      "case": "repair-details-not-omitted",
+      "facts": [
+        "F16",
+        "F17",
+        "F18",
+        "F33"
+      ],
+      "accept": "사고이력 없음 요약과 함께 단순수리·수리 부위가 읽을 수 있게 노출",
+      "reject": [
+        "수리 내역은 작은 글씨로 0.1초 표시",
+        "좋은 상태 배지만 남김"
+      ],
+      "reason": "수리내역의 가독성·노출 시간은 실제 렌더에서 확인"
+    },
+    {
+      "case": "narration-completeness",
+      "facts": [
+        "F09",
+        "F26"
+      ],
+      "accept": "실제 ElevenLabs 문장 끝까지 유지하고 모든 발화 단어를 의미 단위 자막으로 표시",
+      "reject": [
+        "2초 카드에 맞추려고 음성 중간 절단",
+        "금액 자막에서 뒤의 280원 삭제"
+      ],
+      "reason": "음성 실측 후 카드 시간 결정; 기존 오디오 검사 병행"
+    }
+  ],
+  "actual_video_review": "not performed in this addendum",
+  "production_gate_integration": "pending pipeline owner"
+}
