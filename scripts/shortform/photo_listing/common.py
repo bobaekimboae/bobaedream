@@ -1426,6 +1426,69 @@ def odometer_layer(ov, T):
     mileage_circle(ov, (x0 + x1) / 2, (y0 + y1) / 2, (x1 - x0) / 2 + _MC['pad'][0], (y1 - y0) / 2 + _MC['pad'][1], T - t0)
 
 
+_HORSE = {}
+
+
+def _paste_clip(base, im, x, y, alpha=1.0):
+    """화면 밖으로 나가는 부분은 잘라서 붙임(말이 화면 옆에서 들어오고 나감)"""
+    x, y = int(round(x)), int(round(y))
+    l, t = max(0, -x), max(0, -y)
+    r, b = min(im.width, W - x), min(im.height, H - y)
+    if r <= l or b <= t:
+        return
+    im = im.crop((l, t, r, b))
+    if alpha < 1:
+        im = im.copy(); im.putalpha(im.getchannel('A').point(lambda v: int(v * alpha)))
+    base.alpha_composite(im, (x + l, y + t))
+
+
+def horse_layer(ov, T):
+    """2026-11-26 사용자 「말 3d로 이동하게 재미있게」: 「마력」 칩이 뜨면 Fluent 3D 🐎가
+    화면 오른쪽에서 왼쪽으로 달려 지나감(머리가 왼쪽). 달릴 때 위아래로 껑충(|sin|), 몸이 앞뒤로 흔들림,
+    땅에 그림자. 칩(위쪽)과 말 자막(1283) 사이 띠에서만 움직임. cfg HORSE_RUN = True"""
+    if not getattr(C, 'HORSE_RUN', False):
+        return
+    hc = next((c for c in CHIPS if '마력' in c[0]), None)
+    if hc is None:
+        return
+    dur = getattr(C, 'HORSE_DUR', 1.4)
+    t0 = hc[1] + 0.15
+    k = T - t0
+    if not (0 <= k < dur):
+        return
+    hh = getattr(C, 'HORSE_H', 230)
+    if 'im' not in _HORSE:
+        _HORSE['im'] = fluent_emoji('🐎', hh)
+    base = _HORSE['im']
+    if base is None:
+        return
+    q = k / dur
+    ground = CAP_CY - 110                      # 말 발 아래 선(자막 위)
+    x = (W + 40) - q * (W + base.width + 80)   # 오른쪽 밖 → 왼쪽 밖, 일정 속도
+    stride = 0.30                              # 한 번 껑충 0.3초
+    ph = (k / stride) * math.pi
+    hop = abs(math.sin(ph)) * 46
+    rot = math.sin(ph * 2) * 7                 # 앞발 들 때 머리 들림
+    sq = 1 - 0.06 * (1 - abs(math.sin(ph)))     # 착지할 때 살짝 납작
+    im = base.resize((base.width, max(1, int(base.height * sq))), Image.LANCZOS)
+    im = im.rotate(rot, resample=Image.BICUBIC, expand=True)
+    # 땅 그림자: 높이 뛸수록 작고 옅게
+    sw = int(base.width * (0.75 - 0.25 * hop / 46)); sh = 22
+    sha = Image.new('RGBA', (sw + 40, sh + 40), (0, 0, 0, 0))
+    ImageDraw.Draw(sha).ellipse((20, 20, 20 + sw, 20 + sh), fill=(10, 14, 18, int(110 - 50 * hop / 46)))
+    sha = sha.filter(ImageFilter.GaussianBlur(8))
+    _paste_clip(ov, sha, x + base.width / 2 - sha.width / 2, ground - sha.height / 2)
+    _paste_clip(ov, im, x + base.width / 2 - im.width / 2, ground - im.height + 12 - hop)
+    # 지나간 자리 먼지 세 점
+    for j in range(3):
+        a = max(0.0, 1 - ((k * 6 + j * 0.33) % 1.0))
+        dx = x + base.width * 0.85 + 30 + j * 26
+        r = 6 + j * 3
+        d = Image.new('RGBA', (r * 4, r * 4), (0, 0, 0, 0))
+        ImageDraw.Draw(d).ellipse((r, r, r * 3, r * 3), fill=(235, 225, 205, int(140 * a)))
+        _paste_clip(ov, d.filter(ImageFilter.GaussianBlur(2)), dx, ground - r * 3 - j * 4)
+
+
 def pointer_layer(ov, T):
     """2026-11-18 사용자 「캡컷 스티커처럼 손가락으로 주행거리 등 애니 효과」:
     Fluent 3D 손가락이 톡 튀어나와 대상을 2~3번 두드리고(누를 때 살짝 눌림), 두드릴 때마다 흰 물결 원이 퍼짐.
@@ -1807,6 +1870,7 @@ def overlay(T):
                 hide = True
     tag_layer(ov, T)  # 2026-11-18 부위 이름표(오토스카우트식 파랑 칩)
     odometer_layer(ov, T)  # v1.7.2 계기판 주행거리 숫자 원(사진에 보일 때만)
+    horse_layer(ov, T)  # 2026-11-26 마력 말 달리기
     pointer_layer(ov, T)  # 2026-11-18 손가락 탭 스티커(맨 위)
     if not hide:
         for c in CAPS:
