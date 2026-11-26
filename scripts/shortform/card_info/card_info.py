@@ -151,6 +151,42 @@ def tape_img(label):
     return _chip_cache[label]
 
 
+def chip_img(label, px):
+    k = ('opt', label, px)
+    if k not in _chip_cache:
+        _chip_cache[k] = L.chip(label, size=px)
+    return _chip_cache[k]
+
+
+FLUENT = os.path.join(ROOT, 'scripts', 'shortform', 'photo_listing', 'fluent3d')
+_fl_cache = {}
+
+
+def fluent(cp, px):
+    """Microsoft Fluent 3D 이모지(MIT). 파일이 없으면 멈춘다(다른 그림으로 대신하지 않음)."""
+    k = (cp, px)
+    if k not in _fl_cache:
+        p = os.path.join(FLUENT, cp + '.png')
+        if not os.path.exists(p):
+            raise SystemExit(f'Fluent 3D 아이콘 없음: {p}')
+        im = Image.open(p).convert('RGBA')
+        im = im.crop(im.getbbox())
+        sc = px / max(im.size)
+        _fl_cache[k] = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.LANCZOS)
+    return _fl_cache[k]
+
+
+def pop(im, p):
+    """톡 등장: 0.6배→1.08배→1배 + 투명도."""
+    if p <= 0:
+        return None
+    if p >= 1:
+        return im
+    sc = 0.6 + 0.48 * ease(min(1, p / 0.7)) - 0.08 * max(0, (p - 0.7) / 0.3)
+    w, h = max(1, int(im.width * sc)), max(1, int(im.height * sc))
+    return fade(im.resize((w, h), Image.LANCZOS), min(1, p * 2))
+
+
 def caption(base, text, a=1.0, hi=None, word=None):
     spoken = word
     """하단 자막: 흰 글자 + 그림자, 값(hi)만 노랑."""
@@ -162,27 +198,71 @@ def caption(base, text, a=1.0, hi=None, word=None):
         if ' ' in h:
             text = text.replace(h, h.replace(' ', '\u00a0'))
     hi = [h.replace(' ', '\u00a0') for h in (hi or [])]
-    lines, cur = [], ''
-    for w_ in text.split(' '):
-        t = (cur + ' ' + w_).strip()
-        if d.textlength(t, font=f) > W - 160 and cur:
-            lines.append(cur); cur = w_
-        else:
-            cur = t
-    lines.append(cur)
-    # 두 줄 넘으면 두 줄씩 나눠, 지금 말하는 낱말이 있는 쪽만 보여 줌(화면 아래 가림 영역 침범 방지)
+    # 의미 단위 줄바꿈(캡컷·넷플릭스 한국어 자막 기준): 숫자+단위는 한 덩어리, 쉼표 뒤에서 먼저 끊고, 짧은 낱말 하나만 다음 줄에 남기지 않음
+    for pat in S.get('caption_keep_together', []):
+        text = re.sub(pat, lambda m: m.group(0).replace(' ', '\u00a0'), text)
+    maxw = min(W - 160, S['caption_px'] * S.get('caption_line_chars', 16))
     mx = S.get('caption_max_lines', 2)
-    start_word = 0
-    if len(lines) > mx:
-        pages, k = [], 0
-        for i in range(0, len(lines), mx):
-            n = sum(len(l.split(' ')) for l in lines[i:i + mx]); pages.append((k, lines[i:i + mx])); k += n
-        pick = pages[0]
-        if spoken is not None and spoken >= 0:
-            for pg in pages:
-                if spoken >= pg[0]:
-                    pick = pg
-        start_word, lines = pick
+    tw_ = lambda x: d.textlength(x, font=f)
+
+    def wrap(ws):  # 한 덩어리를 줄로: 욕심 채우기 뒤 두 줄이면 길이를 맞춤(짧은 낱말 하나만 남지 않게)
+        out, cur = [], []
+        for w_ in ws:
+            if cur and tw_(' '.join(cur + [w_])) > maxw:
+                out.append(cur); cur = [w_]
+            else:
+                cur.append(w_)
+        out.append(cur)
+        if len(out) == 2:
+            allw = out[0] + out[1]
+            best = min(range(1, len(allw)), key=lambda k: max(tw_(' '.join(allw[:k])), tw_(' '.join(allw[k:]))))
+            if tw_(' '.join(allw[:best])) <= maxw and tw_(' '.join(allw[best:])) <= maxw:
+                out = [allw[:best], allw[best:]]
+        return out
+
+    words = text.split(' ')
+    clauses, cur = [], []
+    for w_ in words:  # 쉼표 = 뜻 덩어리 경계
+        cur.append(w_)
+        if w_.endswith(','):
+            clauses.append(cur); cur = []
+    if cur:
+        clauses.append(cur)
+    whole = wrap(words)
+    if len(clauses) == 2 and all(tw_(' '.join(c)) <= maxw for c in clauses):
+        whole = clauses  # 두 덩어리가 한 줄씩 들어가면 쉼표에서 줄을 바꾼다
+    if len(whole) <= mx:
+        pages = [(0, whole)]
+    else:  # 화면 넘김은 덩어리 경계에서만
+        pages, k, buf, bk = [], 0, [], 0
+        for cl in clauses:
+            cl_lines = wrap(cl)
+            if buf and len(buf) + len(cl_lines) > mx:
+                pages.append((bk, buf)); buf = []; bk = k
+            if len(cl_lines) > mx:
+                for i in range(0, len(cl_lines), mx):
+                    if buf:
+                        pages.append((bk, buf)); buf = []
+                    chunk = cl_lines[i:i + mx]
+                    pages.append((k + sum(len(x) for x in cl_lines[:i]), chunk))
+                bk = k + len(cl)
+            else:
+                if not buf:
+                    bk = k
+                buf += cl_lines
+            k += len(cl)
+        if buf:
+            pages.append((bk, buf))
+    cum = [0]  # 붙여 둔 낱말(숫자+단위) → 원래 낱말 번호(음성 시각은 원래 낱말 단위)
+    for w_ in words:
+        cum.append(cum[-1] + w_.count('\u00a0') + 1)
+    pages = [(cum[k], ln) for k, ln in pages]
+    start_word, lines = pages[0]
+    if spoken is not None and spoken >= 0:
+        for pg in pages:
+            if spoken >= pg[0]:
+                start_word, lines = pg
+    lines = [' '.join(x) for x in lines]
     lh = int(S['caption_px'] * 1.28)
     y0 = S['caption_cy'] - lh * (len(lines) - 1) / 2
     sh = Image.new('RGBA', base.size, (0, 0, 0, 0))
@@ -199,8 +279,9 @@ def caption(base, text, a=1.0, hi=None, word=None):
         for j, w_ in enumerate(ws):
             word = w_ + (' ' if j < len(ws) - 1 else '')
             core = re.sub(r'(입니다|합니다|습니다)?[.,]*$', '', w_).strip(',.')
-            on = (gidx[0] == spoken) if spoken is not None else any(h and (h == w_.strip(',.') or h == core) for h in hw)
-            gidx[0] += 1
+            n_ = w_.count('\u00a0') + 1
+            on = (gidx[0] <= spoken < gidx[0] + n_) if spoken is not None else any(h and (h == w_.strip(',.') or h == core) for h in hw)
+            gidx[0] += n_
             d.text((x, y), word, font=f, fill=hexc(S['accent'], int(255 * a)) if on else (255, 255, 255, int(255 * a)), anchor='lm')
             x += d.textlength(word, font=f)
 
@@ -335,6 +416,10 @@ class Card:
             body_h = math.ceil(nrows / 2) * S['tile_h'] + S['body_pad'] * 2
         elif lay == 'quote':
             body_h = S['dealer_h'] + nrows * S['row_h'] + S['body_pad'] * 3 + 40
+        elif lay == 'photos':
+            R = RULES['option_marks']; n_ = len(self.data['photos'])
+            tw_ = (cw - 112 - S['tile_gap'] * (n_ - 1)) / n_
+            body_h = int(S['body_pad'] * 2 + tw_ * R['photo_ratio'] + R['photo_label_gap'] * 2 + R['photo_label_px'] + 18 + (R['rest_px'] * 2.7 if self.data.get('rest') else 0))
         else:
             body_h = nrows * S['row_h'] + S['body_pad'] * 2
         note = self.data.get('source_note')
@@ -385,6 +470,8 @@ class Card:
             self._draw_grid(layer, ld, ox, oy + head_h, cw, pad, t)
         elif lay == 'quote':
             self._draw_quote(layer, ld, ox, oy + head_h, cw, pad, t)
+        elif lay == 'photos':
+            self._draw_photos(layer, ld, ox, oy + head_h, cw, pad, t)
         else:
             rows = self.row_order()
             n = max(1, len(rows))
@@ -541,6 +628,102 @@ class Card:
         cache[i] = res
         return res
 
+    def key_t(self, key):
+        """카드 안에서 key 낱말을 말하기 시작하는 시각(없으면 None)."""
+        wts = getattr(self, 'wt', None)
+        for j, (st, en, k, s, hi) in enumerate(self.segs):
+            ws = s.split(' ')
+            for q, w_ in enumerate(ws):
+                if key in w_ and wts and j < len(wts) and q < len(wts[j]):
+                    return wts[j][q] - S.get('mark_lead_s', 0.05)
+        return None
+
+    def _chip_on(self, mk, t):
+        """칩이 이름을 덮는 순간부터는 이름 글자를 그리지 않는다(칩 = 그 옵션의 보배 표준 표기)."""
+        if not mk or not mk.get('chip'):
+            return False
+        tk = self.key_t(mk.get('key', mk['chip']))
+        return tk is not None and t >= tk + RULES['option_marks']['pop_s'] * 0.5
+
+    def _marks(self, ld, layer, name_xy, name_font, name, mk, t, right_x, cy, al):
+        """붓칠 칩(값 있는 옵션·시트 재질)과 Fluent 3D 아이콘(열선·통풍·전동·메모리). 규칙: card_info_rules.json option_marks."""
+        R = RULES['option_marks']
+        if mk.get('chip'):
+            tk = self.key_t(mk.get('key', mk['chip']))
+            if tk is not None and t >= tk:
+                c = pop(chip_img(mk['chip'], R['chip_px']), (t - tk) / R['pop_s'])
+                if c is not None:
+                    layer.alpha_composite(c, (int(name_xy[0] - 6), int(name_xy[1] - c.height / 2)))
+        x = right_x
+        for ic in reversed(mk.get('icons', [])):
+            tk = self.key_t(ic['key'])
+            im = fluent(ic['cp'], R['icon_px'])
+            x -= im.width
+            if tk is not None and t >= tk:
+                c = pop(im, (t - tk) / R['pop_s'])
+                if c is not None:
+                    layer.alpha_composite(c, (int(x + (im.width - c.width) / 2), int(cy - c.height / 2)))
+            x -= R['icon_gap']
+
+    def _draw_photos(self, layer, ld, ox, oy, cw, pad, t):
+        """실사판: 그 매물 사진에서 옵션 부위만 잘라 타일로(자르기·확대만, 보정 없음)."""
+        R = RULES['option_marks']
+        ph = self.data['photos']
+        gap = S['tile_gap']
+        tw = (cw - pad * 2 - gap * (len(ph) - 1)) / len(ph)
+        th = tw * R['photo_ratio']
+        for i, p_ in enumerate(ph):
+            ra = ease((t - self.row_t(i)) / M['row_in_s'])
+            if ra <= 0:
+                continue
+            x0 = ox + pad + i * (tw + gap)
+            y0 = oy + S['body_pad'] + (1 - ra) * M['row_in_rise_px']
+            im = Image.open(os.path.join(ROOT, p_['src'])).convert('RGBA')
+            cu, cv = p_['center']
+            cwid = im.width * p_['crop_w']
+            chei = cwid * th / tw
+            bx = min(max(0, cu * im.width - cwid / 2), im.width - cwid)
+            by = min(max(0, cv * im.height - chei / 2), im.height - chei)
+            tile = im.crop((int(bx), int(by), int(bx + cwid), int(by + chei))).resize((int(tw), int(th)), Image.LANCZOS)
+            m = Image.new('L', tile.size, 0)
+            ImageDraw.Draw(m).rounded_rectangle((0, 0, tile.width - 1, tile.height - 1), S['tile_radius'], fill=255)
+            tile.putalpha(m)
+            layer.alpha_composite(fade(tile, ra), (int(x0), int(y0)))
+            ly = y0 + th + R['photo_label_gap']
+            nf = F(FB, R['photo_label_px'])
+            al = int(255 * ra)
+            if not self._chip_on(p_, t):
+                ld.text((x0 + 6, ly), p_['label'], font=nf, fill=hexc(S['ink'], al), anchor='lm')
+            # 아이콘은 사진 왼쪽 위 안쪽(부위를 가리지 않게 카드 타일 배지로), 칩은 이름 위에 덮어 톡
+            mk = {'chip': p_.get('chip'), 'key': p_.get('key'), 'icons': p_.get('icons', [])}
+            self._marks(ld, layer, (x0 + 6, ly), nf, p_['label'], {'chip': mk['chip'], 'key': mk['key']}, t, 0, ly, al)
+            ix = x0 + 18
+            for ic in mk['icons']:
+                tk = self.key_t(ic['key'])
+                bim = fluent(ic['cp'], R['photo_icon_px'])
+                if tk is not None and t >= tk:
+                    c = pop(bim, (t - tk) / R['pop_s'])
+                    if c is not None:
+                        bg_ = Image.new('RGBA', (bim.width + 24, bim.height + 24), (0, 0, 0, 0))
+                        ImageDraw.Draw(bg_).ellipse((0, 0, bg_.width - 1, bg_.height - 1), fill=(255, 255, 255, 235))
+                        bgp = pop(bg_, (t - tk) / R['pop_s'])
+                        layer.alpha_composite(bgp, (int(ix + (bg_.width - bgp.width) / 2), int(y0 + 18 + (bg_.height - bgp.height) / 2)))
+                        layer.alpha_composite(c, (int(ix + 12 + (bim.width - c.width) / 2), int(y0 + 30 + (bim.height - c.height) / 2)))
+                ix += bim.width + 24 + 12
+        rest = self.data.get('rest')
+        if rest:
+            ra = ease((t - self.row_t(len(ph))) / M['row_in_s'])
+            y = oy + S['body_pad'] + th + R['photo_label_gap'] * 2 + R['photo_label_px'] + 18
+            rf = F(FS, R['rest_px'])
+            words, line, ys = rest.split(' '), '', y
+            for w_ in words:
+                tt = (line + ' ' + w_).strip()
+                if ld.textlength(tt, font=rf) > cw - pad * 2 and line:
+                    ld.text((ox + pad, ys), line, font=rf, fill=hexc(S['label'], int(255 * ra)), anchor='lt'); ys += R['rest_px'] * 1.35; line = w_
+                else:
+                    line = tt
+            ld.text((ox + pad, ys), line, font=rf, fill=hexc(S['label'], int(255 * ra)), anchor='lt')
+
     def layout(self):
         return self.data.get('layout') or LAYOUT_OVERRIDE.get(self.kind) or self.rule.get('layout', 'list')
 
@@ -567,7 +750,11 @@ class Card:
                 nf = F(FB, S['tile_value_px'] - 4)
                 while ld.textlength(x[1], font=nf) > tw - (lx - tx0) - 14 and nf.size > 24:
                     nf = F(FB, nf.size - 2)
-                ld.text((lx, ty0 + th / 2), x[1], font=nf, fill=hexc(S['ink'], al), anchor='lm')
+                mk = (self.data.get('marks') or {}).get(x[1])
+                if not self._chip_on(mk, t):
+                    ld.text((lx, ty0 + th / 2), x[1], font=nf, fill=hexc(S['ink'], al), anchor='lm')
+                if mk:
+                    self._marks(ld, layer, (lx, ty0 + th / 2), nf, x[1], mk, t, tx0 + tw - 14, ty0 + th / 2, al)
                 continue
             ld.text((lx, ty0 + th / 2 - 6), x[1], font=F(FS, S['tile_label_px']), fill=hexc(S['label'], al), anchor='ls')
             v = x[2]
