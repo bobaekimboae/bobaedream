@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {makeDialogueMix,runFfmpeg} from '../../lib/shortform-audio.mjs';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(here,'../../..');
+const timing=JSON.parse(fs.readFileSync(path.join(here,'timing.json'),'utf8'));
+const duration=timing.segments.at(-1).end;
+const pre=path.join(root,'output/narration_mix_pre.wav');
+makeDialogueMix({voice:path.join(root,'output/narration_dry.mp3'),output:pre,delayMs:timing.audio_delay_ms,durationSeconds:duration});
+runFfmpeg(['-hide_banner','-loglevel','error','-y','-i',pre,'-af','loudnorm=I=-14:TP=-1:LRA=11','-ar','48000','-ac','2',path.join(root,'output/narration_mix.wav')]);
