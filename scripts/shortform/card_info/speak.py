@@ -34,10 +34,15 @@ EN = {'4MATIC': '포매틱', 'cc': '씨씨', 'LED': '엘이디', 'AMG': '에이�
 NATIVE_COUNT = {'1회': '한 번', '2회': '두 번', '3회': '세 번', '0회': '영 회', '1건': '한 건', '0건': '영 건', '2건': '두 건', '3개': '세 개'}
 
 
+_NATIVE = ['', '한', '두', '세', '네', '다섯', '여섯', '일곱', '여덟', '아홉', '열', '열한', '열두', '열세', '열네', '열다섯', '열여섯', '열일곱', '열여덟', '열아홉', '스무']
+
+
 def speak(s):
     t = s
     for k, v in NATIVE_COUNT.items():
         t = t.replace(k, v)
+    # 세는 말(가지·개·명·대)은 고유어 수사: 8가지 → 여덟 가지
+    t = re.sub(r'(?<![\d.])(\d{1,2})\s?(가지|개|명|대)', lambda m: (_NATIVE[int(m.group(1))] + ' ' + m.group(2)) if 0 < int(m.group(1)) <= 20 else m.group(0), t)
     t = re.sub(r'(\d+)년 0?(\d+)월', lambda m: f"{num(m.group(1))}년 {num(m.group(2))}월", t)
     t = re.sub(r'(\d+)\.(\d+)L', lambda m: f"{num(m.group(1))} 점 {num(m.group(2))} 리터", t)
     t = re.sub(r'(\d+)만\s?km', lambda m: num(m.group(1)) + '만 킬로미터', t)

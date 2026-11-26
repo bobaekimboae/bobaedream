@@ -277,7 +277,12 @@ class Card:
     def sentences(self):
         r = self.rule
         intro = r['intro_molit'] if self.data.get('source') == 'molit' and r.get('intro_molit') else r['intro']
-        out = [('intro', intro, None)]
+        self._intro = V.get('say_intro', True) or self.kind == 'price'
+        out = [('intro', intro, None)] if self._intro else []
+        say = self.data.get('say')
+        if say:  # 대사 묶음: 이 문장만 읽고, paint 줄만 칠한다
+            warns = {x[1] for x in self.rows if len(x) > 3 and x[3] == 'warn'}
+            return out + [('warn' if warns & set(g.get('paint', [])) else 'row', g['text'], None) for g in say]
         if self.kind == 'price':
             dd = self.data
             out.append(('row', fill(r['row'], dd['old_label'], man(dd['old'])), [man(dd['old'])]))
@@ -319,6 +324,9 @@ class Card:
             body_h = S['dealer_h'] + nrows * S['row_h'] + S['body_pad'] * 3 + 40
         else:
             body_h = nrows * S['row_h'] + S['body_pad'] * 2
+        note = self.data.get('source_note')
+        if note:
+            body_h += S['source_h']
         card_h = head_h + body_h
         ctop = int(S['card_center_y'] - card_h / 2)
         a_in = ease(t / M['card_in_s'])
@@ -356,6 +364,8 @@ class Card:
             ld.rounded_rectangle((bx, by, bx + bw, by + 36), 18, outline=hexc(S['sample_badge']), width=2)
             ld.text((bx + bw / 2, by + 18), '샘플 값', font=bf, fill=hexc(S['sample_badge']), anchor='mm')
         ld.line((ox + pad, oy + head_h - 6, ox + cw - pad, oy + head_h - 6), fill=hexc(S['line']), width=2)
+        if note:  # 출처 줄(신뢰 장치): 카드 맨 아래 회색 작은 글자
+            ld.text((ox + pad, oy + card_h - S['source_h'] / 2 - 4), note, font=F(FM, S['source_px']), fill=hexc(S['label']), anchor='lm')
         if self.kind == 'price':
             self._draw_price(ld, ox, oy + head_h, cw, pad, body_h, t)
         elif lay == 'grid2':
@@ -490,9 +500,16 @@ class Card:
         if i in cache:
             return cache[i]
         U = RULES['underline']
-        rows, j = self.row_order(), i + 1
+        rows = self.row_order()
+        off = 1 if getattr(self, '_intro', True) else 0
+        say = self.data.get('say')
+        if say:
+            g = next((k for k, gg in enumerate(say) if rows[i][1] in gg.get('paint', [])), None)
+            j = None if g is None else g + off
+        else:
+            j = i + off
         res = None
-        if j < len(self.segs) and len(rows[i]) > 2 and rows[i][2] and (len(rows[i]) < 4 or rows[i][3] not in ('sum', 'total')):
+        if j is not None and j < len(self.segs) and len(rows[i]) > 2 and rows[i][2] and (len(rows[i]) < 4 or rows[i][3] not in ('sum', 'total')):
             st, en, _, sent, _ = self.segs[j]
             words = sent.split(' ')
             key = lambda w: ''.join(c for c in w if c.isalnum())
@@ -517,7 +534,7 @@ class Card:
     def _draw_grid(self, layer, ld, ox, oy, cw, pad, t):
         """2열 타일(AS24 웹 상세 「Basisdaten」식): 아이콘 + 라벨(위, 회색) + 값(아래, 굵게)."""
         rows, segs = self.row_order(), self.segs
-        th, gap = S['tile_h'], 24
+        th, gap = S['tile_h'], S['tile_gap']
         tw = (cw - pad * 2 - gap) / 2
         for i, x in enumerate(rows):
             ra = ease((t - self.row_t(i)) / M['row_in_s'])
@@ -527,7 +544,7 @@ class Card:
             col, row = i % 2, i // 2
             tx0 = ox + pad + col * (tw + gap)
             ty0 = oy + S['body_pad'] + row * th + (1 - ra) * M['row_in_rise_px']
-            ld.rounded_rectangle((tx0, ty0 + 8, tx0 + tw, ty0 + th - 8), 20, fill=hexc('#F5F6F8', al))
+            ld.rounded_rectangle((tx0, ty0 + 8, tx0 + tw, ty0 + th - 8), S['tile_radius'], fill=hexc(S['tile_bg'], al))
             ri = icon(x[0], S['icon_px'], S['ink']) if x[0] else None
             if ri:
                 layer.alpha_composite(fade(ri, ra), (int(tx0 + 22), int(ty0 + th / 2 - S['icon_px'] / 2)))
