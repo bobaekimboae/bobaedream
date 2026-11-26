@@ -1,37 +1,149 @@
 {
- "version": "1.0",
+ "version": "2.0",
  "updated": "2026-11-26",
  "author": "클로드 시안 2 (클로드 마스터 2)",
  "source": "노션 「숏폼 카드정보 샘플 제작 및 숏폼 콘텐츠 아이디어 내기」 2026-11-26",
  "_what": "숏폼 독립 카드 컷(카드 정보 기법)의 단일 기준. card_info.py가 이 파일과 차량별 데이터(samples/*.json)만 읽어 같은 영상을 만든다. 숫자는 코드에 쓰지 않는다.",
- "canvas": {"w": 1080, "h": 1920, "fps": 30},
+ "canvas": {
+  "w": 1080,
+  "h": 1920,
+  "fps": 30
+ },
  "style": {
-  "_ref": "AS24 웹 상세 'Basisdaten' 사실표(흰 판·라벨 왼쪽·값 오른쪽·가는 선) + AS24 BE 릴스 노랑 테이프 제목",
-  "bg_top": "#16181C", "bg_bottom": "#0B0C0E",
-  "card": "#FFFFFF", "card_radius": 36, "card_x": 64, "card_w": 952, "card_center_y": 930,
-  "ink": "#1A1A1A", "label": "#6B7079", "line": "#ECEDEF",
-  "accent": "#F5F200", "ok": "#16965C", "warn": "#C46200", "sample_badge": "#8C8C8C",
-  "title_px": 52, "sub_px": 30, "label_px": 34, "value_px": 40, "row_h": 104, "icon_px": 44,
-  "caption_cy": 1665, "caption_px": 58, "tape_px": 46
+  "_ref": "AS24 웹 상세 'Basisdaten' 사실표(흰 판·라벨 왼쪽·값 오른쪽·가는 선) + 붓칠 제목은 노션 원본 103_33(g350_v5_lib.chip, be_locked_rules chip.fill_fit) + 아이콘은 노션 「독일 오토 24」 원본(public/assets/shortform/card-info/as24-icons)",
+  "bg_top": "#16181C",
+  "bg_bottom": "#0B0C0E",
+  "card": "#FFFFFF",
+  "card_radius": 36,
+  "card_x": 64,
+  "card_w": 952,
+  "card_center_y": 930,
+  "ink": "#1A1A1A",
+  "label": "#6B7079",
+  "line": "#ECEDEF",
+  "accent": "#F5F200",
+  "ok": "#16965C",
+  "warn": "#C46200",
+  "sample_badge": "#8C8C8C",
+  "title_px": 52,
+  "sub_px": 30,
+  "label_px": 34,
+  "value_px": 40,
+  "row_h": 92,
+  "icon_px": 44,
+  "caption_cy": 1665,
+  "caption_px": 58,
+  "tape_px": 58,
+  "card_body_rows": 9,
+  "row_h_max": 130,
+  "head_h": 210,
+  "tape_gap_px": 34,
+  "_size_rule": "카드 높이는 모든 유형 같음 = 머리 210 + 몸통(card_body_rows × row_h 92) + 40. 줄이 적으면 줄 높이를 row_h_max(130)까지 늘리고 남는 자리는 위아래 같게 비워 줄 묶음을 가운데 둔다(2026-11-26 「카드 크기 밸런스」)."
  },
  "motion": {
-  "card_in_s": 0.40, "card_in_rise_px": 90,
-  "row_in_s": 0.22, "row_in_rise_px": 18,
-  "row_hold_s": 1.15, "intro_hold_s": 1.3, "outro_hold_s": 1.0, "card_out_s": 0.25,
-  "_rule": "카드 등장 → 머리말 문장 → 줄 하나 = 문장 하나 = 효과음 하나. 줄은 위에서 아래 순서로만 켠다"
+  "card_in_s": 0.4,
+  "card_in_rise_px": 90,
+  "row_in_s": 0.22,
+  "row_in_rise_px": 18,
+  "row_hold_s": 1.15,
+  "intro_hold_s": 1.3,
+  "outro_hold_s": 1.0,
+  "card_out_s": 0.25,
+  "_rule": "카드는 머리말 문장 시작 lead_s 전에 올라온다. 줄 하나 = 문장 하나 = 효과음 하나, 줄은 그 문장 소리 시작에 켜진다. 다음 카드 머리말 lead_s 전에 퇴장."
  },
- "sfx": {"intro": "card_page_flip.wav", "row": "check.wav", "row_warn": "beep_on.wav", "gain_db": -8},
+ "sfx": {
+  "intro": "card_page_flip.wav",
+  "row": "check.wav",
+  "row_warn": "beep_on.wav",
+  "gain_db": -8
+ },
  "types": {
-  "vehicle":  {"tape": "차량 정보",   "icon": "detail:model-trim", "intro": "차량 정보 요약합니다.", "row": "{label} {value}."},
-  "inspect":  {"tape": "성능 점검",   "icon": "reddit:checkmark-fill", "intro": "성능점검기록부 요약합니다.", "row_ok": "{label} {value}.", "row_warn": "다만 {label} {value} 표시가 있습니다."},
-  "insurance":{"tape": "보험 이력",   "icon": "detail:document", "intro": "보험 이력 요약합니다.", "row": "{label} {value}."},
-  "options":  {"tape": "옵션 정보",   "icon": "ui:icon-settings-outline", "intro": "주요 옵션입니다.", "row": "{label}."},
-  "extra":    {"tape": "추가 옵션",   "icon": "reddit:add-outline-24", "intro": "출고 때 추가한 옵션입니다.", "row": "{label}, {value}."},
-  "feature":  {"tape": "차량 특징",   "icon": "reddit:powerup-outline", "intro": "이 차의 특징입니다.", "row": "{label}."},
-  "seller":   {"tape": "판매자 설명", "icon": "ui:chat", "intro": "판매자 설명 요약합니다.", "row": "{label}."},
-  "price":    {"tape": "가격 비교",   "icon": "detail:price", "intro": "신차가와 비교합니다.", "row": "{label} {value}.", "_layout": "bars"},
-  "owners":   {"tape": "소유 이력",   "icon": "detail:owners", "intro": "소유 이력입니다.", "row": "{label} {value}."}
+  "vehicle": {
+   "tape": "차량 정보",
+   "icon": "as24:Info",
+   "intro": "먼저 차량 정보입니다.",
+   "row": "{label}{은} {value}입니다.",
+   "_check_rule": "2026-11-26 사용자 지시: 차량 정보는 연식(최초등록)과 연형을 둘 다 말하고, 수입차는 정식 출고 여부(수입 구분)도 말한다. 매물 원문에서 확인 못 한 값은 줄 4번째 칸 'check' → 값 왼쪽에 「확인 전」 표시."
+  },
+  "inspect": {
+   "tape": "성능 점검",
+   "icon": "as24:service_security_check",
+   "intro": "성능점검기록부, 핵심만 읽어 드립니다.",
+   "row_ok": "{label}{은} {value}입니다.",
+   "row_warn": "다만 {label}, {value} 표시가 있습니다.",
+   "row_none": "{label}{은} 없습니다.",
+   "ok_icon": "as24:checkmark-sale",
+   "warn_icon": "as24:Info"
+  },
+  "insurance": {
+   "tape": "보험 이력",
+   "icon": "as24:Insurance",
+   "intro": "보험 이력입니다.",
+   "row": "{label}{은} {value}입니다.",
+   "row_none": "{label}{은} 없습니다."
+  },
+  "options": {
+   "tape": "옵션 정보",
+   "icon": "as24:Equipment",
+   "intro": "주요 옵션입니다.",
+   "row": "{label}.",
+   "row_icon": "as24:checkmark-sale"
+  },
+  "extra": {
+   "tape": "추가 옵션",
+   "icon": "as24:car-sale",
+   "intro": "출고 때 추가한 옵션입니다.",
+   "row": "{label}, {value}.",
+   "row_icon": "as24:planner_checkmark",
+   "sum_label": "옵션 합계",
+   "total_label": "신차가 + 옵션 총액",
+   "row_sum": "옵션 합계는 {value}입니다.",
+   "_sum_rule": "2026-11-26 사용자 지시: 추가 옵션 카드 끝에 옵션 합계와 신차가(price.old)+옵션 총액 줄을 계산해 붙인다. 값은 데이터에서만 계산(옵션 값의 + N만원 합, 신차가는 price 카드 old).",
+   "row_total": "신차가에 옵션을 더하면 {value}입니다."
+  },
+  "feature": {
+   "tape": "차량 특징",
+   "icon": "as24:black-star",
+   "intro": "이 차의 특징입니다.",
+   "row": "{label}."
+  },
+  "seller": {
+   "tape": "판매자 설명",
+   "icon": "as24:speech_bubble_text",
+   "intro": "판매자 설명입니다.",
+   "row": "{label}."
+  },
+  "price": {
+   "tape": "가격 비교",
+   "icon": "as24:price_history",
+   "intro": "신차가와 비교해 보겠습니다.",
+   "row": "{label}{은} {value}입니다.",
+   "_layout": "bars"
+  },
+  "owners": {
+   "tape": "소유 이력",
+   "icon": "as24:person",
+   "intro": "소유 이력입니다.",
+   "row": "{label}{은} {value}입니다."
+  }
  },
- "never": ["무사고", "완벽", "문제없음", "걱정 없습니다", "최고"],
- "facts_rule": "값은 차량 데이터 파일에만서 가져온다. 데이터에 'sample': true 인 카드는 화면 오른쪽 위에 「샘플 값」 표시를 반드시 넣는다(실매물 값이 아님을 표시)."
+ "never": [
+  "무사고",
+  "완벽",
+  "문제없음",
+  "걱정 없습니다",
+  "최고"
+ ],
+ "facts_rule": "값은 차량 데이터 파일에만서 가져온다. 데이터에 'sample': true 인 카드는 화면 오른쪽 위에 「샘플 값」 표시를 반드시 넣는다(실매물 값이 아님을 표시).",
+ "voice": {
+  "engine": "ElevenLabs creative_generate_speech",
+  "voice_id": "GFsKFsadyjMQ7MPv89Tw",
+  "voice_name": "Hwan",
+  "model_id": "eleven_v4",
+  "tag": "[excited]",
+  "style": "합니다체",
+  "lead_s": 0.45,
+  "bgm_db": -24,
+  "_rule": "대사 = 화면 자막 문장 그대로(자막은 원래 표기, 읽는 글은 speak.py가 숫자·단위·영문을 소리 나는 대로 바꿈). 전체 대사를 한 번에 1회만 생성(다시 시도 금지), faster-whisper 낱말 시각으로 문장 시작을 맞추고 카드·줄·효과음 시각을 목소리에 맞춘다."
+ }
 }

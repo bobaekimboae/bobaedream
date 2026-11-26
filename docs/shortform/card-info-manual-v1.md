@@ -84,3 +84,37 @@ python3 card_info.py samples/g400d.json out/ --only vehicle,price
 | 옵션 사진 연결 | 옵션 줄이 켜질 때 그 부위 실사진 작은 칸이 함께 뜸 | 옵션명만이 아니라 실물 확인 |
 | 성능지 부위 확대 | 성능지 차체 그림에서 표시 부위만 확대 + 「단순수리 1곳(앞 펜더)」 | 그림 판독을 대신함 |
 | 유지비 카드 | 자동차세(배기량 공식)만, 계산식이 공개된 것만 | 사고 싶은 사람이 바로 묻는 것 |
+
+---
+
+## v2 (2026-11-26 · 음성 · 대사 · 크기 통일 · AS24 노션 원본)
+
+사용자 지시: 「음성 넣자」 → 「대사 만들고 카드 크기 밸런스 맞추고, 붓칠 및 아이콘은 오토스카우트 노션 원본」 → 「추가 옵션 카드에 옵션 합계와 신차가 + 옵션 총액」 → 「연식과 연형 둘 다, 수입차는 정식 출고인지도」 → 「색상은 외장과 시트 색상」.
+
+### 만드는 법
+```
+cd scripts/shortform/card_info
+python3 card_info.py samples/g400d.json out/ --script                       # out/tts.txt(읽는 글) · out/script.json(자막·읽는 글 짝)
+# tts.txt 전체를 ElevenLabs Hwan(GFsKFsadyjMQ7MPv89Tw) · eleven_v4 · generations_count 1로 한 번 생성 → out/voice.mp3
+python3 card_info.py samples/g400d.json out/ --voice out/voice.mp3 --stills  # 정지컷
+python3 card_info.py samples/g400d.json out/ --voice out/voice.mp3           # out/card_info_voice.mp4 + .plan.json
+```
+
+### 대사(= 자막 문장)
+- 자막은 원래 표기, 읽는 글은 `speak.py`가 숫자·단위·영문을 소리 나는 대로 바꾼다(33,475km → 삼만 삼천사백칠십오 킬로미터, 1회 → 한 번, LED → 엘이디).
+- 문장 틀은 규칙 파일 `types.*`의 intro · row · row_none · row_warn · row_sum · row_total. 조사(은/는)는 라벨 받침으로 자동.
+- 차량 정보: 최초등록(연식)과 연형을 둘 다 말한다. 색상은 「외장 ○ · 시트 ○」 한 줄. 수입차는 「수입 구분」(정식 출고/병행 등) 줄을 넣는다. 매물 원문에서 확인 못 한 값은 줄 4번째 칸 `"check"` → 값 왼쪽 「확인 전」 표시.
+- 추가 옵션: 옵션 값(+ N만원)을 더해 「옵션 합계」, price 카드 신차가에 더해 「신차가 + 옵션 총액」 줄을 자동 계산(총액은 노랑 판).
+
+### 음성 맞추기
+- 전체 대사를 한 번만 생성(다시 시도 금지). 바뀐 문장만 있으면 그 문장만 따로 만들어 무음 구간에서 잘라 붙인다.
+- faster-whisper(large-v3-turbo) 낱말 시각을 읽는 글과 글자 단위로 맞춰(difflib) 문장마다 소리 시작 시각을 얻는다. 줄은 그 시각에 켜지고 효과음도 같은 시각.
+- 목소리는 0.45초 늦춰 붙여 카드가 먼저 올라온다. 카드는 다음 카드 머리말 0.45초 전에 바뀐다. 배경음 −24dB, 2단계 loudnorm −14 LUFS.
+
+### 크기 · 원본 에셋
+- 카드 높이는 모든 유형 같음: 머리 210 + 9줄 × 92 + 40. 줄이 적으면 줄 높이를 130까지 늘리고 줄 묶음을 가운데에.
+- 붓칠 제목: 노션 원본 103_33(`g350_v5_lib.chip`, `be_locked_rules.json` chip.fill_fit — 칠 높이 = 글자 × 2.0, 좌우 = 글자 × 1.25, 기울기 0).
+- 아이콘: 노션 「독일 오토 24」 원본 `public/assets/shortform/card-info/as24-icons/`(체크 원 checkmark-sale만 원본 색, 나머지는 색만 입힘). 유형: 차량 Info · 성능 service_security_check · 보험 Insurance · 소유 person · 옵션 Equipment · 추가 car-sale · 특징 black-star · 가격 price_history · 판매자 speech_bubble_text.
+
+### 샘플
+`public/shortform-samples/card-info-v2-s2/card_info_voice.mp4`(116초, −14.7 LUFS). 차량 정보의 최초등록·주행·연료·변속기·외장색·지역·판매가만 실값(Grok 차란차 기록), 연형·시트색·수입 구분은 「확인 전」, 나머지 카드는 「샘플 값」.
