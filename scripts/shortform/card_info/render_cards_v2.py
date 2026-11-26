@@ -72,17 +72,15 @@ def build_card(card: dict, car: dict, row_times: list[float]):
     head = Image.new("RGBA", (cw, 2400), (0, 0, 0, 0))
     d = ImageDraw.Draw(head)
     y = pad
-    # 머리글: AS24 아이콘(원 바탕 없이) + 종류 이름 + 차명
+    # 머리글 한 줄: AS24 아이콘 + 노랑 칩(카드 이름) + 오른쪽 보조 글자(있을 때만)
+    chip = yellow_chip(card["label"], S["title_px"])
+    hh = max(chip.height, S["icon_slot"])
     ic = as24_icon(card["icon"], S["icon_slot"], S["icon_area"])
-    head.alpha_composite(ic, (pad, y))
-    tx = pad + S["icon_slot"] + S["icon_gap"]
-    d.text((tx, y + S["icon_slot"] // 2), card["label"], font=font("Bold", S["label_px"]), fill=hexrgb(INK), anchor="lm")
-    d.text((cw - pad, y + S["icon_slot"] // 2), car["short"], font=font("Medium", S["sub_px"]), fill=hexrgb(S["muted"]), anchor="rm")
-    y += S["icon_slot"] + S["head_gap"]
-    chip = yellow_chip(card["title"], S["title_px"])
-    head.alpha_composite(chip, (pad - 8, y))
-    y += chip.height + S["chip_gap"]
-    d.line((pad, y, cw - pad, y), fill=hexrgb(S["divider"]), width=2)
+    head.alpha_composite(ic, (pad, y + (hh - S["icon_slot"]) // 2))
+    head.alpha_composite(chip, (pad + S["icon_slot"] + S["icon_gap"] - 8, y + (hh - chip.height) // 2))
+    if card.get("head_right"):
+        d.text((cw - pad, y + hh // 2), card["head_right"], font=font("Medium", S["sub_px"]), fill=hexrgb(S["muted"]), anchor="rm")
+    y += hh + S["chip_gap"]
     pieces: list[Piece] = []
     rh = S["row_h"]
     fl, fv = font("Medium", S["row_label_px"]), font("Bold", S["row_value_px"])
@@ -101,7 +99,7 @@ def build_card(card: dict, car: dict, row_times: list[float]):
             pieces.append(Piece(im, (pad, y), row_times[k], k < 3))
             y += rh
             continue
-        if r.get("icon"):
+        if r.get("icon") and SPEC["card"].get("row_icons", False):
             im.alpha_composite(as24_icon(r["icon"], S["row_icon_slot"], S["row_icon_area"]), (0, cy - S["row_icon_slot"] // 2))
             x = S["row_icon_slot"] + 20
         dd.text((x, cy), r["label"], font=fl, fill=hexrgb(S["row_label_color"]), anchor="lm")
