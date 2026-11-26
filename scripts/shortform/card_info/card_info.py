@@ -170,6 +170,19 @@ def caption(base, text, a=1.0, hi=None, word=None):
         else:
             cur = t
     lines.append(cur)
+    # 두 줄 넘으면 두 줄씩 나눠, 지금 말하는 낱말이 있는 쪽만 보여 줌(화면 아래 가림 영역 침범 방지)
+    mx = S.get('caption_max_lines', 2)
+    start_word = 0
+    if len(lines) > mx:
+        pages, k = [], 0
+        for i in range(0, len(lines), mx):
+            n = sum(len(l.split(' ')) for l in lines[i:i + mx]); pages.append((k, lines[i:i + mx])); k += n
+        pick = pages[0]
+        if spoken is not None and spoken >= 0:
+            for pg in pages:
+                if spoken >= pg[0]:
+                    pick = pg
+        start_word, lines = pick
     lh = int(S['caption_px'] * 1.28)
     y0 = S['caption_cy'] - lh * (len(lines) - 1) / 2
     sh = Image.new('RGBA', base.size, (0, 0, 0, 0))
@@ -178,7 +191,7 @@ def caption(base, text, a=1.0, hi=None, word=None):
         ds.text((W / 2, y0 + i * lh + 4), ln, font=f, fill=(0, 0, 0, int(200 * a)), anchor='mm')
     base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
     hw = [x.strip(',.') for h in (hi or []) for x in h.split(' ') if x]
-    gidx = [0]  # 문장 안 낱말 번호(줄 바꿈과 상관없이)
+    gidx = [start_word]  # 문장 안 낱말 번호(줄 바꿈과 상관없이)
     for i, ln in enumerate(lines):
         x = W / 2 - d.textlength(ln, font=f) / 2
         y = y0 + i * lh
@@ -545,10 +558,17 @@ class Card:
             tx0 = ox + pad + col * (tw + gap)
             ty0 = oy + S['body_pad'] + row * th + (1 - ra) * M['row_in_rise_px']
             ld.rounded_rectangle((tx0, ty0 + 8, tx0 + tw, ty0 + th - 8), S['tile_radius'], fill=hexc(S['tile_bg'], al))
-            ri = icon(x[0], S['icon_px'], S['ink']) if x[0] else None
+            ref = x[0] or self.rule.get('row_icon')
+            ri = icon(ref, S['icon_px'], S['ink']) if ref else None
             if ri:
                 layer.alpha_composite(fade(ri, ra), (int(tx0 + 22), int(ty0 + th / 2 - S['icon_px'] / 2)))
             lx = tx0 + 22 + S['icon_px'] + 18
+            if not x[2]:  # 값 없는 칸(옵션 이름만): 이름을 굵게 가운데 줄에
+                nf = F(FB, S['tile_value_px'] - 4)
+                while ld.textlength(x[1], font=nf) > tw - (lx - tx0) - 14 and nf.size > 24:
+                    nf = F(FB, nf.size - 2)
+                ld.text((lx, ty0 + th / 2), x[1], font=nf, fill=hexc(S['ink'], al), anchor='lm')
+                continue
             ld.text((lx, ty0 + th / 2 - 6), x[1], font=F(FS, S['tile_label_px']), fill=hexc(S['label'], al), anchor='ls')
             v = x[2]
             vf = F(FB, S['tile_value_px'])
@@ -757,6 +777,8 @@ def render(data_path, out_dir, voice, stills=False):
     for c in cards:
         begins.append(max(0.0, starts[i] - lead)); i += len(c.sentences())
     total = vend + lead + M['outro_hold_s'] + M['card_out_s']
+    if begins:  # 마지막 카드도 읽을 시간 확보
+        total = max(total, begins[-1] + M.get('min_last_card_s', 0))
     ends = begins[1:] + [total]
     i = 0
     for c, b, e in zip(cards, begins, ends):
