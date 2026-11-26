@@ -91,6 +91,16 @@ def build_card(card: dict, car: dict, row_times: list[float]):
         dd = ImageDraw.Draw(im)
         cy = rh // 2
         x = 0
+        if card.get("style") == "timeline":
+            # 타임라인: 왼쪽 세로선 + 점, 날짜(굵게) → 사건(오른쪽)
+            last = k == len(card["rows"]) - 1
+            dd.line((12, 0 if k else cy, 12, cy if last else rh), fill=hexrgb(S["divider"]), width=4)
+            dd.ellipse((3, cy - 9, 21, cy + 9), fill=hexrgb(YEL), outline=hexrgb(INK), width=3)
+            dd.text((44, cy), r["label"], font=fv, fill=hexrgb(INK), anchor="lm")
+            dd.text((inner, cy), r["value"], font=fl, fill=hexrgb(INK), anchor="rm")
+            pieces.append(Piece(im, (pad, y), row_times[k], k < 3))
+            y += rh
+            continue
         if r.get("icon"):
             im.alpha_composite(as24_icon(r["icon"], S["row_icon_slot"], S["row_icon_area"]), (0, cy - S["row_icon_slot"] // 2))
             x = S["row_icon_slot"] + 20
