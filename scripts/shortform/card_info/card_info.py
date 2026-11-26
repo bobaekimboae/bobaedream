@@ -76,6 +76,37 @@ def icon(ref, px, color):
     return _icon_cache[k]
 
 
+_ul_cache = {}
+
+
+def underline_img(w):
+    """노션 원본 밑줄 붓칠(53×5)을 값 폭 w에 맞춰 가로로만 늘린 노랑 RGBA."""
+    U = RULES['underline']
+    w = max(20, int(w))
+    if w not in _ul_cache:
+        import cairosvg
+        raw = cairosvg.svg2png(url=os.path.join(ROOT, U['svg']), output_width=w * 2, output_height=U['height_px'] * 2)
+        a = Image.open(io.BytesIO(raw)).convert('RGBA').getchannel('A').resize((w, U['height_px']), Image.LANCZOS)
+        g = U.get('alpha_gain', 1.0)
+        a = a.point(lambda v: min(255, int(v * g)))  # 원본 붓 결의 옅은 끝도 보이게(모양은 그대로)
+        im = Image.new('RGBA', a.size, hexc(U['color']))
+        im.putalpha(a)
+        _ul_cache[w] = im
+    return _ul_cache[w]
+
+
+def wipe(im, p):
+    """왼쪽→오른쪽으로 p만큼만 보이게."""
+    if p >= 1:
+        return im
+    out = im.copy()
+    w = int(im.width * max(0.0, p))
+    m = Image.new('L', im.size, 0)
+    m.paste(255, (0, 0, w, im.height))
+    out.putalpha(Image.composite(im.getchannel('A'), Image.new('L', im.size, 0), m))
+    return out
+
+
 def fade(im, a):
     if a >= 1:
         return im
@@ -119,7 +150,8 @@ def tape_img(label):
     return _chip_cache[label]
 
 
-def caption(base, text, a=1.0, hi=None):
+def caption(base, text, a=1.0, hi=None, word=None):
+    spoken = word
     """하단 자막: 흰 글자 + 그림자, 값(hi)만 노랑."""
     if not text or a <= 0:
         return
@@ -145,6 +177,7 @@ def caption(base, text, a=1.0, hi=None):
         ds.text((W / 2, y0 + i * lh + 4), ln, font=f, fill=(0, 0, 0, int(200 * a)), anchor='mm')
     base.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
     hw = [x.strip(',.') for h in (hi or []) for x in h.split(' ') if x]
+    gidx = [0]  # 문장 안 낱말 번호(줄 바꿈과 상관없이)
     for i, ln in enumerate(lines):
         x = W / 2 - d.textlength(ln, font=f) / 2
         y = y0 + i * lh
@@ -152,7 +185,8 @@ def caption(base, text, a=1.0, hi=None):
         for j, w_ in enumerate(ws):
             word = w_ + (' ' if j < len(ws) - 1 else '')
             core = re.sub(r'(입니다|합니다|습니다)?[.,]*$', '', w_).strip(',.')
-            on = any(h and (h == w_.strip(',.') or h == core) for h in hw)
+            on = (gidx[0] == spoken) if spoken is not None else any(h and (h == w_.strip(',.') or h == core) for h in hw)
+            gidx[0] += 1
             d.text((x, y), word, font=f, fill=hexc(S['accent'], int(255 * a)) if on else (255, 255, 255, int(255 * a)), anchor='lm')
             x += d.textlength(word, font=f)
 
@@ -332,17 +366,35 @@ class Card:
                     bx = ox + cw - pad - vw - 16 - cwid
                     ld.rounded_rectangle((bx, cy - 17, bx + cwid, cy + 17), 17, outline=hexc(S['sample_badge'], al), width=2)
                     ld.text((bx + cwid / 2, cy), '확인 전', font=cf, fill=hexc(S['sample_badge'], al), anchor='mm')
+                up = self.ul_progress(x[1], t) if has_val else 0
+                if up > 0:
+                    vb = ld.textbbox((ox + cw - pad, cy), x[2], font=F(FB, S['value_px']), anchor='rm')
+                    ul = underline_img(vb[2] - vb[0] + 8)
+                    layer.alpha_composite(wipe(ul, up), (int(vb[0] - 4), int(vb[3] - RULES['underline']['height_px'] / 2 + RULES['underline']['gap_px'])))
+                    ld = ImageDraw.Draw(layer)
                 if has_val:
                     ld.text((ox + cw - pad, cy), x[2], font=F(FB, S['value_px']), fill=hexc(S['warn'] if warn else S['ink'], al), anchor='rm')
                 if i < len(rows) - 1:
                     ld.line((tx, y + rh, ox + cw - pad, y + rh), fill=hexc(S['line'], al), width=2)
         layer = fade(layer, a)
         base.alpha_composite(layer, (cx - 40, ctop - 40 + dy))
-        cur = next(((st, en, s, hi) for st, en, k, s, hi in segs if st <= t < en), None)
+        cur = next(((j, st, en, s) for j, (st, en, k, s, hi) in enumerate(segs) if st <= t < en), None)
         if cur:
-            st, en, s, hi = cur
-            ca = min(ease((t - st) / 0.12), 1 - ease((t - (en - 0.08)) / 0.08))
-            caption(base, s, max(0.0, ca) * a, hi)
+            j, st, en, s = cur
+            wts = getattr(self, 'wt', None)
+            wi = -1
+            if wts:
+                wi = max([q for q, x in enumerate(wts[j]) if x <= t + 0.02] or [0])
+            caption(base, s, a, word=wi)  # 벨기에판: 바로 뜨고(instant), 말하는 낱말만 노랑
+
+    def ul_progress(self, label, t):
+        """줄이 모두 나온 뒤 핵심 항목 밑줄 진행도(0~1)."""
+        keys = self.data.get('underline') or []
+        if label not in keys:
+            return 0.0
+        U = RULES['underline']
+        t0 = self.segs[-1][0] + U['start_after_s'] + keys.index(label) * U['stagger_s']
+        return ease((t - t0) / U['wipe_s'])
 
     def layout(self):
         return self.data.get('layout') or LAYOUT_OVERRIDE.get(self.kind) or self.rule.get('layout', 'list')
@@ -370,6 +422,12 @@ class Card:
             vf = F(FB, S['tile_value_px'])
             while ld.textlength(v, font=vf) > tw - (lx - tx0) - 18 and vf.size > 26:
                 vf = F(FB, vf.size - 2)
+            up = self.ul_progress(x[1], t)
+            if up > 0:
+                vb = ld.textbbox((lx, ty0 + th / 2 + 6), v, font=vf, anchor='lt')
+                ul = underline_img(vb[2] - vb[0] + 8)
+                layer.alpha_composite(wipe(ul, up), (int(vb[0] - 4), int(vb[3] - RULES['underline']['height_px'] / 2 + RULES['underline']['gap_px'])))
+                ld = ImageDraw.Draw(layer)
             ld.text((lx, ty0 + th / 2 + 6), v, font=vf, fill=hexc(S['ink'], al), anchor='lt')
             if len(x) > 3 and x[3] == 'check':
                 cf = F(FS, 20); cwid = ld.textlength('확인 전', font=cf) + 18
@@ -462,7 +520,23 @@ def align(sents, words):
             prev = starts[i - 1] if i else 0.0
             nxt = next((x for x in starts[i + 1:] if x is not None), words[-1]['end'])
             starts[i] = (prev + nxt) / 2
-    return starts, words[-1]['end']
+    # 글자마다 시각(맞은 글자는 그 시각, 못 맞춘 글자는 앞뒤 사이로) → 자막 낱말마다 소리 시작 시각
+    ct = [wt[m[j]] if j in m else None for j in range(len(sc))]
+    last = 0.0
+    for j in range(len(ct)):
+        if ct[j] is None:
+            nxt = next((ct[k] for k in range(j + 1, len(ct)) if ct[k] is not None), words[-1]['end'])
+            ct[j] = last + (nxt - last) * 0.5
+        last = ct[j]
+    wtimes = []
+    for i, snt in enumerate(sents):
+        p, row = bounds[i], []
+        for w in snt.replace('\u00a0', ' ').split(' '):
+            row.append(ct[min(p, len(ct) - 1)] if ct else 0.0)
+            p += len(norm(w))
+        row[0] = starts[i]
+        wtimes.append(row)
+    return starts, words[-1]['end'], wtimes
 
 
 def loud2(path):
@@ -539,7 +613,7 @@ def render(data_path, out_dir, voice, stills=False):
         voice = fast
     words = words_of(voice)
     flat = [(c, k, s, hi) for c in cards for k, s, hi in c.sentences()]
-    starts, vend = align([s for _, _, s, _ in flat], words)
+    starts, vend, wtimes = align([s for _, _, s, _ in flat], words)
     lead = V['lead_s']
     starts = [x + lead for x in starts]  # 목소리를 lead_s 늦춰 붙인다(첫 카드가 먼저 올라오게)
     # 카드 구간: 머리말 소리 시작 lead_s 전 ~ 다음 카드 머리말 lead_s 전
@@ -553,6 +627,7 @@ def render(data_path, out_dir, voice, stills=False):
         n = len(c.sentences())
         st = starts[i:i + n]
         c.segs = []
+        c.wt = [[x + lead - b for x in row] for row in wtimes[i:i + n]]  # 자막 낱말 소리 시작(카드 안 시각)
         for j, (k, s, hi) in enumerate(c.sentences()):
             t0 = st[j] - b - 0.05
             t1 = (st[j + 1] - b - 0.05) if j + 1 < n else (e - b - M['card_out_s'])
