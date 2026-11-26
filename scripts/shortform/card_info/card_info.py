@@ -280,17 +280,26 @@ class Card:
                 ref = x[0]
                 if self.kind == 'inspect':
                     ref = self.rule['warn_icon'] if warn else self.rule['ok_icon']
-                elif len(x) > 3 and x[3] in ('sum', 'total'):
+                elif (len(x) > 3 and x[3] in ('sum', 'total')) or self.kind == 'timeline':
                     ref = None
                 elif not ref:
                     ref = self.rule.get('row_icon')
                 ri = icon(ref, S['icon_px'], S['warn'] if warn else S['ink']) if ref else None
-                if len(x) > 3 and x[3] in ('sum', 'total'):
+                if (len(x) > 3 and x[3] in ('sum', 'total')) or self.kind == 'timeline':
                     pass
                 elif ri:
                     layer.alpha_composite(fade(ri, ra), (int(ixx), int(cy - S['icon_px'] / 2)))
                 else:
                     ld.ellipse((ixx + 14, cy - 8, ixx + 30, cy + 8), fill=hexc(S['ink'], al))
+                if self.kind == 'timeline':
+                    lx = ixx + 22
+                    if i < len(rows) - 1:
+                        nra = ease((t - segs[i + 2][0]) / M['row_in_s']) if i + 2 < len(segs) else 0
+                        ld.line((lx, cy, lx, cy + rh * nra), fill=hexc(S['ink'], al), width=4)
+                    ld.ellipse((lx - 13, cy - 13, lx + 13, cy + 13), fill=hexc(S['accent'], al), outline=hexc(S['ink'], al), width=4)
+                    ld.text((ixx + 72, cy), x[1], font=F(FS, S['label_px']), fill=hexc(S['label'], al), anchor='lm')
+                    ld.text((ox + cw - pad, cy), x[2], font=F(FB, S['value_px']), fill=hexc(S['ink'], al), anchor='rm')
+                    continue
                 tx = ixx + 72
                 tag = x[3] if len(x) > 3 else ''
                 if tag in ('sum', 'total'):
@@ -410,7 +419,9 @@ def build(data_path):
         car['_cat'] = im.resize((int(im.width * sc), 120), Image.LANCZOS)
     if 'price' in data['cards']:
         car['_new_price'] = data['cards']['price']['old']  # 추가 옵션 카드 총액 계산용 신차가
-    order = [k for k in data['order'] if k in data['cards']]
+    pick = [k for k in data['order'] if k in data['cards']]
+    base = RULES.get('default_order', pick)
+    order = [k for k in base if k in pick] + [k for k in pick if k not in base]  # 기본 순서(2차 제안) 우선
     cards = [Card(k, data['cards'][k], car, i, len(order)) for i, k in enumerate(order)]
     for c in cards:
         txt = ' '.join(s for _, s, _ in c.sentences())
@@ -513,6 +524,11 @@ def render(data_path, out_dir, voice, stills=False):
                     '-t', f'{total:.2f}', outp], check=True)
     os.remove(vid)
     loud2(outp)
+    for c in cards:  # 카드 한 장씩 따로(차량 편집 영상에 1장부터 여러 장까지 끼워 넣는 용도)
+        b, e = c.span
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{b:.3f}', '-i', outp, '-t', f'{e - b:.3f}',
+                        '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k',
+                        os.path.join(out_dir, f'card_{c.idx + 1:02d}_{c.kind}.mp4')], check=True)
     json.dump({'version': RULES['version'], 'duration': round(total, 2), 'voice': {k: V[k] for k in ('voice_id', 'voice_name', 'model_id')},
                'cards': [{'kind': c.kind, 'sample': c.sample, 'start': round(c.span[0], 2), 'end': round(c.span[1], 2),
                           'segments': [{'t0': round(c.span[0] + a, 2), 't1': round(c.span[0] + b, 2), 'type': k, 'caption': s, 'say': speak(s)}
