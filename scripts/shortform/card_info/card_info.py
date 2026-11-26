@@ -188,7 +188,8 @@ class Card:
 
     def sentences(self):
         r = self.rule
-        out = [('intro', r['intro'], None)]
+        intro = r['intro_molit'] if self.data.get('source') == 'molit' and r.get('intro_molit') else r['intro']
+        out = [('intro', intro, None)]
         if self.kind == 'price':
             dd = self.data
             out.append(('row', fill(r['row'], dd['old_label'], man(dd['old'])), [man(dd['old'])]))
@@ -203,11 +204,13 @@ class Card:
                 v = x[2].replace('+ ', '')
                 out.append(('row', fill(r['row_' + x[3]], x[1], v), [v]))
             elif warn:
-                out.append(('warn', fill(r['row_warn'], x[1], x[2]), [x[2]]))
+                first = not any(k == 'warn' for k, _, _ in out)
+                tpl = r['row_warn'] if first or not r.get('row_warn_next') else r['row_warn_next']
+                out.append(('warn', fill(tpl, x[1], x[2]), [x[2]]))
             elif x[2] == '없음' and r.get('row_none'):
                 out.append(('row', fill(r['row_none'], x[1], x[2]), ['없습니다']))
             else:
-                tpl = r.get('row_ok', r['row'])
+                tpl = r.get('row_ok') or r['row']
                 out.append(('row', fill(tpl, x[1], x[2]), [x[2]] if x[2] else None))
         return out
 
@@ -215,8 +218,10 @@ class Card:
     def draw(self, base, t, total):
         segs = self.segs
         cx, cw = S['card_x'], S['card_w']
-        head_h, body_h = S['head_h'], S['card_body_rows'] * S['row_h']
-        card_h = head_h + body_h + 40
+        head_h = S['head_h']
+        nrows = 3 if self.kind == 'price' else max(1, len(self.row_order()))
+        body_h = 500 if self.kind == 'price' else nrows * S['row_h'] + S['body_pad'] * 2
+        card_h = head_h + body_h
         ctop = int(S['card_center_y'] - card_h / 2)
         a_in = ease(t / M['card_in_s'])
         a_out = 1 - ease((t - (total - M['card_out_s'])) / M['card_out_s'])
@@ -227,13 +232,6 @@ class Card:
         # 붓칠 제목(노션 원본 103_33) — 카드 왼쪽 위
         tp = fade(tape_img(self.rule['tape']), a)
         base.alpha_composite(tp, (cx - 15, ctop - S['tape_gap_px'] - tp.height + 30 + dy))
-        d = ImageDraw.Draw(base)
-        dots_w = (self.total - 1) * 26
-        for i in range(self.total):
-            x = W / 2 - dots_w / 2 + i * 26
-            r_ = 7 if i == self.idx else 5
-            yy = ctop + card_h + 56
-            d.ellipse((x - r_, yy - r_, x + r_, yy + r_), fill=(255, 255, 255, int((235 if i == self.idx else 90) * a)))
         layer = Image.new('RGBA', (cw + 80, card_h + 80), (0, 0, 0, 0))
         sh = Image.new('L', layer.size, 0)
         ImageDraw.Draw(sh).rounded_rectangle((40, 58, 40 + cw, 40 + card_h + 18), S['card_radius'], fill=150)
@@ -242,14 +240,14 @@ class Card:
         ld.rounded_rectangle((40, 40, 40 + cw, 40 + card_h), S['card_radius'], fill=hexc(S['card']))
         ox, oy, pad = 40, 40, 56
         # 머리: 유형 아이콘(노랑 원) + 차 이름 + 카탈로그 그림
-        ic = icon(self.rule['icon'], 52, S['ink'])
-        ld.ellipse((ox + pad - 14, oy + 44, ox + pad + 74, oy + 132), fill=hexc(S['accent']))
+        ic = icon(self.rule['icon'], 56, S['ink'])
+        ld.ellipse((ox + pad - 14, oy + 44, ox + pad + 80, oy + 138), fill=hexc(S['accent']))
         if ic:
-            layer.alpha_composite(ic, (ox + pad + 4, oy + 62))
+            layer.alpha_composite(ic, (ox + pad + 5, oy + 63))
         car = self.car
-        ld.text((ox + pad + 104, oy + 84), f"{car['maker']} {car['model']}", font=F(FB, S['title_px']), fill=hexc(S['ink']), anchor='ls')
+        ld.text((ox + pad + 112, oy + 88), f"{car['maker']} {car['model']}", font=F(FB, S['title_px']), fill=hexc(S['ink']), anchor='ls')
         sub = f"{car['code']} · {car['trim']}" if car.get('code') else car['trim']
-        ld.text((ox + pad + 104, oy + 128), sub, font=F(FM, S['sub_px']), fill=hexc(S['label']), anchor='ls')
+        ld.text((ox + pad + 112, oy + 134), sub, font=F(FM, S['sub_px']), fill=hexc(S['label']), anchor='ls')
         cat = car.get('_cat')
         if cat is not None:
             layer.alpha_composite(cat, (ox + cw - pad - cat.width + 10, oy + 22))
@@ -265,8 +263,8 @@ class Card:
         else:
             rows = self.row_order()
             n = max(1, len(rows))
-            rh = min(S['row_h_max'], body_h / n)
-            by0 = oy + head_h + (body_h - rh * n) / 2  # 줄 묶음을 몸통 가운데에
+            rh = S['row_h']
+            by0 = oy + head_h + S['body_pad']
             for i, x in enumerate(rows):
                 st = segs[i + 1][0]
                 ra = ease((t - st) / M['row_in_s'])
@@ -461,6 +459,12 @@ def words_of(voice):
 def render(data_path, out_dir, voice, stills=False):
     data, cards = build(data_path)
     write_script(cards, out_dir)
+    sp = V.get('speed', 1.0)
+    if sp and sp != 1.0:
+        fast = os.path.join(out_dir, os.path.splitext(os.path.basename(voice))[0] + f'_x{sp:g}.mp3')
+        if not os.path.exists(fast):
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', voice, '-af', f'atempo={sp}', '-b:a', '192k', fast], check=True)
+        voice = fast
     words = words_of(voice)
     flat = [(c, k, s, hi) for c in cards for k, s, hi in c.sentences()]
     starts, vend = align([s for _, _, s, _ in flat], words)

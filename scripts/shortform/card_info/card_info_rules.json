@@ -1,5 +1,5 @@
 {
- "version": "2.1",
+ "version": "3.0",
  "updated": "2026-11-26",
  "author": "클로드 시안 2 (클로드 마스터 2)",
  "source": "노션 「숏폼 카드정보 샘플 제작 및 숏폼 콘텐츠 아이디어 내기」 2026-11-26",
@@ -15,8 +15,8 @@
   "bg_bottom": "#0B0C0E",
   "card": "#FFFFFF",
   "card_radius": 36,
-  "card_x": 64,
-  "card_w": 952,
+  "card_x": 40,
+  "card_w": 1000,
   "card_center_y": 930,
   "ink": "#1A1A1A",
   "label": "#6B7079",
@@ -25,30 +25,29 @@
   "ok": "#16965C",
   "warn": "#C46200",
   "sample_badge": "#8C8C8C",
-  "title_px": 52,
-  "sub_px": 30,
-  "label_px": 34,
-  "value_px": 40,
-  "row_h": 92,
-  "icon_px": 44,
+  "title_px": 56,
+  "sub_px": 32,
+  "label_px": 38,
+  "value_px": 44,
+  "row_h": 100,
+  "icon_px": 50,
   "caption_cy": 1665,
   "caption_px": 58,
   "tape_px": 58,
-  "card_body_rows": 9,
-  "row_h_max": 130,
-  "head_h": 210,
+  "head_h": 220,
   "tape_gap_px": 34,
-  "_size_rule": "카드 높이는 모든 유형 같음 = 머리 210 + 몸통(card_body_rows × row_h 92) + 40. 줄이 적으면 줄 높이를 row_h_max(130)까지 늘리고 남는 자리는 위아래 같게 비워 줄 묶음을 가운데 둔다(2026-11-26 「카드 크기 밸런스」)."
+  "_size_rule": "2026-11-26 3차: 카드 높이는 내용에 맞춘다(머리 220 + 줄 수 × 100 + 위아래 28, 빈 공간 없음). 진행 점 없음(영상은 좌우 넘기기가 아님), 카드는 폭 1000으로 키움. 카드 중심 y 930.",
+  "body_pad": 28
  },
  "motion": {
-  "card_in_s": 0.4,
-  "card_in_rise_px": 90,
-  "row_in_s": 0.22,
-  "row_in_rise_px": 18,
+  "card_in_s": 0.28,
+  "card_in_rise_px": 70,
+  "row_in_s": 0.16,
+  "row_in_rise_px": 14,
   "row_hold_s": 1.15,
   "intro_hold_s": 1.3,
-  "outro_hold_s": 1.0,
-  "card_out_s": 0.25,
+  "outro_hold_s": 0.35,
+  "card_out_s": 0.2,
   "_rule": "카드는 머리말 문장 시작 lead_s 전에 올라온다. 줄 하나 = 문장 하나 = 효과음 하나, 줄은 그 문장 소리 시작에 켜진다. 다음 카드 머리말 lead_s 전에 퇴장."
  },
  "sfx": {
@@ -70,17 +69,19 @@
    "icon": "as24:service_security_check",
    "intro": "성능점검기록부, 핵심만 읽어 드립니다.",
    "row_ok": "{label}{은} {value}입니다.",
-   "row_warn": "다만 {label}, {value} 표시가 있습니다.",
+   "row_warn": "다만 {label}, {value} 기록이 있습니다.",
    "row_none": "{label}{은} 없습니다.",
    "ok_icon": "as24:checkmark-sale",
-   "warn_icon": "as24:Info"
+   "warn_icon": "as24:Info",
+   "row_warn_next": "{label}, {value}."
   },
   "insurance": {
-   "tape": "보험 이력",
+   "tape": "보험·소유 이력",
    "icon": "as24:Insurance",
-   "intro": "보험 이력입니다.",
+   "intro": "보험, 소유 이력입니다.",
    "row": "{label}{은} {value}입니다.",
-   "row_none": "{label}{은} 없습니다."
+   "row_none": "{label}{은} 없습니다.",
+   "_merge_rule": "2026-11-26 3차: 소유 이력(소유자 변경·번호판 변경)을 보험 이력 카드에 합침. owners 카드는 쓰지 않음."
   },
   "options": {
    "tape": "옵션 정보",
@@ -129,9 +130,11 @@
   "timeline": {
    "tape": "차량 이력",
    "icon": "as24:calendar",
-   "intro": "국토부 차량 이력, 시간순으로 봅니다.",
+   "intro": "차량 이력, 시간순으로 봅니다.",
    "row": "{label}, {value}.",
-   "_rule": "2026-11-26 2차 제안 신규: 국토부 자동차 이력(등록·소유자 변경·검사·번호 변경 등)을 날짜순 타임라인으로. 줄 = [아이콘, 날짜, 사건]. 소유 이력 카드 내용은 이 카드로 합친다."
+   "_rule": "2026-11-26 2차 제안 신규: 국토부 자동차 이력(등록·소유자 변경·검사·번호 변경 등)을 날짜순 타임라인으로. 줄 = [아이콘, 날짜, 사건]. 소유 이력 카드 내용은 이 카드로 합친다.",
+   "intro_molit": "국토부 차량 이력, 시간순으로 봅니다.",
+   "_intro_rule": "데이터 source가 'molit'(국토부 원장)일 때만 intro_molit. 매물 기록에서 뽑은 날짜면 intro."
   }
  },
  "never": [
@@ -149,9 +152,11 @@
   "model_id": "eleven_v4",
   "tag": "[excited]",
   "style": "합니다체",
-  "lead_s": 0.45,
+  "lead_s": 0.3,
   "bgm_db": -24,
-  "_rule": "대사 = 화면 자막 문장 그대로(자막은 원래 표기, 읽는 글은 speak.py가 숫자·단위·영문을 소리 나는 대로 바꿈). 전체 대사를 한 번에 1회만 생성(다시 시도 금지), faster-whisper 낱말 시각으로 문장 시작을 맞추고 카드·줄·효과음 시각을 목소리에 맞춘다."
+  "_rule": "대사 = 화면 자막 문장 그대로(자막은 원래 표기, 읽는 글은 speak.py가 숫자·단위·영문을 소리 나는 대로 바꿈). 전체 대사를 한 번에 1회만 생성(다시 시도 금지), faster-whisper 낱말 시각으로 문장 시작을 맞추고 카드·줄·효과음 시각을 목소리에 맞춘다.",
+  "speed": 1.15,
+  "_speed_rule": "2026-11-26 3차 「카드뉴스는 속도감 있게」: 목소리를 ffmpeg atempo 1.15(음높이 유지)로 빠르게 한 뒤 낱말 시각을 다시 잰다."
  },
  "default_order": [
   "vehicle",

@@ -1,0 +1,284 @@
+[
+ {
+  "card": "vehicle",
+  "type": "intro",
+  "caption": "먼저 차량 정보입니다.",
+  "say": "먼저 차량 정보입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "최초등록은 2021년 05월입니다.",
+  "say": "최초등록은 이천이십일년 오월입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "연형은 2021년형입니다.",
+  "say": "연형은 이천이십일년형입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "주행거리는 33,475km입니다.",
+  "say": "주행거리는 삼만 삼천사백칠십오 킬로미터입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "연료는 디젤입니다.",
+  "say": "연료는 디젤입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "변속기는 자동입니다.",
+  "say": "변속기는 자동입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "배기량은 2,925cc입니다.",
+  "say": "배기량은 이천구백이십오씨씨입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "색상은 외장 흰색 · 시트 미기재입니다.",
+  "say": "색상은 외장 흰색, 시트 미기재입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "수입 구분은 정식 출고입니다.",
+  "say": "수입 구분은 정식 출고입니다."
+ },
+ {
+  "card": "vehicle",
+  "type": "row",
+  "caption": "판매가는 1억 3,490만원입니다.",
+  "say": "판매가는 일억 삼천사백구십만 원입니다."
+ },
+ {
+  "card": "inspect",
+  "type": "intro",
+  "caption": "성능점검기록부, 핵심만 읽어 드립니다.",
+  "say": "성능점검기록부, 핵심만 읽어 드립니다."
+ },
+ {
+  "card": "inspect",
+  "type": "row",
+  "caption": "사고 이력은 없습니다.",
+  "say": "사고 이력은 없습니다."
+ },
+ {
+  "card": "inspect",
+  "type": "row",
+  "caption": "침수 · 화재는 없습니다.",
+  "say": "침수, 화재는 없습니다."
+ },
+ {
+  "card": "inspect",
+  "type": "row",
+  "caption": "용도 변경은 없습니다.",
+  "say": "용도 변경은 없습니다."
+ },
+ {
+  "card": "inspect",
+  "type": "row",
+  "caption": "튜닝은 없습니다.",
+  "say": "튜닝은 없습니다."
+ },
+ {
+  "card": "inspect",
+  "type": "row",
+  "caption": "주요 장치는 양호 · 누유 없음입니다.",
+  "say": "주요 장치는 양호, 누유 없음입니다."
+ },
+ {
+  "card": "inspect",
+  "type": "warn",
+  "caption": "다만 단순수리, 트렁크리드 판금 · 용접 기록이 있습니다.",
+  "say": "다만 단순수리, 트렁크리드 판금, 용접 기록이 있습니다."
+ },
+ {
+  "card": "inspect",
+  "type": "warn",
+  "caption": "점검자 의견, 운전석 앞문 · 쿼터 도장.",
+  "say": "점검자 의견, 운전석 앞문, 쿼터 도장."
+ },
+ {
+  "card": "inspect",
+  "type": "warn",
+  "caption": "리콜, 해당 · 미이행.",
+  "say": "리콜, 해당, 미이행."
+ },
+ {
+  "card": "insurance",
+  "type": "intro",
+  "caption": "보험, 소유 이력입니다.",
+  "say": "보험, 소유 이력입니다."
+ },
+ {
+  "card": "insurance",
+  "type": "row",
+  "caption": "내 차 피해는 1건 · 839,280원입니다.",
+  "say": "내 차 피해는 한 건, 팔십삼만 구천이백팔십원입니다."
+ },
+ {
+  "card": "insurance",
+  "type": "row",
+  "caption": "상대 차 피해는 0건입니다.",
+  "say": "상대 차 피해는 영 건입니다."
+ },
+ {
+  "card": "insurance",
+  "type": "row",
+  "caption": "전손 · 침수 · 도난은 없습니다.",
+  "say": "전손, 침수, 도난은 없습니다."
+ },
+ {
+  "card": "insurance",
+  "type": "row",
+  "caption": "소유자 변경은 1회입니다.",
+  "say": "소유자 변경은 한 번입니다."
+ },
+ {
+  "card": "insurance",
+  "type": "row",
+  "caption": "번호판 변경은 0회입니다.",
+  "say": "번호판 변경은 영 회입니다."
+ },
+ {
+  "card": "timeline",
+  "type": "intro",
+  "caption": "차량 이력, 시간순으로 봅니다.",
+  "say": "차량 이력, 시간순으로 봅니다."
+ },
+ {
+  "card": "timeline",
+  "type": "row",
+  "caption": "2021년 05월, 신규 등록.",
+  "say": "이천이십일년 오월, 신규 등록."
+ },
+ {
+  "card": "timeline",
+  "type": "row",
+  "caption": "2022년 02월, 내 차 보험 수리.",
+  "say": "이천이십이년 이월, 내 차 보험 수리."
+ },
+ {
+  "card": "timeline",
+  "type": "row",
+  "caption": "2026년 10월, 성능 점검 · 33,288km.",
+  "say": "이천이십육년 십월, 성능 점검, 삼만 삼천이백팔십팔 킬로미터."
+ },
+ {
+  "card": "options",
+  "type": "intro",
+  "caption": "주요 옵션입니다.",
+  "say": "주요 옵션입니다."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "선루프.",
+  "say": "선루프."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "LED 헤드램프.",
+  "say": "엘이디 헤드램프."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "후방 카메라.",
+  "say": "후방 카메라."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "가죽 · 전동 시트.",
+  "say": "가죽, 전동 시트."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "열선 시트 · 열선 스티어링.",
+  "say": "열선 시트, 열선 스티어링."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "스마트키.",
+  "say": "스마트키."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "자동 에어컨.",
+  "say": "자동 에어컨."
+ },
+ {
+  "card": "options",
+  "type": "row",
+  "caption": "내비게이션.",
+  "say": "내비게이션."
+ },
+ {
+  "card": "extra",
+  "type": "intro",
+  "caption": "출고 때 추가한 옵션입니다.",
+  "say": "출고 때 추가한 옵션입니다."
+ },
+ {
+  "card": "extra",
+  "type": "row",
+  "caption": "부메스터 서라운드 사운드, + 420만원.",
+  "say": "부메스터 서라운드 사운드, 추가 사백이십만 원."
+ },
+ {
+  "card": "extra",
+  "type": "row",
+  "caption": "AMG 라인 패키지, + 650만원.",
+  "say": "에이엠지 라인 패키지, 추가 육백오십만 원."
+ },
+ {
+  "card": "extra",
+  "type": "row",
+  "caption": "옵션 합계는 1,070만원입니다.",
+  "say": "옵션 합계는 천칠십만 원입니다."
+ },
+ {
+  "card": "extra",
+  "type": "row",
+  "caption": "신차가에 옵션을 더하면 1억 7,030만원입니다.",
+  "say": "신차가에 옵션을 더하면 일억 칠천삼십만 원입니다."
+ },
+ {
+  "card": "feature",
+  "type": "intro",
+  "caption": "이 차의 특징입니다.",
+  "say": "이 차의 특징입니다."
+ },
+ {
+  "card": "feature",
+  "type": "row",
+  "caption": "직렬 6기통 2.9L 디젤 · 9단 자동.",
+  "say": "직렬 육기통 이 점 구 리터 디젤, 구단 자동."
+ },
+ {
+  "card": "feature",
+  "type": "row",
+  "caption": "4MATIC 상시 사륜.",
+  "say": "포매틱 상시 사륜."
+ },
+ {
+  "card": "feature",
+  "type": "row",
+  "caption": "디퍼렌셜 락 3개.",
+  "say": "디퍼렌셜 락 세 개."
+ }
+]
