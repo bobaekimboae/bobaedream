@@ -82,8 +82,7 @@
     }
   ],
   "selection": {
-    "card_mode": "optional",
-    "enabled": false,
+    "card_mode": "off",
     "requested_type_ids": [],
     "mandatory_type_ids": [],
     "when_disabled": "empty plan",
@@ -195,6 +194,7 @@
     "known_warning_omission": "log separately for final vehicle QA, even if timeline unselected"
   },
   "sample": {
+    "card_mode": "selected",
     "listing_id": "01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
     "model": "벤츠 G-클래스 W463b G400d",
     "requested_type_ids": [
