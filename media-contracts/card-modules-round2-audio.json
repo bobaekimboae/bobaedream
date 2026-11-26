@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "managedDirectories": [
+    "output/round2"
+  ],
+  "entries": [
+    {
+      "target": "output/round2/insurance_only.mp4",
+      "reference": "output/round2/insurance_only_reference.wav",
+      "expectedDelayMs": 0,
+      "durationSeconds": 10.533333333333333
+    },
+    {
+      "target": "output/round2/core_cards.mp4",
+      "reference": "output/round2/core_cards_reference.wav",
+      "expectedDelayMs": 0,
+      "durationSeconds": 22.4
+    },
+    {
+      "target": "output/round2/single_option_card.mp4",
+      "reference": "output/round2/single_option_card_reference.wav",
+      "expectedDelayMs": 0,
+      "durationSeconds": 4.766666666666667
+    }
+  ],
+  "exemptions": [
+    {
+      "target": "output/round2/timeline_layout_preview_silent.mp4",
+      "reason": "Silent layout preview; contains no actual vehicle history"
+    }
+  ]
+}
