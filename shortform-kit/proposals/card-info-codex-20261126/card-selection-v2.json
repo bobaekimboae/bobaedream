@@ -19,7 +19,8 @@
       "label_ko": "차량 기본정보",
       "group": "core",
       "order": 10,
-      "required": false
+      "required": false,
+      "claude_v3_type": "vehicle"
     },
     {
       "type_id": "performance_inspection",
@@ -27,7 +28,8 @@
       "label_ko": "성능점검",
       "group": "core",
       "order": 20,
-      "required": false
+      "required": false,
+      "claude_v3_type": "inspection"
     },
     {
       "type_id": "insurance_history",
@@ -35,7 +37,8 @@
       "label_ko": "보험이력",
       "group": "core",
       "order": 30,
-      "required": false
+      "required": false,
+      "claude_v3_type": "insurance"
     },
     {
       "type_id": "vehicle_history_timeline",
@@ -46,7 +49,8 @@
       "required": false,
       "production_technique_code": null,
       "provider_required": "MOLIT_TS_CAR365",
-      "integration": "not verified"
+      "integration": "not verified",
+      "claude_v3_type": "timeline"
     },
     {
       "type_id": "installed_options",
@@ -54,7 +58,8 @@
       "label_ko": "옵션정보",
       "group": "optional",
       "order": 50,
-      "required": false
+      "required": false,
+      "claude_v3_type": "options"
     },
     {
       "type_id": "factory_extras",
@@ -62,7 +67,8 @@
       "label_ko": "추가옵션",
       "group": "optional",
       "order": 60,
-      "required": false
+      "required": false,
+      "claude_v3_type": "extra_options"
     },
     {
       "type_id": "vehicle_features",
@@ -70,7 +76,8 @@
       "label_ko": "차량특징",
       "group": "optional",
       "order": 70,
-      "required": false
+      "required": false,
+      "claude_v3_type": "features"
     },
     {
       "type_id": "seller_description",
@@ -78,7 +85,8 @@
       "label_ko": "판매자 설명",
       "group": "optional",
       "order": 80,
-      "required": false
+      "required": false,
+      "claude_v3_type": "seller"
     }
   ],
   "selection": {
@@ -182,7 +190,12 @@
     ]
   ],
   "timeline_rules": {
-    "training_mixed_source_allowed": {"allowed": true, "title": "공개자료 기반 이력 · 훈련용", "required_disclaimer": "국토부 원문 미확보", "public_official_claim": false},
+    "training_mixed_source_allowed": {
+      "allowed": true,
+      "title": "공개자료 기반 이력 · 훈련용",
+      "required_disclaimer": "국토부 원문 미확보",
+      "public_official_claim": false
+    },
     "official_title_allowed_only_if": "all displayed events have confirmed MOLIT_TS_CAR365 vehicle-level evidence and valid access reference",
     "carhistory_not_molit": true,
     "undated_events": "do not invent dates; show separate undated summary only if verified",
@@ -351,5 +364,22 @@
   ],
   "production_integration": "pending Claude renderer / Laravel job owner",
   "actual_molit_api_connected": false,
-  "actual_video_rendered": false
+  "actual_video_rendered": false,
+  "companion": {
+    "notion_url": "https://app.notion.com/p/424ee9c4b60681cc9f4afba37f54a0c1",
+    "github_ref": "card-info-v2",
+    "rules_path": "scripts/shortform/card_info/card_rules.json",
+    "rules_blob_sha": "2c8444202edf5d733fa487b08489646a2baf46af",
+    "rules_version": "3.0",
+    "order": [
+      "vehicle",
+      "inspection",
+      "insurance",
+      "timeline",
+      "options",
+      "extra_options",
+      "features",
+      "seller"
+    ]
+  }
 }
