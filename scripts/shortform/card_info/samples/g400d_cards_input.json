@@ -1,24 +1,57 @@
 {
-  "_what": "카드 정보 기법 샘플 입력. 차란차 공개 매물(벤츠 G-클래스 W463b G400d) 첫 화면에서 확인된 값만. 차량번호·연락처·딜러 실명은 넣지 않는다. 확인 못 한 값은 null(그 줄·카드는 자동 생략).",
-  "source": "charancha 공개 매물 페이지, 2026-11-26 확인",
+  "_what": "카드 정보 기법 샘플 입력 v3. 차란차 공개 매물 + 연결된 성능점검기록부 원문 + 보험이력 상세에서 확인된 값만(코덱스 마스터 교차검수 반영). 차량번호·차대번호·연락처·딜러 실명은 넣지 않는다. 확인 못 한 값은 null(그 줄·카드는 자동 생략).",
+  "sources": {
+    "listing": "charancha 매물 기본정보·주요 옵션 (2026-11-26 확인)",
+    "inspection": "중고자동차 성능·상태점검기록부, 점검일 2026-10-30",
+    "insurance": "보험 이력 상세, 자료 제공일 2026-11-12",
+    "timeline_note": "국토부 자동차 이력 원문은 아직 없음. 날짜가 있는 공개 기록(등록·보험·점검·매물)만으로 만든 샘플"
+  },
   "title": "벤츠 G-클래스 G400d",
   "vehicle": {"first_reg": "21년05월", "mileage_km": 33475, "fuel": "디젤", "cc": 2925},
-  "price": {"price_manwon": 13490, "new_price_manwon": null, "vs_new_saving_pct": 16},
-  "inspection": {"exchange_cnt": null, "panel_cnt": null, "frame_issue": null, "leak": null, "_note": "페이지에 「교환·판금 확인」 요약만 있고 부위 원문 없음 → 카드 생략"},
-  "insurance": {"own_damage": "1건", "other_damage": "0건", "total_loss_flood_theft": "0건", "owner_change": "1회"},
-  "options": {"options_basic": ["선루프", "LED 헤드램프", "후방카메라", "통풍시트", "열선시트", "전동시트", "스마트키", "열선 핸들", "내비게이션"]},
-  "extra_options": {"extra_options_with_price": null},
-  "features": {"feature_facts": ["직렬 6기통 디젤 2,925cc", "대형 SUV · 자동 변속기", "외장 흰색"]},
-  "seller": {"seller_facts": null, "_note": "판매자 글이 정형 문구뿐 → 카드 생략"},
-  "warranty": {"warranty_body": "만료", "warranty_powertrain": "만료"},
-  "summary": {"summary_numbers": ["13,490만원", "3.3만km", "내 차 피해 1건"]},
+  "inspection": {
+    "accident": "없음",
+    "simple_repair": "트렁크리드 판금·용접",
+    "leak": "없음",
+    "recall": "해당·미이행(점검일 기준)"
+  },
+  "insurance": {
+    "own_damage": "1회",
+    "own_damage_cost": "839,280원",
+    "total_loss_flood_theft": "없음",
+    "owner_change": "1회"
+  },
+  "timeline": {
+    "events": [
+      {"date": "21.05.04", "text": "최초 등록"},
+      {"date": "22.02.09", "text": "보험 처리 · 내 차 피해 1회"},
+      {"date": "26.10.30", "text": "성능 점검 · 33,288km"},
+      {"date": "26.11.26", "text": "매물 확인 · 33,475km"}
+    ],
+    "footnote": "출처: 등록·보험·성능점검 기록 (국토부 원문 확보 전 샘플)"
+  },
+  "options": {"options_basic": ["선루프", "LED 헤드램프", "주차감지센서", "후방카메라", "가죽시트", "전동시트", "열선시트", "열선 핸들", "자동에어컨"]},
+  "extra_options": {"extra_options_with_price": null, "_note": "선택 옵션 0개 → 카드 생략"},
+  "features": {"feature_facts": ["디젤 2,925cc · 자동", "대형 SUV", "외장 흰색"]},
+  "seller": {"seller_facts": null, "_note": "매물 설명 비어 있음 → 카드 생략"},
   "narration": {
     "vehicle": "이천이십일년 오월 등록, 삼만 삼천 킬로 탔어요.",
-    "price": "가격은 일억 삼천사백구십만 원, 신차보다 십육 퍼센트 낮아요.",
-    "insurance": "보험 처리는 내 차 피해 한 번, 주인은 한 번 바뀌었어요.",
-    "options": "통풍 시트에 선루프, 후방카메라까지 들어 있어요.",
-    "features": "직렬 육기통 디젤 엔진의 지바겐이에요.",
-    "warranty": "제조사 보증은 끝났어요.",
-    "summary": "정리하면, 일억 삼천사백구십만 원, 삼만 삼천 킬로, 내 차 피해 한 번."
+    "inspection": "성능 점검에서 사고 이력은 없고, 트렁크리드 판금 수리가 있어요.",
+    "insurance": "보험 처리는 내 차 피해 한 번, 수리비 팔십삼만 구천 원이에요.",
+    "timeline": "이천이십일년 등록 뒤, 이천이십이년에 보험 처리 한 번, 올해 시월에 점검을 받았어요.",
+    "options": "선루프에 열선 시트, 후방카메라까지 들어 있어요.",
+    "features": "이천구백 씨씨 디젤 대형 에스유브이예요."
+  },
+  "edit_insert_example": {
+    "_what": "30초 차량 편집에 카드 3장을 끼운 예시(2차 제안: 카드는 편집의 일부). 시간은 초.",
+    "timeline": [
+      {"t": 0.0, "shot": "앞 3/4 훅 · 차명·가격 칩"},
+      {"t": 3.0, "card": "vehicle"},
+      {"t": 5.6, "shot": "옆 · 휠"},
+      {"t": 9.0, "card": "inspection"},
+      {"t": 11.6, "card": "insurance"},
+      {"t": 14.2, "shot": "실내 · 대시보드 · 시트"},
+      {"t": 21.0, "card": "timeline"},
+      {"t": 24.0, "shot": "뒤 3/4 · 끝 화면"}
+    ]
   }
 }

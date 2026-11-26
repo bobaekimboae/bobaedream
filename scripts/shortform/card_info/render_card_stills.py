@@ -163,6 +163,32 @@ def render_lines(img, lines):
         d.text((c["x"] + c["pad"], mid), "· " + v, font=f, fill=color("ink"), anchor="lm")
 
 
+def render_timeline(img, events, footnote):
+    c, tl = RULES["card"], RULES["timeline_layout"]
+    events = events[: RULES["types"]["timeline"]["max_events"]]
+    foot_h = tl["footnote_px"] + 24 if footnote else 0
+    h = c["pad"] * 2 + tl["row_h"] * len(events) + foot_h
+    assert c["y"] + h <= c["max_bottom_px"], "카드가 자막 자리를 침범"
+    rounded_card(img, c["x"], c["y"], c["w"], h)
+    d = ImageDraw.Draw(img)
+    fd, ft = font("SemiBold", tl["date_px"]), font("Bold", tl["text_px"])
+    lx = c["x"] + tl["line_x"] + c["pad"]
+    y0 = c["y"] + c["pad"] + tl["row_h"] // 2
+    y1 = y0 + tl["row_h"] * (len(events) - 1)
+    d.line((lx, y0, lx, y1), fill=color(tl["line_color"]), width=4)
+    r = tl["dot_px"] // 2
+    for i, ev in enumerate(events):
+        y = y0 + i * tl["row_h"]
+        last = i == len(events) - 1
+        d.ellipse((lx - r, y - r, lx + r, y + r), fill=color("be_locked.color.yellow" if last else "ink"),
+                  outline=color("ink"), width=3)
+        d.text((lx - r - 20, y), ev["date"], font=fd, fill=color(RULES["row"]["label_color"]), anchor="rm")
+        d.text((lx + r + 24, y), ev["text"], font=ft, fill=color("ink"), anchor="lm")
+    if footnote:
+        d.text((c["x"] + c["pad"], c["y"] + h - c["pad"] // 2 - tl["footnote_px"] // 2), footnote,
+               font=font("Medium", tl["footnote_px"]), fill=color(tl["footnote_color"]), anchor="lm")
+
+
 def card_rows(t, data):
     spec = RULES["types"][t]
     rows = []
@@ -184,13 +210,19 @@ def main():
     for t in RULES["order"]:
         spec, data = RULES["types"][t], inp.get(t) or {}
         img = background(photo).convert("RGBA")
-        if spec.get("layout") == "grid":
+        if spec.get("layout") == "timeline":
+            evs = data.get("events") or []
+            if len(evs) < RULES["row"]["min_rows"]:
+                plan.append((t, "생략")); continue
+            render_timeline(img, evs, data.get("footnote"))
+            n = min(len(evs), spec["max_events"])
+        elif spec.get("layout") == "grid":
             items = data.get("options_basic") or []
             if len(items) < RULES["row"]["min_rows"]:
                 plan.append((t, "생략")); continue
             render_grid(img, items)
             n = (len(items) + 2) // 3
-        elif t in ("features", "seller", "summary", "extra_options"):
+        elif t in ("features", "seller", "extra_options"):
             lines = data.get(spec["fields"][0])
             if not lines or len(lines) < RULES["row"]["min_rows"]:
                 plan.append((t, "생략")); continue
