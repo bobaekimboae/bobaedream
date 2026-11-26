@@ -1,4 +1,4 @@
-"""카드 정보 숏폼(독립 컷 카드 묶음) 렌더러 v0.1 — 2026-11-26 클로드 시안
+"""카드 정보 숏폼(독립 컷 카드 묶음) 렌더러 v0.2 — 2026-11-26 클로드 시안 (2차 제안: 엔카 기본 순서 + 차량 이력 타임라인 + 카드 1개~여러 개)
 
 python3 render_card_info.py <차 폴더> [출력.mp4] [--clips]
   <차 폴더>/facts.json   cards_from_charancha.py 결과(사실 원장)
@@ -86,7 +86,9 @@ def photo_box(layer, path, box, r=20):
 
 
 def foot(d, y, text):
-    d.text((W // 2, y), text, font=F('Medium', 26), fill=GREY, anchor='mm')
+    ls = text.split('\n')
+    for i, ln in enumerate(ls):
+        d.text((W // 2, y + (i - (len(ls) - 1) / 2) * 38), ln, font=F('Medium', 26), fill=GREY, anchor='mm')
 
 
 # ───────── 카드 종류별 단계 그림 (k = 켜진 칸 수) ─────────
@@ -135,9 +137,10 @@ def card_rows(c, k, car):
 
 def card_options(c, k, car):
     th = 250; yt = Y0 + 120 + 170
-    y1 = yt + th * 2 + 24
+    y1 = yt + th * 2 + 24 + (70 if c.get('foot') else 0)
     lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); panel(lay, (X0, Y0, X1, y1))
     d = ImageDraw.Draw(lay); header(d, car, c['sub'])
+    if c.get('foot'): foot(d, y1 - 52, c['foot'])
     fb = F('Black', 96); xy = (W // 2, Y0 + 120 + 86)
     d.text((W // 2 - 150, xy[1]), '총', font=F('Bold', 44), fill=INK if k else FAINT, anchor='rm')
     if k: underline(d, (W // 2 - 120, xy[1]), c['total'], fb)
@@ -259,7 +262,39 @@ def card_market(c, k, car):
     return lay, 2
 
 
-DRAW = {'overview': card_overview, 'report': card_rows, 'insurance': card_rows, 'addopt': card_rows,
+def card_timeline(c, k, car):
+    """차량 이력 타임라인: 세로 선 위에 날짜 있는 사건을 시간 순서로. 마지막(지금) 값만 노랑 밑줄."""
+    ev = c['events']; rh = 132
+    yr = Y0 + 120 + 30
+    y1 = yr + rh * len(ev) + (40 + 38 * (c.get('foot', '').count('\n') + 1) + 30 if c.get('foot') else 30)
+    lay = Image.new('RGBA', (W, H), (0, 0, 0, 0)); panel(lay, (X0, Y0, X1, y1))
+    d = ImageDraw.Draw(lay); header(d, car, c['sub'])
+    lx = X0 + 262
+    d.line([(lx, yr + rh / 2), (lx, yr + rh * (len(ev) - .5))], fill=LINE, width=6)
+    for i, e in enumerate(ev):
+        cy = yr + rh * i + rh / 2; on = i < k; last = i == len(ev) - 1
+        if on and i:
+            d.line([(lx, yr + rh * (i - .5)), (lx, cy)], fill=INK, width=6)
+        r = 20 if last else 15
+        if on:
+            d.ellipse((lx - r, cy - r, lx + r, cy + r), fill=YEL if last else INK, outline=INK, width=4)
+        else:
+            d.ellipse((lx - r, cy - r, lx + r, cy + r), fill=PAPER, outline=FAINT, width=4)
+        d.text((lx - 44, cy), e['date'], font=F('Black' if last else 'Bold', 40), fill=INK if on else FAINT, anchor='rm')
+        tx = lx + 46
+        if e.get('val'):
+            d.text((tx, cy - 24), e['what'], font=F('Bold', 38), fill=INK if on else FAINT, anchor='lm')
+            fv = F('Black', 40)
+            if on and last: underline(d, (tx, cy + 26), e['val'], fv)
+            d.text((tx, cy + 26), e['val'], font=fv, fill=INK if on else FAINT, anchor='lm')
+        else:
+            d.text((tx, cy), e['what'], font=F('Bold', 40), fill=INK if on else FAINT, anchor='lm')
+    if c.get('foot'):
+        foot(d, y1 - 30 - 19 * (c['foot'].count('\n') + 1), c['foot'])
+    return lay, len(ev)
+
+
+DRAW = {'timeline': card_timeline, 'overview': card_overview, 'report': card_rows, 'insurance': card_rows, 'addopt': card_rows,
         'options': card_options, 'features': card_features, 'seller': card_seller, 'price': card_price, 'market': card_market}
 
 
@@ -494,9 +529,14 @@ def main(car, out, clips=False):
         for s in segs:
             if s['kind'] == 'title':
                 continue
-            subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', f"{max(0, s['s'] - 0.05):.2f}", '-to', f"{s['e'] + 0.25:.2f}", '-i', out,
+            # 편집에 끼워 넣는 조각: 카드 시작~다음 카드 시작 직전까지(다음 카드·끝 로고가 섞이지 않게), 앞뒤 0.12초 소리 페이드
+            a, b = max(0, s['s'] - 0.05), (s['e'] - 0.02 if s['e'] < t_end else t_end + 0.45)
+            dd = b - a
+            subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', f"{a:.2f}", '-to', f"{b:.2f}", '-i', out,
+                            '-af', f"afade=t=in:d=0.08,afade=t=out:st={dd - 0.12:.2f}:d=0.12",
                             '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-c:a', 'aac', '-b:a', '192k',
                             f"{base}_{s['kind']}.mp4"], check=True)
+            fix_loudness(f"{base}_{s['kind']}.mp4")   # 조각마다 -14 LUFS(±1)로 다시 맞춤(잘라 내면 덕킹·효과음 비율이 달라짐)
     print(json.dumps({'out': out, 'duration_s': round(dur, 2), 'cards': [s['kind'] for s in segs], 'sfx': len(keep)}, ensure_ascii=False))
 
 

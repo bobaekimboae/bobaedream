@@ -65,11 +65,35 @@ def build(folder):
         'market': {'low': mp.get('adjustedMiddlePrice'), 'high': mp.get('adjustedMaxPrice'), 'name': mp.get('trimName')},
         'dealer': {'name': dealer.get('name'), 'company': dealer.get('companyName'), 'estate': dealer.get('tradeEstateName'),
                    'intro': dealer.get('introduction'), 'sale': _rsc_field(R, 'saleCount'), 'sold': _rsc_field(R, 'soldCount')},
+        'seller_text': seller_text(folder),
     }
     return F
 
 
+def seller_text(car):
+    """매물 설명이 판매자 고유 글인지, 기본 정보만 되풀이한 틀 글인지(카드 생략 판단용). 글 자체는 저장하지 않는다(차량번호가 섞임)."""
+    p = os.path.join(car, 'raw', 'page.txt')
+    if not os.path.exists(p):
+        return {'kind': 'unknown'}
+    t = open(p, encoding='utf-8').read()
+    m = re.search(r'판매완료\n[\d,]+\n(.*?)\n더보기', t, re.S)
+    if not m:
+        return {'kind': 'none'}
+    body = m.group(1)
+    rest = []
+    for ln in body.splitlines():
+        ln = ln.strip()
+        if not ln or ln.startswith('-') or '안녕하세요' in ln or '지금 보시는 차량은' in ln or '구매 문의' in ln:
+            continue
+        rest.append(ln)
+    return {'kind': 'own' if len(''.join(rest)) >= 20 else 'template', 'own_chars': len(''.join(rest))}
+
+
 if __name__ == '__main__':
     F = build(sys.argv[1])
+    fp = os.path.join(sys.argv[1], 'facts.json')
+    if os.path.exists(fp):   # 다른 원장 스크립트가 넣은 항목(inspection · insurance_detail)은 지우지 않는다
+        old = json.load(open(fp, encoding='utf-8'))
+        F = {**{k: v for k, v in old.items() if k not in F}, **F}
     json.dump(F, open(os.path.join(sys.argv[1], 'facts.json'), 'w'), ensure_ascii=False, indent=1)
     print(json.dumps(F, ensure_ascii=False)[:1500])
