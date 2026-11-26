@@ -1,0 +1,103 @@
+{
+  "version": "1.0",
+  "updated": "2026-11-26",
+  "_what": "숏폼 「카드 정보」 독립 컷의 화면·시간·소리 값 단일 기준. 렌더 코드는 이 파일만 읽는다. 색·자막은 be_locked_rules.json을 따른다.",
+  "canvas": {
+    "w": 1080,
+    "h": 1920,
+    "fps": 30
+  },
+  "color": {
+    "bg_top": "#1B1D21",
+    "bg_bottom": "#0E0F11",
+    "card": "#FFFFFF",
+    "ink": "#141414",
+    "label": "#6B7280",
+    "line": "#E5E7EB",
+    "tag_bg": "#FAEB00",
+    "tag_ink": "#141414",
+    "ok": "#177245",
+    "warn": "#B45309",
+    "muted": "#9CA3AF",
+    "chip_bg": "#F3F4F6"
+  },
+  "tag": {
+    "y": 250,
+    "h": 76,
+    "pad_x": 34,
+    "font_px": 40,
+    "radius": 38
+  },
+  "progress": {
+    "y": 356,
+    "dot": 14,
+    "gap": 14
+  },
+  "card": {
+    "x": 60,
+    "y": 410,
+    "w": 960,
+    "radius": 36,
+    "pad_x": 48,
+    "pad_y": 44,
+    "max_bottom": 1170,
+    "shadow_alpha": 90
+  },
+  "title": {
+    "font_px": 52,
+    "gap_below": 30
+  },
+  "row": {
+    "h": 92,
+    "label_px": 36,
+    "value_px": 44
+  },
+  "big": {
+    "value_px": 128,
+    "unit_px": 56,
+    "sub_px": 40
+  },
+  "chip": {
+    "h": 68,
+    "font_px": 34,
+    "gap": 14,
+    "pad_x": 26,
+    "radius": 34,
+    "per_step": 3
+  },
+  "source": {
+    "font_px": 26
+  },
+  "caption": {
+    "center_y": 1283,
+    "font_px": 60,
+    "shadow_px": 60,
+    "max_chars_line": 16
+  },
+  "time": {
+    "card_in_s": 0.3,
+    "step_s": 0.9,
+    "hold_s": 0.8,
+    "item_in_s": 0.22,
+    "end_logo_s": 2.0
+  },
+  "sfx": {
+    "card": "whoosh.wav",
+    "item": "pop.wav",
+    "card_gain": 0.35,
+    "item_gain": 0.22,
+    "bgm": "bobae_showroom_v1.mp3",
+    "bgm_gain": 0.16,
+    "lufs": -14,
+    "tp": -1.5
+  },
+  "rules": [
+    "카드 한 장 = 정보 유형 하나. 값이 없는 유형은 카드를 만들지 않는다(빈 카드·「정보 없음」 카드 금지).",
+    "모든 값은 매물 원장에 있는 글자 그대로. 「무사고」「A등급」처럼 원장에 없는 판정 낱말 금지.",
+    "차량번호·전화번호·딜러 개인 이름은 카드에 쓰지 않는다.",
+    "카드 아래에 출처 한 줄(성능점검기록부·보험이력·매물 등록 정보)과 기준일을 적는다.",
+    "노랑은 유형 꼬리표(평면 #FAEB00) 하나만. 카드 컷에서는 붓칠 노랑을 쓰지 않는다.",
+    "자막은 카드 줄이 뜰 때마다 그 줄을 한 문장으로 요약. 높이 1283 고정, 아래 20%는 비운다.",
+    "판매자 설명이 연식·주행거리만 되풀이하는 상투문이면 「판매자 설명」 카드는 생략한다."
+  ]
+}

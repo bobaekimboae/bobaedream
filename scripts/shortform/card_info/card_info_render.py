@@ -1,0 +1,213 @@
+#!/usr/bin/env python3
+"""숏폼 「카드 정보」 독립 컷 렌더러.
+쓰는 법: python3 card_info_render.py 입력.json 출력.mp4
+화면 값은 card_info_rules.json, 자막 값은 be_locked_rules.json 기준. 음성(TTS)은 쓰지 않는다."""
+import json, sys, subprocess, wave, os
+from pathlib import Path
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[2]
+R = json.load(open(HERE / "card_info_rules.json"))
+FONT = ROOT / "scripts/shortform/fonts"
+SFX = ROOT / "public/assets/shortform/sfx"
+BGM = ROOT / "public/assets/shortform/bgm"
+LOGO = ROOT / "public/assets/shortform/bobae_logo_600.png"
+W, H, FPS = R["canvas"]["w"], R["canvas"]["h"], R["canvas"]["fps"]
+C, T = R["color"], R["time"]
+BANNED = ["무사고", "A등급", "완전무사고", "신차급"]
+
+def f(weight, px):
+    return ImageFont.truetype(str(FONT / f"Pretendard-{weight}.otf"), px)
+
+def ease(x):
+    x = max(0.0, min(1.0, x)); return 1 - (1 - x) ** 3
+
+def background():
+    top = np.array(Image.new("RGB", (1, 1), C["bg_top"]).getpixel((0, 0)), float)
+    bot = np.array(Image.new("RGB", (1, 1), C["bg_bottom"]).getpixel((0, 0)), float)
+    g = np.linspace(0, 1, H)[:, None, None]
+    arr = (top * (1 - g) + bot * g).repeat(W, axis=1).astype("uint8")
+    return Image.fromarray(arr, "RGB")
+
+def validate(data):
+    txt = json.dumps(data["cards"], ensure_ascii=False)
+    bad = [b for b in BANNED if b in txt]
+    if bad: sys.exit(f"원장에 없는 판정 낱말: {bad}")
+    import re
+    if re.search(r"\d{2,3}[가-힣]\d{4}", txt): sys.exit("차량번호로 보이는 글자가 있습니다")
+    if re.search(r"01[016789][- ]?\d{3,4}[- ]?\d{4}", txt): sys.exit("전화번호로 보이는 글자가 있습니다")
+
+def steps_of(card):
+    if card["layout"] == "chips":
+        n = R["chip"]["per_step"]; ch = card["chips"]
+        return [(ch[i:i + n], card["captions"][i // n] if i // n < len(card["captions"]) else "") for i in range(0, len(ch), n)]
+    return [(it, it.get("caption", "")) for it in card["items"]]
+
+def card_height(card):
+    k = R["card"]; h = k["pad_y"] * 2 + R["title"]["font_px"] + R["title"]["gap_below"]
+    if card["layout"] == "big": h += R["big"]["value_px"] + 34
+    if card["layout"] == "chips":
+        rows = -(-len(card["chips"]) // R["chip"]["per_step"]); h += rows * (R["chip"]["h"] + R["chip"]["gap"])
+    else: h += len(card["items"]) * R["row"]["h"]
+    return h + 20 + R["source"]["font_px"] + 8
+
+def tone(t):
+    return {"ok": C["ok"], "warn": C["warn"], "muted": C["muted"]}.get(t, C["ink"])
+
+def draw_card(card, idx, total, revealed, part):
+    """revealed: 다 보인 단계 수, part: 지금 뜨는 단계의 진행(0~1). RGBA 반환."""
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    k = R["card"]; ch = card_height(card); x0, y0 = k["x"], k["y"]
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle([x0, y0 + 18, x0 + k["w"], y0 + ch + 18], k["radius"], fill=(0, 0, 0, k["shadow_alpha"]))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(28)))
+    d.rounded_rectangle([x0, y0, x0 + k["w"], y0 + ch], k["radius"], fill=C["card"])
+    # 꼬리표
+    tg = R["tag"]; tf = f("Bold", tg["font_px"]); tw = d.textlength(card["type"], font=tf) + tg["pad_x"] * 2
+    d.rounded_rectangle([x0, tg["y"], x0 + tw, tg["y"] + tg["h"]], tg["radius"], fill=C["tag_bg"])
+    d.text((x0 + tw / 2, tg["y"] + tg["h"] / 2), card["type"], font=tf, fill=C["tag_ink"], anchor="mm")
+    cf = f("Medium", 32); d.text((x0 + k["w"], tg["y"] + tg["h"] / 2), f"{idx + 1} / {total}", font=cf, fill="#9CA3AF", anchor="rm")
+    # 진행 점
+    pg = R["progress"]; px = x0
+    for i in range(total):
+        wdt = pg["dot"] * (3 if i == idx else 1)
+        d.rounded_rectangle([px, pg["y"], px + wdt, pg["y"] + pg["dot"]], pg["dot"] // 2, fill="#FFFFFF" if i == idx else "#4B5563")
+        px += wdt + pg["gap"]
+    # 제목
+    ix = x0 + k["pad_x"]; iw = k["w"] - k["pad_x"] * 2; y = y0 + k["pad_y"]
+    d.text((ix, y), card["title"], font=f("ExtraBold", R["title"]["font_px"]), fill=C["ink"])
+    y += R["title"]["font_px"] + R["title"]["gap_below"]
+    if card["layout"] == "big":
+        b = R["big"]; vf = f("Black", b["value_px"]); uf = f("Bold", b["unit_px"])
+        d.text((ix, y + b["value_px"]), card["big"]["value"], font=vf, fill=C["ink"], anchor="ls")
+        vw = d.textlength(card["big"]["value"], font=vf)
+        d.text((ix + vw + 12, y + b["value_px"]), card["big"]["unit"], font=uf, fill=C["ink"], anchor="ls")
+        y += b["value_px"] + 34
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ld = ImageDraw.Draw(layer)
+    if card["layout"] == "chips":
+        cp = R["chip"]; cfnt = f("SemiBold", cp["font_px"]); n = cp["per_step"]
+        for r in range(0, len(card["chips"]), n):
+            step = r // n
+            if step > revealed: break
+            a = 1.0 if step < revealed else ease(part)
+            if a <= 0: break
+            off = int((1 - a) * 24); cx = ix; tmp = Image.new("RGBA", (W, H), (0, 0, 0, 0)); td = ImageDraw.Draw(tmp)
+            for name in card["chips"][r:r + n]:
+                cw = td.textlength(name, font=cfnt) + cp["pad_x"] * 2
+                td.rounded_rectangle([cx, y + off, cx + cw, y + off + cp["h"]], cp["radius"], fill=C["chip_bg"])
+                td.ellipse([cx + 18, y + off + cp["h"] / 2 - 7, cx + 32, y + off + cp["h"] / 2 + 7], fill=C["ok"])
+                td.text((cx + 42 + (cw - 42 - 16) / 2, y + off + cp["h"] / 2), name, font=cfnt, fill=C["ink"], anchor="mm")
+                cx += cw + cp["gap"]
+            tmp.putalpha(tmp.getchannel("A").point(lambda v: int(v * a))); layer.alpha_composite(tmp)
+            y += cp["h"] + cp["gap"]
+        y = y0 + ch - k["pad_y"] - R["source"]["font_px"] - 8 - 20
+    else:
+        rw = R["row"]; lf = f("Medium", rw["label_px"]); vf = f("Bold", rw["value_px"])
+        for i, it in enumerate(card["items"]):
+            ry = y + i * rw["h"]
+            d.line([ix, ry, ix + iw, ry], fill=C["line"], width=2)
+            if i > revealed: continue
+            a = 1.0 if i < revealed else ease(part)
+            if a <= 0: continue
+            off = int((1 - a) * 20); tmp = Image.new("RGBA", (W, H), (0, 0, 0, 0)); td = ImageDraw.Draw(tmp)
+            td.text((ix, ry + rw["h"] / 2 + off), it["label"], font=lf, fill=C["label"], anchor="lm")
+            v = it["value"]; vfx = vf
+            while td.textlength(v, font=vfx) > iw - td.textlength(it["label"], font=lf) - 30 and vfx.size > 30:
+                vfx = f("Bold", vfx.size - 2)
+            td.text((ix + iw, ry + rw["h"] / 2 + off), v, font=vfx, fill=tone(it.get("tone")), anchor="rm")
+            tmp.putalpha(tmp.getchannel("A").point(lambda q: int(q * a))); layer.alpha_composite(tmp)
+        y += len(card["items"]) * rw["h"]
+    im.alpha_composite(layer)
+    d = ImageDraw.Draw(im)
+    d.text((ix, y0 + ch - k["pad_y"] + 4), "출처 · " + card.get("source", ""), font=f("Medium", R["source"]["font_px"]), fill="#9CA3AF", anchor="ls")
+    return im
+
+def caption(base, text, a):
+    if not text or a <= 0: return
+    cp = R["caption"]; ft = f("ExtraBold", cp["font_px"])
+    lines = [text] if len(text) <= cp["max_chars_line"] else None
+    if lines is None:
+        ws = text.split(" "); mid = len(text) / 2; acc = 0; cut = 1
+        for i, w in enumerate(ws):
+            acc += len(w) + 1
+            if acc >= mid: cut = i + 1; break
+        lines = [" ".join(ws[:cut]), " ".join(ws[cut:])]
+    lh = int(cp["font_px"] * 1.25); y = cp["center_y"] - lh * (len(lines) - 1) / 2
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0)); sd = ImageDraw.Draw(sh)
+    tx = Image.new("RGBA", (W, H), (0, 0, 0, 0)); td = ImageDraw.Draw(tx)
+    for i, l in enumerate(lines):
+        sd.text((W / 2, y + i * lh), l, font=ft, fill=(0, 0, 0, 190), anchor="mm")
+        td.text((W / 2, y + i * lh), l, font=ft, fill=(255, 255, 255, 255), anchor="mm")
+    sh = sh.filter(ImageFilter.GaussianBlur(cp["shadow_px"] / 5))
+    for layer in (sh, tx):
+        layer.putalpha(layer.getchannel("A").point(lambda v: int(v * a))); base.alpha_composite(layer)
+
+def pcm(path, sr=48000):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "f32le", "-ac", "2", "-ar", str(sr), "-"], capture_output=True).stdout
+    return np.frombuffer(raw, "float32").reshape(-1, 2).copy()
+
+def main(inp, out):
+    data = json.load(open(inp)); validate(data); cards = data["cards"]; total = len(cards)
+    # 시간표
+    tl = []; t = 0.0; events = []
+    for ci, c in enumerate(cards):
+        st = steps_of(c); start = t; events.append((t, "card")); t += T["card_in_s"]
+        for si, (_, cap) in enumerate(st):
+            events.append((t, "item")); tl.append((t, t + T["step_s"], ci, si, cap)); t += T["step_s"]
+        t += T["hold_s"]; cards[ci]["_span"] = (start, t)
+    body = t; dur = body + T["end_logo_s"]; nfr = int(round(dur * FPS))
+    bg = background().convert("RGBA"); logo = Image.open(LOGO).convert("RGBA")
+    tmpv = str(out) + ".video.mp4"
+    ff = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                           "-c:v", "libx264", "-preset", "medium", "-crf", "17", "-pix_fmt", "yuv420p", tmpv], stdin=subprocess.PIPE)
+    cache = {}
+    for n in range(nfr):
+        now = n / FPS; fr = bg.copy()
+        if now < body:
+            ci = next(i for i, c in enumerate(cards) if c["_span"][0] <= now < c["_span"][1])
+            c = cards[ci]; s0 = c["_span"][0]; st = steps_of(c)
+            rel = now - s0 - T["card_in_s"]; revealed = 0; part = 0.0; cap = ""; capa = 0.0
+            if rel >= 0:
+                si = int(rel // T["step_s"])
+                if si >= len(st): revealed, part, cap, capa = len(st), 0.0, st[-1][1], 1.0
+                else:
+                    revealed = si; part = (rel - si * T["step_s"]) / T["item_in_s"]; cap = st[si][1]; capa = min(1.0, part)
+            key = (ci, revealed, round(min(part, 1.0), 2))
+            if key not in cache:
+                if len(cache) > 6: cache.clear()
+                cache[key] = draw_card(c, ci, total, revealed, part)
+            layer = cache[key]
+            a = ease((now - s0) / T["card_in_s"]); out_a = min(1.0, (c["_span"][1] - now) / 0.18)
+            a = min(a, out_a) if ci < total - 1 or True else a
+            dy = int((1 - ease((now - s0) / T["card_in_s"])) * 60)
+            if a < 1 or dy:
+                l2 = Image.new("RGBA", (W, H), (0, 0, 0, 0)); l2.paste(layer, (0, dy))
+                l2.putalpha(l2.getchannel("A").point(lambda v: int(v * max(0, a)))); layer = l2
+            fr.alpha_composite(layer); caption(fr, cap, capa * min(1.0, out_a))
+        else:
+            p = ease((now - body) / 1.2); s = int(360 + 240 * p); lg = logo.resize((s, int(s * logo.height / logo.width)), Image.LANCZOS)
+            lg.putalpha(lg.getchannel("A").point(lambda v: int(v * min(1.0, (now - body) / 0.4))))
+            fr.alpha_composite(lg, ((W - lg.width) // 2, (H - lg.height) // 2 - 80))
+        ff.stdin.write(fr.convert("RGB").tobytes())
+    ff.stdin.close(); ff.wait()
+    # 소리
+    sr = 48000; mix = np.zeros((int(dur * sr) + sr, 2), "float32"); sx = R["sfx"]
+    bgm = pcm(BGM / sx["bgm"]); reps = -(-len(mix) // len(bgm)); mix += np.tile(bgm, (reps, 1))[:len(mix)] * sx["bgm_gain"]
+    sc, si = pcm(SFX / sx["card"]) * sx["card_gain"], pcm(SFX / sx["item"]) * sx["item_gain"]
+    for tt, kind in events:
+        s = sc if kind == "card" else si; i0 = int(tt * sr); seg = s[:len(mix) - i0]; mix[i0:i0 + len(seg)] += seg
+    mix = mix[:int(dur * sr)]; fo = int(0.8 * sr); mix[-fo:] *= np.linspace(1, 0, fo)[:, None]
+    wavp = str(out) + ".wav"
+    with wave.open(wavp, "wb") as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes((np.clip(mix, -1, 1) * 32767).astype("<i2").tobytes())
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", tmpv, "-i", wavp, "-af", f"loudnorm=I={sx['lufs']}:TP={sx['tp']}:LRA=11",
+                    "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", str(out)], check=True)
+    os.remove(tmpv); os.remove(wavp)
+    plan = {"duration_s": round(dur, 2), "cards": [{"type": c["type"], "start": round(c["_span"][0], 2), "end": round(c["_span"][1], 2), "steps": len(steps_of(c))} for c in cards],
+            "skipped": data.get("skipped", [])}
+    json.dump(plan, open(str(out).replace(".mp4", "_plan.json"), "w"), ensure_ascii=False, indent=2); print(json.dumps(plan, ensure_ascii=False))
+
+if __name__ == "__main__":
+    main(sys.argv[1], sys.argv[2])

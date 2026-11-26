@@ -1,0 +1,52 @@
+{
+  "listing": {"source": "차란차 공개 매물 (2026-11-26 열람)", "title": "벤츠 G-클래스 G400d", "code": "W463b"},
+  "cards": [
+    {"type": "차량 정보", "title": "벤츠 G-클래스 G400d · W463b", "layout": "rows", "source": "매물 등록 정보",
+     "items": [
+       {"label": "연식", "value": "21년 05월", "caption": "2021년 5월 등록입니다"},
+       {"label": "주행거리", "value": "33,475km", "caption": "주행거리 3만 3천 킬로미터"},
+       {"label": "연료 · 변속기", "value": "디젤 · 자동", "caption": "디젤 자동변속기"},
+       {"label": "배기량", "value": "2,925cc", "caption": "배기량 2,925cc"},
+       {"label": "색상 · 차종", "value": "흰색 · 대형 SUV", "caption": "흰색 대형 SUV입니다"}
+     ]},
+    {"type": "가격", "title": "판매 가격", "layout": "big", "source": "매물 등록 정보 · 신차 대비는 차란차 표기",
+     "big": {"value": "13,490", "unit": "만원"},
+     "items": [
+       {"label": "신차 대비", "value": "16% 절약", "tone": "ok", "caption": "판매가 1억 3,490만원"},
+       {"label": "지역 · 단지", "value": "경기 수원 · 도이치오토월드", "caption": "신차 대비 16% 낮은 값입니다"}
+     ]},
+    {"type": "성능 점검", "title": "성능 · 상태 점검", "layout": "rows", "source": "성능점검 요약 (상세는 기록부 확인)",
+     "items": [
+       {"label": "점검 결과", "value": "교환 · 판금 확인", "tone": "warn", "caption": "교환·판금 이력이 있습니다"},
+       {"label": "상세 부위", "value": "기록부에서 확인", "tone": "muted", "caption": "부위는 기록부에서 확인하세요"}
+     ]},
+    {"type": "보험 이력", "title": "보험 이력", "layout": "rows", "source": "보험이력 요약",
+     "items": [
+       {"label": "전손 · 도난 · 침수", "value": "없음", "tone": "ok", "caption": "전손·도난·침수 사고 없음"},
+       {"label": "특수용도 이력", "value": "없음", "tone": "ok", "caption": "특수용도 이력 없음"},
+       {"label": "내차 피해", "value": "1회", "tone": "warn", "caption": "내차 피해 보험 처리 1회"},
+       {"label": "상대 차 피해", "value": "없음", "tone": "ok", "caption": "상대 차 피해는 없습니다"},
+       {"label": "소유자 변경", "value": "1회", "caption": "소유자 변경 1회"}
+     ]},
+    {"type": "옵션 정보", "title": "기본 옵션 12가지", "layout": "chips", "source": "매물 등록 정보 · 안전 16 · 외관/내장 14 · 시트 7 · 편의 10",
+     "chips": ["선루프", "LED 헤드램프", "주차감지센서", "후방카메라", "가죽시트", "전동시트", "열선시트", "통풍시트", "스마트키", "열선 핸들", "자동 에어컨", "내비게이션"],
+     "captions": ["선루프와 LED 헤드램프", "가죽·전동 시트", "열선·통풍 시트", "스마트키와 내비게이션"]},
+    {"type": "보증", "title": "제조사 보증", "layout": "rows", "source": "매물 등록 정보 (잔여 여부는 제조사 확인)",
+     "items": [
+       {"label": "차체 · 일반", "value": "만료", "tone": "muted", "caption": "차체·일반 보증은 만료"},
+       {"label": "엔진 · 미션", "value": "만료", "tone": "muted", "caption": "엔진·미션 보증도 만료"},
+       {"label": "총 보증기간", "value": "3년 · 10만km", "caption": "총 보증은 3년 10만 킬로미터"}
+     ]},
+    {"type": "판매자", "title": "판매자 정보", "layout": "rows", "source": "매물 등록 정보",
+     "items": [
+       {"label": "유형", "value": "딜러", "caption": "딜러 매물입니다"},
+       {"label": "소속", "value": "차란차 수원오토월드 지점", "caption": "차란차 수원오토월드 지점"},
+       {"label": "판매중 · 판매완료", "value": "13대 · 653대", "caption": "판매완료 653대"}
+     ]}
+  ],
+  "skipped": [
+    {"type": "추가 옵션", "why": "매물에 선택 옵션·가격 자료 없음"},
+    {"type": "차량 특징", "why": "원장에 근거 문장 없음"},
+    {"type": "판매자 설명", "why": "연식·주행거리만 되풀이하는 상투문"}
+  ]
+}
