@@ -315,7 +315,7 @@ class Card:
             rh = S['row_h']
             by0 = oy + head_h + S['body_pad']
             for i, x in enumerate(rows):
-                st = segs[i + 1][0]
+                st = self.row_t(i)
                 ra = ease((t - st) / M['row_in_s'])
                 if ra <= 0:
                     continue
@@ -341,7 +341,7 @@ class Card:
                 if self.kind == 'timeline':
                     lx = ixx + 22
                     if i < len(rows) - 1:
-                        nra = ease((t - segs[i + 2][0]) / M['row_in_s']) if i + 2 < len(segs) else 0
+                        nra = ease((t - self.row_t(i + 1)) / M['row_in_s'])
                         ld.line((lx, cy, lx, cy + rh * nra), fill=hexc(S['ink'], al), width=4)
                     ld.ellipse((lx - 13, cy - 13, lx + 13, cy + 13), fill=hexc(S['accent'], al), outline=hexc(S['ink'], al), width=4)
                     ld.text((ixx + 72, cy), x[1], font=F(FS, S['label_px']), fill=hexc(S['label'], al), anchor='lm')
@@ -389,13 +389,22 @@ class Card:
                 wi = max([q for q, x in enumerate(wts[j]) if x <= t + 0.02] or [0])
             caption(base, s, a, word=wi)  # 벨기에판: 바로 뜨고(instant), 말하는 낱말만 노랑
 
+    def row_t(self, i):
+        """줄 등장 시각. rows_mode=all이면 카드와 함께 한꺼번에(짧은 계단), 아니면 말할 때."""
+        if M.get('rows_mode') == 'all':
+            return M['rows_all_delay_s'] + i * M['rows_all_stagger_s']
+        return self.segs[i + 1][0] if i + 1 < len(self.segs) else 1e9
+
     def ul_progress(self, label, t):
         """줄이 모두 나온 뒤 핵심 항목 밑줄 진행도(0~1)."""
         keys = self.data.get('underline') or []
         if label not in keys:
             return 0.0
         U = RULES['underline']
-        t0 = self.segs[-1][0] + U['start_after_s'] + keys.index(label) * U['stagger_s']
+        if M.get('rows_mode') == 'all':  # 다 나온 직후 바로 칠함(기다리지 않음)
+            t0 = self.row_t(len(self.row_order()) - 1) + M['row_in_s'] + U['start_after_s'] + keys.index(label) * U['stagger_s']
+        else:
+            t0 = self.segs[-1][0] + U['start_after_s'] + keys.index(label) * U['stagger_s']
         return ease((t - t0) / U['wipe_s'])
 
     def layout(self):
@@ -407,7 +416,7 @@ class Card:
         th, gap = S['tile_h'], 24
         tw = (cw - pad * 2 - gap) / 2
         for i, x in enumerate(rows):
-            ra = ease((t - segs[i + 1][0]) / M['row_in_s'])
+            ra = ease((t - self.row_t(i)) / M['row_in_s'])
             if ra <= 0:
                 continue
             al = int(255 * ra)
@@ -457,7 +466,7 @@ class Card:
         ld.polygon([(ox + pad + 60, by), (ox + pad + 92, by), (ox + pad + 70, by - 22)], fill=hexc('#F5F6F8'))
         ld.text((ox + pad + 28, by + 4), '“', font=F(FB, 96), fill=hexc(S['accent']), anchor='lt')
         for i, x in enumerate(rows):
-            ra = ease((t - segs[i + 1][0]) / M['row_in_s'])
+            ra = ease((t - self.row_t(i)) / M['row_in_s'])
             if ra <= 0:
                 continue
             cy = by + 20 + i * S['row_h'] + S['row_h'] / 2 + (1 - ra) * M['row_in_rise_px']
