@@ -244,6 +244,8 @@ class Card:
                 out.append(('warn', fill(tpl, x[1], x[2]), [x[2]]))
             elif x[2] == '없음' and r.get('row_none'):
                 out.append(('row', fill(r['row_none'], x[1], x[2]), ['없습니다']))
+            elif len(x) > 4 and x[4]:
+                out.append(('row', x[4], [x[2]]))  # 줄 5번째 칸 = 자막·대사 문장(칸 글과 다르게 말할 때)
             else:
                 tpl = r.get('row_ok') or r['row']
                 out.append(('row', fill(tpl, x[1], x[2]), [x[2]] if x[2] else None))
@@ -569,6 +571,10 @@ def build(data_path):
     cards = [Card(k, data['cards'][k], car, i, len(order)) for i, k in enumerate(order)]
     for c in cards:
         txt = ' '.join(s for _, s, _ in c.sentences())
+        if c.layout() == 'grid2':
+            long_ = [x[2] for x in c.row_order() if len(x[2]) > S.get('grid_value_max_chars', 99)]
+            if long_:
+                raise SystemExit(f'그리드 칸 값이 {S["grid_value_max_chars"]}자를 넘음: {long_} — {c.kind}')
         bad = [w for w in RULES['never'] if w in txt]
         if bad:
             raise SystemExit(f'금지어 {bad} — {c.kind}')
