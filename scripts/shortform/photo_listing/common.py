@@ -1169,6 +1169,17 @@ def sticker_img(sk, h):
     im = fluent_emoji(sk['emo'], h)
     if im is None:  # 2026-11-18: Fluent 3D만 허용
         raise SystemExit(f'⛔ Fluent 3D 이모지 파일 없음: {sk["emo"]!r} — fluent3d/에 공식 3D PNG를 받아 넣고 다시 렌더')
+    if sk.get('badge'):   # 2026-11-26 메모리 시트 = 💺 + 노랑 원 ①②③ (G350 v8 MEMI와 같은 비율: 원 반지름 0.135h · 간격 0.247h · 글자 0.21h)
+        r, step = round(h * 0.135), round(h * 0.247)
+        n = len(sk['badge'])
+        out = Image.new('RGBA', (im.width - round(h * 0.2) + step * (n - 1) + r * 2 + 6, im.height + round(h * 0.15)))
+        out.alpha_composite(im, (0, 0))
+        d = ImageDraw.Draw(out); fb = ImageFont.truetype(R.HEAVY, round(h * 0.21))
+        for k, ch in enumerate(sk['badge']):
+            cx = im.width - round(h * 0.2) + r + k * step; cy = im.height - round(h * 0.035)
+            d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=(245, 242, 0), outline=(20, 20, 20), width=max(2, round(h * 0.018)))
+            d.text((cx, cy + 1), ch, font=fb, fill=(17, 17, 17), anchor='mm')
+        im = out
     return im
 
 
@@ -1215,7 +1226,7 @@ def sticker_layer(ov, T):
             _ct = count_text(sk['text3d'], T - t0)
             if _ct != sk['text3d']:
                 sk = {**sk, 'text3d': _ct, '_orig3d': sk['text3d']}
-        key = (sk.get('text3d') or sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
+        key = (sk.get('text3d') or sk['emo'], sk.get('h', 200), sk.get('tilt', 0), sk.get('badge'))
         if key not in _STK:
             im = sticker_img(sk, sk.get('h', 200))
             if im is None:
@@ -1496,6 +1507,9 @@ def horse_layer(ov, T):
     if not getattr(C, 'HORSE_RUN', False):
         return
     hc = next((c for c in CHIPS if '마력' in c[0]), None)
+    if hc is None:   # 2026-11-26 매뉴얼: 마력은 칩이 아니라 3D 큰 숫자 → 그 숫자가 뜨는 순간에 말이 달림
+        _hs = next((sk for sk in getattr(C, 'STICKERS', []) if '마력' in (sk.get('text3d') or '')), None)
+        hc = (None, chip_start(_hs['w'])) if _hs else None
     if hc is None:
         return
     dur = getattr(C, 'HORSE_DUR', 1.4)

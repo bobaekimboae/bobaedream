@@ -204,7 +204,7 @@ def _seat_bundle(C, words, cuts, opts, lay, report):
         if wi is None:
             wi = min(a + k, b)   # 말하지 않은 기능(대본 수정 전)은 컷 첫머리부터 하나씩 톡
             k += 1
-        out.append({**common, 'w': wi, 'auto': oid + '@seat', 'emo': r['visual']['emo'], 'h': 130, 'sfx': r.get('sfx'),
+        out.append({**common, 'w': wi, 'auto': oid + '@seat', 'emo': r['visual']['emo'], 'badge': r['visual'].get('badge'), 'h': 130, 'sfx': r.get('sfx'),
                     'fit': tuple(sb['icon_fit']) + ('w',), 'seat_idx': idx})
     mat = (opts.get('seat_material') or {}).get('material')
     if 'seat_material' in opts and not mat:
