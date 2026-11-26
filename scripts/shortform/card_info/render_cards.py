@@ -74,7 +74,7 @@ def base(style,idx):
     for j in range(len(CARDS)):
         x=80+j*120
         d.rounded_rectangle((x,390,x+101,396),3,fill=P['accent'] if j<=idx else ('#444D49' if dark else '#C9CFC7'))
-    text(d,(80,1510),'출처: 차란차 매물 표시 · 2026.11.26 확인',26,fg,maxw=850)
+    text(d,(80,1510),'출처: '+DATA.get('source_name','차란차')+' 매물 표시 · '+DATA['verified_at'][:10].replace('-','.')+' 확인',26,fg,maxw=850)
     text(d,(80,1552),'상세 기록·실차 상태는 별도 확인하세요.',26,fg,maxw=850)
     return im
 
@@ -176,7 +176,7 @@ def main():
             # Independent clips share the master video's actual timed content.
             clip=OUT/f'{style}_{suffix}_cut_{i+1:02}_{CARDS[i]["id"]}.mp4'
             run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',str(s['start']),'-i',str(output),'-t',str(s['end']-s['start']),'-c:v','libx264','-preset','ultrafast','-crf','20','-c:a','aac','-movflags','+faststart',str(clip)])
-    manifest={'input_sha256':hashlib.sha256((HERE/'cards_input.json').read_bytes()).hexdigest(),'rules_sha256':hashlib.sha256((HERE/'card_rules.json').read_bytes()).hexdigest(),'size':[W,H],'fps':FPS,'duration':segments[-1]['end'],'card_ids':[c['id'] for c in CARDS],'files':rendered,'narrated':args.narrated}
+    manifest={'input_sha256':hashlib.sha256(args.input.read_bytes()).hexdigest(),'rules_sha256':hashlib.sha256((HERE/'card_rules.json').read_bytes()).hexdigest(),'size':[W,H],'fps':FPS,'duration':segments[-1]['end'],'card_ids':[c['id'] for c in CARDS],'files':rendered,'narrated':args.narrated}
     (OUT/f'render_{suffix}.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2));print(json.dumps(manifest,ensure_ascii=False))
 
 if __name__=='__main__':main()
