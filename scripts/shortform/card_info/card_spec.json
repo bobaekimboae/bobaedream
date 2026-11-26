@@ -1,5 +1,5 @@
 {
-  "version": "card-info-v1",
+  "version": "card-info-v2",
   "updated": "2026-11-26",
   "_what": "숏폼 카드 정보 기법(독립 카드 컷) 단일 기준. 렌더러 card_render.py · card_template.html은 이 파일과 be_locked_rules.json만 읽는다. 값을 바꿀 때는 여기만 고친다.",
   "_inherits": "색·자막·칩·효과음 간격·음량은 scripts/shortform/be_locked_rules.json을 그대로 따른다(노랑 #F5F200 하나, 자막 y1283, 칩 기울기 0, -14 LUFS).",
@@ -55,7 +55,8 @@
       "quote": 0.5,
       "summary": 0.42,
       "photo_strip": 1.25,
-      "hero": 0.4
+      "hero": 0.4,
+      "timeline": 0.42
     },
     "count_up_s": 0.7,
     "hold_s": 1.4,
@@ -110,7 +111,11 @@
     "card_row_keywords": "option_visual_rules.json layout.card_sfx",
     "max_per_card": 5,
     "min_gap_s": 0.3,
-    "same_min_gap_s": 0.6
+    "same_min_gap_s": 0.6,
+    "timeline_tick": [
+      "pop",
+      0.3
+    ]
   },
   "audio": {
     "bgm": "public/assets/shortform/bgm/bobae_showroom_v1.mp3",
@@ -133,5 +138,87 @@
     "차량번호·차대번호·전화번호·딜러 개인 연락처는 카드·자막에 쓰지 않는다. 사진 속 번호판은 가리지 않는다.",
     "리콜 미이행·단순수리처럼 불리한 사실도 그대로 보여 준다(노랑 = 주의해서 볼 곳).",
     "시세·신차가처럼 출처가 추정인 값은 카드 안에 출처를 작게 적는다."
-  ]
+  ],
+  "_v2": "2차 제안(노션 2026-11-26): 카드 순서 고정 · 국토부 차량이력 타임라인 신규 · 카드는 필수가 아니라 매물 데이터에 따라 1개~여러 개를 골라 차량 편집(사진·영상 매물 숏폼) 안에 끼운다.",
+  "card_order": {
+    "_rule": "엔카 매물 정보 기본 순서(차량 기본정보 → 성능 점검 → 보험 이력 → 차량 이력 타임라인)를 앞에, 우리 카드(옵션 → 추가 옵션 → 차량 특징 → 판매자 설명)를 뒤에. 고른 카드는 항상 이 순서로 나온다.",
+    "order": [
+      "car_info",
+      "inspection",
+      "insurance",
+      "timeline",
+      "options",
+      "extra_options",
+      "features",
+      "seller"
+    ],
+    "names": {
+      "car_info": "차량 정보",
+      "inspection": "성능 점검",
+      "insurance": "보험 이력",
+      "timeline": "차량 이력 타임라인",
+      "options": "옵션 정보",
+      "extra_options": "추가 옵션",
+      "features": "차량 특징",
+      "seller": "판매자 설명"
+    },
+    "v1_extra": {
+      "_rule": "v1에서 만든 보조 카드. 2차 기본 목록에는 넣지 않고 사람이 일부러 고를 때만 쓴다.",
+      "keys": [
+        "photo_scroll",
+        "fuel",
+        "warranty",
+        "price",
+        "summary"
+      ],
+      "price_hold": "시세 위젯 값이 반복값(10,000만원)이라 믿기 어려움 — 출처 확인 전까지 보류(코덱스·마스터2 의견)"
+    }
+  },
+  "selection": {
+    "_rule": "카드는 필수가 아니다. 데이터가 있는 카드만 후보가 되고, 편집 길이에 따라 1개~여러 개를 고른다. 빈 카드·정형 문구 카드는 만들지 않는다.",
+    "requires": {
+      "car_info": "연식·주행·연료·가격 중 3개 이상",
+      "inspection": "성능·상태점검기록부(점검일·주행 표기 포함)",
+      "insurance": "보험이력 요약(내 차·상대 차 횟수). 금액·날짜는 확인된 것만",
+      "timeline": "날짜가 확인된 사건 3개 이상(최초등록·보험·검사·점검·판매등록 등). 날짜 모르는 사건은 넣지 않거나 횟수만",
+      "options": "장착 옵션 4개 이상",
+      "extra_options": "선택옵션(신차 때 돈 주고 단 옵션) 1개 이상 — 0건이면 생략",
+      "features": "제원(마력·토크·0→100 등) 3개 이상",
+      "seller": "판매자가 직접 쓴 사실 문장 1개 이상. 정형 문구(입금 안내·방문 환영 등)뿐이면 생략"
+    },
+    "priority": {
+      "_rule": "고를 수 있는 카드가 편집 한도보다 많으면 이 순서로 고르고, 화면에는 card_order 순서로 보여 준다.",
+      "order": [
+        "inspection",
+        "insurance",
+        "timeline",
+        "car_info",
+        "options",
+        "extra_options",
+        "features",
+        "seller"
+      ]
+    },
+    "max_cards_by_length": {
+      "30s": 2,
+      "45s": 4,
+      "60s": 6
+    }
+  },
+  "edit": {
+    "_rule": "차량 편집 = 첫 화면 → 바깥 사진(앞 3/4·옆·뒤) → [카드 묶음] → 실내 사진 → 끝 로고. 카드 묶음은 바깥 투어 뒤 한곳에 모아 끼운다(정보 구역).",
+    "photo_dur_s": 2.2,
+    "exterior": [
+      "front34",
+      "side",
+      "rear"
+    ],
+    "interior": [
+      "dash",
+      "seat"
+    ],
+    "whoosh_on_cut": true,
+    "_photo": "사진 컷: 사진 전체(자르지 않음)를 가로 꽉 차게, 세로 중심 y860(아래끝이 자막 칸 1180 위) · 흐린 채움 배경 · 2.2초 · 1.00→1.05 느린 확대 · 노랑 칩 = 부위 이름"
+  },
+  "edit_photo_center_y": 860
 }

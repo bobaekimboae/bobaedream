@@ -1,0 +1,132 @@
+{
+ "spec": "card-info-v2",
+ "data": "scripts/shortform/card_info/samples/g400d/cards.json",
+ "cards": {
+  "car_info": {
+   "lufs": -14.3,
+   "true_peak": -2.5,
+   "duration": 3.966667,
+   "sfx": [
+    "0.05s card_engine_start",
+    "0.46s card_page_flip",
+    "0.82s card_odometer",
+    "1.18s card_fuel",
+    "1.54s card_gear_shift",
+    "1.90s card_engine_rev",
+    "2.26s card_spray"
+   ],
+   "panel_bottom_px": 1039.6875,
+   "panel_ok": true,
+   "render_s": 11.0
+  },
+  "inspection": {
+   "lufs": -14.3,
+   "true_peak": -2.1,
+   "duration": 4.266667,
+   "sfx": [
+    "0.05s ding",
+    "0.50s check",
+    "0.92s impact",
+    "1.76s check",
+    "2.60s impact"
+   ],
+   "panel_bottom_px": 1162.78125,
+   "panel_ok": true,
+   "render_s": 10.9
+  },
+  "insurance": {
+   "lufs": -14.8,
+   "true_peak": -1.7,
+   "duration": 3.633333,
+   "sfx": [
+    "0.05s ding",
+    "1.00s pop",
+    "1.45s click",
+    "1.95s impact"
+   ],
+   "panel_bottom_px": 925.234375,
+   "panel_ok": true,
+   "render_s": 9.8
+  },
+  "timeline": {
+   "lufs": -14.9,
+   "true_peak": -1.7,
+   "duration": 3.433333,
+   "sfx": [
+    "0.05s ding",
+    "0.50s click",
+    "0.92s impact",
+    "1.34s pop"
+   ],
+   "panel_bottom_px": 987.375,
+   "panel_ok": true,
+   "render_s": 9.0
+  },
+  "options": {
+   "lufs": -14.8,
+   "true_peak": -2.4,
+   "duration": 3.5,
+   "sfx": [
+    "0.05s ding",
+    "0.50s pop",
+    "1.59s click"
+   ],
+   "panel_bottom_px": 1148.578125,
+   "panel_ok": true,
+   "render_s": 9.7
+  },
+  "features": {
+   "lufs": -15.0,
+   "true_peak": -2.3,
+   "duration": 4.133333,
+   "sfx": [
+    "0.05s ding",
+    "1.00s pop",
+    "2.00s pop",
+    "2.45s click"
+   ],
+   "panel_bottom_px": 990.109375,
+   "panel_ok": true,
+   "render_s": 10.9
+  }
+ },
+ "montage": {
+  "lufs": -14.7,
+  "true_peak": -2.2,
+  "duration": 27.333333,
+  "segments": [
+   [
+    "hook",
+    0.0
+   ],
+   [
+    "car_info",
+    2.4
+   ],
+   [
+    "inspection",
+    6.37
+   ],
+   [
+    "insurance",
+    10.63
+   ],
+   [
+    "timeline",
+    14.27
+   ],
+   [
+    "options",
+    17.7
+   ],
+   [
+    "features",
+    21.2
+   ],
+   [
+    "end",
+    25.33
+   ]
+  ]
+ }
+}

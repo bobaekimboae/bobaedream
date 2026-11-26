@@ -45,6 +45,23 @@ svg.ic{display:block;stroke-width:1.9}
 .clv .mk{background:var(--y);border-radius:8px;padding:0 10px;margin-left:-4px}
 .cld{font-size:22px;font-weight:600;color:var(--sub);line-height:1.25;margin-top:2px}
 .src{font-size:20px;font-weight:600;color:#9A9EA5;margin-top:16px}
+/* 차량 이력 타임라인(2차) */
+.tl{position:relative;padding-left:0}
+.tli{position:relative;display:flex;gap:26px;padding:0 0 22px 0}
+.tli:last-child{padding-bottom:0}
+.tld{flex:none;position:relative;width:62px;display:flex;justify-content:center}
+.tld i{width:62px;height:62px;border-radius:50%;background:var(--tile);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.tld i svg{width:36px;height:36px}
+.tli.warn .tld i{background:var(--y)}
+.tli:not(:last-child) .tld:after{content:"";position:absolute;left:30px;top:62px;bottom:-22px;width:2px;background:var(--line)}
+.tldate{font-size:24px;font-weight:700;color:var(--sub);line-height:1.2}
+.tlt{font-size:34px;font-weight:800;line-height:1.2}
+.tlt .mk{background:var(--y);border-radius:8px;padding:0 10px;margin-left:-4px}
+.tlx{font-size:22px;font-weight:600;color:var(--sub);line-height:1.25;margin-top:2px}
+.bsnote{font-size:27px;font-weight:700;margin-top:34px;line-height:1.3}
+.bsnote .mk{background:var(--y);border-radius:8px;padding:0 10px}
+/* 차량 편집 사진 컷 */
+.ed-photo{position:absolute;left:0;top:0;width:1080px;height:auto;transform-origin:center center}
 /* 큰 숫자 */
 .bs{display:grid;grid-template-columns:1fr 1fr;column-gap:36px;row-gap:40px}
 .bsl{font-size:28px;font-weight:700;color:var(--sub)}
@@ -201,6 +218,21 @@ const BUILD = {
       else if (s === 'ok' && okN++ < 2) sfx(rowT[i], S.sfx.check_ok[0], S.sfx.check_ok[1]); });
   },
   summary(c) { this.check_list(c, true); },
+  timeline(c) {
+    addPanel(`<div class="tl">${c.items.map(i => `<div class="tli ${i.state || ''}"><div class="tld"><i>${icon(i.icon || 'calendar-event')}</i></div>
+      <div style="min-width:0"><p class="tldate">${esc(i.date)}</p><p class="tlt">${i.state === 'warn' ? `<span class="mk">${esc(i.title)}</span>` : esc(i.title)}</p>${i.detail ? `<p class="tlx">${esc(i.detail)}</p>` : ''}</div></div>`).join('')}</div>${src(c.source)}`);
+    const els = rows('.tli', S.rows.stagger_s.timeline);
+    if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: rowT[rowT.length - 1] + 0.2, kind: 'row' });
+    els.forEach((el, i) => { const s = c.items[i].state;
+      if (i === 0) sfx(rowT[i], 'click', 0.32);
+      else if (s === 'warn') sfx(rowT[i], S.sfx.warn[0], S.sfx.warn[1]);
+      else sfx(rowT[i], S.sfx.timeline_tick[0], S.sfx.timeline_tick[1]); });
+  },
+  photo(c) {
+    const ph = $(`<img class="ed-photo" src="${BASE + c.photo}">`); C.appendChild(ph);
+    anim.push({ kind: 'custom', t: 0, fn: (tt) => { const k = Math.min(1, tt / (c.dur || 2.4)); ph.style.top = (S.edit_photo_center_y - ph.offsetHeight / 2) + 'px'; ph.style.transform = `scale(${1 + 0.05 * k})`; } });
+    rowT = [0.15];
+  },
   big_stats(c) {
     addPanel(`<div class="bs">${c.items.map(i => `<div class="bsi"><p class="bsl">${esc(i.label)}</p><p class="bsv"><span data-count="${i.count}" data-dec="${i.dec || 0}">${esc(i.value)}</span><small>${esc(i.unit)}</small></p></div>`).join('')}</div>
       ${c.chips ? `<div class="chips">${c.chips.map(p => `<span class="pill">${esc(p)}</span>`).join('')}</div>` : ''}${src(c.source)}`);
@@ -210,6 +242,9 @@ const BUILD = {
     const last = rowT[rowT.length - 1];
     [...panelEl.querySelectorAll('.pill')].forEach((el, i) => anim.push({ el, t: last + 0.45 + i * 0.08, kind: 'row' }));
     if (c.chips) { rowT.push(last + 0.45); sfx(last + 0.45, 'click', 0.3); }
+    if (c.note) { const n = $(`<p class="bsnote">${c.note_warn ? `<span class="mk">${esc(c.note)}</span>` : esc(c.note)}</p>`);
+      panelEl.querySelector('.chips') ? panelEl.querySelector('.chips').after(n) : panelEl.querySelector('.bs').after(n);
+      const tn = rowT[rowT.length - 1] + 0.5; rowT.push(tn); anim.push({ el: n, t: tn, kind: 'row' }); if (c.note_warn) sfx(tn, S.sfx.warn[0], S.sfx.warn[1]); }
     if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: last + 0.6, kind: 'row' });
   },
   icon_grid(c) {
@@ -290,14 +325,14 @@ const BUILD = {
 };
 
 // ── 조립
-if (CARD.type !== 'end') addChip();
+if (CARD.type !== 'end' && DATA.chip) addChip();
 BUILD[CARD.type](CARD);
 if (CARD.type !== 'end') cap(CARD.captions || CARD.caption);
-if (panelEl && CARD.type !== 'photo_strip') {   // 카드가 자막 칸(최대 아래끝)을 넘지 않는지
+if (panelEl && CARD.type !== 'photo_strip' && CARD.type !== 'photo') {   // 카드가 자막 칸(최대 아래끝)을 넘지 않는지
   const r = panelEl.getBoundingClientRect(); window.PANEL_BOTTOM = r.bottom;
 }
 const lastRow = rowT.length ? Math.max(...rowT) : 0;
-DUR = CARD.type === 'end' ? S.end.tail_s : CARD.type === 'hero' ? S.hook.dur_s
+DUR = CARD.type === 'end' ? S.end.tail_s : CARD.type === 'hero' ? S.hook.dur_s : CARD.type === 'photo' ? (CARD.dur || 2.4)
     : lastRow + S.rows.anim_dur_s + S.rows.hold_s + (CARD.type === 'photo_strip' ? 0.1 : 0);
 
 // 효과음 간격 규칙(be_locked_rules.sfx: 최소 0.3초 · 같은 소리 0.6초) + 카드당 최대 개수

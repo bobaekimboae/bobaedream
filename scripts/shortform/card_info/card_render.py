@@ -55,7 +55,7 @@ def render_segment(page, card, base, build, out_mp4, with_audio=True):
     }
     if card['type'] == 'hero':
         data['chip'] = chip_png(card['brand'], True, build)
-    elif card['type'] != 'end':
+    elif card['type'] != 'end' and card.get('title'):
         data['chip'] = chip_png(card['title'], False, build)
     html = open(os.path.join(HERE, 'card_template.html')).read()
     html = html.replace('__FONTS__', furl(os.path.join(SF, 'fonts'))).replace('__DATA__', json.dumps(data, ensure_ascii=False))

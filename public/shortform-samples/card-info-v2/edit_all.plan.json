@@ -1,0 +1,104 @@
+{
+ "spec": "card-info-v2",
+ "data": "scripts/shortform/card_info/samples/g400d/cards.json",
+ "cards": [
+  "car_info",
+  "inspection",
+  "insurance",
+  "timeline",
+  "options",
+  "features"
+ ],
+ "dropped": [
+  {
+   "key": "extra_options",
+   "why": "데이터 없음"
+  },
+  {
+   "key": "seller",
+   "why": "판매자 설명 원문이 정형 문구(방문 안내 등)뿐 — 빈 카드 금지 규칙으로 생략(마스터2·코덱스 의견)"
+  }
+ ],
+ "over_limit": [],
+ "max": null,
+ "segments": [
+  {
+   "key": "hook",
+   "start": 0.0,
+   "dur": 2.4,
+   "panel_bottom_px": null
+  },
+  {
+   "key": "ph_side",
+   "start": 2.4,
+   "dur": 2.2,
+   "panel_bottom_px": null
+  },
+  {
+   "key": "ph_rear",
+   "start": 4.6,
+   "dur": 2.2,
+   "panel_bottom_px": null
+  },
+  {
+   "key": "car_info",
+   "start": 6.8,
+   "dur": 3.97,
+   "panel_bottom_px": 1039.6875
+  },
+  {
+   "key": "inspection",
+   "start": 10.77,
+   "dur": 4.27,
+   "panel_bottom_px": 1162.78125
+  },
+  {
+   "key": "insurance",
+   "start": 15.03,
+   "dur": 3.63,
+   "panel_bottom_px": 925.234375
+  },
+  {
+   "key": "timeline",
+   "start": 18.67,
+   "dur": 3.43,
+   "panel_bottom_px": 987.375
+  },
+  {
+   "key": "options",
+   "start": 22.1,
+   "dur": 3.5,
+   "panel_bottom_px": 1148.578125
+  },
+  {
+   "key": "features",
+   "start": 25.6,
+   "dur": 4.13,
+   "panel_bottom_px": 990.109375
+  },
+  {
+   "key": "ph_dash",
+   "start": 29.73,
+   "dur": 2.2,
+   "panel_bottom_px": null
+  },
+  {
+   "key": "ph_seat",
+   "start": 31.93,
+   "dur": 2.2,
+   "panel_bottom_px": null
+  },
+  {
+   "key": "end",
+   "start": 34.13,
+   "dur": 2.0,
+   "panel_bottom_px": null
+  }
+ ],
+ "result": {
+  "lufs": -14.6,
+  "true_peak": -1.6,
+  "duration": 36.133333
+ },
+ "panel_ok": true
+}
