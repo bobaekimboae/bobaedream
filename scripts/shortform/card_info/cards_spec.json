@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "updated": "2026-11-26",
+  "_what": "카드 정보 독립 컷의 화면·시간·소리 값 단일 기준. render_cards.py 는 이 파일과 be_locked_rules.json(노랑·음량)만 읽는다. 바꿀 때는 이 파일만 고친다.",
+  "_style": "오토스카우트24 웹 매물 카드·릴스 카드: 흰 바탕 둥근 카드, 검정 굵은 글자, 회색 보조 글자, 가는 구분선, 강조는 노랑 붓칠 칩 하나",
+  "canvas": {"w": 1080, "h": 1920, "fps": 30},
+  "bg": {"blur": 28, "darken": 0.45, "photo_band_y": 120, "photo_band_h": 420, "photo_band_min": 240},
+  "top": {"title_px": 46, "meta_px": 34},
+  "card": {
+    "w": 960, "y": 760, "pad": 44, "radius": 36, "bg": "#FFFFFF",
+    "icon_px": 72, "label_px": 34, "sub_px": 28, "title_px": 58,
+    "label_color": "#141414", "muted": "#8C8C8C", "divider": "#ECECEC",
+    "row_h": 82, "row_label_px": 36, "row_value_px": 40, "row_label_color": "#595959",
+    "grid_h": 96, "grid_px": 30, "tile_bg": "#F4F5F6", "tile_off": "#EEEEEE", "off_text": "#A8A8A8",
+    "bar_row_h": 112, "tile_h": 250, "tile_px": 32, "note_px": 28
+  },
+  "chip": {"fill": "265_42"},
+  "caption": {"px": 64, "gap": 18, "y": 1740, "shadow_blur": 5},
+  "timing": {"card_in": 0.45, "card_out": 0.3, "first_row": 0.6, "row_step": 0.32, "row_in": 0.25, "bar_grow": 0.6, "caption_in": 0.5, "hold": 2.6, "min_dur": 5.5},
+  "audio": {
+    "bgm": "bobae_showroom_v1.mp3", "bgm_gain": 0.22,
+    "sfx": {"whoosh": "whoosh.wav", "tick": "pop.wav"},
+    "gain": {"whoosh": 0.55, "tick": 0.35}
+  }
+}
