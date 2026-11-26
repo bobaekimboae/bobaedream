@@ -1,0 +1,7 @@
+{
+  "input_sha256": "cbb6db5091862ed5d2c43d053f522bbe935da074d536bd91da2b9bdf5c673718",
+  "dry_audio_sha256": "1441e01f7dfef3c122309c668dcd1a5e9f45d90defb1b31d6275175be592b28c",
+  "voice": "KKC HQ",
+  "source": "single existing take reused; no new TTS generation",
+  "measured_times": "narration_words.json"
+}
