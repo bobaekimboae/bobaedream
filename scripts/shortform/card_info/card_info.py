@@ -345,6 +345,11 @@ class Card:
                         ld.line((lx, cy, lx, cy + rh * nra), fill=hexc(S['ink'], al), width=4)
                     ld.ellipse((lx - 13, cy - 13, lx + 13, cy + 13), fill=hexc(S['accent'], al), outline=hexc(S['ink'], al), width=4)
                     ld.text((ixx + 72, cy), x[1], font=F(FS, S['label_px']), fill=hexc(S['label'], al), anchor='lm')
+                    up, ua = self.ul_progress(x[1], t)
+                    if up > 0 and ua > 0:
+                        vb = ld.textbbox((ox + cw - pad, cy), x[2], font=F(FB, S['value_px']), anchor='rm')
+                        layer.alpha_composite(fade(wipe(underline_img(vb[2] - vb[0] + 8), up), ua), (int(vb[0] - 4), int(vb[3] - RULES['underline']['height_px'] / 2 + RULES['underline']['gap_px'])))
+                        ld = ImageDraw.Draw(layer)
                     ld.text((ox + cw - pad, cy), x[2], font=F(FB, S['value_px']), fill=hexc(S['ink'], al), anchor='rm')
                     continue
                 tx = ixx + 72
@@ -368,11 +373,11 @@ class Card:
                     bx = ox + cw - pad - vw - 16 - cwid
                     ld.rounded_rectangle((bx, cy - 17, bx + cwid, cy + 17), 17, outline=hexc(S['sample_badge'], al), width=2)
                     ld.text((bx + cwid / 2, cy), '확인 전', font=cf, fill=hexc(S['sample_badge'], al), anchor='mm')
-                up = self.ul_progress(x[1], t) if has_val else 0
-                if up > 0:
+                up, ua = self.ul_progress(x[1], t) if has_val else (0, 0)
+                if up > 0 and ua > 0:
                     vb = ld.textbbox((ox + cw - pad, cy), x[2], font=F(FB, S['value_px']), anchor='rm')
                     ul = underline_img(vb[2] - vb[0] + 8)
-                    layer.alpha_composite(wipe(ul, up), (int(vb[0] - 4), int(vb[3] - RULES['underline']['height_px'] / 2 + RULES['underline']['gap_px'])))
+                    layer.alpha_composite(fade(wipe(ul, up), ua), (int(vb[0] - 4), int(vb[3] - RULES['underline']['height_px'] / 2 + RULES['underline']['gap_px'])))
                     ld = ImageDraw.Draw(layer)
                 if has_val:
                     ld.text((ox + cw - pad, cy), x[2], font=F(FB, S['value_px']), fill=hexc(S['warn'] if warn else S['ink'], al), anchor='rm')
@@ -396,16 +401,57 @@ class Card:
         return self.segs[i + 1][0] if i + 1 < len(self.segs) else 1e9
 
     def ul_progress(self, label, t):
-        """줄이 모두 나온 뒤 핵심 항목 밑줄 진행도(0~1)."""
+        """밑줄 칠 상태 (진행 0~1, 투명도 0~1).
+        sync: 말이 그 줄의 값에 닿을 때 값 길이만큼 왼쪽→오른쪽으로 칠하고, 다음 줄이 칠해지면 0.2초에 사라짐(지금 읽는 줄 하나만).
+        keys: 데이터 underline 항목을 줄이 다 나온 뒤 차례로 칠하고 그대로 둠(이전 방식)."""
+        U = RULES['underline']
+        rows = self.row_order()
+        idx = next((i for i, x in enumerate(rows) if x[1] == label), None)
+        if idx is None:
+            return 0.0, 0.0
+        if U.get('mode', 'keys') == 'sync':
+            win = self.paint_win(idx)
+            if not win:
+                return 0.0, 0.0
+            t0, dur = win
+            nxt = next((w for w in (self.paint_win(k) for k in range(idx + 1, len(rows))) if w), None)
+            al = 1.0 if not nxt else 1 - ease((t - nxt[0]) / U['fade_out_s'])
+            return ease((t - t0) / dur), al
         keys = self.data.get('underline') or []
         if label not in keys:
-            return 0.0
-        U = RULES['underline']
-        if M.get('rows_mode') == 'all':  # 다 나온 직후 바로 칠함(기다리지 않음)
-            t0 = self.row_t(len(self.row_order()) - 1) + M['row_in_s'] + U['start_after_s'] + keys.index(label) * U['stagger_s']
+            return 0.0, 0.0
+        if M.get('rows_mode') == 'all':
+            t0 = self.row_t(len(rows) - 1) + M['row_in_s'] + U['start_after_s'] + keys.index(label) * U['stagger_s']
         else:
             t0 = self.segs[-1][0] + U['start_after_s'] + keys.index(label) * U['stagger_s']
-        return ease((t - t0) / U['wipe_s'])
+        return ease((t - t0) / U['wipe_s']), 1.0
+
+    def paint_win(self, i):
+        """i번째 줄 값을 말하는 시각 (시작, 칠 길이). 자막 낱말 시각(self.wt)에서 값 첫 낱말~끝 낱말을 찾는다."""
+        cache = self.__dict__.setdefault('_pw', {})
+        if i in cache:
+            return cache[i]
+        U = RULES['underline']
+        rows, j = self.row_order(), i + 1
+        res = None
+        if j < len(self.segs) and len(rows[i]) > 2 and rows[i][2] and (len(rows[i]) < 4 or rows[i][3] not in ('sum', 'total')):
+            st, en, _, sent, _ = self.segs[j]
+            words = sent.split(' ')
+            key = lambda w: ''.join(c for c in w if c.isalnum())
+            toks = [key(x) for x in re.split(r'[\s·,]+', rows[i][2]) if key(x)]
+            k0 = next((k for k, w in enumerate(words) if toks and toks[0][:2] in key(w)), None)
+            k1 = next((k for k in range(len(words) - 1, -1, -1) if toks and toks[-1][:2] in key(words[k])), k0)
+            wts = (getattr(self, 'wt', None) or [])
+            wt = wts[j] if j < len(wts) else None
+            if k0 is not None and wt and k0 < len(wt):
+                k1 = max(k0, k1 or k0)
+                t0 = wt[k0]
+                t1 = wt[k1 + 1] if k1 + 1 < len(wt) else en - 0.12
+            else:
+                t0, t1 = st + 0.25, st + 0.25 + U['wipe_s']
+            res = (t0 - U['lead_s'], max(U['wipe_min_s'], min(U['wipe_max_s'], t1 - t0)))
+        cache[i] = res
+        return res
 
     def layout(self):
         return self.data.get('layout') or LAYOUT_OVERRIDE.get(self.kind) or self.rule.get('layout', 'list')
@@ -433,11 +479,11 @@ class Card:
             vf = F(FB, S['tile_value_px'])
             while ld.textlength(v, font=vf) > tw - (lx - tx0) - 18 and vf.size > 26:
                 vf = F(FB, vf.size - 2)
-            up = self.ul_progress(x[1], t)
-            if up > 0:
+            up, ua = self.ul_progress(x[1], t)
+            if up > 0 and ua > 0:
                 vb = ld.textbbox((lx, ty0 + th / 2 + 6), v, font=vf, anchor='lt')
                 ul = underline_img(vb[2] - vb[0] + 8)
-                layer.alpha_composite(wipe(ul, up), (int(vb[0] - 4), int(vb[3] - RULES['underline']['height_px'] / 2 + RULES['underline']['gap_px'])))
+                layer.alpha_composite(fade(wipe(ul, up), ua), (int(vb[0] - 4), int(vb[3] - RULES['underline']['height_px'] / 2 + RULES['underline']['gap_px'])))
                 ld = ImageDraw.Draw(layer)
             ld.text((lx, ty0 + th / 2 + 6), v, font=vf, fill=hexc(S['ink'], al), anchor='lt')
             if len(x) > 3 and x[3] == 'check':
