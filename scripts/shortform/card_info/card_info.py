@@ -345,6 +345,19 @@ class Card:
             if car.get('_new_price'):
                 self.rows.append(['', self.rule['total_label'], man(car['_new_price'] + add), 'total'])
 
+    def sum_rows(self):
+        d = self.data
+        return d.get('sum_rows') or ([d['sum_row']] if d.get('sum_row') else [])
+
+    def peer_marks(self):
+        """같은 급 항목(같은 모양 줄·타일) 중 칠(칩)을 받는 수와 전체 수. 규칙: 전부 아니면 하나도 없음."""
+        if self.layout() == 'photos':
+            items = self.data['photos']
+            return sum(1 for p_ in items if p_.get('chip')), len(items)
+        marks = self.data.get('marks') or {}
+        rows = [x for x in self.rows if not (len(x) > 3 and x[3] in ('sum', 'total'))]
+        return sum(1 for x in rows if x[1] in marks), len(rows)
+
     def row_order(self):
         """화면 줄 순서(inspect는 ok 먼저, warn 마지막 — 말하는 순서와 같게)."""
         if self.kind == 'inspect':
@@ -404,8 +417,8 @@ class Card:
             R = RULES['option_marks']; n_ = len(self.data['photos'])
             tw_ = (cw - 112 - S['tile_gap'] * (n_ - 1)) / n_
             body_h = int(S['body_pad'] * 2 + tw_ * (R['photo_ratio_single'] if n_ == 1 else R['photo_ratio']) + R['photo_label_gap'] * 2 + R['photo_label_px'] + 18 + (R['rest_px'] * 2.7 if self.data.get('rest') else 0))
-            if self.data.get('sum_row'):
-                body_h += S['tile_value_px'] + R['photo_value_gap'] + S['row_h'] - R['photo_label_gap'] + 16
+            if self.sum_rows():
+                body_h += S['tile_value_px'] + R['photo_value_gap'] + S['row_h'] * len(self.sum_rows()) - R['photo_label_gap'] + 16
         else:
             body_h = nrows * S['row_h'] + S['body_pad'] * 2
         note = self.data.get('source_note')
@@ -641,8 +654,8 @@ class Card:
         if mk.get('chip'):
             tk = self.key_t(mk.get('key', mk['chip']))
             if tk is not None and t >= tk:
-                px_ = R['chip_px']
-                if mk.get('max_w'):  # 좁은 칸(실사판 2열)에서는 칩 글자를 칸 폭에 맞춰 줄인다(옆 칸 글자를 덮지 않게)
+                px_ = mk.get('px') or R['chip_px']
+                if mk.get('max_w') and not mk.get('px'):  # 좁은 칸(실사판 2열)에서는 칩 글자를 칸 폭에 맞춰 줄인다(옆 칸 글자를 덮지 않게)
                     while px_ > 22 and chip_img(mk['chip'], px_).width > mk['max_w']:
                         px_ -= 2
                 c = pop(chip_img(mk['chip'], px_), (t - tk) / R['pop_s'])
@@ -656,6 +669,10 @@ class Card:
         gap = S['tile_gap']
         tw = (cw - pad * 2 - gap * (len(ph) - 1)) / len(ph)
         th = tw * (R['photo_ratio_single'] if len(ph) == 1 else R['photo_ratio'])
+        cpx = R['chip_px']  # 같은 카드 칩은 모두 같은 크기: 가장 긴 칩이 칸에 들어가는 크기로 맞춤
+        for p_ in ph:
+            while p_.get('chip') and cpx > 22 and chip_img(p_['chip'], cpx).width > tw + 6:
+                cpx -= 2
         for i, p_ in enumerate(ph):
             ra = ease((t - self.row_t(i)) / M['row_in_s'])
             if ra <= 0:
@@ -673,6 +690,10 @@ class Card:
             ImageDraw.Draw(m).rounded_rectangle((0, 0, tile.width - 1, tile.height - 1), S['tile_radius'], fill=255)
             tile.putalpha(m)
             layer.alpha_composite(fade(tile, ra), (int(x0), int(y0)))
+            if p_.get('badge'):  # 신차 카탈로그 이미지 등 사진 출처 꼬리표(실차 사진이 아님을 밝힘)
+                bf_ = F(FS, 22); bw_ = ld.textlength(p_['badge'], font=bf_) + 24
+                ld.rounded_rectangle((x0 + 12, y0 + 12, x0 + 12 + bw_, y0 + 48), 18, fill=(0, 0, 0, int(170 * ra)))
+                ld.text((x0 + 12 + bw_ / 2, y0 + 30), p_['badge'], font=bf_, fill=(255, 255, 255, int(255 * ra)), anchor='mm')
             ly = y0 + th + R['photo_label_gap']
             nf = F(FB, R['photo_label_px'])
             al = int(255 * ra)
@@ -681,15 +702,21 @@ class Card:
             if p_.get('value'):  # 추가 옵션 실사판: 사진 아래 옵션 가격(굵게, 오른쪽)
                 ld.text((x0 + tw - 6, ly + R['photo_label_px'] + 30), p_['value'], font=F(FB, S['tile_value_px']), fill=hexc(S['ink'], al), anchor='rm')
             # 칩은 이름 위에 덮어 톡
-            self._marks(ld, layer, (x0 + 6, ly), nf, p_['label'], {'chip': p_.get('chip'), 'key': p_.get('key'), 'max_w': tw + 6}, t, 0, ly, al)
-        sm = self.data.get('sum_row')
-        if sm:  # 옵션 합계 줄(목록판 sum 줄과 같은 모양): 위 굵은 선 + 굵은 이름·값
+            self._marks(ld, layer, (x0 + 6, ly), nf, p_['label'], {'chip': p_.get('chip'), 'key': p_.get('key'), 'px': cpx}, t, 0, ly, al)
+        sms = self.sum_rows()
+        if sms:  # 옵션 합계·총액 줄(목록판 sum·total 줄과 같은 모양)
             ra = ease((t - self.row_t(len(ph))) / M['row_in_s']); al = int(255 * ra)
             y = oy + S['body_pad'] + th + R['photo_label_gap'] + R['photo_label_px'] + 30 + R['photo_value_gap']
             ld.line((ox + pad, y, ox + cw - pad, y), fill=hexc(S['ink'], al), width=3)
-            cy = y + S['row_h'] / 2
-            ld.text((ox + pad, cy), sm[0], font=F(FB, S['label_px']), fill=hexc(S['ink'], al), anchor='lm')
-            ld.text((ox + cw - pad, cy), sm[1], font=F(FB, S['value_px']), fill=hexc(S['ink'], al), anchor='rm')
+            for k_, sm in enumerate(sms):
+                cy = y + S['row_h'] * k_ + S['row_h'] / 2
+                tot = len(sm) > 2 and sm[2] == 'total'
+                vf = F(FB, S['value_px'] + (6 if tot else 0))
+                if tot:
+                    vw = ld.textlength(sm[1], font=vf)
+                    ld.rounded_rectangle((ox + cw - pad - vw - 22, cy - 34, ox + cw - pad + 10, cy + 34), 14, fill=hexc(S['accent'], al))
+                ld.text((ox + pad, cy), sm[0], font=F(FB, S['label_px']), fill=hexc(S['ink'], al), anchor='lm')
+                ld.text((ox + cw - pad - (6 if tot else 0), cy), sm[1], font=vf, fill=hexc(S['ink'], al), anchor='rm')
         rest = self.data.get('rest')
         if rest:
             ra = ease((t - self.row_t(len(ph))) / M['row_in_s'])
@@ -892,6 +919,10 @@ def build(data_path):
             long_ = [x[2] for x in c.row_order() if len(x[2]) > S.get('grid_value_max_chars', 99)]
             if long_:
                 raise SystemExit(f'그리드 칸 값이 {S["grid_value_max_chars"]}자를 넘음: {long_} — {c.kind}')
+        if c.kind in RULES['option_marks'].get('peer_rule_kinds', []):
+            n_on, n_all = c.peer_marks()
+            if n_on and (n_on != n_all or n_all > RULES['option_marks']['max_chips']):
+                raise SystemExit(f'칠 규칙 위반: 같은 급 {n_all}개 중 {n_on}개만 칠함(전부 또는 0개, 최대 {RULES["option_marks"]["max_chips"]}개) — {c.kind}')
         bad = [w for w in RULES['never'] if w in txt]
         if bad:
             raise SystemExit(f'금지어 {bad} — {c.kind}')
