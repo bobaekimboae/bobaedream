@@ -663,7 +663,7 @@ CHIP_TXT_DELAY = getattr(C, 'CHIP_TXT_DELAY', 1 / 30)  # 띠 뒤 글자 시작(�
 CHIP_TXT_DUR = getattr(C, 'CHIP_TXT_DUR', 0.20)
 
 
-FLUENT_DIR = os.path.join(os.path.dirname(os.path.abspath(R.__file__)), 'photo_listing', 'fluent3d')  # 렌더 중 작업 폴더가 바뀌므로 모듈 위치 기준
+FLUENT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fluent3d')  # 2026-11-26 이 파일 옆 폴더 기준(REPO가 다른 작업 폴더를 가리켜도 새 아이콘을 읽게)  # 렌더 중 작업 폴더가 바뀌므로 모듈 위치 기준
 
 
 def fluent_emoji(mark, h=112):
