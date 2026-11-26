@@ -1,0 +1,11 @@
+{
+  "version":"3.0-second-proposal",
+  "selection":{"default":[],"mandatory_types":[],"ordering":"canonical_subsequence","unknown_type":"error","duplicates":"deduplicate","missing_data":"omit_with_audit","empty_plan":"no_card_insertion"},
+  "canonical_order":["vehicle","inspection","insurance","history_timeline","options","added_options","features","seller"],
+  "names":{"vehicle":"차량 기본정보","inspection":"성능 점검","insurance":"보험 이력","history_timeline":"차량 이력 타임라인","options":"옵션 정보","added_options":"추가 옵션","features":"차량 특징","seller":"판매자 설명"},
+  "core_order":["vehicle","inspection","insurance","history_timeline"],
+  "presets":{"insurance_only":["insurance"],"basic_review":["vehicle","inspection","insurance","history_timeline"],"feature_focus":["options","features"],"no_cards":[]},
+  "history":{"source_system":"molit_integrated_history","requires":["source.response_ref","source.retrieved_at","source.lookup_scope","source.system","occurred_on","event_type","title"],"allowed_events":["registration","ownership_change","use_change","inspection","maintenance","performance_inspection","tax_arrears","seizure","mortgage","mandatory_insurance","scrapping"],"date_precision":["day","month"],"events_per_page":3,"invent_event_dates":false,"insurance_claims_are_molit_events":false,"scope":"Only events actually present in the received authorized history response; this is an internal normalized schema, not an official API response schema."},
+  "layout":{"width":1080,"height":1920,"fps":30,"card_box":[80,420,944,1170],"caption_top":1250,"caption_font_px":60,"caption_max_lines":2,"highlight":"#F5F200","ink":"#141414","paper":"#FFFFFF","background":"#151A19","entrance_seconds":0.28,"rows_stagger_seconds":0.16},
+  "source_guides":["https://www.car365.go.kr/ccpt/schdcar/unityhstry/utztnGuidanceView.do?_menuId=M630202000&moblYn=Y","https://openservice.go.kr/vehHistInq"]
+}
