@@ -1,0 +1,67 @@
+{
+  "_note": "카드 정보 v2 단일 수치 기준. 색 노랑·잉크는 be_locked_rules.json. 아이콘은 AS24 노션 원본 SVG(모양 그대로, 잉크 한 색).",
+  "check_icon": "public/assets/shortform/icons-as24/checkmark-bold.svg",
+  "bg": {
+    "blur": 28,
+    "darken": 0.45,
+    "band_x": 60,
+    "band_y": 120,
+    "band_h": 380,
+    "title_gap": 8
+  },
+  "card": {
+    "w": 960,
+    "y": 690,
+    "pad": 44,
+    "radius": 36,
+    "bg": "#FFFFFF",
+    "icon_slot": 56,
+    "icon_area": 46,
+    "icon_gap": 16,
+    "label_px": 38,
+    "sub_px": 30,
+    "head_gap": 18,
+    "title_px": 56,
+    "chip_gap": 18,
+    "row_h": 96,
+    "row_label_px": 40,
+    "row_value_px": 44,
+    "row_label_color": "#595959",
+    "row_icon_slot": 44,
+    "row_icon_area": 34,
+    "check_slot": 34,
+    "check_area": 26,
+    "note_px": 30,
+    "note_h": 70,
+    "price_px": 124,
+    "price_unit_px": 50,
+    "muted": "#8C8C8C",
+    "divider": "#ECECEC"
+  },
+  "caption": {
+    "px": 62,
+    "line_gap": 14,
+    "max_w": 940,
+    "y": 1745,
+    "shadow_blur": 5
+  },
+  "timing": {
+    "card_in": 0.4,
+    "card_out": 0.25,
+    "row_in": 0.25,
+    "tail": 1.6
+  },
+  "audio": {
+    "bgm": "bobae_showroom_v1.mp3",
+    "bgm_gain": 0.1,
+    "voice_delay": 0.0,
+    "sfx": {
+      "whoosh": "whoosh.wav",
+      "tick": "pop.wav"
+    },
+    "gain": {
+      "whoosh": 0.45,
+      "tick": 0.25
+    }
+  }
+}

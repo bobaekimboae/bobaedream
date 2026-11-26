@@ -1,0 +1,166 @@
+{
+ "_source": "차란차 01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8 공개 매물 + 성능·상태 점검기록부(카모두 2026-10-30). 사실만, 무사고·평가 표현 없음.",
+ "car": {
+  "maker": "벤츠",
+  "model": "G-클래스 W463b G400d",
+  "short": "벤츠 G400d",
+  "meta": "21년05월 · 33,475km · 디젤",
+  "price": 13490
+ },
+ "cards": [
+  {
+   "id": "vehicle_info",
+   "label": "차량 정보",
+   "title": "한눈에 보는 기본 정보",
+   "bg": "p01.png",
+   "icon": "public/assets/bbm/detail-icons/maker-autoscout.svg",
+   "rows": [
+    {
+     "label": "연식",
+     "value": "21년05월",
+     "icon": "public/assets/bbm/detail-icons/year.svg"
+    },
+    {
+     "label": "주행거리",
+     "value": "33,475km",
+     "icon": "public/assets/bbm/detail-icons/mileage.svg"
+    },
+    {
+     "label": "연료",
+     "value": "디젤",
+     "icon": "public/assets/bbm/detail-icons/fuel.svg"
+    },
+    {
+     "label": "변속기",
+     "value": "자동",
+     "icon": "public/assets/bbm/detail-icons/gearbox.svg"
+    }
+   ]
+  },
+  {
+   "id": "price",
+   "label": "가격",
+   "title": "판매가",
+   "bg": "p03.png",
+   "icon": "public/assets/bbm/detail-icons/price.svg",
+   "rows": [],
+   "price_manwon": 13490
+  },
+  {
+   "id": "insurance",
+   "label": "보험 이력",
+   "title": "보험 사고 기록",
+   "bg": "p02.png",
+   "icon": "public/assets/shortform/icons-as24/liability-insurance.svg",
+   "rows": [
+    {
+     "label": "전손 보험 사고",
+     "value": "없음",
+     "state": "ok"
+    },
+    {
+     "label": "침수 보험 사고",
+     "value": "없음",
+     "state": "ok"
+    },
+    {
+     "label": "도난 보험 사고",
+     "value": "없음",
+     "state": "ok"
+    },
+    {
+     "label": "내 차 피해",
+     "value": "1회"
+    },
+    {
+     "label": "소유자 변경",
+     "value": "1회"
+    }
+   ],
+   "note": "보험 기록이 없어도 사고가 없었다는 뜻은 아니에요"
+  },
+  {
+   "id": "inspection",
+   "label": "성능 점검",
+   "title": "성능·상태 점검기록부",
+   "bg": "p06.png",
+   "icon": "public/assets/shortform/icons-as24/car-tool.svg",
+   "rows": [
+    {
+     "label": "사고 이력",
+     "value": "표시 없음",
+     "state": "ok"
+    },
+    {
+     "label": "단순 수리",
+     "value": "있음"
+    },
+    {
+     "label": "원동기 · 변속기",
+     "value": "양호",
+     "state": "ok"
+    },
+    {
+     "label": "제동 · 조향",
+     "value": "양호",
+     "state": "ok"
+    },
+    {
+     "label": "리콜",
+     "value": "해당 · 미이행"
+    }
+   ],
+   "note": "리콜 이행 여부는 현재 확인 필요 · 점검일 주행 33,288km"
+  },
+  {
+   "id": "options",
+   "label": "옵션",
+   "title": "주요 옵션 12개 중 11개",
+   "bg": "p07.png",
+   "icon": "public/assets/bbm/detail-icons/interior.svg",
+   "rows": [
+    {
+     "label": "선루프 · LED 헤드램프",
+     "value": "있음",
+     "state": "ok"
+    },
+    {
+     "label": "가죽 · 전동 · 열선시트",
+     "value": "있음",
+     "state": "ok"
+    },
+    {
+     "label": "후방카메라 · 주차센서",
+     "value": "있음",
+     "state": "ok"
+    },
+    {
+     "label": "통풍시트",
+     "value": "없음",
+     "state": "dim"
+    }
+   ]
+  },
+  {
+   "id": "seller",
+   "label": "판매자",
+   "title": "유광민 딜러",
+   "bg": "p04.png",
+   "icon": "public/icons/dealer-profile/person-as24.svg",
+   "rows": [
+    {
+     "label": "매매단지",
+     "value": "도이치오토월드"
+    },
+    {
+     "label": "위치",
+     "value": "경기 수원시 권선구"
+    },
+    {
+     "label": "판매중",
+     "value": "13대"
+    }
+   ]
+  }
+ ]
+}
