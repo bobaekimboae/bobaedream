@@ -21,6 +21,17 @@ BANNED = ["무사고", "A등급", "완전무사고", "신차급"]
 def f(weight, px):
     return ImageFont.truetype(str(FONT / f"Pretendard-{weight}.otf"), px)
 
+_ic = {}
+def icon(path, px, color):
+    """노션 AS24 원본 SVG를 고치지 않고 그려서 색만 입힌다."""
+    k = (path, px, color)
+    if k not in _ic:
+        png = subprocess.run(["rsvg-convert", "-w", str(px * 2), "-h", str(px * 2), "-a", str(ROOT / path)], capture_output=True).stdout
+        import io
+        a = Image.open(io.BytesIO(png)).convert("RGBA").resize((px, px), Image.LANCZOS) if png else Image.new("RGBA", (px, px))
+        box = Image.new("RGBA", (px, px), color); box.putalpha(a.getchannel("A")); _ic[k] = box
+    return _ic[k]
+
 def ease(x):
     x = max(0.0, min(1.0, x)); return 1 - (1 - x) ** 3
 
@@ -112,9 +123,12 @@ def draw_card(card, idx, total, revealed, part):
             a = 1.0 if i < revealed else ease(part)
             if a <= 0: continue
             off = int((1 - a) * 20); tmp = Image.new("RGBA", (W, H), (0, 0, 0, 0)); td = ImageDraw.Draw(tmp)
-            td.text((ix, ry + rw["h"] / 2 + off), it["label"], font=lf, fill=C["label"], anchor="lm")
+            lx = ix
+            if it.get("icon"):
+                ic = R["icon"]; tmp.alpha_composite(icon(it["icon"], ic["px"], ic["color"]), (ix, int(ry + rw["h"] / 2 + off - ic["px"] / 2))); lx = ix + ic["px"] + ic["gap"]
+            td.text((lx, ry + rw["h"] / 2 + off), it["label"], font=lf, fill=C["label"], anchor="lm")
             v = it["value"]; vfx = vf
-            while td.textlength(v, font=vfx) > iw - td.textlength(it["label"], font=lf) - 30 and vfx.size > 30:
+            while td.textlength(v, font=vfx) > iw - (lx - ix) - td.textlength(it["label"], font=lf) - 30 and vfx.size > 30:
                 vfx = f("Bold", vfx.size - 2)
             td.text((ix + iw, ry + rw["h"] / 2 + off), v, font=vfx, fill=tone(it.get("tone")), anchor="rm")
             tmp.putalpha(tmp.getchannel("A").point(lambda q: int(q * a))); layer.alpha_composite(tmp)
@@ -150,14 +164,30 @@ def pcm(path, sr=48000):
 
 def main(inp, out):
     data = json.load(open(inp)); validate(data); cards = data["cards"]; total = len(cards)
-    # 시간표
-    tl = []; t = 0.0; events = []
+    # 시간표: starts[ci] = 그 카드 각 줄이 뜨는 시각(초)
+    V = R.get("voice", {}); vo = data.get("voice"); events = []; starts = []
+    if vo and vo.get("words"):
+        ws = json.load(open(ROOT / vo["words"])); sent = []; new = True
+        for w in ws:
+            if new: sent.append(w["s"]); new = False
+            if w["w"].endswith((".", "?", "!")): new = True
+        nst = sum(len(steps_of(c)) for c in cards)
+        if len(sent) != nst: sys.exit(f"음성 문장 {len(sent)}개 != 카드 줄 {nst}개")
+        sent = [x / V["tempo"] + V["lead_s"] for x in sent]; i = 0
+        for c in cards:
+            n = len(steps_of(c)); starts.append(sent[i:i + n]); i += n
+        body = ws[-1]["e"] / V["tempo"] + V["lead_s"] + V["tail_s"]
+    else:
+        t = 0.0
+        for c in cards:
+            t += T["card_in_s"]; n = len(steps_of(c)); starts.append([t + k * T["step_s"] for k in range(n)]); t += n * T["step_s"] + T["hold_s"]
+        body = t
     for ci, c in enumerate(cards):
-        st = steps_of(c); start = t; events.append((t, "card")); t += T["card_in_s"]
-        for si, (_, cap) in enumerate(st):
-            events.append((t, "item")); tl.append((t, t + T["step_s"], ci, si, cap)); t += T["step_s"]
-        t += T["hold_s"]; cards[ci]["_span"] = (start, t)
-    body = t; dur = body + T["end_logo_s"]; nfr = int(round(dur * FPS))
+        s0 = 0.0 if ci == 0 else starts[ci][0] - T["card_in_s"] - 0.12
+        c["_span"] = [s0, body]
+        if ci: cards[ci - 1]["_span"][1] = s0
+        events.append((s0, "card")); events += [(x, "item") for x in starts[ci]]
+    dur = body + T["end_logo_s"]; nfr = int(round(dur * FPS))
     bg = background().convert("RGBA"); logo = Image.open(LOGO).convert("RGBA")
     tmpv = str(out) + ".video.mp4"
     ff = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
@@ -168,12 +198,10 @@ def main(inp, out):
         if now < body:
             ci = next(i for i, c in enumerate(cards) if c["_span"][0] <= now < c["_span"][1])
             c = cards[ci]; s0 = c["_span"][0]; st = steps_of(c)
-            rel = now - s0 - T["card_in_s"]; revealed = 0; part = 0.0; cap = ""; capa = 0.0
-            if rel >= 0:
-                si = int(rel // T["step_s"])
-                if si >= len(st): revealed, part, cap, capa = len(st), 0.0, st[-1][1], 1.0
-                else:
-                    revealed = si; part = (rel - si * T["step_s"]) / T["item_in_s"]; cap = st[si][1]; capa = min(1.0, part)
+            revealed = 0; part = 0.0; cap = ""; capa = 0.0
+            done = [k for k, x in enumerate(starts[ci]) if x <= now]
+            if done:
+                revealed = done[-1]; part = (now - starts[ci][revealed]) / T["item_in_s"]; cap = st[revealed][1]; capa = min(1.0, part)
             key = (ci, revealed, round(min(part, 1.0), 2))
             if key not in cache:
                 if len(cache) > 6: cache.clear()
@@ -194,8 +222,12 @@ def main(inp, out):
     ff.stdin.close(); ff.wait()
     # 소리
     sr = 48000; mix = np.zeros((int(dur * sr) + sr, 2), "float32"); sx = R["sfx"]
-    bgm = pcm(BGM / sx["bgm"]); reps = -(-len(mix) // len(bgm)); mix += np.tile(bgm, (reps, 1))[:len(mix)] * sx["bgm_gain"]
-    sc, si = pcm(SFX / sx["card"]) * sx["card_gain"], pcm(SFX / sx["item"]) * sx["item_gain"]
+    has_v = bool(vo and vo.get("file")); k = V.get("sfx_scale", 1) if has_v else 1
+    bgm = pcm(BGM / sx["bgm"]); reps = -(-len(mix) // len(bgm)); mix += np.tile(bgm, (reps, 1))[:len(mix)] * (V["bgm_gain"] if has_v else sx["bgm_gain"])
+    sc, si = pcm(SFX / sx["card"]) * sx["card_gain"] * k, pcm(SFX / sx["item"]) * sx["item_gain"] * k
+    if has_v:
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(ROOT / vo["file"]), "-af", f"atempo={V['tempo']}", "-f", "f32le", "-ac", "2", "-ar", str(sr), "-"], capture_output=True).stdout
+        vv = np.frombuffer(raw, "float32").reshape(-1, 2) * V["gain"]; i0 = int(V["lead_s"] * sr); vv = vv[:len(mix) - i0]; mix[i0:i0 + len(vv)] += vv
     for tt, kind in events:
         s = sc if kind == "card" else si; i0 = int(tt * sr); seg = s[:len(mix) - i0]; mix[i0:i0 + len(seg)] += seg
     mix = mix[:int(dur * sr)]; fo = int(0.8 * sr); mix[-fo:] *= np.linspace(1, 0, fo)[:, None]

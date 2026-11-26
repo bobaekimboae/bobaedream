@@ -1,52 +1,261 @@
 {
-  "listing": {"source": "차란차 공개 매물 (2026-11-26 열람)", "title": "벤츠 G-클래스 G400d", "code": "W463b"},
-  "cards": [
-    {"type": "차량 정보", "title": "벤츠 G-클래스 G400d · W463b", "layout": "rows", "source": "매물 등록 정보",
-     "items": [
-       {"label": "연식", "value": "21년 05월", "caption": "2021년 5월 등록입니다"},
-       {"label": "주행거리", "value": "33,475km", "caption": "주행거리 3만 3천 킬로미터"},
-       {"label": "연료 · 변속기", "value": "디젤 · 자동", "caption": "디젤 자동변속기"},
-       {"label": "배기량", "value": "2,925cc", "caption": "배기량 2,925cc"},
-       {"label": "색상 · 차종", "value": "흰색 · 대형 SUV", "caption": "흰색 대형 SUV입니다"}
-     ]},
-    {"type": "가격", "title": "판매 가격", "layout": "big", "source": "매물 등록 정보 · 신차 대비는 차란차 표기",
-     "big": {"value": "13,490", "unit": "만원"},
-     "items": [
-       {"label": "신차 대비", "value": "16% 절약", "tone": "ok", "caption": "판매가 1억 3,490만원"},
-       {"label": "지역 · 단지", "value": "경기 수원 · 도이치오토월드", "caption": "신차 대비 16% 낮은 값입니다"}
-     ]},
-    {"type": "성능 점검", "title": "성능 · 상태 점검", "layout": "rows", "source": "성능점검 요약 (상세는 기록부 확인)",
-     "items": [
-       {"label": "점검 결과", "value": "교환 · 판금 확인", "tone": "warn", "caption": "교환·판금 이력이 있습니다"},
-       {"label": "상세 부위", "value": "기록부에서 확인", "tone": "muted", "caption": "부위는 기록부에서 확인하세요"}
-     ]},
-    {"type": "보험 이력", "title": "보험 이력", "layout": "rows", "source": "보험이력 요약",
-     "items": [
-       {"label": "전손 · 도난 · 침수", "value": "없음", "tone": "ok", "caption": "전손·도난·침수 사고 없음"},
-       {"label": "특수용도 이력", "value": "없음", "tone": "ok", "caption": "특수용도 이력 없음"},
-       {"label": "내차 피해", "value": "1회", "tone": "warn", "caption": "내차 피해 보험 처리 1회"},
-       {"label": "상대 차 피해", "value": "없음", "tone": "ok", "caption": "상대 차 피해는 없습니다"},
-       {"label": "소유자 변경", "value": "1회", "caption": "소유자 변경 1회"}
-     ]},
-    {"type": "옵션 정보", "title": "기본 옵션 12가지", "layout": "chips", "source": "매물 등록 정보 · 안전 16 · 외관/내장 14 · 시트 7 · 편의 10",
-     "chips": ["선루프", "LED 헤드램프", "주차감지센서", "후방카메라", "가죽시트", "전동시트", "열선시트", "통풍시트", "스마트키", "열선 핸들", "자동 에어컨", "내비게이션"],
-     "captions": ["선루프와 LED 헤드램프", "가죽·전동 시트", "열선·통풍 시트", "스마트키와 내비게이션"]},
-    {"type": "보증", "title": "제조사 보증", "layout": "rows", "source": "매물 등록 정보 (잔여 여부는 제조사 확인)",
-     "items": [
-       {"label": "차체 · 일반", "value": "만료", "tone": "muted", "caption": "차체·일반 보증은 만료"},
-       {"label": "엔진 · 미션", "value": "만료", "tone": "muted", "caption": "엔진·미션 보증도 만료"},
-       {"label": "총 보증기간", "value": "3년 · 10만km", "caption": "총 보증은 3년 10만 킬로미터"}
-     ]},
-    {"type": "판매자", "title": "판매자 정보", "layout": "rows", "source": "매물 등록 정보",
-     "items": [
-       {"label": "유형", "value": "딜러", "caption": "딜러 매물입니다"},
-       {"label": "소속", "value": "차란차 수원오토월드 지점", "caption": "차란차 수원오토월드 지점"},
-       {"label": "판매중 · 판매완료", "value": "13대 · 653대", "caption": "판매완료 653대"}
-     ]}
-  ],
-  "skipped": [
-    {"type": "추가 옵션", "why": "매물에 선택 옵션·가격 자료 없음"},
-    {"type": "차량 특징", "why": "원장에 근거 문장 없음"},
-    {"type": "판매자 설명", "why": "연식·주행거리만 되풀이하는 상투문"}
-  ]
+ "listing": {
+  "source": "차란차 공개 매물 (2026-11-26 열람)",
+  "title": "벤츠 G-클래스 G400d",
+  "code": "W463b"
+ },
+ "cards": [
+  {
+   "type": "차량 정보",
+   "title": "벤츠 G-클래스 G400d · W463b",
+   "layout": "rows",
+   "source": "매물 등록 정보",
+   "items": [
+    {
+     "label": "연식",
+     "value": "21년 05월",
+     "caption": "2021년 5월 등록입니다",
+     "say": "이천이십일년 오월 등록입니다.",
+     "icon": "public/icons/dealer-profile/calendar-as24.svg"
+    },
+    {
+     "label": "주행거리",
+     "value": "33,475km",
+     "caption": "주행거리 3만 3천km",
+     "say": "주행거리는 삼만 삼천 킬로미터입니다.",
+     "icon": "public/assets/bbm/detail-icons/mileage.svg"
+    },
+    {
+     "label": "연료 · 변속기",
+     "value": "디젤 · 자동",
+     "caption": "디젤 · 자동변속기",
+     "say": "디젤, 자동변속기입니다.",
+     "icon": "public/assets/bbm/detail-icons/fuel.svg"
+    },
+    {
+     "label": "배기량",
+     "value": "2,925cc",
+     "caption": "배기량 2,925cc",
+     "say": "배기량은 이천구백이십오 씨씨입니다.",
+     "icon": "public/assets/bbm/detail-icons/engine.svg"
+    },
+    {
+     "label": "색상 · 차종",
+     "value": "흰색 · 대형 SUV",
+     "caption": "흰색 대형 SUV",
+     "say": "흰색 대형 에스유브이입니다.",
+     "icon": "public/assets/bbm/detail-icons/color.svg"
+    }
+   ]
+  },
+  {
+   "type": "가격",
+   "title": "판매 가격",
+   "layout": "big",
+   "source": "매물 등록 정보 · 신차 대비는 차란차 표기",
+   "big": {
+    "value": "13,490",
+    "unit": "만원"
+   },
+   "items": [
+    {
+     "label": "신차 대비",
+     "value": "16% 절약",
+     "tone": "ok",
+     "caption": "판매가 1억 3,490만원",
+     "say": "판매가는 일억 삼천사백구십만 원입니다.",
+     "icon": "public/assets/bbm/detail-icons/price.svg"
+    },
+    {
+     "label": "지역 · 단지",
+     "value": "경기 수원 · 도이치오토월드",
+     "caption": "신차 대비 16% 낮은 값",
+     "say": "신차 대비 십육 퍼센트 낮은 값입니다.",
+     "icon": "public/icons/dealer-profile/location-as24.svg"
+    }
+   ]
+  },
+  {
+   "type": "성능 점검",
+   "title": "성능 · 상태 점검",
+   "layout": "rows",
+   "source": "성능점검 요약 (상세는 기록부 확인)",
+   "items": [
+    {
+     "label": "점검 결과",
+     "value": "교환 · 판금 확인",
+     "tone": "warn",
+     "caption": "교환·판금 표기가 있습니다",
+     "say": "성능 점검에는 교환, 판금 표기가 있습니다.",
+     "icon": "public/icons/dealer-profile/document-as24.svg"
+    },
+    {
+     "label": "상세 부위",
+     "value": "기록부에서 확인",
+     "tone": "muted",
+     "caption": "부위는 기록부에서 확인",
+     "say": "부위는 기록부에서 확인하셔야 합니다.",
+     "icon": "public/icons/dealer-profile/document-as24.svg"
+    }
+   ]
+  },
+  {
+   "type": "보험 이력",
+   "title": "보험 이력",
+   "layout": "rows",
+   "source": "보험이력 요약",
+   "items": [
+    {
+     "label": "전손 · 도난 · 침수",
+     "value": "없음",
+     "tone": "ok",
+     "caption": "전손·도난·침수 이력 없음",
+     "say": "전손, 도난, 침수 이력은 없습니다.",
+     "icon": "public/icons/dealer-profile/document-as24.svg"
+    },
+    {
+     "label": "특수용도 이력",
+     "value": "없음",
+     "tone": "ok",
+     "caption": "특수용도 이력 없음",
+     "say": "특수용도 이력도 없습니다.",
+     "icon": "public/icons/dealer-profile/document-as24.svg"
+    },
+    {
+     "label": "내차 피해",
+     "value": "1회",
+     "tone": "warn",
+     "caption": "내차 피해 보험 처리 1회",
+     "say": "내차 피해 보험 처리는 한 번 있습니다.",
+     "icon": "public/assets/bbm/detail-icons/maker.svg"
+    },
+    {
+     "label": "상대 차 피해",
+     "value": "없음",
+     "tone": "ok",
+     "caption": "상대 차 피해 없음",
+     "say": "상대 차 피해는 없습니다.",
+     "icon": "public/assets/bbm/detail-icons/maker.svg"
+    },
+    {
+     "label": "소유자 변경",
+     "value": "1회",
+     "caption": "소유자 변경 1회",
+     "say": "소유자 변경은 한 번입니다.",
+     "icon": "public/icons/dealer-profile/person-as24.svg"
+    }
+   ]
+  },
+  {
+   "type": "옵션 정보",
+   "title": "기본 옵션 12가지",
+   "layout": "chips",
+   "source": "매물 등록 정보 · 안전 16 · 외관/내장 14 · 시트 7 · 편의 10",
+   "chips": [
+    "선루프",
+    "LED 헤드램프",
+    "주차감지센서",
+    "후방카메라",
+    "가죽시트",
+    "전동시트",
+    "열선시트",
+    "통풍시트",
+    "스마트키",
+    "열선 핸들",
+    "자동 에어컨",
+    "내비게이션"
+   ],
+   "captions": [
+    "선루프 · LED 헤드램프 · 주차 센서",
+    "후방카메라 · 가죽 · 전동 시트",
+    "열선 · 통풍 시트 · 스마트키",
+    "열선 핸들 · 자동 에어컨 · 내비게이션"
+   ],
+   "say": [
+    "옵션은 선루프와 엘이디 헤드램프, 주차 센서가 있습니다.",
+    "후방카메라와 가죽, 전동 시트가 들어갑니다.",
+    "열선, 통풍 시트에 스마트키도 있습니다.",
+    "열선 핸들과 자동 에어컨, 내비게이션까지 있습니다."
+   ]
+  },
+  {
+   "type": "보증",
+   "title": "제조사 보증",
+   "layout": "rows",
+   "source": "매물 등록 정보 (잔여 여부는 제조사 확인)",
+   "items": [
+    {
+     "label": "차체 · 일반",
+     "value": "만료",
+     "tone": "muted",
+     "caption": "차체·일반 보증 만료",
+     "say": "차체, 일반 보증은 만료됐습니다.",
+     "icon": "public/assets/bbm/detail-icons/maker.svg"
+    },
+    {
+     "label": "엔진 · 미션",
+     "value": "만료",
+     "tone": "muted",
+     "caption": "엔진·미션 보증 만료",
+     "say": "엔진, 미션 보증도 만료됐습니다.",
+     "icon": "public/assets/bbm/detail-icons/gearbox.svg"
+    },
+    {
+     "label": "총 보증기간",
+     "value": "3년 · 10만km",
+     "caption": "총 보증 3년 · 10만km",
+     "say": "총 보증기간은 삼 년, 십만 킬로미터였습니다.",
+     "icon": "public/icons/dealer-profile/calendar-as24.svg"
+    }
+   ]
+  },
+  {
+   "type": "판매자",
+   "title": "판매자 정보",
+   "layout": "rows",
+   "source": "매물 등록 정보",
+   "items": [
+    {
+     "label": "유형",
+     "value": "딜러",
+     "caption": "딜러 매물입니다",
+     "say": "딜러 매물입니다.",
+     "icon": "public/icons/dealer-profile/person-as24.svg"
+    },
+    {
+     "label": "소속",
+     "value": "차란차 수원오토월드 지점",
+     "caption": "차란차 수원오토월드 지점",
+     "say": "차란차 수원오토월드 지점 소속입니다.",
+     "icon": "public/icons/dealer-profile/complex-home-as24.svg"
+    },
+    {
+     "label": "판매중 · 판매완료",
+     "value": "13대 · 653대",
+     "caption": "판매완료 653대",
+     "say": "지금까지 육백오십삼 대를 판매했습니다.",
+     "icon": "public/icons/dealer-profile/car-sale-as24.svg"
+    }
+   ]
+  }
+ ],
+ "skipped": [
+  {
+   "type": "추가 옵션",
+   "why": "매물에 선택 옵션·가격 자료 없음"
+  },
+  {
+   "type": "차량 특징",
+   "why": "원장에 근거 문장 없음"
+  },
+  {
+   "type": "판매자 설명",
+   "why": "연식·주행거리만 되풀이하는 상투문"
+  }
+ ],
+ "voice": {
+  "file": "scripts/shortform/card_info/samples/g400d_voice.mp3",
+  "voice": "ElevenLabs Taehyung · eleven_v3 · 1회 생성",
+  "words": "scripts/shortform/card_info/samples/g400d_voice_words.json"
+ }
 }

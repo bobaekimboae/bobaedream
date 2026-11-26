@@ -35,3 +35,10 @@
 
 ## 아직 안 한 것
 음성(내레이션) 연동, 실촬영 컷 사이에 끼우기, check_be.py 검사 연결, 카드 뒤 흐린 차 사진 바탕.
+
+## v1.1 추가 (2026-11-26) — 음성 · 오토스카우트 아이콘
+- 음성: 입력의 `voice.file`(음성 파일)과 `voice.words`(낱말 시각, faster-whisper)를 주면 줄이 그 문장을 말하기 시작할 때 뜬다. 음성 문장 수와 카드 줄 수가 다르면 렌더를 멈춘다. 원본 음성 파일은 고치지 않고 섞을 때만 1.15배속(`card_info_rules.json` `voice.tempo`).
+- 줄마다 `say`(읽을 문장, 숫자를 한글로)와 `caption`(화면 자막)을 따로 둔다.
+- 샘플 음성: ElevenLabs Taehyung · eleven_v3 · 1회 생성(재생성 금지). `samples/g400d_voice.mp3`.
+- 아이콘: 줄 앞 40px, 노션 오토스카우트24 원본 SVG만(`public/assets/bbm/detail-icons/`의 AS24 원본, `public/icons/dealer-profile/*-as24.svg`). 파일은 고치지 않고 그릴 때 회색 `#6B7280`만 입힌다. 맞는 원본이 없으면 아이콘 없이 쓴다.
+- 샘플 v2: `public/shortform-samples/card-info-v1/bobae_card_info_g400d_v2.mp4` (59.2초).
