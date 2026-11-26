@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: 보배드림 매물 링크 가져오기 API
+  version: 1.1.0
+  description: |
+    딜러 본인 매물 링크 1건을 받아 매물 원장 칸과 원본 사진을 만든다.
+    보배드림 본 서버만 서비스 토큰으로 호출한다. 응답의 차량번호·차대번호·연락처는 가려진다.
+servers:
+  - url: /api
+security:
+  - service: []
+components:
+  securitySchemes:
+    service:
+      type: http
+      scheme: bearer
+  schemas:
+    Cell:
+      type: object
+      properties:
+        value: {}
+        source: { type: string, example: 다른 사이트 }
+        site: { type: string, example: 엠파크 }
+        verify: { type: string, enum: [확인됨, 미확인, 서로 다름] }
+        other: {}
+    Import:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        site: { type: string, example: 엠파크 }
+        url: { type: string }
+        status: { type: string, enum: [queued, running, done, needs_review, failed] }
+        owner_check: { type: [string, 'null'], enum: [본인 매물, 확인 필요, 미판정, null] }
+        error:
+          type: [object, 'null']
+          properties:
+            code: { type: string, enum: [extract_failed, worker_failed, no_ledger] }
+            message: { type: string }
+        cells:
+          type: [object, 'null']
+          description: 원장 키(시트 20_매물원장_필드) → 칸. plate_no·vin·contact 는 가림
+          additionalProperties: { $ref: '#/components/schemas/Cell' }
+        note: { type: [string, 'null'], description: 사이트 한계 안내(예 차란차 사진 1장) }
+        catalog: { $ref: '#/components/schemas/Catalog' }
+        source:
+          type: [object, 'null']
+          description: 조합·매매단지 매물일 때 출처
+          properties:
+            site_name: { type: string, example: 대전카 }
+            family: { type: string, enum: [carku, emi, aton] }
+            union: { type: [string, 'null'] }
+            federation: { type: [string, 'null'], example: 전국연합 }
+        photos:
+          type: array
+          items:
+            type: object
+            properties:
+              order: { type: integer }
+              path: { type: string }
+              bytes: { type: integer }
+              sha256: { type: string }
+        checked_at: { type: [string, 'null'], format: date-time }
+        sheet_synced: { type: boolean }
+    Catalog:
+      type: [object, 'null']
+      description: 보배드림 차량 기준표(cars-index-v1) 연결. 원장 칸 값은 사이트 표기 그대로
+      properties:
+        match: { type: string, enum: [exact, by_date, model, make, none] }
+        make_id: { type: [string, 'null'] }
+        make: { type: [string, 'null'] }
+        model_id: { type: [string, 'null'] }
+        model: { type: [string, 'null'] }
+        generation_id: { type: [string, 'null'] }
+        generation: { type: [string, 'null'] }
+        catalog_version: { type: [string, 'null'] }
+    Error:
+      type: object
+      properties:
+        ok: { const: false }
+        error: { type: string }
+        code: { type: string, enum: [unsupported_site, invalid, not_found, unauthorized, too_soon] }
+        fields: { type: array, items: { type: string } }
+paths:
+  /health:
+    get:
+      security: []
+      summary: 지원 사이트
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok: { const: true }
+                  sites: { type: array, items: { type: string } }
+  /listing-imports:
+    post:
+      summary: 링크 접수
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [url, dealer_key]
+              properties:
+                url: { type: string, maxLength: 500 }
+                dealer_key: { type: string, maxLength: 64, description: 본 서버가 확인한 딜러 계정 키 }
+                dealer_name: { type: string, maxLength: 30 }
+                shop_name: { type: string, maxLength: 60 }
+      responses:
+        '202':
+          description: 새로 접수(대기열)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok: { const: true }
+                  existing: { const: false }
+                  data: { $ref: '#/components/schemas/Import' }
+        '200':
+          description: 같은 딜러·같은 링크가 이미 있음 → 기존 결과
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok: { const: true }
+                  existing: { const: true }
+                  data: { $ref: '#/components/schemas/Import' }
+        '401': { description: 토큰 없음, content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } } }
+        '422': { description: 지원하지 않는 사이트·값 오류, content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } } }
+  /listing-imports/{id}:
+    get:
+      summary: 상태·원장·사진
+      parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok: { const: true }
+                  data: { $ref: '#/components/schemas/Import' }
+        '404': { description: 없음, content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } } }
+  /listing-imports/{id}/recheck:
+    post:
+      summary: 가격·판매 상태 다시 확인(1시간에 1번)
+      parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }]
+      responses:
+        '202':
+          description: 대기열에 다시 넣음
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok: { const: true }
+                  data: { $ref: '#/components/schemas/Import' }
+        '429': { description: 너무 빨리 다시 요청, content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } } }
+  /dealers/{dealerKey}/listings:
+    get:
+      summary: 흩어진 매물(같은 차는 한 줄, 사이트별 가격)
+      parameters: [{ name: dealerKey, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok: { const: true }
+                  total_cars: { type: integer }
+                  total_links: { type: integer }
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        car: { type: string }
+                        year: { type: [integer, 'null'] }
+                        mileage_km: { type: [integer, 'null'] }
+                        price_gap_krw: { type: integer }
+                        catalog: { $ref: '#/components/schemas/Catalog' }
+                        sites:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              import_id: { type: string, format: uuid }
+                              site: { type: string }
+                              url: { type: string }
+                              price_krw: { type: [integer, 'null'] }
+                              price_display: { type: [string, 'null'] }
+                              status: { type: [string, 'null'] }
+                              checked_at: { type: [string, 'null'] }
+                              owner_check: { type: [string, 'null'] }

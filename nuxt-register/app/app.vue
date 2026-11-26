@@ -20,6 +20,7 @@ import MultiSheet from "./components/MultiSheet.vue";
 import PolicySheet from "./components/PolicySheet.vue";
 import InspectSheet from "./components/InspectSheet.vue";
 import { DESC_DRAFTS, DESC_TEMPLATE, LEASE_COMPANIES, LOCK_ON_LOOKUP, MOCK_PLATE, mockLookup, normPlate, OPTION_GROUPS, POLICY_LINES, RENT_COMPANIES, SALE_KINDS, SELLER_PHONE, INSPECTION_WARN, type SaleKind } from "./lib/devform";
+import { listingLedger, lookupErrorText, mergeLedger, normalizeVehicleLookup, requestVehicleLookup, toFormValues } from "./lib/vehicle-lookup";
 import { IC } from "./lib/icons";
 import { CATEGORIES, FUEL, YEARS, truckFormats, truckSubtypes, type CategoryId, type Field } from "./lib/categories";
 import { fuelsOf, generationsOf, gradesOf, makerSections, modelsOf } from "./lib/catalog";
@@ -179,12 +180,23 @@ const applyMulti = (list: string[]) => {
 
 // ── 테스트 서버 양식: 차량번호 조회(14러0927 목업) · 판매구분 · 연락처 · 상세설명 유형 · 점검기록부 · 정책 동의 ──
 const dev = computed(() => Boolean(cat.value.devForm));
-const lookup = () => {
+const lookingUp = ref(false);
+const lookup = async () => {
   const plate = normPlate(form.value.values.plate ?? "");
   if (!plate) return toast("차량번호를 입력해 주세요");
-  if (plate !== MOCK_PLATE) return toast(`시안 조회는 ${MOCK_PLATE}만 돼요. 「임시번호/직수입」에 체크하면 직접 입력할 수 있어요`);
-  const locked = cat.value.fields.map((f) => f.key).filter((k) => LOCK_ON_LOOKUP.includes(k) && mockLookup[k] !== undefined);
-  form.value = { ...form.value, values: { ...form.value.values, ...mockLookup }, locked };
+  let found: Record<string, string> = mockLookup;
+  if (plate !== MOCK_PLATE) {
+    // 실제 조회: 국토부·카히스토리 통합 시험 서버(기관 키는 서버에만). 실패하면 직접 입력 안내
+    if (lookingUp.value) return;
+    lookingUp.value = true;
+    const r = await requestVehicleLookup(plate);
+    lookingUp.value = false;
+    if (!r.ok) return toast(lookupErrorText(r.error.code));
+    const now = new Date().toISOString();
+    found = { plate, ...toFormValues(mergeLedger(listingLedger("", {}, now), normalizeVehicleLookup(r.data), now)) };
+  }
+  const locked = cat.value.fields.map((f) => f.key).filter((k) => LOCK_ON_LOOKUP.includes(k) && found[k] !== undefined);
+  form.value = { ...form.value, values: { ...form.value.values, ...found }, locked };
   toast("차량 정보를 불러왔어요. 나머지 칸을 채워 주세요");
 };
 const setImported = (on: boolean) => (form.value = { ...form.value, imported: on });
