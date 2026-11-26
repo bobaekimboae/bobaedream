@@ -50,6 +50,21 @@ def validate(data):
     if re.search(r"\d{2,3}[가-힣]\d{4}", txt): sys.exit("차량번호로 보이는 글자가 있습니다")
     if re.search(r"01[016789][- ]?\d{3,4}[- ]?\d{4}", txt): sys.exit("전화번호로 보이는 글자가 있습니다")
 
+def sentences(words_path):
+    """받아쓰기 낱말 시각 → 문장별 (시작, 끝) 초."""
+    ws = json.load(open(ROOT / words_path)); out = []; cur = None
+    for w in ws:
+        if cur is None: cur = [max(0.0, w["s"] - 0.03), w["e"]]
+        cur[1] = w["e"]
+        if w["w"].endswith((".", "?", "!")): out.append(cur); cur = None
+    if cur: out.append(cur)
+    for i, x in enumerate(out):
+        x[1] = min(x[1] + 0.15, out[i + 1][0]) if i + 1 < len(out) else x[1] + 0.15
+    return out
+
+def vsegs(card):
+    return card.get("v") if card["layout"] == "chips" else [it.get("v") for it in card["items"]]
+
 def steps_of(card):
     if card["layout"] == "chips":
         n = R["chip"]["per_step"]; ch = card["chips"]
@@ -61,6 +76,7 @@ def card_height(card):
     if card["layout"] == "big": h += R["big"]["value_px"] + 34
     if card["layout"] == "chips":
         rows = -(-len(card["chips"]) // R["chip"]["per_step"]); h += rows * (R["chip"]["h"] + R["chip"]["gap"])
+    elif card["layout"] == "timeline": h += len(card["items"]) * R["timeline"]["h"]
     else: h += len(card["items"]) * R["row"]["h"]
     return h + 20 + R["source"]["font_px"] + 8
 
@@ -114,6 +130,23 @@ def draw_card(card, idx, total, revealed, part):
             tmp.putalpha(tmp.getchannel("A").point(lambda v: int(v * a))); layer.alpha_composite(tmp)
             y += cp["h"] + cp["gap"]
         y = y0 + ch - k["pad_y"] - R["source"]["font_px"] - 8 - 20
+    elif card["layout"] == "timeline":
+        tlr = R["timeline"]; df = f("SemiBold", tlr["date_px"]); tf2 = f("Bold", tlr["text_px"]); sf = f("Medium", tlr["sub_px"]); n = len(card["items"])
+        cx = ix + 14
+        d.line([cx, y + tlr["h"] / 2, cx, y + (n - 1) * tlr["h"] + tlr["h"] / 2], fill=C["line"], width=4)
+        for i, it in enumerate(card["items"]):
+            ry = y + i * tlr["h"]; cy = ry + tlr["h"] / 2
+            d.ellipse([cx - 9, cy - 9, cx + 9, cy + 9], fill=C["line"])
+            if i > revealed: continue
+            a = 1.0 if i < revealed else ease(part)
+            if a <= 0: continue
+            off = int((1 - a) * 20); tmp = Image.new("RGBA", (W, H), (0, 0, 0, 0)); td = ImageDraw.Draw(tmp)
+            td.ellipse([cx - 13, cy - 13, cx + 13, cy + 13], fill=tone(it.get("tone")) if it.get("tone") else C["ink"])
+            td.text((ix + 52, ry + 14 + off), it["label"], font=df, fill=C["label"])
+            td.text((ix + 52, ry + 14 + tlr["date_px"] + 8 + off), it["value"], font=tf2, fill=C["ink"])
+            if it.get("sub"): td.text((ix + iw, ry + 14 + tlr["date_px"] + 8 + (tlr["text_px"] - tlr["sub_px"]) + off), it["sub"], font=sf, fill=tone(it.get("tone")) if it.get("tone") else C["label"], anchor="ra")
+            tmp.putalpha(tmp.getchannel("A").point(lambda q: int(q * a))); layer.alpha_composite(tmp)
+        y += n * tlr["h"]
     else:
         rw = R["row"]; lf = f("Medium", rw["label_px"]); vf = f("Bold", rw["value_px"])
         for i, it in enumerate(card["items"]):
@@ -162,11 +195,25 @@ def pcm(path, sr=48000):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "f32le", "-ac", "2", "-ar", str(sr), "-"], capture_output=True).stdout
     return np.frombuffer(raw, "float32").reshape(-1, 2).copy()
 
-def main(inp, out):
-    data = json.load(open(inp)); validate(data); cards = data["cards"]; total = len(cards)
+def main(inp, out, only=None, logo=True):
+    data = json.load(open(inp)); validate(data); cards = data["cards"]
+    if only: cards = [c for c in cards if c["type"] in only]
+    if not cards: sys.exit("그릴 카드가 없습니다")
+    total = len(cards); placed = []
     # 시간표: starts[ci] = 그 카드 각 줄이 뜨는 시각(초)
     V = R.get("voice", {}); vo = data.get("voice"); events = []; starts = []
-    if vo and vo.get("words"):
+    if vo and vo.get("files"):
+        sents = {k: sentences(v["words"]) for k, v in vo["files"].items()}; t = 0.0
+        for c in cards:
+            t += T["card_in_s"] + 0.15; row = []
+            for v in vsegs(c):
+                row.append(t)
+                if v:
+                    a0, a1 = sents[v[0]][v[1]]; placed.append((t, v[0], a0, a1)); t += (a1 - a0) / V["tempo"] + V["gap_s"]
+                else: t += T["step_s"]
+            starts.append(row); t += V["card_gap_s"]
+        body = t + V["tail_s"]
+    elif vo and vo.get("words"):
         ws = json.load(open(ROOT / vo["words"])); sent = []; new = True
         for w in ws:
             if new: sent.append(w["s"]); new = False
@@ -187,7 +234,7 @@ def main(inp, out):
         c["_span"] = [s0, body]
         if ci: cards[ci - 1]["_span"][1] = s0
         events.append((s0, "card")); events += [(x, "item") for x in starts[ci]]
-    dur = body + T["end_logo_s"]; nfr = int(round(dur * FPS))
+    dur = body + (T["end_logo_s"] if logo else 0); nfr = int(round(dur * FPS))
     bg = background().convert("RGBA"); logo = Image.open(LOGO).convert("RGBA")
     tmpv = str(out) + ".video.mp4"
     ff = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
@@ -222,10 +269,14 @@ def main(inp, out):
     ff.stdin.close(); ff.wait()
     # 소리
     sr = 48000; mix = np.zeros((int(dur * sr) + sr, 2), "float32"); sx = R["sfx"]
-    has_v = bool(vo and vo.get("file")); k = V.get("sfx_scale", 1) if has_v else 1
+    has_v = bool(vo and (vo.get("file") or vo.get("files"))); k = V.get("sfx_scale", 1) if has_v else 1
     bgm = pcm(BGM / sx["bgm"]); reps = -(-len(mix) // len(bgm)); mix += np.tile(bgm, (reps, 1))[:len(mix)] * (V["bgm_gain"] if has_v else sx["bgm_gain"])
     sc, si = pcm(SFX / sx["card"]) * sx["card_gain"] * k, pcm(SFX / sx["item"]) * sx["item_gain"] * k
-    if has_v:
+    for t0, key, a0, a1 in placed:
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{a0:.3f}", "-t", f"{a1 - a0:.3f}", "-i", str(ROOT / vo["files"][key]["file"]), "-af", f"atempo={V['tempo']},afade=t=in:d=0.02", "-f", "f32le", "-ac", "2", "-ar", str(sr), "-"], capture_output=True).stdout
+        vv = np.frombuffer(raw, "float32").reshape(-1, 2).copy() * V["gain"]; fo2 = min(len(vv), int(0.04 * sr)); vv[-fo2:] *= np.linspace(1, 0, fo2)[:, None]
+        i0 = int(t0 * sr); vv = vv[:len(mix) - i0]; mix[i0:i0 + len(vv)] += vv
+    if has_v and vo.get("file"):
         raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(ROOT / vo["file"]), "-af", f"atempo={V['tempo']}", "-f", "f32le", "-ac", "2", "-ar", str(sr), "-"], capture_output=True).stdout
         vv = np.frombuffer(raw, "float32").reshape(-1, 2) * V["gain"]; i0 = int(V["lead_s"] * sr); vv = vv[:len(mix) - i0]; mix[i0:i0 + len(vv)] += vv
     for tt, kind in events:
@@ -242,4 +293,12 @@ def main(inp, out):
     json.dump(plan, open(str(out).replace(".mp4", "_plan.json"), "w"), ensure_ascii=False, indent=2); print(json.dumps(plan, ensure_ascii=False))
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    # 쓰는 법: card_info_render.py 입력.json 출력.mp4 [--cards 유형1,유형2] [--each 폴더]
+    a = sys.argv[1:]; only = None
+    if "--cards" in a: only = a[a.index("--cards") + 1].split(",")
+    if "--each" in a:
+        outdir = Path(a[a.index("--each") + 1]); outdir.mkdir(parents=True, exist_ok=True); d0 = json.load(open(a[0]))
+        for c in d0["cards"]:
+            if only and c["type"] not in only: continue
+            main(a[0], outdir / f"card_{c['id']}.mp4", [c["type"]], logo=False)
+    else: main(a[0], a[1], only)

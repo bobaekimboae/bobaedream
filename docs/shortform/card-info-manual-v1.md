@@ -42,3 +42,16 @@
 - 샘플 음성: ElevenLabs Taehyung · eleven_v3 · 1회 생성(재생성 금지). `samples/g400d_voice.mp3`.
 - 아이콘: 줄 앞 40px, 노션 오토스카우트24 원본 SVG만(`public/assets/bbm/detail-icons/`의 AS24 원본, `public/icons/dealer-profile/*-as24.svg`). 파일은 고치지 않고 그릴 때 회색 `#6B7280`만 입힌다. 맞는 원본이 없으면 아이콘 없이 쓴다.
 - 샘플 v2: `public/shortform-samples/card-info-v1/bobae_card_info_g400d_v2.mp4` (59.2초).
+
+## v2 (2026-11-26) — 사용자 2차 제안 반영
+1. **카드는 필수가 아니다.** 매물에 자료가 있는 유형만 1개부터 여러 개까지 만들고, 차량 편집 컷 사이에 넣는다. 만드는 조건은 `card_info_rules.json`의 `catalog.make_if`.
+2. **순서**: 엔카 매물정보에 있는 유형은 엔카 순서 `차량 기본정보 → 성능 점검 → 보험 이력 → 차량 이력`. 그 뒤 우리 유형 `옵션 정보 → 추가 옵션 → 차량 특징 → 판매자 설명`.
+3. **새 유형 「차량 이력」**(layout `timeline`): 날짜 · 사건 · 보조 값(주행거리 · 횟수)을 세로 줄에 차례로 찍는다. 날짜가 있는 사건이 2개 이상일 때만 만든다. 국토부 통합이력 원문을 못 받았으면 출처에 그렇게 적는다.
+4. **카드별 영상**: `--each 폴더`를 주면 카드마다 따로 한 편씩(끝 로고 없이) 만든다. `--cards 유형1,유형2`로 고를 수도 있다.
+   - 전체: `python3 scripts/shortform/card_info/card_info_render.py 입력.json 출력.mp4`
+   - 카드별: `python3 scripts/shortform/card_info/card_info_render.py 입력.json x --each 출력폴더`
+5. **음성 조각**: 줄마다 `v: [파일, 문장 번호]`. 카드를 빼거나 순서를 바꿔도 음성이 따라온다. 문장 사이 0.18초, 카드 사이 0.35초.
+6. 성능 점검 카드는 좋은 판정만 남기지 않는다(단순 수리 · 도장 수리 · 리콜 표기 포함, 기록 날짜를 출처에).
+7. 옵션은 장착으로 표시된 것만(이 샘플은 통풍시트가 비활성이라 뺌).
+- 입력 v2: `scripts/shortform/card_info/samples/g400d_cards_v2.json`
+- 샘플: `public/shortform-samples/card-info-v2/bobae_card_info_g400d_v3_all.mp4`(64초) · `each/card_01~05_*.mp4`(10~17초)
