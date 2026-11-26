@@ -1,0 +1,14 @@
+{
+  "description":"내부 표준화 입력 틀. 공식 API 원문 형식이 아니며 실제 차량 이력 값이 채워져 있지 않습니다.",
+  "history_timeline": {
+    "events": [
+      {
+        "event_id": null,
+        "event_type": "inspection",
+        "occurred_on": null,
+        "title": null,
+        "source": {"system":"molit_integrated_history","response_ref":null,"retrieved_at":null,"lookup_scope":null}
+      }
+    ]
+  }
+}
