@@ -85,7 +85,8 @@ def underline_img(w):
     w = max(20, int(w))
     if w not in _ul_cache:
         import cairosvg
-        raw = cairosvg.svg2png(url=os.path.join(ROOT, U['svg']), output_width=w * 2, output_height=U['height_px'] * 2)
+        # 가로세로 비율을 지키며 그린 뒤 가로로만 늘림(output_width·height를 같이 주면 SVG가 가운데에 작게 그려짐)
+        raw = cairosvg.svg2png(url=os.path.join(ROOT, U['svg']), output_height=U['height_px'] * 4)
         a = Image.open(io.BytesIO(raw)).convert('RGBA').getchannel('A').resize((w, U['height_px']), Image.LANCZOS)
         g = U.get('alpha_gain', 1.0)
         a = a.point(lambda v: min(255, int(v * g)))  # 원본 붓 결의 옅은 끝도 보이게(모양은 그대로)
@@ -201,6 +202,56 @@ def man(v):
     return f'{rest:,}만원'
 
 
+def _ev_type(label, rule):
+    for p in rule.get('priority', []):
+        if any(k in label for k in p['keys']):
+            return p['rank'], p['group']
+    return 4, '기타'
+
+
+def timeline_compact(rows, rule):
+    """타임라인 사건이 많을 때: 같은 사건 합치기 → 최대 max_events개(처음·마지막 유지, 중요도 순) → 나머지는 「그 밖에」 한 줄."""
+    mx = rule.get('max_events')
+    if not mx or len(rows) <= mx:
+        return rows
+    merged, seen = [], {}
+    for x in rows:  # [아이콘, 날짜, 사건, ...]
+        key = re.sub(r'[\s·\d,km]+', '', x[2].split('·')[0])
+        if key in seen:
+            m = merged[seen[key]]
+            m['n'] += 1; m['last'] = x[1]
+        else:
+            seen[key] = len(merged); merged.append({'row': list(x), 'n': 1, 'first': x[1], 'last': x[1]})
+    def as_row(m):
+        x = list(m['row'])
+        if m['n'] > 1:
+            y0, y1 = m['first'][:4], m['last'][:4]
+            x[1] = f'{y0}~{y1[2:]}' if y0 != y1 else y0
+            x[2] = f"{x[2].split('·')[0].strip()} ×{m['n']}"
+            x = x[:3] + ['', fill(rule['row_merge'].replace('{n}', str(m['n'])), x[1], x[2].split(' ×')[0])]
+        return x
+    if len(merged) <= mx:
+        return [as_row(m) for m in merged]
+    keep = {0, len(merged) - 1}
+    order = sorted(range(1, len(merged) - 1), key=lambda i: (_ev_type(merged[i]['row'][2], rule)[0], -i))
+    must = [i for i in order if _ev_type(merged[i]['row'][2], rule)[0] == 1]
+    for i in must + [i for i in order if i not in must]:
+        if len(keep) >= mx - 1:
+            break
+        keep.add(i)
+    cnt, rk = {}, {}
+    for i, m in enumerate(merged):
+        if i not in keep:
+            r_, g = _ev_type(m['row'][2], rule)
+            cnt[g] = cnt.get(g, 0) + m['n']; rk[g] = r_
+    cnt = dict(sorted(cnt.items(), key=lambda kv: rk[kv[0]]))  # 중요한 묶음부터
+    out = [as_row(merged[i]) for i in sorted(keep)]
+    if cnt:
+        val = ' · '.join(f'{g} {n}건' for g, n in cnt.items())
+        out.append(['', rule['more_label'], val, 'more', fill(rule['row_more'], rule['more_label'], val)])
+    return out
+
+
 class Card:
     def __init__(self, kind, data, car, idx, total):
         self.kind, self.data, self.car, self.idx, self.total = kind, data, car, idx, total
@@ -208,6 +259,8 @@ class Card:
         self.rows = data.get('rows', [])
         self.sample = bool(data.get('sample'))
         self.segs = []  # (t0, t1, kind, text, hi) — 카드 안 시각
+        if kind == 'timeline':
+            self.rows = timeline_compact(self.rows, self.rule)
         if kind == 'extra' and self.rows and car.get('_new_price'):
             add = sum(int(re.sub(r'[^0-9]', '', x[2])) for x in self.rows if re.search(r'\d', x[2] or ''))
             self.rows = list(self.rows) + [
@@ -322,6 +375,7 @@ class Card:
                 y = by0 + i * rh + (1 - ra) * M['row_in_rise_px']
                 cy = y + rh / 2
                 warn = len(x) > 3 and x[3] == 'warn'
+                tagx = x[3] if len(x) > 3 else ''
                 al = int(255 * ra)
                 ixx = ox + pad
                 ref = x[0]
@@ -338,9 +392,13 @@ class Card:
                     layer.alpha_composite(fade(ri, ra), (int(ixx), int(cy - S['icon_px'] / 2)))
                 else:
                     ld.ellipse((ixx + 14, cy - 8, ixx + 30, cy + 8), fill=hexc(S['ink'], al))
+                if self.kind == 'timeline' and tagx == 'more':
+                    ld.text((ixx, cy), x[1], font=F(FS, S['label_px']), fill=hexc(S['label'], al), anchor='lm')
+                    ld.text((ox + cw - pad, cy), x[2], font=F(FS, S['label_px']), fill=hexc(S['label'], al), anchor='rm')
+                    continue
                 if self.kind == 'timeline':
                     lx = ixx + 22
-                    if i < len(rows) - 1:
+                    if i < len(rows) - 1 and (rows[i + 1][3] if len(rows[i + 1]) > 3 else '') != 'more':
                         nra = ease((t - self.row_t(i + 1)) / M['row_in_s'])
                         ld.line((lx, cy, lx, cy + rh * nra), fill=hexc(S['ink'], al), width=4)
                     ld.ellipse((lx - 13, cy - 13, lx + 13, cy + 13), fill=hexc(S['accent'], al), outline=hexc(S['ink'], al), width=4)
@@ -402,7 +460,7 @@ class Card:
 
     def ul_progress(self, label, t):
         """밑줄 칠 상태 (진행 0~1, 투명도 0~1).
-        sync: 말이 그 줄의 값에 닿을 때 값 길이만큼 왼쪽→오른쪽으로 칠하고, 다음 줄이 칠해지면 0.2초에 사라짐(지금 읽는 줄 하나만).
+        sync: 말이 그 줄의 값에 닿을 때 값 길이만큼 왼쪽→오른쪽으로 칠한다. keep=true면 설명한 줄은 칠이 남아 쌓이고, false면 다음 줄이 칠해질 때 사라짐.
         keys: 데이터 underline 항목을 줄이 다 나온 뒤 차례로 칠하고 그대로 둠(이전 방식)."""
         U = RULES['underline']
         rows = self.row_order()
@@ -415,7 +473,7 @@ class Card:
                 return 0.0, 0.0
             t0, dur = win
             nxt = next((w for w in (self.paint_win(k) for k in range(idx + 1, len(rows))) if w), None)
-            al = 1.0 if not nxt else 1 - ease((t - nxt[0]) / U['fade_out_s'])
+            al = 1.0 if (U.get('keep') or not nxt) else 1 - ease((t - nxt[0]) / U['fade_out_s'])
             return ease((t - t0) / dur), al
         keys = self.data.get('underline') or []
         if label not in keys:
@@ -598,11 +656,11 @@ def align(sents, words):
 
 def loud2(path):
     """2단계 loudnorm(−14 LUFS · TP −1.5). 영상은 그대로 복사."""
-    r = subprocess.run(['ffmpeg', '-hide_banner', '-i', path, '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json',
+    r = subprocess.run(['ffmpeg', '-hide_banner', '-i', path, '-af', 'loudnorm=I=-14:TP=-2.0:LRA=11:print_format=json',
                         '-f', 'null', '-'], capture_output=True, text=True)
     txt = r.stderr
     j = json.loads(txt[txt.rindex('{'):txt.rindex('}') + 1])
-    f = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:"
+    f = (f"loudnorm=I=-14:TP=-2.0:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:"
          f"measured_LRA={j['input_lra']}:measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true")
     tmp = path + '.tmp.mp4'
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', path, '-af', f, '-c:v', 'copy', '-c:a', 'aac',
