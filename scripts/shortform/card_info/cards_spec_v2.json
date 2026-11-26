@@ -7,7 +7,10 @@
     "band_x": 60,
     "band_y": 120,
     "band_h": 380,
-    "title_gap": 8
+    "title_gap": 8,
+    "style": "full",
+    "full_h": 760,
+    "full_fade": 220
   },
   "card": {
     "w": 960,

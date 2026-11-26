@@ -188,7 +188,18 @@ def main():
         bg_src = Image.open(os.path.join(a.photos, c["bg"])).convert("RGB")
         big = fit_cover(bg_src, int(W * 1.08), int(H * 1.08)).filter(ImageFilter.GaussianBlur(SPEC["bg"]["blur"]))
         big = Image.blend(big, Image.new("RGB", big.size, (0, 0, 0)), SPEC["bg"]["darken"])
-        band = rounded(fit_cover(bg_src, W - 2 * SPEC["bg"]["band_x"], SPEC["bg"]["band_h"], c.get("band_box")), 28)
+        B = SPEC["bg"]
+        if B.get("style") == "full":
+            # 위 사진: 화면 폭 꽉 채움, 아래쪽만 배경으로 스며들게(글자 줄 없음)
+            band = fit_cover(bg_src, W, B["full_h"], c.get("band_box")).convert("RGBA")
+            fade = B["full_fade"]
+            m = Image.new("L", (W, B["full_h"]), 255)
+            md = ImageDraw.Draw(m)
+            for yy in range(fade):
+                md.line((0, B["full_h"] - fade + yy, W, B["full_h"] - fade + yy), fill=int(255 * (1 - yy / fade) ** 1.6))
+            band.putalpha(m)
+        else:
+            band = rounded(fit_cover(bg_src, W - 2 * B["band_x"], B["band_h"], c.get("band_box")), 28)
         cards.append(dict(c=c, start=s["start"], end=s["end"], base=base, pieces=pieces, big=big, band=band))
     dur = sync["duration"] + T["tail"]
     title = v1.top_title(car)
@@ -216,8 +227,11 @@ def main():
         bw, bh = int(W * z), int(H * z)
         bgf = cd["big"].resize((bw, bh), Image.BILINEAR)
         fr = bgf.crop(((bw - W) // 2, (bh - H) // 2, (bw - W) // 2 + W, (bh - H) // 2 + H)).convert("RGBA")
-        fr.alpha_composite(cd["band"], (SPEC["bg"]["band_x"], SPEC["bg"]["band_y"]))
-        fr.alpha_composite(title, (0, SPEC["bg"]["band_y"] + SPEC["bg"]["band_h"] + SPEC["bg"]["title_gap"]))
+        if SPEC["bg"].get("style") == "full":
+            fr.alpha_composite(cd["band"], (0, 0))
+        else:
+            fr.alpha_composite(cd["band"], (SPEC["bg"]["band_x"], SPEC["bg"]["band_y"]))
+            fr.alpha_composite(title, (0, SPEC["bg"]["band_y"] + SPEC["bg"]["band_h"] + SPEC["bg"]["title_gap"]))
         ein = ease_out(lt / T["card_in"]) if k else 1.0 if lt > 0 else 0.0
         if k == 0:
             ein = ease_out(t / T["card_in"])
