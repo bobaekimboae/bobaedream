@@ -83,6 +83,7 @@
   ],
   "selection": {
     "card_mode": "off",
+    "requested_type_ids_origin": "auto policy or preset emits the request; not a requirement for manual per-listing selection",
     "requested_type_ids": [],
     "mandatory_type_ids": [],
     "when_disabled": "empty plan",
@@ -181,6 +182,7 @@
     ]
   ],
   "timeline_rules": {
+    "training_mixed_source_allowed": {"allowed": true, "title": "공개자료 기반 이력 · 훈련용", "required_disclaimer": "국토부 원문 미확보", "public_official_claim": false},
     "official_title_allowed_only_if": "all displayed events have confirmed MOLIT_TS_CAR365 vehicle-level evidence and valid access reference",
     "carhistory_not_molit": true,
     "undated_events": "do not invent dates; show separate undated summary only if verified",
@@ -194,6 +196,7 @@
     "known_warning_omission": "log separately for final vehicle QA, even if timeline unselected"
   },
   "sample": {
+    "plan_scope": "official_history_claim_check; not the Claude v3 mixed-source training montage",
     "card_mode": "selected",
     "listing_id": "01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
     "model": "벤츠 G-클래스 W463b G400d",
