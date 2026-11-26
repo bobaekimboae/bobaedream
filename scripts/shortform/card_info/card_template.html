@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<!-- 숏폼 카드 정보 기법 템플릿 v1. card_render.py가 __DATA__ 자리에 카드 데이터를 넣고, seek(t)로 프레임마다 상태를 정해 캡처한다.
+     규칙 값은 card_spec.json(DATA.spec) · be_locked_rules.json(DATA.rules)에서만 읽는다. -->
+<style>
+@font-face{font-family:P;font-weight:500;src:url(__FONTS__/Pretendard-Medium.otf)}
+@font-face{font-family:P;font-weight:600;src:url(__FONTS__/Pretendard-SemiBold.otf)}
+@font-face{font-family:P;font-weight:700;src:url(__FONTS__/Pretendard-Bold.otf)}
+@font-face{font-family:P;font-weight:800;src:url(__FONTS__/Pretendard-ExtraBold.otf)}
+@font-face{font-family:P;font-weight:900;src:url(__FONTS__/Pretendard-Black.otf)}
+:root{--y:#F5F200;--ink:#141414;--sub:#6B6F76;--line:#ECEDEF;--tile:#F2F3F5}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:#000;overflow:hidden}
+body{font-family:P,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+#stage{position:absolute;inset:0;overflow:hidden;background:#111}
+#bg{position:absolute;inset:-80px;will-change:transform}
+#bg img{width:100%;height:100%;object-fit:cover}
+#bgdim{position:absolute;inset:0}
+#content{position:absolute;inset:0}
+.chip{position:absolute;will-change:transform}
+.panel{position:absolute;background:#fff;border-radius:44px;overflow:hidden}
+.row{will-change:transform,opacity}
+svg.ic{display:block;stroke-width:1.9}
+/* 오토스카우트식 2열 핵심 정보 */
+.kvh-name{font-size:32px;font-weight:700;color:var(--sub);line-height:1.3}
+.kvh-price{font-size:64px;font-weight:900;line-height:1.15;margin-top:6px}
+.kvh-price small{font-size:38px;font-weight:800;margin-left:4px}
+.hr{height:2px;background:var(--line);margin:30px 0 34px}
+.kv{display:grid;grid-template-columns:1fr 1fr;column-gap:36px;row-gap:34px}
+.kvi{display:flex;align-items:center;gap:22px;min-width:0}
+.tile{flex:none;width:96px;height:96px;border-radius:26px;background:var(--tile);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.tile svg{width:52px;height:52px}
+.kvl{font-size:26px;font-weight:600;color:var(--sub);line-height:1.25}
+.kvv{font-size:40px;font-weight:800;line-height:1.2;white-space:nowrap}
+.kvn{font-size:21px;font-weight:600;color:var(--sub);margin-top:2px}
+/* 체크 목록 */
+.cl{display:flex;flex-direction:column}
+.cli{display:flex;align-items:center;gap:24px;padding:12px 0;border-bottom:2px solid var(--line)}
+.cli:last-child{border-bottom:0}
+.badge{flex:none;width:62px;height:62px;border-radius:50%;background:var(--tile);display:flex;align-items:center;justify-content:center}
+.badge svg{width:38px;height:38px}
+.badge.warn{background:var(--y)}
+.clt{font-size:24px;font-weight:600;color:var(--sub);line-height:1.2}
+.clv{font-size:35px;font-weight:800;line-height:1.2}
+.clv .mk{background:var(--y);border-radius:8px;padding:0 10px;margin-left:-4px}
+.cld{font-size:22px;font-weight:600;color:var(--sub);line-height:1.25;margin-top:2px}
+.src{font-size:20px;font-weight:600;color:#9A9EA5;margin-top:16px}
+/* 큰 숫자 */
+.bs{display:grid;grid-template-columns:1fr 1fr;column-gap:36px;row-gap:40px}
+.bsl{font-size:28px;font-weight:700;color:var(--sub)}
+.bsv{font-size:118px;font-weight:900;line-height:1.02;letter-spacing:-.03em;margin-top:6px;white-space:nowrap}
+.bsv small{font-size:42px;font-weight:800;letter-spacing:-.01em;margin-left:6px}
+.chips{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.pill{font-size:27px;font-weight:700;background:var(--tile);border-radius:999px;padding:12px 24px;line-height:1.2}
+/* 아이콘 격자 */
+.igh{display:flex;align-items:baseline;gap:10px}
+.igh b{font-size:104px;font-weight:900;line-height:1;letter-spacing:-.03em}
+.igh span{font-size:44px;font-weight:800}
+.igs{font-size:26px;font-weight:600;color:var(--sub);margin-top:12px}
+.ig{display:grid;grid-template-columns:repeat(4,1fr);row-gap:22px;margin-top:30px}
+.igi{display:flex;flex-direction:column;align-items:center;gap:12px}
+.igi .tile{width:98px;height:98px;border-radius:28px}
+.igi .tile svg{width:52px;height:52px}
+.igi p{font-size:24px;font-weight:700;text-align:center;line-height:1.2;white-space:nowrap}
+.igi.off .tile{opacity:.38;position:relative}
+.igi.off .tile:after{content:"";position:absolute;left:18px;right:18px;top:50%;height:4px;background:var(--ink);transform:rotate(-38deg);border-radius:2px}
+.igi.off p{color:var(--sub)}
+.igi.off p em{font-style:normal;display:block;font-size:21px}
+/* 가격 목록 */
+.plh{font-size:27px;font-weight:700;color:var(--sub);margin-bottom:18px;line-height:1.3}
+.pli{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:2px solid var(--line)}
+.pli .n{font-size:32px;font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pli .p{font-size:34px;font-weight:800;white-space:nowrap}
+.plt{display:flex;align-items:flex-end;justify-content:space-between;margin-top:26px}
+.plt .n{font-size:30px;font-weight:700;color:var(--sub);padding-bottom:12px}
+.plt .p{font-size:66px;font-weight:900;line-height:1;position:relative;letter-spacing:-.02em}
+.plt .p:before{content:"";position:absolute;left:-6px;right:-6px;bottom:2px;height:26px;background:var(--y);z-index:-1;border-radius:6px}
+/* 시세 막대 */
+.rbh .l{font-size:28px;font-weight:700;color:var(--sub)}
+.rbh .v{font-size:76px;font-weight:900;line-height:1.1;letter-spacing:-.02em}
+.rbtrack{position:relative;height:22px;border-radius:11px;background:var(--tile);margin:120px 0 18px}
+.rbfill{position:absolute;left:0;top:0;bottom:0;border-radius:11px;background:#D7DADF}
+.rbmark{position:absolute;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--ink);border:8px solid var(--y)}
+.rbtag{position:absolute;bottom:42px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:28px;font-weight:800;border-radius:12px;padding:8px 16px;white-space:nowrap}
+.rbends{display:flex;justify-content:space-between;font-size:26px;font-weight:700;color:var(--sub)}
+.rbnew{margin-top:44px;font-size:34px;font-weight:700;line-height:1.35}
+.rbnew b{font-weight:900}
+.rbnew .mk{background:var(--y);border-radius:8px;padding:0 10px;font-weight:900}
+/* 연비 막대 */
+.bar{display:grid;grid-template-columns:120px 1fr 150px;align-items:center;gap:22px;padding:22px 0}
+.bar .l{font-size:32px;font-weight:700}
+.bar .t{height:50px;border-radius:25px;background:var(--tile);overflow:hidden}
+.bar .f{height:100%;border-radius:25px;background:var(--ink)}
+.bar.hl .f{background:var(--y)}
+.bar .v{font-size:48px;font-weight:900;text-align:right;letter-spacing:-.02em}
+.bar .v small{font-size:24px;font-weight:700;color:var(--sub);margin-left:4px}
+/* 판매자 설명 */
+.ql{display:flex;gap:24px;align-items:center;padding:22px 0}
+.ql i{flex:none;width:10px;align-self:stretch;border-radius:5px;background:var(--y)}
+.ql p{font-size:38px;font-weight:800;line-height:1.3}
+/* 사진 스크롤 */
+.strip{position:absolute;left:60px;top:430px;width:960px;height:540px;overflow:visible}
+.film{position:absolute;left:0;top:0;height:540px;display:flex;gap:28px;will-change:transform}
+.film figure{position:relative;flex:none;width:960px;height:540px;border-radius:40px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.4)}
+.film img{width:100%;height:100%;object-fit:cover}
+.film figcaption{position:absolute;left:26px;top:26px;background:#fff;border-radius:999px;font-size:30px;font-weight:800;padding:10px 24px}
+.dots{position:absolute;left:0;right:0;top:600px;display:flex;justify-content:center;gap:14px}
+.dots b{width:14px;height:14px;border-radius:7px;background:rgba(255,255,255,.45)}
+.dots b.on{background:#fff;width:42px}
+/* 첫 화면 */
+.hero-photo{position:absolute;left:0;top:520px;width:1080px;height:607px;object-fit:contain}
+.hero-model{position:absolute;color:#fff;font-weight:900;font-size:84px;line-height:1.05;text-shadow:3px 5px 10px rgba(0,0,0,.65);white-space:nowrap}
+.hero-facts{position:absolute;left:60px;top:410px;color:#fff;font-weight:800;font-size:44px;text-shadow:3px 4px 8px rgba(0,0,0,.65)}
+.end-logo{position:absolute;left:50%;top:50%;width:520px;margin:-260px 0 0 -260px}
+/* 말 자막(be_locked_rules.caption) */
+#caption{position:absolute;left:60px;width:960px;text-align:center;color:#fff;font-weight:900;word-break:keep-all;
+  text-shadow:0 0 3px rgba(0,0,0,.95),0 0 6px rgba(0,0,0,.8),3px 5px 6px rgba(0,0,0,.9)}
+#caption .hi{color:var(--y)}
+</style></head>
+<body><div id="stage"><div id="bg"><img id="bgimg"></div><div id="bgdim"></div><div id="content"></div><div id="caption"></div></div>
+<script>
+const DATA = __DATA__;
+const S = DATA.spec, CARD = DATA.card, ICON = DATA.icons, BASE = DATA.base;
+const Y = DATA.rules.color.yellow;
+document.documentElement.style.setProperty('--y', Y);
+const $ = (h) => { const d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstChild; };
+const esc = (s) => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const icon = (n) => (ICON[n] || ICON['check']).replace('<svg', '<svg class="ic"');
+const ease = (k) => 1 - Math.pow(1 - Math.min(1, Math.max(0, k)), 3);
+const easeBack = (k) => { k = Math.min(1, Math.max(0, k)); const c = 1.5; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };
+const fmt = (n, dec) => dec ? n.toFixed(dec) : Math.round(n).toLocaleString('ko-KR');
+const man = (n) => n >= 10000 ? `${Math.floor(n / 10000)}억 ${(n % 10000).toLocaleString('ko-KR')}` : n.toLocaleString('ko-KR');
+
+const C = document.getElementById('content');
+const anim = [];          // {el, t, kind}
+const counts = [];        // {el, t, to, dec, prefix, suffix}
+const events = [];        // 효과음 {t, sfx, vol}
+const caps = [];          // {t, html}
+let rowT = [];            // 줄 i가 켜지는 시각
+let DUR = 0, panelEl = null, chipEl = null, film = null, dots = null;
+
+// 배경: 관련 매물 사진을 흐리게 키운 채움(반사기 원칙)
+const B = S.background;
+document.getElementById('bgimg').src = BASE + (CARD.bg || CARD.photo || '');
+document.getElementById('bgimg').style.filter = `blur(${B.blur_px}px) brightness(${CARD.type === 'end' ? B.brightness * 0.75 : B.brightness})`;
+
+function addChip() {
+  if (!DATA.chip) return;
+  chipEl = $(`<img class="chip" src="${DATA.chip.src}">`);
+  chipEl.style.left = S.chip.left + 'px';
+  chipEl.style.top = (S.chip.center_y - DATA.chip.h / 2) + 'px';
+  C.appendChild(chipEl);
+  sfx(S.chip.pop_in_s, CARD.type === 'kv_grid' ? 'card_engine_start' : S.sfx.title[0], CARD.type === 'kv_grid' ? 0.45 : S.sfx.title[1]);
+}
+function addPanel(inner) {
+  const P = S.panel;
+  panelEl = $(`<div class="panel"></div>`);
+  Object.assign(panelEl.style, { left: P.left + 'px', top: P.top + 'px', width: P.width + 'px', padding: P.pad + 'px', boxShadow: P.shadow, borderRadius: P.radius + 'px' });
+  panelEl.innerHTML = inner; C.appendChild(panelEl); return panelEl;
+}
+function rows(sel, stagger) {
+  const els = [...panelEl.querySelectorAll(sel)];
+  els.forEach((el, i) => { const t = S.rows.start_s + i * stagger; rowT.push(t); anim.push({ el, t, kind: 'row' }); el.classList.add('row'); });
+  return els;
+}
+function sfx(t, name, vol) { events.push({ t: +t.toFixed(3), sfx: name, vol }); }
+function cap(list) {
+  (list || []).forEach(c => {
+    const t = c.at != null ? c.at : (rowT[c.row] != null ? rowT[c.row] : rowT[rowT.length - 1]) + 0.02;
+    let h = esc(c.text);
+    (c.hi || []).forEach(w => { h = h.replace(esc(w), `<span class="hi">${esc(w)}</span>`); });
+    caps.push({ t, html: h });
+  });
+  caps.sort((a, b) => a.t - b.t);
+}
+function count(el, t, to, dec, suffix) { counts.push({ el, t, to, dec: dec || 0, suffix: suffix || '' }); }
+function keywordSfx(kw) {
+  for (const r of DATA.card_sfx.rows) if (r.keywords.some(k => kw.includes(k))) return r.sfx;
+  return 'pop';
+}
+function src(t) { return t ? `<p class="src">${esc(t)}</p>` : ''; }
+
+const BUILD = {
+  kv_grid(c) {
+    addPanel(`<div class="kvh row"><p class="kvh-name">${esc(c.header.name)}</p><p class="kvh-price">${man(c.header.price)}<small>${esc(c.header.price_unit)}</small></p></div><div class="hr"></div>
+      <div class="kv">${c.items.map(i => `<div class="kvi"><div class="tile">${icon(i.icon)}</div><div style="min-width:0"><p class="kvl">${esc(i.label)}</p><p class="kvv" ${i.count != null ? `data-count="${i.count}" data-suffix="${i.suffix || ''}"` : ''}>${esc(i.value)}</p>${i.note ? `<p class="kvn">${esc(i.note)}</p>` : ''}</div></div>`).join('')}</div>`);
+    anim.push({ el: panelEl.querySelector('.kvh'), t: 0.2, kind: 'row' });
+    const els = rows('.kvi', S.rows.stagger_s.kv_grid);
+    els.forEach((el, i) => { const it = c.items[i]; sfx(rowT[i] - 0.04, keywordSfx(it.sfx_kw || it.label), DATA.card_sfx.vol);
+      const v = el.querySelector('[data-count]'); if (v) count(v, rowT[i], +v.dataset.count, 0, v.dataset.suffix); });
+  },
+  check_list(c, compact) {
+    addPanel(`<div class="cl">${c.items.map(i => `<div class="cli"><div class="badge ${i.state}">${icon(i.state === 'warn' ? 'alert-triangle' : i.state === 'info' ? 'alert-circle' : 'check')}</div>
+      <div style="min-width:0"><p class="clt">${esc(i.title)}</p><p class="clv">${i.state === 'warn' ? `<span class="mk">${esc(i.value)}</span>` : esc(i.value)}</p>${i.detail && (c.items.length < S.rows.check_list_compact.min_rows || i.state === 'warn') ? `<p class="cld">${esc(i.detail)}</p>` : ''}</div></div>`).join('')}</div>${src(c.source)}`);
+    const st = compact ? S.rows.stagger_s.summary : S.rows.stagger_s.check_list;
+    const els = rows('.cli', st);
+    if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: rowT[rowT.length - 1] + 0.2, kind: 'row' });
+    let okN = 0;
+    els.forEach((el, i) => { const s = c.items[i].state;
+      if (s === 'warn') sfx(rowT[i], S.sfx.warn[0], S.sfx.warn[1]);
+      else if (s === 'ok' && okN++ < 2) sfx(rowT[i], S.sfx.check_ok[0], S.sfx.check_ok[1]); });
+  },
+  summary(c) { this.check_list(c, true); },
+  big_stats(c) {
+    addPanel(`<div class="bs">${c.items.map(i => `<div class="bsi"><p class="bsl">${esc(i.label)}</p><p class="bsv"><span data-count="${i.count}" data-dec="${i.dec || 0}">${esc(i.value)}</span><small>${esc(i.unit)}</small></p></div>`).join('')}</div>
+      ${c.chips ? `<div class="chips">${c.chips.map(p => `<span class="pill">${esc(p)}</span>`).join('')}</div>` : ''}${src(c.source)}`);
+    const els = rows('.bsi', S.rows.stagger_s.big_stats);
+    els.forEach((el, i) => { const v = el.querySelector('[data-count]'); count(v, rowT[i], +v.dataset.count, +v.dataset.dec);
+      sfx(rowT[i], i === 0 ? S.sfx.big_number[0] : 'pop', i === 0 ? S.sfx.big_number[1] : 0.32); });
+    const last = rowT[rowT.length - 1];
+    [...panelEl.querySelectorAll('.pill')].forEach((el, i) => anim.push({ el, t: last + 0.45 + i * 0.08, kind: 'row' }));
+    if (c.chips) { rowT.push(last + 0.45); sfx(last + 0.45, 'click', 0.3); }
+    if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: last + 0.6, kind: 'row' });
+  },
+  icon_grid(c) {
+    addPanel(`<div class="row ighw"><div class="igh"><b data-count="${c.header.big}">${esc(c.header.big)}</b><span>${esc(c.header.unit)}</span></div><p class="igs">${esc(c.header.sub)}</p></div>
+      <div class="ig">${c.items.map(i => `<div class="igi ${i.on ? '' : 'off'}"><div class="tile">${icon(i.icon)}</div><p>${esc(i.label)}${i.on ? '' : '<em>없음</em>'}</p></div>`).join('')}</div>`);
+    anim.push({ el: panelEl.querySelector('.ighw'), t: 0.25, kind: 'row' });
+    count(panelEl.querySelector('.igh b'), 0.25, +c.header.big, 0);
+    const els = rows('.igi', S.rows.stagger_s.icon_grid);
+    sfx(rowT[0], S.sfx.icon_grid[0], S.sfx.icon_grid[1]);
+    const off = c.items.findIndex(i => !i.on); if (off >= 0) sfx(rowT[off] + 0.25, 'click', 0.35);
+  },
+  price_list(c) {
+    const total = c.items.reduce((s, i) => s + i.price, 0);
+    addPanel(`<p class="plh row">${esc(c.header.name)}</p>${c.items.map(i => `<div class="pli"><span class="n">${esc(i.label)}</span><span class="p">${i.price.toLocaleString('ko-KR')}만원</span></div>`).join('')}
+      <div class="plt"><span class="n">${esc(c.total_label)}</span><span class="p"><span data-count="${total}">${total.toLocaleString('ko-KR')}</span>만원</span></div>${src(c.source)}`);
+    anim.push({ el: panelEl.querySelector('.plh'), t: 0.25, kind: 'row' });
+    const els = rows('.pli, .plt', S.rows.stagger_s.price_list);
+    const tt = rowT[rowT.length - 1]; count(panelEl.querySelector('.plt [data-count]'), tt, total, 0);
+    sfx(rowT[0], 'pop', 0.3); sfx(tt, S.sfx.price_total[0], S.sfx.price_total[1]);
+    if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: tt + 0.3, kind: 'row' });
+  },
+  range_bar(c) {
+    const pos = (c.value - c.min) / (c.max - c.min);
+    addPanel(`<div class="rbh row"><p class="l">이 차 가격</p><p class="v">${man(c.value)}만원</p></div>
+      <div class="rbw row"><div class="rbtrack"><div class="rbfill"></div><div class="rbtag">이 차</div><div class="rbmark"></div></div>
+      <div class="rbends"><span>${man(c.min)}만원</span><span>시세 범위</span><span>${man(c.max)}만원</span></div></div>
+      <p class="rbnew row">신차가 <b>${man(c.new_price)}만원</b> 보다 <span class="mk">${c.save_pct}% 낮게</span></p>${src(c.source)}`);
+    const els = rows('.rbh, .rbw, .rbnew', S.rows.stagger_s.range_bar);
+    rowT = [rowT[1], rowT[2]];     // 자막 기준: 0=막대, 1=신차 대비
+    const mk = panelEl.querySelector('.rbmark'), tag = panelEl.querySelector('.rbtag'), fill = panelEl.querySelector('.rbfill');
+    anim.push({ kind: 'custom', t: rowT[0], fn: (k) => { const p = pos * ease(k / 0.7); mk.style.left = tag.style.left = (p * 100) + '%'; fill.style.width = (p * 100) + '%'; } });
+    sfx(rowT[0] + 0.62, S.sfx.big_number[0], S.sfx.big_number[1]); sfx(rowT[1], 'coin', 0.45);
+    if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: rowT[1] + 0.3, kind: 'row' });
+  },
+  bars(c) {
+    addPanel(`${c.items.map(i => `<div class="bar ${i.hl ? 'hl' : ''}"><span class="l">${esc(i.label)}</span><div class="t"><div class="f"></div></div><span class="v"><span data-count="${i.value}" data-dec="1">${i.value}</span><small>${esc(c.unit)}</small></span></div>`).join('')}${src(c.source)}`);
+    const els = rows('.bar', S.rows.stagger_s.bars);
+    els.forEach((el, i) => { const f = el.querySelector('.f'), w = c.items[i].value / c.max;
+      anim.push({ kind: 'custom', t: rowT[i], fn: (k) => { f.style.width = (w * 100 * ease(k / 0.6)) + '%'; } });
+      count(el.querySelector('[data-count]'), rowT[i], c.items[i].value, 1);
+      sfx(rowT[i], i === 1 ? 'click' : 'pop', 0.3); });
+    if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: rowT[rowT.length - 1] + 0.3, kind: 'row' });
+  },
+  quote(c) {
+    addPanel(`${c.lines.map(l => `<div class="ql"><i></i><p>${esc(l)}</p></div>`).join('')}${src(c.source)}`);
+    const els = rows('.ql', S.rows.stagger_s.quote);
+    els.forEach((el, i) => sfx(rowT[i], i === 0 ? 'pop' : 'click', 0.3));
+    if (c.source) anim.push({ el: panelEl.querySelector('.src'), t: rowT[rowT.length - 1] + 0.3, kind: 'row' });
+  },
+  photo_strip(c) {
+    const w = 960 + 28;
+    const st = $(`<div class="strip"><div class="film">${c.items.map(i => `<figure><img src="${BASE + i.photo}"><figcaption>${esc(i.label)}</figcaption></figure>`).join('')}</div></div>`);
+    dots = $(`<div class="dots" style="top:1010px">${c.items.map(() => '<b></b>').join('')}</div>`);
+    C.appendChild(st); C.appendChild(dots); film = st.querySelector('.film');
+    panelEl = st;
+    anim.push({ el: st, t: 0.0, kind: 'panel' });
+    const stg = S.rows.stagger_s.photo_strip;
+    c.items.forEach((_, i) => { const t = 0.35 + i * stg; rowT.push(t); if (i) sfx(t - 0.05, S.sfx.photo_slide[0], S.sfx.photo_slide[1]); });
+    anim.push({ kind: 'custom', t: 0, fn: (tt) => {
+      let x = 0, cur = 0;
+      for (let i = 1; i < rowT.length; i++) { const k = ease((tt - rowT[i] + 0.05) / 0.45); x += k * w; if (tt >= rowT[i] - 0.05) cur = i; }
+      film.style.transform = `translateX(${-x}px)`;
+      [...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur));
+    } });
+  },
+  hero(c) {
+    const ph = $(`<img class="hero-photo" src="${BASE + c.photo}">`); C.appendChild(ph);
+    const facts = $(`<p class="hero-facts">${esc(c.facts)}</p>`); C.appendChild(facts);
+    const model = $(`<p class="hero-model">${esc(c.model)}</p>`); C.appendChild(model);
+    if (DATA.chip) { model.style.left = (S.chip.left + DATA.chip.w + 8) + 'px'; model.style.top = (S.chip.center_y - 46) + 'px'; }
+    anim.push({ el: ph, t: 0.0, kind: 'fade' }); anim.push({ el: model, t: 0.2, kind: 'row' }); anim.push({ el: facts, t: 0.4, kind: 'row' });
+    rowT = [0.3];
+  },
+  end(c) {
+    const lg = $(`<img class="end-logo" src="${DATA.logo}">`); C.appendChild(lg);
+    anim.push({ kind: 'custom', t: 0.1, fn: (k) => { const p = easeBack(k / 0.7); lg.style.transform = `scale(${0.55 + 0.45 * p})`; lg.style.opacity = Math.min(1, k / 0.35); } });
+  },
+};
+
+// ── 조립
+if (CARD.type !== 'end') addChip();
+BUILD[CARD.type](CARD);
+if (CARD.type !== 'end') cap(CARD.captions || CARD.caption);
+if (panelEl && CARD.type !== 'photo_strip') {   // 카드가 자막 칸(최대 아래끝)을 넘지 않는지
+  const r = panelEl.getBoundingClientRect(); window.PANEL_BOTTOM = r.bottom;
+}
+const lastRow = rowT.length ? Math.max(...rowT) : 0;
+DUR = CARD.type === 'end' ? S.end.tail_s : CARD.type === 'hero' ? S.hook.dur_s
+    : lastRow + S.rows.anim_dur_s + S.rows.hold_s + (CARD.type === 'photo_strip' ? 0.1 : 0);
+
+// 효과음 간격 규칙(be_locked_rules.sfx: 최소 0.3초 · 같은 소리 0.6초) + 카드당 최대 개수
+events.sort((a, b) => a.t - b.t);
+const keep = [], lim = CARD.type === 'kv_grid' ? 7 : S.sfx.max_per_card;
+for (const e of events) {
+  const prev = keep[keep.length - 1];
+  if (prev && e.t - prev.t < S.sfx.min_gap_s) continue;
+  if (keep.some(k => k.sfx === e.sfx && e.t - k.t < S.sfx.same_min_gap_s)) continue;
+  if (keep.length >= lim) break;
+  keep.push(e);
+}
+window.TL = { duration: +DUR.toFixed(3), events: keep, captions: caps.map(c => c.t), panelBottom: window.PANEL_BOTTOM || null };
+
+const capEl = document.getElementById('caption');
+capEl.style.fontSize = S.caption.font_px + 'px'; capEl.style.lineHeight = S.caption.line_h;
+
+window.seek = function (t) {
+  const P = S.panel;
+  // 배경 느린 확대
+  const k0 = DUR ? t / DUR : 0;
+  document.getElementById('bg').style.transform = `scale(${B.scale_from + (B.scale_to - B.scale_from) * k0})`;
+  if (chipEl) { const k = (t - S.chip.pop_in_s) / S.chip.pop_dur_s; const s = k <= 0 ? 0 : 0.6 + 0.4 * ease(k) + 0.08 * Math.sin(Math.min(1, k) * Math.PI);
+    chipEl.style.opacity = k <= 0 ? 0 : Math.min(1, k * 2); chipEl.style.transform = `scale(${s})`; chipEl.style.transformOrigin = 'left center'; }
+  if (panelEl) { const k = ease((t - P.enter_s) / P.enter_dur_s); panelEl.style.opacity = Math.min(1, (t - P.enter_s) / (P.enter_dur_s * 0.6));
+    panelEl.style.transform = `translateY(${(1 - k) * P.enter_dy}px)`; }
+  for (const a of anim) {
+    if (a.kind === 'custom') { a.fn(t - a.t >= 0 ? (a.t === 0 ? t : t - a.t) : 0); continue; }
+    const k = (t - a.t) / S.rows.anim_dur_s;
+    if (a.kind === 'fade') { a.el.style.opacity = Math.min(1, Math.max(0, k)); continue; }
+    if (a.kind === 'panel') continue;
+    a.el.style.opacity = Math.min(1, Math.max(0, k * 1.3));
+    a.el.style.transform = `translateY(${(1 - ease(k)) * S.rows.anim_dy}px)`;
+  }
+  for (const c of counts) {
+    const k = ease((t - c.t) / S.rows.count_up_s);
+    c.el.textContent = fmt(c.to * Math.max(0, k), c.dec) + c.suffix;
+  }
+  // 자막: 바로 바뀜, 컷 끝 cut_gap_s 비움
+  let html = '';
+  if (t < DUR - S.caption.cut_gap_s) for (const c of caps) if (t >= c.t) html = c.html;
+  if (capEl.dataset.h !== html) { capEl.innerHTML = html; capEl.dataset.h = html;
+    const h = capEl.offsetHeight; capEl.style.top = (S.caption.center_y - h / 2) + 'px'; }
+};
+window.seek(0);
+</script></body></html>

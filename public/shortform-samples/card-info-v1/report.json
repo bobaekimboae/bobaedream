@@ -1,0 +1,20 @@
+{
+ "spec": "card-info-v1",
+ "data": "scripts/shortform/card_info/samples/g80/cards.json",
+ "cards": {
+  "extra_options": {
+   "lufs": -14.6,
+   "true_peak": -2.6,
+   "duration": 4.333333,
+   "sfx": [
+    "0.05s ding",
+    "0.50s pop",
+    "2.66s coin"
+   ],
+   "panel_bottom_px": 1126.09375,
+   "panel_ok": true,
+   "render_s": 15.7
+  }
+ },
+ "montage": null
+}

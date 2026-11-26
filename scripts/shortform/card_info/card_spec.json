@@ -1,0 +1,137 @@
+{
+  "version": "card-info-v1",
+  "updated": "2026-11-26",
+  "_what": "숏폼 카드 정보 기법(독립 카드 컷) 단일 기준. 렌더러 card_render.py · card_template.html은 이 파일과 be_locked_rules.json만 읽는다. 값을 바꿀 때는 여기만 고친다.",
+  "_inherits": "색·자막·칩·효과음 간격·음량은 scripts/shortform/be_locked_rules.json을 그대로 따른다(노랑 #F5F200 하나, 자막 y1283, 칩 기울기 0, -14 LUFS).",
+  "canvas": {
+    "w": 1080,
+    "h": 1920,
+    "fps": 30
+  },
+  "background": {
+    "_rule": "카드 컷 배경 = 그 카드와 관련된 매물 실사진을 흐리게 키운 채움(반사기 원칙: 흐린 채움만 허용, 보정·배경 바꾸기 금지)",
+    "blur_px": 30,
+    "brightness": 0.5,
+    "scale_from": 1.12,
+    "scale_to": 1.18
+  },
+  "chip": {
+    "_rule": "카드 제목 = G350 v13과 같은 노랑 붓칠 칩(g350_v5_lib.chip, 노션 원본 판 fill_fit). 위쪽 고정 자리, 왼쪽 정렬",
+    "center_y": 300,
+    "left": 40,
+    "pop_in_s": 0.05,
+    "pop_dur_s": 0.22
+  },
+  "panel": {
+    "_rule": "오토스카우트24 상세 카드 문법: 흰 카드 · 둥근 모서리 · 아이콘 타일(연회색 둥근 사각)+작은 회색 라벨+굵은 값",
+    "left": 60,
+    "width": 960,
+    "top": 390,
+    "max_bottom": 1180,
+    "radius": 44,
+    "pad": 46,
+    "bg": "#FFFFFF",
+    "ink": "#141414",
+    "sub": "#6B6F76",
+    "line": "#ECEDEF",
+    "tile": "#F2F3F5",
+    "shadow": "0 28px 70px rgba(0,0,0,.38)",
+    "enter_s": 0.0,
+    "enter_dur_s": 0.32,
+    "enter_dy": 90
+  },
+  "rows": {
+    "start_s": 0.5,
+    "anim_dur_s": 0.28,
+    "anim_dy": 28,
+    "stagger_s": {
+      "kv_grid": 0.36,
+      "check_list": 0.42,
+      "big_stats": 0.5,
+      "icon_grid": 0.12,
+      "price_list": 0.36,
+      "range_bar": 0.55,
+      "bars": 0.45,
+      "quote": 0.5,
+      "summary": 0.42,
+      "photo_strip": 1.25,
+      "hero": 0.4
+    },
+    "count_up_s": 0.7,
+    "hold_s": 1.4,
+    "check_list_compact": {
+      "_rule": "줄이 6개 이상이면 보조 설명(detail)은 주의(warn) 줄에만 남긴다 — 카드가 자막 자리(max_bottom 1180)를 넘지 않게",
+      "min_rows": 6
+    }
+  },
+  "caption": {
+    "_rule": "be_locked_rules.caption 그대로: 흰 글자+그림자, 60px, 가운데 y1283, 핵심 낱말만 노랑, 바로 바뀜, 컷 끝 0.3초 비움. 내레이션이 없으므로 카드 줄이 켜질 때 뜻 단위 한 문장(최대 2줄)을 함께 보여 준다(AGENTS.md 「뜻 단위·두 줄 함께」).",
+    "font_px": 60,
+    "center_y": 1283,
+    "max_w": 960,
+    "line_h": 1.28,
+    "weight": 900,
+    "cut_gap_s": 0.3
+  },
+  "sfx": {
+    "_rule": "be_locked_rules.sfx 간격(0.3초, 같은 소리 0.6초)과 card-sfx-rules-v1(차량 정보 줄마다 내용 소리)을 따른다. 카드당 최대 5개.",
+    "title": [
+      "ding",
+      0.7
+    ],
+    "check_ok": [
+      "check",
+      0.45
+    ],
+    "warn": [
+      "impact",
+      0.5
+    ],
+    "big_number": [
+      "ding",
+      0.6
+    ],
+    "icon_grid": [
+      "pop",
+      0.35
+    ],
+    "price_total": [
+      "coin",
+      0.5
+    ],
+    "photo_slide": [
+      "whoosh",
+      0.45
+    ],
+    "bar": [
+      "pop",
+      0.3
+    ],
+    "card_row_keywords": "option_visual_rules.json layout.card_sfx",
+    "max_per_card": 5,
+    "min_gap_s": 0.3,
+    "same_min_gap_s": 0.6
+  },
+  "audio": {
+    "bgm": "public/assets/shortform/bgm/bobae_showroom_v1.mp3",
+    "bgm_vol": 0.16,
+    "lufs": -14,
+    "true_peak": -1.5
+  },
+  "hook": {
+    "_rule": "몽타주 첫 컷 = 첫 화면 규칙(차 전체 3/4 실사 + 벨기에 원본 판 브랜드 칩 + 흰 모델명 + 「연식 · 연료 · 코드네임」)",
+    "dur_s": 2.4
+  },
+  "end": {
+    "_rule": "be_locked_rules.end: 보배드림 로고가 커지며 2초, 효과음 없음",
+    "logo": "public/assets/shortform/bobae_logo_600.png",
+    "tail_s": 2.0
+  },
+  "data_rules": [
+    "카드 값은 매물 원천(판매 사이트 API·성능점검기록부·보험이력 요약)에서 읽은 값만 쓴다. 비어 있으면 그 줄·그 카드를 뺀다(지어내기 금지).",
+    "「무사고」 낱말 금지. 성능점검은 기록부 표기 그대로 「사고이력 『없음』 표기」처럼 출처를 붙인다.",
+    "차량번호·차대번호·전화번호·딜러 개인 연락처는 카드·자막에 쓰지 않는다. 사진 속 번호판은 가리지 않는다.",
+    "리콜 미이행·단순수리처럼 불리한 사실도 그대로 보여 준다(노랑 = 주의해서 볼 곳).",
+    "시세·신차가처럼 출처가 추정인 값은 카드 안에 출처를 작게 적는다."
+  ]
+}

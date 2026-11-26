@@ -1,0 +1,26 @@
+{
+  "id": "g80",
+  "_source": "차란차 매물 019fa60f-4fc4-7428-99c4-3ee7e9e50dea choice-options(2026-11-26 수집). G400d는 선택옵션 등록이 0건이라 「추가 옵션」 카드 샘플용으로만 씀.",
+  "vehicle": { "maker": "제네시스", "model": "G80", "grade": "가솔린 2.5 터보 AWD", "title": "제네시스 G80 (RG3) 2.5 터보 AWD", "year_label": "2025년형", "fuel": "가솔린", "price_man": 5690 },
+  "cards": [
+    {
+      "key": "extra_options", "type": "price_list", "title": "추가 옵션", "bg": "photos/p01.jpg",
+      "header": { "name": "제네시스 G80 (RG3) 2.5T AWD · 24년03월(25년형)" },
+      "source": "판매자 등록 선택옵션 · 출고 당시 옵션가",
+      "items": [
+        { "label": "파퓰러 패키지", "price": 370 },
+        { "label": "시그니처 디자인 셀렉션 II", "price": 300 },
+        { "label": "2열 컴포트 패키지", "price": 270 },
+        { "label": "뱅앤올룹슨 사운드 패키지", "price": 190 },
+        { "label": "파노라마 선루프", "price": 140 },
+        { "label": "19인치 콘티넨탈 타이어 & 휠", "price": 120 }
+      ],
+      "total_label": "선택옵션 6개 합계",
+      "captions": [
+        { "row": 0, "text": "선택옵션 6개", "hi": ["6개"] },
+        { "row": 6, "text": "옵션가만 1,390만원", "hi": ["1,390만원"] }
+      ]
+    }
+  ],
+  "montage": []
+}
