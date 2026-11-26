@@ -454,6 +454,20 @@ def fit_frame(n, img, fx, z):
         bg = cv2.GaussianBlur(bg[y0:y0 + H, x0:x0 + W], (0, 0), 40)
         BG[n] = (bg * 0.55).astype(np.uint8)
     out = BG[n].copy()
+    if getattr(C, 'CAPS_UNDER_PHOTO', False) and w > h:
+        # 2026-11-26 검수(스포티지): 확대하면 상자가 위로 커져 사진 위 띠의 칩과 겹쳤음(매뉴얼: 가로 사진은 칩이 사진을 침범하지 않음)
+        # → 상자 크기는 확대 1배 그대로 고정하고, 켄번스 확대·이동은 상자 안에서만(photo_band와 같은 상자)
+        fw = W; fh = fw * h / w
+        if fh > H * .78:
+            fh = H * .78; fw = fh * w / h
+        zz = max(1.0, z); sw, sh = w / zz, h / zz
+        cx = min(max(fx * w, sw / 2), w - sw / 2); cy = h / 2
+        M = np.float32([[fw / sw, 0, -(cx - sw / 2) * fw / sw], [0, fh / sh, -(cy - sh / 2) * fh / sh]])
+        fg = cv2.warpAffine(img, M, (int(fw), int(fh)), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
+        x0 = int((W - fw) / 2); y0 = int(_photo_y0(fh))
+        out[y0:y0 + fg.shape[0], x0:x0 + fg.shape[1]] = fg
+        AFF[n] = (fw / sw, fh / sh, x0 - (cx - sw / 2) * fw / sw, y0 - (cy - sh / 2) * fh / sh, w, h)
+        return out
     fw = W * z * 1.0
     fh = fw * h / w
     if fh > H * .78:
