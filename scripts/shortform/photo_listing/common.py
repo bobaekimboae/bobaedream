@@ -688,14 +688,14 @@ def fluent_emoji(mark, h=112):
     return out
 
 
-def be_chip(txt, size, tilt, tsc=1.0):
+def be_chip(txt, size, tilt, tsc=1.0, mark_txt=None):
     """벨기에 원본 키워드 칩: 노션 원본 로고 칠(430_239) + 검정 굵은 글자.
     2026-11-17 사용자 「아이콘이 장난 같다, 기존 이모지 쓰자」: MARKS 이모지는 기존(sticker) 방식 그대로 칠 안·글자 뒤 흰 원 위에 작게"""
     tsc = round(max(0.0, min(1.0, tsc)), 2)
-    k = (txt, size, tilt, tsc)
+    k = (txt, size, tilt, tsc, mark_txt)
     if k in _BEC:
         return _BEC[k]
-    mark = getattr(C, 'MARKS', {}).get(txt)
+    mark = getattr(C, 'MARKS', {}).get(mark_txt or txt)
     emo = None
     if mark and mark != '✓':
         emo = fluent_emoji(mark)  # 2026-11-17 사용자: 마이크로소프트 Fluent 3D 이모지 기본(MIT). 없으면 아래 Noto 글꼴로
@@ -1039,7 +1039,7 @@ def _auto_visuals():
     """v1.5 매뉴얼 13장: AUTO_VISUALS=True면 옵션 낱말 → 컷 → 부위 → Fluent 3D/3D 글자 자동 추가"""
     if not getattr(C, 'AUTO_VISUALS', False):
         return
-    sys.path.insert(0, os.path.dirname(os.path.abspath(R.__file__)) + '/photo_listing')
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # 2026-11-26: common.py와 같은 폴더의 auto_visuals(전에는 sag_reel_v1 위치 기준이라 다른 작업 폴더 것을 불러옴)
     import auto_visuals
     stk, rep = auto_visuals.build(C, WRD, CUTS)
     for line in rep:
@@ -1127,6 +1127,31 @@ def sticker_img(sk, h):
 
 _ASP = {}
 
+# 2026-11-26 숫자 올라가기(카운트업): 영상 매물 T04(feature_edit_rules.json)와 같은 값 — 0.45초 · ease-out cubic · 쉼표 유지 · 영상당 4개
+# 캡컷 「숫자 카운터」 템플릿 · AE 슬라이더+Easy Ease와 같은 효과. 소수(1.6)·연식·규격(265/60)은 세지 않음
+_CU = re.compile(r'^(\d[\d,]*)(\s*)(마력|kg·m|kgf·m|kg|L|cc|km|N·m)$')
+COUNT_DUR = 0.45
+_CU_SEEN = []
+
+
+def count_text(txt, k):
+    """k = 숫자가 뜬 뒤 지난 초. 대상이 아니거나 다 셌으면 원래 글자"""
+    if not getattr(C, 'COUNT_UP', False):
+        return txt
+    m = _CU.match(txt or '')
+    if not m:
+        return txt
+    if txt not in _CU_SEEN:
+        if len(_CU_SEEN) >= getattr(C, 'COUNT_UP_MAX', 4):
+            return txt
+        _CU_SEEN.append(txt)
+    q = max(0.0, min(1.0, k / COUNT_DUR))
+    if q >= 1:
+        return txt
+    v = int(m.group(1).replace(',', ''))
+    cur = round(v * (1 - (1 - q) ** 3))
+    return (f'{cur:,}' if ',' in m.group(1) else str(cur)) + m.group(2) + m.group(3)
+
 
 def sticker_layer(ov, T):
     """2026-11-17 나세르식: 실제 사진의 해당 부위 옆에 3D 이모지가 말에 맞춰 톡 튀어나와 떠 있음.
@@ -1139,6 +1164,10 @@ def sticker_layer(ov, T):
             t1 = min(t1, onset(sk['until_w']) - 0.05)
         if not (t0 <= T < t1):
             continue
+        if sk.get('text3d'):   # 2026-11-26 숫자 올라가기
+            _ct = count_text(sk['text3d'], T - t0)
+            if _ct != sk['text3d']:
+                sk = {**sk, 'text3d': _ct, '_orig3d': sk['text3d']}
         key = (sk.get('text3d') or sk['emo'], sk.get('h', 200), sk.get('tilt', 0))
         if key not in _STK:
             im = sticker_img(sk, sk.get('h', 200))
@@ -1171,7 +1200,7 @@ def sticker_layer(ov, T):
                     hh = int(max(52, min(hh, ih_ * .55)) // 4 * 4)
             if sk.get('fit_w') and sk.get('box') and sk.get('text3d'):   # v1.7: 부위에 붙는 숫자는 글자 폭 ≤ 부위 폭 × fit_w(긴 「40 : 20 : 40」이 등받이를 덮지 않게)
                 bw = min((sk['box'][2] - sk['box'][0]) * pw * ax, W - 120)
-                asp = _ASP.setdefault(sk['text3d'], (lambda t: t.width / max(1, t.height))(text3d(sk['text3d'], 100)))
+                _a3 = sk.get('_orig3d', sk['text3d']); asp = _ASP.setdefault(_a3, (lambda t: t.width / max(1, t.height))(text3d(_a3, 100)))
                 hh = int(max(sk.get('min_h', 64), min(hh, sk['fit_w'] * bw / asp)) // 4 * 4)
             if abs(hh - im.height + 60) > 4:
                 key2 = key + (int(hh),)
@@ -1747,7 +1776,8 @@ def overlay(T):
             # 다음 프레임부터 글자가 띠 안에서 약 20% → 100%로 커짐(약 0.2초, 끝으로 갈수록 느려짐). 띠는 움직이지 않음
             tk = (k - CHIP_TXT_DELAY) / CHIP_TXT_DUR
             tsc = 0.0 if tk < 0 else (0.2 + 0.8 * (1 - (1 - min(1.0, tk)) ** 3))
-            im = be_chip(txt, chip_px(txt, num), tilt, round(tsc * 20) / 20)  # 2026-11-17: 키워드 칩도 노션 원본 로고 칠 430_239
+            _ct = count_text(txt, k)   # 2026-11-26 숫자 올라가기(띠 크기는 다 센 값 기준 full 그대로)
+            im = be_chip(_ct, chip_px(txt, num), tilt, round(tsc * 20) / 20, mark_txt=txt)  # 2026-11-17: 키워드 칩도 노션 원본 로고 칠 430_239
             full = be_chip(txt, chip_px(txt, num), tilt)
             out = R.ease((en - T) / .12)
             x = (W - full.width) / 2

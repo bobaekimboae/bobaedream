@@ -293,7 +293,8 @@ def _numbers_on_screen(C, words, cuts, stickers, report):
                 t += words[i + 1][2]
             return t
         toks = [(i, _wt(i)) for i in range(a, b + 1) if re.match(r'^\d', words[i][2])
-                and not re.match(NUM['skip_token_re'], _wt(i).rstrip('.,!?'))]
+                and not re.match(NUM['skip_token_re'], _wt(i).rstrip('.,!?'))
+                and _wt(i).rstrip('.,!?') not in getattr(C, 'NUM_SKIP_TOKENS', ())]   # 2026-11-26: 트림 이름 속 숫자(「1.6 가솔린」)는 건너뛰고 뒤 숫자(토크)를 띄움
         # 「3만 2천」처럼 한국어 단위로 이어 읽은 숫자는 한 값으로 합쳐 비교(32,000 ≈ 32,770 칩)
         merged, j = [], 0
         while j < len(toks):

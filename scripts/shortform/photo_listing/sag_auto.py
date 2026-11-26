@@ -235,7 +235,9 @@ def make_cfg(car):
             key = _norm(s['chip'].split()[0])
             ci = next((i for i in ids if key[:3] and key[:3] in _norm(W[i][2])), a)
             chip = (s['chip'], ci)
-            marks[s['chip']] = {'km': '🛣️', '외장': '🎨', '딜러': '🤝'}[next(x for x in ('km', '외장', '딜러') if x in s['chip'])]
+            _mk = next((x for x in ('km', '외장', '딜러') if x in s['chip']), None)   # 2026-11-26: 마력·가격 칩은 이모지 없이(전에는 여기서 멈춤)
+            if _mk:
+                marks[s['chip']] = {'km': '🛣️', '외장': '🎨', '딜러': '🤝'}[_mk]
         if s.get('card'):
             trans = 'flash' if s['card'] == 'intro' else 'reveal'
         elif s['p'] == 18:
