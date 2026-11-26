@@ -72,12 +72,12 @@ def build_card(card: dict, car: dict, row_times: list[float]):
     head = Image.new("RGBA", (cw, 2400), (0, 0, 0, 0))
     d = ImageDraw.Draw(head)
     y = pad
-    # 머리글 한 줄: AS24 아이콘 + 노랑 칩(카드 이름) + 오른쪽 보조 글자(있을 때만)
+    # 머리글 한 줄: 노랑 칩(카드 이름) + 오른쪽 AS24 아이콘 + 오른쪽 보조 글자(있을 때만)
     chip = yellow_chip(card["label"], S["title_px"])
     hh = max(chip.height, S["icon_slot"])
     ic = as24_icon(card["icon"], S["icon_slot"], S["icon_area"])
-    head.alpha_composite(ic, (pad, y + (hh - S["icon_slot"]) // 2))
-    head.alpha_composite(chip, (pad + S["icon_slot"] + S["icon_gap"] - 8, y + (hh - chip.height) // 2))
+    head.alpha_composite(chip, (pad - 8, y + (hh - chip.height) // 2))
+    head.alpha_composite(ic, (pad - 8 + chip.width + S["icon_gap"], y + (hh - S["icon_slot"]) // 2))
     if card.get("head_right"):
         d.text((cw - pad, y + hh // 2), card["head_right"], font=font("Medium", S["sub_px"]), fill=hexrgb(S["muted"]), anchor="rm")
     y += hh + S["chip_gap"]
