@@ -158,24 +158,6 @@ def chip_img(label, px):
     return _chip_cache[k]
 
 
-FLUENT = os.path.join(ROOT, 'scripts', 'shortform', 'photo_listing', 'fluent3d')
-_fl_cache = {}
-
-
-def fluent(cp, px):
-    """Microsoft Fluent 3D 이모지(MIT). 파일이 없으면 멈춘다(다른 그림으로 대신하지 않음)."""
-    k = (cp, px)
-    if k not in _fl_cache:
-        p = os.path.join(FLUENT, cp + '.png')
-        if not os.path.exists(p):
-            raise SystemExit(f'Fluent 3D 아이콘 없음: {p}')
-        im = Image.open(p).convert('RGBA')
-        im = im.crop(im.getbbox())
-        sc = px / max(im.size)
-        _fl_cache[k] = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.LANCZOS)
-    return _fl_cache[k]
-
-
 def pop(im, p):
     """톡 등장: 0.6배→1.08배→1배 + 투명도."""
     if p <= 0:
@@ -355,11 +337,13 @@ class Card:
         self.segs = []  # (t0, t1, kind, text, hi) — 카드 안 시각
         if kind == 'timeline':
             self.rows = timeline_compact(self.rows, self.rule)
-        if kind == 'extra' and self.rows and car.get('_new_price'):
-            add = sum(int(re.sub(r'[^0-9]', '', x[2])) for x in self.rows if re.search(r'\d', x[2] or ''))
-            self.rows = list(self.rows) + [
-                ['', self.rule['sum_label'], '+ ' + man(add), 'sum'],
-                ['', self.rule['total_label'], man(car['_new_price'] + add), 'total']]
+        priced = [x for x in self.rows if re.search(r'\d', x[2] or '')] if kind == 'extra' else []
+        if kind == 'extra' and (len(priced) >= 2 or (priced and car.get('_new_price'))):
+            # 합계 줄은 값 있는 옵션이 2개 이상이면 늘, 신차가 + 옵션 총액 줄은 신차가 원값이 있을 때만(지어내지 않음)
+            add = sum(int(re.sub(r'[^0-9]', '', x[2])) for x in priced)
+            self.rows = list(self.rows) + [['', self.rule['sum_label'], '+ ' + man(add), 'sum']]
+            if car.get('_new_price'):
+                self.rows.append(['', self.rule['total_label'], man(car['_new_price'] + add), 'total'])
 
     def row_order(self):
         """화면 줄 순서(inspect는 ok 먼저, warn 마지막 — 말하는 순서와 같게)."""
@@ -419,7 +403,9 @@ class Card:
         elif lay == 'photos':
             R = RULES['option_marks']; n_ = len(self.data['photos'])
             tw_ = (cw - 112 - S['tile_gap'] * (n_ - 1)) / n_
-            body_h = int(S['body_pad'] * 2 + tw_ * R['photo_ratio'] + R['photo_label_gap'] * 2 + R['photo_label_px'] + 18 + (R['rest_px'] * 2.7 if self.data.get('rest') else 0))
+            body_h = int(S['body_pad'] * 2 + tw_ * (R['photo_ratio_single'] if n_ == 1 else R['photo_ratio']) + R['photo_label_gap'] * 2 + R['photo_label_px'] + 18 + (R['rest_px'] * 2.7 if self.data.get('rest') else 0))
+            if self.data.get('sum_row'):
+                body_h += S['tile_value_px'] + R['photo_value_gap'] + S['row_h'] - R['photo_label_gap'] + 16
         else:
             body_h = nrows * S['row_h'] + S['body_pad'] * 2
         note = self.data.get('source_note')
@@ -534,7 +520,11 @@ class Card:
                     continue
                 has_val = bool(x[2])
                 lf = F(FS if has_val else FB, S['label_px'] if has_val else S['value_px'] - 2)
-                ld.text((tx, cy), x[1], font=lf, fill=hexc(S['label'] if has_val else S['ink'], al), anchor='lm')
+                mk = (self.data.get('marks') or {}).get(x[1])
+                if not self._chip_on(mk, t):
+                    ld.text((tx, cy), x[1], font=lf, fill=hexc(S['label'] if has_val else S['ink'], al), anchor='lm')
+                if mk:
+                    self._marks(ld, layer, (tx, cy), lf, x[1], mk, t, ox + cw - pad, cy, al)
                 if tag == 'check':
                     vw = ld.textlength(x[2], font=F(FB, S['value_px']))
                     cf = F(FS, 22); cwid = ld.textlength('확인 전', font=cf) + 22
@@ -646,24 +636,18 @@ class Card:
         return tk is not None and t >= tk + RULES['option_marks']['pop_s'] * 0.5
 
     def _marks(self, ld, layer, name_xy, name_font, name, mk, t, right_x, cy, al):
-        """붓칠 칩(값 있는 옵션·시트 재질)과 Fluent 3D 아이콘(열선·통풍·전동·메모리). 규칙: card_info_rules.json option_marks."""
+        """붓칠 칩(값 있는 옵션·시트 재질). 카드에는 이모지를 쓰지 않는다. 규칙: card_info_rules.json option_marks."""
         R = RULES['option_marks']
         if mk.get('chip'):
             tk = self.key_t(mk.get('key', mk['chip']))
             if tk is not None and t >= tk:
-                c = pop(chip_img(mk['chip'], R['chip_px']), (t - tk) / R['pop_s'])
+                px_ = R['chip_px']
+                if mk.get('max_w'):  # 좁은 칸(실사판 2열)에서는 칩 글자를 칸 폭에 맞춰 줄인다(옆 칸 글자를 덮지 않게)
+                    while px_ > 22 and chip_img(mk['chip'], px_).width > mk['max_w']:
+                        px_ -= 2
+                c = pop(chip_img(mk['chip'], px_), (t - tk) / R['pop_s'])
                 if c is not None:
                     layer.alpha_composite(c, (int(name_xy[0] - 6), int(name_xy[1] - c.height / 2)))
-        x = right_x
-        for ic in reversed(mk.get('icons', [])):
-            tk = self.key_t(ic['key'])
-            im = fluent(ic['cp'], R['icon_px'])
-            x -= im.width
-            if tk is not None and t >= tk:
-                c = pop(im, (t - tk) / R['pop_s'])
-                if c is not None:
-                    layer.alpha_composite(c, (int(x + (im.width - c.width) / 2), int(cy - c.height / 2)))
-            x -= R['icon_gap']
 
     def _draw_photos(self, layer, ld, ox, oy, cw, pad, t):
         """실사판: 그 매물 사진에서 옵션 부위만 잘라 타일로(자르기·확대만, 보정 없음)."""
@@ -671,7 +655,7 @@ class Card:
         ph = self.data['photos']
         gap = S['tile_gap']
         tw = (cw - pad * 2 - gap * (len(ph) - 1)) / len(ph)
-        th = tw * R['photo_ratio']
+        th = tw * (R['photo_ratio_single'] if len(ph) == 1 else R['photo_ratio'])
         for i, p_ in enumerate(ph):
             ra = ease((t - self.row_t(i)) / M['row_in_s'])
             if ra <= 0:
@@ -694,22 +678,18 @@ class Card:
             al = int(255 * ra)
             if not self._chip_on(p_, t):
                 ld.text((x0 + 6, ly), p_['label'], font=nf, fill=hexc(S['ink'], al), anchor='lm')
-            # 아이콘은 사진 왼쪽 위 안쪽(부위를 가리지 않게 카드 타일 배지로), 칩은 이름 위에 덮어 톡
-            mk = {'chip': p_.get('chip'), 'key': p_.get('key'), 'icons': p_.get('icons', [])}
-            self._marks(ld, layer, (x0 + 6, ly), nf, p_['label'], {'chip': mk['chip'], 'key': mk['key']}, t, 0, ly, al)
-            ix = x0 + 18
-            for ic in mk['icons']:
-                tk = self.key_t(ic['key'])
-                bim = fluent(ic['cp'], R['photo_icon_px'])
-                if tk is not None and t >= tk:
-                    c = pop(bim, (t - tk) / R['pop_s'])
-                    if c is not None:
-                        bg_ = Image.new('RGBA', (bim.width + 24, bim.height + 24), (0, 0, 0, 0))
-                        ImageDraw.Draw(bg_).ellipse((0, 0, bg_.width - 1, bg_.height - 1), fill=(255, 255, 255, 235))
-                        bgp = pop(bg_, (t - tk) / R['pop_s'])
-                        layer.alpha_composite(bgp, (int(ix + (bg_.width - bgp.width) / 2), int(y0 + 18 + (bg_.height - bgp.height) / 2)))
-                        layer.alpha_composite(c, (int(ix + 12 + (bim.width - c.width) / 2), int(y0 + 30 + (bim.height - c.height) / 2)))
-                ix += bim.width + 24 + 12
+            if p_.get('value'):  # 추가 옵션 실사판: 사진 아래 옵션 가격(굵게, 오른쪽)
+                ld.text((x0 + tw - 6, ly + R['photo_label_px'] + 30), p_['value'], font=F(FB, S['tile_value_px']), fill=hexc(S['ink'], al), anchor='rm')
+            # 칩은 이름 위에 덮어 톡
+            self._marks(ld, layer, (x0 + 6, ly), nf, p_['label'], {'chip': p_.get('chip'), 'key': p_.get('key'), 'max_w': tw + 6}, t, 0, ly, al)
+        sm = self.data.get('sum_row')
+        if sm:  # 옵션 합계 줄(목록판 sum 줄과 같은 모양): 위 굵은 선 + 굵은 이름·값
+            ra = ease((t - self.row_t(len(ph))) / M['row_in_s']); al = int(255 * ra)
+            y = oy + S['body_pad'] + th + R['photo_label_gap'] + R['photo_label_px'] + 30 + R['photo_value_gap']
+            ld.line((ox + pad, y, ox + cw - pad, y), fill=hexc(S['ink'], al), width=3)
+            cy = y + S['row_h'] / 2
+            ld.text((ox + pad, cy), sm[0], font=F(FB, S['label_px']), fill=hexc(S['ink'], al), anchor='lm')
+            ld.text((ox + cw - pad, cy), sm[1], font=F(FB, S['value_px']), fill=hexc(S['ink'], al), anchor='rm')
         rest = self.data.get('rest')
         if rest:
             ra = ease((t - self.row_t(len(ph))) / M['row_in_s'])
