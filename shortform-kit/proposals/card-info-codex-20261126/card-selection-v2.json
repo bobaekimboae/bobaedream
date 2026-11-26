@@ -1,0 +1,385 @@
+{
+  "version": "card-info-v2-proposal-20261126",
+  "status": "contract_and_reference_plan_only",
+  "authority": "https://app.notion.com/p/424ee9c4b606809c9f29da537eba5c20",
+  "supersedes": [
+    "v1 all-seven requirement in final listing videos",
+    "unconditional second-cut basic-info card in this v2 card selection mode"
+  ],
+  "unchanged": [
+    "legacy v1 presets outside v2 mode",
+    "brand assets and edition lock",
+    "ElevenLabs voice choice and audio gates",
+    "source-review-cases.json"
+  ],
+  "catalog": [
+    {
+      "type_id": "vehicle_basic",
+      "legacy_id": "C03",
+      "label_ko": "차량 기본정보",
+      "group": "core",
+      "order": 10,
+      "required": false,
+      "claude_v3_type": "vehicle"
+    },
+    {
+      "type_id": "performance_inspection",
+      "legacy_id": "C01",
+      "label_ko": "성능점검",
+      "group": "core",
+      "order": 20,
+      "required": false,
+      "claude_v3_type": "inspection"
+    },
+    {
+      "type_id": "insurance_history",
+      "legacy_id": "C02",
+      "label_ko": "보험이력",
+      "group": "core",
+      "order": 30,
+      "required": false,
+      "claude_v3_type": "insurance"
+    },
+    {
+      "type_id": "vehicle_history_timeline",
+      "legacy_id": null,
+      "label_ko": "차량이력 타임라인",
+      "group": "core",
+      "order": 40,
+      "required": false,
+      "production_technique_code": null,
+      "provider_required": "MOLIT_TS_CAR365",
+      "integration": "not verified",
+      "claude_v3_type": "timeline"
+    },
+    {
+      "type_id": "installed_options",
+      "legacy_id": "C04",
+      "label_ko": "옵션정보",
+      "group": "optional",
+      "order": 50,
+      "required": false,
+      "claude_v3_type": "options"
+    },
+    {
+      "type_id": "factory_extras",
+      "legacy_id": "C05",
+      "label_ko": "추가옵션",
+      "group": "optional",
+      "order": 60,
+      "required": false,
+      "claude_v3_type": "extra_options"
+    },
+    {
+      "type_id": "vehicle_features",
+      "legacy_id": "C06",
+      "label_ko": "차량특징",
+      "group": "optional",
+      "order": 70,
+      "required": false,
+      "claude_v3_type": "features"
+    },
+    {
+      "type_id": "seller_description",
+      "legacy_id": "C07",
+      "label_ko": "판매자 설명",
+      "group": "optional",
+      "order": 80,
+      "required": false,
+      "claude_v3_type": "seller"
+    }
+  ],
+  "selection": {
+    "card_mode": "off",
+    "requested_type_ids_origin": "auto policy or preset emits the request; not a requirement for manual per-listing selection",
+    "requested_type_ids": [],
+    "mandatory_type_ids": [],
+    "when_disabled": "empty plan",
+    "when_requested_empty": "empty plan with no_selection reason; do not auto-fill all cards",
+    "when_requested_unavailable": "skip and record reason; do not substitute an unrequested card",
+    "core_relative_order": [
+      "vehicle_basic",
+      "performance_inspection",
+      "insurance_history",
+      "vehicle_history_timeline"
+    ],
+    "optional_placement": "after selected core cards by catalog order; proposal default",
+    "selected_type_min": 0,
+    "selected_type_max": 8,
+    "presentation_pages": "one type may produce several pages; page count is not type count",
+    "critical_disclosure": "omitting a card never clears a known safety/condition warning elsewhere; final QA independent of card selection",
+    "duration": "determine from final voice timestamps and legibility; paginate rather than truncate speech",
+    "deduplicate": "same fact_id across core insurance and history timeline must not be narrated twice by default",
+    "sample_sold_status": "historical training only unless current sale availability verified"
+  },
+  "timeline_event_fields": [
+    [
+      "event_id",
+      "stable string",
+      "원천 record ID에 공급자 구분을 붙임. 정렬 순번을 안정 ID로 쓰지 않음."
+    ],
+    [
+      "listing_id",
+      "string",
+      "same listing across selected cards"
+    ],
+    [
+      "event_type",
+      "enum",
+      "registration/inspection/maintenance/ownership/use_change/other_verified"
+    ],
+    [
+      "event_date",
+      "ISO date or partial date or null",
+      "date on original event; never fabricate a day"
+    ],
+    [
+      "date_precision",
+      "enum",
+      "day/month/year/unknown; partial dates stay in their own group"
+    ],
+    [
+      "source_provider",
+      "enum",
+      "MOLIT_TS_CAR365/CARHISTORY/INSPECTION_DOCUMENT/LISTING/DEALER_PROOF"
+    ],
+    [
+      "source_record_id",
+      "string/null",
+      "do not expose private identifiers in a public manifest"
+    ],
+    [
+      "source_url",
+      "URL",
+      "actual item/report; service homepage alone is not vehicle proof"
+    ],
+    [
+      "source_as_of",
+      "ISO date/null",
+      "provider report time"
+    ],
+    [
+      "observed_at",
+      "ISO datetime",
+      "collection time, including timezone"
+    ],
+    [
+      "verification",
+      "enum",
+      "confirmed/unknown/conflicted/not_applicable"
+    ],
+    [
+      "access_basis_ref",
+      "string/null",
+      "backend access/authorization reference, no tokens or personal IDs"
+    ],
+    [
+      "mileage_km",
+      "integer/null",
+      "exact measurement at that event; no interpolation"
+    ],
+    [
+      "public_summary",
+      "string",
+      "no owner names or plate/VIN/account"
+    ],
+    [
+      "visibility",
+      "enum",
+      "public/internal; approval determines release"
+    ]
+  ],
+  "timeline_rules": {
+    "training_mixed_source_allowed": {
+      "allowed": true,
+      "title": "공개자료 기반 이력 · 훈련용",
+      "required_disclaimer": "국토부 원문 미확보",
+      "public_official_claim": false
+    },
+    "official_title_allowed_only_if": "all displayed events have confirmed MOLIT_TS_CAR365 vehicle-level evidence and valid access reference",
+    "carhistory_not_molit": true,
+    "undated_events": "do not invent dates; show separate undated summary only if verified",
+    "date_granularity": "sort day events chronologically; do not invent ordering inside ambiguous month/year ranges",
+    "dedup_key": [
+      "source_provider",
+      "source_record_id"
+    ],
+    "cross_source_merge": "require explicit equivalence evidence; preserve original records",
+    "current_state": "historic event is not automatically current vehicle state",
+    "known_warning_omission": "log separately for final vehicle QA, even if timeline unselected"
+  },
+  "sample": {
+    "plan_scope": "official_history_claim_check; not the Claude v3 mixed-source training montage",
+    "card_mode": "selected",
+    "listing_id": "01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+    "model": "벤츠 G-클래스 W463b G400d",
+    "requested_type_ids": [
+      "vehicle_basic",
+      "performance_inspection",
+      "insurance_history",
+      "vehicle_history_timeline"
+    ],
+    "eligible_type_ids": [
+      "vehicle_basic",
+      "performance_inspection",
+      "insurance_history"
+    ],
+    "expected_selected_type_ids": [
+      "vehicle_basic",
+      "performance_inspection",
+      "insurance_history"
+    ],
+    "skipped": [
+      {
+        "type_id": "vehicle_history_timeline",
+        "reason": "국토부·TS 차량 단위 응답 미확보. 보험이력 자료를 대체 입력하지 않음."
+      }
+    ],
+    "cross_source_reference_events": [
+      {
+        "event_id": "insurance-first-registration-20210504",
+        "event_date": "2021-05-04",
+        "date_precision": "day",
+        "event_type": "registration",
+        "source_provider": "CARHISTORY",
+        "source_url": "https://charancha.com/insurance-history?carId=01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+        "source_as_of": "2026-11-12",
+        "public_summary": "최초등록",
+        "official_timeline_eligible": false
+      },
+      {
+        "event_id": "insurance-own-damage-20220209",
+        "event_date": "2022-02-09",
+        "date_precision": "day",
+        "event_type": "other_verified",
+        "source_provider": "CARHISTORY",
+        "source_url": "https://charancha.com/insurance-history?carId=01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+        "source_as_of": "2026-11-12",
+        "public_summary": "보험 이력 내차 피해 1회 · 수리·견적비 839,280원",
+        "official_timeline_eligible": false
+      },
+      {
+        "event_id": "inspection-20261030",
+        "event_date": "2026-10-30",
+        "date_precision": "day",
+        "event_type": "inspection",
+        "source_provider": "INSPECTION_DOCUMENT",
+        "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+        "source_as_of": "2026-10-30",
+        "mileage_km": 33288,
+        "public_summary": "성능점검 · 사고이력 없음 · 단순수리 있음",
+        "official_timeline_eligible": false
+      },
+      {
+        "event_id": "insurance-owner-change-20261110",
+        "event_date": "2026-11-10",
+        "date_precision": "day",
+        "event_type": "ownership",
+        "source_provider": "CARHISTORY",
+        "source_url": "https://charancha.com/insurance-history?carId=01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8",
+        "source_as_of": "2026-11-12",
+        "public_summary": "소유자 변경 1회",
+        "official_timeline_eligible": false
+      }
+    ],
+    "note": "These are cross-source evidence examples only, not an official government history response; not rendered or published."
+  },
+  "official_references": [
+    "https://openservice.go.kr/vehHistInq",
+    "https://main.kotsa.or.kr/portal/contents.do?menuCode=04040300"
+  ],
+  "checks": [
+    [
+      "one-selected",
+      [
+        "insurance_history"
+      ],
+      [
+        "insurance_history"
+      ]
+    ],
+    [
+      "sparse-core",
+      [
+        "vehicle_history_timeline",
+        "vehicle_basic"
+      ],
+      [
+        "vehicle_basic",
+        "vehicle_history_timeline"
+      ]
+    ],
+    [
+      "four-core-reversed",
+      [
+        "vehicle_history_timeline",
+        "insurance_history",
+        "performance_inspection",
+        "vehicle_basic"
+      ],
+      [
+        "vehicle_basic",
+        "performance_inspection",
+        "insurance_history",
+        "vehicle_history_timeline"
+      ]
+    ],
+    [
+      "optional-alone",
+      [
+        "installed_options"
+      ],
+      [
+        "installed_options"
+      ]
+    ],
+    [
+      "all-eight-reversed",
+      [
+        "seller_description",
+        "vehicle_features",
+        "factory_extras",
+        "installed_options",
+        "vehicle_history_timeline",
+        "insurance_history",
+        "performance_inspection",
+        "vehicle_basic"
+      ],
+      [
+        "vehicle_basic",
+        "performance_inspection",
+        "insurance_history",
+        "vehicle_history_timeline",
+        "installed_options",
+        "factory_extras",
+        "vehicle_features",
+        "seller_description"
+      ]
+    ],
+    [
+      "empty-selection",
+      [],
+      []
+    ]
+  ],
+  "production_integration": "pending Claude renderer / Laravel job owner",
+  "actual_molit_api_connected": false,
+  "actual_video_rendered": false,
+  "companion": {
+    "notion_url": "https://app.notion.com/p/424ee9c4b60681cc9f4afba37f54a0c1",
+    "github_ref": "card-info-v2",
+    "rules_path": "scripts/shortform/card_info/card_rules.json",
+    "rules_blob_sha": "2c8444202edf5d733fa487b08489646a2baf46af",
+    "rules_version": "3.0",
+    "order": [
+      "vehicle",
+      "inspection",
+      "insurance",
+      "timeline",
+      "options",
+      "extra_options",
+      "features",
+      "seller"
+    ]
+  }
+}

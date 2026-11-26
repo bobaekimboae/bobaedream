@@ -1,0 +1,823 @@
+{
+  "version": "0.1.0-proposal",
+  "author": "서울오토갤러리 자동 영상 제작 코덱스 마스터",
+  "created_on": "2026-11-26",
+  "status": "consultation_only_not_production_registered",
+  "sources": {
+    "instruction": "https://app.notion.com/p/424ee9c4b606809c9f29da537eba5c20",
+    "listing": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+    "inspection": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+    "autoscout": "https://www.autoscout24.nl/lst/mercedes-benz/g-400",
+    "kit": "https://github.com/bobaekimboae/bobaedream/tree/shootkit/nuxt-4.6.4/shortform-kit",
+    "catalog": "https://github.com/bobaekimboae/bobaedream/blob/shootkit/nuxt-4.6.4/shortform-kit/catalog/techniques.json"
+  },
+  "catalog_version_observed": "0.2.4",
+  "catalog_base_ref": "shootkit/nuxt-4.6.4",
+  "rules": {
+    "unknown_value": null,
+    "unknown_is_not_zero": true,
+    "insurance_does_not_determine_inspection": true,
+    "card_seconds_are_provisional": true,
+    "existing_catalog_is_unchanged": true,
+    "duration_rule": "required=max(min_ms,aligned_voice_ms+250,reading_test_ms); if required>max_ms then split; never truncate speech",
+    "tts_provider": "ElevenLabs",
+    "publish_requires": [
+      "dealer_script_approval",
+      "dealer_final_approval",
+      "asset_rights",
+      "fresh_recall_check"
+    ],
+    "source_data_minimisation": "No VIN, number plate, bank account, private contact, or full inspection document is stored in this public packet."
+  },
+  "cards": [
+    {
+      "id": "C01",
+      "code": "SG-CARD-INSPECT",
+      "name": "성능점검",
+      "group": "기본",
+      "min_sec": 4,
+      "default_sec": 6,
+      "max_sec": 8,
+      "max_facts": 3,
+      "fields": [
+        "inspection_date",
+        "inspection_accident",
+        "simple_repair",
+        "repair_note"
+      ],
+      "evidence": "성능점검 원문 + 선택된 체크박스",
+      "example": "기록상 사고이력 없음 / 단순수리 있음",
+      "voice": "성능점검기록부에는 사고이력 없음, 단순수리 있음으로 표시되어 있습니다.",
+      "gate": "문서 날짜 표시. A등급 생성 금지. 보험 이력과 합치지 않음.",
+      "status": "기존 코드 확장 제안",
+      "min_ms": 4000,
+      "default_ms": 6000,
+      "max_ms": 8000
+    },
+    {
+      "id": "C02",
+      "code": "SG-CARD-INSURE",
+      "name": "보험 이력",
+      "group": "기본",
+      "min_sec": 4,
+      "default_sec": 6,
+      "max_sec": 8,
+      "max_facts": 3,
+      "fields": [
+        "own_damage_count",
+        "other_damage_count",
+        "insurance_as_of"
+      ],
+      "evidence": "보험 이력 원문 또는 출처 표시 요약",
+      "example": "내차 피해 1회 / 상대차 피해 없음",
+      "voice": "공개된 보험 이력에는 내차 피해 한 번, 상대차 피해는 없음으로 표시됩니다.",
+      "gate": "보험 처리와 사고 판정을 구분. 수리비 미확인은 0원으로 표시하지 않음.",
+      "status": "기존 코드 확장 제안",
+      "min_ms": 4000,
+      "default_ms": 6000,
+      "max_ms": 8000
+    },
+    {
+      "id": "C03",
+      "code": "SG-CARD-BASIC",
+      "name": "차량 정보",
+      "group": "기본",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 3,
+      "fields": [
+        "model",
+        "first_registered",
+        "mileage_km"
+      ],
+      "evidence": "매물 원장 + 등록·점검 자료",
+      "example": "G400d / 최초등록 2021.05 / 33,475km",
+      "voice": "2021년 5월 최초 등록된 G400d입니다. 매물 표시 주행거리는 3만 3천 475킬로미터입니다.",
+      "gate": "기존 사진형 2번째 컷 고정과 최대 6줄 규칙 유지. 3개 우선 표시는 비교 제안.",
+      "status": "기존 코드 확장 제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C04",
+      "code": "SG-CARD-OPTIONS-PROPOSED",
+      "name": "옵션 정보",
+      "group": "기본",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 3,
+      "fields": [
+        "option_name",
+        "option_selected",
+        "option_source"
+      ],
+      "evidence": "원장 선택 상태 + 실차 사진·작동 영상",
+      "example": "선루프 / 열선시트 / 후방카메라",
+      "voice": "매물에는 선루프와 열선시트, 후방카메라가 등록되어 있습니다.",
+      "gate": "목록에 단어가 있다고 장착으로 판단하지 않음. 회색·미선택 항목 제외.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C05",
+      "code": "SG-CARD-EXTRA-PROPOSED",
+      "name": "추가 옵션",
+      "group": "기본",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 2,
+      "fields": [
+        "factory_option_name",
+        "factory_option_price",
+        "fitment_proof"
+      ],
+      "evidence": "해당 연식·국가 가격표 + 출고·장착 근거",
+      "example": "추가 선택 옵션 자료 확인 중",
+      "voice": "추가 선택 옵션은 출고 자료를 확인한 뒤 안내합니다.",
+      "gate": "증빙 없는 프리미엄 패키지·부메스터 금지. 미확인 시 훈련용 누락 상태만.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C06",
+      "code": "SG-CARD-CHARACTER-PROPOSED",
+      "name": "차량 특징",
+      "group": "기본",
+      "min_sec": 3,
+      "default_sec": 4,
+      "max_sec": 6,
+      "max_facts": 2,
+      "fields": [
+        "body_type",
+        "displacement_cc",
+        "feature_fact_ids"
+      ],
+      "evidence": "매물 또는 해당 모델 제조사 제원",
+      "example": "대형 SUV / 디젤 2,925cc",
+      "voice": "이 매물은 2,925씨씨 디젤 엔진의 대형 SUV입니다.",
+      "gate": "차명만 보고 차동잠금·출력·토크를 보충하지 않음.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 4000,
+      "max_ms": 6000
+    },
+    {
+      "id": "C07",
+      "code": "SG-CARD-SELLER-PROPOSED",
+      "name": "판매자 설명",
+      "group": "기본",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 2,
+      "fields": [
+        "seller_quote",
+        "seller_quote_fact_ids",
+        "dealer_approval"
+      ],
+      "evidence": "판매자 원문 + 근거 + 딜러 대본 승인",
+      "example": "매물 핵심 요약 / 상세 자료 확인",
+      "voice": "등록된 차량 정보와 확인 자료를 함께 살펴보실 수 있습니다.",
+      "gate": "사실 반복뿐이면 생략. 관리 상태·추천 보증을 AI가 만들어내지 않음.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C08",
+      "code": "SG-CARD-PRICE-PROPOSED",
+      "name": "가격과 비용",
+      "group": "추가",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 3,
+      "fields": [
+        "asking_price_krw",
+        "price_as_of",
+        "fees_included"
+      ],
+      "evidence": "매물 가격 + 비용 안내",
+      "example": "차량가 13,490만원 / 이전비 별도 확인",
+      "voice": "표시된 차량 가격은 1억 3천 490만원입니다. 이전비 등 별도 비용은 확인이 필요합니다.",
+      "gate": "차량가와 총 구매비 구분. 신차가·옵션가·거래가는 별도 필드.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C09",
+      "code": "SG-CARD-WARRANTY-PROPOSED",
+      "name": "보증 범위",
+      "group": "추가",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 2,
+      "fields": [
+        "warranty_status",
+        "warranty_checked_at",
+        "warranty_provider"
+      ],
+      "evidence": "제조사·판매자 보증 확인",
+      "example": "매물 표시: 제조사 보증 만료",
+      "voice": "매물 페이지에는 제조사 보증 만료로 표시되어 있습니다. 실제 적용 여부는 재확인이 필요합니다.",
+      "gate": "성능점검 책임보험과 제조사 보증을 별도 표시.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C10",
+      "code": "SG-CARD-HISTORY-PROPOSED",
+      "name": "등록·소유 이력",
+      "group": "추가",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 3,
+      "fields": [
+        "first_registered",
+        "owner_changes",
+        "special_use_history"
+      ],
+      "evidence": "등록 자료 + 보험 이력",
+      "example": "최초등록 2021.05.04 / 소유자 변경 1회",
+      "voice": "최초 등록일은 2021년 5월 4일이며 공개 이력상 소유자 변경은 한 번입니다.",
+      "gate": "명의 변경 1회를 1인 소유·실사용자 2명으로 해석하지 않음.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C11",
+      "code": "SG-CARD-RECALL-PROPOSED",
+      "name": "리콜·구매 전 확인",
+      "group": "추가",
+      "min_sec": 4,
+      "default_sec": 6,
+      "max_sec": 8,
+      "max_facts": 2,
+      "fields": [
+        "recall_document_status",
+        "recall_as_of",
+        "current_recall_proof"
+      ],
+      "evidence": "점검 원문 + 최근 이행 확인",
+      "example": "2026.10.30 기록: 리콜 미이행 / 현재 상태 확인",
+      "voice": "10월 30일 점검기록에는 리콜 미이행으로 표시되어 있어 현재 완료 여부를 확인해야 합니다.",
+      "gate": "과거 미이행을 현재 미이행으로 단정하지 않음. 최근 확인 전 게시 보류.",
+      "status": "제안",
+      "min_ms": 4000,
+      "default_ms": 6000,
+      "max_ms": 8000
+    },
+    {
+      "id": "C12",
+      "code": "SG-CARD-SPEC",
+      "name": "제원 숫자",
+      "group": "추가",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 3,
+      "fields": [
+        "power_kw",
+        "torque_nm",
+        "navigation_inch",
+        "boot_litre",
+        "tyre_size"
+      ],
+      "evidence": "정확한 연식·트림·시장 제조사 문서 + 실차",
+      "example": "마력·토크·내비 인치 중 확인된 값만",
+      "voice": "해당 트림의 제조사 자료에서 확인된 제원만 안내합니다.",
+      "gate": "내비와 계기판 크기 분리. 트렁크 용량은 좌석 상태·측정 기준 포함.",
+      "status": "기존 코드 확장 제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C13",
+      "code": "SG-CATALOG",
+      "name": "카탈로그 확대",
+      "group": "추가",
+      "min_sec": 4,
+      "default_sec": 6,
+      "max_sec": 8,
+      "max_facts": 2,
+      "fields": [
+        "catalog_asset",
+        "catalog_page",
+        "catalog_model",
+        "rights_ref"
+      ],
+      "evidence": "사용 허용된 해당 국가·연식 카탈로그",
+      "example": "원문 항목 확대 / 제조사 자료 표시",
+      "voice": "해당 연식의 제조사 자료에서 이 사양을 확인할 수 있습니다.",
+      "gate": "카탈로그 기본·선택 사양과 실차 장착을 분리. 자산 사용 허용 확인.",
+      "status": "기존 코드 확장 제안",
+      "min_ms": 4000,
+      "default_ms": 6000,
+      "max_ms": 8000
+    },
+    {
+      "id": "C14",
+      "code": "SG-CARD-PHOTOS-PROPOSED",
+      "name": "외관 사진 스크롤",
+      "group": "추가",
+      "min_sec": 3,
+      "default_sec": 4.5,
+      "max_sec": 6,
+      "max_facts": 3,
+      "fields": [
+        "front_asset",
+        "side_asset",
+        "rear_asset",
+        "asset_rights"
+      ],
+      "evidence": "사용 허용된 동일 매물 원본 사진",
+      "example": "전면 → 측면 → 후면",
+      "voice": "전면과 측면, 후면 모습을 차례로 확인하실 수 있습니다.",
+      "gate": "차체·색상·손상을 생성형 AI로 바꾸지 않음. 번호판·얼굴 검사.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 4500,
+      "max_ms": 6000
+    },
+    {
+      "id": "C15",
+      "code": "SG-CARD-ENERGY-PROPOSED",
+      "name": "연비·전비",
+      "group": "추가",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 2,
+      "fields": [
+        "efficiency_value",
+        "efficiency_unit",
+        "test_cycle",
+        "efficiency_source"
+      ],
+      "evidence": "해당 연식·트림·타이어 인증 제원",
+      "example": "공인 복합연비 / 시험 기준 표시",
+      "voice": "해당 트림의 공인 복합연비를 기준으로 안내합니다.",
+      "gate": "공인값을 실제 연비로 말하지 않음. 타 차종 평균을 임의 생성하지 않음.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    },
+    {
+      "id": "C16",
+      "code": "SG-CARD-MILEAGE-PROPOSED",
+      "name": "점검 이후 주행거리",
+      "group": "추가",
+      "min_sec": 3,
+      "default_sec": 5,
+      "max_sec": 7,
+      "max_facts": 2,
+      "fields": [
+        "inspection_mileage_km",
+        "mileage_km",
+        "inspection_date"
+      ],
+      "evidence": "날짜가 있는 점검기록 + 매물 표시",
+      "example": "점검 33,288km / 매물 표시 33,475km",
+      "voice": "점검 당시에는 3만 3천 288킬로미터, 현재 매물 표시는 3만 3천 475킬로미터입니다.",
+      "gate": "동일 날짜 수치로 합치지 않음. 조작·문제 차량으로 단정하지 않음.",
+      "status": "제안",
+      "min_ms": 3000,
+      "default_ms": 5000,
+      "max_ms": 7000
+    }
+  ],
+  "facts": [
+    {
+      "id": "F01",
+      "key": "model",
+      "value": "벤츠 G-클래스 W463b G400d",
+      "unit": "",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "차명",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F02",
+      "key": "model_year",
+      "value": 2021,
+      "unit": "년",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "③ 연식",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F03",
+      "key": "first_registered",
+      "value": "2021-05-04",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "⑤ 최초등록일",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F04",
+      "key": "mileage_km",
+      "value": 33475,
+      "unit": "km",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "기본 정보 / 주행거리",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F05",
+      "key": "inspection_mileage_km",
+      "value": 33288,
+      "unit": "km",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "점검 당시 현재 주행거리",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F06",
+      "key": "inspection_date",
+      "value": "2026-10-30",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "기록부 서명 날짜",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F07",
+      "key": "fuel",
+      "value": "디젤",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "⑧ 사용연료 체크됨",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F08",
+      "key": "transmission",
+      "value": "자동",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "⑦ 변속기 체크됨",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F09",
+      "key": "asking_price_krw",
+      "value": 134900000,
+      "unit": "KRW",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "하단 차량 가격",
+      "observed_on": "2026-11-26",
+      "note": "총 구매비 아님"
+    },
+    {
+      "id": "F10",
+      "key": "body_type",
+      "value": "대형 SUV",
+      "unit": "",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "차종·바디타입",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F11",
+      "key": "exterior_colour",
+      "value": "흰색",
+      "unit": "",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "색상",
+      "observed_on": "2026-11-26",
+      "note": "시트 색상은 확인되지 않음"
+    },
+    {
+      "id": "F12",
+      "key": "displacement_cc",
+      "value": 2925,
+      "unit": "cc",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "배기량",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F13",
+      "key": "own_damage_count",
+      "value": 1,
+      "unit": "회",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "보험 이력 / 내차 피해",
+      "observed_on": "2026-11-26",
+      "note": "보험사고 0건 문구 금지"
+    },
+    {
+      "id": "F14",
+      "key": "other_damage_count",
+      "value": 0,
+      "unit": "회",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "보험 이력 / 상대 차 피해 없음",
+      "observed_on": "2026-11-26",
+      "note": "이 값만으로 무사고 판정 금지"
+    },
+    {
+      "id": "F15",
+      "key": "owner_changes",
+      "value": 1,
+      "unit": "회",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "소유자 변경",
+      "observed_on": "2026-11-26",
+      "note": "실사용자 수 또는 1인 소유 의미 아님"
+    },
+    {
+      "id": "F16",
+      "key": "inspection_accident",
+      "value": "없음",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "⑫ 사고이력 첫 체크박스 checked",
+      "observed_on": "2026-11-26",
+      "note": "해당 기록 기준. 전체 수리 없음 의미 아님"
+    },
+    {
+      "id": "F17",
+      "key": "simple_repair",
+      "value": "있음",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "⑫ 단순수리 있음 체크",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F18",
+      "key": "repair_note",
+      "value": "운)앞문,쿼터 도장수리",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "성능·상태점검자 의견",
+      "observed_on": "2026-11-26",
+      "note": "필요한 문구만 발췌. 계좌·연락처 등 제외"
+    },
+    {
+      "id": "F19",
+      "key": "recall_document_status",
+      "value": "해당 / 미이행",
+      "unit": "",
+      "status": "원문 확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "리콜대상·이행 체크",
+      "observed_on": "2026-11-26",
+      "note": "2026-10-30 기록이며 현재 상태 미확인"
+    },
+    {
+      "id": "F20",
+      "key": "current_recall_proof",
+      "value": null,
+      "unit": "",
+      "status": "미확인",
+      "source_url": "https://ck.carmodoo.com/carCheck/carmodooPrint.do?&checkNum=7016623107",
+      "locator": "현재 완료 자료 미확보",
+      "observed_on": "2026-11-26",
+      "note": "추가 확인 전 공개용 리콜 단정 금지"
+    },
+    {
+      "id": "F21",
+      "key": "option_sunroof",
+      "value": true,
+      "unit": "",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "기본옵션 / opacity-20 없음",
+      "observed_on": "2026-11-26",
+      "note": "딜러·실차 확인 전에는 등록 옵션으로만 표현"
+    },
+    {
+      "id": "F22",
+      "key": "option_heated_seat",
+      "value": true,
+      "unit": "",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "기본옵션 / opacity-20 없음",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F23",
+      "key": "option_rear_camera",
+      "value": true,
+      "unit": "",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "기본옵션 / opacity-20 없음",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F24",
+      "key": "option_ventilated_seat",
+      "value": null,
+      "unit": "",
+      "status": "미확인",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "기본옵션 / opacity-20 있음",
+      "observed_on": "2026-11-26",
+      "note": "텍스트에는 존재하지만 비활성 표시. 장착 옵션으로 쓰지 않음"
+    },
+    {
+      "id": "F25",
+      "key": "warranty_status",
+      "value": "매물 페이지상 제조사 보증 만료",
+      "unit": "",
+      "status": "매물 표시",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "보증 정보",
+      "observed_on": "2026-11-26",
+      "note": "실제 잔여 여부는 제조사·판매자 재확인"
+    },
+    {
+      "id": "F26",
+      "key": "insurance_repair_cost",
+      "value": null,
+      "unit": "KRW",
+      "status": "미확인",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "요약에서 금액 미확보",
+      "observed_on": "2026-11-26",
+      "note": "0원 아님"
+    },
+    {
+      "id": "F27",
+      "key": "factory_option_name",
+      "value": null,
+      "unit": "",
+      "status": "미확인",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "출고 선택 옵션 자료 미확보",
+      "observed_on": "2026-11-26",
+      "note": "부메스터·프리미엄 패키지 생성 금지"
+    },
+    {
+      "id": "F28",
+      "key": "navigation_inch",
+      "value": null,
+      "unit": "inch",
+      "status": "미확인",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "공식 트림별 제원 미확보",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F29",
+      "key": "boot_litre",
+      "value": null,
+      "unit": "L",
+      "status": "미확인",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "공식 측정 조건 미확보",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F30",
+      "key": "interior_colour",
+      "value": null,
+      "unit": "",
+      "status": "미확인",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "확인 자료 없음",
+      "observed_on": "2026-11-26",
+      "note": ""
+    },
+    {
+      "id": "F31",
+      "key": "manufacturer_msrp_krw",
+      "value": null,
+      "unit": "KRW",
+      "status": "미확인",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "해당 연식·국가 가격표 미확보",
+      "observed_on": "2026-11-26",
+      "note": "신차대비 절약 16% 배지에서 역산 금지"
+    },
+    {
+      "id": "F32",
+      "key": "market_rank",
+      "value": null,
+      "unit": "",
+      "status": "보류",
+      "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+      "locator": "모집단·시점·산식 미확보",
+      "observed_on": "2026-11-26",
+      "note": "상위 15%·최저가 표현 사용 금지"
+    }
+  ],
+  "example_cards": [
+    {
+      "id": "C03",
+      "fact_ids": [
+        "F01",
+        "F03",
+        "F04"
+      ],
+      "headline": "G400d",
+      "lines": [
+        "최초등록 2021.05",
+        "33,475km"
+      ],
+      "approval": "draft"
+    },
+    {
+      "id": "C01",
+      "fact_ids": [
+        "F06",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "headline": "성능점검 요약",
+      "lines": [
+        "기록상 사고이력 없음",
+        "단순수리 있음"
+      ],
+      "source_badge": "2026.10.30 점검기록",
+      "detail": "운)앞문,쿼터 도장수리",
+      "approval": "draft"
+    },
+    {
+      "id": "C02",
+      "fact_ids": [
+        "F13",
+        "F14"
+      ],
+      "headline": "보험 이력",
+      "lines": [
+        "내차 피해 1회",
+        "상대차 피해 없음"
+      ],
+      "source_badge": "매물 공개 이력 · 2026.11.26 확인",
+      "approval": "draft"
+    },
+    {
+      "id": "C11",
+      "fact_ids": [
+        "F06",
+        "F19",
+        "F20"
+      ],
+      "headline": "리콜 완료 여부 확인",
+      "lines": [
+        "2026.10.30 기록: 미이행",
+        "현재 상태 추가 확인 필요"
+      ],
+      "approval": "hold_for_current_evidence"
+    }
+  ]
+}
