@@ -1,0 +1,21 @@
+# 숏폼 파이프라인 설치 판 고정 (2026-11-25, 실제로 렌더·시험이 통과한 판)
+# 설치: pip install --break-system-packages -r scripts/shortform/requirements-lock.txt
+# 판을 올릴 때: 이 파일만 바꾸고 30건 부하 시험 + check_be + v13 비교 통과 후 커밋
+# 시스템 도구(파이썬 밖): FFmpeg n9.0.2 · Node 22.23.4(마스크 풀기 @meta-sam/parser 0.1.0)
+# 외부 API: Meta Model API sam-3.1(키 MODEL_API_KEY) · ElevenLabs
+beat-this==1.1.0
+ctranslate2==4.9.1
+faster-whisper==1.2.1
+librosa==1.0.0
+numpy==2.5.5
+onnxruntime==1.32.0
+opencv-contrib-python==5.1.0.95
+pillow==13.0.0
+requests==2.34.2
+safetensors==0.8.0
+scenedetect==0.7.3
+scipy==1.18.1
+soundfile==0.14.0
+tokenizers==0.23.3
+torch==2.15.0  # CPU판(+cpu)
+transformers==5.24.0

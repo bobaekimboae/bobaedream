@@ -6,7 +6,8 @@ v1.3: 딜러 칩 독일식 두 줄 둥근 상자(DEALER_CHIP_STYLE='de') 추가 
 v1.2: 낱말 시작 에너지 골짜기 맞춤 · 페이드 창(FW) · 가로 사진 아래 자막 · SFX_RICH · 노션 원본 칠 딜러 칩
 """
 PIPELINE_VERSION = '1.5'  # v1.5: 옵션 비주얼 자동(auto_visuals.py · option_visual_rules.json)
-import json, os, re, subprocess, sys, wave
+import json, os, re, subprocess, sys, wave, time, hashlib
+_T_START = time.time()
 import numpy as np
 import cv2
 from PIL import Image, ImageFilter, ImageDraw, ImageFont
@@ -62,6 +63,24 @@ def _onset_raw(i):
 
 
 DBS = np.convolve(db, np.ones(3) / 3, mode='same')  # 30ms 평활
+
+
+def _speech_end(t0, t1):
+    """t0~t1 사이에서 실제 소리(30ms 평활 −32dB 넘음)가 마지막으로 나는 시각. 2026-11-25: 받아쓰기 끝 시각이 문장 끝 어절(「있습니다」)을
+    짧게·0초로 잡아 페이드와 자막이 말보다 먼저 끝나던 문제(30건 시험 29.25초·41.25초 자막 빈 곳)를 소리로 다시 잰다."""
+    a, b = max(0, int(t0 * 100)), min(len(DBS), int(t1 * 100))
+    if b <= a:
+        return t0
+    idx = np.nonzero(DBS[a:b] > -32)[0]
+    return (a + idx[-1] + 1) / 100 if len(idx) else t0
+
+
+def _prev_end(j):
+    """j번째 어절 바로 앞 어절의 실제 소리 끝(받아쓰기 끝과 소리 끝 중 늦은 쪽, 다음 어절 소리 시작 전까지만)."""
+    if j <= 0:
+        return 0
+    w = WRD[j - 1][1] / SPEED
+    return max(w, _speech_end(WRD[j - 1][0] / SPEED, onset(j) - 0.02))
 
 
 def _onset_snap(i):
@@ -162,7 +181,7 @@ elif getattr(C, 'BEAT_SNAP', False):
     _moved = []
     for _i in range(1, len(starts)):
         _on = onset(CUTS[_i][2]); _hi = _on - 0.04
-        _lo = max(_on - 0.45, WRD[CUTS[_i][2] - 1][1] / SPEED - 0.02 if CUTS[_i][2] > 0 else 0)
+        _lo = max(_on - 0.45, _prev_end(CUTS[_i][2]) - 0.02 if CUTS[_i][2] > 0 else 0)   # 2026-11-25 소리 끝 기준
         _lo = max(_lo, starts[_i - 1] + 0.8)   # 앞 컷이 너무 짧아지지 않게
         _pick = None
         for _pool in ((_strong, _beats) if _i in set(getattr(C, 'WHOOSH_AT', [])) else (_beats,)):
@@ -278,7 +297,7 @@ for _j in range(1, len(CUTS)):
     if _tr not in FADES:
         continue
     _end = onset(CUTS[_j][2]) - 0.05
-    _prev = WRD[CUTS[_j][2] - 1][1] / SPEED if CUTS[_j][2] > 0 else 0  # 앞 문장 마지막 어절 끝
+    _prev = _prev_end(CUTS[_j][2])  # 앞 문장 마지막 어절의 실제 소리 끝(2026-11-25, 받아쓰기 끝만 쓰면 「있습니다」가 잘림)
     _d = min(FADES[_tr], max(0.25, _end - _prev + 0.10))
     FW[_j] = (_end - _d, _end, _tr)
 # 칩: 새 컷 칩은 페이드가 끝난 뒤, 앞 컷 칩은 페이드 시작 전에 내려감
@@ -304,7 +323,11 @@ for c in CAPS:  # 문장 마지막 자막도 페이드 시작 전에 내려감
         a, b, _ = FW[ci + 1]
         # 문장 사이 쉼이 없어 말이 페이드 안까지 이어지면(쉼 0.15초 미만) 자막을 페이드 끝까지 남김 — 말하는데 자막이 비지 않게
         tight = b - a <= 0.30
-        c['e'] = max(c['s'] + 0.3, min(c['e'], b - 0.03) if tight else a)
+        _se = _speech_end(c['s'], b)   # 2026-11-25 말소리가 페이드 시작 뒤까지 이어지면 자막을 말 끝(+0.06초)까지 남김
+        if tight or _se > a - 0.02:
+            c['e'] = max(c['s'] + 0.3, min(max(c['e'], _se + 0.06), b - 0.03))
+        else:
+            c['e'] = max(c['s'] + 0.3, a)
     elif ci + 1 < len(CUTS) and ci + 1 not in FW and c['e'] > starts[ci + 1]:   # 2026-11-24 휙·확대 넘김: 앞 문장 자막이 다음 사진 위에 남지 않게 컷 시작에서 내림
         c['e'] = max(c['s'] + 0.3, starts[ci + 1])
 
@@ -1950,8 +1973,43 @@ def mix_audio():
          '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-movflags', '+faststart', '-shortest', OUT_FILE])
     os.remove('video_only.mp4')
     # 렌더 후 점검(⑥): 말하는 동안 자막이 보이는가 — 걸려도 영상은 남기고 고칠 곳만 알린다
-    subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'check_render.py'), SC, OUT_FILE])
+    # 2026-11-25: 같은 프로세스에서 불러 빈 곳 목록을 받아 plan.json에 적는다(check_be가 실패로 셈)
+    global CAPTION_GAPS
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import check_render as _CR
+        _CR.main(os.path.abspath(SC), OUT_FILE)
+        CAPTION_GAPS = [list(g) for g in getattr(_CR.main, 'bad', [])]
+    except Exception as _e:   # 점검기가 깨져도 영상은 남김 — 대신 기록에 남김
+        print('  렌더 후 점검 실패:', _e); CAPTION_GAPS = None
     write_edition_plan(SFX)
+
+
+CAPTION_GAPS = None
+
+
+def _manifest():
+    """대량 제작 원인 추적용 기록(2026-11-25): 입력 해시 · 도구 판 · 커밋 · 걸린 시간."""
+    def h(p):
+        try:
+            return hashlib.sha256(open(p, 'rb').read()).hexdigest()[:16]
+        except OSError:
+            return None
+    here = os.path.dirname(os.path.abspath(__file__))
+    def out(cmd):
+        try:
+            return subprocess.run(cmd, capture_output=True, text=True, timeout=10).stdout.strip().splitlines()[0]
+        except Exception:
+            return None
+    cfgp = os.path.join(os.path.abspath(SC), 'cfg.py') if os.path.isdir(SC) else SC
+    return {'inputs': {'voice_a.mp3': h('voice_a.mp3'), 'voice_a_words.json': h('voice_a_words.json'), 'cfg.py': h(cfgp),
+                       'be_locked_rules.json': h(os.path.join(here, '..', 'be_locked_rules.json'))},
+            'tools': {'python': sys.version.split()[0], 'numpy': np.__version__, 'opencv': cv2.__version__,
+                      'ffmpeg': out(['ffmpeg', '-version'])},
+            'git_commit': out(['git', '-C', here, 'rev-parse', '--short', 'HEAD']),
+            'voice_id': getattr(C, 'VOICE_ID', None), 'speed': SPEED,
+            'render_seconds': round(time.time() - _T_START, 1),
+            'env': {k: os.environ[k] for k in ('BBM_FADE', 'BBM_ICON3D') if k in os.environ}}
 
 
 def write_edition_plan(SFX):
@@ -1968,7 +2026,8 @@ def write_edition_plan(SFX):
     if any(abs(float(x)) > 1e-6 for x in tilts): T.add('chip_tilt')
     json.dump({'edition': 'photo_listing', 'edition_code': 'ED-PHOTO', 'renderer': 'common.py', 'order': 'script', 'total': round(TOTAL, 3),
                'techniques': sorted(T), 'chips': [dict({'label': a, 't0': round(b, 2), 't1': round(e, 2), 't_box': round(b + 0.3, 2), 'kind': 'point'}, **({'box': CHIP_BOX[k]} if k in CHIP_BOX else {})) for k, (a, b, e) in enumerate(CHIPS) if e > b],   # 화면에 한 번도 안 뜨는 칩(시작 ≥ 끝)은 계획에서 뺌
-               'sfx': [{'sound': n, 't': round(t, 3)} for n, t, v in SFX], 'cuts': [round(x, 3) for x in starts]},
+               'sfx': [{'sound': n, 't': round(t, 3)} for n, t, v in SFX], 'cuts': [round(x, 3) for x in starts],
+               **({'caption_gaps': CAPTION_GAPS} if CAPTION_GAPS is not None else {}), 'manifest': _manifest()},
               open(OUT_FILE + '.plan.json', 'w'), ensure_ascii=False, indent=1)
     print('계획 파일:', OUT_FILE + '.plan.json')
 

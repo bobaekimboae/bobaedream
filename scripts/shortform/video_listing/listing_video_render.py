@@ -92,10 +92,20 @@ def grab(t):
     cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000); ok, f = cap.read(); return f if ok else None
 TR = {}
 need = [(k, c) for k, c in enumerate(CUTS) if c.get('part') and c.get('chip')]
+SAMR = {}
+if need and os.environ.get('BBM_PART_TRACKER', 'sam31') == 'sam31':
+    # 2026-11-25 부위 찾기+추적 = SAM 3.1 한 번(컷 동시 전송). 못 찾은 컷만 아래 기존 방식(OWLv2+VitTrack)으로 간다.
+    # 끄려면 BBM_PART_TRACKER=legacy. 키(MODEL_API_KEY)가 없으면 자동으로 기존 방식.
+    sys.path.insert(0, os.path.join(REPO, 'scripts/shortform/auto/sam31'))
+    import part_track as PT
+    SAMR = PT.track_parts(SRC, [{'key': c['key'], 's0': c['src'][0], 's1': c['src'][1], 'part': c['part']} for k, c in need],
+                          os.path.join(D, '_sam31'))
 if need:
     sys.path.insert(0, os.path.join(REPO, 'scripts/shortform/photo_listing'))
-    import part_anchor as PA
     for k, c in need:
+        if SAMR.get(c['key'], {}).get('pts'):
+            TR[c['key']] = SAMR[c['key']]['pts']; print(f"  부위 {c['key']} {c['part']} SAM 3.1({SAMR[c['key']]['how']})"); continue
+        import part_anchor as PA
         ti = min(c['src'][1] - 0.1, max(c['src'][0], WS[word(k, c['chip_word'])][1]))
         f = grab(ti)
         if f is None: continue
