@@ -4,7 +4,57 @@
     "title": "벤츠 G-클래스 W463b G400d",
     "price_text": "1억 3,490만원",
     "source": "차란차 매물(2026-11-26 수집) · 성능점검기록부 제7016623107호 · 보험이력 요약",
-    "photos_dir": "src/photos"
+    "photos_dir": "src/photos",
+    "version": "v2 (2차 제안: 엔카 기본 순서 + 차량 이력 타임라인 + 매물별 선택)",
+    "order": [
+      "vehicle",
+      "inspection",
+      "insurance",
+      "timeline",
+      "options",
+      "extra_options",
+      "features",
+      "seller"
+    ],
+    "presets": {
+      "full": {
+        "cards": [
+          "vehicle",
+          "inspection",
+          "insurance",
+          "timeline",
+          "options",
+          "features",
+          "seller"
+        ],
+        "intro": true,
+        "outro": true
+      },
+      "encar4": {
+        "cards": [
+          "vehicle",
+          "inspection",
+          "insurance",
+          "timeline"
+        ],
+        "intro": false,
+        "outro": false
+      },
+      "single_inspection": {
+        "cards": [
+          "inspection"
+        ],
+        "intro": false,
+        "outro": false
+      },
+      "single_timeline": {
+        "cards": [
+          "timeline"
+        ],
+        "intro": false,
+        "outro": false
+      }
+    }
   },
   "intro": {
     "photo": "p01.png",
@@ -14,7 +64,7 @@
     "price": "1억 3,490만원",
     "subtitle": [
       [
-        "7장 카드로 "
+        "{n}장 카드로 "
       ],
       [
         "이 차 핵심만",
@@ -27,49 +77,99 @@
   },
   "cards": [
     {
+      "type": "vehicle",
+      "label": "차량 정보",
+      "icon": "car",
+      "bg": "p03.png",
+      "grid": [
+        {
+          "k": "연식",
+          "v": "2021.05"
+        },
+        {
+          "k": "주행거리",
+          "v": "33,475km"
+        },
+        {
+          "k": "연료",
+          "v": "디젤"
+        },
+        {
+          "k": "배기량",
+          "v": "2,925cc"
+        },
+        {
+          "k": "변속기",
+          "v": "자동"
+        },
+        {
+          "k": "색상",
+          "v": "흰색"
+        }
+      ],
+      "compare": {
+        "k": "신차가(차란차 신차 비교) ↔ 판매가",
+        "from": "1억 6,060만원",
+        "to": "1억 3,490만원",
+        "save": "차이 2,570만원"
+      },
+      "foot": "신차가: 차란차 신차 비교 기준(선택옵션 제외) · 최초등록 2021.05",
+      "subtitle": [
+        [
+          "2021년 · "
+        ],
+        [
+          "3.3만km",
+          "hl"
+        ],
+        [
+          " · 디젤 · 1억 3,490만원"
+        ]
+      ],
+      "headline": {
+        "text": "2021년 5월 · 3.3만km",
+        "tone": "neutral"
+      }
+    },
+    {
       "type": "inspection",
       "label": "성능 점검",
       "icon": "check",
       "bg": "p06.png",
       "headline": {
         "text": "사고이력 없음",
-        "tone": "good"
+        "tone": "neutral"
       },
       "rows": [
         {
           "k": "단순수리",
-          "v": "있음 · 외판 1곳 판금",
+          "v": "있음 · 트렁크리드 판금",
           "tone": "warn"
         },
         {
-          "k": "원동기·변속기",
-          "v": "양호 · 누유 없음",
+          "k": "점검자 의견",
+          "v": "운전석 앞문·쿼터 도장",
+          "tone": "warn"
+        },
+        {
+          "k": "원동기·변속기 등",
+          "v": "주요 장치 모두 양호",
           "tone": "good"
         },
         {
-          "k": "조향·제동·전기",
-          "v": "모두 양호",
-          "tone": "good"
-        },
-        {
-          "k": "특별이력·튜닝",
-          "v": "없음",
-          "tone": "good"
-        },
-        {
-          "k": "리콜",
+          "k": "리콜(점검일 기록)",
           "v": "대상 · 미이행",
-          "tone": "bad"
+          "tone": "warn"
         }
       ],
-      "foot": "성능·상태점검기록부 2026-10-30 · 점검 주행 33,288km",
+      "foot": "성능·상태점검기록부 2026-10-30 · 현재 리콜 이행 여부는 제조사 확인 필요",
       "subtitle": [
         [
           "사고이력 없음",
           "hl"
         ],
         [
-          ", 리콜은 미이행"
+          ", 리콜은 확인 필요"
         ]
       ]
     },
@@ -128,53 +228,42 @@
       ]
     },
     {
-      "type": "vehicle",
-      "label": "차량 정보",
-      "icon": "car",
-      "bg": "p03.png",
-      "grid": [
+      "type": "timeline",
+      "label": "차량 이력 타임라인",
+      "icon": "clock",
+      "bg": "p08.png",
+      "timeline": [
         {
-          "k": "연식",
-          "v": "2021.05"
+          "date": "2021.05",
+          "t": "최초 등록",
+          "s": "신차 출고 · 2021년형"
         },
         {
-          "k": "주행거리",
-          "v": "33,475km"
+          "date": null,
+          "t": "소유자 변경 1회",
+          "s": "보험개발원 이력 요약 기준"
         },
         {
-          "k": "연료",
-          "v": "디젤"
+          "date": "2026.10.30",
+          "t": "성능·상태 점검",
+          "s": "점검 주행 33,288km"
         },
         {
-          "k": "배기량",
-          "v": "2,925cc"
-        },
-        {
-          "k": "변속기",
-          "v": "자동"
-        },
-        {
-          "k": "색상",
-          "v": "흰색"
+          "date": "2026.11.26",
+          "t": "현재 매물 확인",
+          "s": "주행 33,475km",
+          "gap": "점검 이후 +187km",
+          "point": true
         }
       ],
-      "compare": {
-        "k": "신차가 대비",
-        "from": "1억 6,060만원",
-        "to": "1억 3,490만원",
-        "save": "2,570만원 ↓ (16%)"
-      },
-      "foot": "신차가: 동일 등급 출고가 기준(선택옵션 제외)",
+      "foot": "국토부 자동차 이력(등록원부) 연동 시 등록·이전·검사 날짜가 자동으로 채워짐 · 이번 샘플은 공개 자료만",
       "subtitle": [
         [
-          "신차보다 "
+          "최초 등록 2021년, "
         ],
         [
-          "2,570만원 저렴",
+          "소유자 변경 1회",
           "hl"
-        ],
-        [
-          " · 3.3만km"
         ]
       ]
     },
@@ -185,7 +274,7 @@
       "bg": "p07.png",
       "headline": {
         "text": "주요 옵션 12개 중 11개",
-        "tone": "good"
+        "tone": "neutral"
       },
       "chips": [
         {
@@ -247,7 +336,7 @@
           "hl"
         ],
         [
-          ", 통풍시트만 없어요"
+          " · 통풍시트 표시 없음"
         ]
       ]
     },
@@ -297,7 +386,9 @@
           "47개 품목",
           "hl"
         ]
-      ]
+      ],
+      "available": false,
+      "skip_reason": "선택옵션(유료) 등록 없음 → 이 매물은 추가 옵션 카드 생략(총 장착 품목 수로 대체 금지)"
     },
     {
       "type": "features",
@@ -336,12 +427,12 @@
     },
     {
       "type": "seller",
-      "label": "판매자 설명",
+      "label": "판매자 정보",
       "icon": "chat",
       "bg": "p10.png",
-      "fallback": true,
+      "fallback": false,
       "headline": {
-        "text": "등록된 설명 없음",
+        "text": "판매자 설명 없음",
         "tone": "muted"
       },
       "stats": [
@@ -360,7 +451,7 @@
         {
           "k": "성능 보증",
           "v": "보험사 보증 · 30일/2,000km",
-          "tone": "good"
+          "tone": "neutral"
         },
         {
           "k": "판매 방식",
@@ -368,7 +459,7 @@
           "tone": "neutral"
         }
       ],
-      "foot": "설명이 없으면 판매자 정보 카드로 자동 대체",
+      "foot": "판매자 설명이 비어 있어 판매 실적·보증 사실로 대체",
       "subtitle": [
         [
           "누적 "
@@ -386,7 +477,7 @@
   "outro": {
     "photo": "p04.png",
     "title": "숏폼 한 편으로 끝",
-    "sub": "성능 · 보험 · 옵션 · 판매자까지",
+    "sub": "성능 · 보험 · 이력 · 옵션까지",
     "subtitle": [
       [
         "자세한 건 "

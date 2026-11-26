@@ -5,7 +5,7 @@
 @font-face{font-family:'Pretendard';font-weight:700;src:url('../fonts/Pretendard-Bold.woff2') format('woff2')}
 @font-face{font-family:'Pretendard';font-weight:800;src:url('../fonts/Pretendard-ExtraBold.woff2') format('woff2')}
 @font-face{font-family:'Pretendard';font-weight:900;src:url('../fonts/Pretendard-Black.woff2') format('woff2')}
-:root{--y:#F5D400;--ink:#14161A;--sub:#5B616B;--line:#E7E9EE;--good:#12A150;--warn:#E08600;--bad:#E5383B;--muted:#8A9099}
+:root{--y:#F5D400;--ink:#14161A;--sub:#5B616B;--line:#E7E9EE;--muted:#8A9099}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1080px;height:1920px;overflow:hidden;background:#000;font-family:'Pretendard','Noto Sans CJK KR',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
 #stage{position:absolute;inset:0;overflow:hidden}
@@ -23,8 +23,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000;font-family
 .fb{margin-left:auto;font-size:24px;font-weight:700;color:var(--sub);background:#F1F2F5;padding:8px 16px;border-radius:12px}
 .hl{font-size:76px;font-weight:900;letter-spacing:-2px;line-height:1.1;margin:6px 0 34px;display:flex;align-items:center;gap:18px}
 .hl .dot{width:30px;height:30px;border-radius:50%;flex:none}
-.tone-good{color:var(--good)}.tone-warn{color:var(--warn)}.tone-bad{color:var(--bad)}.tone-muted{color:var(--muted)}.tone-neutral{color:var(--ink)}
-.bg-good{background:var(--good)}.bg-warn{background:var(--warn)}.bg-bad{background:var(--bad)}.bg-muted{background:var(--muted)}.bg-neutral{background:var(--ink)}
+/* v2: 판정 색 폐지 — 노랑 한 색. warn/bad = 확인 포인트(노랑 형광 밑줄), 나머지 = 잉크 */
+.tone-good,.tone-neutral,.tone-warn,.tone-bad{color:var(--ink)}.tone-muted{color:var(--muted)}
+.tone-warn .tx,.tone-bad .tx{background:linear-gradient(transparent 58%,var(--y) 58%);padding:0 4px}
+.bg-good,.bg-neutral{background:var(--ink)}.bg-warn,.bg-bad{background:var(--y);box-shadow:0 0 0 3px var(--ink) inset}.bg-muted{background:var(--muted)}
 .rows{border-top:2px solid var(--line)}
 .row{display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-bottom:2px solid var(--line);font-size:38px}
 .row .k{color:var(--sub);font-weight:500}
@@ -57,6 +59,16 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000;font-family
 .picks{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
 .pick{font-size:32px;font-weight:800;background:var(--ink);color:#fff;padding:14px 22px;border-radius:40px}
 .photo{width:100%;height:330px;border-radius:26px;background-size:cover;background-position:center;margin-bottom:28px}
+.tl{position:relative;padding-left:64px;margin-top:4px}
+.tl:before{content:"";position:absolute;left:21px;top:22px;bottom:22px;width:4px;background:var(--line)}
+.ev{position:relative;padding:18px 0 22px}
+.ev .dt{font-size:30px;font-weight:700;color:var(--sub)}
+.ev .dt.un{color:var(--muted);font-style:normal}
+.ev .et{font-size:42px;font-weight:900;letter-spacing:-1px;margin-top:2px}
+.ev .es{font-size:30px;font-weight:500;color:var(--sub);margin-top:4px}
+.ev .nd{position:absolute;left:-58px;top:26px;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px var(--ink) inset}
+.ev.pt .nd{background:var(--y)}
+.gap{display:inline-block;margin:0 0 6px 0;font-size:28px;font-weight:800;background:var(--y);padding:6px 16px;border-radius:12px}
 .foot{margin-top:30px;font-size:24px;color:var(--muted);line-height:1.45}
 .sub{position:absolute;left:60px;right:60px;top:1560px;display:flex;justify-content:center}
 .sub div{background:rgba(0,0,0,.72);color:#fff;font-size:52px;font-weight:800;letter-spacing:-1px;padding:20px 34px;border-radius:18px;text-align:center;line-height:1.3;max-width:960px}
@@ -80,6 +92,7 @@ const ICON={
  gear:'<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="7"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.9 9.9l4.2 4.2M33.9 33.9l4.2 4.2M9.9 38.1l4.2-4.2M33.9 14.1l4.2-4.2"/></svg>',
  plus:'<svg viewBox="0 0 48 48"><rect x="4" y="4" width="40" height="40" rx="10"/><path d="M24 14v20M14 24h20"/></svg>',
  star:'<svg viewBox="0 0 48 48"><path d="M24 5l5.9 12 13.1 1.9-9.5 9.3 2.3 13L24 35l-11.8 6.2 2.3-13L5 18.9 18.1 17z"/></svg>',
+ clock:'<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M24 13v12l8 5"/></svg>',
  chat:'<svg viewBox="0 0 48 48"><path d="M6 10h36v22H20l-9 8v-8H6z"/><path d="M14 19h20M14 25h12"/></svg>'
 };
 const OK='<svg viewBox="0 0 26 26"><path d="M5 13l5 5 11-11"/></svg>';
@@ -94,25 +107,26 @@ function cardHTML(c,i,n){
   let b='';
   b+=`<div class="head"><div class="ic">${ICON[c.icon]}</div><div class="lbl">${c.label}</div>${c.fallback?'<div class="fb">대체 카드</div>':''}</div>`;
   if(c.photo) b+=`<div class="photo a" style="background-image:url('${PH}/${c.photo}')"></div>`;
-  if(c.headline) b+=`<div class="hl a tone-${c.headline.tone}"><span class="dot bg-${c.headline.tone}"></span>${c.headline.text}</div>`;
+  if(c.headline) b+=`<div class="hl a tone-${c.headline.tone}"><span class="dot bg-${c.headline.tone}"></span><span class="tx">${c.headline.text}</span></div>`;
   if(c.stats) b+=`<div class="stats">${c.stats.map(s=>`<div class="stat a"><b class="cnt" data-n="${s.n}">${s.n}</b><small>${s.u}</small><p>${s.k}</p></div>`).join('')}</div>`;
   if(c.grid) b+=`<div class="grid">${c.grid.map(g=>`<div class="cell a"><p>${g.k}</p><b>${g.v}</b></div>`).join('')}</div>`;
   if(c.compare) b+=`<div class="cmp a"><p>${c.compare.k}</p><div class="ln"><s>${c.compare.from}</s><span>→</span><b>${c.compare.to}</b></div><div class="save">${c.compare.save}</div></div>`;
-  if(c.chips) b+=`<div class="chips">${c.chips.map(x=>`<div class="chip a ${x.on?'':'off'}"><span class="mk ${x.on?'bg-good':'bg-muted'}">${x.on?OK:NO}</span>${x.t}</div>`).join('')}</div>`;
+  if(c.chips) b+=`<div class="chips">${c.chips.map(x=>`<div class="chip a ${x.on?'':'off'}"><span class="mk ${x.on?'bg-neutral':'bg-muted'}">${x.on?OK:NO}</span>${x.t}</div>`).join('')}</div>`;
   if(c.bars) b+=c.bars.map(x=>`<div class="bar a"><div class="t">${x.k}<span><b class="cnt" data-n="${x.n}">${x.n}</b> / ${x.max}</span></div><div class="tr"><div class="fl" data-w="${(x.n/x.max*100).toFixed(1)}"></div></div></div>`).join('');
   if(c.picks) b+=`<div class="picks">${c.picks.map(p=>`<span class="pick a">${p}</span>`).join('')}</div>`;
-  if(c.rows) b+=`<div class="rows">${c.rows.map(r=>`<div class="row a"><span class="k">${r.k}</span><span class="v ${r.tone?'tone-'+r.tone:''}">${r.tone&&r.tone!=='neutral'?`<i class="bg-${r.tone}"></i>`:''}${r.v}</span></div>`).join('')}</div>`;
+  if(c.rows) b+=`<div class="rows">${c.rows.map(r=>`<div class="row a"><span class="k">${r.k}</span><span class="v ${r.tone?'tone-'+r.tone:''}">${r.tone&&r.tone!=='neutral'?`<i class="bg-${r.tone}"></i>`:''}<span class="tx">${r.v}</span></span></div>`).join('')}</div>`;
+  if(c.timeline) b+=`<div class="tl">${c.timeline.map(e=>`<div class="ev a ${e.point?'pt':''}"><span class="nd"></span><div class="dt ${e.date?'':'un'}">${e.date||'날짜 미공개'}</div><div class="et">${e.t}</div>${e.s?`<div class="es">${e.s}</div>`:''}${e.gap?`<span class="gap">${e.gap}</span>`:''}</div>`).join('')}</div>`;
   if(c.foot) b+=`<div class="foot a">${c.foot}</div>`;
   return bgDiv(c.bg)+`<div class="top"><span class="idx">${String(i+1).padStart(2,'0')} / ${String(n).padStart(2,'0')}</span><span class="ttl">한눈에 보는 매물 카드</span></div><div class="card">${b}</div><div class="sub"><div>${subHTML(c.subtitle)}</div></div>`;
 }
-function introHTML(x){return bgDiv(x.photo)+`<div class="hero" style="background-image:url('${PH}/${x.photo}')"></div><div class="heroTxt"><div class="e a">${x.eyebrow}</div><h1 class="a">${x.title}</h1><h2 class="a">${x.sub}</h2><div class="p a">${x.price}</div></div><div class="sub"><div>${subHTML(x.subtitle)}</div></div>`}
+function introHTML(x,n){x={...x,subtitle:x.subtitle.map(p=>[p[0].replace('{n}',n),p[1]])};return bgDiv(x.photo)+`<div class="hero" style="background-image:url('${PH}/${x.photo}')"></div><div class="heroTxt"><div class="e a">${x.eyebrow}</div><h1 class="a">${x.title}</h1><h2 class="a">${x.sub}</h2><div class="p a">${x.price}</div></div><div class="sub"><div>${subHTML(x.subtitle)}</div></div>`}
 function outroHTML(x,labels){return bgDiv(x.photo)+`<div class="hero" style="background-image:url('${PH}/${x.photo}')"></div><div class="heroTxt"><h1 class="a" style="font-size:96px">${x.title}</h1><h2 class="a">${x.sub}</h2><div class="toc">${labels.map(l=>`<span class="a">${l}</span>`).join('')}</div></div><div class="sub"><div>${subHTML(x.subtitle)}</div></div>`}
 // setup(segment): segment={kind,data,i,n,dur,photosUrl}
 window.setup=function(seg){
   SEG=seg; PH=seg.photos;
   const st=document.getElementById('stage');
   if(seg.kind==='card') st.innerHTML=cardHTML(seg.data,seg.i,seg.n);
-  else if(seg.kind==='intro') st.innerHTML=introHTML(seg.data);
+  else if(seg.kind==='intro') st.innerHTML=introHTML(seg.data,seg.n);
   else st.innerHTML=outroHTML(seg.data,seg.labels);
   const cd=st.querySelector('.card'); if(cd){const h=cd.offsetHeight; cd.style.top=Math.max(260,Math.round((250+1520)/2-h/2))+'px';}
   return new Promise(r=>{const imgs=[...new Set([...st.innerHTML.matchAll(/url\('([^']+)'\)/g)].map(m=>m[1]))];let k=imgs.length;if(!k)return r();imgs.forEach(u=>{const im=new Image();im.onload=im.onerror=()=>{if(--k===0)r()};im.src=u})});
@@ -126,7 +140,7 @@ window.render=function(t){
   if(card){card.style.opacity=inP*(1-outT);card.style.transform=`translateY(${(1-inP)*90}px) translateX(${-easeIn(outT)*120}px) scale(${0.96+0.04*inP})`;}
   const top=document.querySelector('.top'); if(top) top.style.opacity=ease((t-0.1)/0.4)*(1-outT);
   document.querySelectorAll('.a').forEach((el,k)=>{const p=ease((t-0.35-k*0.09)/0.35);el.style.opacity=p;el.style.transform=`translateY(${(1-p)*24}px)`;});
-  document.querySelectorAll('.cnt').forEach(el=>{const n=+el.dataset.n;const p=ease((t-0.5)/0.8);el.textContent=(Math.round(n*p)).toLocaleString('ko-KR');});
+  // v2: 숫자 카운트업 제거 — 중간 가짜 값이 화면에 보이지 않게 최종값만 페이드
   document.querySelectorAll('.fl').forEach((el,k)=>{const p=ease((t-0.55-k*0.12)/0.7);el.style.width=(p*el.dataset.w)+'%';});
   const sub=document.querySelector('.sub'); if(sub){const p=ease((t-0.25)/0.3);sub.style.opacity=p*(1-outT);sub.style.transform=`translateY(${(1-p)*20}px)`;}
 };
