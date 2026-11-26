@@ -1,5 +1,7 @@
 # 카드 정보 숏폼 v2 — Codex 제작·검증 기록
 
+> 2차 제안 이후의 최신 선택·순서 정책은 [CARD_MODULES_SECOND_PROPOSAL.md](CARD_MODULES_SECOND_PROPOSAL.md)를 따른다. 아래 고정 7장 구성은 1차 훈련 이력이며, 새 매물의 필수 카드 구성이 아니다.
+
 작성일: 2026-11-26 (한국). 원문: https://app.notion.com/p/424ee9c4b606809c9f29da537eba5c20
 
 ## 결과와 적용 범위
