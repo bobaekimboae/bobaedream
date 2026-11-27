@@ -12,7 +12,7 @@
 ## 순서
 1. 제보 영상·대본 준비 → 음성 1회 생성
 2. `python3 transcribe.py voice.mp3 words.json` (faster-whisper large-v3-turbo, 시각만 사용)
-3. 원장 작성(`samples/s1.json` 참고): `title(chip·rest·line2·style: onechip|allbox|allbrush)`, `source`, `voice`, `words`, `voice_delay_s`, `duration_s`, `chunks`(뜻 단위 1~3어절), `cover_t`, `bgm`, `sfx`
+3. 원장 작성(`samples/s1.json` 참고): `title(chip·rest·line2 · style: onechip|allchip · shape: 원본 이름|auto)`, `source`, `voice`, `words`, `voice_delay_s`, `duration_s`, `chunks`(뜻 단위 1~3어절), `cover_t`, `bgm`, `sfx`
 4. `python3 render_blackbox.py 원장.json [--bgm none|파일] [--sfx on|off]`
 5. 결과 `out_<id>/bobae_blackbox_<id>.mp4` · `_cover.jpg` · `.plan.json` 확인(소리 −14 LUFS ±1, TP ≤ −1.5 자동 검사)
 
@@ -23,3 +23,9 @@
 - 효과음: `public/assets/shortform/sfx/opensource/`(CC0, 출처 `manifest.json`). 원장 `sfx: [{"t":0.25,"kind":"whoosh"}]` — 종류 whoosh·impact·ding·riser·swipe, 목소리보다 −6dB, 최대 3번, 0.6초 간격. 기본은 제목이 뜰 때 휙 1번.
 - 쓰지 않는 것: BY-NC·BY-SA·ND 곡, 다른 앱(캡컷 등) 소리, 상업 이용 조건이 매출 기준으로 걸린 모델(Stable Audio Open)로 만든 소리.
 - 직접 만들 경우 후보: ACE-Step 1.5(MIT, GPU 필요) — 시험 전.
+
+## 제목 칩 고르기
+- 칩은 모두 **노션 원본 붓칠**(`public/assets/shortform/brush-fill/as24-theme/`) 파일 그대로, 같은 배율만. 직접 그린 상자는 쓰지 않는다. 글꼴은 Pretendard.
+- `style`: `onechip`(기본, 첫 낱말만 칩 · 원본 430_239) / `allchip`(모든 줄 칩 · 기본 = 보배드림 기본칩 126_40).
+- `shape`: 원본 이름(430_239 · 126_40 · 103_33 · 168_76 · 201_43 · 325_76 · 265_42 · 446_76 · 321_28 · 760_62) 또는 `auto`(줄 비율에 맞는 원본 자동 선택).
+- 고르기 시트: `python3 chip_options.py "교차로 신호위반"` → 원본 10개로 그린 한 장(자동 선택 표시). 렌더 때 `--title-style allchip --chip-shape 126_40` 로도 바꿀 수 있다.

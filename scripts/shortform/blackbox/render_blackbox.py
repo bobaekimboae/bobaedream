@@ -38,13 +38,13 @@ def static_layer(job):
     b = LY['brand']; lg = Image.open(os.path.join(REPO, 'public/assets/shortform/bobae_logo_600.png')).convert('RGBA').resize((b['logo_px'],) * 2)
     bf = FN(b['font'], b['size']); bw = int(d.textlength(b['text'], font=bf)); x0 = (W - (b['logo_px'] + 10 + bw)) // 2
     st.alpha_composite(lg, (x0, b['logo_y'])); d.text((x0 + b['logo_px'] + 10, b['text_y']), b['text'], font=bf, fill=tuple(b['color']), anchor='lm')
-    t = job['title']; style = t.get('style', 'onechip')
-    if style == 'allbox':      # 모든 줄 칩(인스타 글자 배경식)
-        lk = LK.lockup_allbox([t['chip'] + ' ' + t['rest'], t['line2']])
-    elif style == 'allbrush':  # 모든 줄 붓칠 칩
-        lk = LK.lockup_allbrush([t['chip'] + ' ' + t['rest'], t['line2']], size=t.get('size', 64))
-    else:                      # 기본: 첫 낱말만 한 칩(벨기에)
-        lk = LK.lockup(t['chip'], t['rest'], t['line2'])
+    t = job['title']; TD = LY['title']
+    style = t.get('style') or TD['default_style']; shape = t.get('shape') or TD['default_shape'][style]
+    if style == 'allchip':     # 모든 줄 원본 칩
+        lk = LK.lockup_allchip([t['chip'] + ' ' + t['rest'], t['line2']], size=t.get('size', TD['allchip_size']), shape=shape)
+    else:                      # onechip: 첫 낱말만 원본 칩(벨기에)
+        lk = LK.lockup(t['chip'], t['rest'], t['line2'], shape=shape)
+    job['_title_used'] = {'style': style, 'shape': lk.info.get('shapes', shape)}
     z0, z1 = LY['title']['zone']; st.alpha_composite(lk, ((W - lk.width) // 2, (z0 + z1 - lk.height) // 2))
     c = LY['credit']; d.text((W / 2, c['y']), c['text'], font=FN(c['font'], c['size']), fill=tuple(c['color']), anchor='mm')
     return st
@@ -52,8 +52,10 @@ def static_layer(job):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('job'); ap.add_argument('--out')
-    ap.add_argument('--bgm', default=None); ap.add_argument('--sfx', default=None)
+    ap.add_argument('--bgm', default=None); ap.add_argument('--title-style', choices=['onechip', 'allchip']); ap.add_argument('--chip-shape'); ap.add_argument('--sfx', default=None)
     a = ap.parse_args(); jp = os.path.abspath(a.job); jd = os.path.dirname(jp); job = json.load(open(jp))
+    if a.title_style: job['title']['style'] = a.title_style
+    if a.chip_shape: job['title']['shape'] = a.chip_shape
     P = lambda p: p if os.path.isabs(p) else os.path.join(jd, p)
     out = os.path.abspath(a.out or os.path.join(jd, 'out_' + job['id'])); os.makedirs(out, exist_ok=True)
     src, voice = P(job['source']), P(job['voice']); dly = job.get('voice_delay_s', 1.0); tot = job['duration_s']
@@ -90,7 +92,7 @@ def main():
     bg = bg.crop(((bg.width - W) // 2, 0, (bg.width - W) // 2 + W, H)).filter(ImageFilter.GaussianBlur(28))
     bg = Image.eval(bg, lambda v: int(v * 0.72)).convert('RGBA'); bg.alpha_composite(fr.resize((W, VH)).convert('RGBA'), (0, VT)); bg.alpha_composite(st)
     bg.convert('RGB').save(f"{out}/bobae_blackbox_{job['id']}_cover.jpg", quality=92)
-    json.dump({'job': job, 'layout_version': LY['version'], 'bgm': bgm, 'sfx': sfx}, open(mp4 + '.plan.json', 'w'), ensure_ascii=False, indent=1)
+    json.dump({'title_used': job.get('_title_used'), 'job': job, 'layout_version': LY['version'], 'bgm': bgm, 'sfx': sfx}, open(mp4 + '.plan.json', 'w'), ensure_ascii=False, indent=1)
     print(mp4)
 
 

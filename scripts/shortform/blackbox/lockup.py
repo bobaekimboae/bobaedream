@@ -6,14 +6,15 @@ import g350_v5_lib as L
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 FN=lambda n,s: ImageFont.truetype(os.path.join(SF,'fonts',f'Pretendard-{n}.otf'),s)
 INK=(43,43,43)
-def lockup(chip_word, rest1, line2, size=92, weight='SemiBold'):
+def lockup(chip_word, rest1, line2, size=92, weight='SemiBold', shape='430_239'):
     """벨기에 원본(Raad het / Merk, Auto / Scout24) 재현: 노션 430_239(원본 판, 기울기·곡선 그대로), 같은 배율,
     글자 보통 굵기·진회색, 왼쪽 여백 0.35 · 오른쪽 0.5(글자 높이 배수), 흰 글자도 같은 크기·굵기, 줄 간격 촘촘"""
     f=FN(weight,size); b=f.getbbox(chip_word); tw,th=b[2]-b[0],b[3]-b[1]
-    pl,pr=0.20,0.30; a1=L._shape('430_239',1); t0,b0,l0,r0=L._paint_box(a1)   # 벨기에 원본 실측 Auto 0.22·0.41 · Raad 0.24·0.27 (2026-11-28)
+    if shape=='auto': shape=pick_shape(tw,th)
+    pl,pr=0.20,0.30; a1=L._shape(shape,1); t0,b0,l0,r0=L._paint_box(a1)   # 벨기에 원본 실측 Auto 0.22·0.41 · Raad 0.24·0.27 (2026-11-28)
     sc=(tw+(pl+pr)*th)/(r0-l0)
     sc=max(sc, 1.65*th/(b0-t0))   # 짧은 낱말(2글자)도 칠 높이 ≥ 글자 1.65배(벨기에 Auto 1.63 · Raad 1.76), 남는 폭은 좌우 비율대로
-    a=L._shape('430_239',sc); top,bot,x0,x1=L._paint_box(a)
+    a=L._shape(shape,sc); top,bot,x0,x1=L._paint_box(a)
     chip=Image.new('RGBA',a.size); fill=Image.new('RGBA',a.size,L.YEL+(255,)); fill.putalpha(a); chip.alpha_composite(fill)
     cx=x0+round(((x1-x0)-tw)*pl/(pl+pr)); cy=top+((bot-top)-th)//2-round(0.04*th)
     ImageDraw.Draw(chip).text((cx-b[0],cy-b[1]),chip_word,font=f,fill=INK)
@@ -37,45 +38,45 @@ if __name__=='__main__':
     im=lockup('스텔스','차량','교차로 신호위반'); print(im.size)
 
 
-def lockup_allbox(lines, size=88, weight='Bold', color=None, ink=INK):
-    """모든 줄에 칩(인스타 기본 글자 배경식, 원본 릴스 DgKtL-qshXM 실측 2026-11-28):
-    줄마다 둥근 상자, 위아래 줄 상자가 붙고 이음새는 오목하게 둥글게.
-    원본 1080 화면 실측: 줄 피치 84 · 대문자 높이 48 → 상자 높이 = 글자 높이 1.75배,
-    좌우 여백 20 = 0.42배, 모서리 반경 ≈ 16 = 0.33배. 색은 보배드림 노랑 + 진회색 글자."""
-    import numpy as np
-    from scipy.ndimage import binary_closing, binary_opening
-    color = color or L.YEL; f = FN(weight, size)
-    cap = f.getbbox('H'); ch = cap[3] - cap[1]
-    bh = round(1.75 * ch); px = round(0.42 * ch); rad = max(2, round(0.33 * ch))
-    ws = [int(f.getlength(s)) for s in lines]; bw = [w + 2 * px for w in ws]
-    Wd = max(bw) + 4 * rad; Hd = bh * len(lines) + 4 * rad
-    m = np.zeros((Hd, Wd), bool)
-    for i, w in enumerate(bw):
-        x0 = (Wd - w) // 2; y0 = 2 * rad + i * bh; m[y0:y0 + bh, x0:x0 + w] = True
-    yy, xx = np.mgrid[-rad:rad + 1, -rad:rad + 1]; disk = xx ** 2 + yy ** 2 <= rad ** 2
-    m = binary_closing(m, disk); m = binary_opening(m, disk)
-    a = Image.fromarray((m * 255).astype('uint8')).filter(ImageFilter.GaussianBlur(0.6))
-    im = Image.new('RGBA', (Wd, Hd)); fill = Image.new('RGBA', (Wd, Hd), color + (255,)); fill.putalpha(a); im.alpha_composite(fill)
-    d = ImageDraw.Draw(im)
-    for i, s in enumerate(lines):
-        y0 = 2 * rad + i * bh; cy = y0 + bh / 2
-        d.text((Wd / 2, cy + ch / 2 - cap[3] + (cap[3] - 0)), '', font=f)  # 자리
-        d.text(((Wd - ws[i]) / 2, cy - ch / 2 - cap[1]), s, font=f, fill=ink)
-    return im.crop(im.getchannel('A').getbbox())
+
+# ---- 노션 원본 칩만 쓴다(as24-theme 폴더, 파일 수정 없음 · 같은 배율만) ----
+ORIGINALS = ['430_239', '126_40', '103_33', '168_76', '201_43', '325_76', '265_42', '446_76', '321_28', '760_62']
+BASIC = '126_40'   # 보배드림 기본칩(노션 「리싱마크트 메인 사용 칩」, 타이틀·옵션·숫자 칩 기본, brush-fill README 2026-11-19)
+AUTO_CHOICES = ['430_239', '126_40', '103_33', '168_76', '201_43', '265_42']  # 자동 선택 후보: 모서리 깨끗한 원본만(325_76·446_76 긁힘, 321_28·760_62 너무 얇음 제외)
+PAD = (0.20, 0.30)   # 글자 높이 배수(왼쪽 · 오른쪽), 벨기에 원본 실측
+BAND = 1.65          # 칠 높이 ≥ 글자 높이 1.65배
 
 
-def lockup_allbrush(lines, size=88, weight='SemiBold', ink=INK):
-    """모든 줄에 붓칠 칩(노션 원본 430_239, 줄마다 같은 배율로 폭 맞춤 · 칠 높이 ≥ 글자 1.65배), 줄 간격 촘촘."""
-    chips = []
-    for s in lines:
-        f = FN(weight, size); b = f.getbbox(s); tw, th = b[2] - b[0], b[3] - b[1]
-        pl, pr = 0.20, 0.30; a1 = L._shape('430_239', 1); t0, b0, l0, r0 = L._paint_box(a1)
-        sc = max((tw + (pl + pr) * th) / (r0 - l0), 1.65 * th / (b0 - t0))
-        a = L._shape('430_239', sc); top, bot, x0, x1 = L._paint_box(a)
-        c = Image.new('RGBA', a.size); fill = Image.new('RGBA', a.size, L.YEL + (255,)); fill.putalpha(a); c.alpha_composite(fill)
-        cx = x0 + round(((x1 - x0) - tw) * pl / (pl + pr)); cy = top + ((bot - top) - th) // 2 - round(0.04 * th)
-        ImageDraw.Draw(c).text((cx - b[0], cy - b[1]), s, font=f, fill=ink); chips.append(c.crop(c.getchannel('A').getbbox()))
-    gap = -round(size * 0.10); Wd = max(c.width for c in chips); Hd = sum(c.height for c in chips) + gap * (len(chips) - 1)
+def _aspect(name):
+    t, b, l, r = L._paint_box(L._shape(name, 1)); return (r - l) / (b - t), (r - l), (b - t)
+
+
+def pick_shape(tw, th, choices=None):
+    """기본칩 자동 선택: 글자 상자 비율(폭 / 칠 높이)에 가장 가까운 원본 칠을 고른다."""
+    import math
+    need = (tw + sum(PAD) * th) / (BAND * th)
+    return min(choices or AUTO_CHOICES, key=lambda n: abs(math.log(_aspect(n)[0] / need)))
+
+
+def chip(text, size=88, weight='SemiBold', shape='auto', ink=INK):
+    """원본 칠 한 장 위에 글자. shape='auto'면 pick_shape. 돌려줌: (칩 이미지, 고른 원본 이름)"""
+    f = FN(weight, size); b = f.getbbox(text); tw, th = b[2] - b[0], b[3] - b[1]
+    name = pick_shape(tw, th) if shape == 'auto' else shape
+    _, pw, ph = _aspect(name); pl, pr = PAD
+    sc = max((tw + (pl + pr) * th) / pw, BAND * th / ph)
+    a = L._shape(name, sc); top, bot, x0, x1 = L._paint_box(a)
+    c = Image.new('RGBA', a.size); fill = Image.new('RGBA', a.size, L.YEL + (255,)); fill.putalpha(a); c.alpha_composite(fill)
+    cx = x0 + round(((x1 - x0) - tw) * pl / (pl + pr)); cy = top + ((bot - top) - th) // 2 - round(0.04 * th)
+    ImageDraw.Draw(c).text((cx - b[0], cy - b[1]), text, font=f, fill=ink)
+    bb = a.getbbox(); return c.crop(bb), name
+
+
+def lockup_allchip(lines, size=80, weight='SemiBold', shape='auto'):
+    """모든 줄에 원본 칩(줄마다 비율 맞는 원본 자동 선택 또는 지정), 줄끼리 촘촘히 겹쳐 쌓기."""
+    made = [chip(s, size, weight, shape) for s in lines]
+    chips = [m[0] for m in made]; gap = -round(size * 0.12)
+    Wd = max(c.width for c in chips); Hd = sum(c.height for c in chips) + gap * (len(chips) - 1)
     im = Image.new('RGBA', (Wd, Hd)); y = 0
     for c in chips: im.alpha_composite(c, ((Wd - c.width) // 2, y)); y += c.height + gap
+    im.info['shapes'] = [m[1] for m in made]
     return im
