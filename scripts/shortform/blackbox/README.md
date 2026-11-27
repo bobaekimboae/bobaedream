@@ -12,7 +12,7 @@
 ## 순서
 1. 제보 영상·대본 준비 → 음성 1회 생성
 2. `python3 transcribe.py voice.mp3 words.json` (faster-whisper large-v3-turbo, 시각만 사용)
-3. 원장 작성(`samples/s1.json` 참고): `title(chip·rest·line2)`, `source`, `voice`, `words`, `voice_delay_s`, `duration_s`, `chunks`(뜻 단위 1~3어절), `cover_t`, `bgm`, `sfx`
+3. 원장 작성(`samples/s1.json` 참고): `title(chip·rest·line2·style: onechip|allbox|allbrush)`, `source`, `voice`, `words`, `voice_delay_s`, `duration_s`, `chunks`(뜻 단위 1~3어절), `cover_t`, `bgm`, `sfx`
 4. `python3 render_blackbox.py 원장.json [--bgm none|파일] [--sfx on|off]`
 5. 결과 `out_<id>/bobae_blackbox_<id>.mp4` · `_cover.jpg` · `.plan.json` 확인(소리 −14 LUFS ±1, TP ≤ −1.5 자동 검사)
 

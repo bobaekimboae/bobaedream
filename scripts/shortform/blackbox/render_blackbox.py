@@ -38,7 +38,13 @@ def static_layer(job):
     b = LY['brand']; lg = Image.open(os.path.join(REPO, 'public/assets/shortform/bobae_logo_600.png')).convert('RGBA').resize((b['logo_px'],) * 2)
     bf = FN(b['font'], b['size']); bw = int(d.textlength(b['text'], font=bf)); x0 = (W - (b['logo_px'] + 10 + bw)) // 2
     st.alpha_composite(lg, (x0, b['logo_y'])); d.text((x0 + b['logo_px'] + 10, b['text_y']), b['text'], font=bf, fill=tuple(b['color']), anchor='lm')
-    t = job['title']; lk = LK.lockup(t['chip'], t['rest'], t['line2'])
+    t = job['title']; style = t.get('style', 'onechip')
+    if style == 'allbox':      # 모든 줄 칩(인스타 글자 배경식)
+        lk = LK.lockup_allbox([t['chip'] + ' ' + t['rest'], t['line2']])
+    elif style == 'allbrush':  # 모든 줄 붓칠 칩
+        lk = LK.lockup_allbrush([t['chip'] + ' ' + t['rest'], t['line2']], size=t.get('size', 64))
+    else:                      # 기본: 첫 낱말만 한 칩(벨기에)
+        lk = LK.lockup(t['chip'], t['rest'], t['line2'])
     z0, z1 = LY['title']['zone']; st.alpha_composite(lk, ((W - lk.width) // 2, (z0 + z1 - lk.height) // 2))
     c = LY['credit']; d.text((W / 2, c['y']), c['text'], font=FN(c['font'], c['size']), fill=tuple(c['color']), anchor='mm')
     return st
