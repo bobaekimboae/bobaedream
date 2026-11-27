@@ -1,0 +1,13 @@
+{
+  "version": "B-2026-11-28",
+  "canvas": [1080, 1920],
+  "video": {"top": 656, "height": 608, "note": "SBS·KBS처럼 영상 정가운데. 원본 그대로(블러·자르기·소리 분리 없음)", "bg": "같은 영상 흐리게(boxblur 30) + 밝기 -0.22"},
+  "title": {"zone": [240, 656], "font": "SemiBold", "size": 92, "chip_shape": "430_239", "chip_pad_ink": [0.20, 0.30], "chip_min_band_ink": 1.65, "chip_text_color": [43,43,43], "chip_word_chars": "3~4글자"},
+  "caption": {"font": "ExtraBold", "size": 60, "center_y": 1343, "highlight": "#F5F200", "note": "블랙박스 형식 예외. 매물 숏폼은 be_locked_rules 1283 유지"},
+  "brand": {"logo_px": 38, "logo_y": 1480, "text": "보배드림 블랙박스", "font": "Bold", "size": 30, "text_y": 1499, "color": [230,232,236]},
+  "credit": {"text": "영상제보 : bobaedream@bobaedream.co.kr", "font": "Medium", "size": 27, "y": 1556, "color": [196,200,206], "brush": false},
+  "safe_zone": {"top": 270, "bottom": 1580, "grid_crop_3x4": [240, 1680]},
+  "audio": {"original_volume": 0.40, "voice": "ElevenLabs Taek eleven_v3, 1회 생성", "lufs": -14, "lufs_tol": 1, "true_peak": -1.5, "rate": 48000,
+            "bgm": {"default": "none", "volume": 0.10, "duck_under_voice": true, "license": "CC0·CC BY(게시글 표기)·자체 제작만"},
+            "sfx": {"license": "CC0만", "volume_db_vs_voice": -6, "max": 3, "min_gap_s": 0.6}}
+}
