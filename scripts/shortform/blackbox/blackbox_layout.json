@@ -225,6 +225,32 @@
         ],
         "credit_y": 1470,
         "note": "--top-label: 제목 위 작은 채널 표시(JTBC·MBC식). 격자에서는 잘려도 되는 자리"
+      },
+      "bg_palettes": {
+        "navy": {
+          "top": [
+            8,
+            22,
+            48
+          ],
+          "bottom": [
+            20,
+            64,
+            140
+          ]
+        },
+        "charcoal": {
+          "top": [
+            24,
+            25,
+            28
+          ],
+          "bottom": [
+            46,
+            48,
+            53
+          ]
+        }
       }
     }
   },
@@ -251,9 +277,9 @@
       "imgix karaoke captions: current word highlight only",
       "WCAG 2.2 1.4.3 contrast 4.5:1, G18 dark outline/shading"
     ],
-    "active_scale": 1.12,
-    "pop_scale": 1.24,
-    "pop_s": 0.07,
-    "dynamic_note": "말하는 어절: 노랑 + 1.12배, 바뀌는 순간 0.07초 1.24배로 튀었다 제자리(OpusClip·Submagic식 단어 팝). 덩어리 밖으로 넘치지 않게 가운데 기준. 0.15초 미만 어절은 팝 생략"
+    "active_scale": 1.0,
+    "pop_scale": 1.0,
+    "pop_s": 0.0,
+    "dynamic_note": "벨기에 방식: 크기 변화(확대·팝) 없이 말하는 어절 색만 노랑으로 바뀜 (2026-11-28 사용자 확정)"
   }
 }

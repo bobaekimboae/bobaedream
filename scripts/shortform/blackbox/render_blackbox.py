@@ -201,6 +201,7 @@ def main():
             NF['brand']['center_y'] = fl['brand_center_y']; NF['credit']['y'] = fl['credit_y']
         NF['_top_label'] = bool(job.get('top_label', a.top_label))
         VT, VH, CAP_CY = NF['video']['top'], NF['video']['height'], NF['caption']['center_y']
+        pal = NF.get('bg_palettes', {}).get(job.get('bg', ''), {}); NF['bg_top'] = pal.get('top', NF['bg_top']); NF['bg_bottom'] = pal.get('bottom', NF['bg_bottom'])
         st = static_layer_news(job, NF); gradient(NF['bg_top'], NF['bg_bottom']).save(f'{out}/bg.png')
     else:
         st = static_layer(job)
