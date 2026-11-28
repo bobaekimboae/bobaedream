@@ -186,6 +186,7 @@ def main():
     frame = a.frame or job.get('frame') or LY.get('default_frame', 'default'); NF = LY['frames'].get(frame, {}); job['frame'] = frame
     if frame == 'news':
         import copy; NF = copy.deepcopy(NF)
+        if job.get('video_fit') == 'contain': NF['video']['fit'] = 'contain'
         if job.get('video_fit') == 'full':   # 사고 장면이 가장자리에 있을 때: 원본 16:9 전체
             fl = NF['full_layout']; NF['video'].update(top=fl['video_top'], height=fl['video_height'], fit='full')
             NF['title']['center_y'] = fl['title_center_y']; NF['caption']['center_y'] = fl['caption_center_y']
@@ -217,8 +218,10 @@ def main():
     for e in ev: inp += ['-loop', '1', '-i', f'{out}/c{e[0]}.png']
     if frame == 'news':   # 단색 그라데이션 배경 + 영상 가운데 자르기(YTN 비율)
         inp += ['-loop', '1', '-i', f'{out}/bg.png']; bgi = 3 + len(ev)
-        fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,{'scale=-2:%d,crop=%d:%d' % (VH, W, VH) if NF['video'].get('fit') == 'crop' else 'scale=%d:%d' % (W, VH)}[fg];"
-              f"[{bgi}:v][fg]overlay=0:{VT}:shortest=1[v1];[v1][2:v]overlay=0:0:shortest=1[v2]")
+        fit = NF['video'].get('fit'); vf = 'scale=-2:%d,crop=%d:%d' % (VH, W, VH) if fit == 'crop' else ('scale=-2:%d' % VH if fit == 'contain' else 'scale=%d:%d' % (W, VH))
+        ox = '(W-w)/2' if fit == 'contain' else '0'   # contain: 정사각·세로 원본은 자르지 않고 높이 맞춰 가운데
+        fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,{vf}[fg];"
+              f"[{bgi}:v][fg]overlay={ox}:{VT}:shortest=1[v1];[v1][2:v]overlay=0:0:shortest=1[v2]")
     else:
         fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,split=2[a][b];"
               f"[a]scale=-2:{H},crop={W}:{H},boxblur=30:2,eq=brightness=-0.22[bg];[b]scale={W}:{VH}[fg];"
@@ -244,10 +247,10 @@ def main():
     bg = Image.eval(bg, lambda v: int(v * 0.72)).convert('RGBA')
     if frame == 'news':
         bg = Image.open(f'{out}/bg.png').convert('RGBA'); sc = fr.resize((round(fr.width * VH / fr.height), VH))
-        fg = sc.crop(((sc.width - W) // 2, 0, (sc.width - W) // 2 + W, VH)) if NF['video'].get('fit') == 'crop' else fr.resize((W, VH))
+        fg = sc.crop(((sc.width - W) // 2, 0, (sc.width - W) // 2 + W, VH)) if NF['video'].get('fit') == 'crop' else (sc if NF['video'].get('fit') == 'contain' else fr.resize((W, VH)))
     else:
         fg = fr.resize((W, VH))
-    bg.alpha_composite(fg.convert('RGBA'), (0, VT)); bg.alpha_composite(st)
+    bg.alpha_composite(fg.convert('RGBA'), ((W - fg.width) // 2, VT)); bg.alpha_composite(st)
     bg.convert('RGB').save(f"{out}/bobae_blackbox_{job['id']}_cover.jpg", quality=92)
     g0, g1 = LY['safe_zone']['grid_crop_3x4']   # 인스타 프로필 격자(3:4)에서 보이는 부분
     bg.convert('RGB').crop((0, g0, W, g1)).save(f"{out}/bobae_blackbox_{job['id']}_cover_grid.jpg", quality=90)
