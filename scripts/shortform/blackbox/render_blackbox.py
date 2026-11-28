@@ -33,9 +33,19 @@ def phrase(words, act):
     return im
 
 
+def brand_emblem(px):
+    """보배드림 로고 파일(심벌 + 워드마크)에서 원형 심벌만 잘라 비율 그대로 줄인다. 로고를 정사각형에 눌러 넣지 않는다."""
+    lg = Image.open(os.path.join(REPO, 'public/assets/shortform/bobae_logo_600.png')).convert('RGBA')
+    alpha = lg.getchannel('A'); w, h = lg.size; x = 0
+    while x < w and alpha.crop((x, 0, x + 1, h)).getbbox(): x += 1  # 심벌 뒤 첫 빈 세로줄
+    em = lg.crop((0, 0, x, h)); em = em.crop(em.getbbox())
+    s = px / max(em.size)
+    return em.resize((max(1, round(em.width * s)), max(1, round(em.height * s))), Image.LANCZOS)
+
+
 def static_layer(job):
     st = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(st)
-    b = LY['brand']; lg = Image.open(os.path.join(REPO, 'public/assets/shortform/bobae_logo_600.png')).convert('RGBA').resize((b['logo_px'],) * 2)
+    b = LY['brand']; lg = brand_emblem(b['logo_px'])
     bf = FN(b['font'], b['size']); bw = int(d.textlength(b['text'], font=bf)); x0 = (W - (b['logo_px'] + 10 + bw)) // 2
     st.alpha_composite(lg, (x0, b['logo_y'])); d.text((x0 + b['logo_px'] + 10, b['text_y']), b['text'], font=bf, fill=tuple(b['color']), anchor='lm')
     t = job['title']; TD = LY['title']
