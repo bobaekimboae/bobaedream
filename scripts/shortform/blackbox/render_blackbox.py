@@ -232,7 +232,7 @@ def main():
     bgm = a.bgm if a.bgm is not None else job.get('bgm', 'none')
     sfx = job.get('sfx', []) if (a.sfx or job.get('sfx_on', 'on')) == 'on' else []
     ain, afc, amap = AU.mix(base_index=3 + len(ev) + (1 if frame == 'news' else 0), tot=tot, dly=dly, bgm=None if bgm in (None, 'none') else P(bgm),
-                            sfx=sfx, voice_words=T, layout=LY['audio'])
+                            sfx=sfx, voice_words=T, layout=dict(LY['audio'], original_volume=job.get('original_volume', LY['audio']['original_volume'])))   # 이미 편집된 게시물(기존 음성 있음)은 0
     fc += ';' + afc
     mp4 = f"{out}/bobae_blackbox_{job['id']}.mp4"
     subprocess.run(['ffmpeg', '-y', '-v', 'error'] + inp + ain + ['-filter_complex', fc, '-map', f'[{last}]', '-map', amap, '-t', str(tot),
