@@ -43,18 +43,24 @@ def brand_emblem(px):
     return em.resize((max(1, round(em.width * s)), max(1, round(em.height * s))), Image.LANCZOS)
 
 
-def static_layer(job):
-    st = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(st)
-    b = LY['brand']; lg = brand_emblem(b['logo_px'])
-    bf = FN(b['font'], b['size']); bw = int(d.textlength(b['text'], font=bf)); x0 = (W - (b['logo_px'] + 10 + bw)) // 2
-    st.alpha_composite(lg, (x0, b['logo_y'])); d.text((x0 + b['logo_px'] + 10, b['text_y']), b['text'], font=bf, fill=tuple(b['color']), anchor='lm')
+def title_lockup(job, size=None):
+    """벨기에 원본 붓칠 칩 제목(onechip 기본 · allchip 선택)."""
     t = job['title']; TD = LY['title']
     style = t.get('style') or TD['default_style']; shape = t.get('shape') or TD['default_shape'][style]
     if style == 'allchip':     # 모든 줄 원본 칩
         lk = LK.lockup_allchip([t['chip'] + ' ' + t['rest'], t['line2']], size=t.get('size', TD['allchip_size']), shape=shape)
     else:                      # onechip: 첫 낱말만 원본 칩(벨기에)
-        lk = LK.lockup(t['chip'], t['rest'], t['line2'], shape=shape)
+        lk = LK.lockup(t['chip'], t['rest'], t['line2'], size=size or TD['size'], shape=shape)
     job['_title_used'] = {'style': style, 'shape': lk.info.get('shapes', shape)}
+    return lk
+
+
+def static_layer(job):
+    st = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(st)
+    b = LY['brand']; lg = brand_emblem(b['logo_px'])
+    bf = FN(b['font'], b['size']); bw = int(d.textlength(b['text'], font=bf)); x0 = (W - (b['logo_px'] + 10 + bw)) // 2
+    st.alpha_composite(lg, (x0, b['logo_y'])); d.text((x0 + b['logo_px'] + 10, b['text_y']), b['text'], font=bf, fill=tuple(b['color']), anchor='lm')
+    lk = title_lockup(job)
     z0, z1 = LY['title']['zone']; st.alpha_composite(lk, ((W - lk.width) // 2, (z0 + z1 - lk.height) // 2))
     c = LY['credit']; d.text((W / 2, c['y']), c['text'], font=FN(c['font'], c['size']), fill=tuple(c['color']), anchor='mm')
     return st
@@ -69,6 +75,17 @@ def gradient(top, bottom):
 def static_layer_news(job, NF):
     """뉴스형: JTBC식 두 줄 글자 제목(첫 줄 강조색) + YTN식 균형 + 큰 보배드림 로고."""
     st = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(st); T = NF['title']; t = job['title']
+    look = t.get('look') or NF.get('title_look', 'chip'); NF['_brand_chip'] = (look == 'text')   # 칩은 한 화면에 한 곳만: 글자 제목이면 「보배드림」에 칩
+    if look == 'chip':   # 기본: 벨기에 붓칠 칩 제목(사용자 확정 2026-11-28)
+        lk = title_lockup(job, NF.get('chip_size'))
+        st.alpha_composite(lk, ((W - lk.width) // 2, int(T['center_y'] - lk.height / 2)))
+    else:                                                          # 선택: JTBC식 두 줄 글자 제목
+        _text_title(st, d, T, t)
+    _news_brand(st, d, NF)
+    return st
+
+
+def _text_title(st, d, T, t):
     lines = [(t['chip'] + ' ' + t['rest']).strip(), t['line2']]; size = T['size']
     while size > 48 and max(FN(T['font'], size).getlength(x) for x in lines) > T['max_w']: size -= 2
     f = FN(T['font'], size); acc = T['accent']; acc = tuple(int(acc[i:i + 2], 16) for i in (1, 3, 5))
@@ -77,25 +94,35 @@ def static_layer_news(job, NF):
     for y, x in zip(ys, lines): sd.text((W / 2 + 2, y + 4), x, font=f, fill=(0, 0, 0, 150), anchor='mm')
     st.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
     for y, x, col in zip(ys, lines, [acc, tuple(T['line2_color'])]): d.text((W / 2, y), x, font=f, fill=col, anchor='mm')
-    b = NF['brand']; lg = brand_emblem(b['logo_px']); bf = FN(b['font'], b['size']); txt = LY['brand']['text']
+    t['_text_size'] = size
+
+
+def _news_brand(st, d, NF):
+    b = NF['brand']; lg = brand_emblem(b['logo_px']); bf = FN(b['font'], b['size']); txt = LY['brand']['text']; cy = b['center_y']
+    if NF.get('_brand_chip'):   # 「보배드림」만 벨기에 원본 칩(430_239), 「블랙박스」는 흰 글자
+        head, tail = txt.split(' ', 1); ch, _ = LK.chip(head, size=b['size'], weight=b['font'], shape=LY['title']['default_shape']['onechip'])
+        tw = d.textlength(tail, font=bf); x0 = int((W - (lg.width + b['gap'] + ch.width + b['gap'] + tw)) / 2)
+        st.alpha_composite(lg, (x0, int(cy - lg.height / 2))); x = x0 + lg.width + b['gap']
+        c = NF['credit']; d.text((W / 2, c['y']), LY['credit']['text'], font=FN(LY['credit']['font'], c['size']), fill=tuple(c['color']), anchor='mm')
+        st.alpha_composite(ch, (x, int(cy - ch.height / 2))); NF['_chip_box'] = [x, int(cy - ch.height / 2), x + ch.width, int(cy - ch.height / 2) + ch.height]; d.text((x + ch.width + b['gap'], cy), tail, font=bf, fill=tuple(b['color']), anchor='lm')
+        return
     bw = d.textlength(txt, font=bf); x0 = int((W - (lg.width + b['gap'] + bw)) / 2)
-    st.alpha_composite(lg, (x0, int(b['center_y'] - lg.height / 2))); d.text((x0 + lg.width + b['gap'], b['center_y']), txt, font=bf, fill=tuple(b['color']), anchor='lm')
+    st.alpha_composite(lg, (x0, int(cy - lg.height / 2))); d.text((x0 + lg.width + b['gap'], cy), txt, font=bf, fill=tuple(b['color']), anchor='lm')
     c = NF['credit']; d.text((W / 2, c['y']), LY['credit']['text'], font=FN(LY['credit']['font'], c['size']), fill=tuple(c['color']), anchor='mm')
-    job['_title_used'] = {'style': 'news', 'size': size}
-    return st
 
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('job'); ap.add_argument('--out')
-    ap.add_argument('--bgm', default=None); ap.add_argument('--title-style', choices=['onechip', 'allchip']); ap.add_argument('--chip-shape'); ap.add_argument('--sfx', default=None); ap.add_argument('--frame', choices=['default', 'news'])
+    ap.add_argument('--bgm', default=None); ap.add_argument('--title-style', choices=['onechip', 'allchip']); ap.add_argument('--chip-shape'); ap.add_argument('--sfx', default=None); ap.add_argument('--frame', choices=['default', 'news']); ap.add_argument('--title-look', choices=['chip', 'text'])
     a = ap.parse_args(); jp = os.path.abspath(a.job); jd = os.path.dirname(jp); job = json.load(open(jp))
     if a.title_style: job['title']['style'] = a.title_style
     if a.chip_shape: job['title']['shape'] = a.chip_shape
+    if a.title_look: job['title']['look'] = a.title_look
     P = lambda p: p if os.path.isabs(p) else os.path.join(jd, p)
     out = os.path.abspath(a.out or os.path.join(jd, 'out_' + job['id'])); os.makedirs(out, exist_ok=True)
     src, voice = P(job['source']), P(job['voice']); dly = job.get('voice_delay_s', 1.0); tot = job['duration_s']
     global VT, VH, CAP_CY
-    frame = a.frame or job.get('frame', 'default'); NF = LY['frames'].get(frame, {}); job['frame'] = frame
+    frame = a.frame or job.get('frame') or LY.get('default_frame', 'default'); NF = LY['frames'].get(frame, {}); job['frame'] = frame
     if frame == 'news':
         import copy; NF = copy.deepcopy(NF)
         if job.get('video_fit') == 'full':   # 사고 장면이 가장자리에 있을 때: 원본 16:9 전체
@@ -153,12 +180,13 @@ def main():
     # check_be.py 형식 계획 파일(제목 칩 상자 = 정적 레이어의 노랑 칠 범위)
     import numpy as np
     al = np.asarray(st); yl = (al[..., 3] > 200) & (al[..., 0] > 200) & (al[..., 1] > 200) & (al[..., 2] < 90)
-    ys, xs = np.where(yl[:LY['title']['zone'][1]]); box = [int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1] if len(xs) else None
+    if NF.get('_chip_box'): yl[:] = False; x0b, y0b, x1b, y1b = NF['_chip_box']; yl[y0b:y1b, x0b:x1b] = ((al[..., 3] > 200) & (al[..., 0] > 200) & (al[..., 1] > 200) & (al[..., 2] < 90))[y0b:y1b, x0b:x1b]
+    ys, xs = np.where(yl); box = [int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1] if len(xs) else None
     used = [h for h in sorted(sfx, key=lambda h: h['t'])][:LY['audio']['sfx']['max']]
     plan = {'edition_code': 'ED-BLACKBOX', 'layout_version': LY['version'], 'frame': [W, H], 'total': tot,
             'cuts': [], 'voice': voice, 'words': P(job['words']),
             'chips': [{'label': job['title']['chip'], 'kind': 'title', 't0': 0.0, 't1': tot, 'box': box,
-                       'font_px_blackbox': LY['title']['size'], 'note': '블랙박스 제목은 영상 내내 고정(형식 예외)'}] if frame != 'news' else [],
+                       'font_px_blackbox': LY['title']['size'], 'note': '블랙박스 제목은 영상 내내 고정(형식 예외)'}] if box else [],
             'sfx': [{'t': h['t'], 'sound': h['kind']} for h in used],
             'bgm': bgm, 'title_used': job.get('_title_used'), 'job': {k: v for k, v in job.items() if not k.startswith('_')}}
     json.dump(plan, open(mp4 + '.plan.json', 'w'), ensure_ascii=False, indent=1)
