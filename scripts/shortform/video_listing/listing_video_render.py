@@ -344,6 +344,13 @@ acc.sort()
 if acc: USED.add('sfx_rules')
 inp = ['-i', D + '_video.mp4', '-i', D + 'voice.wav', '-i', A + 'bgm/bobae_showroom_v1.mp3']
 fl = ['[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=8:release=120[v]', f'[2:a]atrim=0:{TOTAL},volume=0.16,afade=t=out:st={TOTAL - 1.5}:d=1.5[b]']; mx = ['[v]', '[b]']
+# 2026-11-25 딜러 육성(딜러가 직접 말한 원본 소리): 섞기 직전에만 DeepFilterNet3(deep-filter 0.5.6)로 잡음 제거.
+# job "dealer_voice": [{"file": "원본.mp4", "at": 넣을 시각(초), "vol": 1.0, "atten_db": null}] — ElevenLabs 음성(voice.wav)에는 걸지 않는다.
+for j, dv in enumerate(JOB.get('dealer_voice', [])):
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'lib'))
+    import dealer_voice
+    _dv = dealer_voice.denoise(dv['file'] if os.path.isabs(dv['file']) else D + dv['file'], atten_db=dv.get('atten_db'))
+    inp += ['-i', _dv]; fl.append(f"[{len(inp) // 2 - 1}:a]volume={dv.get('vol', 1.0)},adelay={int(dv.get('at', 0) * 1000)}:all=1[dv{j}]"); mx.append(f'[dv{j}]')
 for j, (tc_, k, nm, v) in enumerate(acc):
     inp += ['-i', A + 'sfx/' + nm + '.wav']; fl.append(f'[{len(inp) // 2 - 1}:a]volume={v},adelay={int(tc_ * 1000)}:all=1[s{j}]'); mx.append(f'[s{j}]')
 A_ = R['audio']; LN = f"loudnorm=I={A_['loudness_lufs']}:TP={A_['true_peak_db']}:LRA=11"

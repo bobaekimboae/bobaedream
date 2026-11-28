@@ -1,6 +1,9 @@
 """성능·상태 점검기록부 요약 독립 컷 + 가격 인하 독립 컷 (카탈로그형 단계 공개)
 
 python3 report_cut.py <차 폴더>   # 차 폴더의 cards.json을 읽어 src2/pNN.png를 만든다
+python3 report_cut.py <차 폴더> --read [파일]   # 성능지 원본 글자 줄 읽기(초안 확인용, 기본 report.doc) — 2026-11-25
+                                               #   숫자 줄 PP-OCRv6 · 한글 줄 korean_PP-OCRv5_mobile_rec (odometer.read_lines)
+                                               #   읽은 글자는 rows를 채울 때 대조용이다. 칸에 넣는 말은 사람이 확인한 사실만.
 
 cards.json 예:
 {
@@ -359,17 +362,17 @@ def overview_steps(car, spec, bg):
                 if not on:
                     icn = icn.copy(); icn.putalpha(icn.getchannel('A').point(lambda v: v * 30 // 100))
                 px = 36 if big else 28
-                im.alpha_composite(icn, (bx0 + px, by0 + (40 if big else 30)))
+                im.alpha_composite(icn, (bx0 + px, by0 + (32 if big else 30)))
                 d = ImageDraw.Draw(im)
-                d.text((bx0 + px, by0 + (188 if big else 128)), name, font=F(R.SEMI, 36 if big else 30), fill=GREY if on else (205, 201, 192), anchor='lm')
+                d.text((bx0 + px, by0 + (152 if big else 128)), name, font=F(R.SEMI, 36 if big else 30), fill=GREY if on else (205, 201, 192), anchor='lm')
                 fv = F(R.HEAVY, 58 if big else 46)
                 if d.textlength(val, font=fv) > bw - 70:
                     fv = F(R.HEAVY, 48 if big else 38)
                 col = INK if on else (205, 201, 192)
                 if on:
-                    bb = d.textbbox((bx0 + px, by1 - (52 if big else 36)), val, font=fv, anchor='lm')
+                    bb = d.textbbox((bx0 + px, by1 - (46 if big else 36)), val, font=fv, anchor='lm')
                     d.rectangle((bb[0] - 6, bb[3] - 20, bb[2] + 6, bb[3] + 4), fill=YEL)
-                d.text((bx0 + px, by1 - (52 if big else 36)), val, font=fv, fill=col, anchor='lm')
+                d.text((bx0 + px, by1 - (46 if big else 36)), val, font=fv, fill=col, anchor='lm')
         if ov.get('foot'):
             d.text((W // 2, y1 - 44), ov['foot'], font=F(R.MED, 26), fill=GREY, anchor='mm')
         outs.append(im)
@@ -422,5 +425,23 @@ def main(car):
     print(json.dumps(info, ensure_ascii=False))
 
 
+def read_doc(car, name=None):
+    """성능지 원본 사진의 글자 줄을 위에서부터 출력(차량번호·차대번호처럼 보이는 줄은 가린다)."""
+    import re
+    import odometer
+    if not name:
+        name = json.load(open(os.path.join(car, 'cards.json'))).get('report', {}).get('doc')
+    path = os.path.join(car, name)
+    for ln in odometer.read_lines(path):
+        t = ln['t']
+        if re.search(r'\d{2,3}[가-힣]\s?\d{4}', t) or re.search(r'[A-HJ-NPR-Z0-9]{17}', t):
+            t = '(번호 가림)'
+        print(f"{ln['eng']:>2} {ln['s']:.2f}  {t}")
+
+
 if __name__ == '__main__':
-    main(sys.argv[1])
+    if '--read' in sys.argv:
+        i = sys.argv.index('--read')
+        read_doc(sys.argv[1], sys.argv[i + 1] if len(sys.argv) > i + 1 else None)
+    else:
+        main(sys.argv[1])

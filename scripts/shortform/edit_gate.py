@@ -43,7 +43,7 @@ def post(video):
     T = set(P.get('techniques') or [])
     if not T:
         bad('쓴 기법 기록 없음'); return
-    miss = [t for t in E['required'] if t not in T]
+    miss = [t for t in E['required'] if not any(x in T for x in t.split('|'))]   # 「a|b」 = 둘 중 하나(v1.3 끝 화면 로고·딜러 카드)
     (ok if not miss else bad)(f'필수 기법 {len(E["required"])}개' + (f' — 빠짐: {miss}' if miss else ''))
     chips = P.get('chips') or []
     if any(c.get('kind') in ('point', 'callout') for c in chips):
@@ -147,6 +147,41 @@ def mileage_on_cluster(video, P):
         (ok if n_ok >= 2 else bad)(f"주행거리 {b['text']}가 뜬 동안 계기판이 보임 — 원본 {ts[0]:.1f}~{ts[-1]:.1f}초 계기판 판정 {n_ok}/{len(pr)} (확률 {hit})")
 
 
+def _iou(a, b):
+    iw = min(a[2], b[2]) - max(a[0], b[0]); ih = min(a[3], b[3]) - max(a[1], b[1])
+    if iw <= 0 or ih <= 0: return 0.0
+    inter = iw * ih
+    return inter / ((a[2] - a[0]) * (a[3] - a[1]) + (b[2] - b[0]) * (b[3] - b[1]) - inter)
+
+
+_PV = None
+PLATE_TEXTS = ['a close-up photo of a car license plate with numbers and letters',
+               'a car bumper', 'a yellow sticker with text', 'a car taillight', 'a car exhaust pipe', 'a car part']
+
+
+def _plate_verify(frame_bgr, box, thr=0.5):
+    """OWLv2가 찾은 번호판 상자를 SigLIP 2 제로샷으로 다시 본다(오탐 줄이기, 한국 번호판 학습 모델이 생기기 전 단계).
+    상자를 사방 15% 넓혀 잘라 '번호판' 문장 확률이 thr 이상이면 번호판. 모델을 못 쓰면 True(예전처럼 셈)."""
+    global _PV
+    try:
+        import cv2
+        from PIL import Image
+        if _PV is None:
+            sys.path.insert(0, os.path.join(HERE, 'auto'))
+            from vlm import ZeroShot
+            zs = ZeroShot(); _PV = (zs, zs.text(PLATE_TEXTS))
+        zs, tf = _PV
+        H, W = frame_bgr.shape[:2]
+        x0, y0, x1, y1 = box; dx, dy = (x1 - x0) * 0.15, (y1 - y0) * 0.15
+        crop = frame_bgr[max(0, int(y0 - dy)):min(H, int(y1 + dy)), max(0, int(x0 - dx)):min(W, int(x1 + dx))]
+        if crop.size == 0: return False
+        p = zs.probs(zs.image([Image.fromarray(cv2.cvtColor(crop, cv2.COLOR_BGR2RGB))]), tf)[0]
+        return float(p[0]) >= thr
+    except Exception as e:
+        print(f'  (번호판 다시 확인 생략: {e})')
+        return True
+
+
 def plate_check(video, chips):
     """칩 상자가 번호판을 덮는가 — 칩이 뜬 순간 화면에서 번호판(OWLv2 「plate」)을 찾아 겹치면 실패.
     번호판은 가리지 않는다(사용자 확정). 칩이 덮어도 안 된다. 칩 상자(box)가 기록된 칩만 본다."""
@@ -168,18 +203,19 @@ def plate_check(video, chips):
         # 칩이 그려진 화면이 아니라 같은 순간의 원본에 가깝게 보려면 칩을 피한 판정이 필요 → 칩 상자 밖의 번호판만 셈하지 않고, 상자와 겹치는 번호판을 찾는다
         _det = PA.detect(Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)), ['plate'], thr=0.2).get('plate', [])
         _best = max([d[0] for d in _det] or [0])
+        bx = c['box']
         for sc, (x0, y0, x1, y1) in _det:
             # 2026-11-23 r03: OWLv2 상자는 범퍼까지 넓게 잡음 — 가장 확실한 상자의 60% 미만 점수는 빼고, 상자를 사방 5% 줄여 본다
             if sc < 0.6 * _best: continue
+            # 2026-11-23 r03: 노랑 칩 자체를 번호판으로 잡는 오탐 — 찾은 상자가 칩 상자와 거의 같으면(IoU ≥ 0.8) 칩이므로 뺀다.
+            # 2026-11-24: 이 비교를 상자를 줄이기 '전'에 한다(줄인 뒤 비교하면 IoU가 0.8 아래로 떨어져 r12 「머플러 4개」 43.9초 칩을 번호판으로 셌다)
+            if _iou((x0, y0, x1, y1), bx) >= 0.8: continue
             _dx = (x1 - x0) * 0.05; _dy = (y1 - y0) * 0.05; x0, y0, x1, y1 = x0 + _dx, y0 + _dy, x1 - _dx, y1 - _dy
-            bx = c['box']
             iw = min(x1, bx[2]) - max(x0, bx[0]); ih = min(y1, bx[3]) - max(y0, bx[1])
             if iw <= 0 or ih <= 0: continue
-            # 2026-11-23 r03: 노랑 칩 자체를 번호판으로 잡는 오탐 — 찾은 상자가 칩 상자와 거의 같으면(IoU ≥ 0.8) 칩이므로 뺀다
-            inter = iw * ih; uni = (x1 - x0) * (y1 - y0) + (bx[2] - bx[0]) * (bx[3] - bx[1]) - inter
-            if inter / uni >= 0.8: continue
-            if True:
-                hit.append(f"{c['label']}({c['t_box']:.1f}초)")
+            # 2026-11-24: 찾은 상자를 SigLIP 2로 한 번 더 확인(글자 있는 번호판 vs 범퍼·칩·스티커). 번호판이 아니면 뺀다
+            if not _plate_verify(f, (x0, y0, x1, y1)): continue
+            hit.append(f"{c['label']}({c['t_box']:.1f}초)")
     (ok if not hit else bad)('칩이 번호판을 덮지 않음' + (f' — 겹침: {hit}' if hit else ''))
 
 

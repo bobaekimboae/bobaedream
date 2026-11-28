@@ -1,0 +1,473 @@
+{
+ "words": "/home/claude/shorts/joy/roma/work/voice_intro_words.json",
+ "bigs": [
+  {
+   "key": "odo",
+   "label": "765km",
+   "kind": "big",
+   "t_box": 5.2,
+   "box": [
+    142,
+    493,
+    930,
+    685
+   ]
+  },
+  {
+   "key": "wheel",
+   "label": "20인치",
+   "kind": "big",
+   "t_box": 12.8,
+   "box": [
+    212,
+    317,
+    862,
+    533
+   ]
+  },
+  {
+   "key": "top",
+   "label": "13.5초",
+   "kind": "big",
+   "t_box": 16.967,
+   "box": [
+    181,
+    498,
+    893,
+    718
+   ]
+  },
+  {
+   "key": "trunk",
+   "label": "255L",
+   "kind": "big",
+   "t_box": 21.133,
+   "box": [
+    206,
+    492,
+    871,
+    717
+   ]
+  },
+  {
+   "key": "eng",
+   "label": "620마력",
+   "kind": "big",
+   "t_box": 46.067,
+   "box": [
+    139,
+    500,
+    929,
+    713
+   ]
+  },
+  {
+   "key": "zb",
+   "label": "77.5kg·m",
+   "kind": "big",
+   "t_box": 51.5,
+   "box": [
+    137,
+    469,
+    929,
+    648
+   ]
+  },
+  {
+   "key": "zb",
+   "label": "3.4초",
+   "kind": "big",
+   "t_box": 52.8,
+   "box": [
+    234,
+    694,
+    842,
+    915
+   ]
+  }
+ ],
+ "edition": "feature_video",
+ "edition_code": "ED-SIMPLE",
+ "renderer": "roma_render2.py (g350_v5_lib)",
+ "order": "picked",
+ "voice": "voice_intro.wav",
+ "voice_offset_s": 0.95,
+ "frame": [
+  1080,
+  1920
+ ],
+ "techniques": [
+  "T02",
+  "T04",
+  "T07",
+  "T08",
+  "bgm",
+  "big_number_3d",
+  "callout_arrow",
+  "callout_chip",
+  "caption_chunks",
+  "dealer_profile_card",
+  "end_logo",
+  "intro_flash_montage",
+  "loudness_rule",
+  "point_chip",
+  "sfx_rules",
+  "slow_push",
+  "title_brand_chip",
+  "touch_laser_3d"
+ ],
+ "music": true,
+ "total": 59.43,
+ "cuts": [
+  0.95,
+  4.0,
+  6.59,
+  9.45,
+  12.27,
+  15.05,
+  18.83,
+  20.21,
+  22.43,
+  24.69,
+  28.47,
+  31.93,
+  34.83,
+  37.65,
+  39.71,
+  41.77,
+  44.094,
+  47.29,
+  50.71
+ ],
+ "sfx": [
+  {
+   "t": 0.0,
+   "kind": "whoosh",
+   "sound": "whoosh"
+  },
+  {
+   "t": 0.97,
+   "kind": "impact",
+   "sound": "impact"
+  },
+  {
+   "t": 7.29,
+   "kind": "beep_on",
+   "sound": "beep_on"
+  },
+  {
+   "t": 12.35,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 15.75,
+   "kind": "beep_on",
+   "sound": "beep_on"
+  },
+  {
+   "t": 16.53,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 20.69,
+   "kind": "ding",
+   "sound": "ding"
+  },
+  {
+   "t": 23.29,
+   "kind": "beep_on",
+   "sound": "beep_on"
+  },
+  {
+   "t": 29.609,
+   "kind": "beep_on",
+   "sound": "beep_on"
+  },
+  {
+   "t": 38.11,
+   "kind": "beep_on",
+   "sound": "beep_on"
+  },
+  {
+   "t": 39.73,
+   "kind": "beep_on",
+   "sound": "beep_on"
+  },
+  {
+   "t": 44.114,
+   "kind": "engine_start",
+   "sound": "engine_start"
+  },
+  {
+   "t": 45.82,
+   "kind": "horse_neigh_el",
+   "sound": "horse_neigh_el"
+  },
+  {
+   "t": 52.03,
+   "kind": "stopwatch",
+   "sound": "stopwatch"
+  }
+ ],
+ "chips": [
+  {
+   "key": "c1",
+   "label": "페라리",
+   "kind": "title",
+   "t0": 1.4,
+   "t1": 4.0,
+   "t_box": 1.767,
+   "px": 74,
+   "y": 300,
+   "box": [
+    65,
+    315,
+    318,
+    455
+   ]
+  },
+  {
+   "key": "odo",
+   "label": "주행",
+   "kind": "point",
+   "t0": 4.17,
+   "t1": 6.59,
+   "t_box": 4.4,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "lamp",
+   "label": "풀 LED 헤드램프",
+   "kind": "callout",
+   "t0": 10.66,
+   "t1": 12.27,
+   "t_box": 11.067,
+   "box": [
+    155,
+    543,
+    802,
+    680
+   ],
+   "px": 70
+  },
+  {
+   "no_track_reason": "손가락 터치 + 부위 색·외곽선 효과(PFX)로 캘리퍼를 직접 표시",
+   "key": "wheel",
+   "label": "노란색 캘리퍼",
+   "kind": "point",
+   "t0": 13.6,
+   "t1": 15.05,
+   "t_box": 13.8,
+   "px": 70,
+   "y": 300,
+   "box": [
+    282,
+    332,
+    797,
+    479
+   ]
+  },
+  {
+   "key": "top",
+   "label": "패브릭 탑",
+   "kind": "point",
+   "t0": 15.9,
+   "t1": 18.83,
+   "t_box": 16.1,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "no_track_reason": "부위가 화면 가득(트렁크 공간 전체)",
+   "key": "trunk",
+   "label": "트렁크",
+   "kind": "point",
+   "t0": 20.38,
+   "t1": 22.43,
+   "t_box": 20.6,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "seat",
+   "label": "베이지 가죽",
+   "kind": "point",
+   "t0": 24.86,
+   "t1": 28.47,
+   "t_box": 25.067,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ]
+  },
+  {
+   "no_track_reason": "부위가 화면 가득(운전석·조수석 전체)",
+   "key": "cock",
+   "label": "듀얼 콕핏",
+   "kind": "point",
+   "t0": 33.74,
+   "t1": 34.83,
+   "t_box": 33.967,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  },
+  {
+   "key": "steer",
+   "label": "터치 컨트롤",
+   "kind": "point",
+   "t0": 35.72,
+   "t1": 37.65,
+   "t_box": 35.933,
+   "px": 70,
+   "y": 300,
+   "box": [
+    326,
+    331,
+    754,
+    467
+   ]
+  },
+  {
+   "key": "steer",
+   "label": "마네티노",
+   "kind": "callout",
+   "t0": 36.6,
+   "t1": 37.65,
+   "t_box": 37.033,
+   "box": [
+    379,
+    515,
+    805,
+    652
+   ],
+   "px": 70
+  },
+  {
+   "key": "cscr",
+   "label": "세로형 터치스크린",
+   "kind": "point",
+   "t0": 42.38,
+   "t1": 44.094,
+   "t_box": 42.6,
+   "px": 70,
+   "y": 300,
+   "box": [
+    216,
+    331,
+    863,
+    468
+   ]
+  },
+  {
+   "key": "eng",
+   "label": "3.9 V8 트윈터보",
+   "kind": "point",
+   "t0": 44.264,
+   "t1": 47.29,
+   "t_box": 44.467,
+   "px": 70,
+   "y": 300,
+   "box": [
+    216,
+    331,
+    863,
+    468
+   ]
+  },
+  {
+   "key": "spoil",
+   "label": "리어 스포일러",
+   "kind": "point",
+   "t0": 47.46,
+   "t1": 50.71,
+   "t_box": 47.667,
+   "px": 70,
+   "y": 300,
+   "box": [
+    282,
+    332,
+    797,
+    479
+   ]
+  },
+  {
+   "key": "zb",
+   "label": "토크",
+   "kind": "point",
+   "t0": 50.88,
+   "t1": 54.25,
+   "t_box": 51.1,
+   "px": 70,
+   "y": 300,
+   "box": [
+    363,
+    331,
+    716,
+    444
+   ]
+  },
+  {
+   "key": "zb",
+   "label": "제로백",
+   "kind": "point",
+   "t0": 52.08,
+   "t1": 54.25,
+   "t_box": 52.3,
+   "px": 70,
+   "y": 300,
+   "box": [
+    327,
+    330,
+    753,
+    467
+   ]
+  }
+ ],
+ "touch": {
+  "grille": 7.3100000000000005,
+  "wheel": 13.47,
+  "top": 15.769999999999998,
+  "exh": 18.870000000000005,
+  "sill": 23.310000000000002,
+  "defl": 29.629000000000005,
+  "paddle": 38.129999999999995,
+  "pdisp": 39.74999999999999,
+  "eng": 45.790000000000006
+ },
+ "caption": {
+  "center_y_px": 1283,
+  "font_px": 60,
+  "chunks": 36
+ }
+}

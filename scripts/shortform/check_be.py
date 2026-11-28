@@ -107,6 +107,9 @@ def check_video(path):
     if not os.path.exists(plan_p):
         bad('계획 파일(.plan.json) 없음 — 칩·효과음 검사를 못 함'); return
     P = json.load(open(plan_p))
+    if 'caption_gaps' in P:   # 2026-11-25 렌더 후 점검(check_render)이 경고만 하던 「말하는데 자막 없음」을 여기서 실패로 셈
+        cg = P['caption_gaps']
+        (ok if not cg else bad)('말하는 동안 자막 빈 곳 없음' if not cg else f'말하는데 자막 없음 {len(cg)}곳: ' + ', '.join(f'{a}~{b}초' for a, b in cg))
     S, CH, C = RULES['sfx'], RULES['chip'], RULES['caption']
     fv = P.get('edition') == 'feature_video'
     SF = [x if isinstance(x, dict) else {'t': x, 'sound': '?'} for x in P['sfx']]
@@ -135,7 +138,7 @@ def check_video(path):
             ok(f'블랙박스 제목 칩 고정 {c["t1"] - c["t0"]:.2f}초 (형식 예외)'); continue
         if not fv and c['t1'] - c['t0'] > CH['hold_s'] + 0.05: bad(f'칩 유지 {c["t1"] - c["t0"]:.2f}초 > 규칙 {CH["hold_s"]}초')
     # 화면 실측: 칩마다 노랑 칠의 윗선·높이·색, 자막 띠에 칠 없음
-    tops, hs, cols = [], [], []
+    tops, hs, cols = [], [], []; CAPPAINT = []
     cy = C['center_y_px']
     for c in P['chips']:
         t = c['t_box'] if 't_box' in c else (c['t0'] + c['t1']) / 2   # 렌더러가 상자를 기록한 순간(부위 이름표는 부위를 따라 움직이므로)
@@ -169,13 +172,14 @@ def check_video(path):
         cap = yellow_mask(img[cy - 60:cy + 120])
         if cap.sum() > 6000:   # 말하는 낱말 노랑 글자는 획이라 성김, 칠은 꽉 참 → 노랑 덩어리의 채움 비율로 가림
             ys_, xs_ = np.where(cap); dens = cap.sum() / ((ys_.max() - ys_.min() + 1) * (xs_.max() - xs_.min() + 1))
-            if dens > 0.55: bad(f'{t:.2f}초 자막 띠에 노랑 칠(면적 {int(cap.sum())}px · 채움 {dens:.2f}) — 자막 칠 금지')
+            if dens > 0.55: CAPPAINT.append(t); bad(f'{t:.2f}초 자막 띠에 노랑 칠(면적 {int(cap.sum())}px · 채움 {dens:.2f}) — 자막 칠 금지')
+    if not CAPPAINT: ok('자막 띠에 노랑 칠 없음(칩마다 실측)')
     if tops: (ok if max(tops) - min(tops) <= 24 else bad)(f'위쪽 칩 윗선 {min(tops)}~{max(tops)}px (흔들림 24px 이내)')
     if hs: (ok if max(hs) <= min(hs) * 1.35 + 6 else bad)(f'칩 칠 높이 {min(hs)}~{max(hs)}px (모두 같은 크기)')
     if cols:
         mc = np.array(cols).mean(0)
         (ok if np.abs(mc - np.array(YEL)).sum() < 45 else bad)(f'칩 노랑 실측 {tuple(int(x) for x in mc)} (규칙 {RULES["color"]["yellow"]})')
-    if fv: check_chip_mapping(path, P)
+    if fv: check_chip_mapping(path, P); check_label_anchor(P)
 
 
 # ── 옵션 칩 매핑·위치 검사 (2026-11-24 r13 재발 방지, 매뉴얼 v4 §10) ──
@@ -200,6 +204,7 @@ def check_chip_mapping(path, P):
     lead = CH.get('appear_before_word_s', 0.06); tol = 0.3
     words = _words_for(path, P)
     W_ = [(_norm(w[0] if isinstance(w, (list, tuple)) else w['word']), float(w[1] if isinstance(w, (list, tuple)) else w['start'])) for w in words] if words else None
+    n_spoken = n_part = 0
     if W_ is None: bad('낱말 시각 파일 없음 — 칩 글자·시각을 말과 대조 못 함(plan.json에 words 경로를 남기거나 --words=)')
     for c in P['chips']:
         k = c.get('kind', 'point'); lab = c['label']
@@ -210,17 +215,35 @@ def check_chip_mapping(path, P):
             hit = lambda tk: [t for w, t in near if w.startswith(tk[:max(2, min(len(tk), 3))]) or tk.startswith(w[:3] if len(w) >= 3 else '~')]
             first = hit(toks[0]); n_ok = sum(1 for tk in toks if hit(tk))
             if not first or n_ok < (len(toks) + 1) // 2:
-                bad(f'칩 글자가 말한 낱말이 아님: 「{lab}」 {c["t0"]:.2f}초 (규칙 text_is_spoken_word)')
+                bad(f'칩 글자가 말한 낱말이 아님: 「{lab}」 {c["t0"]:.2f}초 (규칙 text_is_spoken_word)'); n_spoken += 1
             else:
                 # 칩 글자의 낱말 중 가장 먼저 말한 낱말 기준(「헤드램프는 풀 LED」처럼 어순이 칩과 다를 수 있음)
                 ws = min(min(hit(tk), key=lambda t: abs(t - c['t0'])) for tk in toks if hit(tk)); d = c['t0'] - ws
                 (ok if -lead - tol <= d <= tol else bad)(f'칩 등장 시각 「{lab}」 {d:+.2f}초 (낱말 {ws:.2f}초 기준, 규칙 {-lead:.2f}초 ±{tol}초)')
         is_part = any(pw in lab for pw in PART_WORDS)
         if is_part and k == 'point' and not c.get('no_track_reason'):
-            bad(f'부위 낱말 칩이 화살표 없이 위쪽에 고정됨: 「{lab}」 (부위를 찾아 callout으로, 화면 가득·못 찾음이면 no_track_reason 기록)')
+            n_part += 1; bad(f'부위 낱말 칩이 화살표 없이 위쪽에 고정됨: 「{lab}」 (부위를 찾아 callout으로, 화면 가득·못 찾음이면 no_track_reason 기록)')
         if k == 'point' and c.get('box'):
             x0, _, x1, _ = c['box']; off = (x0 + x1) / 2 - W / 2
             (ok if abs(off) <= 40 else bad)(f'포인트 칩 가운데 정렬 「{lab}」 중심 {off:+.0f}px (규칙 align center, ±40px)')
+    if W_ is not None and not n_spoken: ok('칩 글자가 모두 말한 낱말')
+    if not n_part: ok('부위 낱말 칩은 화살표 이름표이거나 위쪽 이유(no_track_reason) 기록')
+
+
+def check_label_anchor(P):
+    """매뉴얼 v4.2 §11: 부위의 숫자·재질·색 글자는 그 부위 옆(또는 위)에 붙는다. 화면 위 띠에 고정 금지."""
+    H = (P.get('frame') or [1080, 1920])[1]
+    for L in P.get('labels', []):
+        lab, k, pt, b = L['label'], L['kind'], L.get('pt'), L['box']
+        if pt is None:
+            (ok if L.get('no_anchor_reason') else bad)(f'부위 글자 「{lab}」 기준 부위를 못 찾음' + (f' — 이유 {L["no_anchor_reason"]}' if L.get('no_anchor_reason') else ' (추적 필요, 화면 고정 금지)'))
+            continue
+        dx = max(b[0] - pt[0], 0, pt[0] - b[2]); dy = max(b[1] - pt[1], 0, pt[1] - b[3]); d = (dx * dx + dy * dy) ** .5
+        lim = 0.20 * H
+        (ok if d <= lim else bad)(f'부위 글자 「{lab}」 ↔ 부위 점 거리 {d:.0f}px (§11 규칙 {lim:.0f}px 이내)')
+        if k in ('num_part', 'color'):
+            cover = b[0] <= pt[0] <= b[2] and b[1] <= pt[1] <= b[3]
+            (bad if cover else ok)(f'부위 글자 「{lab}」가 부위 점을 ' + ('덮음(옆에 붙여야 함)' if cover else '덮지 않음'))
 
 
 if __name__ == '__main__':

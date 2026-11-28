@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>페라리 로마 스파이더 숏폼 r15</title>
+<meta name="description" content="딜러가 찍은 매물 영상을 컷마다 기능 설명 자막·내레이션으로 자동 편집한 숏폼 샘플 (페라리 로마 스파이더 2024년식)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; --accent: #306bd9; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #121212; --card: #1c1c1c; --ink: #ececec; --sub: #a0a0a0; --line: #2c2c2c; --accent: #6f9cf0; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 24px; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: start; }
+  h1 { grid-column: 1 / -1; margin: 0; font-size: 22px; line-height: 30px; }
+  h1 small { display: block; color: var(--sub); font-size: 14px; font-weight: 400; }
+  .player { position: sticky; top: 16px; background: #000; border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16; }
+  video { width: 100%; height: 100%; display: block; }
+  .side { display: grid; gap: 16px; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; }
+  h2 { margin: 0 0 12px; font-size: 18px; line-height: 24px; }
+  ol { margin: 0; padding: 0; list-style: none; }
+  li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  li:last-child { border-bottom: 0; }
+  li button { all: unset; cursor: pointer; color: var(--accent); font-variant-numeric: tabular-nums; }
+  li button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  ul { margin: 0; padding-left: 18px; }
+  .dl { display: inline-block; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; }
+  .dl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .note { color: var(--sub); font-size: 13px; }
+  @media (max-width: 720px) { main { grid-template-columns: minmax(0, 1fr); } .player { position: static; max-width: 360px; width: 100%; margin: 0 auto; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>페라리 로마 스파이더 2024년식 숏폼 r15<small>딜러가 찍은 매물 영상 → 컷마다 기능 설명 자막·내레이션 자동 편집 · 68초 · 세로 1080×1920</small></h1>
+  <div class="player"><video id="v" src="roma-spider-r15.mp4" controls playsinline preload="metadata"></video></div>
+  <div class="side">
+    <section>
+      <h2>장면 순서</h2>
+      <ol id="cuts"></ol>
+    </section>
+    <section>
+      <h2>r15에서 고친 것</h2>
+      <ul>
+        <li>타이어 규격 「앞 245 · 뒤 285」는 손가락이 가리키는 타이어 옆면을 따라갑니다(r14는 화면 위 띠에 고정)</li>
+        <li>「20인치」는 휠 윗선(타이어 윗부분)에 붙어 휠을 따라 움직입니다</li>
+        <li>「베이지 가죽」은 시트 위에 붙어 시트를 따라갑니다(부위 점 추적 BootsTAPIR)</li>
+        <li>「레드 카펫」은 말할 때 카펫이 화면에 없어 글자를 띄우지 않습니다(말 자막이 맡음)</li>
+        <li>매뉴얼 v4.2 §11 「붓칠 칩 · 3D 글자 · 흰 알약 선택 기준」과 §12 「출고 체크리스트 장치」를 따름 — <a href="checklist.md">이 영상의 체크리스트</a></li>
+      </ul>
+      <h2>이 영상에 쓴 것</h2>
+      <ul>
+        <li>원본: 딜러가 찍은 매물 영상 그대로(자르기·확대·이동·어둡게 하기만)</li>
+        <li>내레이션: AI 남성 음성, 매물 정보와 화면에 보이는 것만 말함</li>
+        <li>노랑 칩: 노션 스카우트 붓칠 원본을 같은 배율로만 키움 · ✓ 목록은 노션 노랑 체크 원 원본</li>
+        <li>배경음: 보배드림 자체 쇼룸 음악 · 자체 효과음</li>
+      </ul>
+      <p><a class="dl" href="roma-spider-r15.mp4" download="bobae_roma_spider_r15.mp4">영상 내려받기 (mp4 · 43MB)</a></p>
+      <p class="note">장면 시간을 누르면 그 장면으로 이동합니다.</p>
+    </section>
+  </div>
+</main>
+<script>
+const cuts = [
+  [0.0, '첫 화면 · 페라리 로마 스파이더 2024년식'],
+  [5.78, '풀 LED 헤드램프'],
+  [8.05, '20인치 휠 · 브리지스톤 타이어'],
+  [13.47, '베이지 가죽 시트 · 레드 카펫'],
+  [16.49, '듀얼 콕핏'],
+  [19.71, '마네티노'],
+  [22.43, '카본 패들 시프트'],
+  [25.17, '디지털 계기판'],
+  [27.73, '조수석 디스플레이'],
+  [31.19, '8.4인치 세로 화면'],
+  [34.71, '기어 셀렉터'],
+  [36.83, '소프트탑 13.5초 개폐'],
+  [41.87, 'LED 테일램프'],
+  [43.67, '머플러 4개'],
+  [46.51, '트렁크 255L'],
+  [49.49, '3.9 V8 트윈터보 · 620마력'],
+  [54.25, '최대 토크 · 8단 · 제로백 · 320km'],
+  [63.16, '끝 화면 · 서울오토갤러리 딜러']
+];
+const v = document.getElementById('v'), ol = document.getElementById('cuts');
+const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+for (const [t, label] of cuts) {
+  const li = document.createElement('li'), b = document.createElement('button');
+  b.textContent = fmt(t); b.setAttribute('aria-label', `${fmt(t)} ${label}으로 이동`);
+  b.onclick = () => { v.currentTime = t; v.play(); };
+  li.append(b, document.createTextNode(label)); ol.append(li);
+}
+</script>
+</body>
+</html>

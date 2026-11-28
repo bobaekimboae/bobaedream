@@ -47,6 +47,7 @@ def main(car, mp4, fps=8):
     for b in bad:
         print(f'✗ 말하는데 자막 없음: {b[0]}~{b[1]}초')
     print('통과' if not bad else f'고칠 곳 {len(bad)}개')
+    main.bad = bad   # 2026-11-25 common.py가 영상.mp4.plan.json의 caption_gaps에 적고 check_be가 실패로 셈
     return 0 if not bad else 1
 
 

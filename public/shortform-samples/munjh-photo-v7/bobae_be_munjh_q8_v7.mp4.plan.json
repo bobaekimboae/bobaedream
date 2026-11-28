@@ -1,0 +1,196 @@
+{
+ "edition": "photo_listing",
+ "edition_code": "ED-PHOTO",
+ "renderer": "common.py",
+ "order": "script",
+ "total": 59.101,
+ "techniques": [
+  "bgm",
+  "card_basic",
+  "end_dealer",
+  "kenburns",
+  "loudness_rule",
+  "nasser_intro",
+  "point_chip",
+  "sfx_rules",
+  "title_brand_chip"
+ ],
+ "chips": [
+  {
+   "label": "보험 이력 0건",
+   "t0": 17.98,
+   "t1": 19.47,
+   "t_box": 18.28,
+   "kind": "point"
+  },
+  {
+   "label": "340마력",
+   "t0": 21.83,
+   "t1": 23.63,
+   "t_box": 22.13,
+   "kind": "point"
+  },
+  {
+   "label": "21인치",
+   "t0": 26.58,
+   "t1": 28.38,
+   "t_box": 26.88,
+   "kind": "point"
+  },
+  {
+   "label": "내비 지도",
+   "t0": 35.02,
+   "t1": 36.82,
+   "t_box": 35.32,
+   "kind": "point"
+  },
+  {
+   "label": "터치스크린 2개",
+   "t0": 38.54,
+   "t1": 39.8,
+   "t_box": 38.84,
+   "kind": "point"
+  },
+  {
+   "label": "헤드업 디스플레이",
+   "t0": 44.36,
+   "t1": 46.16,
+   "t_box": 44.66,
+   "kind": "point"
+  },
+  {
+   "label": "파노라마 선루프",
+   "t0": 46.68,
+   "t1": 48.47,
+   "t_box": 46.98,
+   "kind": "point"
+  },
+  {
+   "label": "뱅앤올룹슨",
+   "t0": 48.75,
+   "t1": 50.47,
+   "t_box": 49.05,
+   "kind": "point"
+  },
+  {
+   "label": "압축 도어",
+   "t0": 51.94,
+   "t1": 53.35,
+   "t_box": 52.24,
+   "kind": "point"
+  }
+ ],
+ "sfx": [
+  {
+   "sound": "whoosh",
+   "t": 0.0
+  },
+  {
+   "sound": "impact",
+   "t": 0.9
+  },
+  {
+   "sound": "card_engine_start",
+   "t": 5.53
+  },
+  {
+   "sound": "card_page_flip",
+   "t": 7.4
+  },
+  {
+   "sound": "card_odometer",
+   "t": 9.19
+  },
+  {
+   "sound": "card_fuel",
+   "t": 11.28
+  },
+  {
+   "sound": "card_gear_shift",
+   "t": 11.83
+  },
+  {
+   "sound": "card_engine_rev",
+   "t": 12.82
+  },
+  {
+   "sound": "card_spray",
+   "t": 14.89
+  },
+  {
+   "sound": "pop",
+   "t": 17.96
+  },
+  {
+   "sound": "horse_neigh_el",
+   "t": 21.73
+  },
+  {
+   "sound": "pop",
+   "t": 26.56
+  },
+  {
+   "sound": "ice_clink",
+   "t": 32.41
+  },
+  {
+   "sound": "seat_motor",
+   "t": 33.17
+  },
+  {
+   "sound": "beep_on",
+   "t": 33.66
+  },
+  {
+   "sound": "pop",
+   "t": 35.0
+  },
+  {
+   "sound": "pop",
+   "t": 38.52
+  },
+  {
+   "sound": "pop",
+   "t": 44.34
+  },
+  {
+   "sound": "pop",
+   "t": 46.66
+  },
+  {
+   "sound": "pop",
+   "t": 48.73
+  },
+  {
+   "sound": "pop",
+   "t": 51.92
+  },
+  {
+   "sound": "pop",
+   "t": 53.99
+  }
+ ],
+ "cuts": [
+  0.0,
+  5.55,
+  7.059,
+  9.033,
+  11.029,
+  11.8,
+  12.79,
+  14.536,
+  16.533,
+  19.551,
+  25.054,
+  30.94,
+  34.551,
+  37.059,
+  39.88,
+  44.048,
+  46.533,
+  48.553,
+  50.55,
+  53.43,
+  53.96
+ ]
+}
