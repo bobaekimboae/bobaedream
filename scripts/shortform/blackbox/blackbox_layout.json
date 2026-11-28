@@ -156,7 +156,7 @@
         "logo_px": 64,
         "font": "Bold",
         "size": 50,
-        "center_y": 1530,
+        "center_y": 1505,
         "gap": 16,
         "color": [
           255,
@@ -165,13 +165,40 @@
         ]
       },
       "credit": {
-        "y": 1600,
+        "y": 1578,
         "size": 26,
         "color": [
           200,
           212,
           232
-        ]
+        ],
+        "dm": {
+          "label": "영상제보",
+          "label_font": "Bold",
+          "label_size": 26,
+          "label_color": [
+            255,
+            226,
+            0
+          ],
+          "items": [
+            {
+              "icon": "public/assets/shortform/icons/instagram_120.png",
+              "text": "인스타 DM @bobaedream"
+            },
+            {
+              "icon": "public/assets/shortform/icons/email_as24_120.png",
+              "text": "bobaedream@bobaedream.co.kr"
+            }
+          ],
+          "font": "Medium",
+          "size": 28,
+          "icon_px": 32,
+          "icon_gap": 10,
+          "item_gap": 34,
+          "row_dy": 46,
+          "note": "아이콘: 저장소 원본 public/icons/dealer-profile/instagram.svg · email-as24.svg(오토스카우트24)를 그대로 PNG로"
+        }
       },
       "full_layout": {
         "video_top": 560,
@@ -194,10 +221,37 @@
           255,
           255
         ],
-        "credit_y": 1500,
+        "credit_y": 1470,
         "note": "--top-label: 제목 위 작은 채널 표시(JTBC·MBC식). 격자에서는 잘려도 되는 자리"
       }
     }
   },
-  "default_frame": "news"
+  "default_frame": "news",
+  "caption_rules": {
+    "version": "v1 (2026-11-28)",
+    "base_color": "#FFFFFF",
+    "highlight_color": "#F5F200",
+    "speaker2_color": "#00FFFF",
+    "highlight_mode": "current_word_only",
+    "switch": "instant_at_word_start",
+    "hold": "until_next_word_start; last word holds to chunk end",
+    "max_highlight_words": 1,
+    "min_highlight_s": 0.12,
+    "carry_across_chunks": false,
+    "chunk_gap_after_cut_s": 0.0,
+    "min_contrast": 4.5,
+    "keep_shadow": true,
+    "apply_to": "spoken captions only (title chips, brand, credit excluded)",
+    "sources": [
+      "BBC Subtitle Guidelines: white/yellow/cyan/green speaker order",
+      "Ofcom/Clearcast subtitling: limited colour set, consistent use",
+      "OpusClip word-by-word presets: base white, active word accent",
+      "imgix karaoke captions: current word highlight only",
+      "WCAG 2.2 1.4.3 contrast 4.5:1, G18 dark outline/shading"
+    ],
+    "active_scale": 1.12,
+    "pop_scale": 1.24,
+    "pop_s": 0.07,
+    "dynamic_note": "말하는 어절: 노랑 + 1.12배, 바뀌는 순간 0.07초 1.24배로 튀었다 제자리(OpusClip·Submagic식 단어 팝). 덩어리 밖으로 넘치지 않게 가운데 기준. 0.15초 미만 어절은 팝 생략"
+  }
 }
