@@ -138,7 +138,11 @@ def _credit(st, d, NF, y):
     if not cd:
         d.text((W / 2, y), LY['credit']['text'], font=FN(LY['credit']['font'], c['size']), fill=tuple(c['color']), anchor='mm'); return
     lf = FN(cd['label_font'], cd['label_size']); f = FN(cd['font'], cd['size']); col = tuple(c['color'])
-    d.text((W / 2, y), cd['label'], font=lf, fill=tuple(cd['label_color']), anchor='mm')
+    if cd.get('label_chip'):   # 노션 원본 칠 모양에 흰색만 칠한 칩(원본 파일은 그대로, 색만 렌더러가 칠함)
+        lc = cd['label_chip']; ch, _ = LK.chip(cd['label'], lc['size'], lc.get('weight', 'Bold'), lc.get('shape', '126_40'), ink=tuple(lc['ink']), fill_rgb=lc['fill'])
+        st.alpha_composite(ch, (int(W / 2 - ch.width / 2), int(y - ch.height / 2)))
+    else:
+        d.text((W / 2, y), cd['label'], font=lf, fill=tuple(cd['label_color']), anchor='mm')
     items = []
     for it in cd['items']:
         ic = Image.open(os.path.join(REPO, it['icon'])).convert('RGBA'); ic = ic.crop(ic.getbbox())
@@ -194,7 +198,16 @@ def main():
     frame = a.frame or job.get('frame') or LY.get('default_frame', 'default'); NF = LY['frames'].get(frame, {}); job['frame'] = frame
     if frame == 'news':
         import copy; NF = copy.deepcopy(NF)
-        if job.get('video_fit') == 'contain': NF['video']['fit'] = 'contain'
+        fit_mode = job.get('video_fit', 'auto')
+        if fit_mode == 'auto':   # 원본 비율로 정함: 가로(16:9) = 기본 자르기, 정사각·세로 = 세로로 크게(tall)
+            pr = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', P(job['source'])], capture_output=True, text=True).stdout.strip().split(',')
+            asp = int(pr[0]) / int(pr[1]); fit_mode = 'tall' if asp < NF['tall_layout']['max_aspect'] else 'crop'
+        if fit_mode in ('tall', 'contain'):   # 고정 블박 크기 대신 원본 세로 크기를 살려 크게, 자막은 영상 아래쪽 위에(JTBC식)
+            tl = NF['tall_layout']; pr = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', P(job['source'])], capture_output=True, text=True).stdout.strip().split(',')
+            asp = int(pr[0]) / int(pr[1]); vh = min(tl['video_max_height'], round(W / asp / 2) * 2)
+            NF['video'].update(top=tl['video_top'], height=vh, fit='contain')
+            NF['caption']['center_y'] = tl['video_top'] + vh - tl['caption_from_bottom']
+            NF['brand']['center_y'] = tl['video_top'] + vh + tl['brand_below']; NF['credit']['y'] = NF['brand']['center_y'] + tl['credit_below_brand']
         if job.get('video_fit') == 'full':   # 사고 장면이 가장자리에 있을 때: 원본 16:9 전체
             fl = NF['full_layout']; NF['video'].update(top=fl['video_top'], height=fl['video_height'], fit='full')
             NF['title']['center_y'] = fl['title_center_y']; NF['caption']['center_y'] = fl['caption_center_y']

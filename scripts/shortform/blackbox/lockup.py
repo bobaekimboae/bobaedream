@@ -59,14 +59,14 @@ def pick_shape(tw, th, choices=None):
     return min(choices or AUTO_CHOICES, key=lambda n: abs(math.log(_aspect(n)[0] / need)))
 
 
-def chip(text, size=88, weight='SemiBold', shape='auto', ink=INK):
+def chip(text, size=88, weight='SemiBold', shape='auto', ink=INK, fill_rgb=None):
     """원본 칠 한 장 위에 글자. shape='auto'면 pick_shape. 돌려줌: (칩 이미지, 고른 원본 이름)"""
     f = FN(weight, size); b = f.getbbox(text); tw, th = b[2] - b[0], b[3] - b[1]
     name = pick_shape(tw, th) if shape == 'auto' else shape
     _, pw, ph = _aspect(name); pl, pr = PAD
     sc = max((tw + (pl + pr) * th) / pw, BAND * th / ph)
     a = L._shape(name, sc); top, bot, x0, x1 = L._paint_box(a)
-    c = Image.new('RGBA', a.size); fill = Image.new('RGBA', a.size, L.YEL + (255,)); fill.putalpha(a); c.alpha_composite(fill)
+    c = Image.new('RGBA', a.size); fill = Image.new('RGBA', a.size, tuple(fill_rgb or L.YEL) + (255,)); fill.putalpha(a); c.alpha_composite(fill)
     cx = x0 + round(((x1 - x0) - tw) * pl / (pl + pr)); cy = top + ((bot - top) - th) // 2 - round(0.04 * th)
     ImageDraw.Draw(c).text((cx - b[0], cy - b[1]), text, font=f, fill=ink)
     bb = a.getbbox(); return c.crop(bb), name

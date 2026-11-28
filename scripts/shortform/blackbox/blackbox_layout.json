@@ -196,10 +196,25 @@
           "icon_px": 32,
           "icon_gap": 10,
           "item_gap": 34,
-          "row_dy": 46,
+          "row_dy": 52,
           "note": "아이콘: 저장소 원본 public/icons/dealer-profile/instagram.svg · email-as24.svg(오토스카우트24)를 그대로 PNG로",
           "layout": "stack",
-          "line_dy": 44
+          "line_dy": 44,
+          "label_chip": {
+            "size": 30,
+            "weight": "Bold",
+            "shape": "126_40",
+            "fill": [
+              255,
+              255,
+              255
+            ],
+            "ink": [
+              24,
+              25,
+              28
+            ]
+          }
         }
       },
       "full_layout": {
@@ -252,7 +267,16 @@
           ]
         }
       },
-      "bg_default": "charcoal"
+      "bg_default": "charcoal",
+      "tall_layout": {
+        "max_aspect": 1.3,
+        "video_top": 558,
+        "video_max_height": 930,
+        "caption_from_bottom": 110,
+        "brand_below": 62,
+        "credit_below_brand": 70,
+        "note": "정사각·세로 원본: 고정 블박 크기 대신 폭 1080까지 세로로 크게(높이 최대 930), 자막은 영상 아래쪽 위에 겹침(JTBC식), 브랜드·영상제보는 영상 아래. video_fit auto가 원본 비율로 자동 선택"
+      }
     }
   },
   "default_frame": "news",
