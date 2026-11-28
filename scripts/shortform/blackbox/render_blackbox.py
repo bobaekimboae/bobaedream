@@ -145,6 +145,14 @@ def _credit(st, d, NF, y):
         sc = cd['icon_px'] / max(ic.size); ic = ic.resize((round(ic.width * sc), round(ic.height * sc)), Image.LANCZOS)
         items.append((ic, it['text']))
     gap_i, gap = cd['icon_gap'], cd['item_gap']
+    if cd.get('layout') == 'stack':   # 한 줄에 하나씩 세로로, 아이콘 왼쪽선을 맞춘 묶음을 가운데에
+        bw = max(ic.width + gap_i + d.textlength(t, font=f) for ic, t in items); x0 = (W - bw) / 2
+        icw = max(ic.width for ic, _ in items)
+        for k, (ic, t) in enumerate(items):
+            ry = y + cd['row_dy'] + k * cd['line_dy']
+            st.alpha_composite(ic, (int(x0 + (icw - ic.width) / 2), int(ry - ic.height / 2)))
+            d.text((x0 + icw + gap_i, ry), t, font=f, fill=col, anchor='lm')
+        return
     tot = sum(ic.width + gap_i + d.textlength(t, font=f) for ic, t in items) + gap * (len(items) - 1)
     x = (W - tot) / 2; ry = y + cd['row_dy']
     for ic, t in items:

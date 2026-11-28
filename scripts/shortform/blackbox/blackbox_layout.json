@@ -165,7 +165,7 @@
         ]
       },
       "credit": {
-        "y": 1578,
+        "y": 1585,
         "size": 26,
         "color": [
           200,
@@ -197,7 +197,9 @@
           "icon_gap": 10,
           "item_gap": 34,
           "row_dy": 46,
-          "note": "아이콘: 저장소 원본 public/icons/dealer-profile/instagram.svg · email-as24.svg(오토스카우트24)를 그대로 PNG로"
+          "note": "아이콘: 저장소 원본 public/icons/dealer-profile/instagram.svg · email-as24.svg(오토스카우트24)를 그대로 PNG로",
+          "layout": "stack",
+          "line_dy": 44
         }
       },
       "full_layout": {
