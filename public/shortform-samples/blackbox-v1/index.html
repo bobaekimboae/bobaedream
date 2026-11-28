@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>보배드림 블랙박스 제보 릴스 샘플 v1</title>
+<meta name="description" content="보배드림 공식 인스타그램 블랙박스 제보 릴스 템플릿 샘플 2편 (벨기에식 붓칠 제목 칩 · 자동 자막 편집)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; --accent: #306bd9; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #121212; --card: #1c1c1c; --ink: #ececec; --sub: #a0a0a0; --line: #2c2c2c; --accent: #6f9cf0; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 24px; }
+  h1 { margin: 0; font-size: 22px; line-height: 30px; }
+  h1 small { display: block; color: var(--sub); font-size: 14px; font-weight: 400; }
+  .grid { display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  article { background: var(--card); border-radius: 12px; padding: 16px; display: grid; gap: 12px; align-content: start; }
+  .player { background: #000; border-radius: 12px; overflow: hidden; aspect-ratio: 9 / 16; max-width: 360px; width: 100%; margin: 0 auto; }
+  video { width: 100%; height: 100%; display: block; }
+  h2 { margin: 0; font-size: 17px; line-height: 24px; }
+  p { margin: 0; }
+  .script { color: var(--sub); font-size: 14px; }
+  .dl { justify-self: start; padding: 10px 16px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .dl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; }
+  ul { margin: 0; padding-left: 18px; }
+  .note { color: var(--sub); font-size: 13px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <h1>보배드림 블랙박스 제보 릴스 샘플 v1<small>인스타그램 릴스 템플릿 · 제보 영상 + 자동 자막 · 약 20초 · 세로 1080×1920</small></h1>
+  <div class="grid">
+    <article>
+      <div class="player"><video src="blackbox-s1.mp4" poster="blackbox-s1-cover.jpg" controls playsinline preload="metadata"></video></div>
+      <h2>샘플 1 · 스텔스 차량 교차로 신호위반</h2>
+      <p class="script">밤 교차로입니다. 신호 보세요, 빨간불이죠? 근데 저 차... 라이트도 안 켜고 그냥 지나갑니다. 좌회전하던 차가 먼저 서서 다행이지, 조금만 늦었으면 그대로 사고였어요. 이런 스텔스 차량, 상대 차에선 진짜 안 보여요. 라이트 꼭 켜세요.</p>
+      <a class="dl" href="blackbox-s1.mp4" download="bobae_blackbox_s1.mp4">영상 내려받기 (mp4 · 4.7MB)</a>
+    </article>
+    <article>
+      <div class="player"><video src="blackbox-s2.mp4" poster="blackbox-s2-cover.jpg" controls playsinline preload="metadata"></video></div>
+      <h2>샘플 2 · 야구중계 보며 운전한 고속도로 화물차</h2>
+      <p class="script">고속도로 터널 안입니다. 옆 화물차를 지나가는데... 어? 운전석에 화면이 켜져 있네요. 야구 중계를 보면서 달리고 있어요. 보는 제가 다 아찔합니다. 고속도로에서 한눈팔면 바로 큰 사고예요. 운전할 땐 화면, 꺼 주세요.</p>
+      <a class="dl" href="blackbox-s2.mp4" download="bobae_blackbox_s2.mp4">영상 내려받기 (mp4 · 12MB)</a>
+    </article>
+  </div>
+  <section>
+    <ul>
+      <li>원본: 제보받은 블랙박스 영상 그대로 (자르기·위치 맞추기만, 보정·가리기 없음)</li>
+      <li>제목: 벨기에 오토스카우트24식 노랑 붓칠 칩 하나(노션 원본 칠 430_239, 같은 배율로만 키움) + 흰 글자, 영상 내내 같은 자리</li>
+      <li>글꼴: Pretendard · 자막: 말하는 낱말을 따라 바뀜</li>
+      <li>내레이션: AI 남성 음성 · 효과음: 첫 화면 휙 한 번(오픈소스) · 배경음 없음</li>
+      <li>소리: −14 LUFS 기준, 출고 검사(check_be.py) 통과</li>
+    </ul>
+    <p class="note">템플릿·자동 편집 코드는 깃허브 shortform/blackbox-reels-kit 브랜치 scripts/shortform/blackbox에 있습니다.</p>
+  </section>
+</main>
+</body>
+</html>
