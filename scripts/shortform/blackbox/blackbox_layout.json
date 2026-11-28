@@ -134,7 +134,7 @@
         "font": "ExtraBold",
         "size": 88,
         "line_gap": 106,
-        "center_y": 300,
+        "center_y": 393,
         "max_w": 1000,
         "accent": "#F5F200",
         "line2_color": [
@@ -144,19 +144,19 @@
         ]
       },
       "video": {
-        "top": 466,
-        "height": 824,
+        "top": 558,
+        "height": 742,
         "fit": "crop",
-        "note": "기본 = YTN 균형(1080×824, 원본 좌우 약 13%씩 자름). 사고 장면이 화면 가장자리에 있으면 원장에 \"video_fit\": \"full\" → full_layout 사용(자르기 없음)"
+        "note": "기본 = 1080×742(원본 좌우 약 10%씩 자름). 인스타 격자 안전선(240~1680) 안에 제목이 들어가게 2026-11-28 조정. 원장 video_fit full → full_layout"
       },
       "caption": {
-        "center_y": 1383
+        "center_y": 1376
       },
       "brand": {
         "logo_px": 64,
         "font": "Bold",
         "size": 50,
-        "center_y": 1560,
+        "center_y": 1530,
         "gap": 16,
         "color": [
           255,
@@ -165,7 +165,7 @@
         ]
       },
       "credit": {
-        "y": 1640,
+        "y": 1600,
         "size": 26,
         "color": [
           200,
@@ -174,15 +174,29 @@
         ]
       },
       "full_layout": {
-        "video_top": 500,
+        "video_top": 560,
         "video_height": 608,
-        "title_center_y": 318,
-        "caption_center_y": 1200,
-        "brand_center_y": 1470,
-        "credit_y": 1545
+        "title_center_y": 393,
+        "caption_center_y": 1250,
+        "brand_center_y": 1450,
+        "credit_y": 1520
       },
       "title_look": "chip",
-      "chip_size": 88
+      "chip_size": 88,
+      "top_label": {
+        "logo_px": 40,
+        "font": "Bold",
+        "size": 32,
+        "gap": 10,
+        "center_y": 205,
+        "color": [
+          255,
+          255,
+          255
+        ],
+        "credit_y": 1500,
+        "note": "--top-label: 제목 위 작은 채널 표시(JTBC·MBC식). 격자에서는 잘려도 되는 자리"
+      }
     }
   },
   "default_frame": "news"

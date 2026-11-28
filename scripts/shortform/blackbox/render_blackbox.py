@@ -98,6 +98,12 @@ def _text_title(st, d, T, t):
 
 
 def _news_brand(st, d, NF):
+    if NF.get('_top_label'):   # 제목 위 작은 채널 표시(JTBC·MBC식) + 아래는 제보 주소만
+        tl = NF['top_label']; lg = brand_emblem(tl['logo_px']); f = FN(tl['font'], tl['size']); txt = LY['brand']['text']
+        tw = d.textlength(txt, font=f); x0 = int((W - (lg.width + tl['gap'] + tw)) / 2); cy = tl['center_y']
+        st.alpha_composite(lg, (x0, int(cy - lg.height / 2))); d.text((x0 + lg.width + tl['gap'], cy), txt, font=f, fill=tuple(tl['color']), anchor='lm')
+        c = NF['credit']; d.text((W / 2, tl['credit_y']), LY['credit']['text'], font=FN(LY['credit']['font'], c['size']), fill=tuple(c['color']), anchor='mm')
+        return
     b = NF['brand']; lg = brand_emblem(b['logo_px']); bf = FN(b['font'], b['size']); txt = LY['brand']['text']; cy = b['center_y']
     if NF.get('_brand_chip'):   # 「보배드림」만 벨기에 원본 칩(430_239), 「블랙박스」는 흰 글자
         head, tail = txt.split(' ', 1); ch, _ = LK.chip(head, size=b['size'], weight=b['font'], shape=LY['title']['default_shape']['onechip'])
@@ -113,7 +119,7 @@ def _news_brand(st, d, NF):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('job'); ap.add_argument('--out')
-    ap.add_argument('--bgm', default=None); ap.add_argument('--title-style', choices=['onechip', 'allchip']); ap.add_argument('--chip-shape'); ap.add_argument('--sfx', default=None); ap.add_argument('--frame', choices=['default', 'news']); ap.add_argument('--title-look', choices=['chip', 'text'])
+    ap.add_argument('--bgm', default=None); ap.add_argument('--title-style', choices=['onechip', 'allchip']); ap.add_argument('--chip-shape'); ap.add_argument('--sfx', default=None); ap.add_argument('--frame', choices=['default', 'news']); ap.add_argument('--title-look', choices=['chip', 'text']); ap.add_argument('--top-label', action='store_true')
     a = ap.parse_args(); jp = os.path.abspath(a.job); jd = os.path.dirname(jp); job = json.load(open(jp))
     if a.title_style: job['title']['style'] = a.title_style
     if a.chip_shape: job['title']['shape'] = a.chip_shape
@@ -129,6 +135,7 @@ def main():
             fl = NF['full_layout']; NF['video'].update(top=fl['video_top'], height=fl['video_height'], fit='full')
             NF['title']['center_y'] = fl['title_center_y']; NF['caption']['center_y'] = fl['caption_center_y']
             NF['brand']['center_y'] = fl['brand_center_y']; NF['credit']['y'] = fl['credit_y']
+        NF['_top_label'] = bool(job.get('top_label', a.top_label))
         VT, VH, CAP_CY = NF['video']['top'], NF['video']['height'], NF['caption']['center_y']
         st = static_layer_news(job, NF); gradient(NF['bg_top'], NF['bg_bottom']).save(f'{out}/bg.png')
     else:
@@ -177,6 +184,8 @@ def main():
         fg = fr.resize((W, VH))
     bg.alpha_composite(fg.convert('RGBA'), (0, VT)); bg.alpha_composite(st)
     bg.convert('RGB').save(f"{out}/bobae_blackbox_{job['id']}_cover.jpg", quality=92)
+    g0, g1 = LY['safe_zone']['grid_crop_3x4']   # 인스타 프로필 격자(3:4)에서 보이는 부분
+    bg.convert('RGB').crop((0, g0, W, g1)).save(f"{out}/bobae_blackbox_{job['id']}_cover_grid.jpg", quality=90)
     # check_be.py 형식 계획 파일(제목 칩 상자 = 정적 레이어의 노랑 칠 범위)
     import numpy as np
     al = np.asarray(st); yl = (al[..., 3] > 200) & (al[..., 0] > 200) & (al[..., 1] > 200) & (al[..., 2] < 90)
