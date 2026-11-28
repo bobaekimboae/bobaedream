@@ -60,16 +60,48 @@ def static_layer(job):
     return st
 
 
+def gradient(top, bottom):
+    import numpy as np
+    t = np.linspace(0, 1, H)[:, None, None]; a = (np.array(top) * (1 - t) + np.array(bottom) * t).astype('uint8')
+    return Image.fromarray(np.repeat(a, W, axis=1), 'RGB')
+
+
+def static_layer_news(job, NF):
+    """뉴스형: JTBC식 두 줄 글자 제목(첫 줄 강조색) + YTN식 균형 + 큰 보배드림 로고."""
+    st = Image.new('RGBA', (W, H)); d = ImageDraw.Draw(st); T = NF['title']; t = job['title']
+    lines = [(t['chip'] + ' ' + t['rest']).strip(), t['line2']]; size = T['size']
+    while size > 48 and max(FN(T['font'], size).getlength(x) for x in lines) > T['max_w']: size -= 2
+    f = FN(T['font'], size); acc = T['accent']; acc = tuple(int(acc[i:i + 2], 16) for i in (1, 3, 5))
+    sh = Image.new('RGBA', (W, H)); sd = ImageDraw.Draw(sh)
+    ys = [T['center_y'] - T['line_gap'] / 2, T['center_y'] + T['line_gap'] / 2]
+    for y, x in zip(ys, lines): sd.text((W / 2 + 2, y + 4), x, font=f, fill=(0, 0, 0, 150), anchor='mm')
+    st.alpha_composite(sh.filter(ImageFilter.GaussianBlur(5)))
+    for y, x, col in zip(ys, lines, [acc, tuple(T['line2_color'])]): d.text((W / 2, y), x, font=f, fill=col, anchor='mm')
+    b = NF['brand']; lg = brand_emblem(b['logo_px']); bf = FN(b['font'], b['size']); txt = LY['brand']['text']
+    bw = d.textlength(txt, font=bf); x0 = int((W - (lg.width + b['gap'] + bw)) / 2)
+    st.alpha_composite(lg, (x0, int(b['center_y'] - lg.height / 2))); d.text((x0 + lg.width + b['gap'], b['center_y']), txt, font=bf, fill=tuple(b['color']), anchor='lm')
+    c = NF['credit']; d.text((W / 2, c['y']), LY['credit']['text'], font=FN(LY['credit']['font'], c['size']), fill=tuple(c['color']), anchor='mm')
+    job['_title_used'] = {'style': 'news', 'size': size}
+    return st
+
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('job'); ap.add_argument('--out')
-    ap.add_argument('--bgm', default=None); ap.add_argument('--title-style', choices=['onechip', 'allchip']); ap.add_argument('--chip-shape'); ap.add_argument('--sfx', default=None)
+    ap.add_argument('--bgm', default=None); ap.add_argument('--title-style', choices=['onechip', 'allchip']); ap.add_argument('--chip-shape'); ap.add_argument('--sfx', default=None); ap.add_argument('--frame', choices=['default', 'news'])
     a = ap.parse_args(); jp = os.path.abspath(a.job); jd = os.path.dirname(jp); job = json.load(open(jp))
     if a.title_style: job['title']['style'] = a.title_style
     if a.chip_shape: job['title']['shape'] = a.chip_shape
     P = lambda p: p if os.path.isabs(p) else os.path.join(jd, p)
     out = os.path.abspath(a.out or os.path.join(jd, 'out_' + job['id'])); os.makedirs(out, exist_ok=True)
     src, voice = P(job['source']), P(job['voice']); dly = job.get('voice_delay_s', 1.0); tot = job['duration_s']
-    st = static_layer(job); st.save(f'{out}/static.png')
+    global VT, VH, CAP_CY
+    frame = a.frame or job.get('frame', 'default'); NF = LY['frames'].get(frame, {}); job['frame'] = frame
+    if frame == 'news':
+        VT, VH, CAP_CY = NF['video']['top'], NF['video']['height'], NF['caption']['center_y']
+        st = static_layer_news(job, NF); gradient(NF['bg_top'], NF['bg_bottom']).save(f'{out}/bg.png')
+    else:
+        st = static_layer(job)
+    st.save(f'{out}/static.png')
     WJ = json.load(open(P(job['words']))); TXT = [w.strip('.,') for w, _, _ in WJ]; T = [(x, y) for _, x, y in WJ]
     CH = job['chunks']; ev = []; k = 0
     for ci, c in enumerate(CH):
@@ -79,15 +111,20 @@ def main():
             im = phrase([TXT[i] for i in c], j); im.save(f'{out}/c{k}.png'); ev.append((k, s + dly, e + dly, im.size)); k += 1
     inp = ['-i', src, '-i', voice, '-loop', '1', '-i', f'{out}/static.png']
     for e in ev: inp += ['-loop', '1', '-i', f'{out}/c{e[0]}.png']
-    fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,split=2[a][b];"
-          f"[a]scale=-2:{H},crop={W}:{H},boxblur=30:2,eq=brightness=-0.22[bg];[b]scale={W}:{VH}[fg];"
-          f"[bg][fg]overlay=0:{VT}[v1];[v1][2:v]overlay=0:0:shortest=1[v2]")
+    if frame == 'news':   # 단색 그라데이션 배경 + 영상 가운데 자르기(YTN 비율)
+        inp += ['-loop', '1', '-i', f'{out}/bg.png']; bgi = 3 + len(ev)
+        fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,scale=-2:{VH},crop={W}:{VH}[fg];"
+              f"[{bgi}:v][fg]overlay=0:{VT}:shortest=1[v1];[v1][2:v]overlay=0:0:shortest=1[v2]")
+    else:
+        fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,split=2[a][b];"
+              f"[a]scale=-2:{H},crop={W}:{H},boxblur=30:2,eq=brightness=-0.22[bg];[b]scale={W}:{VH}[fg];"
+              f"[bg][fg]overlay=0:{VT}[v1];[v1][2:v]overlay=0:0:shortest=1[v2]")
     last = 'v2'
     for n, (k, s, e, (w, h)) in enumerate(ev):
         fc += f";[{last}][{n + 3}:v]overlay={(W - w) // 2}:{CAP_CY - h // 2}:enable='between(t,{s:.3f},{e - 0.001:.3f})'[c{n}]"; last = f'c{n}'
     bgm = a.bgm if a.bgm is not None else job.get('bgm', 'none')
     sfx = job.get('sfx', []) if (a.sfx or job.get('sfx_on', 'on')) == 'on' else []
-    ain, afc, amap = AU.mix(base_index=3 + len(ev), tot=tot, dly=dly, bgm=None if bgm in (None, 'none') else P(bgm),
+    ain, afc, amap = AU.mix(base_index=3 + len(ev) + (1 if frame == 'news' else 0), tot=tot, dly=dly, bgm=None if bgm in (None, 'none') else P(bgm),
                             sfx=sfx, voice_words=T, layout=LY['audio'])
     fc += ';' + afc
     mp4 = f"{out}/bobae_blackbox_{job['id']}.mp4"
@@ -100,7 +137,13 @@ def main():
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', str(ct), '-i', src, '-frames:v', '1', f'{out}/f.png'], check=True)
     fr = Image.open(f'{out}/f.png').convert('RGB'); bg = fr.resize((int(fr.width * H / fr.height), H))
     bg = bg.crop(((bg.width - W) // 2, 0, (bg.width - W) // 2 + W, H)).filter(ImageFilter.GaussianBlur(28))
-    bg = Image.eval(bg, lambda v: int(v * 0.72)).convert('RGBA'); bg.alpha_composite(fr.resize((W, VH)).convert('RGBA'), (0, VT)); bg.alpha_composite(st)
+    bg = Image.eval(bg, lambda v: int(v * 0.72)).convert('RGBA')
+    if frame == 'news':
+        bg = Image.open(f'{out}/bg.png').convert('RGBA'); sc = fr.resize((round(fr.width * VH / fr.height), VH))
+        fg = sc.crop(((sc.width - W) // 2, 0, (sc.width - W) // 2 + W, VH))
+    else:
+        fg = fr.resize((W, VH))
+    bg.alpha_composite(fg.convert('RGBA'), (0, VT)); bg.alpha_composite(st)
     bg.convert('RGB').save(f"{out}/bobae_blackbox_{job['id']}_cover.jpg", quality=92)
     # check_be.py 형식 계획 파일(제목 칩 상자 = 정적 레이어의 노랑 칠 범위)
     import numpy as np
@@ -110,7 +153,7 @@ def main():
     plan = {'edition_code': 'ED-BLACKBOX', 'layout_version': LY['version'], 'frame': [W, H], 'total': tot,
             'cuts': [], 'voice': voice, 'words': P(job['words']),
             'chips': [{'label': job['title']['chip'], 'kind': 'title', 't0': 0.0, 't1': tot, 'box': box,
-                       'font_px_blackbox': LY['title']['size'], 'note': '블랙박스 제목은 영상 내내 고정(형식 예외)'}],
+                       'font_px_blackbox': LY['title']['size'], 'note': '블랙박스 제목은 영상 내내 고정(형식 예외)'}] if frame != 'news' else [],
             'sfx': [{'t': h['t'], 'sound': h['kind']} for h in used],
             'bgm': bgm, 'title_used': job.get('_title_used'), 'job': {k: v for k, v in job.items() if not k.startswith('_')}}
     json.dump(plan, open(mp4 + '.plan.json', 'w'), ensure_ascii=False, indent=1)
