@@ -1,0 +1,19 @@
+{
+  "version": "2.0",
+  "verified_at": "2026-11-26",
+  "source_url": "https://charancha.com/cars/01a1cd73-fe70-7cc7-b7a7-1cb36fa211a8?viewType=RECOMMEND",
+  "vehicle": {"maker":"벤츠","model":"G-클래스 W463b","trim":"G400d","year_month":"2021년 05월","mileage_km":33475,"price_manwon":13490,"fuel":"디젤","displacement_cc":2925,"transmission":"자동","body":"SUV","color":"흰색","region":"경기"},
+  "insurance": {"total_loss":0,"theft":0,"flood":0,"own_damage":1,"other_damage":0,"owner_change":1,"scope":"차란차 보험이력 요약 표시, 상세 보고서 미열람"},
+  "inspection": {"summary":"교환 · 판금 확인","body_parts":null,"structural_damage":null,"scope":"상세 성능기록부 미확보; 교환·판금 확정 또는 무사고로 확대 해석하지 않음"},
+  "options": [
+    {"name":"선루프","status":"listed_enabled"},
+    {"name":"후방카메라","status":"listed_enabled"},
+    {"name":"열선시트","status":"listed_enabled"},
+    {"name":"스마트키","status":"listed_enabled"},
+    {"name":"열선 스티어링 휠","status":"listed_enabled"},
+    {"name":"통풍시트","status":"listed_disabled","evidence":"옵션 컨테이너 class opacity-20, 스크린샷에서도 흐린 회색"}
+  ],
+  "warranty": {"site_summary":"보증 만료","verification":"실제 잔여 보증은 제조사·판매자 확인 필요"},
+  "market": {"low_manwon":9810,"high_manwon":14260,"scope":"차란차 AI 예측 범위; 동급 실거래 평균 아님","initial_placeholder_manwon":10000},
+  "excluded": {"added_options": "선택옵션 및 가격 출처 미확보", "seller_note": "기본 제원 반복 문구뿐이므로 중복 생략", "seat_color": "출처 없음", "catalog_new_price": "공식 해당 연식·트림·선택옵션 가격표 미확보", "economy": "해당 연식·국내 인증값 미확보", "price_saving_pct": "사이트 16% 표시를 관찰했으나 산정 기준 미확보"}
+}

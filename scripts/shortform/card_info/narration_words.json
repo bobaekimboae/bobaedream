@@ -1,0 +1,407 @@
+{
+  "text": "벤츠 지 사백 디, 판매가는 일억 삼천사백구십만 원입니다.\n차량 정보를 요약합니다. 이천이십일년 오월, 삼만 삼천사백칠십오 킬로미터입니다.\n보험 이력을 요약합니다. 전손과 도난, 침수 보험 이력은 없습니다.\n다만 내차 피해 한 번이 표시되어 있습니다. 소유자 변경도 한 번입니다.\n성능점검을 요약합니다. 교환, 판금 확인 표시가 있습니다. 상세 부위는 기록부 확인이 필요합니다.\n옵션 정보를 요약합니다. 열선시트, 선루프, 후방카메라가 표시되어 있습니다.\n보증 정보를 요약합니다. 사이트에는 보증 만료로 표시됩니다. 실제 잔여 보증은 확인하세요.",
+  "words": [
+    {
+      "text": "벤츠",
+      "type": "word",
+      "start": 0,
+      "end": 0.383
+    },
+    {
+      "text": "지",
+      "type": "word",
+      "start": 0.43,
+      "end": 0.604
+    },
+    {
+      "text": "사백",
+      "type": "word",
+      "start": 0.685,
+      "end": 1.068
+    },
+    {
+      "text": "디,",
+      "type": "word",
+      "start": 1.091,
+      "end": 1.625
+    },
+    {
+      "text": "판매가는",
+      "type": "word",
+      "start": 1.95,
+      "end": 2.438
+    },
+    {
+      "text": "일억",
+      "type": "word",
+      "start": 2.519,
+      "end": 2.891
+    },
+    {
+      "text": "삼천사백구십만",
+      "type": "word",
+      "start": 3.216,
+      "end": 4.4
+    },
+    {
+      "text": "원입니다.",
+      "type": "word",
+      "start": 4.47,
+      "end": 5.108
+    },
+    {
+      "text": "차량",
+      "type": "word",
+      "start": 5.805,
+      "end": 6.118
+    },
+    {
+      "text": "정보를",
+      "type": "word",
+      "start": 6.165,
+      "end": 6.583
+    },
+    {
+      "text": "요약합니다.",
+      "type": "word",
+      "start": 6.676,
+      "end": 7.454
+    },
+    {
+      "text": "이천이십일년",
+      "type": "word",
+      "start": 7.779,
+      "end": 8.754
+    },
+    {
+      "text": "오월,",
+      "type": "word",
+      "start": 8.928,
+      "end": 9.462
+    },
+    {
+      "text": "삼만",
+      "type": "word",
+      "start": 9.636,
+      "end": 10.112
+    },
+    {
+      "text": "삼천사백칠십오",
+      "type": "word",
+      "start": 10.194,
+      "end": 11.494
+    },
+    {
+      "text": "킬로미터입니다.",
+      "type": "word",
+      "start": 11.819,
+      "end": 12.817
+    },
+    {
+      "text": "보험",
+      "type": "word",
+      "start": 13.328,
+      "end": 13.688
+    },
+    {
+      "text": "이력을",
+      "type": "word",
+      "start": 13.769,
+      "end": 14.187
+    },
+    {
+      "text": "요약합니다.",
+      "type": "word",
+      "start": 14.28,
+      "end": 15.093
+    },
+    {
+      "text": "전손과",
+      "type": "word",
+      "start": 15.697,
+      "end": 16.254
+    },
+    {
+      "text": "도난,",
+      "type": "word",
+      "start": 16.312,
+      "end": 16.893
+    },
+    {
+      "text": "침수",
+      "type": "word",
+      "start": 17.044,
+      "end": 17.508
+    },
+    {
+      "text": "보험",
+      "type": "word",
+      "start": 17.555,
+      "end": 18.007
+    },
+    {
+      "text": "이력은",
+      "type": "word",
+      "start": 18.089,
+      "end": 18.507
+    },
+    {
+      "text": "없습니다.",
+      "type": "word",
+      "start": 18.553,
+      "end": 19.308
+    },
+    {
+      "text": "다만",
+      "type": "word",
+      "start": 19.912,
+      "end": 20.329
+    },
+    {
+      "text": "내차",
+      "type": "word",
+      "start": 20.655,
+      "end": 21.061
+    },
+    {
+      "text": "피해",
+      "type": "word",
+      "start": 21.142,
+      "end": 21.432
+    },
+    {
+      "text": "한",
+      "type": "word",
+      "start": 21.49,
+      "end": 21.618
+    },
+    {
+      "text": "번이",
+      "type": "word",
+      "start": 21.688,
+      "end": 21.897
+    },
+    {
+      "text": "표시되어",
+      "type": "word",
+      "start": 21.943,
+      "end": 22.326
+    },
+    {
+      "text": "있습니다.",
+      "type": "word",
+      "start": 22.361,
+      "end": 22.93
+    },
+    {
+      "text": "소유자",
+      "type": "word",
+      "start": 23.627,
+      "end": 24.01
+    },
+    {
+      "text": "변경도",
+      "type": "word",
+      "start": 24.033,
+      "end": 24.567
+    },
+    {
+      "text": "한",
+      "type": "word",
+      "start": 24.683,
+      "end": 24.834
+    },
+    {
+      "text": "번입니다.",
+      "type": "word",
+      "start": 24.892,
+      "end": 25.508
+    },
+    {
+      "text": "성능점검을",
+      "type": "word",
+      "start": 26.204,
+      "end": 27.203
+    },
+    {
+      "text": "요약합니다.",
+      "type": "word",
+      "start": 27.284,
+      "end": 28.108
+    },
+    {
+      "text": "교환,",
+      "type": "word",
+      "start": 28.712,
+      "end": 29.199
+    },
+    {
+      "text": "판금",
+      "type": "word",
+      "start": 29.292,
+      "end": 29.768
+    },
+    {
+      "text": "확인",
+      "type": "word",
+      "start": 29.884,
+      "end": 30.14
+    },
+    {
+      "text": "표시가",
+      "type": "word",
+      "start": 30.186,
+      "end": 30.523
+    },
+    {
+      "text": "있습니다.",
+      "type": "word",
+      "start": 30.558,
+      "end": 31.104
+    },
+    {
+      "text": "상세",
+      "type": "word",
+      "start": 31.707,
+      "end": 32.056
+    },
+    {
+      "text": "부위는",
+      "type": "word",
+      "start": 32.102,
+      "end": 32.462
+    },
+    {
+      "text": "기록부",
+      "type": "word",
+      "start": 32.555,
+      "end": 33.089
+    },
+    {
+      "text": "확인이",
+      "type": "word",
+      "start": 33.182,
+      "end": 33.495
+    },
+    {
+      "text": "필요합니다.",
+      "type": "word",
+      "start": 33.53,
+      "end": 34.227
+    },
+    {
+      "text": "옵션",
+      "type": "word",
+      "start": 34.668,
+      "end": 35.097
+    },
+    {
+      "text": "정보를",
+      "type": "word",
+      "start": 35.156,
+      "end": 35.701
+    },
+    {
+      "text": "요약합니다.",
+      "type": "word",
+      "start": 35.852,
+      "end": 36.7
+    },
+    {
+      "text": "열선시트,",
+      "type": "word",
+      "start": 37.141,
+      "end": 38.07
+    },
+    {
+      "text": "선루프,",
+      "type": "word",
+      "start": 38.244,
+      "end": 39.115
+    },
+    {
+      "text": "후방카메라가",
+      "type": "word",
+      "start": 39.265,
+      "end": 40.125
+    },
+    {
+      "text": "표시되어",
+      "type": "word",
+      "start": 40.183,
+      "end": 40.589
+    },
+    {
+      "text": "있습니다.",
+      "type": "word",
+      "start": 40.624,
+      "end": 41.239
+    },
+    {
+      "text": "보증",
+      "type": "word",
+      "start": 41.68,
+      "end": 42.052
+    },
+    {
+      "text": "정보를",
+      "type": "word",
+      "start": 42.098,
+      "end": 42.609
+    },
+    {
+      "text": "요약합니다.",
+      "type": "word",
+      "start": 42.702,
+      "end": 43.538
+    },
+    {
+      "text": "사이트에는",
+      "type": "word",
+      "start": 43.979,
+      "end": 44.583
+    },
+    {
+      "text": "보증",
+      "type": "word",
+      "start": 44.734,
+      "end": 45.152
+    },
+    {
+      "text": "만료로",
+      "type": "word",
+      "start": 45.21,
+      "end": 45.523
+    },
+    {
+      "text": "표시됩니다.",
+      "type": "word",
+      "start": 45.581,
+      "end": 46.289
+    },
+    {
+      "text": "실제",
+      "type": "word",
+      "start": 46.893,
+      "end": 47.358
+    },
+    {
+      "text": "잔여",
+      "type": "word",
+      "start": 47.416,
+      "end": 47.717
+    },
+    {
+      "text": "보증은",
+      "type": "word",
+      "start": 47.752,
+      "end": 48.17
+    },
+    {
+      "text": "확인하세요.",
+      "type": "word",
+      "start": 48.286,
+      "end": 49.273
+    }
+  ]
+}

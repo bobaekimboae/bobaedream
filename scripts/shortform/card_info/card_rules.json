@@ -1,0 +1,29 @@
+{
+  "version":"2.0",
+  "width":1080,"height":1920,"fps":30,
+  "safe_area":{"top":220,"bottom":380,"right":150,"left":80},
+  "palette":{"ink":"#222222","paper":"#FFFFFF","canvas":"#EDEEEA","night":"#151A19","muted":"#66706C","accent":"#F5F200","warning":"#99520B","line":"#D9DDD7"},
+  "typography":{"family":"Noto Sans CJK KR","font_regular":"/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc","font_bold":"/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc","body_px":42,"heading_px":60,"hero_px":118,"label_px":32},
+  "motion":{"entrance_seconds":0.35,"row_stagger_seconds":0.12,"transition_seconds":0.18},
+  "rules":{"unknown_is_zero":false,"insurance_zero_means_accident_free":false,"disabled_option_is_installed":false,"price_judgement_without_comparables":false,"maximum_rows_per_card":3,"missing_data":"omit_card","duplicate_seller_note":"omit_card"},
+  "card_types":[
+    {"type":"vehicle","name":"차량 정보","required":"vehicle.year_month,mileage_km,price_manwon","missing":"생략","caption":"{year_month} · {mileage_km}km","duration":"음성 구간 + 여유, 무음형 3초"},
+    {"type":"inspection","name":"성능 점검","required":"inspection.summary","missing":"생략","caption":"요약 표시와 상세 확인 필요를 구분","duration":"4초 이상; 상세 미확인 배지"},
+    {"type":"insurance","name":"보험 이력","required":"insurance.total_loss,theft,flood,own_damage,other_damage","missing":"미확인 항목 생략","caption":"보험 이력 요약: {field} {value}","duration":"두 장 분리; 무사고 판정 금지"},
+    {"type":"options","name":"옵션 정보","required":"options[].status=listed_enabled","missing":"생략","caption":"매물에 표시된 {options}","duration":"최대 3개"},
+    {"type":"added_options","name":"추가 옵션","required":"선택옵션 이름+장착 증빙+동일 연식 가격표","missing":"생략","caption":"{option} · 신차 선택가 {price}","duration":"4초 이상"},
+    {"type":"features","name":"차량 특징","required":"검증된 특징+출처","missing":"생략","caption":"{feature}","duration":"차량정보 중복 시 생략"},
+    {"type":"seller","name":"판매자 설명","required":"판매자 원문+사실 근거","missing":"생략","caption":"판매자 설명: {verbatim_fact}","duration":"제원만 반복하면 생략"},
+    {"type":"warranty","name":"보증 상태","required":"표시 출처+적용 범위","missing":"생략","caption":"사이트 표시 {status} · 실제 잔여 확인","duration":"4초 이상"},
+    {"type":"ownership","name":"소유 이력","required":"owner_change+조회일","missing":"생략","caption":"소유자 변경 {count}회","duration":"보험 카드와 결합 가능"},
+    {"type":"price_history","name":"가격 변동","required":"동일 매물 가격 이력+시각","missing":"생략","caption":"{old} → {new}","duration":"총비용·대출 상환액과 구분"},
+    {"type":"condition_map","name":"점검 부위 지도","required":"기록부 부위·코드·범례","missing":"생략","caption":"{part} · {code_meaning}","duration":"색만으로 판정 금지"},
+    {"type":"maintenance","name":"최근 정비","required":"정비명세서 날짜·주행·항목","missing":"생략","caption":"{date} {service}","duration":"판매자 주장과 증빙 구분"},
+    {"type":"cargo","name":"적재 실측","required":"실차 적재 시험+물품 규격","missing":"생략","caption":"{size} 캐리어 {count}개 실측","duration":"리터를 개수로 단순 환산 금지"},
+    {"type":"parking","name":"주차 적합성","required":"공식 차체·미러 제원+주차장 규격","missing":"생략","caption":"차폭 {width}mm · 높이 {height}mm","duration":"진입 가능 확정 금지"},
+    {"type":"economy","name":"연비·전비","required":"같은 연식·구동·휠 공인 인증값","missing":"생략","caption":"공인 복합 {value}{unit}","duration":"추정·인증값 분리"},
+    {"type":"ownership_cost","name":"월 유지비","required":"주행·유가·연비·세금 가정","missing":"생략","caption":"월 {distance}km 가정 · {cost}","duration":"보험료 개인별 견적과 구분"},
+    {"type":"recall","name":"리콜 확인","required":"공식 조회·대상 일치·조치 여부","missing":"생략","caption":"{campaign} · {status}","duration":"차종 대상과 개별 완료 구분"},
+    {"type":"source","name":"정보 확인 범위","required":"필드별 출처·시각·미확인 상태","missing":"생략","caption":"확인된 정보 / 추가 확인 항목","duration":"실제 보증·품질 인증 배지처럼 보이지 않게"}
+  ]
+}

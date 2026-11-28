@@ -1,0 +1,17 @@
+{
+  "managedDirectories": [],
+  "entries": [
+    {
+      "target": "output/card_stack_narrated.mp4",
+      "reference": "output/narration_dry.mp3",
+      "expectedDelayMs": 250,
+      "durationSeconds": 49.9
+    },
+    {
+      "target": "output/card_swipe_narrated.mp4",
+      "reference": "output/narration_dry.mp3",
+      "expectedDelayMs": 250,
+      "durationSeconds": 49.9
+    }
+  ]
+}
