@@ -162,15 +162,20 @@
           255,
           255,
           255
+        ],
+        "logo_mono": [
+          255,
+          255,
+          255
         ]
       },
       "credit": {
-        "y": 1585,
+        "y": 1568,
         "size": 26,
         "color": [
-          200,
-          212,
-          232
+          150,
+          156,
+          166
         ],
         "dm": {
           "label": "영상제보",
@@ -198,7 +203,7 @@
           "item_gap": 34,
           "row_dy": 52,
           "note": "아이콘: 저장소 원본 public/icons/dealer-profile/instagram.svg · email-as24.svg(오토스카우트24)를 그대로 PNG로",
-          "layout": "stack",
+          "layout": "line",
           "line_dy": 44,
           "label_chip": {
             "size": 30,
@@ -214,7 +219,15 @@
               25,
               28
             ]
-          }
+          },
+          "line_text": "bobaedream@bobaedream.co.kr",
+          "line_label_font": "SemiBold",
+          "line_label_color": [
+            230,
+            232,
+            236
+          ],
+          "line_gap": 18
         }
       },
       "full_layout": {
@@ -274,7 +287,7 @@
         "video_max_height": 930,
         "caption_from_bottom": 110,
         "brand_below": 62,
-        "credit_below_brand": 70,
+        "credit_below_brand": 58,
         "note": "정사각·세로 원본: 고정 블박 크기 대신 폭 1080까지 세로로 크게(높이 최대 930), 자막은 영상 아래쪽 위에 겹침(JTBC식), 브랜드·영상제보는 영상 아래. video_fit auto가 원본 비율로 자동 선택"
       }
     }

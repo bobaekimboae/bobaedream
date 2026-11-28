@@ -68,14 +68,20 @@ def phrase(words, act, spk2=(), scale=None):
     return im
 
 
-def brand_emblem(px):
+def brand_emblem(px, mono=None):
     """보배드림 로고 파일(심벌 + 워드마크)에서 원형 심벌만 잘라 비율 그대로 줄인다. 로고를 정사각형에 눌러 넣지 않는다."""
     lg = Image.open(os.path.join(REPO, 'public/assets/shortform/bobae_logo_600.png')).convert('RGBA')
     alpha = lg.getchannel('A'); w, h = lg.size; x = 0
     while x < w and alpha.crop((x, 0, x + 1, h)).getbbox(): x += 1  # 심벌 뒤 첫 빈 세로줄
     em = lg.crop((0, 0, x, h)); em = em.crop(em.getbbox())
     s = px / max(em.size)
-    return em.resize((max(1, round(em.width * s)), max(1, round(em.height * s))), Image.LANCZOS)
+    em = em.resize((max(1, round(em.width * s)), max(1, round(em.height * s))), Image.LANCZOS)
+    if mono:   # 단색: 파랑 원 → 흰색, 안쪽 흰 핸들 → 비움(배경이 비침). 원본 모양 그대로, 색만 바꿈
+        import numpy as np
+        a = np.asarray(em).astype(float); lum = (0.2126 * a[..., 0] + 0.7152 * a[..., 1] + 0.0722 * a[..., 2]) / 255
+        k = np.clip((1 - lum) / 0.55, 0, 1); out = np.zeros_like(a); out[..., :3] = mono; out[..., 3] = a[..., 3] * k
+        em = Image.fromarray(out.astype('uint8'), 'RGBA')
+    return em
 
 
 def title_lockup(job, size=None):
@@ -138,6 +144,11 @@ def _credit(st, d, NF, y):
     if not cd:
         d.text((W / 2, y), LY['credit']['text'], font=FN(LY['credit']['font'], c['size']), fill=tuple(c['color']), anchor='mm'); return
     lf = FN(cd['label_font'], cd['label_size']); f = FN(cd['font'], cd['size']); col = tuple(c['color'])
+    if cd.get('layout') == 'line':   # 한 줄: 「영상제보」(밝게) + 이메일(옅게), 아이콘·칩 없음
+        lf2 = FN(cd['line_label_font'], cd['size']); a_, b_ = cd['label'], cd['line_text']; g = cd['line_gap']
+        tw = d.textlength(a_, font=lf2) + g + d.textlength(b_, font=f); x = (W - tw) / 2
+        d.text((x, y), a_, font=lf2, fill=tuple(cd['line_label_color']), anchor='lm'); d.text((x + d.textlength(a_, font=lf2) + g, y), b_, font=f, fill=col, anchor='lm')
+        return
     if cd.get('label_chip'):   # 노션 원본 칠 모양에 흰색만 칠한 칩(원본 파일은 그대로, 색만 렌더러가 칠함)
         lc = cd['label_chip']; ch, _ = LK.chip(cd['label'], lc['size'], lc.get('weight', 'Bold'), lc.get('shape', '126_40'), ink=tuple(lc['ink']), fill_rgb=lc['fill'])
         st.alpha_composite(ch, (int(W / 2 - ch.width / 2), int(y - ch.height / 2)))
@@ -171,7 +182,7 @@ def _news_brand(st, d, NF):
         st.alpha_composite(lg, (x0, int(cy - lg.height / 2))); d.text((x0 + lg.width + tl['gap'], cy), txt, font=f, fill=tuple(tl['color']), anchor='lm')
         _credit(st, d, NF, tl['credit_y'])
         return
-    b = NF['brand']; lg = brand_emblem(b['logo_px']); bf = FN(b['font'], b['size']); txt = LY['brand']['text']; cy = b['center_y']
+    b = NF['brand']; lg = brand_emblem(b['logo_px'], b.get('logo_mono')); bf = FN(b['font'], b['size']); txt = LY['brand']['text']; cy = b['center_y']
     if NF.get('_brand_chip'):   # 「보배드림」만 벨기에 원본 칩(430_239), 「블랙박스」는 흰 글자
         head, tail = txt.split(' ', 1); ch, _ = LK.chip(head, size=b['size'], weight=b['font'], shape=LY['title']['default_shape']['onechip'])
         tw = d.textlength(tail, font=bf); x0 = int((W - (lg.width + b['gap'] + ch.width + b['gap'] + tw)) / 2)
