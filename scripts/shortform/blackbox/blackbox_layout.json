@@ -146,7 +146,8 @@
       "video": {
         "top": 466,
         "height": 824,
-        "fit": "crop"
+        "fit": "crop",
+        "note": "기본 = YTN 균형(1080×824, 원본 좌우 약 13%씩 자름). 사고 장면이 화면 가장자리에 있으면 원장에 \"video_fit\": \"full\" → full_layout 사용(자르기 없음)"
       },
       "caption": {
         "center_y": 1383
@@ -171,6 +172,14 @@
           212,
           232
         ]
+      },
+      "full_layout": {
+        "video_top": 500,
+        "video_height": 608,
+        "title_center_y": 318,
+        "caption_center_y": 1200,
+        "brand_center_y": 1470,
+        "credit_y": 1545
       }
     }
   }

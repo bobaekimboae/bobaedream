@@ -97,6 +97,11 @@ def main():
     global VT, VH, CAP_CY
     frame = a.frame or job.get('frame', 'default'); NF = LY['frames'].get(frame, {}); job['frame'] = frame
     if frame == 'news':
+        import copy; NF = copy.deepcopy(NF)
+        if job.get('video_fit') == 'full':   # 사고 장면이 가장자리에 있을 때: 원본 16:9 전체
+            fl = NF['full_layout']; NF['video'].update(top=fl['video_top'], height=fl['video_height'], fit='full')
+            NF['title']['center_y'] = fl['title_center_y']; NF['caption']['center_y'] = fl['caption_center_y']
+            NF['brand']['center_y'] = fl['brand_center_y']; NF['credit']['y'] = fl['credit_y']
         VT, VH, CAP_CY = NF['video']['top'], NF['video']['height'], NF['caption']['center_y']
         st = static_layer_news(job, NF); gradient(NF['bg_top'], NF['bg_bottom']).save(f'{out}/bg.png')
     else:
@@ -113,7 +118,7 @@ def main():
     for e in ev: inp += ['-loop', '1', '-i', f'{out}/c{e[0]}.png']
     if frame == 'news':   # 단색 그라데이션 배경 + 영상 가운데 자르기(YTN 비율)
         inp += ['-loop', '1', '-i', f'{out}/bg.png']; bgi = 3 + len(ev)
-        fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,scale=-2:{VH},crop={W}:{VH}[fg];"
+        fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,{'scale=-2:%d,crop=%d:%d' % (VH, W, VH) if NF['video'].get('fit') == 'crop' else 'scale=%d:%d' % (W, VH)}[fg];"
               f"[{bgi}:v][fg]overlay=0:{VT}:shortest=1[v1];[v1][2:v]overlay=0:0:shortest=1[v2]")
     else:
         fc = (f"[0:v]trim=0:{tot},setpts=PTS-STARTPTS,split=2[a][b];"
@@ -140,7 +145,7 @@ def main():
     bg = Image.eval(bg, lambda v: int(v * 0.72)).convert('RGBA')
     if frame == 'news':
         bg = Image.open(f'{out}/bg.png').convert('RGBA'); sc = fr.resize((round(fr.width * VH / fr.height), VH))
-        fg = sc.crop(((sc.width - W) // 2, 0, (sc.width - W) // 2 + W, VH))
+        fg = sc.crop(((sc.width - W) // 2, 0, (sc.width - W) // 2 + W, VH)) if NF['video'].get('fit') == 'crop' else fr.resize((W, VH))
     else:
         fg = fr.resize((W, VH))
     bg.alpha_composite(fg.convert('RGBA'), (0, VT)); bg.alpha_composite(st)
