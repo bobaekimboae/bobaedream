@@ -131,6 +131,8 @@ def check_video(path):
     for c in P['chips']:
         cut_in = [t for t in P['cuts'] if c['t0'] + 0.02 < t < c['t1'] - 0.02]
         if cut_in: bad(f'칩이 컷을 넘어감: {c["label"]} {c["t0"]:.2f}~{c["t1"]:.2f}')
+        if P.get('edition_code') == 'ED-BLACKBOX' and c.get('kind') == 'title':   # 블랙박스 제목은 영상 내내 고정(2026-11-28 형식 예외)
+            ok(f'블랙박스 제목 칩 고정 {c["t1"] - c["t0"]:.2f}초 (형식 예외)'); continue
         if not fv and c['t1'] - c['t0'] > CH['hold_s'] + 0.05: bad(f'칩 유지 {c["t1"] - c["t0"]:.2f}초 > 규칙 {CH["hold_s"]}초')
     # 화면 실측: 칩마다 노랑 칠의 윗선·높이·색, 자막 띠에 칠 없음
     tops, hs, cols = [], [], []

@@ -92,7 +92,18 @@ def main():
     bg = bg.crop(((bg.width - W) // 2, 0, (bg.width - W) // 2 + W, H)).filter(ImageFilter.GaussianBlur(28))
     bg = Image.eval(bg, lambda v: int(v * 0.72)).convert('RGBA'); bg.alpha_composite(fr.resize((W, VH)).convert('RGBA'), (0, VT)); bg.alpha_composite(st)
     bg.convert('RGB').save(f"{out}/bobae_blackbox_{job['id']}_cover.jpg", quality=92)
-    json.dump({'title_used': job.get('_title_used'), 'job': job, 'layout_version': LY['version'], 'bgm': bgm, 'sfx': sfx}, open(mp4 + '.plan.json', 'w'), ensure_ascii=False, indent=1)
+    # check_be.py 형식 계획 파일(제목 칩 상자 = 정적 레이어의 노랑 칠 범위)
+    import numpy as np
+    al = np.asarray(st); yl = (al[..., 3] > 200) & (al[..., 0] > 200) & (al[..., 1] > 200) & (al[..., 2] < 90)
+    ys, xs = np.where(yl[:LY['title']['zone'][1]]); box = [int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1] if len(xs) else None
+    used = [h for h in sorted(sfx, key=lambda h: h['t'])][:LY['audio']['sfx']['max']]
+    plan = {'edition_code': 'ED-BLACKBOX', 'layout_version': LY['version'], 'frame': [W, H], 'total': tot,
+            'cuts': [], 'voice': voice, 'words': P(job['words']),
+            'chips': [{'label': job['title']['chip'], 'kind': 'title', 't0': 0.0, 't1': tot, 'box': box,
+                       'font_px_blackbox': LY['title']['size'], 'note': '블랙박스 제목은 영상 내내 고정(형식 예외)'}],
+            'sfx': [{'t': h['t'], 'sound': h['kind']} for h in used],
+            'bgm': bgm, 'title_used': job.get('_title_used'), 'job': {k: v for k, v in job.items() if not k.startswith('_')}}
+    json.dump(plan, open(mp4 + '.plan.json', 'w'), ensure_ascii=False, indent=1)
     print(mp4)
 
 
